@@ -1,1 +1,3 @@
-# swift-eos
+# EOS
+
+A description of this package.

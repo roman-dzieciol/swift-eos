@@ -174,11 +174,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      *         EOS_EResult::EOS_NotFound - If we do not have queried data cached
      */
     public func GetNATType(
-        Options: SwiftEOS_P2P_GetNATTypeOptions,
-        OutNATType: inout EOS_ENATType?
-    ) throws {
+        Options: SwiftEOS_P2P_GetNATTypeOptions
+    ) throws -> EOS_ENATType? {
         try withPointerManager { pointerManager in
-            try withTrivialMutablePointerFromInOutOptionalTrivial(&OutNATType, managedBy: pointerManager) { OutNATType in
+            try withPointeeReturned(managedBy: pointerManager) { OutNATType in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetNATType(
@@ -272,11 +271,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
     public func GetRelayControl(
-        Options: SwiftEOS_P2P_GetRelayControlOptions,
-        OutRelayControl: inout EOS_ERelayControl?
-    ) throws {
+        Options: SwiftEOS_P2P_GetRelayControlOptions
+    ) throws -> EOS_ERelayControl? {
         try withPointerManager { pointerManager in
-            try withTrivialMutablePointerFromInOutOptionalTrivial(&OutRelayControl, managedBy: pointerManager) { OutRelayControl in
+            try withPointeeReturned(managedBy: pointerManager) { OutRelayControl in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetRelayControl(

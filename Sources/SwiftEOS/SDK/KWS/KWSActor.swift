@@ -124,11 +124,10 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user or the permission is not found
      */
     public func GetPermissionByKey(
-        Options: SwiftEOS_KWS_GetPermissionByKeyOptions,
-        OutPermission: inout EOS_EKWSPermissionStatus?
-    ) throws {
+        Options: SwiftEOS_KWS_GetPermissionByKeyOptions
+    ) throws -> EOS_EKWSPermissionStatus? {
         try withPointerManager { pointerManager in
-            try withTrivialMutablePointerFromInOutOptionalTrivial(&OutPermission, managedBy: pointerManager) { OutPermission in
+            try withPointeeReturned(managedBy: pointerManager) { OutPermission in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_KWS_GetPermissionByKey(

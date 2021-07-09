@@ -497,11 +497,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @see EOS_Lobby_AddNotifyRTCRoomConnectionChanged
      */
     public func IsRTCRoomConnected(
-        Options: SwiftEOS_Lobby_IsRTCRoomConnectedOptions,
-        bOutIsConnected: inout Bool?
-    ) throws {
+        Options: SwiftEOS_Lobby_IsRTCRoomConnectedOptions
+    ) throws -> Bool? {
         try withPointerManager { pointerManager in
-            try withEosBoolPointerFromInOutOptionalSwiftBool(&bOutIsConnected) { bOutIsConnected in
+            try withEosBoolPointerReturnedAsSwiftBool { bOutIsConnected in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_IsRTCRoomConnected(

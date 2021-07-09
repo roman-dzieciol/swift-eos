@@ -41,8 +41,11 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Presence_JoinGameAcceptedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyJoinGameAccepted(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Presence_RemoveNotifyJoinGameAccepted(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -73,8 +76,11 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Presence_PresenceChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyOnPresenceChanged(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Presence_RemoveNotifyOnPresenceChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -212,36 +218,6 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Presence_QueryPresenceCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister from receiving notifications when a user accepts a join game option via the social overlay.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyJoinGameAccepted(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Presence_RemoveNotifyJoinGameAccepted(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving presence update notifications
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyOnPresenceChanged(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Presence_RemoveNotifyOnPresenceChanged(
-                Handle,
-                NotificationId
-            ) }
     }
 
     /**

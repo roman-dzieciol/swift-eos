@@ -61,8 +61,11 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Friends_OnFriendsUpdateInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyFriendsUpdate(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Friends_RemoveNotifyFriendsUpdate(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -181,21 +184,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Friends_RejectInviteCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Stop listening for friends changes on a previously bound handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID.
-     */
-    public func RemoveNotifyFriendsUpdate(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Friends_RemoveNotifyFriendsUpdate(
-                Handle,
-                NotificationId
-            ) }
     }
 
     /**

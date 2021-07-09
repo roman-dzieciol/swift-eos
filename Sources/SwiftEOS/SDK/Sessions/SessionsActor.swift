@@ -41,8 +41,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyJoinSessionAccepted(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Sessions_RemoveNotifyJoinSessionAccepted(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -73,8 +76,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifySessionInviteAccepted(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Sessions_RemoveNotifySessionInviteAccepted(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -105,8 +111,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifySessionInviteReceived(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Sessions_RemoveNotifySessionInviteReceived(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -506,51 +515,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Sessions_RejectInviteCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister from receiving notifications when a user accepts a session join game via the social overlay.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyJoinSessionAccepted(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Sessions_RemoveNotifyJoinSessionAccepted(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when a user accepts a session invite via the social overlay.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifySessionInviteAccepted(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Sessions_RemoveNotifySessionInviteAccepted(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving session invites.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifySessionInviteReceived(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Sessions_RemoveNotifySessionInviteReceived(
-                Handle,
-                InId
-            ) }
     }
 
     /**

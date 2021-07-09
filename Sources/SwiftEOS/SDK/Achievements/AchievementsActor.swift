@@ -44,8 +44,11 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAchievementsUnlocked(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Achievements_RemoveNotifyAchievementsUnlocked(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -78,8 +81,11 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAchievementsUnlocked(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Achievements_RemoveNotifyAchievementsUnlocked(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -462,23 +468,6 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister from receiving achievement unlocked notifications.
-     * 
-     * @see EOS_Achievements_AddNotifyAchievementsUnlocked
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyAchievementsUnlocked(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Achievements_RemoveNotifyAchievementsUnlocked(
-                Handle,
-                InId
-            ) }
     }
 
     /**

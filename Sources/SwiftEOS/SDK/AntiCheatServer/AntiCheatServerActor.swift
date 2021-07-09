@@ -39,8 +39,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyClientActionRequired(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_AntiCheatServer_RemoveNotifyClientActionRequired(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -69,8 +72,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyClientAuthStatusChanged(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -99,8 +105,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyMessageToClient(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_AntiCheatServer_RemoveNotifyMessageToClient(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -493,51 +502,6 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                         Handle,
                         Options
                     ) } } }
-    }
-
-    /**
-     * Remove a previously bound EOS_AntiCheatServer_AddNotifyClientActionRequired handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID
-     */
-    public func RemoveNotifyClientActionRequired(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_AntiCheatServer_RemoveNotifyClientActionRequired(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Remove a previously bound EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID
-     */
-    public func RemoveNotifyClientAuthStatusChanged(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Remove a previously bound EOS_AntiCheatServer_AddNotifyMessageToClient handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID
-     */
-    public func RemoveNotifyMessageToClient(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_AntiCheatServer_RemoveNotifyMessageToClient(
-                Handle,
-                NotificationId
-            ) }
     }
 
     /**

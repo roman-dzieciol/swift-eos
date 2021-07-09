@@ -41,8 +41,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyJoinLobbyAccepted(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyJoinLobbyAccepted(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -73,8 +76,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLobbyInviteAccepted(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyLobbyInviteAccepted(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -105,8 +111,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLobbyInviteReceived(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyLobbyInviteReceived(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -137,8 +146,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLobbyMemberStatusReceived(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -169,8 +181,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLobbyMemberUpdateReceived(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyLobbyMemberUpdateReceived(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -201,8 +216,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLobbyUpdateReceived(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyLobbyUpdateReceived(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -242,8 +260,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyRTCRoomConnectionChanged(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -668,114 +689,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Lobby_RejectInviteCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister from receiving notifications when a user accepts a lobby invitation via the overlay.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyJoinLobbyAccepted(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyJoinLobbyAccepted(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when a user accepts a lobby invitation via the overlay.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyLobbyInviteAccepted(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyLobbyInviteAccepted(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when a user receives a lobby invitation.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyLobbyInviteReceived(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyLobbyInviteReceived(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when lobby members status change.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyLobbyMemberStatusReceived(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when lobby members change their data.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyLobbyMemberUpdateReceived(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyLobbyMemberUpdateReceived(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when a lobby changes its data.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyLobbyUpdateReceived(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyLobbyUpdateReceived(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when an RTC Room's connection status changes.
-     * This should be called when the local user is leaving a lobby.
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     * 
-     * @see EOS_Lobby_AddNotifyRTCRoomConnectionChanged
-     */
-    public func RemoveNotifyRTCRoomConnectionChanged(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged(
-                Handle,
-                InId
-            ) }
     }
 
     /**

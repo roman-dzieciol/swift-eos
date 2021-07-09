@@ -44,8 +44,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAudioBeforeRender(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTCAudio_RemoveNotifyAudioBeforeRender(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -79,8 +82,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAudioBeforeSend(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTCAudio_RemoveNotifyAudioBeforeSend(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -112,8 +118,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTCAudio_AudioDevicesChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAudioDevicesChanged(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTCAudio_RemoveNotifyAudioDevicesChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -146,8 +155,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTCAudio_AudioInputStateCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAudioInputState(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTCAudio_RemoveNotifyAudioInputState(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -180,8 +192,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTCAudio_AudioOutputStateCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAudioOutputState(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTCAudio_RemoveNotifyAudioOutputState(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -214,8 +229,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyParticipantUpdated(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTCAudio_RemoveNotifyParticipantUpdated(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -334,96 +352,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                         Handle,
                         Options
                     ) } } }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving remote audio buffers before they are rendered.
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyAudioBeforeRender(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTCAudio_RemoveNotifyAudioBeforeRender(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving local audio buffers before they are encoded and sent.
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyAudioBeforeSend(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTCAudio_RemoveNotifyAudioBeforeSend(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving audio devices notifications
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyAudioDevicesChanged(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTCAudio_RemoveNotifyAudioDevicesChanged(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving notifications on audio input state changed.
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyAudioInputState(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTCAudio_RemoveNotifyAudioInputState(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving notifications on audio output state changed.
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyAudioOutputState(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTCAudio_RemoveNotifyAudioOutputState(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving participant updated notifications
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyParticipantUpdated(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTCAudio_RemoveNotifyParticipantUpdated(
-                Handle,
-                NotificationId
-            ) }
     }
 
     /**

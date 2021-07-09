@@ -41,8 +41,11 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Auth_LoginStatusChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLoginStatusChanged(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Auth_RemoveNotifyLoginStatusChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -233,21 +236,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Auth_LogoutCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister from receiving login status updates.
-     * 
-     * - Parameter InId:  handle representing the registered callback
-     */
-    public func RemoveNotifyLoginStatusChanged(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Auth_RemoveNotifyLoginStatusChanged(
-                Handle,
-                InId
-            ) }
     }
 
     /**

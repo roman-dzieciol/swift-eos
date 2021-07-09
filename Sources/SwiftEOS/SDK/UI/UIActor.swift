@@ -63,8 +63,11 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyDisplaySettingsUpdated(Id: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_UI_RemoveNotifyDisplaySettingsUpdated(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -166,21 +169,6 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
                     ) },
                 transformedResult: { 
                     try swiftBoolFromEosBool($0) }
-            ) }
-    }
-
-    /**
-     * Unregister from receiving notifications when the overlay display settings are updated.
-     * 
-     * - Parameter Id:  Handle representing the registered callback
-     */
-    public func RemoveNotifyDisplaySettingsUpdated(
-        Id: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_UI_RemoveNotifyDisplaySettingsUpdated(
-                Handle,
-                Id
             ) }
     }
 

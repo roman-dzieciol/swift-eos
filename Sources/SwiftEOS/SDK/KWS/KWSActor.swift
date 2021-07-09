@@ -42,8 +42,11 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyPermissionsUpdateReceived(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_KWS_RemoveNotifyPermissionsUpdateReceived(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -213,22 +216,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_KWS_QueryPermissionsCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * This interface is not available for general access at this time.
-     * Unregister from receiving notifications about KWS permissions related to logged in users
-     * 
-     * - Parameter InId:  Handle representing the registered callback
-     */
-    public func RemoveNotifyPermissionsUpdateReceived(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_KWS_RemoveNotifyPermissionsUpdateReceived(
-                Handle,
-                InId
-            ) }
     }
 
     /**

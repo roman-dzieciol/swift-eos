@@ -44,8 +44,11 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTC_DisconnectedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyDisconnected(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTC_RemoveNotifyDisconnected(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -84,8 +87,11 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyParticipantStatusChanged(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_RTC_RemoveNotifyParticipantStatusChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -181,35 +187,5 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_RTC_LeaveRoomCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving room disconnection notifications
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyDisconnected(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTC_RemoveNotifyDisconnected(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Unregister a previously bound notification handler from receiving participant status change notifications
-     * 
-     * - Parameter NotificationId:  The Notification ID representing the registered callback
-     */
-    public func RemoveNotifyParticipantStatusChanged(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_RTC_RemoveNotifyParticipantStatusChanged(
-                Handle,
-                NotificationId
-            ) }
     }
 }

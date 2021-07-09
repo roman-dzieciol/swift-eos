@@ -60,8 +60,11 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_P2P_OnIncomingPacketQueueFullInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyIncomingPacketQueueFull(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_P2P_RemoveNotifyIncomingPacketQueueFull(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -90,8 +93,11 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_P2P_OnRemoteConnectionClosedInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyPeerConnectionClosed(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_P2P_RemoveNotifyPeerConnectionClosed(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -121,8 +127,11 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_P2P_OnIncomingConnectionRequestInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyPeerConnectionRequest(NotificationId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_P2P_RemoveNotifyPeerConnectionRequest(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -333,51 +342,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
                                         OutData,
                                         OutBytesWritten
                                     ) } } } } } } }
-    }
-
-    /**
-     * Stop listening for full incoming packet queue events on a previously bound handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID
-     */
-    public func RemoveNotifyIncomingPacketQueueFull(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_P2P_RemoveNotifyIncomingPacketQueueFull(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Stop notifications for connections being closed on a previously bound handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID
-     */
-    public func RemoveNotifyPeerConnectionClosed(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_P2P_RemoveNotifyPeerConnectionClosed(
-                Handle,
-                NotificationId
-            ) }
-    }
-
-    /**
-     * Stop listening for connection requests on a previously bound handler.
-     * 
-     * - Parameter NotificationId:  The previously bound notification ID
-     */
-    public func RemoveNotifyPeerConnectionRequest(
-        NotificationId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_P2P_RemoveNotifyPeerConnectionRequest(
-                Handle,
-                NotificationId
-            ) }
     }
 
     /**

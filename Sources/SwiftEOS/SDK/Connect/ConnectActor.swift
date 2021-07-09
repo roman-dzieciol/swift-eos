@@ -43,8 +43,11 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Connect_AuthExpirationCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyAuthExpiration(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Connect_RemoveNotifyAuthExpiration(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -75,8 +78,11 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
                             { sdkCallbackInfoPointer in
                                 SwiftEOS_Connect_LoginStatusChangedCallbackInfo.sendNotification(sdkCallbackInfoPointer) }
                         ) } },
-                onDeinit: { [weak self] notificationId in
-                    self?.RemoveNotifyLoginStatusChanged(InId: notificationId) }
+                onDeinit: { [Handle] notificationId in
+                    EOS_Connect_RemoveNotifyLoginStatusChanged(
+                        Handle,
+                        notificationId
+                    ) }
             ) }
     }
 
@@ -524,36 +530,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-     * Unregister from receiving expiration notifications.
-     * 
-     * - Parameter InId:  handle representing the registered callback.
-     */
-    public func RemoveNotifyAuthExpiration(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Connect_RemoveNotifyAuthExpiration(
-                Handle,
-                InId
-            ) }
-    }
-
-    /**
-     * Unregister from receiving user login status updates.
-     * 
-     * - Parameter InId:  handle representing the registered callback.
-     */
-    public func RemoveNotifyLoginStatusChanged(
-        InId: EOS_NotificationId
-    ) {
-        withPointerManager { pointerManager in
-            EOS_Connect_RemoveNotifyLoginStatusChanged(
-                Handle,
-                InId
-            ) }
     }
 
     /**

@@ -198,11 +198,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      *         EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
      */
     public func GetNextReceivedPacketSize(
-        Options: SwiftEOS_P2P_GetNextReceivedPacketSizeOptions,
-        OutPacketSizeBytes: inout Int?
-    ) throws {
+        Options: SwiftEOS_P2P_GetNextReceivedPacketSizeOptions
+    ) throws -> Int? {
         try withPointerManager { pointerManager in
-            try withIntPointerFromInOutOptionalInt(&OutPacketSizeBytes) { OutPacketSizeBytes in
+            try withIntegerPointerReturnedAsInteger { OutPacketSizeBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetNextReceivedPacketSize(

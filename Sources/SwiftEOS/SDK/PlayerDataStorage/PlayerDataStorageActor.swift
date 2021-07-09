@@ -153,11 +153,10 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
      * @see EOS_PlayerDataStorage_CopyFileMetadataAtIndex
      */
     public func GetFileMetadataCount(
-        GetFileMetadataCountOptions: SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions?,
-        OutFileMetadataCount: inout Int?
-    ) throws {
+        GetFileMetadataCountOptions: SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions?
+    ) throws -> Int? {
         try withPointerManager { pointerManager in
-            try withIntPointerFromInOutOptionalInt(&OutFileMetadataCount) { OutFileMetadataCount in
+            try withIntegerPointerReturnedAsInteger { OutFileMetadataCount in
                 try withSdkObjectPointerFromSwiftObject(GetFileMetadataCountOptions, managedBy: pointerManager) { GetFileMetadataCountOptions in
                     try throwingSdkResult { 
                         EOS_PlayerDataStorage_GetFileMetadataCount(

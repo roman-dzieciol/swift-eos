@@ -225,11 +225,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
     public func GetProtectMessageOutputLength(
-        Options: SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthOptions,
-        OutBufferLengthBytes: inout Int?
-    ) throws {
+        Options: SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthOptions
+    ) throws -> Int? {
         try withPointerManager { pointerManager in
-            try withIntPointerFromInOutOptionalInt(&OutBufferLengthBytes) { OutBufferLengthBytes in
+            try withIntegerPointerReturnedAsInteger { OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatClient_GetProtectMessageOutputLength(

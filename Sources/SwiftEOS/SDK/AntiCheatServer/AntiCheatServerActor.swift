@@ -160,11 +160,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func GetProtectMessageOutputLength(
-        Options: SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions,
-        OutBufferLengthBytes: inout Int?
-    ) throws {
+        Options: SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions
+    ) throws -> Int? {
         try withPointerManager { pointerManager in
-            try withIntPointerFromInOutOptionalInt(&OutBufferLengthBytes) { OutBufferLengthBytes in
+            try withIntegerPointerReturnedAsInteger { OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatServer_GetProtectMessageOutputLength(

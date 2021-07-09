@@ -66,7 +66,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * @return The current notification location display preference.
      */
     public func GetNotificationLocationPreference() -> EOS_UI_ENotificationLocation {
-        try ____GetNotificationLocationPreference()
+        ____GetNotificationLocationPreference()
     }
 
     /**

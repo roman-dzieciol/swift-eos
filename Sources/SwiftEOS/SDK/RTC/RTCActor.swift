@@ -95,7 +95,7 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * @see eos_rtc_audio_types.h
      */
     public func GetAudioInterface() -> EOS_HRTCAudio {
-        try ____GetAudioInterface()
+        ____GetAudioInterface()
     }
 
     /**

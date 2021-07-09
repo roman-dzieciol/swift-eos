@@ -240,7 +240,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     public func GetLoginStatus(
         LocalUserId: EOS_ProductUserId
     ) -> EOS_ELoginStatus {
-        try ____GetLoginStatus(LocalUserId)
+        ____GetLoginStatus(LocalUserId)
     }
 
     /**

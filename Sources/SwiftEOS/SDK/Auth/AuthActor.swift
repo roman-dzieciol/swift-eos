@@ -104,7 +104,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     public func GetLoginStatus(
         LocalUserId: EOS_EpicAccountId
     ) -> EOS_ELoginStatus {
-        try ____GetLoginStatus(LocalUserId)
+        ____GetLoginStatus(LocalUserId)
     }
 
     /**

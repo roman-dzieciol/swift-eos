@@ -36,7 +36,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_achievements_types.h
      */
     public func GetAchievementsInterface() -> SwiftEOS_Achievements_Actor? {
-        try ____GetAchievementsInterface()
+        ____GetAchievementsInterface()
     }
 
     /**
@@ -99,7 +99,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_anticheatclient_types.h
      */
     public func GetAntiCheatClientInterface() -> SwiftEOS_AntiCheatClient_Actor? {
-        try ____GetAntiCheatClientInterface()
+        ____GetAntiCheatClientInterface()
     }
 
     /**
@@ -111,7 +111,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_anticheatserver_types.h
      */
     public func GetAntiCheatServerInterface() -> SwiftEOS_AntiCheatServer_Actor? {
-        try ____GetAntiCheatServerInterface()
+        ____GetAntiCheatServerInterface()
     }
 
     /**
@@ -123,7 +123,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_auth_types.h
      */
     public func GetAuthInterface() -> SwiftEOS_Auth_Actor? {
-        try ____GetAuthInterface()
+        ____GetAuthInterface()
     }
 
     /**
@@ -135,7 +135,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_connect_types.h
      */
     public func GetConnectInterface() -> SwiftEOS_Connect_Actor? {
-        try ____GetConnectInterface()
+        ____GetConnectInterface()
     }
 
     /**
@@ -147,7 +147,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_ecom_types.h
      */
     public func GetEcomInterface() -> SwiftEOS_Ecom_Actor? {
-        try ____GetEcomInterface()
+        ____GetEcomInterface()
     }
 
     /**
@@ -159,7 +159,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_friends_types.h
      */
     public func GetFriendsInterface() -> SwiftEOS_Friends_Actor? {
-        try ____GetFriendsInterface()
+        ____GetFriendsInterface()
     }
 
     /**
@@ -171,7 +171,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_kws_types.h
      */
     public func GetKWSInterface() -> SwiftEOS_KWS_Actor? {
-        try ____GetKWSInterface()
+        ____GetKWSInterface()
     }
 
     /**
@@ -183,7 +183,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_leaderboards_types.h
      */
     public func GetLeaderboardsInterface() -> SwiftEOS_Leaderboards_Actor? {
-        try ____GetLeaderboardsInterface()
+        ____GetLeaderboardsInterface()
     }
 
     /**
@@ -195,7 +195,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_lobby_types.h
      */
     public func GetLobbyInterface() -> SwiftEOS_Lobby_Actor? {
-        try ____GetLobbyInterface()
+        ____GetLobbyInterface()
     }
 
     /**
@@ -207,7 +207,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_metrics_types.h
      */
     public func GetMetricsInterface() -> SwiftEOS_Metrics_Actor? {
-        try ____GetMetricsInterface()
+        ____GetMetricsInterface()
     }
 
     /**
@@ -219,7 +219,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_mods_types.h
      */
     public func GetModsInterface() -> SwiftEOS_Mods_Actor? {
-        try ____GetModsInterface()
+        ____GetModsInterface()
     }
 
     /**
@@ -273,7 +273,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_p2p_types.h
      */
     public func GetP2PInterface() -> SwiftEOS_P2P_Actor? {
-        try ____GetP2PInterface()
+        ____GetP2PInterface()
     }
 
     /**
@@ -285,7 +285,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_playerdatastorage_types.h
      */
     public func GetPlayerDataStorageInterface() -> SwiftEOS_PlayerDataStorage_Actor? {
-        try ____GetPlayerDataStorageInterface()
+        ____GetPlayerDataStorageInterface()
     }
 
     /**
@@ -297,7 +297,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_presence_types.h
      */
     public func GetPresenceInterface() -> SwiftEOS_Presence_Actor? {
-        try ____GetPresenceInterface()
+        ____GetPresenceInterface()
     }
 
     /**
@@ -309,7 +309,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_admin_types.h
      */
     public func GetRTCAdminInterface() -> SwiftEOS_RTCAdmin_Actor? {
-        try ____GetRTCAdminInterface()
+        ____GetRTCAdminInterface()
     }
 
     /**
@@ -323,7 +323,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_rtc_types.h
      */
     public func GetRTCInterface() -> SwiftEOS_RTC_Actor? {
-        try ____GetRTCInterface()
+        ____GetRTCInterface()
     }
 
     /**
@@ -335,7 +335,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_reports_types.h
      */
     public func GetReportsInterface() -> SwiftEOS_Reports_Actor? {
-        try ____GetReportsInterface()
+        ____GetReportsInterface()
     }
 
     /**
@@ -347,7 +347,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_sanctions_types.h
      */
     public func GetSanctionsInterface() -> SwiftEOS_Sanctions_Actor? {
-        try ____GetSanctionsInterface()
+        ____GetSanctionsInterface()
     }
 
     /**
@@ -359,7 +359,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_sessions_types.h
      */
     public func GetSessionsInterface() -> SwiftEOS_Sessions_Actor? {
-        try ____GetSessionsInterface()
+        ____GetSessionsInterface()
     }
 
     /**
@@ -371,7 +371,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_stats_types.h
      */
     public func GetStatsInterface() -> SwiftEOS_Stats_Actor? {
-        try ____GetStatsInterface()
+        ____GetStatsInterface()
     }
 
     /**
@@ -383,7 +383,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_titlestorage_types.h
      */
     public func GetTitleStorageInterface() -> SwiftEOS_TitleStorage_Actor? {
-        try ____GetTitleStorageInterface()
+        ____GetTitleStorageInterface()
     }
 
     /**
@@ -395,7 +395,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_ui_types.h
      */
     public func GetUIInterface() -> SwiftEOS_UI_Actor? {
-        try ____GetUIInterface()
+        ____GetUIInterface()
     }
 
     /**
@@ -407,7 +407,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * @see eos_userinfo_types.h
      */
     public func GetUserInfoInterface() -> SwiftEOS_UserInfo_Actor? {
-        try ____GetUserInfoInterface()
+        ____GetUserInfoInterface()
     }
 
     /**
@@ -449,7 +449,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * function. For tick-based applications, it is usually desireable to call this once per-tick.
      */
     public func Tick() {
-        try ____Tick()
+        ____Tick()
     }
 }
 

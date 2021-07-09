@@ -123,11 +123,10 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @see EOS_PresenceModification_DeleteData
      */
     public func CreatePresenceModification(
-        Options: SwiftEOS_Presence_CreatePresenceModificationOptions,
-        OutPresenceModificationHandle: inout EOS_HPresenceModification?
-    ) throws {
+        Options: SwiftEOS_Presence_CreatePresenceModificationOptions
+    ) throws -> EOS_HPresenceModification? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutPresenceModificationHandle, managedBy: pointerManager) { OutPresenceModificationHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutPresenceModificationHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Presence_CreatePresenceModification(

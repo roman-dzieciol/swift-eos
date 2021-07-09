@@ -30,11 +30,10 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_Release
      */
     public func CopySearchResultByIndex(
-        Options: SwiftEOS_LobbySearch_CopySearchResultByIndexOptions,
-        OutLobbyDetailsHandle: inout EOS_HLobbyDetails?
-    ) throws {
+        Options: SwiftEOS_LobbySearch_CopySearchResultByIndexOptions
+    ) throws -> EOS_HLobbyDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutLobbyDetailsHandle, managedBy: pointerManager) { OutLobbyDetailsHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_LobbySearch_CopySearchResultByIndex(

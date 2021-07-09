@@ -30,11 +30,10 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Release
      */
     public func CopySearchResultByIndex(
-        Options: SwiftEOS_SessionSearch_CopySearchResultByIndexOptions,
-        OutSessionHandle: inout EOS_HSessionDetails?
-    ) throws {
+        Options: SwiftEOS_SessionSearch_CopySearchResultByIndexOptions
+    ) throws -> EOS_HSessionDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionHandle, managedBy: pointerManager) { OutSessionHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_SessionSearch_CopySearchResultByIndex(

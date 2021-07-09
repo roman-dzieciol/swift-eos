@@ -376,11 +376,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      *         EOS_NotFound if the transaction is not found
      */
     public func CopyTransactionById(
-        Options: SwiftEOS_Ecom_CopyTransactionByIdOptions,
-        OutTransaction: inout EOS_Ecom_HTransaction?
-    ) throws {
+        Options: SwiftEOS_Ecom_CopyTransactionByIdOptions
+    ) throws -> EOS_Ecom_HTransaction? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutTransaction, managedBy: pointerManager) { OutTransaction in
+            try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Ecom_CopyTransactionById(
@@ -403,11 +402,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      *         EOS_NotFound if the transaction is not found
      */
     public func CopyTransactionByIndex(
-        Options: SwiftEOS_Ecom_CopyTransactionByIndexOptions,
-        OutTransaction: inout EOS_Ecom_HTransaction?
-    ) throws {
+        Options: SwiftEOS_Ecom_CopyTransactionByIndexOptions
+    ) throws -> EOS_Ecom_HTransaction? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutTransaction, managedBy: pointerManager) { OutTransaction in
+            try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Ecom_CopyTransactionByIndex(

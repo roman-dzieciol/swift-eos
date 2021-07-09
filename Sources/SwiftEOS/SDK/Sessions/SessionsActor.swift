@@ -129,11 +129,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Release
      */
     public func CopySessionHandleByInviteId(
-        Options: SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions,
-        OutSessionHandle: inout EOS_HSessionDetails?
-    ) throws {
+        Options: SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions
+    ) throws -> EOS_HSessionDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionHandle, managedBy: pointerManager) { OutSessionHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_CopySessionHandleByInviteId(
@@ -159,11 +158,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Release
      */
     public func CopySessionHandleByUiEventId(
-        Options: SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions,
-        OutSessionHandle: inout EOS_HSessionDetails?
-    ) throws {
+        Options: SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions
+    ) throws -> EOS_HSessionDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionHandle, managedBy: pointerManager) { OutSessionHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_CopySessionHandleByUiEventId(
@@ -189,11 +187,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Release
      */
     public func CopySessionHandleForPresence(
-        Options: SwiftEOS_Sessions_CopySessionHandleForPresenceOptions,
-        OutSessionHandle: inout EOS_HSessionDetails?
-    ) throws {
+        Options: SwiftEOS_Sessions_CopySessionHandleForPresenceOptions
+    ) throws -> EOS_HSessionDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionHandle, managedBy: pointerManager) { OutSessionHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_CopySessionHandleForPresence(
@@ -216,11 +213,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @see EOS_HSessionModification
      */
     public func CreateSessionModification(
-        Options: SwiftEOS_Sessions_CreateSessionModificationOptions,
-        OutSessionModificationHandle: inout EOS_HSessionModification?
-    ) throws {
+        Options: SwiftEOS_Sessions_CreateSessionModificationOptions
+    ) throws -> EOS_HSessionModification? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionModificationHandle, managedBy: pointerManager) { OutSessionModificationHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_CreateSessionModification(
@@ -244,11 +240,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func CreateSessionSearch(
-        Options: SwiftEOS_Sessions_CreateSessionSearchOptions,
-        OutSessionSearchHandle: inout EOS_HSessionSearch?
-    ) throws {
+        Options: SwiftEOS_Sessions_CreateSessionSearchOptions
+    ) throws -> EOS_HSessionSearch? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionSearchHandle, managedBy: pointerManager) { OutSessionSearchHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionSearchHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_CreateSessionSearch(
@@ -688,11 +683,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @see EOS_HSessionModification
      */
     public func UpdateSessionModification(
-        Options: SwiftEOS_Sessions_UpdateSessionModificationOptions,
-        OutSessionModificationHandle: inout EOS_HSessionModification?
-    ) throws {
+        Options: SwiftEOS_Sessions_UpdateSessionModificationOptions
+    ) throws -> EOS_HSessionModification? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutSessionModificationHandle, managedBy: pointerManager) { OutSessionModificationHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_UpdateSessionModification(

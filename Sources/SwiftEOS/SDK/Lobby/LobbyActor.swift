@@ -269,11 +269,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_Release
      */
     public func CopyLobbyDetailsHandleByInviteId(
-        Options: SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions,
-        OutLobbyDetailsHandle: inout EOS_HLobbyDetails?
-    ) throws {
+        Options: SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions
+    ) throws -> EOS_HLobbyDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutLobbyDetailsHandle, managedBy: pointerManager) { OutLobbyDetailsHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_CopyLobbyDetailsHandleByInviteId(
@@ -299,11 +298,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_Release
      */
     public func CopyLobbyDetailsHandleByUiEventId(
-        Options: SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions,
-        OutLobbyDetailsHandle: inout EOS_HLobbyDetails?
-    ) throws {
+        Options: SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions
+    ) throws -> EOS_HLobbyDetails? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutLobbyDetailsHandle, managedBy: pointerManager) { OutLobbyDetailsHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_CopyLobbyDetailsHandleByUiEventId(
@@ -358,11 +356,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func CreateLobbySearch(
-        Options: SwiftEOS_Lobby_CreateLobbySearchOptions,
-        OutLobbySearchHandle: inout EOS_HLobbySearch?
-    ) throws {
+        Options: SwiftEOS_Lobby_CreateLobbySearchOptions
+    ) throws -> EOS_HLobbySearch? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutLobbySearchHandle, managedBy: pointerManager) { OutLobbySearchHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutLobbySearchHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_CreateLobbySearch(
@@ -861,11 +858,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @see EOS_HLobbyModification
      */
     public func UpdateLobbyModification(
-        Options: SwiftEOS_Lobby_UpdateLobbyModificationOptions,
-        OutLobbyModificationHandle: inout EOS_HLobbyModification?
-    ) throws {
+        Options: SwiftEOS_Lobby_UpdateLobbyModificationOptions
+    ) throws -> EOS_HLobbyModification? {
         try withPointerManager { pointerManager in
-            try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutLobbyModificationHandle, managedBy: pointerManager) { OutLobbyModificationHandle in
+            try withPointeeReturned(managedBy: pointerManager) { OutLobbyModificationHandle in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_UpdateLobbyModification(

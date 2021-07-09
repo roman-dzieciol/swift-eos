@@ -46,14 +46,12 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_Actor: SwiftEOSActor 
      * @return EOS_Success if the file name was successfully written to OutFilenameBuffer, a failure result otherwise
      * 
      * @see EOS_PLAYERDATASTORAGE_FILENAME_MAX_LENGTH_BYTES
-     * - Parameter OutStringBuffer:  - array num: OutStringLength
      */
     public func GetFilename(
-        FilenameStringBufferSizeBytes: Int,
-        OutStringBuffer: inout String?
-    ) throws {
+        FilenameStringBufferSizeBytes: Int
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutStringBuffer) { OutStringBuffer,OutStringLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutStringBuffer,OutStringLength in
                 try withTransformed(
                     value: FilenameStringBufferSizeBytes,
                     transform: { FilenameStringBufferSizeBytes in

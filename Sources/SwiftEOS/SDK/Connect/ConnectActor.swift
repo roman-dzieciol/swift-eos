@@ -409,14 +409,12 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
      *         EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetProductUserIdMapping(
-        Options: SwiftEOS_Connect_GetProductUserIdMappingOptions,
-        OutBuffer: inout String?
-    ) throws {
+        Options: SwiftEOS_Connect_GetProductUserIdMappingOptions
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Connect_GetProductUserIdMapping(

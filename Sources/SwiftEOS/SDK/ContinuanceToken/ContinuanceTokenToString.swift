@@ -17,14 +17,12 @@ import EOSSDK
  *         EOS_InvalidParameters - Either OutBuffer or InOutBufferLength were passed as NULL parameters.
  *         EOS_InvalidUser - The AccountId is invalid and cannot be stringified.
  *         EOS_LimitExceeded - The OutBuffer is not large enough to receive the continuance token string. InOutBufferLength contains the required minimum length to perform the operation successfully.
- * - Parameter OutBuffer:  - array num: InOutBufferLength
  */
 public func SwiftEOS_ContinuanceToken_ToString(
-    ContinuanceToken: EOS_ContinuanceToken,
-    OutBuffer: inout String?
-) throws {
+    ContinuanceToken: EOS_ContinuanceToken
+) throws -> String? {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
             try throwingSdkResult { 
                 EOS_ContinuanceToken_ToString(
                     ContinuanceToken,

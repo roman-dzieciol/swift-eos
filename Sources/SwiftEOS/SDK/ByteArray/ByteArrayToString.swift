@@ -9,14 +9,12 @@ import EOSSDK
  *         EOS_InvalidParameters if you pass a null pointer on invalid length for any of the parameters
  *         EOS_LimitExceeded - The OutBuffer is not large enough to receive the encoding. InOutBufferLength contains the required minimum length to perform the operation successfully.
  * - Parameter ByteArray:  - array num: Length
- * - Parameter OutBuffer:  - array num: InOutBufferLength
  */
 public func SwiftEOS_ByteArray_ToString(
-    ByteArray: [UInt8]?,
-    OutBuffer: inout String?
-) throws {
+    ByteArray: [UInt8]?
+) throws -> String? {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
             try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray,Length in
                 try throwingSdkResult { 
                     EOS_ByteArray_ToString(

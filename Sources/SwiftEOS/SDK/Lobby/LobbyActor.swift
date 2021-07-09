@@ -431,14 +431,12 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * 
      * @see EOS_Lobby_GetInviteCount
      * @see EOS_Lobby_CopyLobbyDetailsHandleByInviteId
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetInviteIdByIndex(
-        Options: SwiftEOS_Lobby_GetInviteIdByIndexOptions,
-        OutBuffer: inout String?
-    ) throws {
+        Options: SwiftEOS_Lobby_GetInviteIdByIndexOptions
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_GetInviteIdByIndex(
@@ -465,14 +463,12 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      *         EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created
      *         EOS_InvalidParameters if you pass a null pointer on invalid length for any of the parameters
      *         EOS_LimitExceeded The OutBuffer is not large enough to receive the room name. InOutBufferLength contains the required minimum length to perform the operation successfully.
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetRTCRoomName(
-        Options: SwiftEOS_Lobby_GetRTCRoomNameOptions,
-        OutBuffer: inout String?
-    ) throws {
+        Options: SwiftEOS_Lobby_GetRTCRoomNameOptions
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_GetRTCRoomName(

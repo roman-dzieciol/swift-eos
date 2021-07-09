@@ -154,14 +154,12 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      *         EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
      * 
      * @see EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetJoinInfo(
-        Options: SwiftEOS_Presence_GetJoinInfoOptions,
-        OutBuffer: inout String?
-    ) throws {
+        Options: SwiftEOS_Presence_GetJoinInfoOptions
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Presence_GetJoinInfo(

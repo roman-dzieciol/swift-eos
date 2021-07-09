@@ -788,13 +788,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * @see EOS_Ecom_CheckoutCallbackInfo
      * @see EOS_Ecom_GetTransactionCount
      * @see EOS_Ecom_CopyTransactionByIndex
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
-    public func Transaction_GetTransactionId(
-        OutBuffer: inout String?
-    ) throws {
+    public func Transaction_GetTransactionId() throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try throwingSdkResult { 
                     EOS_Ecom_Transaction_GetTransactionId(
                         Handle,

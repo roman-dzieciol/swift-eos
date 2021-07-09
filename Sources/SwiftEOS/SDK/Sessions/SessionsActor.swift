@@ -364,14 +364,12 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * @see EOS_Sessions_GetInviteCount
      * @see EOS_Sessions_CopySessionHandleByInviteId
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetInviteIdByIndex(
-        Options: SwiftEOS_Sessions_GetInviteIdByIndexOptions,
-        OutBuffer: inout String?
-    ) throws {
+        Options: SwiftEOS_Sessions_GetInviteIdByIndexOptions
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_GetInviteIdByIndex(

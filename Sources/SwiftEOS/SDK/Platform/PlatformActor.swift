@@ -61,14 +61,12 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * 
      * @see eos_ecom.h
      * @see EOS_COUNTRYCODE_MAX_LENGTH
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetActiveCountryCode(
-        LocalUserId: EOS_EpicAccountId,
-        OutBuffer: inout String?
-    ) throws {
+        LocalUserId: EOS_EpicAccountId
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try throwingSdkResult { 
                     EOS_Platform_GetActiveCountryCode(
                         Handle,
@@ -97,14 +95,12 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * 
      * @see eos_ecom.h
      * @see EOS_LOCALECODE_MAX_LENGTH
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
     public func GetActiveLocaleCode(
-        LocalUserId: EOS_EpicAccountId,
-        OutBuffer: inout String?
-    ) throws {
+        LocalUserId: EOS_EpicAccountId
+    ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try throwingSdkResult { 
                     EOS_Platform_GetActiveLocaleCode(
                         Handle,
@@ -284,13 +280,10 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * 
      * @see eos_ecom.h
      * @see EOS_COUNTRYCODE_MAX_LENGTH
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
-    public func GetOverrideCountryCode(
-        OutBuffer: inout String?
-    ) throws {
+    public func GetOverrideCountryCode() throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try throwingSdkResult { 
                     EOS_Platform_GetOverrideCountryCode(
                         Handle,
@@ -315,13 +308,10 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * 
      * @see eos_ecom.h
      * @see EOS_LOCALECODE_MAX_LENGTH
-     * - Parameter OutBuffer:  - array num: InOutBufferLength
      */
-    public func GetOverrideLocaleCode(
-        OutBuffer: inout String?
-    ) throws {
+    public func GetOverrideLocaleCode() throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersFromInOutOptionalString(inoutOptionalString: &OutBuffer) { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
                 try throwingSdkResult { 
                     EOS_Platform_GetOverrideLocaleCode(
                         Handle,

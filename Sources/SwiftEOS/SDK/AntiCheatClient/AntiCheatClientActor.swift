@@ -290,14 +290,12 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * @return EOS_Success - If the message was protected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     * - Parameter OutBuffer:  - array num: OutBufferLengthBytes
      */
     public func ProtectMessage(
-        Options: SwiftEOS_AntiCheatClient_ProtectMessageOptions,
-        OutBuffer: inout [UInt8]?
-    ) throws {
+        Options: SwiftEOS_AntiCheatClient_ProtectMessageOptions
+    ) throws -> [UInt8]? {
         try withPointerManager { pointerManager in
-            try withPointersToInOutArray(inoutArray: &OutBuffer) { OutBuffer,OutBufferLengthBytes in
+            try withElementPointerPointersReturnedAsArray { OutBuffer,OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatClient_ProtectMessage(
@@ -453,14 +451,12 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * @return EOS_Success - If the message was unprotected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     * - Parameter OutBuffer:  - array num: OutBufferLengthBytes
      */
     public func UnprotectMessage(
-        Options: SwiftEOS_AntiCheatClient_UnprotectMessageOptions,
-        OutBuffer: inout [UInt8]?
-    ) throws {
+        Options: SwiftEOS_AntiCheatClient_UnprotectMessageOptions
+    ) throws -> [UInt8]? {
         try withPointerManager { pointerManager in
-            try withPointersToInOutArray(inoutArray: &OutBuffer) { OutBuffer,OutBufferLengthBytes in
+            try withElementPointerPointersReturnedAsArray { OutBuffer,OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatClient_UnprotectMessage(

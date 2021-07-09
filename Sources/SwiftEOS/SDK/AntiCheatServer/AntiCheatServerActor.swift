@@ -418,14 +418,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * @return EOS_Success - If the message was protected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
-     * - Parameter OutBuffer:  - array num: OutBufferLengthBytes
      */
     public func ProtectMessage(
-        Options: SwiftEOS_AntiCheatServer_ProtectMessageOptions,
-        OutBuffer: inout [UInt8]?
-    ) throws {
+        Options: SwiftEOS_AntiCheatServer_ProtectMessageOptions
+    ) throws -> [UInt8]? {
         try withPointerManager { pointerManager in
-            try withPointersToInOutArray(inoutArray: &OutBuffer) { OutBuffer,OutBufferLengthBytes in
+            try withElementPointerPointersReturnedAsArray { OutBuffer,OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatServer_ProtectMessage(
@@ -629,14 +627,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * 
      * @return EOS_Success - If the message was unprotected successfully
      *         EOS_InvalidParameters - If input data was invalid
-     * - Parameter OutBuffer:  - array num: OutBufferLengthBytes
      */
     public func UnprotectMessage(
-        Options: SwiftEOS_AntiCheatServer_UnprotectMessageOptions,
-        OutBuffer: inout [UInt8]?
-    ) throws {
+        Options: SwiftEOS_AntiCheatServer_UnprotectMessageOptions
+    ) throws -> [UInt8]? {
         try withPointerManager { pointerManager in
-            try withPointersToInOutArray(inoutArray: &OutBuffer) { OutBuffer,OutBufferLengthBytes in
+            try withElementPointerPointersReturnedAsArray { OutBuffer,OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatServer_UnprotectMessage(

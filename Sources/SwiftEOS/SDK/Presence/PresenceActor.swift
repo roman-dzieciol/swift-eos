@@ -90,18 +90,21 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @see EOS_Presence_Info_Release
      */
     public func CopyPresence(
-        Options: SwiftEOS_Presence_CopyPresenceOptions,
-        OutPresence: inout SwiftEOS_Presence_Info?
-    ) throws {
+        Options: SwiftEOS_Presence_CopyPresenceOptions
+    ) throws -> SwiftEOS_Presence_Info? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutPresence, managedBy: pointerManager) { OutPresence in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Presence_CopyPresence(
-                            Handle,
-                            Options,
-                            OutPresence
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutPresence in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Presence_CopyPresence(
+                                Handle,
+                                Options,
+                                OutPresence
+                            ) } } },
+                release: EOS_Presence_Info_Release
+            ) }
     }
 
     /**

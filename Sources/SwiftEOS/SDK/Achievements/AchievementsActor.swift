@@ -100,18 +100,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the achievement definition is not found
      */
     public func CopyAchievementDefinitionByAchievementId(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOptions,
-        OutDefinition: inout SwiftEOS_Achievements_Definition?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOptions
+    ) throws -> SwiftEOS_Achievements_Definition? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutDefinition, managedBy: pointerManager) { OutDefinition in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyAchievementDefinitionByAchievementId(
-                            Handle,
-                            Options,
-                            OutDefinition
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutDefinition in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyAchievementDefinitionByAchievementId(
+                                Handle,
+                                Options,
+                                OutDefinition
+                            ) } } },
+                release: EOS_Achievements_Definition_Release
+            ) }
     }
 
     /**
@@ -129,18 +132,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the achievement definition is not found
      */
     public func CopyAchievementDefinitionByIndex(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions,
-        OutDefinition: inout SwiftEOS_Achievements_Definition?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions
+    ) throws -> SwiftEOS_Achievements_Definition? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutDefinition, managedBy: pointerManager) { OutDefinition in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyAchievementDefinitionByIndex(
-                            Handle,
-                            Options,
-                            OutDefinition
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutDefinition in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyAchievementDefinitionByIndex(
+                                Handle,
+                                Options,
+                                OutDefinition
+                            ) } } },
+                release: EOS_Achievements_Definition_Release
+            ) }
     }
 
     /**
@@ -157,18 +163,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
      */
     public func CopyAchievementDefinitionV2ByAchievementId(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdOptions,
-        OutDefinition: inout SwiftEOS_Achievements_DefinitionV2?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdOptions
+    ) throws -> SwiftEOS_Achievements_DefinitionV2? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutDefinition, managedBy: pointerManager) { OutDefinition in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId(
-                            Handle,
-                            Options,
-                            OutDefinition
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutDefinition in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId(
+                                Handle,
+                                Options,
+                                OutDefinition
+                            ) } } },
+                release: EOS_Achievements_DefinitionV2_Release
+            ) }
     }
 
     /**
@@ -185,18 +194,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
      */
     public func CopyAchievementDefinitionV2ByIndex(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexOptions,
-        OutDefinition: inout SwiftEOS_Achievements_DefinitionV2?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexOptions
+    ) throws -> SwiftEOS_Achievements_DefinitionV2? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutDefinition, managedBy: pointerManager) { OutDefinition in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyAchievementDefinitionV2ByIndex(
-                            Handle,
-                            Options,
-                            OutDefinition
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutDefinition in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyAchievementDefinitionV2ByIndex(
+                                Handle,
+                                Options,
+                                OutDefinition
+                            ) } } },
+                release: EOS_Achievements_DefinitionV2_Release
+            ) }
     }
 
     /**
@@ -213,18 +225,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
      */
     public func CopyPlayerAchievementByAchievementId(
-        Options: SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions,
-        OutAchievement: inout SwiftEOS_Achievements_PlayerAchievement?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions
+    ) throws -> SwiftEOS_Achievements_PlayerAchievement? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAchievement, managedBy: pointerManager) { OutAchievement in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyPlayerAchievementByAchievementId(
-                            Handle,
-                            Options,
-                            OutAchievement
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAchievement in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyPlayerAchievementByAchievementId(
+                                Handle,
+                                Options,
+                                OutAchievement
+                            ) } } },
+                release: EOS_Achievements_PlayerAchievement_Release
+            ) }
     }
 
     /**
@@ -241,18 +256,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
      */
     public func CopyPlayerAchievementByIndex(
-        Options: SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptions,
-        OutAchievement: inout SwiftEOS_Achievements_PlayerAchievement?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptions
+    ) throws -> SwiftEOS_Achievements_PlayerAchievement? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAchievement, managedBy: pointerManager) { OutAchievement in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyPlayerAchievementByIndex(
-                            Handle,
-                            Options,
-                            OutAchievement
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAchievement in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyPlayerAchievementByIndex(
+                                Handle,
+                                Options,
+                                OutAchievement
+                            ) } } },
+                release: EOS_Achievements_PlayerAchievement_Release
+            ) }
     }
 
     /**
@@ -269,18 +287,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the unlocked achievement is not found
      */
     public func CopyUnlockedAchievementByAchievementId(
-        Options: SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions,
-        OutAchievement: inout SwiftEOS_Achievements_UnlockedAchievement?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions
+    ) throws -> SwiftEOS_Achievements_UnlockedAchievement? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAchievement, managedBy: pointerManager) { OutAchievement in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyUnlockedAchievementByAchievementId(
-                            Handle,
-                            Options,
-                            OutAchievement
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAchievement in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyUnlockedAchievementByAchievementId(
+                                Handle,
+                                Options,
+                                OutAchievement
+                            ) } } },
+                release: EOS_Achievements_UnlockedAchievement_Release
+            ) }
     }
 
     /**
@@ -297,18 +318,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the unlocked achievement is not found
      */
     public func CopyUnlockedAchievementByIndex(
-        Options: SwiftEOS_Achievements_CopyUnlockedAchievementByIndexOptions,
-        OutAchievement: inout SwiftEOS_Achievements_UnlockedAchievement?
-    ) throws {
+        Options: SwiftEOS_Achievements_CopyUnlockedAchievementByIndexOptions
+    ) throws -> SwiftEOS_Achievements_UnlockedAchievement? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAchievement, managedBy: pointerManager) { OutAchievement in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Achievements_CopyUnlockedAchievementByIndex(
-                            Handle,
-                            Options,
-                            OutAchievement
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAchievement in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Achievements_CopyUnlockedAchievementByIndex(
+                                Handle,
+                                Options,
+                                OutAchievement
+                            ) } } },
+                release: EOS_Achievements_UnlockedAchievement_Release
+            ) }
     }
 
     /**

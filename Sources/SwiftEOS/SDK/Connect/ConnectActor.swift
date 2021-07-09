@@ -97,18 +97,21 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserExternalAccountByAccountId(
-        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdOptions,
-        OutExternalAccountInfo: inout SwiftEOS_Connect_ExternalAccountInfo?
-    ) throws {
+        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdOptions
+    ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalAccountInfo, managedBy: pointerManager) { OutExternalAccountInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Connect_CopyProductUserExternalAccountByAccountId(
-                            Handle,
-                            Options,
-                            OutExternalAccountInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalAccountInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Connect_CopyProductUserExternalAccountByAccountId(
+                                Handle,
+                                Options,
+                                OutExternalAccountInfo
+                            ) } } },
+                release: EOS_Connect_ExternalAccountInfo_Release
+            ) }
     }
 
     /**
@@ -126,18 +129,21 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserExternalAccountByAccountType(
-        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions,
-        OutExternalAccountInfo: inout SwiftEOS_Connect_ExternalAccountInfo?
-    ) throws {
+        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions
+    ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalAccountInfo, managedBy: pointerManager) { OutExternalAccountInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Connect_CopyProductUserExternalAccountByAccountType(
-                            Handle,
-                            Options,
-                            OutExternalAccountInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalAccountInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Connect_CopyProductUserExternalAccountByAccountType(
+                                Handle,
+                                Options,
+                                OutExternalAccountInfo
+                            ) } } },
+                release: EOS_Connect_ExternalAccountInfo_Release
+            ) }
     }
 
     /**
@@ -155,18 +161,21 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserExternalAccountByIndex(
-        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions,
-        OutExternalAccountInfo: inout SwiftEOS_Connect_ExternalAccountInfo?
-    ) throws {
+        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions
+    ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalAccountInfo, managedBy: pointerManager) { OutExternalAccountInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Connect_CopyProductUserExternalAccountByIndex(
-                            Handle,
-                            Options,
-                            OutExternalAccountInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalAccountInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Connect_CopyProductUserExternalAccountByIndex(
+                                Handle,
+                                Options,
+                                OutExternalAccountInfo
+                            ) } } },
+                release: EOS_Connect_ExternalAccountInfo_Release
+            ) }
     }
 
     /**
@@ -184,18 +193,21 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserInfo(
-        Options: SwiftEOS_Connect_CopyProductUserInfoOptions,
-        OutExternalAccountInfo: inout SwiftEOS_Connect_ExternalAccountInfo?
-    ) throws {
+        Options: SwiftEOS_Connect_CopyProductUserInfoOptions
+    ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalAccountInfo, managedBy: pointerManager) { OutExternalAccountInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Connect_CopyProductUserInfo(
-                            Handle,
-                            Options,
-                            OutExternalAccountInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalAccountInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Connect_CopyProductUserInfo(
+                                Handle,
+                                Options,
+                                OutExternalAccountInfo
+                            ) } } },
+                release: EOS_Connect_ExternalAccountInfo_Release
+            ) }
     }
 
     /**

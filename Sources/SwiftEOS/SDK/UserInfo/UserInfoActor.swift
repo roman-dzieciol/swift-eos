@@ -27,18 +27,21 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      *         EOS_NotFound if the external user info is not found
      */
     public func CopyExternalUserInfoByAccountId(
-        Options: SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions,
-        OutExternalUserInfo: inout SwiftEOS_UserInfo_ExternalUserInfo?
-    ) throws {
+        Options: SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalUserInfo, managedBy: pointerManager) { OutExternalUserInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_UserInfo_CopyExternalUserInfoByAccountId(
-                            Handle,
-                            Options,
-                            OutExternalUserInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalUserInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_UserInfo_CopyExternalUserInfoByAccountId(
+                                Handle,
+                                Options,
+                                OutExternalUserInfo
+                            ) } } },
+                release: EOS_UserInfo_ExternalUserInfo_Release
+            ) }
     }
 
     /**
@@ -54,18 +57,21 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      *         EOS_NotFound if the external user info is not found
      */
     public func CopyExternalUserInfoByAccountType(
-        Options: SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeOptions,
-        OutExternalUserInfo: inout SwiftEOS_UserInfo_ExternalUserInfo?
-    ) throws {
+        Options: SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeOptions
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalUserInfo, managedBy: pointerManager) { OutExternalUserInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_UserInfo_CopyExternalUserInfoByAccountType(
-                            Handle,
-                            Options,
-                            OutExternalUserInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalUserInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_UserInfo_CopyExternalUserInfoByAccountType(
+                                Handle,
+                                Options,
+                                OutExternalUserInfo
+                            ) } } },
+                release: EOS_UserInfo_ExternalUserInfo_Release
+            ) }
     }
 
     /**
@@ -81,18 +87,21 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      *         EOS_NotFound if the external user info is not found
      */
     public func CopyExternalUserInfoByIndex(
-        Options: SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptions,
-        OutExternalUserInfo: inout SwiftEOS_UserInfo_ExternalUserInfo?
-    ) throws {
+        Options: SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptions
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutExternalUserInfo, managedBy: pointerManager) { OutExternalUserInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_UserInfo_CopyExternalUserInfoByIndex(
-                            Handle,
-                            Options,
-                            OutExternalUserInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutExternalUserInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_UserInfo_CopyExternalUserInfoByIndex(
+                                Handle,
+                                Options,
+                                OutExternalUserInfo
+                            ) } } },
+                release: EOS_UserInfo_ExternalUserInfo_Release
+            ) }
     }
 
     /**
@@ -112,18 +121,21 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * @see EOS_UserInfo_Release
      */
     public func CopyUserInfo(
-        Options: SwiftEOS_UserInfo_CopyUserInfoOptions,
-        OutUserInfo: inout SwiftEOS_UserInfo?
-    ) throws {
+        Options: SwiftEOS_UserInfo_CopyUserInfoOptions
+    ) throws -> SwiftEOS_UserInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutUserInfo, managedBy: pointerManager) { OutUserInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_UserInfo_CopyUserInfo(
-                            Handle,
-                            Options,
-                            OutUserInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutUserInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_UserInfo_CopyUserInfo(
+                                Handle,
+                                Options,
+                                OutUserInfo
+                            ) } } },
+                release: EOS_UserInfo_Release
+            ) }
     }
 
     /**

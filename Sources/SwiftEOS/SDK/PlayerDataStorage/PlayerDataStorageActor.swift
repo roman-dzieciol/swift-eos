@@ -26,18 +26,21 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
      * @see EOS_PlayerDataStorage_FileMetadata_Release
      */
     public func CopyFileMetadataAtIndex(
-        CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions?,
-        OutMetadata: inout SwiftEOS_PlayerDataStorage_FileMetadata?
-    ) throws {
+        CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions?
+    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutMetadata, managedBy: pointerManager) { OutMetadata in
-                try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
-                    try throwingSdkResult { 
-                        EOS_PlayerDataStorage_CopyFileMetadataAtIndex(
-                            Handle,
-                            CopyFileMetadataOptions,
-                            OutMetadata
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutMetadata in
+                    try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
+                        try throwingSdkResult { 
+                            EOS_PlayerDataStorage_CopyFileMetadataAtIndex(
+                                Handle,
+                                CopyFileMetadataOptions,
+                                OutMetadata
+                            ) } } },
+                release: EOS_PlayerDataStorage_FileMetadata_Release
+            ) }
     }
 
     /**
@@ -49,18 +52,21 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
      * @return EOS_EResult::EOS_Success if the metadata is currently cached, otherwise an error result explaining what went wrong
      */
     public func CopyFileMetadataByFilename(
-        CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameOptions?,
-        OutMetadata: inout SwiftEOS_PlayerDataStorage_FileMetadata?
-    ) throws {
+        CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameOptions?
+    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutMetadata, managedBy: pointerManager) { OutMetadata in
-                try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
-                    try throwingSdkResult { 
-                        EOS_PlayerDataStorage_CopyFileMetadataByFilename(
-                            Handle,
-                            CopyFileMetadataOptions,
-                            OutMetadata
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutMetadata in
+                    try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
+                        try throwingSdkResult { 
+                            EOS_PlayerDataStorage_CopyFileMetadataByFilename(
+                                Handle,
+                                CopyFileMetadataOptions,
+                                OutMetadata
+                            ) } } },
+                release: EOS_PlayerDataStorage_FileMetadata_Release
+            ) }
     }
 
     /**

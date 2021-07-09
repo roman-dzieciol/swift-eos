@@ -64,18 +64,21 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user is not found or the index is invalid
      */
     public func CopyPermissionByIndex(
-        Options: SwiftEOS_KWS_CopyPermissionByIndexOptions,
-        OutPermission: inout SwiftEOS_KWS_PermissionStatus?
-    ) throws {
+        Options: SwiftEOS_KWS_CopyPermissionByIndexOptions
+    ) throws -> SwiftEOS_KWS_PermissionStatus? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutPermission, managedBy: pointerManager) { OutPermission in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_KWS_CopyPermissionByIndex(
-                            Handle,
-                            Options,
-                            OutPermission
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutPermission in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_KWS_CopyPermissionByIndex(
+                                Handle,
+                                Options,
+                                OutPermission
+                            ) } } },
+                release: EOS_KWS_PermissionStatus_Release
+            ) }
     }
 
     /**

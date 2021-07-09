@@ -30,18 +30,21 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user token is not found
      */
     public func CopyUserTokenByIndex(
-        Options: SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions,
-        OutUserToken: inout SwiftEOS_RTCAdmin_UserToken?
-    ) throws {
+        Options: SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions
+    ) throws -> SwiftEOS_RTCAdmin_UserToken? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutUserToken, managedBy: pointerManager) { OutUserToken in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_RTCAdmin_CopyUserTokenByIndex(
-                            Handle,
-                            Options,
-                            OutUserToken
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutUserToken in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_RTCAdmin_CopyUserTokenByIndex(
+                                Handle,
+                                Options,
+                                OutUserToken
+                            ) } } },
+                release: EOS_RTCAdmin_UserToken_Release
+            ) }
     }
 
     /**
@@ -57,18 +60,21 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user token is not found
      */
     public func CopyUserTokenByUserId(
-        Options: SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions,
-        OutUserToken: inout SwiftEOS_RTCAdmin_UserToken?
-    ) throws {
+        Options: SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions
+    ) throws -> SwiftEOS_RTCAdmin_UserToken? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutUserToken, managedBy: pointerManager) { OutUserToken in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_RTCAdmin_CopyUserTokenByUserId(
-                            Handle,
-                            Options,
-                            OutUserToken
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutUserToken in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_RTCAdmin_CopyUserTokenByUserId(
+                                Handle,
+                                Options,
+                                OutUserToken
+                            ) } } },
+                release: EOS_RTCAdmin_UserToken_Release
+            ) }
     }
 
     /**

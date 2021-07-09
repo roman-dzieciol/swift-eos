@@ -30,18 +30,21 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      *         EOS_NotFound if the player achievement is not found
      */
     public func CopyPlayerSanctionByIndex(
-        Options: SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions,
-        OutSanction: inout SwiftEOS_Sanctions_PlayerSanction?
-    ) throws {
+        Options: SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions
+    ) throws -> SwiftEOS_Sanctions_PlayerSanction? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutSanction, managedBy: pointerManager) { OutSanction in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sanctions_CopyPlayerSanctionByIndex(
-                            Handle,
-                            Options,
-                            OutSanction
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutSanction in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sanctions_CopyPlayerSanctionByIndex(
+                                Handle,
+                                Options,
+                                OutSanction
+                            ) } } },
+                release: EOS_Sanctions_PlayerSanction_Release
+            ) }
     }
 
     /**

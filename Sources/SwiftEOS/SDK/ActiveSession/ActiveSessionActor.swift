@@ -31,18 +31,21 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * @see EOS_ActiveSession_Info_Release
      */
     public func CopyInfo(
-        Options: SwiftEOS_ActiveSession_CopyInfoOptions,
-        OutActiveSessionInfo: inout SwiftEOS_ActiveSession_Info?
-    ) throws {
+        Options: SwiftEOS_ActiveSession_CopyInfoOptions
+    ) throws -> SwiftEOS_ActiveSession_Info? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutActiveSessionInfo, managedBy: pointerManager) { OutActiveSessionInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_ActiveSession_CopyInfo(
-                            Handle,
-                            Options,
-                            OutActiveSessionInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutActiveSessionInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_ActiveSession_CopyInfo(
+                                Handle,
+                                Options,
+                                OutActiveSessionInfo
+                            ) } } },
+                release: EOS_ActiveSession_Info_Release
+            ) }
     }
 
     /**

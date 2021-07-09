@@ -31,18 +31,21 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Info_Release
      */
     public func CopyInfo(
-        Options: SwiftEOS_SessionDetails_CopyInfoOptions,
-        OutSessionInfo: inout SwiftEOS_SessionDetails_Info?
-    ) throws {
+        Options: SwiftEOS_SessionDetails_CopyInfoOptions
+    ) throws -> SwiftEOS_SessionDetails_Info? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutSessionInfo, managedBy: pointerManager) { OutSessionInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_SessionDetails_CopyInfo(
-                            Handle,
-                            Options,
-                            OutSessionInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutSessionInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_SessionDetails_CopyInfo(
+                                Handle,
+                                Options,
+                                OutSessionInfo
+                            ) } } },
+                release: EOS_SessionDetails_Info_Release
+            ) }
     }
 
     /**
@@ -61,18 +64,21 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Attribute_Release
      */
     public func CopySessionAttributeByIndex(
-        Options: SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions,
-        OutSessionAttribute: inout SwiftEOS_SessionDetails_Attribute?
-    ) throws {
+        Options: SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions
+    ) throws -> SwiftEOS_SessionDetails_Attribute? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutSessionAttribute, managedBy: pointerManager) { OutSessionAttribute in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_SessionDetails_CopySessionAttributeByIndex(
-                            Handle,
-                            Options,
-                            OutSessionAttribute
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutSessionAttribute in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_SessionDetails_CopySessionAttributeByIndex(
+                                Handle,
+                                Options,
+                                OutSessionAttribute
+                            ) } } },
+                release: EOS_SessionDetails_Attribute_Release
+            ) }
     }
 
     /**
@@ -91,18 +97,21 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Attribute_Release
      */
     public func CopySessionAttributeByKey(
-        Options: SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions,
-        OutSessionAttribute: inout SwiftEOS_SessionDetails_Attribute?
-    ) throws {
+        Options: SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions
+    ) throws -> SwiftEOS_SessionDetails_Attribute? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutSessionAttribute, managedBy: pointerManager) { OutSessionAttribute in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_SessionDetails_CopySessionAttributeByKey(
-                            Handle,
-                            Options,
-                            OutSessionAttribute
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutSessionAttribute in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_SessionDetails_CopySessionAttributeByKey(
+                                Handle,
+                                Options,
+                                OutSessionAttribute
+                            ) } } },
+                release: EOS_SessionDetails_Attribute_Release
+            ) }
     }
 
     /**

@@ -26,18 +26,21 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
      * This request may fail with an EOS_NotFound code if an enumeration of a certain type was not performed before this call.
      */
     public func CopyModInfo(
-        Options: SwiftEOS_Mods_CopyModInfoOptions,
-        OutEnumeratedMods: inout SwiftEOS_Mods_ModInfo?
-    ) throws {
+        Options: SwiftEOS_Mods_CopyModInfoOptions
+    ) throws -> SwiftEOS_Mods_ModInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutEnumeratedMods, managedBy: pointerManager) { OutEnumeratedMods in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Mods_CopyModInfo(
-                            Handle,
-                            Options,
-                            OutEnumeratedMods
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutEnumeratedMods in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Mods_CopyModInfo(
+                                Handle,
+                                Options,
+                                OutEnumeratedMods
+                            ) } } },
+                release: EOS_Mods_ModInfo_Release
+            ) }
     }
 
     /**

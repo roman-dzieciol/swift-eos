@@ -31,18 +31,21 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyAttributeByIndex(
-        Options: SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions,
-        OutAttribute: inout SwiftEOS_Lobby_Attribute?
-    ) throws {
+        Options: SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions
+    ) throws -> SwiftEOS_Lobby_Attribute? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAttribute, managedBy: pointerManager) { OutAttribute in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_LobbyDetails_CopyAttributeByIndex(
-                            Handle,
-                            Options,
-                            OutAttribute
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAttribute in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_LobbyDetails_CopyAttributeByIndex(
+                                Handle,
+                                Options,
+                                OutAttribute
+                            ) } } },
+                release: EOS_Lobby_Attribute_Release
+            ) }
     }
 
     /**
@@ -61,18 +64,21 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyAttributeByKey(
-        Options: SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions,
-        OutAttribute: inout SwiftEOS_Lobby_Attribute?
-    ) throws {
+        Options: SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions
+    ) throws -> SwiftEOS_Lobby_Attribute? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAttribute, managedBy: pointerManager) { OutAttribute in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_LobbyDetails_CopyAttributeByKey(
-                            Handle,
-                            Options,
-                            OutAttribute
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAttribute in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_LobbyDetails_CopyAttributeByKey(
+                                Handle,
+                                Options,
+                                OutAttribute
+                            ) } } },
+                release: EOS_Lobby_Attribute_Release
+            ) }
     }
 
     /**
@@ -91,18 +97,21 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_Info_Release
      */
     public func CopyInfo(
-        Options: SwiftEOS_LobbyDetails_CopyInfoOptions,
-        OutLobbyDetailsInfo: inout SwiftEOS_LobbyDetails_Info?
-    ) throws {
+        Options: SwiftEOS_LobbyDetails_CopyInfoOptions
+    ) throws -> SwiftEOS_LobbyDetails_Info? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutLobbyDetailsInfo, managedBy: pointerManager) { OutLobbyDetailsInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_LobbyDetails_CopyInfo(
-                            Handle,
-                            Options,
-                            OutLobbyDetailsInfo
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutLobbyDetailsInfo in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_LobbyDetails_CopyInfo(
+                                Handle,
+                                Options,
+                                OutLobbyDetailsInfo
+                            ) } } },
+                release: EOS_LobbyDetails_Info_Release
+            ) }
     }
 
     /**
@@ -121,18 +130,21 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyMemberAttributeByIndex(
-        Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions,
-        OutAttribute: inout SwiftEOS_Lobby_Attribute?
-    ) throws {
+        Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions
+    ) throws -> SwiftEOS_Lobby_Attribute? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAttribute, managedBy: pointerManager) { OutAttribute in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_LobbyDetails_CopyMemberAttributeByIndex(
-                            Handle,
-                            Options,
-                            OutAttribute
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAttribute in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_LobbyDetails_CopyMemberAttributeByIndex(
+                                Handle,
+                                Options,
+                                OutAttribute
+                            ) } } },
+                release: EOS_Lobby_Attribute_Release
+            ) }
     }
 
     /**
@@ -151,18 +163,21 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyMemberAttributeByKey(
-        Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions,
-        OutAttribute: inout SwiftEOS_Lobby_Attribute?
-    ) throws {
+        Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions
+    ) throws -> SwiftEOS_Lobby_Attribute? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutAttribute, managedBy: pointerManager) { OutAttribute in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_LobbyDetails_CopyMemberAttributeByKey(
-                            Handle,
-                            Options,
-                            OutAttribute
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutAttribute in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_LobbyDetails_CopyMemberAttributeByKey(
+                                Handle,
+                                Options,
+                                OutAttribute
+                            ) } } },
+                release: EOS_Lobby_Attribute_Release
+            ) }
     }
 
     /**

@@ -63,19 +63,22 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      */
     public func CopyUserAuthToken(
         Options: SwiftEOS_Auth_CopyUserAuthTokenOptions,
-        LocalUserId: EOS_EpicAccountId,
-        OutUserAuthToken: inout SwiftEOS_Auth_Token?
-    ) throws {
+        LocalUserId: EOS_EpicAccountId
+    ) throws -> SwiftEOS_Auth_Token? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutUserAuthToken, managedBy: pointerManager) { OutUserAuthToken in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Auth_CopyUserAuthToken(
-                            Handle,
-                            Options,
-                            LocalUserId,
-                            OutUserAuthToken
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutUserAuthToken in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Auth_CopyUserAuthToken(
+                                Handle,
+                                Options,
+                                LocalUserId,
+                                OutUserAuthToken
+                            ) } } },
+                release: EOS_Auth_Token_Release
+            ) }
     }
 
     /**

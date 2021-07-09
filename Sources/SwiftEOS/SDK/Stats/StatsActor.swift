@@ -27,18 +27,21 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      *         EOS_NotFound if the stat is not found
      */
     public func CopyStatByIndex(
-        Options: SwiftEOS_Stats_CopyStatByIndexOptions,
-        OutStat: inout SwiftEOS_Stats_Stat?
-    ) throws {
+        Options: SwiftEOS_Stats_CopyStatByIndexOptions
+    ) throws -> SwiftEOS_Stats_Stat? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutStat, managedBy: pointerManager) { OutStat in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Stats_CopyStatByIndex(
-                            Handle,
-                            Options,
-                            OutStat
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutStat in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Stats_CopyStatByIndex(
+                                Handle,
+                                Options,
+                                OutStat
+                            ) } } },
+                release: EOS_Stats_Stat_Release
+            ) }
     }
 
     /**
@@ -54,18 +57,21 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      *         EOS_NotFound if the stat is not found
      */
     public func CopyStatByName(
-        Options: SwiftEOS_Stats_CopyStatByNameOptions,
-        OutStat: inout SwiftEOS_Stats_Stat?
-    ) throws {
+        Options: SwiftEOS_Stats_CopyStatByNameOptions
+    ) throws -> SwiftEOS_Stats_Stat? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerFromInOutSwiftObject(&OutStat, managedBy: pointerManager) { OutStat in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Stats_CopyStatByName(
-                            Handle,
-                            Options,
-                            OutStat
-                        ) } } } }
+            try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                managedBy: pointerManager,
+                nest: { OutStat in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Stats_CopyStatByName(
+                                Handle,
+                                Options,
+                                OutStat
+                            ) } } },
+                release: EOS_Stats_Stat_Release
+            ) }
     }
 
     /**

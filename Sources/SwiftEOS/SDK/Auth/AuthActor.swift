@@ -26,7 +26,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyLoginStatusChanged(
-        Options: SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions,
         Notification: @escaping (SwiftEOS_Auth_LoginStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Auth_LoginStatusChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -34,7 +33,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
                 notification: Notification,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_Auth_AddNotifyLoginStatusChanged(
                             Handle,
                             Options,
@@ -62,14 +61,13 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      */
     public func CopyUserAuthToken(
-        Options: SwiftEOS_Auth_CopyUserAuthTokenOptions,
         LocalUserId: EOS_EpicAccountId
     ) throws -> SwiftEOS_Auth_Token? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
                 managedBy: pointerManager,
                 nest: { OutUserAuthToken in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Auth_CopyUserAuthTokenOptions(), managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Auth_CopyUserAuthToken(
                                 Handle,

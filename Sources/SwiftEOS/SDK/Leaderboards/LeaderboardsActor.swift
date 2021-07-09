@@ -204,13 +204,11 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * @return Number of leaderboards or 0 if there is an error
      */
-    public func GetLeaderboardDefinitionCount(
-        Options: SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountOptions
-    ) throws -> Int {
+    public func GetLeaderboardDefinitionCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Leaderboards_GetLeaderboardDefinitionCount(
                             Handle,
                             Options
@@ -230,13 +228,11 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * @return Number of leaderboard records or 0 if there is an error
      */
-    public func GetLeaderboardRecordCount(
-        Options: SwiftEOS_Leaderboards_GetLeaderboardRecordCountOptions
-    ) throws -> Int {
+    public func GetLeaderboardRecordCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Leaderboards_GetLeaderboardRecordCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Leaderboards_GetLeaderboardRecordCount(
                             Handle,
                             Options

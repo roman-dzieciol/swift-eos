@@ -96,14 +96,12 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_CopyInfoOptions
      * @see EOS_LobbyDetails_Info_Release
      */
-    public func CopyInfo(
-        Options: SwiftEOS_LobbyDetails_CopyInfoOptions
-    ) throws -> SwiftEOS_LobbyDetails_Info? {
+    public func CopyInfo() throws -> SwiftEOS_LobbyDetails_Info? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
                 managedBy: pointerManager,
                 nest: { OutLobbyDetailsInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_CopyInfoOptions(), managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_LobbyDetails_CopyInfo(
                                 Handle,
@@ -187,13 +185,11 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * @return number of attributes on the lobby or 0 if there is an error
      */
-    public func GetAttributeCount(
-        Options: SwiftEOS_LobbyDetails_GetAttributeCountOptions
-    ) throws -> Int {
+    public func GetAttributeCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetAttributeCountOptions(), managedBy: pointerManager) { Options in
                         EOS_LobbyDetails_GetAttributeCount(
                             Handle,
                             Options
@@ -210,11 +206,9 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * @return the product user ID for the lobby owner or null if the input parameters are invalid
      */
-    public func GetLobbyOwner(
-        Options: SwiftEOS_LobbyDetails_GetLobbyOwnerOptions
-    ) throws -> EOS_ProductUserId {
+    public func GetLobbyOwner() throws -> EOS_ProductUserId {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetLobbyOwnerOptions(), managedBy: pointerManager) { Options in
                 EOS_LobbyDetails_GetLobbyOwner(
                     Handle,
                     Options
@@ -275,13 +269,11 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * @return number of members in the existing lobby or 0 if there is an error
      */
-    public func GetMemberCount(
-        Options: SwiftEOS_LobbyDetails_GetMemberCountOptions
-    ) throws -> Int {
+    public func GetMemberCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetMemberCountOptions(), managedBy: pointerManager) { Options in
                         EOS_LobbyDetails_GetMemberCount(
                             Handle,
                             Options

@@ -27,7 +27,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyPermissionsUpdateReceived(
-        Options: SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions,
         NotificationFn: @escaping (SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -35,7 +34,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_KWS_AddNotifyPermissionsUpdateReceived(
                             Handle,
                             Options,
@@ -174,12 +173,11 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_TooManyRequests if the number of allowed queries is exceeded
      */
     public func QueryAgeGate(
-        Options: SwiftEOS_KWS_QueryAgeGateOptions,
         CompletionDelegate: @escaping (SwiftEOS_KWS_QueryAgeGateCallbackInfo) -> Void
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_KWS_QueryAgeGateOptions(), managedBy: pointerManager) { Options in
                     EOS_KWS_QueryAgeGate(
                         Handle,
                         Options,

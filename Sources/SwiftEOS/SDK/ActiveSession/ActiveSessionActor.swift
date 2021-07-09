@@ -30,14 +30,12 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * @see EOS_ActiveSession_CopyInfoOptions
      * @see EOS_ActiveSession_Info_Release
      */
-    public func CopyInfo(
-        Options: SwiftEOS_ActiveSession_CopyInfoOptions
-    ) throws -> SwiftEOS_ActiveSession_Info? {
+    public func CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
                 managedBy: pointerManager,
                 nest: { OutActiveSessionInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_CopyInfoOptions(), managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_ActiveSession_CopyInfo(
                                 Handle,
@@ -76,13 +74,11 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * 
      * @return number of registered players in the active session or 0 if there is an error
      */
-    public func GetRegisteredPlayerCount(
-        Options: SwiftEOS_ActiveSession_GetRegisteredPlayerCountOptions
-    ) throws -> Int {
+    public func GetRegisteredPlayerCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_GetRegisteredPlayerCountOptions(), managedBy: pointerManager) { Options in
                         EOS_ActiveSession_GetRegisteredPlayerCount(
                             Handle,
                             Options

@@ -24,7 +24,6 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyClientActionRequired(
-        Options: SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -32,7 +31,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatServer_AddNotifyClientActionRequired(
                             Handle,
                             Options,
@@ -55,7 +54,6 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyClientAuthStatusChanged(
-        Options: SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -63,7 +61,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged(
                             Handle,
                             Options,
@@ -86,7 +84,6 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyMessageToClient(
-        Options: SwiftEOS_AntiCheatServer_AddNotifyMessageToClientOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -94,7 +91,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatServer_AddNotifyMessageToClientOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatServer_AddNotifyMessageToClient(
                             Handle,
                             Options,
@@ -136,11 +133,9 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * @return EOS_Success - If the initialization succeeded
      *         EOS_InvalidParameters - If input data was invalid
      */
-    public func EndSession(
-        Options: SwiftEOS_AntiCheatServer_EndSessionOptions
-    ) throws {
+    public func EndSession() throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatServer_EndSessionOptions(), managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatServer_EndSession(
                         Handle,

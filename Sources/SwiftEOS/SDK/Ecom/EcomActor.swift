@@ -761,13 +761,11 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * @return the number of entitlements found.
      */
-    public func Transaction_GetEntitlementsCount(
-        Options: SwiftEOS_Ecom_Transaction_GetEntitlementsCountOptions
-    ) throws -> Int {
+    public func Transaction_GetEntitlementsCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Ecom_Transaction_GetEntitlementsCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Ecom_Transaction_GetEntitlementsCount(
                             Handle,
                             Options

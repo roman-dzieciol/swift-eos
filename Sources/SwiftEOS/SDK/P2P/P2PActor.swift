@@ -45,7 +45,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyIncomingPacketQueueFull(
-        Options: SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions,
         IncomingPacketQueueFullHandler: @escaping (SwiftEOS_P2P_OnIncomingPacketQueueFullInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_P2P_OnIncomingPacketQueueFullInfo> {
         try withPointerManager { pointerManager in
@@ -53,7 +52,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
                 notification: IncomingPacketQueueFullHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions(), managedBy: pointerManager) { Options in
                         EOS_P2P_AddNotifyIncomingPacketQueueFull(
                             Handle,
                             Options,
@@ -173,12 +172,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * @return EOS_EResult::EOS_Success - if we have cached data
      *         EOS_EResult::EOS_NotFound - If we do not have queried data cached
      */
-    public func GetNATType(
-        Options: SwiftEOS_P2P_GetNATTypeOptions
-    ) throws -> EOS_ENATType? {
+    public func GetNATType() throws -> EOS_ENATType? {
         try withPointerManager { pointerManager in
             try withPointeeReturned(managedBy: pointerManager) { OutNATType in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetNATTypeOptions(), managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetNATType(
                             Handle,
@@ -219,12 +216,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * @return EOS_EResult::EOS_Success - if the input options were valid
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
-    public func GetPacketQueueInfo(
-        Options: SwiftEOS_P2P_GetPacketQueueInfoOptions
-    ) throws -> _tagEOS_P2P_PacketQueueInfo? {
+    public func GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo? {
         try withPointerManager { pointerManager in
             try withPointeeReturned(managedBy: pointerManager) { OutPacketQueueInfo in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPacketQueueInfoOptions(), managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetPacketQueueInfo(
                             Handle,
@@ -243,14 +238,13 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
     public func GetPortRange(
-        Options: SwiftEOS_P2P_GetPortRangeOptions,
         OutPort: inout UInt16?,
         OutNumAdditionalPortsToTry: inout UInt16?
     ) throws {
         try withPointerManager { pointerManager in
             try withIntPointerFromInOutOptionalInt(&OutNumAdditionalPortsToTry) { OutNumAdditionalPortsToTry in
                 try withIntPointerFromInOutOptionalInt(&OutPort) { OutPort in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPortRangeOptions(), managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_P2P_GetPortRange(
                                 Handle,
@@ -268,12 +262,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * @return EOS_EResult::EOS_Success - if the input was valid
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
-    public func GetRelayControl(
-        Options: SwiftEOS_P2P_GetRelayControlOptions
-    ) throws -> EOS_ERelayControl? {
+    public func GetRelayControl() throws -> EOS_ERelayControl? {
         try withPointerManager { pointerManager in
             try withPointeeReturned(managedBy: pointerManager) { OutRelayControl in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetRelayControlOptions(), managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetRelayControl(
                             Handle,
@@ -290,12 +282,11 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * - Parameter CompletionDelegate:  The callback to be fired when we finish querying our NAT type
      */
     public func QueryNATType(
-        Options: SwiftEOS_P2P_QueryNATTypeOptions,
         CompletionDelegate: @escaping (SwiftEOS_P2P_OnQueryNATTypeCompleteInfo) -> Void
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_QueryNATTypeOptions(), managedBy: pointerManager) { Options in
                     EOS_P2P_QueryNATType(
                         Handle,
                         Options,

@@ -26,7 +26,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyJoinSessionAccepted(
-        Options: SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedOptions,
         NotificationFn: @escaping (SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -34,7 +33,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Sessions_AddNotifyJoinSessionAccepted(
                             Handle,
                             Options,
@@ -59,7 +58,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifySessionInviteAccepted(
-        Options: SwiftEOS_Sessions_AddNotifySessionInviteAcceptedOptions,
         NotificationFn: @escaping (SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -67,7 +65,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifySessionInviteAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Sessions_AddNotifySessionInviteAccepted(
                             Handle,
                             Options,
@@ -92,7 +90,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifySessionInviteReceived(
-        Options: SwiftEOS_Sessions_AddNotifySessionInviteReceivedOptions,
         NotificationFn: @escaping (SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -100,7 +97,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifySessionInviteReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Sessions_AddNotifySessionInviteReceived(
                             Handle,
                             Options,

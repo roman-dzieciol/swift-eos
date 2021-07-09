@@ -47,7 +47,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyMessageToPeer(
-        Options: SwiftEOS_AntiCheatClient_AddNotifyMessageToPeerOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -55,7 +54,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyMessageToPeerOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyMessageToPeer(
                             Handle,
                             Options,
@@ -79,7 +78,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyMessageToServer(
-        Options: SwiftEOS_AntiCheatClient_AddNotifyMessageToServerOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -87,7 +85,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyMessageToServerOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyMessageToServer(
                             Handle,
                             Options,
@@ -111,7 +109,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyPeerActionRequired(
-        Options: SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -119,7 +116,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyPeerActionRequired(
                             Handle,
                             Options,
@@ -143,7 +140,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyPeerAuthStatusChanged(
-        Options: SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions,
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -151,7 +147,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged(
                             Handle,
                             Options,
@@ -199,11 +195,9 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
-    public func EndSession(
-        Options: SwiftEOS_AntiCheatClient_EndSessionOptions
-    ) throws {
+    public func EndSession() throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_EndSessionOptions(), managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_EndSession(
                         Handle,

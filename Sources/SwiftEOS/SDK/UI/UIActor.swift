@@ -48,7 +48,6 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyDisplaySettingsUpdated(
-        Options: SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions,
         NotificationFn: @escaping (SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -56,7 +55,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions(), managedBy: pointerManager) { Options in
                         EOS_UI_AddNotifyDisplaySettingsUpdated(
                             Handle,
                             Options,
@@ -110,11 +109,9 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * @return A valid key combination which represent a single key with zero or more modifier keys.
      *         EOS_UIK_None will be returned if any error occurs.
      */
-    public func GetToggleFriendsKey(
-        Options: SwiftEOS_UI_GetToggleFriendsKeyOptions
-    ) throws -> EOS_UI_EKeyCombination {
+    public func GetToggleFriendsKey() throws -> EOS_UI_EKeyCombination {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_UI_GetToggleFriendsKeyOptions(), managedBy: pointerManager) { Options in
                 EOS_UI_GetToggleFriendsKey(
                     Handle,
                     Options

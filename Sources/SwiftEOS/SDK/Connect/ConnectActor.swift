@@ -28,7 +28,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * @return handle representing the registered callback.
      */
     public func AddNotifyAuthExpiration(
-        Options: SwiftEOS_Connect_AddNotifyAuthExpirationOptions,
         Notification: @escaping (SwiftEOS_Connect_AuthExpirationCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Connect_AuthExpirationCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -36,7 +35,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
                 notification: Notification,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Connect_AddNotifyAuthExpirationOptions(), managedBy: pointerManager) { Options in
                         EOS_Connect_AddNotifyAuthExpiration(
                             Handle,
                             Options,
@@ -61,7 +60,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * @return handle representing the registered callback.
      */
     public func AddNotifyLoginStatusChanged(
-        Options: SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions,
         Notification: @escaping (SwiftEOS_Connect_LoginStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Connect_LoginStatusChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -69,7 +67,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
                 notification: Notification,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_Connect_AddNotifyLoginStatusChanged(
                             Handle,
                             Options,
@@ -282,12 +280,11 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter CompletionDelegate:  a callback that is fired when the delete operation completes, either successfully or in error
      */
     public func DeleteDeviceId(
-        Options: SwiftEOS_Connect_DeleteDeviceIdOptions,
         CompletionDelegate: @escaping (SwiftEOS_Connect_DeleteDeviceIdCallbackInfo) -> Void
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Connect_DeleteDeviceIdOptions(), managedBy: pointerManager) { Options in
                     EOS_Connect_DeleteDeviceId(
                         Handle,
                         Options,

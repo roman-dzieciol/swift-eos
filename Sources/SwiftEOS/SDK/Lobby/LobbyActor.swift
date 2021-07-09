@@ -26,7 +26,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyJoinLobbyAccepted(
-        Options: SwiftEOS_Lobby_AddNotifyJoinLobbyAcceptedOptions,
         NotificationFn: @escaping (SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -34,7 +33,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyJoinLobbyAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyJoinLobbyAccepted(
                             Handle,
                             Options,
@@ -59,7 +58,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyLobbyInviteAccepted(
-        Options: SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions,
         NotificationFn: @escaping (SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -67,7 +65,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyInviteAccepted(
                             Handle,
                             Options,
@@ -92,7 +90,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyLobbyInviteReceived(
-        Options: SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedOptions,
         NotificationFn: @escaping (SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -100,7 +97,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyInviteReceived(
                             Handle,
                             Options,
@@ -125,7 +122,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyLobbyMemberStatusReceived(
-        Options: SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions,
         NotificationFn: @escaping (SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -133,7 +129,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyMemberStatusReceived(
                             Handle,
                             Options,
@@ -158,7 +154,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyLobbyMemberUpdateReceived(
-        Options: SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedOptions,
         NotificationFn: @escaping (SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -166,7 +161,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyMemberUpdateReceived(
                             Handle,
                             Options,
@@ -191,7 +186,6 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyLobbyUpdateReceived(
-        Options: SwiftEOS_Lobby_AddNotifyLobbyUpdateReceivedOptions,
         NotificationFn: @escaping (SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -199,7 +193,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyUpdateReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyUpdateReceived(
                             Handle,
                             Options,

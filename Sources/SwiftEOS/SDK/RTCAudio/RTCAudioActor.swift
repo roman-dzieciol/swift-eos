@@ -97,7 +97,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * @see EOS_RTCAudio_RemoveNotifyAudioDevicesChanged
      */
     public func AddNotifyAudioDevicesChanged(
-        Options: inout SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioDevicesChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioDevicesChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -105,7 +104,7 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioDevicesChanged(
                             Handle,
                             Options,
@@ -255,13 +254,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * @see EOS_RTCAudio_GetAudioInputDeviceByIndex
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
      */
-    public func GetAudioInputDevicesCount(
-        Options: SwiftEOS_RTCAudio_GetAudioInputDevicesCountOptions
-    ) throws -> Int {
+    public func GetAudioInputDevicesCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_GetAudioInputDevicesCountOptions(), managedBy: pointerManager) { Options in
                         EOS_RTCAudio_GetAudioInputDevicesCount(
                             Handle,
                             Options
@@ -306,13 +303,11 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * @see EOS_RTCAudio_GetAudioOutputDeviceByIndex
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
      */
-    public func GetAudioOutputDevicesCount(
-        Options: SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions
-    ) throws -> Int {
+    public func GetAudioOutputDevicesCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions(), managedBy: pointerManager) { Options in
                         EOS_RTCAudio_GetAudioOutputDevicesCount(
                             Handle,
                             Options

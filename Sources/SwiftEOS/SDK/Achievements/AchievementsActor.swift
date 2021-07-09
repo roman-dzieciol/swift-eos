@@ -29,7 +29,6 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyAchievementsUnlocked(
-        Options: SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions,
         NotificationFn: @escaping (SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -37,7 +36,7 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions(), managedBy: pointerManager) { Options in
                         EOS_Achievements_AddNotifyAchievementsUnlocked(
                             Handle,
                             Options,
@@ -64,7 +63,6 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyAchievementsUnlockedV2(
-        Options: SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Options,
         NotificationFn: @escaping (SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info> {
         try withPointerManager { pointerManager in
@@ -72,7 +70,7 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Options(), managedBy: pointerManager) { Options in
                         EOS_Achievements_AddNotifyAchievementsUnlockedV2(
                             Handle,
                             Options,
@@ -344,13 +342,11 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * @return Number of achievement definitions or 0 if there is an error
      */
-    public func GetAchievementDefinitionCount(
-        Options: SwiftEOS_Achievements_GetAchievementDefinitionCountOptions
-    ) throws -> Int {
+    public func GetAchievementDefinitionCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Achievements_GetAchievementDefinitionCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Achievements_GetAchievementDefinitionCount(
                             Handle,
                             Options

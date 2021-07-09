@@ -46,7 +46,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyFriendsUpdate(
-        Options: SwiftEOS_Friends_AddNotifyFriendsUpdateOptions,
         FriendsUpdateHandler: @escaping (SwiftEOS_Friends_OnFriendsUpdateInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Friends_OnFriendsUpdateInfo> {
         try withPointerManager { pointerManager in
@@ -54,7 +53,7 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
                 notification: FriendsUpdateHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Friends_AddNotifyFriendsUpdateOptions(), managedBy: pointerManager) { Options in
                         EOS_Friends_AddNotifyFriendsUpdate(
                             Handle,
                             Options,

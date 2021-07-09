@@ -30,14 +30,12 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_CopyInfoOptions
      * @see EOS_SessionDetails_Info_Release
      */
-    public func CopyInfo(
-        Options: SwiftEOS_SessionDetails_CopyInfoOptions
-    ) throws -> SwiftEOS_SessionDetails_Info? {
+    public func CopyInfo() throws -> SwiftEOS_SessionDetails_Info? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
                 managedBy: pointerManager,
                 nest: { OutSessionInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_SessionDetails_CopyInfoOptions(), managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_SessionDetails_CopyInfo(
                                 Handle,
@@ -121,13 +119,11 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * 
      * @return number of attributes on the session or 0 if there is an error
      */
-    public func GetSessionAttributeCount(
-        Options: SwiftEOS_SessionDetails_GetSessionAttributeCountOptions
-    ) throws -> Int {
+    public func GetSessionAttributeCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_SessionDetails_GetSessionAttributeCountOptions(), managedBy: pointerManager) { Options in
                         EOS_SessionDetails_GetSessionAttributeCount(
                             Handle,
                             Options

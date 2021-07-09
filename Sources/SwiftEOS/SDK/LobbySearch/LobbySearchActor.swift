@@ -78,13 +78,11 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * 
      * @return return the number of search results found by the query or 0 if search is not complete
      */
-    public func GetSearchResultCount(
-        Options: SwiftEOS_LobbySearch_GetSearchResultCountOptions
-    ) throws -> Int {
+    public func GetSearchResultCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbySearch_GetSearchResultCountOptions(), managedBy: pointerManager) { Options in
                         EOS_LobbySearch_GetSearchResultCount(
                             Handle,
                             Options

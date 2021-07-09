@@ -26,7 +26,6 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @return handle representing the registered callback
      */
     public func AddNotifyJoinGameAccepted(
-        Options: SwiftEOS_Presence_AddNotifyJoinGameAcceptedOptions,
         NotificationFn: @escaping (SwiftEOS_Presence_JoinGameAcceptedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Presence_JoinGameAcceptedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -34,7 +33,7 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Presence_AddNotifyJoinGameAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Presence_AddNotifyJoinGameAccepted(
                             Handle,
                             Options,
@@ -59,7 +58,6 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @see EOS_Presence_RemoveNotifyOnPresenceChanged
      */
     public func AddNotifyOnPresenceChanged(
-        Options: SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions,
         NotificationHandler: @escaping (SwiftEOS_Presence_PresenceChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_Presence_PresenceChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -67,7 +65,7 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
                 notification: NotificationHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_Presence_AddNotifyOnPresenceChanged(
                             Handle,
                             Options,

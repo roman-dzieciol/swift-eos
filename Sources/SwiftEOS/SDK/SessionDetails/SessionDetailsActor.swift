@@ -31,6 +31,81 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_Info_Release
      */
     public func CopyInfo() throws -> SwiftEOS_SessionDetails_Info? {
+        try ____CopyInfo()
+    }
+
+    /**
+     * EOS_SessionDetails_CopySessionAttributeByIndex is used to immediately retrieve a copy of session attribution from a given source such as a active session or a search result.
+     * If the call returns an EOS_Success result, the out parameter, OutSessionAttribute, must be passed to EOS_SessionDetails_Attribute_Release to release the memory associated with it.
+     * 
+     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter OutSessionAttribute:  Out parameter used to receive the EOS_SessionDetails_Attribute structure.
+     * 
+     * @return EOS_Success if the information is available and passed out in OutSessionAttribute
+     *         EOS_InvalidParameters if you pass a null pointer for the out parameter
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     * 
+     * @see EOS_SessionDetails_Attribute
+     * @see EOS_SessionDetails_CopySessionAttributeByIndexOptions
+     * @see EOS_SessionDetails_Attribute_Release
+     */
+    public func CopySessionAttributeByIndex(
+        Options: SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions
+    ) throws -> SwiftEOS_SessionDetails_Attribute? {
+        try ____CopySessionAttributeByIndex(Options)
+    }
+
+    /**
+     * EOS_SessionDetails_CopySessionAttributeByKey is used to immediately retrieve a copy of session attribution from a given source such as a active session or a search result.
+     * If the call returns an EOS_Success result, the out parameter, OutSessionAttribute, must be passed to EOS_SessionDetails_Attribute_Release to release the memory associated with it.
+     * 
+     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter OutSessionAttribute:  Out parameter used to receive the EOS_SessionDetails_Attribute structure.
+     * 
+     * @return EOS_Success if the information is available and passed out in OutSessionAttribute
+     *         EOS_InvalidParameters if you pass a null pointer for the out parameter
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     * 
+     * @see EOS_SessionDetails_Attribute
+     * @see EOS_SessionDetails_CopySessionAttributeByKeyOptions
+     * @see EOS_SessionDetails_Attribute_Release
+     */
+    public func CopySessionAttributeByKey(
+        Options: SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions
+    ) throws -> SwiftEOS_SessionDetails_Attribute? {
+        try ____CopySessionAttributeByKey(Options)
+    }
+
+    /**
+     * Get the number of attributes associated with this session
+     * 
+     * - Parameter Options:  the Options associated with retrieving the attribute count
+     * 
+     * @return number of attributes on the session or 0 if there is an error
+     */
+    public func GetSessionAttributeCount() throws -> Int {
+        try ____GetSessionAttributeCount()
+    }
+}
+
+extension SwiftEOS_SessionDetails_Actor {
+
+    /**
+     * EOS_SessionDetails_CopyInfo is used to immediately retrieve a copy of session information from a given source such as a active session or a search result.
+     * If the call returns an EOS_Success result, the out parameter, OutSessionInfo, must be passed to EOS_SessionDetails_Info_Release to release the memory associated with it.
+     * 
+     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter OutSessionInfo:  Out parameter used to receive the EOS_SessionDetails_Info structure.
+     * 
+     * @return EOS_Success if the information is available and passed out in OutSessionInfo
+     *         EOS_InvalidParameters if you pass a null pointer for the out parameter
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     * 
+     * @see EOS_SessionDetails_Info
+     * @see EOS_SessionDetails_CopyInfoOptions
+     * @see EOS_SessionDetails_Info_Release
+     */
+    private func ____CopyInfo() throws -> SwiftEOS_SessionDetails_Info? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
                 managedBy: pointerManager,
@@ -61,8 +136,8 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_CopySessionAttributeByIndexOptions
      * @see EOS_SessionDetails_Attribute_Release
      */
-    public func CopySessionAttributeByIndex(
-        Options: SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions
+    private func ____CopySessionAttributeByIndex(
+        _ Options: SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions
     ) throws -> SwiftEOS_SessionDetails_Attribute? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
@@ -94,8 +169,8 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * @see EOS_SessionDetails_CopySessionAttributeByKeyOptions
      * @see EOS_SessionDetails_Attribute_Release
      */
-    public func CopySessionAttributeByKey(
-        Options: SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions
+    private func ____CopySessionAttributeByKey(
+        _ Options: SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions
     ) throws -> SwiftEOS_SessionDetails_Attribute? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
@@ -119,7 +194,7 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
      * 
      * @return number of attributes on the session or 0 if there is an error
      */
-    public func GetSessionAttributeCount() throws -> Int {
+    private func ____GetSessionAttributeCount() throws -> Int {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 

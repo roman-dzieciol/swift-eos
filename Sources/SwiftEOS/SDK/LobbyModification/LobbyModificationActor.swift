@@ -29,6 +29,134 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     public func AddAttribute(
         Options: SwiftEOS_LobbyModification_AddAttributeOptions
     ) throws {
+        try ____AddAttribute(Options)
+    }
+
+    /**
+     * Associate an attribute with a member of the lobby
+     * Lobby member data is always private to the lobby
+     * 
+     * - Parameter Options:  Options to set the attribute and its visibility state
+     * 
+     * @return EOS_Success if setting this parameter was successful
+     * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func AddMemberAttribute(
+        Options: SwiftEOS_LobbyModification_AddMemberAttributeOptions
+    ) throws {
+        try ____AddMemberAttribute(Options)
+    }
+
+    /**
+     * Remove an attribute associated with the lobby
+     * 
+     * - Parameter Options:  Specify the key of the attribute to remove
+     * 
+     * @return EOS_Success if removing this parameter was successful
+     * 		   EOS_InvalidParameters if the key is null or empty
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func RemoveAttribute(
+        Options: SwiftEOS_LobbyModification_RemoveAttributeOptions
+    ) throws {
+        try ____RemoveAttribute(Options)
+    }
+
+    /**
+     * Remove an attribute associated with of member of the lobby
+     * 
+     * - Parameter Options:  Specify the key of the member attribute to remove
+     * 
+     * @return EOS_Success if removing this parameter was successful
+     * 		   EOS_InvalidParameters if the key is null or empty
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func RemoveMemberAttribute(
+        Options: SwiftEOS_LobbyModification_RemoveMemberAttributeOptions
+    ) throws {
+        try ____RemoveMemberAttribute(Options)
+    }
+
+    /**
+     * Set the bucket ID associated with this lobby.
+     * Values such as region, game mode, etc can be combined here depending on game need.
+     * Setting this is strongly recommended to improve search performance.
+     * 
+     * - Parameter Options:  Options associated with the bucket ID of the lobby
+     * 
+     * @return EOS_Success if setting this parameter was successful
+     *         EOS_InvalidParameters if the bucket ID is invalid or null
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func SetBucketId(
+        Options: SwiftEOS_LobbyModification_SetBucketIdOptions
+    ) throws {
+        try ____SetBucketId(Options)
+    }
+
+    /**
+     * Allows enabling or disabling invites for this lobby.
+     * The lobby will also need to have `bPresenceEnabled` true.
+     * 
+     * - Parameter Options:  Options associated with invites allowed flag for this lobby.
+     * 
+     * @return EOS_Success if setting this parameter was successful
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func SetInvitesAllowed(
+        Options: SwiftEOS_LobbyModification_SetInvitesAllowedOptions
+    ) throws {
+        try ____SetInvitesAllowed(Options)
+    }
+
+    /**
+     * Set the maximum number of members allowed in this lobby.
+     * When updating the lobby, it is not possible to reduce this number below the current number of existing members
+     * 
+     * - Parameter Options:  Options associated with max number of members in this lobby
+     * 
+     * @return EOS_Success if setting this parameter was successful
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func SetMaxMembers(
+        Options: SwiftEOS_LobbyModification_SetMaxMembersOptions
+    ) throws {
+        try ____SetMaxMembers(Options)
+    }
+
+    /**
+     * Set the permissions associated with this lobby.
+     * The permissions range from "public" to "invite only" and are described by EOS_ELobbyPermissionLevel
+     * 
+     * - Parameter Options:  Options associated with the permission level of the lobby
+     * 
+     * @return EOS_Success if setting this parameter was successful
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    public func SetPermissionLevel(
+        Options: SwiftEOS_LobbyModification_SetPermissionLevelOptions
+    ) throws {
+        try ____SetPermissionLevel(Options)
+    }
+}
+
+extension SwiftEOS_LobbyModification_Actor {
+
+    /**
+     * Associate an attribute with this lobby
+     * An attribute is something may be public or private with the lobby.
+     * If public, it can be queried for in a search, otherwise the data remains known only to lobby members
+     * 
+     * - Parameter Options:  Options to set the attribute and its visibility state
+     * 
+     * @return EOS_Success if setting this parameter was successful
+     * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
+     *         EOS_IncompatibleVersion if the API version passed in is incorrect
+     */
+    private func ____AddAttribute(
+        _ Options: SwiftEOS_LobbyModification_AddAttributeOptions
+    ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
@@ -48,8 +176,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func AddMemberAttribute(
-        Options: SwiftEOS_LobbyModification_AddMemberAttributeOptions
+    private func ____AddMemberAttribute(
+        _ Options: SwiftEOS_LobbyModification_AddMemberAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -69,8 +197,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 		   EOS_InvalidParameters if the key is null or empty
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func RemoveAttribute(
-        Options: SwiftEOS_LobbyModification_RemoveAttributeOptions
+    private func ____RemoveAttribute(
+        _ Options: SwiftEOS_LobbyModification_RemoveAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -90,8 +218,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 		   EOS_InvalidParameters if the key is null or empty
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func RemoveMemberAttribute(
-        Options: SwiftEOS_LobbyModification_RemoveMemberAttributeOptions
+    private func ____RemoveMemberAttribute(
+        _ Options: SwiftEOS_LobbyModification_RemoveMemberAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -113,8 +241,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if the bucket ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func SetBucketId(
-        Options: SwiftEOS_LobbyModification_SetBucketIdOptions
+    private func ____SetBucketId(
+        _ Options: SwiftEOS_LobbyModification_SetBucketIdOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -134,8 +262,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * @return EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func SetInvitesAllowed(
-        Options: SwiftEOS_LobbyModification_SetInvitesAllowedOptions
+    private func ____SetInvitesAllowed(
+        _ Options: SwiftEOS_LobbyModification_SetInvitesAllowedOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -155,8 +283,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * @return EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func SetMaxMembers(
-        Options: SwiftEOS_LobbyModification_SetMaxMembersOptions
+    private func ____SetMaxMembers(
+        _ Options: SwiftEOS_LobbyModification_SetMaxMembersOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -176,8 +304,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * @return EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
-    public func SetPermissionLevel(
-        Options: SwiftEOS_LobbyModification_SetPermissionLevelOptions
+    private func ____SetPermissionLevel(
+        _ Options: SwiftEOS_LobbyModification_SetPermissionLevelOptions
     ) throws {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in

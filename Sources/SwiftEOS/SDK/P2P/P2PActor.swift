@@ -220,11 +220,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
     public func GetPacketQueueInfo(
-        Options: SwiftEOS_P2P_GetPacketQueueInfoOptions,
-        OutPacketQueueInfo: inout _tagEOS_P2P_PacketQueueInfo?
-    ) throws {
+        Options: SwiftEOS_P2P_GetPacketQueueInfoOptions
+    ) throws -> _tagEOS_P2P_PacketQueueInfo? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromInOutOptionalSdkObject(&OutPacketQueueInfo, managedBy: pointerManager) { OutPacketQueueInfo in
+            try withPointeeReturned(managedBy: pointerManager) { OutPacketQueueInfo in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetPacketQueueInfo(

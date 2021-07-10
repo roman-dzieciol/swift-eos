@@ -38,16 +38,10 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     /** EOS_TRUE if the achievement is hidden; EOS_FALSE otherwise.  */
     public let bIsHidden: Bool
 
-    /**
-     * The number of stat thresholds used to monitor progress towards this achievement. 
-     * - array buffer: StatThresholds
-     */
+    /** The number of stat thresholds used to monitor progress towards this achievement.  */
     public let StatThresholdsCount: Int
 
-    /**
-     * Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value. 
-     * - array num: StatThresholdsCount
-     */
+    /** Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.  */
     public let StatThresholds: [SwiftEOS_Achievements_StatThresholds]?
 
     /**
@@ -108,9 +102,7 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
      * - Parameter LockedIconURL:  URL of an icon to display for the achievement when it is locked or hidden. This may be null if there is no data configured in the dev portal. 
      * - Parameter bIsHidden:  EOS_TRUE if the achievement is hidden; EOS_FALSE otherwise. 
      * - Parameter StatThresholdsCount:  The number of stat thresholds used to monitor progress towards this achievement. 
-     * - array buffer: StatThresholds
      * - Parameter StatThresholds:  Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value. 
-     * - array num: StatThresholdsCount
      */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST,

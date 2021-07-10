@@ -21,8 +21,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifyAuthExpiration to remove the notification.
      * 
-     * - Parameter Options:  structure containing the API version of the callback to use.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the callback.
      * - Parameter Notification:  a callback that is fired when the authentication is about to expire.
      * 
      * @return handle representing the registered callback.
@@ -38,8 +36,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifyLoginStatusChanged to remove the notification.
      * 
-     * - Parameter Options:  structure containing the API version of the callback to use.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the callback.
      * - Parameter Notification:  a callback that is fired when the login status for a user changes.
      * 
      * @return handle representing the registered callback.
@@ -56,7 +52,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
      * - Parameter AccountId:  External auth service account ID to look for when copying external account info from the cache. 
-     * - Parameter OutExternalAccountInfo:  The external account info data for the user with given external account ID.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -81,7 +76,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
      * - Parameter AccountIdType:  External auth service account type to look for when copying external account info from the cache. 
-     * - Parameter OutExternalAccountInfo:  The external account info data for the user with given external account type.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -106,7 +100,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
      * - Parameter ExternalAccountInfoIndex:  Index of the external account info to retrieve from the cache. 
-     * - Parameter OutExternalAccountInfo:  The external account info data for the user with given index.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -130,7 +123,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
      * - Parameter TargetUserId:  Product user ID to look for when copying external account info from the cache. 
-     * - Parameter OutExternalAccountInfo:  The external account info data last logged in for the user.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -171,7 +163,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * The input string must be in UTF-8 character format, with a maximum
      * length of 64 characters. Longer string will be silently truncated.
      * This field is required to be present.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the create operation completes, either successfully or in error.
      */
     public func CreateDeviceId(
@@ -188,7 +179,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * Create an account association with the Epic Online Service as a product user given their external auth credentials.
      * 
      * - Parameter ContinuanceToken:  Continuance token from previous call to EOS_Connect_Login 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the create operation completes, either successfully or in error.
      */
     public func CreateUser(
@@ -206,8 +196,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * The deletion is permanent and it is not possible to recover lost game data and progression
      * if the Device ID had not been linked with at least one real external user account.
      * 
-     * - Parameter Options:  structure containing operation input parameters
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the delete operation completes, either successfully or in error
      */
     public func DeleteDeviceId(
@@ -293,10 +281,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user that is querying account mappings. 
      * - Parameter AccountIdType:  External auth service mapping to retrieve. 
      * - Parameter TargetProductUserId:  The Product User ID of the user whose information is being requested. 
-     * - Parameter OutBuffer:  The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutUserInfo.
@@ -321,7 +305,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The existing logged in product user for which to link the external account described by the continuance token. 
      * - Parameter ContinuanceToken:  Continuance token from previous call to EOS_Connect_Login. 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the link operation completes, either successfully or in error.
      */
     public func LinkAccount(
@@ -345,7 +328,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter UserLoginInfo:  Additional non-authoritative information about the local user.
      * This field is required to be set and only used when authenticating the user using Apple, Google, Nintendo Account, Nintendo Service Account, Oculus or the Device ID feature login.
      * When using other identity providers, set to NULL.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the login operation completes, either successfully or in error.
      */
     public func Login(
@@ -369,10 +351,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
      * - Parameter ExternalAccountIds:  An array of external account IDs to map to the product user ID representation. 
-     * - array num: ExternalAccountIdCount
      * - Parameter ExternalAccountIdCount:  Number of account IDs to query. 
-     * - array buffer: ExternalAccountIds
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     public func QueryExternalAccountMappings(
@@ -410,10 +389,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType_DEPRECATED:  Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value. 
      * - Parameter ProductUserIds:  An array of Product User IDs to query for the given external account representation. 
-     * - array num: ProductUserIdCount
      * - Parameter ProductUserIdCount:  Number of Product User IDs to query. 
-     * - array buffer: ProductUserIds
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     public func QueryProductUserIdMappings(
@@ -497,7 +473,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * After a successful transfer operation, subsequent logins using the same external account or
      * the same local Device ID login will return user session for the ProductUserIdToPreserve.
      * Set to either PrimaryLocalUserId or LocalDeviceUserId.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the transfer operation completes, either successfully or in error.
      */
     public func TransferDeviceIdAccount(
@@ -539,7 +514,6 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Existing logged in product user that is subject for the unlinking operation.
      * The external account that was used to login to the product user will be unlinked from the owning keychain.
      * On a successful operation, the product user will be logged out as the external account used to authenticate the user was unlinked from the owning keychain.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the unlink operation completes, either successfully or in error.
      */
     public func UnlinkAccount(
@@ -562,8 +536,6 @@ extension SwiftEOS_Connect_Actor {
      * 
      * @note must call RemoveNotifyAuthExpiration to remove the notification.
      * 
-     * - Parameter Options:  structure containing the API version of the callback to use.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the callback.
      * - Parameter Notification:  a callback that is fired when the authentication is about to expire.
      * 
      * @return handle representing the registered callback.
@@ -597,8 +569,6 @@ extension SwiftEOS_Connect_Actor {
      * 
      * @note must call RemoveNotifyLoginStatusChanged to remove the notification.
      * 
-     * - Parameter Options:  structure containing the API version of the callback to use.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the callback.
      * - Parameter Notification:  a callback that is fired when the login status for a user changes.
      * 
      * @return handle representing the registered callback.
@@ -632,7 +602,6 @@ extension SwiftEOS_Connect_Actor {
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
      * - Parameter Options:  Structure containing the target external account ID.
-     * - Parameter OutExternalAccountInfo:  The external account info data for the user with given external account ID.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -664,7 +633,6 @@ extension SwiftEOS_Connect_Actor {
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
      * - Parameter Options:  Structure containing the target external account type.
-     * - Parameter OutExternalAccountInfo:  The external account info data for the user with given external account type.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -696,7 +664,6 @@ extension SwiftEOS_Connect_Actor {
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
      * - Parameter Options:  Structure containing the target index.
-     * - Parameter OutExternalAccountInfo:  The external account info data for the user with given index.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -728,7 +695,6 @@ extension SwiftEOS_Connect_Actor {
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
      * - Parameter Options:  Structure containing the target external account ID.
-     * - Parameter OutExternalAccountInfo:  The external account info data last logged in for the user.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
      * 
@@ -775,7 +741,6 @@ extension SwiftEOS_Connect_Actor {
      * error result is returned and the caller should proceed to calling EOS_Connect_Login directly.
      * 
      * - Parameter Options:  structure containing operation input parameters.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the create operation completes, either successfully or in error.
      */
     private func ____CreateDeviceId(
@@ -798,7 +763,6 @@ extension SwiftEOS_Connect_Actor {
      * Create an account association with the Epic Online Service as a product user given their external auth credentials.
      * 
      * - Parameter Options:  structure containing a continuance token from a "user not found" response during Login (always try login first).
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the create operation completes, either successfully or in error.
      */
     private func ____CreateUser(
@@ -822,8 +786,6 @@ extension SwiftEOS_Connect_Actor {
      * The deletion is permanent and it is not possible to recover lost game data and progression
      * if the Device ID had not been linked with at least one real external user account.
      * 
-     * - Parameter Options:  structure containing operation input parameters
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the delete operation completes, either successfully or in error
      */
     private func ____DeleteDeviceId(
@@ -943,10 +905,6 @@ extension SwiftEOS_Connect_Actor {
      * Fetch an external account ID, in string form, that maps to a given Product User ID.
      * 
      * - Parameter Options:  structure containing the local user and target Product User ID.
-     * - Parameter OutBuffer:  The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutUserInfo.
@@ -973,7 +931,6 @@ extension SwiftEOS_Connect_Actor {
      * Link a set of external auth credentials with an existing product user on the Epic Online Service.
      * 
      * - Parameter Options:  structure containing a continuance token from a "user not found" response during Login (always try login first) and a currently logged in user not already associated with this external auth provider.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the link operation completes, either successfully or in error.
      */
     private func ____LinkAccount(
@@ -996,7 +953,6 @@ extension SwiftEOS_Connect_Actor {
      * Login/Authenticate given a valid set of external auth credentials.
      * 
      * - Parameter Options:  structure containing the external account credentials and type to use during the login operation.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the login operation completes, either successfully or in error.
      */
     private func ____Login(
@@ -1020,7 +976,6 @@ extension SwiftEOS_Connect_Actor {
      * The values will be cached and retrievable through EOS_Connect_GetExternalAccountMapping.
      * 
      * - Parameter Options:  structure containing a list of external account IDs, in string form, to query for the Product User ID representation.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     private func ____QueryExternalAccountMappings(
@@ -1054,7 +1009,6 @@ extension SwiftEOS_Connect_Actor {
      * @see EOS_Connect_CopyProductUserInfo
      * 
      * - Parameter Options:  structure containing a list of Product User IDs to query for the external account representation.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     private func ____QueryProductUserIdMappings(
@@ -1128,7 +1082,6 @@ extension SwiftEOS_Connect_Actor {
      * @see EOS_Connect_CreateDeviceId
      * 
      * - Parameter Options:  structure containing the logged in product users and specifying which one will be preserved.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the transfer operation completes, either successfully or in error.
      */
     private func ____TransferDeviceIdAccount(
@@ -1168,7 +1121,6 @@ extension SwiftEOS_Connect_Actor {
      * related to account theft scenarios.
      * 
      * - Parameter Options:  structure containing operation input parameters.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the unlink operation completes, either successfully or in error.
      */
     private func ____UnlinkAccount(

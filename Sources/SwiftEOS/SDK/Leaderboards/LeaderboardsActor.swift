@@ -18,7 +18,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Fetches a leaderboard definition from the cache using an index.
      * 
      * - Parameter LeaderboardIndex:  Index of the leaderboard definition to retrieve from the cache 
-     * - Parameter OutLeaderboardDefinition:  The leaderboard data for the given index, if it exists and is valid, use EOS_Leaderboards_Definition_Release when finished.
      * 
      * @see EOS_Leaderboards_Definition_Release
      * 
@@ -36,7 +35,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Fetches a leaderboard definition from the cache using a leaderboard ID.
      * 
      * - Parameter LeaderboardId:  The ID of the leaderboard whose definition you want to copy from the cache 
-     * - Parameter OutLeaderboardDefinition:  The leaderboard definition for the given leaderboard ID, if it exists and is valid, use EOS_Leaderboards_Definition_Release when finished.
      * 
      * @see EOS_Leaderboards_Definition_Release
      * 
@@ -54,7 +52,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Fetches a leaderboard record from a given index.
      * 
      * - Parameter LeaderboardRecordIndex:  Index of the leaderboard record to retrieve from the cache 
-     * - Parameter OutLeaderboardRecord:  The leaderboard record for the given index, if it exists and is valid, use EOS_Leaderboards_LeaderboardRecord_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardRecord_Release
      * 
@@ -72,7 +69,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Fetches a leaderboard record from a given user ID.
      * 
      * - Parameter UserId:  Leaderboard data will be copied from the cache if it relates to the user matching this Product User ID 
-     * - Parameter OutLeaderboardRecord:  The leaderboard record for the given user ID, if it exists and is valid, use EOS_Leaderboards_LeaderboardRecord_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardRecord_Release
      * 
@@ -91,7 +87,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter LeaderboardUserScoreIndex:  Index of the sorted leaderboard user score to retrieve from the cache. 
      * - Parameter StatName:  Name of the stat used to rank the leaderboard. 
-     * - Parameter OutLeaderboardUserScore:  The leaderboard user score for the given index, if it exists and is valid, use EOS_Leaderboards_LeaderboardUserScore_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardUserScore_Release
      * 
@@ -114,7 +109,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter UserId:  The Product User ID to look for when copying leaderboard score data from the cache 
      * - Parameter StatName:  The name of the stat that is used to rank this leaderboard 
-     * - Parameter OutLeaderboardUserScore:  The leaderboard user score for the given user ID, if it exists and is valid, use EOS_Leaderboards_LeaderboardUserScore_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardUserScore_Release
      * 
@@ -135,7 +129,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     /**
      * Fetch the number of leaderboards definitions that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the leaderboard count.
      * 
      * @see EOS_Leaderboards_CopyLeaderboardDefinitionByIndex
      * @see EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId
@@ -149,7 +142,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     /**
      * Fetch the number of leaderboard records that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the leaderboard record count.
      * 
      * @see EOS_Leaderboards_CopyLeaderboardRecordByIndex
      * @see EOS_Leaderboards_CopyLeaderboardRecordByUserId
@@ -184,7 +176,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Product User ID for user who is querying definitions.
      * Must be set when using a client policy that requires a valid logged in user.
      * Not used for Dedicated Server where no user is available.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -213,7 +204,6 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Product User ID for user who is querying ranks.
      * Must be set when using a client policy that requires a valid logged in user.
      * Not used for Dedicated Server where no user is available.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -237,19 +227,14 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Query for a list of scores for a given list of users.
      * 
      * - Parameter UserIds:  An array of Product User IDs indicating the users whose scores you want to retrieve 
-     * - array num: UserIdsCount
      * - Parameter UserIdsCount:  The number of users included in query 
-     * - array buffer: UserIds
      * - Parameter StatInfo:  The stats to be collected, along with the sorting method to use when determining rank order for each stat 
-     * - array num: StatInfoCount
      * - Parameter StatInfoCount:  The number of stats to query 
-     * - array buffer: StatInfo
      * - Parameter StartTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time 
      * - Parameter EndTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made before this time 
      * - Parameter LocalUserId:  Product User ID for user who is querying user scores.
      * Must be set when using a client policy that requires a valid logged in user.
      * Not used for Dedicated Server where no user is available.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -286,7 +271,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetches a leaderboard definition from the cache using an index.
      * 
      * - Parameter Options:  Structure containing the index being accessed.
-     * - Parameter OutLeaderboardDefinition:  The leaderboard data for the given index, if it exists and is valid, use EOS_Leaderboards_Definition_Release when finished.
      * 
      * @see EOS_Leaderboards_Definition_Release
      * 
@@ -316,7 +300,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetches a leaderboard definition from the cache using a leaderboard ID.
      * 
      * - Parameter Options:  Structure containing the leaderboard ID being accessed.
-     * - Parameter OutLeaderboardDefinition:  The leaderboard definition for the given leaderboard ID, if it exists and is valid, use EOS_Leaderboards_Definition_Release when finished.
      * 
      * @see EOS_Leaderboards_Definition_Release
      * 
@@ -346,7 +329,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetches a leaderboard record from a given index.
      * 
      * - Parameter Options:  Structure containing the index being accessed.
-     * - Parameter OutLeaderboardRecord:  The leaderboard record for the given index, if it exists and is valid, use EOS_Leaderboards_LeaderboardRecord_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardRecord_Release
      * 
@@ -376,7 +358,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetches a leaderboard record from a given user ID.
      * 
      * - Parameter Options:  Structure containing the user ID being accessed.
-     * - Parameter OutLeaderboardRecord:  The leaderboard record for the given user ID, if it exists and is valid, use EOS_Leaderboards_LeaderboardRecord_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardRecord_Release
      * 
@@ -406,7 +387,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetches leaderboard user score from a given index.
      * 
      * - Parameter Options:  Structure containing the index being accessed.
-     * - Parameter OutLeaderboardUserScore:  The leaderboard user score for the given index, if it exists and is valid, use EOS_Leaderboards_LeaderboardUserScore_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardUserScore_Release
      * 
@@ -436,7 +416,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetches leaderboard user score from a given user ID.
      * 
      * - Parameter Options:  Structure containing the user ID being accessed.
-     * - Parameter OutLeaderboardUserScore:  The leaderboard user score for the given user ID, if it exists and is valid, use EOS_Leaderboards_LeaderboardUserScore_Release when finished.
      * 
      * @see EOS_Leaderboards_LeaderboardUserScore_Release
      * 
@@ -465,7 +444,6 @@ extension SwiftEOS_Leaderboards_Actor {
     /**
      * Fetch the number of leaderboards definitions that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the leaderboard count.
      * 
      * @see EOS_Leaderboards_CopyLeaderboardDefinitionByIndex
      * @see EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId
@@ -489,7 +467,6 @@ extension SwiftEOS_Leaderboards_Actor {
     /**
      * Fetch the number of leaderboard records that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the leaderboard record count.
      * 
      * @see EOS_Leaderboards_CopyLeaderboardRecordByIndex
      * @see EOS_Leaderboards_CopyLeaderboardRecordByUserId
@@ -540,7 +517,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Query for a list of existing leaderboards definitions including their attributes.
      * 
      * - Parameter Options:  Structure containing information about the application whose leaderboard definitions we're retrieving.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -566,7 +542,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Retrieves top leaderboard records by rank in the leaderboard matching the given leaderboard ID.
      * 
      * - Parameter Options:  Structure containing information about the leaderboard records we're retrieving.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -592,7 +567,6 @@ extension SwiftEOS_Leaderboards_Actor {
      * Query for a list of scores for a given list of users.
      * 
      * - Parameter Options:  Structure containing information about the users whose scores we're retrieving.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
      * @return EOS_Success if the operation completes successfully

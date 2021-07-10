@@ -14,16 +14,10 @@ public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
     /** API Version: Set this to EOS_MODS_MODINFO_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * The count of enumerated mods 
-     * - array buffer: Mods
-     */
+    /** The count of enumerated mods  */
     public let ModsCount: Int
 
-    /**
-     * The array of enumerated mods or NULL if no such type of mods were enumerated 
-     * - array num: ModsCount
-     */
+    /** The array of enumerated mods or NULL if no such type of mods were enumerated  */
     public let Mods: [SwiftEOS_Mod_Identifier]?
 
     /** Type of the mods  */
@@ -62,9 +56,7 @@ public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_MODS_MODINFO_API_LATEST. 
      * - Parameter ModsCount:  The count of enumerated mods 
-     * - array buffer: Mods
      * - Parameter Mods:  The array of enumerated mods or NULL if no such type of mods were enumerated 
-     * - array num: ModsCount
      * - Parameter `Type`:  Type of the mods 
      */
     public init(

@@ -10,16 +10,10 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
     /** Local user requesting new permisssions  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /**
-     * The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
-     * - array buffer: PermissionKeys
-     */
+    /** The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included.  */
     public let PermissionKeyCount: Int
 
-    /**
-     * Names of the permissions to request (Setup with KWS) 
-     * - array num: PermissionKeyCount
-     */
+    /** Names of the permissions to request (Setup with KWS)  */
     public let PermissionKeys: [String]?
 
     /**
@@ -58,9 +52,7 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_REQUESTPERMISSIONS_API_LATEST. 
      * - Parameter LocalUserId:  Local user requesting new permisssions 
      * - Parameter PermissionKeyCount:  The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
-     * - array buffer: PermissionKeys
      * - Parameter PermissionKeys:  Names of the permissions to request (Setup with KWS) 
-     * - array num: PermissionKeyCount
      */
     public init(
         ApiVersion: Int32 = EOS_KWS_REQUESTPERMISSIONS_API_LATEST,

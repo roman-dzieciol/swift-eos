@@ -19,16 +19,10 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
     /** Is this chunk the last chunk of data?  */
     public let bIsLastChunk: Bool
 
-    /**
-     * The length of DataChunk in bytes that can be safely read 
-     * - array buffer: DataChunk
-     */
+    /** The length of DataChunk in bytes that can be safely read  */
     public let DataChunkLengthBytes: Int
 
-    /**
-     * Pointer to the start of data to be read 
-     * - array num: DataChunkLengthBytes
-     */
+    /** Pointer to the start of data to be read  */
     public let DataChunk: [UInt8]?
 
     /**
@@ -39,9 +33,7 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
      * - Parameter TotalFileSizeBytes:  The total file size of the file being read 
      * - Parameter bIsLastChunk:  Is this chunk the last chunk of data? 
      * - Parameter DataChunkLengthBytes:  The length of DataChunk in bytes that can be safely read 
-     * - array buffer: DataChunk
      * - Parameter DataChunk:  Pointer to the start of data to be read 
-     * - array num: DataChunkLengthBytes
      */
     public init(
         ClientData: UnsafeMutableRawPointer?,

@@ -19,8 +19,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifyLoginStatusChanged to remove the notification
      * 
-     * - Parameter Options:  structure containing the api version of AddNotifyLoginStatusChanged to use
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the callback
      * - Parameter Notification:  a callback that is fired when the login status for a user changes
      * 
      * @return handle representing the registered callback
@@ -34,9 +32,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     /**
      * Fetches a user auth token for an Epic Online Services Account ID.
      * 
-     * - Parameter Options:  Structure containing the api version of CopyUserAuthToken to use
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user being queried
-     * - Parameter OutUserAuthToken:  The auth token for the given user, if it exists and is valid; use EOS_Auth_Token_Release when finished
      * 
      * @see EOS_Auth_Token_Release
      * 
@@ -60,7 +56,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      * - Parameter RefreshToken:  A long-lived refresh token that is used with the EOS_LCT_PersistentAuth login type and is to be revoked from the authentication server. Only used on Console platforms.
      * On Desktop and Mobile platforms, set this parameter to NULL.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the deletion operation completes, either successfully or in error
      */
     public func DeletePersistentAuth(
@@ -128,7 +123,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the logged in local user whose Epic Account will be linked with the local Nintendo NSA ID Account. By default set to NULL.
      * This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.
      * Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the link account operation completes, either successfully or in error
      */
     public func LinkAccount(
@@ -152,7 +146,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      * - Parameter Credentials:  Credentials specified for a given login method 
      * - Parameter ScopeFlags:  Auth scope flags are permissions to request from the user while they are logging in. This is a bitwise-or union of EOS_EAuthScopeFlags flags defined above 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the login operation completes, either successfully or in error
      */
     public func Login(
@@ -173,7 +166,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * Signs the player out of the online service.
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is being logged out 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the logout operation completes, either successfully or in error
      */
     public func Logout(
@@ -191,7 +183,6 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * This function is intended for server-side use only.
      * 
      * - Parameter AuthToken:  Auth token to verify against the backend service 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the logout operation completes, either successfully or in error
      */
     public func VerifyUserAuth(
@@ -212,8 +203,6 @@ extension SwiftEOS_Auth_Actor {
      * 
      * @note must call RemoveNotifyLoginStatusChanged to remove the notification
      * 
-     * - Parameter Options:  structure containing the api version of AddNotifyLoginStatusChanged to use
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the callback
      * - Parameter Notification:  a callback that is fired when the login status for a user changes
      * 
      * @return handle representing the registered callback
@@ -245,9 +234,7 @@ extension SwiftEOS_Auth_Actor {
     /**
      * Fetches a user auth token for an Epic Online Services Account ID.
      * 
-     * - Parameter Options:  Structure containing the api version of CopyUserAuthToken to use
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user being queried
-     * - Parameter OutUserAuthToken:  The auth token for the given user, if it exists and is valid; use EOS_Auth_Token_Release when finished
      * 
      * @see EOS_Auth_Token_Release
      * 
@@ -283,7 +270,6 @@ extension SwiftEOS_Auth_Actor {
      * If the function would fail on Console, the caller should still proceed as normal to delete the access token locally as intended.
      * 
      * - Parameter Options:  structure containing operation input parameters
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the deletion operation completes, either successfully or in error
      */
     private func ____DeletePersistentAuth(
@@ -366,7 +352,6 @@ extension SwiftEOS_Auth_Actor {
      * This will commit this external account to the Epic Account and cannot be undone in the SDK.
      * 
      * - Parameter Options:  structure containing the account credentials to use during the link account operation
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the link account operation completes, either successfully or in error
      */
     private func ____LinkAccount(
@@ -389,7 +374,6 @@ extension SwiftEOS_Auth_Actor {
      * Login/Authenticate with user credentials.
      * 
      * - Parameter Options:  structure containing the account credentials to use during the login operation
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the login operation completes, either successfully or in error
      */
     private func ____Login(
@@ -412,7 +396,6 @@ extension SwiftEOS_Auth_Actor {
      * Signs the player out of the online service.
      * 
      * - Parameter Options:  structure containing information about which account to log out.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the logout operation completes, either successfully or in error
      */
     private func ____Logout(
@@ -436,7 +419,6 @@ extension SwiftEOS_Auth_Actor {
      * This function is intended for server-side use only.
      * 
      * - Parameter Options:  structure containing information about the auth token being verified
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the logout operation completes, either successfully or in error
      */
     private func ____VerifyUserAuth(

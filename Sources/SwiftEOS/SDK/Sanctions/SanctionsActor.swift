@@ -21,7 +21,6 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be copied 
      * - Parameter SanctionIndex:  Index of the sanction to retrieve from the cache 
-     * - Parameter OutSanction:  The player sanction data for the given index, if it exists and is valid
      * 
      * @see EOS_Sanctions_QueryActivePlayerSanctions
      * @see EOS_Sanctions_PlayerSanction_Release
@@ -63,7 +62,6 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be retrieved. 
      * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request. Dedicated servers should set this to null. 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_Sanctions_GetPlayerSanctionCount
@@ -92,7 +90,6 @@ extension SwiftEOS_Sanctions_Actor {
      * On success, EOS_Sanctions_PlayerSanction_Release must be called on OutSanction to free memory.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutSanction:  The player sanction data for the given index, if it exists and is valid
      * 
      * @see EOS_Sanctions_QueryActivePlayerSanctions
      * @see EOS_Sanctions_PlayerSanction_Release
@@ -151,7 +148,6 @@ extension SwiftEOS_Sanctions_Actor {
      * Call EOS_Sanctions_GetPlayerSanctionCount and EOS_Sanctions_CopyPlayerSanctionByIndex to retrieve the data.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_Sanctions_GetPlayerSanctionCount

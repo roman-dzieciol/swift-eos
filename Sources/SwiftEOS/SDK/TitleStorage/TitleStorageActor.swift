@@ -19,7 +19,6 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Product User ID of the local user who is requesting file metadata (optional) 
      * - Parameter Index:  The index to get data for 
-     * - Parameter OutMetadata:  A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_TitleStorage_FileMetadata_Release.
      * @return EOS_Success if the requested metadata is currently cached, otherwise an error result explaining what went wrong.
      * 
      * @see EOS_TitleStorage_GetFileMetadataCount
@@ -41,7 +40,6 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Product User ID of the local user who is requesting file metadata (optional) 
      * - Parameter Filename:  The file's name to get data for 
-     * - Parameter OutMetadata:  A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_TitleStorage_FileMetadata_Release.
      * @return EOS_Success if the metadata is currently cached, otherwise an error result explaining what went wrong
      */
     public func CopyFileMetadataByFilename(
@@ -59,7 +57,6 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * Warning: Use this with care. Cache system generally tries to clear old and unused cached files from time to time. Unnecessarily clearing cache can degrade performance as SDK will have to re-download data.
      * 
      * - Parameter LocalUserId:  Product User ID of the local user who is deleting his cache (optional) 
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in associated callbacks
      * - Parameter CompletionCallback:  This function is called when the delete cache operation completes
      * @return EOS_Success if the operation was started correctly, otherwise an error result explaining what went wrong
      */
@@ -93,7 +90,6 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Product User ID of the local user requesting file metadata (optional) 
      * - Parameter Filename:  The requested file's name 
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in the completion callback
      * - Parameter CompletionCallback:  This function is called when the query operation completes
      * 
      * @see EOS_TitleStorage_GetFileMetadataCount
@@ -120,10 +116,7 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Product User ID of the local user who requested file metadata (optional) 
      * - Parameter ListOfTags:  List of tags to use for lookup. 
-     * - array num: ListOfTagsCount
      * - Parameter ListOfTagsCount:  Number of tags specified in ListOfTags 
-     * - array buffer: ListOfTags
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in the completion callback
      * - Parameter CompletionCallback:  This function is called when the query operation completes
      * 
      */
@@ -153,7 +146,6 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * - Parameter ReadChunkLengthBytes:  The maximum amount of data in bytes should be available to read in a single EOS_TitleStorage_OnReadFileDataCallback call 
      * - Parameter ReadFileDataCallback:  Callback function to handle copying read data 
      * - Parameter FileTransferProgressCallback:  Optional callback function to be informed of download progress, if the file is not already locally cached. If set, this will be called at least once before completion if the request is successfully started 
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in associated callbacks
      * - Parameter CompletionCallback:  This function is called when the read operation completes
      * @return A valid Title Storage File Request handle if successful, or NULL otherwise. Data contained in the completion callback will have more detailed information about issues with the request in failure cases. This handle must be released when it is no longer needed
      * 
@@ -186,7 +178,6 @@ extension SwiftEOS_TitleStorage_Actor {
      * Get the cached copy of a file's metadata by index. The metadata will be for the last retrieved version. The returned pointer must be released by the user when no longer needed.
      * 
      * - Parameter Options:  Object containing properties related to which user is requesting metadata, and at what index
-     * - Parameter OutMetadata:  A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_TitleStorage_FileMetadata_Release.
      * @return EOS_Success if the requested metadata is currently cached, otherwise an error result explaining what went wrong.
      * 
      * @see EOS_TitleStorage_GetFileMetadataCount
@@ -215,7 +206,6 @@ extension SwiftEOS_TitleStorage_Actor {
      * completed writing. The returned pointer must be released by the user when no longer needed.
      * 
      * - Parameter Options:  Object containing properties related to which user is requesting metadata, and for which filename
-     * - Parameter OutMetadata:  A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_TitleStorage_FileMetadata_Release.
      * @return EOS_Success if the metadata is currently cached, otherwise an error result explaining what went wrong
      */
     private func ____CopyFileMetadataByFilename(
@@ -241,7 +231,6 @@ extension SwiftEOS_TitleStorage_Actor {
      * Warning: Use this with care. Cache system generally tries to clear old and unused cached files from time to time. Unnecessarily clearing cache can degrade performance as SDK will have to re-download data.
      * 
      * - Parameter Options:  Object containing properties related to which user is deleting cache
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in associated callbacks
      * - Parameter CompletionCallback:  This function is called when the delete cache operation completes
      * @return EOS_Success if the operation was started correctly, otherwise an error result explaining what went wrong
      */
@@ -291,7 +280,6 @@ extension SwiftEOS_TitleStorage_Actor {
      * been queried, its metadata will be available by the EOS_TitleStorage_CopyFileMetadataAtIndex and EOS_TitleStorage_CopyFileMetadataByFilename functions.
      * 
      * - Parameter Options:  Object containing properties related to which user is querying files, and what file is being queried
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in the completion callback
      * - Parameter CompletionCallback:  This function is called when the query operation completes
      * 
      * @see EOS_TitleStorage_GetFileMetadataCount
@@ -319,7 +307,6 @@ extension SwiftEOS_TitleStorage_Actor {
      * This is not required before a file can be downloaded by name.
      * 
      * - Parameter Options:  Object containing properties related to which user is querying files and the list of tags
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in the completion callback
      * - Parameter CompletionCallback:  This function is called when the query operation completes
      * 
      */
@@ -345,7 +332,6 @@ extension SwiftEOS_TitleStorage_Actor {
      * least once if the request is started successfully.
      * 
      * - Parameter Options:  Object containing properties related to which user is opening the file, what the file's name is, and related mechanisms for copying the data
-     * - Parameter ClientData:  Optional pointer to help clients track this request, that is returned in associated callbacks
      * - Parameter CompletionCallback:  This function is called when the read operation completes
      * @return A valid Title Storage File Request handle if successful, or NULL otherwise. Data contained in the completion callback will have more detailed information about issues with the request in failure cases. This handle must be released when it is no longer needed
      * 

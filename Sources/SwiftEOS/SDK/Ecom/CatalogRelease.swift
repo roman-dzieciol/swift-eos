@@ -12,28 +12,16 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
     /** API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * The number of APP IDs 
-     * - array buffer: CompatibleAppIds
-     */
+    /** The number of APP IDs  */
     public let CompatibleAppIdCount: Int
 
-    /**
-     * A list of compatible APP IDs 
-     * - array num: CompatibleAppIdCount
-     */
+    /** A list of compatible APP IDs  */
     public let CompatibleAppIds: [String]?
 
-    /**
-     * The number of platforms 
-     * - array buffer: CompatiblePlatforms
-     */
+    /** The number of platforms  */
     public let CompatiblePlatformCount: Int
 
-    /**
-     * A list of compatible Platforms 
-     * - array num: CompatiblePlatformCount
-     */
+    /** A list of compatible Platforms  */
     public let CompatiblePlatforms: [String]?
 
     /** Release note for compatible versions  */
@@ -82,13 +70,9 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST. 
      * - Parameter CompatibleAppIdCount:  The number of APP IDs 
-     * - array buffer: CompatibleAppIds
      * - Parameter CompatibleAppIds:  A list of compatible APP IDs 
-     * - array num: CompatibleAppIdCount
      * - Parameter CompatiblePlatformCount:  The number of platforms 
-     * - array buffer: CompatiblePlatforms
      * - Parameter CompatiblePlatforms:  A list of compatible Platforms 
-     * - array num: CompatiblePlatformCount
      * - Parameter ReleaseNote:  Release note for compatible versions 
      */
     public init(

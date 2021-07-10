@@ -7,10 +7,6 @@ import EOSSDK
  * Call again with valid params to get the stringified continuance token which will only contain UTF8-encoded printable characters (excluding the null-terminator).
  * 
  * - Parameter ContinuanceToken:  The continuance token for which to retrieve the stringified version.
- * - Parameter OutBuffer:  The buffer into which the character data should be written
- * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
- *                          The input buffer should include enough space to be null-terminated.
- *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer including the null termination character.
  * 
  * @return An EOS_EResult that indicates whether the continuance token string was copied into the OutBuffer.
  *         EOS_Success - The OutBuffer was filled, and InOutBufferLength contains the number of characters copied into OutBuffer including the null terminator.

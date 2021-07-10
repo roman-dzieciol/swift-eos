@@ -19,16 +19,10 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
     /** Channel associated with this data  */
     public let Channel: UInt8
 
-    /**
-     * The size of the data to be sent to the RemoteUser 
-     * - array buffer: Data
-     */
+    /** The size of the data to be sent to the RemoteUser  */
     public let DataLengthBytes: Int
 
-    /**
-     * The data to be sent to the RemoteUser 
-     * - array num: DataLengthBytes
-     */
+    /** The data to be sent to the RemoteUser  */
     public let Data: [UInt8]?
 
     /** If false and we do not already have an established connection to the peer, this data will be dropped  */
@@ -85,9 +79,7 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
      * - Parameter SocketId:  The socket ID for data you are sending in this packet 
      * - Parameter Channel:  Channel associated with this data 
      * - Parameter DataLengthBytes:  The size of the data to be sent to the RemoteUser 
-     * - array buffer: Data
      * - Parameter Data:  The data to be sent to the RemoteUser 
-     * - array num: DataLengthBytes
      * - Parameter bAllowDelayedDelivery:  If false and we do not already have an established connection to the peer, this data will be dropped 
      * - Parameter Reliability:  Setting to control the delivery reliability of this packet 
      */

@@ -7,16 +7,10 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
     /** The Product User ID for the user who received the unlocked achievements notification  */
     public let UserId: EOS_ProductUserId?
 
-    /**
-     * The number of achievements. 
-     * - array buffer: AchievementIds
-     */
+    /** The number of achievements.  */
     public let AchievementsCount: Int
 
-    /**
-     * This member is not used and will always be set to NULL. 
-     * - array num: AchievementsCount
-     */
+    /** This member is not used and will always be set to NULL.  */
     public let AchievementIds: [String]?
 
     /** Initialize from SDK object */
@@ -46,9 +40,7 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
      * Memberwise initializer
      * - Parameter UserId:  The Product User ID for the user who received the unlocked achievements notification 
      * - Parameter AchievementsCount:  The number of achievements. 
-     * - array buffer: AchievementIds
      * - Parameter AchievementIds:  This member is not used and will always be set to NULL. 
-     * - array num: AchievementsCount
      */
     public init(
         UserId: EOS_ProductUserId?,

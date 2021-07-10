@@ -10,16 +10,10 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
     /** The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /**
-     * Stats to ingest. 
-     * - array num: StatsCount
-     */
+    /** Stats to ingest.  */
     public let Stats: [SwiftEOS_Stats_IngestData]?
 
-    /**
-     * The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
-     * - array buffer: Stats
-     */
+    /** The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.  */
     public let StatsCount: Int
 
     /** The Product User ID for the user whose stat is being ingested.  */
@@ -61,9 +55,7 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST. 
      * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
      * - Parameter Stats:  Stats to ingest. 
-     * - array num: StatsCount
      * - Parameter StatsCount:  The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
-     * - array buffer: Stats
      * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
      */
     public init(

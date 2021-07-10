@@ -20,7 +20,6 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * This function will always return EOS_INVALID_NOTIFICATIONID when used with lobby RTC room. To be notified of the connection
      * status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -52,7 +51,6 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * callbacks when the ResultCode is EOS_Success. If this notification is registered after that point, it is possible to miss notifications for
      * already-existing room participants.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -85,7 +83,6 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * - Parameter RoomName:  The room the users should be blocked on. 
      * - Parameter ParticipantId:  Product User ID of the participant to block 
      * - Parameter bBlocked:  Block or unblock the participant 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
@@ -136,7 +133,6 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * buffers must be passed manually using EOS_RTCAudio_SendAudio.
      * - Parameter bManualAudioOutputEnabled:  Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio
      * buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func JoinRoom(
@@ -173,7 +169,6 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Product User ID of the user requesting to leave the room 
      * - Parameter RoomName:  The room to leave. 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
@@ -202,7 +197,6 @@ extension SwiftEOS_RTC_Actor {
      * This function will always return EOS_INVALID_NOTIFICATIONID when used with lobby RTC room. To be notified of the connection
      * status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -243,7 +237,6 @@ extension SwiftEOS_RTC_Actor {
      * callbacks when the ResultCode is EOS_Success. If this notification is registered after that point, it is possible to miss notifications for
      * already-existing room participants.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -282,7 +275,6 @@ extension SwiftEOS_RTC_Actor {
      * that user and the local user. This method can be used after receiving the OnParticipantStatusChanged notification.
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
@@ -323,7 +315,6 @@ extension SwiftEOS_RTC_Actor {
      * automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____JoinRoom(
@@ -349,7 +340,6 @@ extension SwiftEOS_RTC_Actor {
      * automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect

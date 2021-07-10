@@ -44,10 +44,6 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * This is not currently used for anything internally.
      * 
      * - Parameter LocalUserId:  The account to use for lookup if no override exists.
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -70,10 +66,6 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * This is used for localization. This follows ISO 639.
      * 
      * - Parameter LocalUserId:  The account to use for lookup if no override exists.
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -226,10 +218,6 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * Get the override country code that the SDK will send to services which require it.
      * This is not currently used for anything internally.
      * 
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -247,10 +235,6 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
      * Get the override locale code that the SDK will send to services which require it.
      * This is used for localization. This follows ISO 639.
      * 
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -488,10 +472,6 @@ extension SwiftEOS_Platform_Actor {
      * This is not currently used for anything internally.
      * 
      * - Parameter LocalUserId:  The account to use for lookup if no override exists.
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -522,10 +502,6 @@ extension SwiftEOS_Platform_Actor {
      * This is used for localization. This follows ISO 639.
      * 
      * - Parameter LocalUserId:  The account to use for lookup if no override exists.
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -708,10 +684,6 @@ extension SwiftEOS_Platform_Actor {
      * Get the override country code that the SDK will send to services which require it.
      * This is not currently used for anything internally.
      * 
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
@@ -736,10 +708,6 @@ extension SwiftEOS_Platform_Actor {
      * Get the override locale code that the SDK will send to services which require it.
      * This is used for localization. This follows ISO 639.
      * 
-     * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
-     * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
-     *                          The input buffer should include enough space to be null-terminated.
-     *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer.
      * 
      * @return An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer

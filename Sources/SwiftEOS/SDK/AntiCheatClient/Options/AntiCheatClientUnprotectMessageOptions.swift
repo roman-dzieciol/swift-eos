@@ -5,16 +5,10 @@ public struct SwiftEOS_AntiCheatClient_UnprotectMessageOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * Length in bytes of input 
-     * - array buffer: Data
-     */
+    /** Length in bytes of input  */
     public let DataLengthBytes: Int
 
-    /**
-     * The data to decrypt 
-     * - array num: DataLengthBytes
-     */
+    /** The data to decrypt  */
     public let Data: [UInt8]?
 
     /** The size in bytes of OutBuffer  */
@@ -54,9 +48,7 @@ public struct SwiftEOS_AntiCheatClient_UnprotectMessageOptions: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST. 
      * - Parameter DataLengthBytes:  Length in bytes of input 
-     * - array buffer: Data
      * - Parameter Data:  The data to decrypt 
-     * - array num: DataLengthBytes
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      */
     public init(

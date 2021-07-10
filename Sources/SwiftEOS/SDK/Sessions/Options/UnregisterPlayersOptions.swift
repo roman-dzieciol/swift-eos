@@ -10,16 +10,10 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
     /** Name of the session for which to unregister players  */
     public let SessionName: String?
 
-    /**
-     * Array of players to unregister from the session 
-     * - array num: PlayersToUnregisterCount
-     */
+    /** Array of players to unregister from the session  */
     public let PlayersToUnregister: [EOS_ProductUserId]?
 
-    /**
-     * Number of players in the array 
-     * - array buffer: PlayersToUnregister
-     */
+    /** Number of players in the array  */
     public let PlayersToUnregisterCount: Int
 
     /**
@@ -57,9 +51,7 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST. 
      * - Parameter SessionName:  Name of the session for which to unregister players 
      * - Parameter PlayersToUnregister:  Array of players to unregister from the session 
-     * - array num: PlayersToUnregisterCount
      * - Parameter PlayersToUnregisterCount:  Number of players in the array 
-     * - array buffer: PlayersToUnregister
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST,

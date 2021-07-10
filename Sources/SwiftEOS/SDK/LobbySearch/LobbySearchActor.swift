@@ -22,7 +22,6 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * - Parameter LobbyIndex:  The index of the lobby to retrieve within the completed search query
      * 
      * @see EOS_LobbySearch_GetSearchResultCount
-     * - Parameter OutLobbyDetailsHandle:  out parameter used to receive the lobby details handle
      * 
      * @return EOS_Success if the information is available and passed out in OutLobbyDetailsHandle
      *         EOS_InvalidParameters if you pass an invalid index or a null pointer for the out parameter
@@ -42,7 +41,6 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * When the operation completes, this handle will have the search results that can be parsed
      * 
      * - Parameter LocalUserId:  The Product User ID of the user making the search request 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the search operation completes, either successfully or in error
      * 
      * @return EOS_Success if the find operation completes successfully
@@ -62,7 +60,6 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
     /**
      * Get the number of search results found by the search parameters in this search
      * 
-     * - Parameter Options:  Options associated with the search count
      * 
      * @return return the number of search results found by the query or 0 if search is not complete
      */
@@ -169,7 +166,6 @@ extension SwiftEOS_LobbySearch_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutLobbyDetailsHandle:  out parameter used to receive the lobby details handle
      * 
      * @return EOS_Success if the information is available and passed out in OutLobbyDetailsHandle
      *         EOS_InvalidParameters if you pass an invalid index or a null pointer for the out parameter
@@ -197,7 +193,6 @@ extension SwiftEOS_LobbySearch_Actor {
      * When the operation completes, this handle will have the search results that can be parsed
      * 
      * - Parameter Options:  Structure containing information about the search criteria to use
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the search operation completes, either successfully or in error
      * 
      * @return EOS_Success if the find operation completes successfully
@@ -223,7 +218,6 @@ extension SwiftEOS_LobbySearch_Actor {
     /**
      * Get the number of search results found by the search parameters in this search
      * 
-     * - Parameter Options:  Options associated with the search count
      * 
      * @return return the number of search results found by the query or 0 if search is not complete
      */

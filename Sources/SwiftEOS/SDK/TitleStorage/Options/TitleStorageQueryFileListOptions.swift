@@ -10,16 +10,10 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
     /** Product User ID of the local user who requested file metadata (optional)  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /**
-     * List of tags to use for lookup. 
-     * - array num: ListOfTagsCount
-     */
+    /** List of tags to use for lookup.  */
     public let ListOfTags: [String]?
 
-    /**
-     * Number of tags specified in ListOfTags 
-     * - array buffer: ListOfTags
-     */
+    /** Number of tags specified in ListOfTags  */
     public let ListOfTagsCount: Int
 
     /**
@@ -58,9 +52,7 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST. 
      * - Parameter LocalUserId:  Product User ID of the local user who requested file metadata (optional) 
      * - Parameter ListOfTags:  List of tags to use for lookup. 
-     * - array num: ListOfTagsCount
      * - Parameter ListOfTagsCount:  Number of tags specified in ListOfTags 
-     * - array buffer: ListOfTags
      */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST,

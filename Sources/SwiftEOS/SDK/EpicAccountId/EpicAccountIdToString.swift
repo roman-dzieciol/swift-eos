@@ -6,10 +6,6 @@ import EOSSDK
  * This string will be no larger than EOS_EPICACCOUNTID_MAX_LENGTH + 1 and will only contain UTF8-encoded printable characters (excluding the null-terminator).
  * 
  * - Parameter AccountId:  The Epic Online Services Account ID for which to retrieve the stringified version.
- * - Parameter OutBuffer:  The buffer into which the character data should be written
- * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
- *                          The input buffer should include enough space to be null-terminated.
- *                          When the function returns, this parameter will be filled with the length of the string copied into OutBuffer including the null termination character.
  * 
  * @return An EOS_EResult that indicates whether the Epic Online Services Account ID string was copied into the OutBuffer.
  *         EOS_Success - The OutBuffer was filled, and InOutBufferLength contains the number of characters copied into OutBuffer including the null terminator.

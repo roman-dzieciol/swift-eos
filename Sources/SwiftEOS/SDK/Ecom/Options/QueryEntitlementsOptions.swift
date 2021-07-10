@@ -10,16 +10,10 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
     /** The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve  */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /**
-     * An array of Entitlement Names that you want to check 
-     * - array num: EntitlementNameCount
-     */
+    /** An array of Entitlement Names that you want to check  */
     public let EntitlementNames: [String]?
 
-    /**
-     * The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
-     * - array buffer: EntitlementNames
-     */
+    /** The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account.  */
     public let EntitlementNameCount: Int
 
     /** If true, Entitlements that have been redeemed will be included in the results.  */
@@ -63,9 +57,7 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_QUERYENTITLEMENTS_API_LATEST. 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve 
      * - Parameter EntitlementNames:  An array of Entitlement Names that you want to check 
-     * - array num: EntitlementNameCount
      * - Parameter EntitlementNameCount:  The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
-     * - array buffer: EntitlementNames
      * - Parameter bIncludeRedeemed:  If true, Entitlements that have been redeemed will be included in the results. 
      */
     public init(

@@ -37,8 +37,6 @@ public class SwiftEOS_TitleStorageFileTransferRequest_Actor: SwiftEOSActor {
      * Get the file name of the file this request is for. OutStringLength will always be set to the string length of the file name if it is not NULL.
      * 
      * - Parameter FilenameStringBufferSizeBytes:  The maximum number of bytes that can be written to OutStringBuffer
-     * - Parameter OutStringBuffer:  The buffer to write the NULL-terminated utf8 file name into, if successful
-     * - Parameter OutStringLength:  How long the file name is (not including null terminator)
      * @return EOS_Success if the file name was successfully written to OutFilenameBuffer, a failure result otherwise
      * 
      * @see EOS_TITLESTORAGE_FILENAME_MAX_LENGTH_BYTES
@@ -78,8 +76,6 @@ extension SwiftEOS_TitleStorageFileTransferRequest_Actor {
      * Get the file name of the file this request is for. OutStringLength will always be set to the string length of the file name if it is not NULL.
      * 
      * - Parameter FilenameStringBufferSizeBytes:  The maximum number of bytes that can be written to OutStringBuffer
-     * - Parameter OutStringBuffer:  The buffer to write the NULL-terminated utf8 file name into, if successful
-     * - Parameter OutStringLength:  How long the file name is (not including null terminator)
      * @return EOS_Success if the file name was successfully written to OutFilenameBuffer, a failure result otherwise
      * 
      * @see EOS_TITLESTORAGE_FILENAME_MAX_LENGTH_BYTES

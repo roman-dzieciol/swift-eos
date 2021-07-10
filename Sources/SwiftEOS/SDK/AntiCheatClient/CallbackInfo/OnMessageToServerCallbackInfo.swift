@@ -4,16 +4,10 @@ import EOSSDK
 /** Structure containing details about a new message that must be dispatched to the game server. */
 public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
 
-    /**
-     * The message data that must be sent to the server 
-     * - array num: MessageDataSizeBytes
-     */
+    /** The message data that must be sent to the server  */
     public let MessageData: [UInt8]?
 
-    /**
-     * The size in bytes of MessageData 
-     * - array buffer: MessageData
-     */
+    /** The size in bytes of MessageData  */
     public let MessageDataSizeBytes: Int
 
     /** Initialize from SDK object */
@@ -41,9 +35,7 @@ public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
     /**
      * Memberwise initializer
      * - Parameter MessageData:  The message data that must be sent to the server 
-     * - array num: MessageDataSizeBytes
      * - Parameter MessageDataSizeBytes:  The size in bytes of MessageData 
-     * - array buffer: MessageData
      */
     public init(
         MessageData: [UInt8]?,

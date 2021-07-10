@@ -5,16 +5,10 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions: SwiftEOS
     /** API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * The size of the data received 
-     * - array buffer: Data
-     */
+    /** The size of the data received  */
     public let DataLengthBytes: Int
 
-    /**
-     * The data received 
-     * - array num: DataLengthBytes
-     */
+    /** The data received  */
     public let Data: [UInt8]?
 
     /**
@@ -49,9 +43,7 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions: SwiftEOS
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST. 
      * - Parameter DataLengthBytes:  The size of the data received 
-     * - array buffer: Data
      * - Parameter Data:  The data received 
-     * - array num: DataLengthBytes
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST,

@@ -20,8 +20,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * @note must call EOS_KWS_RemoveNotifyPermissionsUpdateReceived to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter NotificationFn:  A callback that is fired when a notification is received.
      * 
      * @return handle representing the registered callback
@@ -38,7 +36,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
      * - Parameter Index:  The index of the permission to get. 
-     * - Parameter OutPermission:  the permission for the given index, if it exists and is valid, use EOS_KWS_PermissionStatus_Release when finished
      * 
      * @see EOS_KWS_CreateUser
      * @see EOS_KWS_QueryPermissions
@@ -65,7 +62,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Local user creating a KWS entry 
      * - Parameter DateOfBirth:  Date of birth in ISO8601 form (YYYY-MM-DD) 
      * - Parameter ParentEmail:  Parent email 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if account creation completes successfully
@@ -94,7 +90,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user getting permissions 
      * - Parameter Key:  Permission name to query 
-     * - Parameter OutPermission:  the permission for the given key, if it exists and is valid
      * 
      * @see EOS_KWS_CreateUser
      * @see EOS_KWS_QueryPermissions
@@ -131,8 +126,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Query the client's country and age permissions for client side reasoning about the possible need enforce age based restrictions
      * 
-     * - Parameter Options:  options required for interacting with the age gate system
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if the query completes successfully
@@ -150,7 +143,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * Query the current state of permissions for a given local Product User ID
      * 
      * - Parameter LocalUserId:  Local user querying their permisssions 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if the account query completes successfully
@@ -173,10 +165,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Local user requesting new permisssions 
      * - Parameter PermissionKeyCount:  The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
-     * - array buffer: PermissionKeys
      * - Parameter PermissionKeys:  Names of the permissions to request (Setup with KWS) 
-     * - array num: PermissionKeyCount
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if contact information update completes successfully
@@ -207,7 +196,6 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Local user updating parental information 
      * - Parameter ParentEmail:  New parent email 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if contact information update completes successfully
@@ -237,8 +225,6 @@ extension SwiftEOS_KWS_Actor {
      * 
      * @note must call EOS_KWS_RemoveNotifyPermissionsUpdateReceived to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter NotificationFn:  A callback that is fired when a notification is received.
      * 
      * @return handle representing the registered callback
@@ -272,7 +258,6 @@ extension SwiftEOS_KWS_Actor {
      * Fetch a permission for a given by index for a given local user
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutPermission:  the permission for the given index, if it exists and is valid, use EOS_KWS_PermissionStatus_Release when finished
      * 
      * @see EOS_KWS_CreateUser
      * @see EOS_KWS_QueryPermissions
@@ -305,7 +290,6 @@ extension SwiftEOS_KWS_Actor {
      * Create an account with Kids Web Services and associate it with the local Product User ID
      * 
      * - Parameter Options:  options required for creating an account such as the local users Product User ID, their data of birth, and parental contact information
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if account creation completes successfully
@@ -333,7 +317,6 @@ extension SwiftEOS_KWS_Actor {
      * Fetch the state of a given permission that are cached for a given local user.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutPermission:  the permission for the given key, if it exists and is valid
      * 
      * @see EOS_KWS_CreateUser
      * @see EOS_KWS_QueryPermissions
@@ -384,8 +367,6 @@ extension SwiftEOS_KWS_Actor {
      * This interface is not available for general access at this time.
      * Query the client's country and age permissions for client side reasoning about the possible need enforce age based restrictions
      * 
-     * - Parameter Options:  options required for interacting with the age gate system
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if the query completes successfully
@@ -412,7 +393,6 @@ extension SwiftEOS_KWS_Actor {
      * Query the current state of permissions for a given local Product User ID
      * 
      * - Parameter Options:  options required for querying permissions such as the local users Product User ID
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if the account query completes successfully
@@ -440,7 +420,6 @@ extension SwiftEOS_KWS_Actor {
      * Request new permissions for a given local Product User ID
      * 
      * - Parameter Options:  options required for updating permissions such as the new list of permissions
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if contact information update completes successfully
@@ -470,7 +449,6 @@ extension SwiftEOS_KWS_Actor {
      * Update the parent contact information for a given local Product User ID
      * 
      * - Parameter Options:  options required for updating the contact information such as the new email address
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if contact information update completes successfully

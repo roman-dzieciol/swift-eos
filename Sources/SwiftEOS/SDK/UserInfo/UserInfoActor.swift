@@ -20,7 +20,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter AccountId:  The external account ID associated with the (external) user info to retrieve from the cache; cannot be null 
-     * - Parameter OutExternalUserInfo:  The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
      * 
      * @see EOS_UserInfo_ExternalUserInfo_Release
      * 
@@ -46,7 +45,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter AccountType:  Account type of the external user info to retrieve from the cache 
-     * - Parameter OutExternalUserInfo:  The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
      * 
      * @see EOS_UserInfo_ExternalUserInfo_Release
      * 
@@ -72,7 +70,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter Index:  Index of the external user info to retrieve from the cache 
-     * - Parameter OutExternalUserInfo:  The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
      * 
      * @see EOS_UserInfo_ExternalUserInfo_Release
      * 
@@ -98,7 +95,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
-     * - Parameter OutUserInfo:  out parameter used to receive the EOS_UserInfo structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -145,7 +141,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_UserInfo
@@ -173,7 +168,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter DisplayName:  Display name of the player being queried 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_UserInfo
@@ -203,7 +197,6 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter ExternalAccountId:  External account ID of the user whose information is being retrieved 
      * - Parameter AccountType:  Account type of the external user info to query 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_UserInfo
@@ -233,7 +226,6 @@ extension SwiftEOS_UserInfo_Actor {
      * Fetches an external user info for a given external account ID.
      * 
      * - Parameter Options:  Structure containing the account ID being accessed
-     * - Parameter OutExternalUserInfo:  The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
      * 
      * @see EOS_UserInfo_ExternalUserInfo_Release
      * 
@@ -263,7 +255,6 @@ extension SwiftEOS_UserInfo_Actor {
      * Fetches an external user info for a given external account type.
      * 
      * - Parameter Options:  Structure containing the account type being accessed
-     * - Parameter OutExternalUserInfo:  The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
      * 
      * @see EOS_UserInfo_ExternalUserInfo_Release
      * 
@@ -293,7 +284,6 @@ extension SwiftEOS_UserInfo_Actor {
      * Fetches an external user info from a given index.
      * 
      * - Parameter Options:  Structure containing the index being accessed
-     * - Parameter OutExternalUserInfo:  The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
      * 
      * @see EOS_UserInfo_ExternalUserInfo_Release
      * 
@@ -324,7 +314,6 @@ extension SwiftEOS_UserInfo_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutUserInfo, must be passed to EOS_UserInfo_Release to release the memory associated with it.
      * 
      * - Parameter Options:  structure containing the input parameters
-     * - Parameter OutUserInfo:  out parameter used to receive the EOS_UserInfo structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -383,7 +372,6 @@ extension SwiftEOS_UserInfo_Actor {
      * Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
      * 
      * - Parameter Options:  structure containing the input parameters
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_UserInfo
@@ -412,7 +400,6 @@ extension SwiftEOS_UserInfo_Actor {
      * Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
      * 
      * - Parameter Options:  structure containing the input parameters
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_UserInfo
@@ -442,7 +429,6 @@ extension SwiftEOS_UserInfo_Actor {
      * Once the callback has been fired with a successful ResultCode, it is possible to call CopyUserInfo to receive an EOS_UserInfo containing the available information.
      * 
      * - Parameter Options:  structure containing the input parameters
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see EOS_UserInfo

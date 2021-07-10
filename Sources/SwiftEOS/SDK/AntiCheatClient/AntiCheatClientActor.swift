@@ -35,8 +35,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
      * Mode: EOS_ACCM_PeerToPeer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -51,8 +49,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_ClientServer.
      * Mode: EOS_ACCM_ClientServer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -67,8 +63,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
      * Mode: EOS_ACCM_PeerToPeer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -83,8 +77,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
      * Mode: EOS_ACCM_PeerToPeer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -122,7 +114,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: All
      * Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
      * 
-     * - Parameter Options:  Structure containing input data.
      * 
      * @return EOS_Success - If the session was ended normally
      *         EOS_InvalidParameters - If input data was invalid
@@ -139,7 +130,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_ClientServer.
      * 
      * - Parameter DataLengthBytes:  Length in bytes of input 
-     * - Parameter OutBufferLengthBytes:  The length in bytes that is required to call ProtectMessage on the given input size.
      * 
      * @return EOS_Success - If the output length was calculated successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -163,7 +153,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * session until after restarting the game.
      * 
      * - Parameter OutMessageLength:  The size of OutMessage in bytes. Recommended size is 256 bytes. 
-     * - array buffer: OutMessage
      * - Parameter ViolationType:  On success, receives a code describing the violation that occurred.
      * - Parameter OutMessage:  On success, receives a string describing the violation which should be displayed to the user.
      * 
@@ -190,12 +179,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
      * 
      * - Parameter DataLengthBytes:  Length in bytes of input 
-     * - array buffer: Data
      * - Parameter Data:  The data to encrypt 
-     * - array num: DataLengthBytes
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
-     * - Parameter OutBuffer:  On success, buffer where encrypted message data will be written.
-     * - Parameter OutBufferLengthBytes:  Number of bytes that were written to OutBuffer.
      * 
      * @return EOS_Success - If the message was protected successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -219,9 +204,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * 
      * - Parameter PeerHandle:  The handle describing the sender of this message 
      * - Parameter DataLengthBytes:  The size of the data received 
-     * - array buffer: Data
      * - Parameter Data:  The data received 
-     * - array num: DataLengthBytes
      * 
      * @return EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -244,9 +227,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_ClientServer.
      * 
      * - Parameter DataLengthBytes:  The size of the data received 
-     * - array buffer: Data
      * - Parameter Data:  The data received 
-     * - array num: DataLengthBytes
      * 
      * @return EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -308,12 +289,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
      * 
      * - Parameter DataLengthBytes:  Length in bytes of input 
-     * - array buffer: Data
      * - Parameter Data:  The data to decrypt 
-     * - array num: DataLengthBytes
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
-     * - Parameter OutBuffer:  On success, buffer where encrypted message data will be written.
-     * - Parameter OutBufferLengthBytes:  Number of bytes that were written to OutBuffer.
      * 
      * @return EOS_Success - If the message was unprotected successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -378,8 +355,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
      * Mode: EOS_ACCM_PeerToPeer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -412,8 +387,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_ClientServer.
      * Mode: EOS_ACCM_ClientServer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -446,8 +419,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
      * Mode: EOS_ACCM_PeerToPeer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -480,8 +451,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
      * Mode: EOS_ACCM_PeerToPeer.
      * 
-     * - Parameter Options:  Structure containing input data
-     * - Parameter ClientData:  This value is returned to the caller when NotificationFn is invoked
      * - Parameter NotificationFn:  The callback to be fired
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -538,7 +507,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Mode: All
      * Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
      * 
-     * - Parameter Options:  Structure containing input data.
      * 
      * @return EOS_Success - If the session was ended normally
      *         EOS_InvalidParameters - If input data was invalid
@@ -561,7 +529,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Mode: EOS_ACCM_ClientServer.
      * 
      * - Parameter Options:  Structure containing input data.
-     * - Parameter OutBufferLengthBytes:  The length in bytes that is required to call ProtectMessage on the given input size.
      * 
      * @return EOS_Success - If the output length was calculated successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -625,8 +592,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
      * 
      * - Parameter Options:  Structure containing input data.
-     * - Parameter OutBuffer:  On success, buffer where encrypted message data will be written.
-     * - Parameter OutBufferLengthBytes:  Number of bytes that were written to OutBuffer.
      * 
      * @return EOS_Success - If the message was protected successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -722,8 +687,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
      * 
      * - Parameter Options:  Structure containing input data.
-     * - Parameter OutBuffer:  On success, buffer where encrypted message data will be written.
-     * - Parameter OutBufferLengthBytes:  Number of bytes that were written to OutBuffer.
      * 
      * @return EOS_Success - If the message was unprotected successfully
      *         EOS_InvalidParameters - If input data was invalid

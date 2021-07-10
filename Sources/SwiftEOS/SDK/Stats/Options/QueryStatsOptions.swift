@@ -16,16 +16,10 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
     /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional).  */
     public let EndTime: Int
 
-    /**
-     * An array of stat names to query for (Optional). 
-     * - array num: StatNamesCount
-     */
+    /** An array of stat names to query for (Optional).  */
     public let StatNames: [String]?
 
-    /**
-     * The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
-     * - array buffer: StatNames
-     */
+    /** The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS.  */
     public let StatNamesCount: Int
 
     /** The Product User ID for the user whose stats are being retrieved  */
@@ -75,9 +69,7 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
      * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). 
      * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). 
      * - Parameter StatNames:  An array of stat names to query for (Optional). 
-     * - array num: StatNamesCount
      * - Parameter StatNamesCount:  The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
-     * - array buffer: StatNames
      * - Parameter TargetUserId:  The Product User ID for the user whose stats are being retrieved 
      */
     public init(

@@ -27,7 +27,6 @@ public class SwiftEOS_Reports_Actor: SwiftEOSActor {
      * This is intended as a way to associate arbitrary structured context information with a report.
      * This string needs to be valid JSON, report will fail otherwise.
      * The length of the context can be at maximum up to EOS_REPORTS_REPORTCONTEXT_MAX_LENGTH bytes, not including the null terminator, report will fail otherwise.
-     * - Parameter ClientData:  Optional client data provided by the user of the SDK.
      * - Parameter CompletionDelegate:  This function is called when the send operation completes.
      */
     public func SendPlayerBehaviorReport(
@@ -57,7 +56,6 @@ extension SwiftEOS_Reports_Actor {
      * Sends the provided report directly to the Epic Online Services back-end.
      * 
      * - Parameter Options:  Structure containing the player report information.
-     * - Parameter ClientData:  Optional client data provided by the user of the SDK.
      * - Parameter CompletionDelegate:  This function is called when the send operation completes.
      */
     private func ____SendPlayerBehaviorReport(

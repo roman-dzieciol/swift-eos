@@ -19,14 +19,12 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
     /**
      * The participant metadata items count.
      * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     * - array buffer: ParticipantMetadata
      */
     public let ParticipantMetadataCount: Int
 
     /**
      * The participant metadata items.
      * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     * - array num: ParticipantMetadataCount
      */
     public let ParticipantMetadata: [SwiftEOS_RTC_ParticipantMetadata]?
 
@@ -62,10 +60,8 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
      * - Parameter ParticipantStatus:  What status change occurred 
      * - Parameter ParticipantMetadataCount:  The participant metadata items count.
      * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     * - array buffer: ParticipantMetadata
      * - Parameter ParticipantMetadata:  The participant metadata items.
      * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     * - array num: ParticipantMetadataCount
      */
     public init(
         LocalUserId: EOS_ProductUserId?,

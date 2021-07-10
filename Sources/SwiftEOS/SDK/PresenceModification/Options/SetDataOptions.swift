@@ -7,16 +7,10 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * The count of records to set 
-     * - array buffer: Records
-     */
+    /** The count of records to set  */
     public let RecordsCount: Int
 
-    /**
-     * The pointer to start of a sequential array of Presence DataRecords 
-     * - array num: RecordsCount
-     */
+    /** The pointer to start of a sequential array of Presence DataRecords  */
     public let Records: [SwiftEOS_Presence_DataRecord]?
 
     /**
@@ -50,9 +44,7 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST. 
      * - Parameter RecordsCount:  The count of records to set 
-     * - array buffer: Records
      * - Parameter Records:  The pointer to start of a sequential array of Presence DataRecords 
-     * - array num: RecordsCount
      */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST,

@@ -7,28 +7,16 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
     /** API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * An array of Product User IDs indicating the users whose scores you want to retrieve 
-     * - array num: UserIdsCount
-     */
+    /** An array of Product User IDs indicating the users whose scores you want to retrieve  */
     public let UserIds: [EOS_ProductUserId]?
 
-    /**
-     * The number of users included in query 
-     * - array buffer: UserIds
-     */
+    /** The number of users included in query  */
     public let UserIdsCount: Int
 
-    /**
-     * The stats to be collected, along with the sorting method to use when determining rank order for each stat 
-     * - array num: StatInfoCount
-     */
+    /** The stats to be collected, along with the sorting method to use when determining rank order for each stat  */
     public let StatInfo: [SwiftEOS_Leaderboards_UserScoresQueryStatInfo]?
 
-    /**
-     * The number of stats to query 
-     * - array buffer: StatInfo
-     */
+    /** The number of stats to query  */
     public let StatInfoCount: Int
 
     /** An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time  */
@@ -88,13 +76,9 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST. 
      * - Parameter UserIds:  An array of Product User IDs indicating the users whose scores you want to retrieve 
-     * - array num: UserIdsCount
      * - Parameter UserIdsCount:  The number of users included in query 
-     * - array buffer: UserIds
      * - Parameter StatInfo:  The stats to be collected, along with the sorting method to use when determining rank order for each stat 
-     * - array num: StatInfoCount
      * - Parameter StatInfoCount:  The number of stats to query 
-     * - array buffer: StatInfo
      * - Parameter StartTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time 
      * - Parameter EndTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made before this time 
      * - Parameter LocalUserId:  Product User ID for user who is querying user scores.

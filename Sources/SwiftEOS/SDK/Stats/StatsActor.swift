@@ -19,7 +19,6 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID of the user who owns the stat 
      * - Parameter StatIndex:  Index of the stat to retrieve from the cache 
-     * - Parameter OutStat:  The stat data for the given index, if it exists and is valid
      * 
      * @see EOS_Stats_Stat_Release
      * 
@@ -42,7 +41,6 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID of the user who owns the stat 
      * - Parameter Name:  Name of the stat to retrieve from the cache 
-     * - Parameter OutStat:  The stat data for the given name, if it exists and is valid
      * 
      * @see EOS_Stats_Stat_Release
      * 
@@ -82,11 +80,8 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
      * - Parameter Stats:  Stats to ingest. 
-     * - array num: StatsCount
      * - Parameter StatsCount:  The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
-     * - array buffer: Stats
      * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the ingest stat operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -118,11 +113,8 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). 
      * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). 
      * - Parameter StatNames:  An array of stat names to query for (Optional). 
-     * - array num: StatNamesCount
      * - Parameter StatNamesCount:  The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
-     * - array buffer: StatNames
      * - Parameter TargetUserId:  The Product User ID for the user whose stats are being retrieved 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query player stats operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -158,7 +150,6 @@ extension SwiftEOS_Stats_Actor {
      * Fetches a stat from a given index. Use EOS_Stats_Stat_Release when finished with the data.
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID and index being accessed
-     * - Parameter OutStat:  The stat data for the given index, if it exists and is valid
      * 
      * @see EOS_Stats_Stat_Release
      * 
@@ -188,7 +179,6 @@ extension SwiftEOS_Stats_Actor {
      * Fetches a stat from cached stats by name. Use EOS_Stats_Stat_Release when finished with the data.
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID and name being accessed
-     * - Parameter OutStat:  The stat data for the given name, if it exists and is valid
      * 
      * @see EOS_Stats_Stat_Release
      * 
@@ -245,7 +235,6 @@ extension SwiftEOS_Stats_Actor {
      * The stat may not be updated immediately and an achievement using the stat may take a while to be unlocked once the stat has been uploaded.
      * 
      * - Parameter Options:  Structure containing information about the stat we're ingesting.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the ingest stat operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -272,7 +261,6 @@ extension SwiftEOS_Stats_Actor {
      * Query for a list of stats for a specific player.
      * 
      * - Parameter Options:  Structure containing information about the player whose stats we're retrieving.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query player stats operation completes.
      * 
      * @return EOS_Success if the operation completes successfully

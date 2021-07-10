@@ -5,10 +5,7 @@ public struct SwiftEOS_AntiCheatClient_PollStatusOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * The size of OutMessage in bytes. Recommended size is 256 bytes. 
-     * - array buffer: OutMessage
-     */
+    /** The size of OutMessage in bytes. Recommended size is 256 bytes.  */
     public let OutMessageLength: Int
 
     /**
@@ -38,7 +35,6 @@ public struct SwiftEOS_AntiCheatClient_PollStatusOptions: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST. 
      * - Parameter OutMessageLength:  The size of OutMessage in bytes. Recommended size is 256 bytes. 
-     * - array buffer: OutMessage
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST,

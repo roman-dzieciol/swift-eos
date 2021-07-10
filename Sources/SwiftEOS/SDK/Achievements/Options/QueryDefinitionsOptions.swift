@@ -18,16 +18,10 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
     /** Deprecated  */
     public let EpicUserId_DEPRECATED: EOS_EpicAccountId?
 
-    /**
-     * Deprecated 
-     * - array num: HiddenAchievementsCount_DEPRECATED
-     */
+    /** Deprecated  */
     public let HiddenAchievementIds_DEPRECATED: [String]?
 
-    /**
-     * Deprecated 
-     * - array buffer: HiddenAchievementIds_DEPRECATED
-     */
+    /** Deprecated  */
     public let HiddenAchievementsCount_DEPRECATED: Int
 
     /**
@@ -72,9 +66,7 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
      * If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
      * - Parameter EpicUserId_DEPRECATED:  Deprecated 
      * - Parameter HiddenAchievementIds_DEPRECATED:  Deprecated 
-     * - array num: HiddenAchievementsCount_DEPRECATED
      * - Parameter HiddenAchievementsCount_DEPRECATED:  Deprecated 
-     * - array buffer: HiddenAchievementIds_DEPRECATED
      */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST,

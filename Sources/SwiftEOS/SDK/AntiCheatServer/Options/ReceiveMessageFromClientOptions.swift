@@ -8,16 +8,10 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
     /** Optional value, if non-null then only messages addressed to this specific client will be returned  */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /**
-     * The size of the data received 
-     * - array buffer: Data
-     */
+    /** The size of the data received  */
     public let DataLengthBytes: Int
 
-    /**
-     * The data received 
-     * - array num: DataLengthBytes
-     */
+    /** The data received  */
     public let Data: [UInt8]?
 
     /**
@@ -55,9 +49,7 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST. 
      * - Parameter ClientHandle:  Optional value, if non-null then only messages addressed to this specific client will be returned 
      * - Parameter DataLengthBytes:  The size of the data received 
-     * - array buffer: Data
      * - Parameter Data:  The data received 
-     * - array num: DataLengthBytes
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST,

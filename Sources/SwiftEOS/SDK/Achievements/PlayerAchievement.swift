@@ -20,16 +20,10 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
     /** The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED.  */
     public let UnlockTime: Int
 
-    /**
-     * The number of player stat info entries associated with this achievement. 
-     * - array buffer: StatInfo
-     */
+    /** The number of player stat info entries associated with this achievement.  */
     public let StatInfoCount: Int
 
-    /**
-     * Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats. 
-     * - array num: StatInfoCount
-     */
+    /** Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats.  */
     public let StatInfo: [SwiftEOS_Achievements_PlayerStatInfo]?
 
     /**
@@ -106,9 +100,7 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
      * - Parameter Progress:  Progress towards completing this achievement (as a percentage). 
      * - Parameter UnlockTime:  The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED. 
      * - Parameter StatInfoCount:  The number of player stat info entries associated with this achievement. 
-     * - array buffer: StatInfo
      * - Parameter StatInfo:  Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats. 
-     * - array num: StatInfoCount
      * - Parameter DisplayName:  
      * Localized display name for the achievement based on this specific player's current progress on the achievement. 
      * 

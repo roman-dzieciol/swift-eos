@@ -20,7 +20,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeRender when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -53,7 +52,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeSend when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -81,7 +79,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioDevicesChanged when you no longer wish
      * to have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when an audio device change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -99,7 +96,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioInputState when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when audio input state changes
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -127,7 +123,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioOutputState when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when audio output state changes
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -155,7 +150,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyParticipantUpdated when you no longer wish
      * to have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -198,7 +192,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioInputDeviceByIndex
      * function.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation
      * @return The number of audio input devices
      * @see EOS_RTCAudio_GetAudioInputDeviceByIndex
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
@@ -227,7 +220,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioOutputDeviceByIndex
      * function.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation
      * @return The number of audio output devices
      * @see EOS_RTCAudio_GetAudioOutputDeviceByIndex
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
@@ -345,7 +337,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * - Parameter RoomName:  The room this settings should be applied on. 
      * - Parameter ParticipantId:  The participant to modify or null to update the global configuration 
      * - Parameter bAudioEnabled:  Mute or unmute audio track 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when the operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
@@ -377,7 +368,6 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
      * - Parameter RoomName:  The room this settings should be applied on. 
      * - Parameter AudioStatus:  Muted or unmuted audio track status 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when the operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
@@ -408,7 +398,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeRender when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -446,7 +435,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeSend when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -483,7 +471,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioDevicesChanged when you no longer wish
      * to have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when an audio device change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -519,7 +506,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioInputState when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when audio input state changes
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -556,7 +542,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioOutputState when you no longer wish to
      * have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when audio output state changes
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -593,7 +578,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyParticipantUpdated when you no longer wish
      * to have your CompletionDelegate called.
      * 
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
      * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
@@ -655,7 +639,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioInputDeviceByIndex
      * function.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation
      * @return The number of audio input devices
      * @see EOS_RTCAudio_GetAudioInputDeviceByIndex
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
@@ -704,7 +687,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioOutputDeviceByIndex
      * function.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation
      * @return The number of audio output devices
      * @see EOS_RTCAudio_GetAudioOutputDeviceByIndex
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
@@ -828,7 +810,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * @note Due to internal implementation details, this function requires that you first register to any notification for room
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when the operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
@@ -856,7 +837,6 @@ extension SwiftEOS_RTCAudio_Actor {
      * @note Due to internal implementation details, this function requires that you first register to any notification for room
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
-     * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when the operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect

@@ -8,16 +8,10 @@ public struct SwiftEOS_AntiCheatServer_UnprotectMessageOptions: SwiftEOSObject {
     /** Locally unique value describing the remote user from whom the message was received  */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /**
-     * Length in bytes of input 
-     * - array buffer: Data
-     */
+    /** Length in bytes of input  */
     public let DataLengthBytes: Int
 
-    /**
-     * The data to decrypt 
-     * - array num: DataLengthBytes
-     */
+    /** The data to decrypt  */
     public let Data: [UInt8]?
 
     /** The size in bytes of OutBuffer  */
@@ -60,9 +54,7 @@ public struct SwiftEOS_AntiCheatServer_UnprotectMessageOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_UNPROTECTMESSAGE_API_LATEST. 
      * - Parameter ClientHandle:  Locally unique value describing the remote user from whom the message was received 
      * - Parameter DataLengthBytes:  Length in bytes of input 
-     * - array buffer: Data
      * - Parameter Data:  The data to decrypt 
-     * - array num: DataLengthBytes
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      */
     public init(

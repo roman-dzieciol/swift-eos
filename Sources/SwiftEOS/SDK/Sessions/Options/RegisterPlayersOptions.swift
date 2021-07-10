@@ -10,16 +10,10 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
     /** Name of the session for which to register players  */
     public let SessionName: String?
 
-    /**
-     * Array of players to register with the session 
-     * - array num: PlayersToRegisterCount
-     */
+    /** Array of players to register with the session  */
     public let PlayersToRegister: [EOS_ProductUserId]?
 
-    /**
-     * Number of players in the array 
-     * - array buffer: PlayersToRegister
-     */
+    /** Number of players in the array  */
     public let PlayersToRegisterCount: Int
 
     /**
@@ -57,9 +51,7 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_REGISTERPLAYERS_API_LATEST. 
      * - Parameter SessionName:  Name of the session for which to register players 
      * - Parameter PlayersToRegister:  Array of players to register with the session 
-     * - array num: PlayersToRegisterCount
      * - Parameter PlayersToRegisterCount:  Number of players in the array 
-     * - array buffer: PlayersToRegister
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_REGISTERPLAYERS_API_LATEST,

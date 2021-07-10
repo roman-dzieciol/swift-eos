@@ -19,8 +19,6 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * EOS_ActiveSession_CopyInfo is used to immediately retrieve a copy of active session information
      * If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutActiveSessionInfo:  Out parameter used to receive the EOS_ActiveSession_Info structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutActiveSessionInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -53,7 +51,6 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
     /**
      * Get the number of registered players associated with this active session
      * 
-     * - Parameter Options:  the Options associated with retrieving the registered player count
      * 
      * @return number of registered players in the active session or 0 if there is an error
      */
@@ -68,8 +65,6 @@ extension SwiftEOS_ActiveSession_Actor {
      * EOS_ActiveSession_CopyInfo is used to immediately retrieve a copy of active session information
      * If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutActiveSessionInfo:  Out parameter used to receive the EOS_ActiveSession_Info structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutActiveSessionInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -119,7 +114,6 @@ extension SwiftEOS_ActiveSession_Actor {
     /**
      * Get the number of registered players associated with this active session
      * 
-     * - Parameter Options:  the Options associated with retrieving the registered player count
      * 
      * @return number of registered players in the active session or 0 if there is an error
      */

@@ -11,16 +11,10 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
     /** Unique event identifier previously configured in RegisterEvent  */
     public let EventId: Int
 
-    /**
-     * Number of parameters described in Params 
-     * - array buffer: Params
-     */
+    /** Number of parameters described in Params  */
     public let ParamsCount: Int
 
-    /**
-     * Set of parameter types previously configured in RegisterEvent, and their values 
-     * - array num: ParamsCount
-     */
+    /** Set of parameter types previously configured in RegisterEvent, and their values  */
     public let Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
 
     /**
@@ -60,9 +54,7 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
      * - Parameter ClientHandle:  Optional client who this event is primarily associated with. If not applicable, use 0. 
      * - Parameter EventId:  Unique event identifier previously configured in RegisterEvent 
      * - Parameter ParamsCount:  Number of parameters described in Params 
-     * - array buffer: Params
      * - Parameter Params:  Set of parameter types previously configured in RegisterEvent, and their values 
-     * - array num: ParamsCount
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST,

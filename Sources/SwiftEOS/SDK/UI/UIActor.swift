@@ -44,8 +44,6 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the NotificationFn.
      * - Parameter NotificationFn:  A callback that is fired when the overlay display settings are updated.
      * 
      * @return handle representing the registered callback
@@ -82,7 +80,6 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends
      * overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
      * 
-     * - Parameter Options:  Structure containing any options that are needed to retrieve the key.
      * @return A valid key combination which represent a single key with zero or more modifier keys.
      *         EOS_UIK_None will be returned if any error occurs.
      */
@@ -94,7 +91,6 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * Hides the active Social Overlay.
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to hide the friends list has been processed, or on an error.
      * 
      * @return EOS_Success If the Social Overlay has been notified about the request.
@@ -169,7 +165,6 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * Opens the Social Overlay with a request to show the friends list.
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to show the friends list has been sent to the Social Overlay, or on an error.
      * 
      * @return EOS_Success If the Social Overlay has been notified about the request.
@@ -217,8 +212,6 @@ extension SwiftEOS_UI_Actor {
      * 
      * @note must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the NotificationFn.
      * - Parameter NotificationFn:  A callback that is fired when the overlay display settings are updated.
      * 
      * @return handle representing the registered callback
@@ -284,7 +277,6 @@ extension SwiftEOS_UI_Actor {
      * Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends
      * overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
      * 
-     * - Parameter Options:  Structure containing any options that are needed to retrieve the key.
      * @return A valid key combination which represent a single key with zero or more modifier keys.
      *         EOS_UIK_None will be returned if any error occurs.
      */
@@ -301,7 +293,6 @@ extension SwiftEOS_UI_Actor {
      * Hides the active Social Overlay.
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID of the browser to close.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to hide the friends list has been processed, or on an error.
      * 
      * @return EOS_Success If the Social Overlay has been notified about the request.
@@ -400,7 +391,6 @@ extension SwiftEOS_UI_Actor {
      * Opens the Social Overlay with a request to show the friends list.
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID of the friends list to show.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to show the friends list has been sent to the Social Overlay, or on an error.
      * 
      * @return EOS_Success If the Social Overlay has been notified about the request.

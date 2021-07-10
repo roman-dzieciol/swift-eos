@@ -19,8 +19,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifyJoinSessionAccepted to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter NotificationFn:  A callback that is fired when a a notification is received.
      * 
      * @return handle representing the registered callback
@@ -36,8 +34,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifySessionInviteAccepted to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter NotificationFn:  A callback that is fired when a a notification is received.
      * 
      * @return handle representing the registered callback
@@ -53,8 +49,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * @note must call RemoveNotifySessionInviteReceived to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the session invite notification
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter NotificationFn:  A callback that is fired when a session invite for a user has been received
      * 
      * @return handle representing the registered callback
@@ -70,7 +64,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
      * 
      * - Parameter InviteId:  Invite ID for which to retrieve a session handle 
-     * - Parameter OutSessionHandle:  out parameter used to receive the session handle
      * 
      * @return EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -91,7 +84,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
      * 
      * - Parameter UiEventId:  UI Event associated with the session 
-     * - Parameter OutSessionHandle:  out parameter used to receive the session handle
      * 
      * @return EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -112,7 +104,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user associated with the session 
-     * - Parameter OutSessionHandle:  out parameter used to receive the session handle
      * 
      * @return EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -152,7 +143,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * - Parameter SessionId:  Optional session id - set to a globally unique value to override the backend assignment
      * If not specified the backend service will assign one to the session.  Do not mix and match.
      * This value can be of size [EOS_SESSIONMODIFICATION_MIN_SESSIONIDOVERRIDE_LENGTH, EOS_SESSIONMODIFICATION_MAX_SESSIONIDOVERRIDE_LENGTH]
-     * - Parameter OutSessionModificationHandle:  Pointer to a Session Modification Handle only set if successful
      * @return EOS_Success if we successfully created the Session Modification Handle pointed at in OutSessionModificationHandle, or an error result if the input data was invalid
      * 
      * @see EOS_SessionModification_Release
@@ -185,7 +175,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * - set session parameters to find an array of sessions that match the search criteria
      * 
      * - Parameter MaxSearchResults:  Max number of results to return 
-     * - Parameter OutSessionSearchHandle:  The new search handle or null if there was an error creating the search handle
      * 
      * @return EOS_Success if the search creation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
@@ -200,7 +189,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * Destroy a session given a session name
      * 
      * - Parameter SessionName:  Name of the session to destroy 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the destroy operation completes, either successfully or in error
      * 
      * @return EOS_Success if the destroy completes successfully
@@ -237,7 +225,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * Mark a session as ended, making it available to find if "join in progress" was disabled.  The session may be started again if desired
      * 
      * - Parameter SessionName:  Name of the session to set as no long in progress 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the end operation completes, either successfully or in error
      * 
      * @return EOS_Success if the end completes successfully
@@ -333,7 +320,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * @see EOS_Lobby_CreateLobbyOptions
      * @see EOS_Lobby_JoinLobbyOptions
      * @see EOS_Sessions_CreateSessionModificationOptions
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the join operation completes, either successfully or in error
      * 
      * @return EOS_Success if the join completes successfully
@@ -362,7 +348,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * Retrieve all existing invites for a single user
      * 
      * - Parameter LocalUserId:  The Product User ID to query for invitations 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the query invites operation completes, either successfully or in error
      * 
      */
@@ -381,10 +366,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * - Parameter SessionName:  Name of the session for which to register players 
      * - Parameter PlayersToRegister:  Array of players to register with the session 
-     * - array num: PlayersToRegisterCount
      * - Parameter PlayersToRegisterCount:  Number of players in the array 
-     * - array buffer: PlayersToRegister
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the registration operation completes, either successfully or in error
      * 
      * @return EOS_Success if the register completes successfully
@@ -414,7 +396,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user rejecting the invitation 
      * - Parameter InviteId:  The invite ID to reject 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the reject invite operation completes, either successfully or in error
      * 
      * @return EOS_Success if the invite rejection completes successfully
@@ -441,7 +422,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * - Parameter SessionName:  Name of the session associated with the invite 
      * - Parameter LocalUserId:  The Product User ID of the local user sending the invitation 
      * - Parameter TargetUserId:  The Product User of the remote user receiving the invitation 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the send invite operation completes, either successfully or in error
      * 
      * @return EOS_Success if the send invite completes successfully
@@ -468,7 +448,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * Mark a session as started, making it unable to find if session properties indicate "join in progress" is not available
      * 
      * - Parameter SessionName:  Name of the session to set in progress 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the start operation completes, either successfully or in error
      * 
      * @return EOS_Success if the start completes successfully
@@ -491,10 +470,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * - Parameter SessionName:  Name of the session for which to unregister players 
      * - Parameter PlayersToUnregister:  Array of players to unregister from the session 
-     * - array num: PlayersToUnregisterCount
      * - Parameter PlayersToUnregisterCount:  Number of players in the array 
-     * - array buffer: PlayersToUnregister
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the unregistration operation completes, either successfully or in error
      * 
      * @return EOS_Success if the unregister completes successfully
@@ -523,7 +499,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * Update a session given a session modification handle created by EOS_Sessions_CreateSessionModification or EOS_Sessions_UpdateSessionModification
      * 
      * - Parameter SessionModificationHandle:  Builder handle 
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the update operation completes, either successfully or in error
      * 
      * @return EOS_Success if the update completes successfully
@@ -546,7 +521,6 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it is no longer needed.
      * 
      * - Parameter SessionName:  Name of the session to update 
-     * - Parameter OutSessionModificationHandle:  Pointer to a Session Modification Handle only set if successful
      * @return EOS_Success if we successfully created the Session Modification Handle pointed at in OutSessionModificationHandle, or an error result if the input data was invalid
      * 
      * @see EOS_SessionModification_Release
@@ -567,8 +541,6 @@ extension SwiftEOS_Sessions_Actor {
      * 
      * @note must call RemoveNotifyJoinSessionAccepted to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter NotificationFn:  A callback that is fired when a a notification is received.
      * 
      * @return handle representing the registered callback
@@ -602,8 +574,6 @@ extension SwiftEOS_Sessions_Actor {
      * 
      * @note must call RemoveNotifySessionInviteAccepted to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the request.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter NotificationFn:  A callback that is fired when a a notification is received.
      * 
      * @return handle representing the registered callback
@@ -637,8 +607,6 @@ extension SwiftEOS_Sessions_Actor {
      * 
      * @note must call RemoveNotifySessionInviteReceived to remove the notification
      * 
-     * - Parameter Options:  Structure containing information about the session invite notification
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter NotificationFn:  A callback that is fired when a session invite for a user has been received
      * 
      * @return handle representing the registered callback
@@ -672,7 +640,6 @@ extension SwiftEOS_Sessions_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutSessionHandle:  out parameter used to receive the session handle
      * 
      * @return EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -701,7 +668,6 @@ extension SwiftEOS_Sessions_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutSessionHandle:  out parameter used to receive the session handle
      * 
      * @return EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -730,7 +696,6 @@ extension SwiftEOS_Sessions_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutSessionHandle:  out parameter used to receive the session handle
      * 
      * @return EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -759,7 +724,6 @@ extension SwiftEOS_Sessions_Actor {
      * The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it no longer needed.
      * 
      * - Parameter Options:  Required fields for the creation of a session such as a name, bucketid, and max players
-     * - Parameter OutSessionModificationHandle:  Pointer to a Session Modification Handle only set if successful
      * @return EOS_Success if we successfully created the Session Modification Handle pointed at in OutSessionModificationHandle, or an error result if the input data was invalid
      * 
      * @see EOS_SessionModification_Release
@@ -788,7 +752,6 @@ extension SwiftEOS_Sessions_Actor {
      * - set session parameters to find an array of sessions that match the search criteria
      * 
      * - Parameter Options:  Structure containing required parameters such as the maximum number of search results
-     * - Parameter OutSessionSearchHandle:  The new search handle or null if there was an error creating the search handle
      * 
      * @return EOS_Success if the search creation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
@@ -811,7 +774,6 @@ extension SwiftEOS_Sessions_Actor {
      * Destroy a session given a session name
      * 
      * - Parameter Options:  Structure containing information about the session to be destroyed
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the destroy operation completes, either successfully or in error
      * 
      * @return EOS_Success if the destroy completes successfully
@@ -860,7 +822,6 @@ extension SwiftEOS_Sessions_Actor {
      * Mark a session as ended, making it available to find if "join in progress" was disabled.  The session may be started again if desired
      * 
      * - Parameter Options:  Structure containing information about the session to be ended
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the end operation completes, either successfully or in error
      * 
      * @return EOS_Success if the end completes successfully
@@ -962,7 +923,6 @@ extension SwiftEOS_Sessions_Actor {
      * Join a session, creating a local session under a given session name.  Backend will validate various conditions to make sure it is possible to join the session.
      * 
      * - Parameter Options:  Structure containing information about the session to be joined
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the join operation completes, either successfully or in error
      * 
      * @return EOS_Success if the join completes successfully
@@ -989,7 +949,6 @@ extension SwiftEOS_Sessions_Actor {
      * Retrieve all existing invites for a single user
      * 
      * - Parameter Options:  Structure containing information about the invites to query
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the query invites operation completes, either successfully or in error
      * 
      */
@@ -1013,7 +972,6 @@ extension SwiftEOS_Sessions_Actor {
      * Register a group of players with the session, allowing them to invite others or otherwise indicate they are part of the session for determining a full session
      * 
      * - Parameter Options:  Structure containing information about the session and players to be registered
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the registration operation completes, either successfully or in error
      * 
      * @return EOS_Success if the register completes successfully
@@ -1042,7 +1000,6 @@ extension SwiftEOS_Sessions_Actor {
      * Reject an invite from another player.
      * 
      * - Parameter Options:  Structure containing information about the invite to reject
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the reject invite operation completes, either successfully or in error
      * 
      * @return EOS_Success if the invite rejection completes successfully
@@ -1069,7 +1026,6 @@ extension SwiftEOS_Sessions_Actor {
      * Send an invite to another player.  User must have created the session or be registered in the session or else the call will fail
      * 
      * - Parameter Options:  Structure containing information about the session and player to invite
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the send invite operation completes, either successfully or in error
      * 
      * @return EOS_Success if the send invite completes successfully
@@ -1096,7 +1052,6 @@ extension SwiftEOS_Sessions_Actor {
      * Mark a session as started, making it unable to find if session properties indicate "join in progress" is not available
      * 
      * - Parameter Options:  Structure containing information about the session to be started
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the start operation completes, either successfully or in error
      * 
      * @return EOS_Success if the start completes successfully
@@ -1124,7 +1079,6 @@ extension SwiftEOS_Sessions_Actor {
      * Unregister a group of players with the session, freeing up space for others to join
      * 
      * - Parameter Options:  Structure containing information about the session and players to be unregistered
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the unregistration operation completes, either successfully or in error
      * 
      * @return EOS_Success if the unregister completes successfully
@@ -1153,7 +1107,6 @@ extension SwiftEOS_Sessions_Actor {
      * Update a session given a session modification handle created by EOS_Sessions_CreateSessionModification or EOS_Sessions_UpdateSessionModification
      * 
      * - Parameter Options:  Structure containing information about the session to be updated
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the update operation completes, either successfully or in error
      * 
      * @return EOS_Success if the update completes successfully
@@ -1182,7 +1135,6 @@ extension SwiftEOS_Sessions_Actor {
      * The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it is no longer needed.
      * 
      * - Parameter Options:  Required fields such as session name
-     * - Parameter OutSessionModificationHandle:  Pointer to a Session Modification Handle only set if successful
      * @return EOS_Success if we successfully created the Session Modification Handle pointed at in OutSessionModificationHandle, or an error result if the input data was invalid
      * 
      * @see EOS_SessionModification_Release

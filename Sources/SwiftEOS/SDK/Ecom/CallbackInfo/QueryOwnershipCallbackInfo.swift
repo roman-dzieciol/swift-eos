@@ -10,16 +10,10 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
     /** The Epic Online Services Account ID of the local user whose ownership was queried  */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /**
-     * List of catalog items and their ownership status 
-     * - array num: ItemOwnershipCount
-     */
+    /** List of catalog items and their ownership status  */
     public let ItemOwnership: [SwiftEOS_Ecom_ItemOwnership]?
 
-    /**
-     * Number of ownership results are included in this callback 
-     * - array buffer: ItemOwnership
-     */
+    /** Number of ownership results are included in this callback  */
     public let ItemOwnershipCount: Int
 
     /** Initialize from SDK object */
@@ -49,9 +43,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
      * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership was queried 
      * - Parameter ItemOwnership:  List of catalog items and their ownership status 
-     * - array num: ItemOwnershipCount
      * - Parameter ItemOwnershipCount:  Number of ownership results are included in this callback 
-     * - array buffer: ItemOwnership
      */
     public init(
         ResultCode: EOS_EResult,

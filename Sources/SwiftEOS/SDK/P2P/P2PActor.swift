@@ -41,8 +41,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after
      * this event are discarded until there is room again in the queue.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_AddNotifyIncomingPacketQueueFull API is supported
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter IncomingPacketQueueFullHandler:  The callback to be fired when the incoming packet queue is full
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -57,7 +55,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user who would like notifications 
      * - Parameter SocketId:  The optional socket ID to listen for to be closed. If NULL, this handler will be called for all closed connections 
-     * - Parameter ClientData:  This value is returned to the caller when ConnectionClosedHandler is invoked
      * - Parameter ConnectionClosedHandler:  The callback to be fired when we an open connection has been closed
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -81,7 +78,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the user who is listening for incoming connection requests 
      * - Parameter SocketId:  The optional socket ID to listen for, used as a filter for incoming connection requests; If NULL, incoming connection requests will not be filtered 
-     * - Parameter ClientData:  This value is returned to the caller when ConnectionRequestHandler is invoked
      * - Parameter ConnectionRequestHandler:  The callback to be fired when we receive a connection request
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -141,8 +137,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
      * Get our last-queried NAT-type, if it has been successfully queried.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetNATType API is supported
-     * - Parameter OutNATType:  The queried NAT Type, or unknown if unknown
      * @return EOS_EResult::EOS_Success - if we have cached data
      *         EOS_EResult::EOS_NotFound - If we do not have queried data cached
      */
@@ -156,7 +150,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user who is receiving the packet 
      * - Parameter RequestedChannel:  An optional channel to request the data for. If NULL, we're retrieving the size of the next packet on any channel. 
-     * - Parameter OutPacketSizeBytes:  The amount of bytes required to store the data of the next packet for the requested user
      * @return EOS_EResult::EOS_Success - If OutPacketSizeBytes was successfully set and there is data to be received
      *         EOS_EResult::EOS_InvalidParameters - If input was invalid
      *         EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
@@ -174,8 +167,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
      * Gets the current cached information related to the incoming and outgoing packet queues.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetPacketQueueInfo API is supported
-     * - Parameter OutPacketQueueInfo:  The current information of the incoming and outgoing packet queues
      * @return EOS_EResult::EOS_Success - if the input options were valid
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
@@ -186,7 +177,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
      * Get the current chosen port and the amount of other ports to try above the chosen port if the chosen port is unavailable.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetPortRange API is supported
      * - Parameter OutPort:  The port that will be tried first
      * - Parameter OutNumAdditionalPortsToTry:  The amount of ports to try above the value in OutPort, if OutPort is unavailable
      * @return EOS_EResult::EOS_Success - if the input options were valid
@@ -205,8 +195,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
      * Get the current relay control setting.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetRelayControl API is supported
-     * - Parameter OutRelayControl:  The relay control setting currently configured
      * @return EOS_EResult::EOS_Success - if the input was valid
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
@@ -217,8 +205,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
      * Query the current NAT-type of our connection.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_QueryNATType API is supported
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when we finish querying our NAT type
      */
     public func QueryNATType(
@@ -237,7 +223,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * - Parameter OutSocketId:  The Socket ID of the data that was sent. Only set if there was a packet to receive.
      * - Parameter OutChannel:  The channel the data was sent on. Only set if there was a packet to receive.
      * - Parameter OutData:  Buffer to store the data being received. Must be at least EOS_P2P_GetNextReceivedPacketSize in length or data will be truncated
-     * - Parameter OutBytesWritten:  The amount of bytes written to OutData. Only set if there was a packet to receive.
      * @return EOS_EResult::EOS_Success - If the packet was received successfully
      *         EOS_EResult::EOS_InvalidParameters - If input was invalid
      *         EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
@@ -274,9 +259,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * - Parameter SocketId:  The socket ID for data you are sending in this packet 
      * - Parameter Channel:  Channel associated with this data 
      * - Parameter DataLengthBytes:  The size of the data to be sent to the RemoteUser 
-     * - array buffer: Data
      * - Parameter Data:  The data to be sent to the RemoteUser 
-     * - array num: DataLengthBytes
      * - Parameter bAllowDelayedDelivery:  If false and we do not already have an established connection to the peer, this data will be dropped 
      * - Parameter Reliability:  Setting to control the delivery reliability of this packet 
      * @return EOS_EResult::EOS_Success           - If packet was queued to be sent successfully
@@ -388,8 +371,6 @@ extension SwiftEOS_P2P_Actor {
      * or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after
      * this event are discarded until there is room again in the queue.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_AddNotifyIncomingPacketQueueFull API is supported
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter IncomingPacketQueueFullHandler:  The callback to be fired when the incoming packet queue is full
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -421,7 +402,6 @@ extension SwiftEOS_P2P_Actor {
      * Listen for when a previously opened connection is closed.
      * 
      * - Parameter Options:  Information about who would like notifications about closed connections, and for which socket
-     * - Parameter ClientData:  This value is returned to the caller when ConnectionClosedHandler is invoked
      * - Parameter ConnectionClosedHandler:  The callback to be fired when we an open connection has been closed
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -455,7 +435,6 @@ extension SwiftEOS_P2P_Actor {
      * will only be called if the connection has not already been accepted.
      * 
      * - Parameter Options:  Information about who would like notifications, and (optionally) only for a specific socket
-     * - Parameter ClientData:  This value is returned to the caller when ConnectionRequestHandler is invoked
      * - Parameter ConnectionRequestHandler:  The callback to be fired when we receive a connection request
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -525,8 +504,6 @@ extension SwiftEOS_P2P_Actor {
     /**
      * Get our last-queried NAT-type, if it has been successfully queried.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetNATType API is supported
-     * - Parameter OutNATType:  The queried NAT Type, or unknown if unknown
      * @return EOS_EResult::EOS_Success - if we have cached data
      *         EOS_EResult::EOS_NotFound - If we do not have queried data cached
      */
@@ -547,7 +524,6 @@ extension SwiftEOS_P2P_Actor {
      * packets to be retrieved.
      * 
      * - Parameter Options:  Information about who is requesting the size of their next packet
-     * - Parameter OutPacketSizeBytes:  The amount of bytes required to store the data of the next packet for the requested user
      * @return EOS_EResult::EOS_Success - If OutPacketSizeBytes was successfully set and there is data to be received
      *         EOS_EResult::EOS_InvalidParameters - If input was invalid
      *         EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
@@ -569,8 +545,6 @@ extension SwiftEOS_P2P_Actor {
     /**
      * Gets the current cached information related to the incoming and outgoing packet queues.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetPacketQueueInfo API is supported
-     * - Parameter OutPacketQueueInfo:  The current information of the incoming and outgoing packet queues
      * @return EOS_EResult::EOS_Success - if the input options were valid
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
@@ -589,7 +563,6 @@ extension SwiftEOS_P2P_Actor {
     /**
      * Get the current chosen port and the amount of other ports to try above the chosen port if the chosen port is unavailable.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetPortRange API is supported
      * - Parameter OutPort:  The port that will be tried first
      * - Parameter OutNumAdditionalPortsToTry:  The amount of ports to try above the value in OutPort, if OutPort is unavailable
      * @return EOS_EResult::EOS_Success - if the input options were valid
@@ -615,8 +588,6 @@ extension SwiftEOS_P2P_Actor {
     /**
      * Get the current relay control setting.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_GetRelayControl API is supported
-     * - Parameter OutRelayControl:  The relay control setting currently configured
      * @return EOS_EResult::EOS_Success - if the input was valid
      *         EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
      */
@@ -635,8 +606,6 @@ extension SwiftEOS_P2P_Actor {
     /**
      * Query the current NAT-type of our connection.
      * 
-     * - Parameter Options:  Information about what version of the EOS_P2P_QueryNATType API is supported
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when we finish querying our NAT type
      */
     private func ____QueryNATType(
@@ -662,7 +631,6 @@ extension SwiftEOS_P2P_Actor {
      * - Parameter OutSocketId:  The Socket ID of the data that was sent. Only set if there was a packet to receive.
      * - Parameter OutChannel:  The channel the data was sent on. Only set if there was a packet to receive.
      * - Parameter OutData:  Buffer to store the data being received. Must be at least EOS_P2P_GetNextReceivedPacketSize in length or data will be truncated
-     * - Parameter OutBytesWritten:  The amount of bytes written to OutData. Only set if there was a packet to receive.
      * @return EOS_EResult::EOS_Success - If the packet was received successfully
      *         EOS_EResult::EOS_InvalidParameters - If input was invalid
      *         EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user

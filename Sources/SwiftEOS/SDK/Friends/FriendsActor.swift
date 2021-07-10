@@ -19,7 +19,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is accepting the friends list invitation 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who sent the friends list invitation 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func AcceptInvite(
@@ -39,8 +38,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     /**
      * Listen for changes to friends for a particular account.
      * 
-     * - Parameter Options:  Information about who would like notifications.
-     * - Parameter ClientData:  This value is returned to the caller when FriendsUpdateHandler is invoked.
      * - Parameter FriendsUpdateHandler:  The callback to be invoked when a change to any friend status changes.
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -115,7 +112,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user whose friends list you want to retrieve 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryFriends(
@@ -133,7 +129,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is rejecting a friends list invitation 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who sent the friends list invitation 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func RejectInvite(
@@ -156,7 +151,6 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is sending the friends list invitation 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who is receiving the friends list invitation 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func SendInvite(
@@ -180,7 +174,6 @@ extension SwiftEOS_Friends_Actor {
      * Starts an asynchronous task that accepts a friend invitation from another user. The completion delegate is executed after the backend response has been received.
      * 
      * - Parameter Options:  structure containing the logged in account and the inviting account
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____AcceptInvite(
@@ -202,8 +195,6 @@ extension SwiftEOS_Friends_Actor {
     /**
      * Listen for changes to friends for a particular account.
      * 
-     * - Parameter Options:  Information about who would like notifications.
-     * - Parameter ClientData:  This value is returned to the caller when FriendsUpdateHandler is invoked.
      * - Parameter FriendsUpdateHandler:  The callback to be invoked when a change to any friend status changes.
      * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
@@ -306,7 +297,6 @@ extension SwiftEOS_Friends_Actor {
      * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
      * - Parameter Options:  structure containing the account for which to retrieve the friends list
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____QueryFriends(
@@ -329,7 +319,6 @@ extension SwiftEOS_Friends_Actor {
      * Starts an asynchronous task that rejects a friend invitation from another user. The completion delegate is executed after the backend response has been received.
      * 
      * - Parameter Options:  structure containing the logged in account and the inviting account
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____RejectInvite(
@@ -353,7 +342,6 @@ extension SwiftEOS_Friends_Actor {
      * It does not indicate that the target user has responded to the friend invitation.
      * 
      * - Parameter Options:  structure containing the account to send the invite from and the account to send the invite to
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____SendInvite(

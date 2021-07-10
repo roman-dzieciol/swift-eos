@@ -26,7 +26,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter OverrideCatalogNamespace:  The catalog namespace will be the current Sandbox ID (in EOS_Platform_Options) unless overridden by this field 
      * - Parameter EntryCount:  The number of EOS_Ecom_CheckoutEntry elements contained in Entries 
      * - Parameter Entries:  An array of EOS_Ecom_CheckoutEntry elements, each containing the details of a single offer 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func Checkout(
@@ -52,7 +51,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement is being copied 
      * - Parameter EntitlementId:  ID of the entitlement to retrieve from the cache 
-     * - Parameter OutEntitlement:  the entitlement for the given ID, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_CopyEntitlementByNameAndIndex
      * @see EOS_Ecom_Entitlement_Release
@@ -77,7 +75,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement is being copied 
      * - Parameter EntitlementIndex:  Index of the entitlement to retrieve from the cache 
-     * - Parameter OutEntitlement:  the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_Entitlement_Release
      * 
@@ -104,7 +101,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement is being copied 
      * - Parameter EntitlementName:  Name of the entitlement to retrieve from the cache 
      * - Parameter Index:  Index of the entitlement within the named set to retrieve from the cache. 
-     * - Parameter OutEntitlement:  the entitlement for the given name index pair, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_Entitlement_Release
      * 
@@ -130,7 +126,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item is being copied 
      * - Parameter ItemId:  The ID of the item to get. 
-     * - Parameter OutItem:  the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
      * 
      * @see EOS_Ecom_CatalogItem_Release
      * @see EOS_Ecom_GetItemImageInfoCount
@@ -157,7 +152,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item image is being copied 
      * - Parameter ItemId:  The ID of the item to get the images for. 
      * - Parameter ImageInfoIndex:  The index of the image to get. 
-     * - Parameter OutImageInfo:  the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
      * 
      * @see EOS_Ecom_KeyImageInfo_Release
      * 
@@ -184,7 +178,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item release is being copied 
      * - Parameter ItemId:  The ID of the item to get the releases for. 
      * - Parameter ReleaseIndex:  The index of the release to get. 
-     * - Parameter OutRelease:  the release for the given index, if it exists and is valid, use EOS_Ecom_CatalogRelease_Release when finished
      * 
      * @see EOS_Ecom_CatalogRelease_Release
      * 
@@ -210,7 +203,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer is being copied 
      * - Parameter OfferId:  The ID of the offer to get. 
-     * - Parameter OutOffer:  the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
      * 
      * @see EOS_Ecom_CatalogOffer_Release
      * @see EOS_Ecom_GetOfferItemCount
@@ -236,7 +228,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer is being copied 
      * - Parameter OfferIndex:  The index of the offer to get. 
-     * - Parameter OutOffer:  the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
      * 
      * @see EOS_Ecom_CatalogOffer_Release
      * @see EOS_Ecom_GetOfferItemCount
@@ -263,7 +254,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer image is being copied. 
      * - Parameter OfferId:  The ID of the offer to get the images for. 
      * - Parameter ImageInfoIndex:  The index of the image to get. 
-     * - Parameter OutImageInfo:  the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
      * 
      * @see EOS_Ecom_KeyImageInfo_Release
      * 
@@ -290,7 +280,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item is being copied 
      * - Parameter OfferId:  The ID of the offer to get the items for. 
      * - Parameter ItemIndex:  The index of the item to get. 
-     * - Parameter OutItem:  the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
      * 
      * @see EOS_Ecom_CatalogItem_Release
      * @see EOS_Ecom_GetItemImageInfoCount
@@ -501,11 +490,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve 
      * - Parameter EntitlementNames:  An array of Entitlement Names that you want to check 
-     * - array num: EntitlementNameCount
      * - Parameter EntitlementNameCount:  The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
-     * - array buffer: EntitlementNames
      * - Parameter bIncludeRedeemed:  If true, Entitlements that have been redeemed will be included in the results. 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryEntitlements(
@@ -532,7 +518,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer to query 
      * - Parameter OverrideCatalogNamespace:  If not provided then the SandboxId is used as the catalog namespace 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryOffers(
@@ -555,11 +540,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership to query 
      * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership 
-     * - array num: CatalogItemIdCount
      * - Parameter CatalogItemIdCount:  The number of Catalog Item IDs to in the array 
-     * - array buffer: CatalogItemIds
      * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryOwnership(
@@ -586,11 +568,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership token you want to query 
      * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount 
-     * - array num: CatalogItemIdCount
      * - Parameter CatalogItemIdCount:  The number of catalog item IDs to query 
-     * - array buffer: CatalogItemIds
      * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryOwnershipToken(
@@ -617,10 +596,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who is redeeming Entitlements 
      * - Parameter EntitlementIdCount:  The number of Entitlements to redeem 
-     * - array buffer: EntitlementIds
      * - Parameter EntitlementIds:  The array of Entitlements to redeem 
-     * - array num: EntitlementIdCount
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func RedeemEntitlements(
@@ -643,7 +619,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * Fetches an entitlement from a given index.
      * 
      * - Parameter EntitlementIndex:  The index of the entitlement to get 
-     * - Parameter OutEntitlement:  the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_Entitlement_Release
      * 
@@ -661,7 +636,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     /**
      * Fetch the number of entitlements that are part of this transaction.
      * 
-     * - Parameter Options:  structure containing the Epic Online Services Account ID being accessed
      * 
      * @see EOS_Ecom_Transaction_CopyEntitlementByIndex
      * 
@@ -699,7 +673,6 @@ extension SwiftEOS_Ecom_Actor {
      * @see EOS_Ecom_Transaction_Release
      * 
      * - Parameter Options:  structure containing filter criteria
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____Checkout(
@@ -722,7 +695,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches the entitlement with the given ID.
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and entitlement ID being accessed
-     * - Parameter OutEntitlement:  the entitlement for the given ID, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_CopyEntitlementByNameAndIndex
      * @see EOS_Ecom_Entitlement_Release
@@ -754,7 +726,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an entitlement from a given index.
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
-     * - Parameter OutEntitlement:  the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_Entitlement_Release
      * 
@@ -787,7 +758,6 @@ extension SwiftEOS_Ecom_Actor {
      * one less than the result from EOS_Ecom_GetEntitlementsByNameCount.
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID, entitlement name, and index being accessed
-     * - Parameter OutEntitlement:  the entitlement for the given name index pair, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_Entitlement_Release
      * 
@@ -818,7 +788,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an item with a given ID.
      * 
      * - Parameter Options:  structure containing the item ID being accessed
-     * - Parameter OutItem:  the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
      * 
      * @see EOS_Ecom_CatalogItem_Release
      * @see EOS_Ecom_GetItemImageInfoCount
@@ -851,7 +820,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an image from a given index.
      * 
      * - Parameter Options:  structure containing the item ID and index being accessed
-     * - Parameter OutImageInfo:  the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
      * 
      * @see EOS_Ecom_KeyImageInfo_Release
      * 
@@ -882,7 +850,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches a release from a given index.
      * 
      * - Parameter Options:  structure containing the item ID and index being accessed
-     * - Parameter OutRelease:  the release for the given index, if it exists and is valid, use EOS_Ecom_CatalogRelease_Release when finished
      * 
      * @see EOS_Ecom_CatalogRelease_Release
      * 
@@ -913,7 +880,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an offer with a given ID.  The pricing and text are localized to the provided account.
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and offer ID being accessed
-     * - Parameter OutOffer:  the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
      * 
      * @see EOS_Ecom_CatalogOffer_Release
      * @see EOS_Ecom_GetOfferItemCount
@@ -946,7 +912,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an offer from a given index.  The pricing and text are localized to the provided account.
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
-     * - Parameter OutOffer:  the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
      * 
      * @see EOS_Ecom_CatalogOffer_Release
      * @see EOS_Ecom_GetOfferItemCount
@@ -979,7 +944,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an image from a given index.
      * 
      * - Parameter Options:  structure containing the offer ID and index being accessed
-     * - Parameter OutImageInfo:  the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
      * 
      * @see EOS_Ecom_KeyImageInfo_Release
      * 
@@ -1010,7 +974,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an item from a given index.
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
-     * - Parameter OutItem:  the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
      * 
      * @see EOS_Ecom_CatalogItem_Release
      * @see EOS_Ecom_GetItemImageInfoCount
@@ -1282,7 +1245,6 @@ extension SwiftEOS_Ecom_Actor {
      * Use EOS_Ecom_GetEntitlementsByNameCount to retrieve the number of entitlements with a specific entitlement name.
      * 
      * - Parameter Options:  structure containing the account and entitlement names to retrieve
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____QueryEntitlements(
@@ -1306,7 +1268,6 @@ extension SwiftEOS_Ecom_Actor {
      * This data will be cached for a limited time and retrieved again from the backend when necessary.
      * 
      * - Parameter Options:  structure containing filter criteria
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____QueryOffers(
@@ -1330,7 +1291,6 @@ extension SwiftEOS_Ecom_Actor {
      * This data will be cached for a limited time and retrieved again from the backend when necessary
      * 
      * - Parameter Options:  structure containing the account and catalog item IDs to retrieve
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____QueryOwnership(
@@ -1354,7 +1314,6 @@ extension SwiftEOS_Ecom_Actor {
      * The data is return via the callback in the form of a signed JWT that should be verified by an external backend server using a public key for authenticity.
      * 
      * - Parameter Options:  structure containing the account and catalog item IDs to retrieve in token form
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____QueryOwnershipToken(
@@ -1378,7 +1337,6 @@ extension SwiftEOS_Ecom_Actor {
      * to no longer be returned from QueryEntitlements unless the include redeemed request flag is set true.
      * 
      * - Parameter Options:  structure containing entitlement to redeem
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____RedeemEntitlements(
@@ -1401,7 +1359,6 @@ extension SwiftEOS_Ecom_Actor {
      * Fetches an entitlement from a given index.
      * 
      * - Parameter Options:  structure containing the index being accessed
-     * - Parameter OutEntitlement:  the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
      * 
      * @see EOS_Ecom_Entitlement_Release
      * 
@@ -1431,7 +1388,6 @@ extension SwiftEOS_Ecom_Actor {
     /**
      * Fetch the number of entitlements that are part of this transaction.
      * 
-     * - Parameter Options:  structure containing the Epic Online Services Account ID being accessed
      * 
      * @see EOS_Ecom_Transaction_CopyEntitlementByIndex
      * 

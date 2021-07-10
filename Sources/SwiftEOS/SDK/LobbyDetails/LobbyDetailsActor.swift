@@ -22,7 +22,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * - Parameter AttrIndex:  The index of the attribute to retrieve
      * 
      * @see EOS_LobbyDetails_GetAttributeCount
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -43,7 +42,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
      * - Parameter AttrKey:  Name of the attribute 
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -63,8 +61,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.
      * If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutLobbyDetailsInfo:  Out parameter used to receive the EOS_LobbyDetails_Info structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutLobbyDetailsInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -84,7 +80,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID of the lobby member 
      * - Parameter AttrIndex:  The index of the attribute to copy 
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -110,7 +105,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID of the lobby member 
      * - Parameter AttrKey:  Name of the attribute to copy 
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -133,7 +127,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     /**
      * Get the number of attributes associated with this lobby
      * 
-     * - Parameter Options:  the Options associated with retrieving the attribute count
      * 
      * @return number of attributes on the lobby or 0 if there is an error
      */
@@ -144,7 +137,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     /**
      * Get the product user ID of the current owner for a given lobby
      * 
-     * - Parameter Options:  Structure containing the input parameters
      * 
      * @return the product user ID for the lobby owner or null if the input parameters are invalid
      */
@@ -187,7 +179,6 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     /**
      * Get the number of members associated with this lobby
      * 
-     * - Parameter Options:  the Options associated with retrieving the member count
      * 
      * @return number of members in the existing lobby or 0 if there is an error
      */
@@ -203,7 +194,6 @@ extension SwiftEOS_LobbyDetails_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -236,7 +226,6 @@ extension SwiftEOS_LobbyDetails_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -268,8 +257,6 @@ extension SwiftEOS_LobbyDetails_Actor {
      * EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.
      * If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutLobbyDetailsInfo:  Out parameter used to receive the EOS_LobbyDetails_Info structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutLobbyDetailsInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -300,7 +287,6 @@ extension SwiftEOS_LobbyDetails_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -333,7 +319,6 @@ extension SwiftEOS_LobbyDetails_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
      * - Parameter Options:  Structure containing the input parameters
-     * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -364,7 +349,6 @@ extension SwiftEOS_LobbyDetails_Actor {
     /**
      * Get the number of attributes associated with this lobby
      * 
-     * - Parameter Options:  the Options associated with retrieving the attribute count
      * 
      * @return number of attributes on the lobby or 0 if there is an error
      */
@@ -385,7 +369,6 @@ extension SwiftEOS_LobbyDetails_Actor {
     /**
      * Get the product user ID of the current owner for a given lobby
      * 
-     * - Parameter Options:  Structure containing the input parameters
      * 
      * @return the product user ID for the lobby owner or null if the input parameters are invalid
      */
@@ -448,7 +431,6 @@ extension SwiftEOS_LobbyDetails_Actor {
     /**
      * Get the number of members associated with this lobby
      * 
-     * - Parameter Options:  the Options associated with retrieving the member count
      * 
      * @return number of members in the existing lobby or 0 if there is an error
      */

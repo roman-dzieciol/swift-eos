@@ -32,16 +32,10 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
     /** The rich-text of the user  */
     public let RichText: String?
 
-    /**
-     * The count of records available 
-     * - array buffer: Records
-     */
+    /** The count of records available  */
     public let RecordsCount: Int
 
-    /**
-     * The first data record, or NULL if RecordsCount is not at least 1 
-     * - array num: RecordsCount
-     */
+    /** The first data record, or NULL if RecordsCount is not at least 1  */
     public let Records: [SwiftEOS_Presence_DataRecord]?
 
     /** The user-facing name for the product the user is logged in from  */
@@ -98,9 +92,7 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
      * - Parameter Platform:  The platform of that the user is logged in from 
      * - Parameter RichText:  The rich-text of the user 
      * - Parameter RecordsCount:  The count of records available 
-     * - array buffer: Records
      * - Parameter Records:  The first data record, or NULL if RecordsCount is not at least 1 
-     * - array num: RecordsCount
      * - Parameter ProductName:  The user-facing name for the product the user is logged in from 
      */
     public init(

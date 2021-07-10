@@ -10,16 +10,10 @@ public struct SwiftEOS_Ecom_QueryOwnershipTokenOptions: SwiftEOSObject {
     /** The Epic Online Services Account ID of the local user whose ownership token you want to query  */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /**
-     * The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount 
-     * - array num: CatalogItemIdCount
-     */
+    /** The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount  */
     public let CatalogItemIds: [String]?
 
-    /**
-     * The number of catalog item IDs to query 
-     * - array buffer: CatalogItemIds
-     */
+    /** The number of catalog item IDs to query  */
     public let CatalogItemIdCount: Int
 
     /** Optional product namespace, if not the one specified during initialization  */
@@ -63,9 +57,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipTokenOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_QUERYOWNERSHIPTOKEN_API_LATEST. 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership token you want to query 
      * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount 
-     * - array num: CatalogItemIdCount
      * - Parameter CatalogItemIdCount:  The number of catalog item IDs to query 
-     * - array buffer: CatalogItemIds
      * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
      */
     public init(

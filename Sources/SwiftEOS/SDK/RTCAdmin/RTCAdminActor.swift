@@ -21,7 +21,6 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * - Parameter QueryId:  Query identifier received as part of a previous query.
      * 
      * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
-     * - Parameter OutUserToken:  The user token for the given index, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
      * 
      * @note The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when
      * initiating the query.
@@ -49,7 +48,6 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * - Parameter QueryId:  Query identifier received as part of a previous query.
      * 
      * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
-     * - Parameter OutUserToken:  The user token for the given user ID, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
      * 
      * @see EOS_RTCAdmin_UserToken_Release
      * 
@@ -72,7 +70,6 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * 
      * - Parameter RoomName:  Room name to kick the participant from 
      * - Parameter TargetUserId:  Product User ID of the participant to kick from the room 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      */
@@ -99,17 +96,12 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Product User ID for local user who is querying join room tokens. 
      * - Parameter RoomName:  Room name to request a token for. 
      * - Parameter TargetUserIds:  An array of Product User IDs indicating the users to retrieve a token for. 
-     * - array num: TargetUserIdsCount
      * - Parameter TargetUserIdsCount:  The number of users included in the query. 
-     * - array buffer: TargetUserIds
-     * - array buffer: TargetUserIpAddresses
      * - Parameter TargetUserIpAddresses:  Array of IP Addresses, one for each of the users we're querying tokens for.
      * There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
      * If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
      * IPv4 format: "0.0.0.0"
      * IPv6 format: "0:0:0:0:0:0:0:0"
-     * - array num: TargetUserIdsCount
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query join room token operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -142,7 +134,6 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * - Parameter RoomName:  Room to kick the participant from 
      * - Parameter TargetUserId:  Product User ID of the participant to hard mute for every participant in the room. 
      * - Parameter bMute:  Hard mute status (Mute on or off) 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func SetParticipantHardMute(
@@ -168,7 +159,6 @@ extension SwiftEOS_RTCAdmin_Actor {
      * Fetches a user token when called inside of the OnQueryJoinRoomTokenComplete callback.
      * 
      * - Parameter Options:  Structure containing the index being accessed
-     * - Parameter OutUserToken:  The user token for the given index, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
      * 
      * @note The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when
      * initiating the query.
@@ -201,7 +191,6 @@ extension SwiftEOS_RTCAdmin_Actor {
      * Fetches a user token for a given user ID when called inside of the OnQueryJoinRoomTokenComplete callback.
      * 
      * - Parameter Options:  Structure containing the user ID being accessed
-     * - Parameter OutUserToken:  The user token for the given user ID, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
      * 
      * @see EOS_RTCAdmin_UserToken_Release
      * 
@@ -231,7 +220,6 @@ extension SwiftEOS_RTCAdmin_Actor {
      * Starts an asynchronous task that removes a participant from a room and revokes their token.
      * 
      * - Parameter Options:  structure containing the room and user to revoke the token from.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      */
@@ -258,7 +246,6 @@ extension SwiftEOS_RTCAdmin_Actor {
      * This query id and query result itself are only valid for the duration of the callback.
      * 
      * - Parameter Options:  Structure containing information about the application whose user tokens we're retrieving.
-     * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query join room token operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -285,7 +272,6 @@ extension SwiftEOS_RTCAdmin_Actor {
      * This remotely mutes the specified participant, so no audio is sent from that participant to any other participant in the room.
      * 
      * - Parameter Options:  structure containing the room and user to mute.
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     private func ____SetParticipantHardMute(

@@ -7,16 +7,10 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /**
-     * The count of data keys to delete 
-     * - array buffer: Records
-     */
+    /** The count of data keys to delete  */
     public let RecordsCount: Int
 
-    /**
-     * The pointer to start of a sequential array 
-     * - array num: RecordsCount
-     */
+    /** The pointer to start of a sequential array  */
     public let Records: [SwiftEOS_PresenceModification_DataRecordId]?
 
     /**
@@ -50,9 +44,7 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST. 
      * - Parameter RecordsCount:  The count of data keys to delete 
-     * - array buffer: Records
      * - Parameter Records:  The pointer to start of a sequential array 
-     * - array num: RecordsCount
      */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST,

@@ -20,9 +20,7 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
      * must be specified.
      * 
      * - Parameter RecordsCount:  The count of data keys to delete 
-     * - array buffer: Records
      * - Parameter Records:  The pointer to start of a sequential array 
-     * - array num: RecordsCount
      * @return Success if modification was added successfully, otherwise an error code related to the problem
      * 
      * @see EOS_PRESENCE_DATA_MAX_KEYS
@@ -44,9 +42,7 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
      * must be specified.
      * 
      * - Parameter RecordsCount:  The count of records to set 
-     * - array buffer: Records
      * - Parameter Records:  The pointer to start of a sequential array of Presence DataRecords 
-     * - array num: RecordsCount
      * @return Success if modification was added successfully, otherwise an error code related to the problem
      * 
      * @see EOS_PRESENCE_DATA_MAX_KEYS

@@ -20,7 +20,6 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which mods should be copied 
      * - Parameter `Type`:  Type of the enumerated mod to copy 
-     * - Parameter OutEnumeratedMods:  Enumerated mods Info. If the returned result is success, this will be set to data that must be later released, otherwise this will be set to NULL
      * @return Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
      * 
      * @see EOS_Mods_ModInfo_Release
@@ -42,7 +41,6 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be enumerated 
      * - Parameter `Type`:  Type of the mods to enumerate 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -67,7 +65,6 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be installed 
      * - Parameter Mod:  The mod to install 
      * - Parameter bRemoveAfterExit:  Indicates whether the mod should be uninstalled after exiting the game or not. 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -93,7 +90,6 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be uninstalled 
      * - Parameter Mod:  The mod to uninstall 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -117,7 +113,6 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be updated 
      * - Parameter Mod:  The mod to update 
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error. If the mod is up to date then the operation will complete with success.
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -144,7 +139,6 @@ extension SwiftEOS_Mods_Actor {
      * Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
      * 
      * - Parameter Options:  structure containing the game identifier for which requesting enumerated mods
-     * - Parameter OutEnumeratedMods:  Enumerated mods Info. If the returned result is success, this will be set to data that must be later released, otherwise this will be set to NULL
      * @return Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
      * 
      * @see EOS_Mods_ModInfo_Release
@@ -173,7 +167,6 @@ extension SwiftEOS_Mods_Actor {
      * Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
      * 
      * - Parameter Options:  structure containing the game identifiers
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -198,7 +191,6 @@ extension SwiftEOS_Mods_Actor {
      * Starts an asynchronous task that makes a request to install the specified mod.
      * 
      * - Parameter Options:  structure containing the game and mod identifiers
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -223,7 +215,6 @@ extension SwiftEOS_Mods_Actor {
      * Starts an asynchronous task that makes a request to uninstall the specified mod.
      * 
      * - Parameter Options:  structure containing the game and mod identifiers
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      * @see the section related to mods in eos_result.h for more details.
@@ -248,7 +239,6 @@ extension SwiftEOS_Mods_Actor {
      * Starts an asynchronous task that makes a request to update the specified mod to the latest version.
      * 
      * - Parameter Options:  structure containing the game and mod identifiers
-     * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error. If the mod is up to date then the operation will complete with success.
      * 
      * @see the section related to mods in eos_result.h for more details.

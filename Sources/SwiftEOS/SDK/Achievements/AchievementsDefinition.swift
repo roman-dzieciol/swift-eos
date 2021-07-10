@@ -41,16 +41,10 @@ public struct SwiftEOS_Achievements_Definition: SwiftEOSObject {
     /** True if achievement is hidden, false otherwise.  */
     public let bIsHidden: Bool
 
-    /**
-     * The number of stat thresholds. 
-     * - array buffer: StatThresholds
-     */
+    /** The number of stat thresholds.  */
     public let StatThresholdsCount: Int
 
-    /**
-     * Array of stat thresholds that need to be satisfied to unlock the achievement. 
-     * - array num: StatThresholdsCount
-     */
+    /** Array of stat thresholds that need to be satisfied to unlock the achievement.  */
     public let StatThresholds: [SwiftEOS_Achievements_StatThresholds]?
 
     /**
@@ -114,9 +108,7 @@ public struct SwiftEOS_Achievements_Definition: SwiftEOSObject {
      * - Parameter LockedIconId:  Text representing the icon to display in-game when achievement is locked. 
      * - Parameter bIsHidden:  True if achievement is hidden, false otherwise. 
      * - Parameter StatThresholdsCount:  The number of stat thresholds. 
-     * - array buffer: StatThresholds
      * - Parameter StatThresholds:  Array of stat thresholds that need to be satisfied to unlock the achievement. 
-     * - array num: StatThresholdsCount
      */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_DEFINITION_API_LATEST,

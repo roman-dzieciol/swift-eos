@@ -7,15 +7,15 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
     /** API Version: Set this to EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /** Pointer to the data with the interleaved audio frames in signed 16 bits format.  */
-    public let Frames: [Int16]?
-
     /**
+     * Pointer to the data with the interleaved audio frames in signed 16 bits format. 
+     * 
+     * - Note: ``EOS/_tagEOS_RTCAudio_AudioBuffer/FramesCount``:
      * Number of frames available in the Frames buffer.
      * 
      * @note This is the number of frames in a channel, not the total number of frames in the buffer.
      */
-    public let FramesCount: Int
+    public let Frames: [Int16]?
 
     /** Sample rate for the samples in the Frames buffer.  */
     public let SampleRate: Int
@@ -33,7 +33,6 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
             start: sdkObject.Frames,
             count: sdkObject.FramesCount
         )
-        self.FramesCount = try safeNumericCast(exactly: sdkObject.FramesCount)
         self.SampleRate = try safeNumericCast(exactly: sdkObject.SampleRate)
         self.Channels = try safeNumericCast(exactly: sdkObject.Channels)
     }
@@ -49,7 +48,7 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
         try _tagEOS_RTCAudio_AudioBuffer(
             ApiVersion: ApiVersion,
             Frames: pointerManager.managedMutablePointerToBuffer(copyingArray: Frames),
-            FramesCount: try safeNumericCast(exactly: FramesCount),
+            FramesCount: try safeNumericCast(exactly: Frames?.count ?? .zero),
             SampleRate: try safeNumericCast(exactly: SampleRate),
             Channels: try safeNumericCast(exactly: Channels)
         )
@@ -59,7 +58,9 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST. 
      * - Parameter Frames:  Pointer to the data with the interleaved audio frames in signed 16 bits format. 
-     * - Parameter FramesCount:  Number of frames available in the Frames buffer.
+     * 
+     * - Note: ``EOS/_tagEOS_RTCAudio_AudioBuffer/FramesCount``:
+     * Number of frames available in the Frames buffer.
      * 
      * @note This is the number of frames in a channel, not the total number of frames in the buffer.
      * - Parameter SampleRate:  Sample rate for the samples in the Frames buffer. 
@@ -68,13 +69,11 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST,
         Frames: [Int16]?,
-        FramesCount: Int,
         SampleRate: Int,
         Channels: Int
     ) {
         self.ApiVersion = ApiVersion
         self.Frames = Frames
-        self.FramesCount = FramesCount
         self.SampleRate = SampleRate
         self.Channels = Channels
     }

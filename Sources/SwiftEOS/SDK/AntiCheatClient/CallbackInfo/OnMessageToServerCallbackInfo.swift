@@ -4,11 +4,13 @@ import EOSSDK
 /** Structure containing details about a new message that must be dispatched to the game server. */
 public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
 
-    /** The message data that must be sent to the server  */
+    /**
+     * The message data that must be sent to the server 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo/MessageDataSizeBytes``:
+     * The size in bytes of MessageData 
+     */
     public let MessageData: [UInt8]?
-
-    /** The size in bytes of MessageData  */
-    public let MessageDataSizeBytes: Int
 
     /** Initialize from SDK object */
     public init?(
@@ -19,7 +21,6 @@ public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
                 start: sdkObject.MessageData,
                 count: try safeNumericCast(exactly: sdkObject.MessageDataSizeBytes)
             ))
-        self.MessageDataSizeBytes = try safeNumericCast(exactly: sdkObject.MessageDataSizeBytes)
     }
 
     /** Send notification using the pointer to C callback info provided */
@@ -35,13 +36,13 @@ public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
     /**
      * Memberwise initializer
      * - Parameter MessageData:  The message data that must be sent to the server 
-     * - Parameter MessageDataSizeBytes:  The size in bytes of MessageData 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo/MessageDataSizeBytes``:
+     * The size in bytes of MessageData 
      */
     public init(
-        MessageData: [UInt8]?,
-        MessageDataSizeBytes: Int
+        MessageData: [UInt8]?
     ) {
         self.MessageData = MessageData
-        self.MessageDataSizeBytes = MessageDataSizeBytes
     }
 }

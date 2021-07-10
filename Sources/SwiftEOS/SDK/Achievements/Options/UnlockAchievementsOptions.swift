@@ -10,11 +10,13 @@ public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
     /** The Product User ID for the user whose achievements we want to unlock.  */
     public let UserId: EOS_ProductUserId?
 
-    /** An array of Achievement IDs to unlock.  */
+    /**
+     * An array of Achievement IDs to unlock. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
+     * The number of achievements to unlock. 
+     */
     public let AchievementIds: [String]?
-
-    /** The number of achievements to unlock.  */
-    public let AchievementsCount: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -29,7 +31,7 @@ public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
             UserId: UserId,
             AchievementIds: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: AchievementIds?.map { 
                     $0.utf8CString }),
-            AchievementsCount: try safeNumericCast(exactly: AchievementsCount)
+            AchievementsCount: try safeNumericCast(exactly: AchievementIds?.count ?? .zero)
         )
     }
 
@@ -44,7 +46,6 @@ public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
             pointer: sdkObject.AchievementIds,
             count: sdkObject.AchievementsCount
         )
-        self.AchievementsCount = try safeNumericCast(exactly: sdkObject.AchievementsCount)
     }
 
     /**
@@ -52,17 +53,17 @@ public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST. 
      * - Parameter UserId:  The Product User ID for the user whose achievements we want to unlock. 
      * - Parameter AchievementIds:  An array of Achievement IDs to unlock. 
-     * - Parameter AchievementsCount:  The number of achievements to unlock. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
+     * The number of achievements to unlock. 
      */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST,
         UserId: EOS_ProductUserId?,
-        AchievementIds: [String]?,
-        AchievementsCount: Int
+        AchievementIds: [String]?
     ) {
         self.ApiVersion = ApiVersion
         self.UserId = UserId
         self.AchievementIds = AchievementIds
-        self.AchievementsCount = AchievementsCount
     }
 }

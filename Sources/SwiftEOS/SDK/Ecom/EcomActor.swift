@@ -490,14 +490,15 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve 
      * - Parameter EntitlementNames:  An array of Entitlement Names that you want to check 
-     * - Parameter EntitlementNameCount:  The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryEntitlementsOptions/EntitlementNameCount``:
+     * The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
      * - Parameter bIncludeRedeemed:  If true, Entitlements that have been redeemed will be included in the results. 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryEntitlements(
         LocalUserId: EOS_EpicAccountId?,
         EntitlementNames: [String]?,
-        EntitlementNameCount: Int,
         bIncludeRedeemed: Bool,
         CompletionDelegate: @escaping (SwiftEOS_Ecom_QueryEntitlementsCallbackInfo) -> Void
     ) throws {
@@ -505,7 +506,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
             .init(
                 LocalUserId: LocalUserId,
                 EntitlementNames: EntitlementNames,
-                EntitlementNameCount: EntitlementNameCount,
                 bIncludeRedeemed: bIncludeRedeemed
             ),
             CompletionDelegate
@@ -540,14 +540,15 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership to query 
      * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership 
-     * - Parameter CatalogItemIdCount:  The number of Catalog Item IDs to in the array 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipOptions/CatalogItemIdCount``:
+     * The number of Catalog Item IDs to in the array 
      * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryOwnership(
         LocalUserId: EOS_EpicAccountId?,
         CatalogItemIds: [String]?,
-        CatalogItemIdCount: Int,
         CatalogNamespace: String?,
         CompletionDelegate: @escaping (SwiftEOS_Ecom_QueryOwnershipCallbackInfo) -> Void
     ) throws {
@@ -555,7 +556,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
             .init(
                 LocalUserId: LocalUserId,
                 CatalogItemIds: CatalogItemIds,
-                CatalogItemIdCount: CatalogItemIdCount,
                 CatalogNamespace: CatalogNamespace
             ),
             CompletionDelegate
@@ -568,14 +568,15 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership token you want to query 
      * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount 
-     * - Parameter CatalogItemIdCount:  The number of catalog item IDs to query 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipTokenOptions/CatalogItemIdCount``:
+     * The number of catalog item IDs to query 
      * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryOwnershipToken(
         LocalUserId: EOS_EpicAccountId?,
         CatalogItemIds: [String]?,
-        CatalogItemIdCount: Int,
         CatalogNamespace: String?,
         CompletionDelegate: @escaping (SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo) -> Void
     ) throws {
@@ -583,7 +584,6 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
             .init(
                 LocalUserId: LocalUserId,
                 CatalogItemIds: CatalogItemIds,
-                CatalogItemIdCount: CatalogItemIdCount,
                 CatalogNamespace: CatalogNamespace
             ),
             CompletionDelegate
@@ -595,20 +595,20 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * to no longer be returned from QueryEntitlements unless the include redeemed request flag is set true.
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who is redeeming Entitlements 
-     * - Parameter EntitlementIdCount:  The number of Entitlements to redeem 
      * - Parameter EntitlementIds:  The array of Entitlements to redeem 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_RedeemEntitlementsOptions/EntitlementIdCount``:
+     * The number of Entitlements to redeem 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func RedeemEntitlements(
         LocalUserId: EOS_EpicAccountId?,
-        EntitlementIdCount: Int,
         EntitlementIds: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_Ecom_RedeemEntitlementsCallbackInfo) -> Void
     ) throws {
         try ____RedeemEntitlements(
             .init(
                 LocalUserId: LocalUserId,
-                EntitlementIdCount: EntitlementIdCount,
                 EntitlementIds: EntitlementIds
             ),
             CompletionDelegate

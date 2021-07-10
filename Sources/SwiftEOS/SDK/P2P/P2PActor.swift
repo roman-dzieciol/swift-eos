@@ -258,8 +258,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
      * - Parameter RemoteUserId:  The Product User ID of the Peer you would like to send a packet to 
      * - Parameter SocketId:  The socket ID for data you are sending in this packet 
      * - Parameter Channel:  Channel associated with this data 
-     * - Parameter DataLengthBytes:  The size of the data to be sent to the RemoteUser 
      * - Parameter Data:  The data to be sent to the RemoteUser 
+     * 
+     * - Note: ``EOS/_tagEOS_P2P_SendPacketOptions/DataLengthBytes``:
+     * The size of the data to be sent to the RemoteUser 
      * - Parameter bAllowDelayedDelivery:  If false and we do not already have an established connection to the peer, this data will be dropped 
      * - Parameter Reliability:  Setting to control the delivery reliability of this packet 
      * @return EOS_EResult::EOS_Success           - If packet was queued to be sent successfully
@@ -271,7 +273,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
         RemoteUserId: EOS_ProductUserId?,
         SocketId: SwiftEOS_P2P_SocketId?,
         Channel: UInt8,
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         bAllowDelayedDelivery: Bool,
         Reliability: EOS_EPacketReliability
@@ -281,7 +282,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
                 RemoteUserId: RemoteUserId,
                 SocketId: SocketId,
                 Channel: Channel,
-                DataLengthBytes: DataLengthBytes,
                 Data: Data,
                 bAllowDelayedDelivery: bAllowDelayedDelivery,
                 Reliability: Reliability

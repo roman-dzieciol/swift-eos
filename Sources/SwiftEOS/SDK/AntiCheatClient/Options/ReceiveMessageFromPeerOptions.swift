@@ -8,10 +8,12 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
     /** The handle describing the sender of this message  */
     public let PeerHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** The size of the data received  */
-    public let DataLengthBytes: Int
-
-    /** The data received  */
+    /**
+     * The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
+     * The size of the data received 
+     */
     public let Data: [UInt8]?
 
     /**
@@ -25,7 +27,7 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
         try _tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions(
             ApiVersion: ApiVersion,
             PeerHandle: PeerHandle,
-            DataLengthBytes: try safeNumericCast(exactly: DataLengthBytes),
+            DataLengthBytes: try safeNumericCast(exactly: Data?.count ?? .zero),
             Data: pointerManager.managedPointerToBuffer(copyingArray: Data)
         )
     }
@@ -37,7 +39,6 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.PeerHandle = sdkObject.PeerHandle
-        self.DataLengthBytes = try safeNumericCast(exactly: sdkObject.DataLengthBytes)
         self.Data = try Array(try UnsafeRawBufferPointer(
                 start: sdkObject.Data,
                 count: try safeNumericCast(exactly: sdkObject.DataLengthBytes)
@@ -48,18 +49,18 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST. 
      * - Parameter PeerHandle:  The handle describing the sender of this message 
-     * - Parameter DataLengthBytes:  The size of the data received 
      * - Parameter Data:  The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
+     * The size of the data received 
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST,
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,
-        DataLengthBytes: Int,
         Data: [UInt8]?
     ) {
         self.ApiVersion = ApiVersion
         self.PeerHandle = PeerHandle
-        self.DataLengthBytes = DataLengthBytes
         self.Data = Data
     }
 }

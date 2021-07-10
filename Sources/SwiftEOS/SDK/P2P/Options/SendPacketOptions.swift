@@ -19,10 +19,12 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
     /** Channel associated with this data  */
     public let Channel: UInt8
 
-    /** The size of the data to be sent to the RemoteUser  */
-    public let DataLengthBytes: Int
-
-    /** The data to be sent to the RemoteUser  */
+    /**
+     * The data to be sent to the RemoteUser 
+     * 
+     * - Note: ``EOS/_tagEOS_P2P_SendPacketOptions/DataLengthBytes``:
+     * The size of the data to be sent to the RemoteUser 
+     */
     public let Data: [UInt8]?
 
     /** If false and we do not already have an established connection to the peer, this data will be dropped  */
@@ -45,7 +47,7 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
             RemoteUserId: RemoteUserId,
             SocketId: try pointerManager.managedPointer(copyingValueOrNilPointer: SocketId?.buildSdkObject(pointerManager: pointerManager)),
             Channel: Channel,
-            DataLengthBytes: try safeNumericCast(exactly: DataLengthBytes),
+            DataLengthBytes: try safeNumericCast(exactly: Data?.count ?? .zero),
             Data: pointerManager.managedPointerToBuffer(copyingArray: Data),
             bAllowDelayedDelivery: eosBoolFromSwiftBool(bAllowDelayedDelivery),
             Reliability: Reliability
@@ -62,7 +64,6 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
         self.RemoteUserId = sdkObject.RemoteUserId
         self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
         self.Channel = sdkObject.Channel
-        self.DataLengthBytes = try safeNumericCast(exactly: sdkObject.DataLengthBytes)
         self.Data = try Array(try UnsafeRawBufferPointer(
                 start: sdkObject.Data,
                 count: try safeNumericCast(exactly: sdkObject.DataLengthBytes)
@@ -78,8 +79,10 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
      * - Parameter RemoteUserId:  The Product User ID of the Peer you would like to send a packet to 
      * - Parameter SocketId:  The socket ID for data you are sending in this packet 
      * - Parameter Channel:  Channel associated with this data 
-     * - Parameter DataLengthBytes:  The size of the data to be sent to the RemoteUser 
      * - Parameter Data:  The data to be sent to the RemoteUser 
+     * 
+     * - Note: ``EOS/_tagEOS_P2P_SendPacketOptions/DataLengthBytes``:
+     * The size of the data to be sent to the RemoteUser 
      * - Parameter bAllowDelayedDelivery:  If false and we do not already have an established connection to the peer, this data will be dropped 
      * - Parameter Reliability:  Setting to control the delivery reliability of this packet 
      */
@@ -89,7 +92,6 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
         RemoteUserId: EOS_ProductUserId?,
         SocketId: SwiftEOS_P2P_SocketId?,
         Channel: UInt8,
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         bAllowDelayedDelivery: Bool,
         Reliability: EOS_EPacketReliability
@@ -99,7 +101,6 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
         self.RemoteUserId = RemoteUserId
         self.SocketId = SocketId
         self.Channel = Channel
-        self.DataLengthBytes = DataLengthBytes
         self.Data = Data
         self.bAllowDelayedDelivery = bAllowDelayedDelivery
         self.Reliability = Reliability

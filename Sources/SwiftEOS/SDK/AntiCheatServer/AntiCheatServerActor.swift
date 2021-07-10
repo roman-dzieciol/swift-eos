@@ -118,8 +118,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * 
      * - Parameter ClientHandle:  Optional client who this event is primarily associated with. If not applicable, use 0. 
      * - Parameter EventId:  Unique event identifier previously configured in RegisterEvent 
-     * - Parameter ParamsCount:  Number of parameters described in Params 
      * - Parameter Params:  Set of parameter types previously configured in RegisterEvent, and their values 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_LogEventOptions/ParamsCount``:
+     * Number of parameters described in Params 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -127,13 +129,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     public func LogEvent(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         EventId: Int,
-        ParamsCount: Int,
         Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
     ) throws {
         try ____LogEvent(.init(
                 ClientHandle: ClientHandle,
                 EventId: EventId,
-                ParamsCount: ParamsCount,
                 Params: Params
             ))
     }
@@ -406,8 +406,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
      * 
      * - Parameter ClientHandle:  Locally unique value describing the remote user to whom the message will be sent 
-     * - Parameter DataLengthBytes:  Length in bytes of input 
      * - Parameter Data:  The data to encrypt 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatServer_ProtectMessageOptions/DataLengthBytes``:
+     * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * 
      * @return EOS_Success - If the message was protected successfully
@@ -416,13 +418,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      */
     public func ProtectMessage(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
         try ____ProtectMessage(.init(
                 ClientHandle: ClientHandle,
-                DataLengthBytes: DataLengthBytes,
                 Data: Data,
                 OutBufferSizeBytes: OutBufferSizeBytes
             ))
@@ -434,20 +434,20 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
      * - Parameter ClientHandle:  Optional value, if non-null then only messages addressed to this specific client will be returned 
-     * - Parameter DataLengthBytes:  The size of the data received 
      * - Parameter Data:  The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
+     * The size of the data received 
      * 
      * @return EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func ReceiveMessageFromClient(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
-        DataLengthBytes: Int,
         Data: [UInt8]?
     ) throws {
         try ____ReceiveMessageFromClient(.init(
                 ClientHandle: ClientHandle,
-                DataLengthBytes: DataLengthBytes,
                 Data: Data
             ))
     }
@@ -498,10 +498,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * - Parameter EventId:  Unique event identifier. Must be >= EOS_ANTICHEATCOMMON_REGISTEREVENT_CUSTOMEVENTBASE. 
      * - Parameter EventName:  Name of the custom event. Allowed characters are 0-9, A-Z, a-z, '_', '-', '.' 
      * - Parameter EventType:  Type of the custom event 
-     * - Parameter ParamDefsCount:  Number of parameters described in ParamDefs. Must be 
+     * - Parameter ParamDefs:  Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_RegisterEventOptions/ParamDefsCount``:
+     * Number of parameters described in ParamDefs. Must be 
      * <
      * = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT. 
-     * - Parameter ParamDefs:  Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements 
      * 
      * @return EOS_Success - If the event was registered successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -510,14 +512,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
         EventId: Int,
         EventName: String?,
         EventType: EOS_EAntiCheatCommonEventType,
-        ParamDefsCount: Int,
         ParamDefs: [SwiftEOS_AntiCheatCommon_RegisterEventParamDef]?
     ) throws {
         try ____RegisterEvent(.init(
                 EventId: EventId,
                 EventName: EventName,
                 EventType: EventType,
-                ParamDefsCount: ParamDefsCount,
                 ParamDefs: ParamDefs
             ))
     }
@@ -593,8 +593,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
      * 
      * - Parameter ClientHandle:  Locally unique value describing the remote user from whom the message was received 
-     * - Parameter DataLengthBytes:  Length in bytes of input 
      * - Parameter Data:  The data to decrypt 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatServer_UnprotectMessageOptions/DataLengthBytes``:
+     * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * 
      * @return EOS_Success - If the message was unprotected successfully
@@ -602,13 +604,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      */
     public func UnprotectMessage(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
         try ____UnprotectMessage(.init(
                 ClientHandle: ClientHandle,
-                DataLengthBytes: DataLengthBytes,
                 Data: Data,
                 OutBufferSizeBytes: OutBufferSizeBytes
             ))

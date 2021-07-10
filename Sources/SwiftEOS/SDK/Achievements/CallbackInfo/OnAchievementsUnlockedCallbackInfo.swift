@@ -7,10 +7,12 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
     /** The Product User ID for the user who received the unlocked achievements notification  */
     public let UserId: EOS_ProductUserId?
 
-    /** The number of achievements.  */
-    public let AchievementsCount: Int
-
-    /** This member is not used and will always be set to NULL.  */
+    /**
+     * This member is not used and will always be set to NULL. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo/AchievementsCount``:
+     * The number of achievements. 
+     */
     public let AchievementIds: [String]?
 
     /** Initialize from SDK object */
@@ -19,7 +21,6 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.UserId = sdkObject.UserId
-        self.AchievementsCount = try safeNumericCast(exactly: sdkObject.AchievementsCount)
         self.AchievementIds = try stringArrayFromCCharPointerPointer(
             pointer: sdkObject.AchievementIds,
             count: sdkObject.AchievementsCount
@@ -39,16 +40,16 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
     /**
      * Memberwise initializer
      * - Parameter UserId:  The Product User ID for the user who received the unlocked achievements notification 
-     * - Parameter AchievementsCount:  The number of achievements. 
      * - Parameter AchievementIds:  This member is not used and will always be set to NULL. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo/AchievementsCount``:
+     * The number of achievements. 
      */
     public init(
         UserId: EOS_ProductUserId?,
-        AchievementsCount: Int,
         AchievementIds: [String]?
     ) {
         self.UserId = UserId
-        self.AchievementsCount = AchievementsCount
         self.AchievementIds = AchievementIds
     }
 }

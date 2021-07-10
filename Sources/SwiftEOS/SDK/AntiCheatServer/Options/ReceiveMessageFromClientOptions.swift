@@ -8,10 +8,12 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
     /** Optional value, if non-null then only messages addressed to this specific client will be returned  */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** The size of the data received  */
-    public let DataLengthBytes: Int
-
-    /** The data received  */
+    /**
+     * The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
+     * The size of the data received 
+     */
     public let Data: [UInt8]?
 
     /**
@@ -25,7 +27,7 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
         try _tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions(
             ApiVersion: ApiVersion,
             ClientHandle: ClientHandle,
-            DataLengthBytes: try safeNumericCast(exactly: DataLengthBytes),
+            DataLengthBytes: try safeNumericCast(exactly: Data?.count ?? .zero),
             Data: pointerManager.managedPointerToBuffer(copyingArray: Data)
         )
     }
@@ -37,7 +39,6 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.ClientHandle = sdkObject.ClientHandle
-        self.DataLengthBytes = try safeNumericCast(exactly: sdkObject.DataLengthBytes)
         self.Data = try Array(try UnsafeRawBufferPointer(
                 start: sdkObject.Data,
                 count: try safeNumericCast(exactly: sdkObject.DataLengthBytes)
@@ -48,18 +49,18 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST. 
      * - Parameter ClientHandle:  Optional value, if non-null then only messages addressed to this specific client will be returned 
-     * - Parameter DataLengthBytes:  The size of the data received 
      * - Parameter Data:  The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
+     * The size of the data received 
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
-        DataLengthBytes: Int,
         Data: [UInt8]?
     ) {
         self.ApiVersion = ApiVersion
         self.ClientHandle = ClientHandle
-        self.DataLengthBytes = DataLengthBytes
         self.Data = Data
     }
 }

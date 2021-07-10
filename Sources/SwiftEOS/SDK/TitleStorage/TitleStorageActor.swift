@@ -116,21 +116,21 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  Product User ID of the local user who requested file metadata (optional) 
      * - Parameter ListOfTags:  List of tags to use for lookup. 
-     * - Parameter ListOfTagsCount:  Number of tags specified in ListOfTags 
+     * 
+     * - Note: ``EOS/_tagEOS_TitleStorage_QueryFileListOptions/ListOfTagsCount``:
+     * Number of tags specified in ListOfTags 
      * - Parameter CompletionCallback:  This function is called when the query operation completes
      * 
      */
     public func QueryFileList(
         LocalUserId: EOS_ProductUserId?,
         ListOfTags: [String]?,
-        ListOfTagsCount: Int,
         CompletionCallback: @escaping (SwiftEOS_TitleStorage_QueryFileListCallbackInfo) -> Void
     ) throws {
         try ____QueryFileList(
             .init(
                 LocalUserId: LocalUserId,
-                ListOfTags: ListOfTags,
-                ListOfTagsCount: ListOfTagsCount
+                ListOfTags: ListOfTags
             ),
             CompletionCallback
         )

@@ -351,22 +351,22 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
      * - Parameter ExternalAccountIds:  An array of external account IDs to map to the product user ID representation. 
-     * - Parameter ExternalAccountIdCount:  Number of account IDs to query. 
+     * 
+     * - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
+     * Number of account IDs to query. 
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     public func QueryExternalAccountMappings(
         LocalUserId: EOS_ProductUserId?,
         AccountIdType: EOS_EExternalAccountType,
         ExternalAccountIds: [String]?,
-        ExternalAccountIdCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo) -> Void
     ) throws {
         try ____QueryExternalAccountMappings(
             .init(
                 LocalUserId: LocalUserId,
                 AccountIdType: AccountIdType,
-                ExternalAccountIds: ExternalAccountIds,
-                ExternalAccountIdCount: ExternalAccountIdCount
+                ExternalAccountIds: ExternalAccountIds
             ),
             CompletionDelegate
         )
@@ -389,22 +389,22 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType_DEPRECATED:  Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value. 
      * - Parameter ProductUserIds:  An array of Product User IDs to query for the given external account representation. 
-     * - Parameter ProductUserIdCount:  Number of Product User IDs to query. 
+     * 
+     * - Note: ``EOS/_tagEOS_Connect_QueryProductUserIdMappingsOptions/ProductUserIdCount``:
+     * Number of Product User IDs to query. 
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     public func QueryProductUserIdMappings(
         LocalUserId: EOS_ProductUserId?,
         AccountIdType_DEPRECATED: EOS_EExternalAccountType,
         ProductUserIds: [EOS_ProductUserId]?,
-        ProductUserIdCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo) -> Void
     ) throws {
         try ____QueryProductUserIdMappings(
             .init(
                 LocalUserId: LocalUserId,
                 AccountIdType_DEPRECATED: AccountIdType_DEPRECATED,
-                ProductUserIds: ProductUserIds,
-                ProductUserIdCount: ProductUserIdCount
+                ProductUserIds: ProductUserIds
             ),
             CompletionDelegate
         )

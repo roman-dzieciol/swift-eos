@@ -16,11 +16,13 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
     /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional).  */
     public let EndTime: Int
 
-    /** An array of stat names to query for (Optional).  */
+    /**
+     * An array of stat names to query for (Optional). 
+     * 
+     * - Note: ``EOS/_tagEOS_Stats_QueryStatsOptions/StatNamesCount``:
+     * The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
+     */
     public let StatNames: [String]?
-
-    /** The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS.  */
-    public let StatNamesCount: Int
 
     /** The Product User ID for the user whose stats are being retrieved  */
     public let TargetUserId: EOS_ProductUserId?
@@ -40,7 +42,7 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
             EndTime: try safeNumericCast(exactly: EndTime),
             StatNames: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: StatNames?.map { 
                     $0.utf8CString }),
-            StatNamesCount: try safeNumericCast(exactly: StatNamesCount),
+            StatNamesCount: try safeNumericCast(exactly: StatNames?.count ?? .zero),
             TargetUserId: TargetUserId
         )
     }
@@ -58,7 +60,6 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
             pointer: sdkObject.StatNames,
             count: sdkObject.StatNamesCount
         )
-        self.StatNamesCount = try safeNumericCast(exactly: sdkObject.StatNamesCount)
         self.TargetUserId = sdkObject.TargetUserId
     }
 
@@ -69,7 +70,9 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
      * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). 
      * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). 
      * - Parameter StatNames:  An array of stat names to query for (Optional). 
-     * - Parameter StatNamesCount:  The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
+     * 
+     * - Note: ``EOS/_tagEOS_Stats_QueryStatsOptions/StatNamesCount``:
+     * The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
      * - Parameter TargetUserId:  The Product User ID for the user whose stats are being retrieved 
      */
     public init(
@@ -78,7 +81,6 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
         StartTime: Int,
         EndTime: Int,
         StatNames: [String]?,
-        StatNamesCount: Int,
         TargetUserId: EOS_ProductUserId?
     ) {
         self.ApiVersion = ApiVersion
@@ -86,7 +88,6 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
         self.StartTime = StartTime
         self.EndTime = EndTime
         self.StatNames = StatNames
-        self.StatNamesCount = StatNamesCount
         self.TargetUserId = TargetUserId
     }
 }

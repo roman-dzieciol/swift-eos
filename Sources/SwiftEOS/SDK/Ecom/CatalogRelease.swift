@@ -12,16 +12,20 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
     /** API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /** The number of APP IDs  */
-    public let CompatibleAppIdCount: Int
-
-    /** A list of compatible APP IDs  */
+    /**
+     * A list of compatible APP IDs 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_CatalogRelease/CompatibleAppIdCount``:
+     * The number of APP IDs 
+     */
     public let CompatibleAppIds: [String]?
 
-    /** The number of platforms  */
-    public let CompatiblePlatformCount: Int
-
-    /** A list of compatible Platforms  */
+    /**
+     * A list of compatible Platforms 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_CatalogRelease/CompatiblePlatformCount``:
+     * The number of platforms 
+     */
     public let CompatiblePlatforms: [String]?
 
     /** Release note for compatible versions  */
@@ -37,10 +41,10 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
     ) throws -> _tagEOS_Ecom_CatalogRelease {
         try _tagEOS_Ecom_CatalogRelease(
             ApiVersion: ApiVersion,
-            CompatibleAppIdCount: try safeNumericCast(exactly: CompatibleAppIdCount),
+            CompatibleAppIdCount: try safeNumericCast(exactly: CompatibleAppIds?.count ?? .zero),
             CompatibleAppIds: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: CompatibleAppIds?.map { 
                     $0.utf8CString }),
-            CompatiblePlatformCount: try safeNumericCast(exactly: CompatiblePlatformCount),
+            CompatiblePlatformCount: try safeNumericCast(exactly: CompatiblePlatforms?.count ?? .zero),
             CompatiblePlatforms: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: CompatiblePlatforms?.map { 
                     $0.utf8CString }),
             ReleaseNote: pointerManager.managedPointerToBuffer(copyingArray: ReleaseNote?.utf8CString)
@@ -53,12 +57,10 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.CompatibleAppIdCount = try safeNumericCast(exactly: sdkObject.CompatibleAppIdCount)
         self.CompatibleAppIds = try stringArrayFromCCharPointerPointer(
             pointer: sdkObject.CompatibleAppIds,
             count: sdkObject.CompatibleAppIdCount
         )
-        self.CompatiblePlatformCount = try safeNumericCast(exactly: sdkObject.CompatiblePlatformCount)
         self.CompatiblePlatforms = try stringArrayFromCCharPointerPointer(
             pointer: sdkObject.CompatiblePlatforms,
             count: sdkObject.CompatiblePlatformCount
@@ -69,24 +71,24 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
     /**
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST. 
-     * - Parameter CompatibleAppIdCount:  The number of APP IDs 
      * - Parameter CompatibleAppIds:  A list of compatible APP IDs 
-     * - Parameter CompatiblePlatformCount:  The number of platforms 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_CatalogRelease/CompatibleAppIdCount``:
+     * The number of APP IDs 
      * - Parameter CompatiblePlatforms:  A list of compatible Platforms 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_CatalogRelease/CompatiblePlatformCount``:
+     * The number of platforms 
      * - Parameter ReleaseNote:  Release note for compatible versions 
      */
     public init(
         ApiVersion: Int32 = EOS_ECOM_CATALOGRELEASE_API_LATEST,
-        CompatibleAppIdCount: Int,
         CompatibleAppIds: [String]?,
-        CompatiblePlatformCount: Int,
         CompatiblePlatforms: [String]?,
         ReleaseNote: String?
     ) {
         self.ApiVersion = ApiVersion
-        self.CompatibleAppIdCount = CompatibleAppIdCount
         self.CompatibleAppIds = CompatibleAppIds
-        self.CompatiblePlatformCount = CompatiblePlatformCount
         self.CompatiblePlatforms = CompatiblePlatforms
         self.ReleaseNote = ReleaseNote
     }

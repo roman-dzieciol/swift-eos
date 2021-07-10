@@ -366,7 +366,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * - Parameter SessionName:  Name of the session for which to register players 
      * - Parameter PlayersToRegister:  Array of players to register with the session 
-     * - Parameter PlayersToRegisterCount:  Number of players in the array 
+     * 
+     * - Note: ``EOS/_tagEOS_Sessions_RegisterPlayersOptions/PlayersToRegisterCount``:
+     * Number of players in the array 
      * - Parameter CompletionDelegate:  A callback that is fired when the registration operation completes, either successfully or in error
      * 
      * @return EOS_Success if the register completes successfully
@@ -378,14 +380,12 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     public func RegisterPlayers(
         SessionName: String?,
         PlayersToRegister: [EOS_ProductUserId]?,
-        PlayersToRegisterCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Sessions_RegisterPlayersCallbackInfo) -> Void
     ) throws {
         try ____RegisterPlayers(
             .init(
                 SessionName: SessionName,
-                PlayersToRegister: PlayersToRegister,
-                PlayersToRegisterCount: PlayersToRegisterCount
+                PlayersToRegister: PlayersToRegister
             ),
             CompletionDelegate
         )
@@ -470,7 +470,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
      * 
      * - Parameter SessionName:  Name of the session for which to unregister players 
      * - Parameter PlayersToUnregister:  Array of players to unregister from the session 
-     * - Parameter PlayersToUnregisterCount:  Number of players in the array 
+     * 
+     * - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
+     * Number of players in the array 
      * - Parameter CompletionDelegate:  A callback that is fired when the unregistration operation completes, either successfully or in error
      * 
      * @return EOS_Success if the unregister completes successfully
@@ -482,14 +484,12 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     public func UnregisterPlayers(
         SessionName: String?,
         PlayersToUnregister: [EOS_ProductUserId]?,
-        PlayersToUnregisterCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Sessions_UnregisterPlayersCallbackInfo) -> Void
     ) throws {
         try ____UnregisterPlayers(
             .init(
                 SessionName: SessionName,
-                PlayersToUnregister: PlayersToUnregister,
-                PlayersToUnregisterCount: PlayersToUnregisterCount
+                PlayersToUnregister: PlayersToUnregister
             ),
             CompletionDelegate
         )

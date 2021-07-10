@@ -178,8 +178,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_ClientServer.
      * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
      * 
-     * - Parameter DataLengthBytes:  Length in bytes of input 
      * - Parameter Data:  The data to encrypt 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
+     * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * 
      * @return EOS_Success - If the message was protected successfully
@@ -187,12 +189,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
     public func ProtectMessage(
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
         try ____ProtectMessage(.init(
-                DataLengthBytes: DataLengthBytes,
                 Data: Data,
                 OutBufferSizeBytes: OutBufferSizeBytes
             ))
@@ -203,8 +203,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter PeerHandle:  The handle describing the sender of this message 
-     * - Parameter DataLengthBytes:  The size of the data received 
      * - Parameter Data:  The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
+     * The size of the data received 
      * 
      * @return EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
@@ -212,12 +214,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      */
     public func ReceiveMessageFromPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,
-        DataLengthBytes: Int,
         Data: [UInt8]?
     ) throws {
         try ____ReceiveMessageFromPeer(.init(
                 PeerHandle: PeerHandle,
-                DataLengthBytes: DataLengthBytes,
                 Data: Data
             ))
     }
@@ -226,21 +226,19 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Call when an anti-cheat message is received from the game server.
      * Mode: EOS_ACCM_ClientServer.
      * 
-     * - Parameter DataLengthBytes:  The size of the data received 
      * - Parameter Data:  The data received 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromServerOptions/DataLengthBytes``:
+     * The size of the data received 
      * 
      * @return EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
     public func ReceiveMessageFromServer(
-        DataLengthBytes: Int,
         Data: [UInt8]?
     ) throws {
-        try ____ReceiveMessageFromServer(.init(
-                DataLengthBytes: DataLengthBytes,
-                Data: Data
-            ))
+        try ____ReceiveMessageFromServer(.init(Data: Data))
     }
 
     /**
@@ -288,8 +286,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_ClientServer.
      * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
      * 
-     * - Parameter DataLengthBytes:  Length in bytes of input 
      * - Parameter Data:  The data to decrypt 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_UnprotectMessageOptions/DataLengthBytes``:
+     * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * 
      * @return EOS_Success - If the message was unprotected successfully
@@ -297,12 +297,10 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
     public func UnprotectMessage(
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
         try ____UnprotectMessage(.init(
-                DataLengthBytes: DataLengthBytes,
                 Data: Data,
                 OutBufferSizeBytes: OutBufferSizeBytes
             ))

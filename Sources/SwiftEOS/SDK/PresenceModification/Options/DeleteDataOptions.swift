@@ -7,10 +7,12 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /** The count of data keys to delete  */
-    public let RecordsCount: Int
-
-    /** The pointer to start of a sequential array  */
+    /**
+     * The pointer to start of a sequential array 
+     * 
+     * - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
+     * The count of data keys to delete 
+     */
     public let Records: [SwiftEOS_PresenceModification_DataRecordId]?
 
     /**
@@ -23,7 +25,7 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     ) throws -> _tagEOS_PresenceModification_DeleteDataOptions {
         try _tagEOS_PresenceModification_DeleteDataOptions(
             ApiVersion: ApiVersion,
-            RecordsCount: try safeNumericCast(exactly: RecordsCount),
+            RecordsCount: try safeNumericCast(exactly: Records?.count ?? .zero),
             Records: try pointerManager.managedPointerToBuffer(copyingArray: Records?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) })
         )
@@ -35,7 +37,6 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.RecordsCount = try safeNumericCast(exactly: sdkObject.RecordsCount)
         self.Records = try sdkObject.Records.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
             try SwiftEOS_PresenceModification_DataRecordId.init(sdkObject: $0.pointee) }
     }
@@ -43,16 +44,16 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     /**
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST. 
-     * - Parameter RecordsCount:  The count of data keys to delete 
      * - Parameter Records:  The pointer to start of a sequential array 
+     * 
+     * - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
+     * The count of data keys to delete 
      */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST,
-        RecordsCount: Int,
         Records: [SwiftEOS_PresenceModification_DataRecordId]?
     ) {
         self.ApiVersion = ApiVersion
-        self.RecordsCount = RecordsCount
         self.Records = Records
     }
 }

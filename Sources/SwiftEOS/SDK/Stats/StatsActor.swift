@@ -80,7 +80,9 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
      * - Parameter Stats:  Stats to ingest. 
-     * - Parameter StatsCount:  The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
+     * 
+     * - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
+     * The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
      * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
      * - Parameter CompletionDelegate:  This function is called when the ingest stat operation completes.
      * 
@@ -91,7 +93,6 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     public func IngestStat(
         LocalUserId: EOS_ProductUserId?,
         Stats: [SwiftEOS_Stats_IngestData]?,
-        StatsCount: Int,
         TargetUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Stats_IngestStatCompleteCallbackInfo) -> Void
     ) throws {
@@ -99,7 +100,6 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
             .init(
                 LocalUserId: LocalUserId,
                 Stats: Stats,
-                StatsCount: StatsCount,
                 TargetUserId: TargetUserId
             ),
             CompletionDelegate
@@ -113,7 +113,9 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). 
      * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). 
      * - Parameter StatNames:  An array of stat names to query for (Optional). 
-     * - Parameter StatNamesCount:  The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
+     * 
+     * - Note: ``EOS/_tagEOS_Stats_QueryStatsOptions/StatNamesCount``:
+     * The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
      * - Parameter TargetUserId:  The Product User ID for the user whose stats are being retrieved 
      * - Parameter CompletionDelegate:  This function is called when the query player stats operation completes.
      * 
@@ -126,7 +128,6 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
         StartTime: Int,
         EndTime: Int,
         StatNames: [String]?,
-        StatNamesCount: Int,
         TargetUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Stats_OnQueryStatsCompleteCallbackInfo) -> Void
     ) throws {
@@ -136,7 +137,6 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
                 StartTime: StartTime,
                 EndTime: EndTime,
                 StatNames: StatNames,
-                StatNamesCount: StatNamesCount,
                 TargetUserId: TargetUserId
             ),
             CompletionDelegate

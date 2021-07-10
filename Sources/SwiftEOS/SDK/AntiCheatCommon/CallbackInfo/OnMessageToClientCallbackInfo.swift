@@ -7,11 +7,13 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
     /** The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions.  */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** The message data that must be sent to the client  */
+    /**
+     * The message data that must be sent to the client 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo/MessageDataSizeBytes``:
+     * The size in bytes of MessageData 
+     */
     public let MessageData: [UInt8]?
-
-    /** The size in bytes of MessageData  */
-    public let MessageDataSizeBytes: Int
 
     /** Initialize from SDK object */
     public init?(
@@ -23,7 +25,6 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
                 start: sdkObject.MessageData,
                 count: try safeNumericCast(exactly: sdkObject.MessageDataSizeBytes)
             ))
-        self.MessageDataSizeBytes = try safeNumericCast(exactly: sdkObject.MessageDataSizeBytes)
     }
 
     /** Send notification using the pointer to C callback info provided */
@@ -40,15 +41,15 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
      * Memberwise initializer
      * - Parameter ClientHandle:  The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions. 
      * - Parameter MessageData:  The message data that must be sent to the client 
-     * - Parameter MessageDataSizeBytes:  The size in bytes of MessageData 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo/MessageDataSizeBytes``:
+     * The size in bytes of MessageData 
      */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
-        MessageData: [UInt8]?,
-        MessageDataSizeBytes: Int
+        MessageData: [UInt8]?
     ) {
         self.ClientHandle = ClientHandle
         self.MessageData = MessageData
-        self.MessageDataSizeBytes = MessageDataSizeBytes
     }
 }

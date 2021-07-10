@@ -10,11 +10,13 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
     /** Product User ID of the local user who requested file metadata (optional)  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** List of tags to use for lookup.  */
+    /**
+     * List of tags to use for lookup. 
+     * 
+     * - Note: ``EOS/_tagEOS_TitleStorage_QueryFileListOptions/ListOfTagsCount``:
+     * Number of tags specified in ListOfTags 
+     */
     public let ListOfTags: [String]?
-
-    /** Number of tags specified in ListOfTags  */
-    public let ListOfTagsCount: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -29,7 +31,7 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
             LocalUserId: LocalUserId,
             ListOfTags: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: ListOfTags?.map { 
                     $0.utf8CString }),
-            ListOfTagsCount: try safeNumericCast(exactly: ListOfTagsCount)
+            ListOfTagsCount: try safeNumericCast(exactly: ListOfTags?.count ?? .zero)
         )
     }
 
@@ -44,7 +46,6 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
             pointer: sdkObject.ListOfTags,
             count: sdkObject.ListOfTagsCount
         )
-        self.ListOfTagsCount = try safeNumericCast(exactly: sdkObject.ListOfTagsCount)
     }
 
     /**
@@ -52,17 +53,17 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST. 
      * - Parameter LocalUserId:  Product User ID of the local user who requested file metadata (optional) 
      * - Parameter ListOfTags:  List of tags to use for lookup. 
-     * - Parameter ListOfTagsCount:  Number of tags specified in ListOfTags 
+     * 
+     * - Note: ``EOS/_tagEOS_TitleStorage_QueryFileListOptions/ListOfTagsCount``:
+     * Number of tags specified in ListOfTags 
      */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
-        ListOfTags: [String]?,
-        ListOfTagsCount: Int
+        ListOfTags: [String]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.ListOfTags = ListOfTags
-        self.ListOfTagsCount = ListOfTagsCount
     }
 }

@@ -10,11 +10,13 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
     /** Name of the session for which to register players  */
     public let SessionName: String?
 
-    /** Array of players to register with the session  */
+    /**
+     * Array of players to register with the session 
+     * 
+     * - Note: ``EOS/_tagEOS_Sessions_RegisterPlayersOptions/PlayersToRegisterCount``:
+     * Number of players in the array 
+     */
     public let PlayersToRegister: [EOS_ProductUserId]?
-
-    /** Number of players in the array  */
-    public let PlayersToRegisterCount: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -28,7 +30,7 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
             ApiVersion: ApiVersion,
             SessionName: pointerManager.managedPointerToBuffer(copyingArray: SessionName?.utf8CString),
             PlayersToRegister: pointerManager.managedMutablePointerToBuffer(copyingArray: PlayersToRegister),
-            PlayersToRegisterCount: try safeNumericCast(exactly: PlayersToRegisterCount)
+            PlayersToRegisterCount: try safeNumericCast(exactly: PlayersToRegister?.count ?? .zero)
         )
     }
 
@@ -43,7 +45,6 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
             start: sdkObject.PlayersToRegister,
             count: sdkObject.PlayersToRegisterCount
         )
-        self.PlayersToRegisterCount = try safeNumericCast(exactly: sdkObject.PlayersToRegisterCount)
     }
 
     /**
@@ -51,17 +52,17 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_REGISTERPLAYERS_API_LATEST. 
      * - Parameter SessionName:  Name of the session for which to register players 
      * - Parameter PlayersToRegister:  Array of players to register with the session 
-     * - Parameter PlayersToRegisterCount:  Number of players in the array 
+     * 
+     * - Note: ``EOS/_tagEOS_Sessions_RegisterPlayersOptions/PlayersToRegisterCount``:
+     * Number of players in the array 
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_REGISTERPLAYERS_API_LATEST,
         SessionName: String?,
-        PlayersToRegister: [EOS_ProductUserId]?,
-        PlayersToRegisterCount: Int
+        PlayersToRegister: [EOS_ProductUserId]?
     ) {
         self.ApiVersion = ApiVersion
         self.SessionName = SessionName
         self.PlayersToRegister = PlayersToRegister
-        self.PlayersToRegisterCount = PlayersToRegisterCount
     }
 }

@@ -20,10 +20,12 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
     /** The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED.  */
     public let UnlockTime: Int
 
-    /** The number of player stat info entries associated with this achievement.  */
-    public let StatInfoCount: Int
-
-    /** Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats.  */
+    /**
+     * Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_PlayerAchievement/StatInfoCount``:
+     * The number of player stat info entries associated with this achievement. 
+     */
     public let StatInfo: [SwiftEOS_Achievements_PlayerStatInfo]?
 
     /**
@@ -65,7 +67,7 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
             AchievementId: pointerManager.managedPointerToBuffer(copyingArray: AchievementId?.utf8CString),
             Progress: Progress,
             UnlockTime: try safeNumericCast(exactly: UnlockTime),
-            StatInfoCount: try safeNumericCast(exactly: StatInfoCount),
+            StatInfoCount: try safeNumericCast(exactly: StatInfo?.count ?? .zero),
             StatInfo: try pointerManager.managedPointerToBuffer(copyingArray: StatInfo?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) }),
             DisplayName: pointerManager.managedPointerToBuffer(copyingArray: DisplayName?.utf8CString),
@@ -84,7 +86,6 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
         self.AchievementId = String(cString: sdkObject.AchievementId)
         self.Progress = sdkObject.Progress
         self.UnlockTime = try safeNumericCast(exactly: sdkObject.UnlockTime)
-        self.StatInfoCount = try safeNumericCast(exactly: sdkObject.StatInfoCount)
         self.StatInfo = try sdkObject.StatInfo.array(safeNumericCast(exactly: sdkObject.StatInfoCount)).compactMap { 
             try SwiftEOS_Achievements_PlayerStatInfo.init(sdkObject: $0.pointee) }
         self.DisplayName = String(cString: sdkObject.DisplayName)
@@ -99,8 +100,10 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
      * - Parameter AchievementId:  This achievement's unique identifier. 
      * - Parameter Progress:  Progress towards completing this achievement (as a percentage). 
      * - Parameter UnlockTime:  The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED. 
-     * - Parameter StatInfoCount:  The number of player stat info entries associated with this achievement. 
      * - Parameter StatInfo:  Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_PlayerAchievement/StatInfoCount``:
+     * The number of player stat info entries associated with this achievement. 
      * - Parameter DisplayName:  
      * Localized display name for the achievement based on this specific player's current progress on the achievement. 
      * 
@@ -119,7 +122,6 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
         AchievementId: String?,
         Progress: Double,
         UnlockTime: Int,
-        StatInfoCount: Int,
         StatInfo: [SwiftEOS_Achievements_PlayerStatInfo]?,
         DisplayName: String?,
         Description: String?,
@@ -130,7 +132,6 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
         self.AchievementId = AchievementId
         self.Progress = Progress
         self.UnlockTime = UnlockTime
-        self.StatInfoCount = StatInfoCount
         self.StatInfo = StatInfo
         self.DisplayName = DisplayName
         self.Description = Description

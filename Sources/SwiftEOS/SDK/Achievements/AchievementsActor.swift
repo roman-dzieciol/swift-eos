@@ -275,7 +275,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
      * - Parameter EpicUserId_DEPRECATED:  Deprecated 
      * - Parameter HiddenAchievementIds_DEPRECATED:  Deprecated 
-     * - Parameter HiddenAchievementsCount_DEPRECATED:  Deprecated 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_QueryDefinitionsOptions/HiddenAchievementsCount_DEPRECATED``:
+     * Deprecated 
      * - Parameter CompletionDelegate:  This function is called when the query definitions operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -285,15 +287,13 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
         LocalUserId: EOS_ProductUserId?,
         EpicUserId_DEPRECATED: EOS_EpicAccountId?,
         HiddenAchievementIds_DEPRECATED: [String]?,
-        HiddenAchievementsCount_DEPRECATED: Int,
         CompletionDelegate: @escaping (SwiftEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo) -> Void
     ) throws {
         try ____QueryDefinitions(
             .init(
                 LocalUserId: LocalUserId,
                 EpicUserId_DEPRECATED: EpicUserId_DEPRECATED,
-                HiddenAchievementIds_DEPRECATED: HiddenAchievementIds_DEPRECATED,
-                HiddenAchievementsCount_DEPRECATED: HiddenAchievementsCount_DEPRECATED
+                HiddenAchievementIds_DEPRECATED: HiddenAchievementIds_DEPRECATED
             ),
             CompletionDelegate
         )
@@ -331,7 +331,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter UserId:  The Product User ID for the user whose achievements we want to unlock. 
      * - Parameter AchievementIds:  An array of Achievement IDs to unlock. 
-     * - Parameter AchievementsCount:  The number of achievements to unlock. 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
+     * The number of achievements to unlock. 
      * - Parameter CompletionDelegate:  This function is called when the unlock achievements operation completes.
      * 
      * @return EOS_Success if the operation completes successfully
@@ -340,14 +342,12 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     public func UnlockAchievements(
         UserId: EOS_ProductUserId?,
         AchievementIds: [String]?,
-        AchievementsCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo) -> Void
     ) throws {
         try ____UnlockAchievements(
             .init(
                 UserId: UserId,
-                AchievementIds: AchievementIds,
-                AchievementsCount: AchievementsCount
+                AchievementIds: AchievementIds
             ),
             CompletionDelegate
         )

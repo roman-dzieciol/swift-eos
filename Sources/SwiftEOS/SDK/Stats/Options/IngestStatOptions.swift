@@ -10,11 +10,13 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
     /** The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** Stats to ingest.  */
+    /**
+     * Stats to ingest. 
+     * 
+     * - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
+     * The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
+     */
     public let Stats: [SwiftEOS_Stats_IngestData]?
-
-    /** The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.  */
-    public let StatsCount: Int
 
     /** The Product User ID for the user whose stat is being ingested.  */
     public let TargetUserId: EOS_ProductUserId?
@@ -32,7 +34,7 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
             LocalUserId: LocalUserId,
             Stats: try pointerManager.managedPointerToBuffer(copyingArray: Stats?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) }),
-            StatsCount: try safeNumericCast(exactly: StatsCount),
+            StatsCount: try safeNumericCast(exactly: Stats?.count ?? .zero),
             TargetUserId: TargetUserId
         )
     }
@@ -46,7 +48,6 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
         self.Stats = try sdkObject.Stats.array(safeNumericCast(exactly: sdkObject.StatsCount)).compactMap { 
             try SwiftEOS_Stats_IngestData.init(sdkObject: $0.pointee) }
-        self.StatsCount = try safeNumericCast(exactly: sdkObject.StatsCount)
         self.TargetUserId = sdkObject.TargetUserId
     }
 
@@ -55,20 +56,20 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST. 
      * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
      * - Parameter Stats:  Stats to ingest. 
-     * - Parameter StatsCount:  The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
+     * 
+     * - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
+     * The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
      * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
      */
     public init(
         ApiVersion: Int32 = EOS_STATS_INGESTSTAT_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
         Stats: [SwiftEOS_Stats_IngestData]?,
-        StatsCount: Int,
         TargetUserId: EOS_ProductUserId?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.Stats = Stats
-        self.StatsCount = StatsCount
         self.TargetUserId = TargetUserId
     }
 }

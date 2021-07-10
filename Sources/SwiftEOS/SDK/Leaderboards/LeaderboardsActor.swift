@@ -227,9 +227,13 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Query for a list of scores for a given list of users.
      * 
      * - Parameter UserIds:  An array of Product User IDs indicating the users whose scores you want to retrieve 
-     * - Parameter UserIdsCount:  The number of users included in query 
+     * 
+     * - Note: ``EOS/_tagEOS_Leaderboards_QueryLeaderboardUserScoresOptions/UserIdsCount``:
+     * The number of users included in query 
      * - Parameter StatInfo:  The stats to be collected, along with the sorting method to use when determining rank order for each stat 
-     * - Parameter StatInfoCount:  The number of stats to query 
+     * 
+     * - Note: ``EOS/_tagEOS_Leaderboards_QueryLeaderboardUserScoresOptions/StatInfoCount``:
+     * The number of stats to query 
      * - Parameter StartTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time 
      * - Parameter EndTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made before this time 
      * - Parameter LocalUserId:  Product User ID for user who is querying user scores.
@@ -242,9 +246,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      */
     public func QueryLeaderboardUserScores(
         UserIds: [EOS_ProductUserId]?,
-        UserIdsCount: Int,
         StatInfo: [SwiftEOS_Leaderboards_UserScoresQueryStatInfo]?,
-        StatInfoCount: Int,
         StartTime: Int,
         EndTime: Int,
         LocalUserId: EOS_ProductUserId?,
@@ -253,9 +255,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
         try ____QueryLeaderboardUserScores(
             .init(
                 UserIds: UserIds,
-                UserIdsCount: UserIdsCount,
                 StatInfo: StatInfo,
-                StatInfoCount: StatInfoCount,
                 StartTime: StartTime,
                 EndTime: EndTime,
                 LocalUserId: LocalUserId

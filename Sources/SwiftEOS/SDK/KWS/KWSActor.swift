@@ -164,8 +164,10 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * Request new permissions for a given local Product User ID
      * 
      * - Parameter LocalUserId:  Local user requesting new permisssions 
-     * - Parameter PermissionKeyCount:  The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
      * - Parameter PermissionKeys:  Names of the permissions to request (Setup with KWS) 
+     * 
+     * - Note: ``EOS/_tagEOS_KWS_RequestPermissionsOptions/PermissionKeyCount``:
+     * The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
      * @return EOS_Success if contact information update completes successfully
@@ -176,14 +178,12 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      */
     public func RequestPermissions(
         LocalUserId: EOS_ProductUserId?,
-        PermissionKeyCount: Int,
         PermissionKeys: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_KWS_RequestPermissionsCallbackInfo) -> Void
     ) throws {
         try ____RequestPermissions(
             .init(
                 LocalUserId: LocalUserId,
-                PermissionKeyCount: PermissionKeyCount,
                 PermissionKeys: PermissionKeys
             ),
             CompletionDelegate

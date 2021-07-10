@@ -5,10 +5,12 @@ public struct SwiftEOS_AntiCheatClient_ProtectMessageOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_ANTICHEATCLIENT_PROTECTMESSAGE_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /** Length in bytes of input  */
-    public let DataLengthBytes: Int
-
-    /** The data to encrypt  */
+    /**
+     * The data to encrypt 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
+     * Length in bytes of input 
+     */
     public let Data: [UInt8]?
 
     /** The size in bytes of OutBuffer  */
@@ -24,7 +26,7 @@ public struct SwiftEOS_AntiCheatClient_ProtectMessageOptions: SwiftEOSObject {
     ) throws -> _tagEOS_AntiCheatClient_ProtectMessageOptions {
         try _tagEOS_AntiCheatClient_ProtectMessageOptions(
             ApiVersion: ApiVersion,
-            DataLengthBytes: try safeNumericCast(exactly: DataLengthBytes),
+            DataLengthBytes: try safeNumericCast(exactly: Data?.count ?? .zero),
             Data: pointerManager.managedPointerToBuffer(copyingArray: Data),
             OutBufferSizeBytes: try safeNumericCast(exactly: OutBufferSizeBytes)
         )
@@ -36,7 +38,6 @@ public struct SwiftEOS_AntiCheatClient_ProtectMessageOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.DataLengthBytes = try safeNumericCast(exactly: sdkObject.DataLengthBytes)
         self.Data = try Array(try UnsafeRawBufferPointer(
                 start: sdkObject.Data,
                 count: try safeNumericCast(exactly: sdkObject.DataLengthBytes)
@@ -47,18 +48,18 @@ public struct SwiftEOS_AntiCheatClient_ProtectMessageOptions: SwiftEOSObject {
     /**
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_PROTECTMESSAGE_API_LATEST. 
-     * - Parameter DataLengthBytes:  Length in bytes of input 
      * - Parameter Data:  The data to encrypt 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
+     * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_PROTECTMESSAGE_API_LATEST,
-        DataLengthBytes: Int,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) {
         self.ApiVersion = ApiVersion
-        self.DataLengthBytes = DataLengthBytes
         self.Data = Data
         self.OutBufferSizeBytes = OutBufferSizeBytes
     }

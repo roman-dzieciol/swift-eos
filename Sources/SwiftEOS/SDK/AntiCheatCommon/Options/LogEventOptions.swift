@@ -11,10 +11,12 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
     /** Unique event identifier previously configured in RegisterEvent  */
     public let EventId: Int
 
-    /** Number of parameters described in Params  */
-    public let ParamsCount: Int
-
-    /** Set of parameter types previously configured in RegisterEvent, and their values  */
+    /**
+     * Set of parameter types previously configured in RegisterEvent, and their values 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_LogEventOptions/ParamsCount``:
+     * Number of parameters described in Params 
+     */
     public let Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
 
     /**
@@ -29,7 +31,7 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
             ApiVersion: ApiVersion,
             ClientHandle: ClientHandle,
             EventId: try safeNumericCast(exactly: EventId),
-            ParamsCount: try safeNumericCast(exactly: ParamsCount),
+            ParamsCount: try safeNumericCast(exactly: Params?.count ?? .zero),
             Params: try pointerManager.managedPointerToBuffer(copyingArray: Params?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) })
         )
@@ -43,7 +45,6 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.ClientHandle = sdkObject.ClientHandle
         self.EventId = try safeNumericCast(exactly: sdkObject.EventId)
-        self.ParamsCount = try safeNumericCast(exactly: sdkObject.ParamsCount)
         self.Params = try sdkObject.Params.array(safeNumericCast(exactly: sdkObject.ParamsCount)).compactMap { 
             try SwiftEOS_AntiCheatCommon_LogEventParamPair.init(sdkObject: $0.pointee) }
     }
@@ -53,20 +54,20 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST. 
      * - Parameter ClientHandle:  Optional client who this event is primarily associated with. If not applicable, use 0. 
      * - Parameter EventId:  Unique event identifier previously configured in RegisterEvent 
-     * - Parameter ParamsCount:  Number of parameters described in Params 
      * - Parameter Params:  Set of parameter types previously configured in RegisterEvent, and their values 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_LogEventOptions/ParamsCount``:
+     * Number of parameters described in Params 
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         EventId: Int,
-        ParamsCount: Int,
         Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
     ) {
         self.ApiVersion = ApiVersion
         self.ClientHandle = ClientHandle
         self.EventId = EventId
-        self.ParamsCount = ParamsCount
         self.Params = Params
     }
 }

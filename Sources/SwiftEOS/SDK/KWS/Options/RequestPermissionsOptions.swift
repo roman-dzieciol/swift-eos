@@ -10,10 +10,12 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
     /** Local user requesting new permisssions  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included.  */
-    public let PermissionKeyCount: Int
-
-    /** Names of the permissions to request (Setup with KWS)  */
+    /**
+     * Names of the permissions to request (Setup with KWS) 
+     * 
+     * - Note: ``EOS/_tagEOS_KWS_RequestPermissionsOptions/PermissionKeyCount``:
+     * The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
+     */
     public let PermissionKeys: [String]?
 
     /**
@@ -27,7 +29,7 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
         try _tagEOS_KWS_RequestPermissionsOptions(
             ApiVersion: ApiVersion,
             LocalUserId: LocalUserId,
-            PermissionKeyCount: try safeNumericCast(exactly: PermissionKeyCount),
+            PermissionKeyCount: try safeNumericCast(exactly: PermissionKeys?.count ?? .zero),
             PermissionKeys: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: PermissionKeys?.map { 
                     $0.utf8CString })
         )
@@ -40,7 +42,6 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.PermissionKeyCount = try safeNumericCast(exactly: sdkObject.PermissionKeyCount)
         self.PermissionKeys = try stringArrayFromCCharPointerPointer(
             pointer: sdkObject.PermissionKeys,
             count: sdkObject.PermissionKeyCount
@@ -51,18 +52,18 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_REQUESTPERMISSIONS_API_LATEST. 
      * - Parameter LocalUserId:  Local user requesting new permisssions 
-     * - Parameter PermissionKeyCount:  The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
      * - Parameter PermissionKeys:  Names of the permissions to request (Setup with KWS) 
+     * 
+     * - Note: ``EOS/_tagEOS_KWS_RequestPermissionsOptions/PermissionKeyCount``:
+     * The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
      */
     public init(
         ApiVersion: Int32 = EOS_KWS_REQUESTPERMISSIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
-        PermissionKeyCount: Int,
         PermissionKeys: [String]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
-        self.PermissionKeyCount = PermissionKeyCount
         self.PermissionKeys = PermissionKeys
     }
 }

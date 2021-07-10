@@ -15,13 +15,13 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
     public let EventType: EOS_EAntiCheatCommonEventType
 
     /**
+     * Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_RegisterEventOptions/ParamDefsCount``:
      * Number of parameters described in ParamDefs. Must be 
      * <
      * = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT. 
      */
-    public let ParamDefsCount: Int
-
-    /** Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements  */
     public let ParamDefs: [SwiftEOS_AntiCheatCommon_RegisterEventParamDef]?
 
     /**
@@ -37,7 +37,7 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
             EventId: try safeNumericCast(exactly: EventId),
             EventName: pointerManager.managedPointerToBuffer(copyingArray: EventName?.utf8CString),
             EventType: EventType,
-            ParamDefsCount: try safeNumericCast(exactly: ParamDefsCount),
+            ParamDefsCount: try safeNumericCast(exactly: ParamDefs?.count ?? .zero),
             ParamDefs: try pointerManager.managedPointerToBuffer(copyingArray: ParamDefs?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) })
         )
@@ -52,7 +52,6 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
         self.EventId = try safeNumericCast(exactly: sdkObject.EventId)
         self.EventName = String(cString: sdkObject.EventName)
         self.EventType = sdkObject.EventType
-        self.ParamDefsCount = try safeNumericCast(exactly: sdkObject.ParamDefsCount)
         self.ParamDefs = try sdkObject.ParamDefs.array(safeNumericCast(exactly: sdkObject.ParamDefsCount)).compactMap { 
             try SwiftEOS_AntiCheatCommon_RegisterEventParamDef.init(sdkObject: $0.pointee) }
     }
@@ -63,24 +62,24 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
      * - Parameter EventId:  Unique event identifier. Must be >= EOS_ANTICHEATCOMMON_REGISTEREVENT_CUSTOMEVENTBASE. 
      * - Parameter EventName:  Name of the custom event. Allowed characters are 0-9, A-Z, a-z, '_', '-', '.' 
      * - Parameter EventType:  Type of the custom event 
-     * - Parameter ParamDefsCount:  Number of parameters described in ParamDefs. Must be 
+     * - Parameter ParamDefs:  Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements 
+     * 
+     * - Note: ``EOS/_tagEOS_AntiCheatCommon_RegisterEventOptions/ParamDefsCount``:
+     * Number of parameters described in ParamDefs. Must be 
      * <
      * = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT. 
-     * - Parameter ParamDefs:  Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements 
      */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_REGISTEREVENT_API_LATEST,
         EventId: Int,
         EventName: String?,
         EventType: EOS_EAntiCheatCommonEventType,
-        ParamDefsCount: Int,
         ParamDefs: [SwiftEOS_AntiCheatCommon_RegisterEventParamDef]?
     ) {
         self.ApiVersion = ApiVersion
         self.EventId = EventId
         self.EventName = EventName
         self.EventType = EventType
-        self.ParamDefsCount = ParamDefsCount
         self.ParamDefs = ParamDefs
     }
 }

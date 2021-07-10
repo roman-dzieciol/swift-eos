@@ -10,11 +10,13 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
     /** The Epic Online Services Account ID of the local user whose ownership was queried  */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** List of catalog items and their ownership status  */
+    /**
+     * List of catalog items and their ownership status 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipCallbackInfo/ItemOwnershipCount``:
+     * Number of ownership results are included in this callback 
+     */
     public let ItemOwnership: [SwiftEOS_Ecom_ItemOwnership]?
-
-    /** Number of ownership results are included in this callback  */
-    public let ItemOwnershipCount: Int
 
     /** Initialize from SDK object */
     public init?(
@@ -25,7 +27,6 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
         self.LocalUserId = sdkObject.LocalUserId
         self.ItemOwnership = try sdkObject.ItemOwnership.array(safeNumericCast(exactly: sdkObject.ItemOwnershipCount)).compactMap { 
             try SwiftEOS_Ecom_ItemOwnership.init(sdkObject: $0.pointee) }
-        self.ItemOwnershipCount = try safeNumericCast(exactly: sdkObject.ItemOwnershipCount)
     }
 
     /** Send completion using the pointer to C callback info provided */
@@ -43,17 +44,17 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
      * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership was queried 
      * - Parameter ItemOwnership:  List of catalog items and their ownership status 
-     * - Parameter ItemOwnershipCount:  Number of ownership results are included in this callback 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipCallbackInfo/ItemOwnershipCount``:
+     * Number of ownership results are included in this callback 
      */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,
-        ItemOwnership: [SwiftEOS_Ecom_ItemOwnership]?,
-        ItemOwnershipCount: Int
+        ItemOwnership: [SwiftEOS_Ecom_ItemOwnership]?
     ) {
         self.ResultCode = ResultCode
         self.LocalUserId = LocalUserId
         self.ItemOwnership = ItemOwnership
-        self.ItemOwnershipCount = ItemOwnershipCount
     }
 }

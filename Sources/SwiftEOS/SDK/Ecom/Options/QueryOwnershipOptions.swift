@@ -10,11 +10,13 @@ public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
     /** The Epic Online Services Account ID of the local user whose ownership to query  */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The array of Catalog Item IDs to check for ownership  */
+    /**
+     * The array of Catalog Item IDs to check for ownership 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipOptions/CatalogItemIdCount``:
+     * The number of Catalog Item IDs to in the array 
+     */
     public let CatalogItemIds: [String]?
-
-    /** The number of Catalog Item IDs to in the array  */
-    public let CatalogItemIdCount: Int
 
     /** Optional product namespace, if not the one specified during initialization  */
     public let CatalogNamespace: String?
@@ -32,7 +34,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
             LocalUserId: LocalUserId,
             CatalogItemIds: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: CatalogItemIds?.map { 
                     $0.utf8CString }),
-            CatalogItemIdCount: try safeNumericCast(exactly: CatalogItemIdCount),
+            CatalogItemIdCount: try safeNumericCast(exactly: CatalogItemIds?.count ?? .zero),
             CatalogNamespace: pointerManager.managedPointerToBuffer(copyingArray: CatalogNamespace?.utf8CString)
         )
     }
@@ -48,7 +50,6 @@ public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
             pointer: sdkObject.CatalogItemIds,
             count: sdkObject.CatalogItemIdCount
         )
-        self.CatalogItemIdCount = try safeNumericCast(exactly: sdkObject.CatalogItemIdCount)
         self.CatalogNamespace = String(cString: sdkObject.CatalogNamespace)
     }
 
@@ -57,20 +58,20 @@ public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_QUERYOWNERSHIP_API_LATEST. 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership to query 
      * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership 
-     * - Parameter CatalogItemIdCount:  The number of Catalog Item IDs to in the array 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipOptions/CatalogItemIdCount``:
+     * The number of Catalog Item IDs to in the array 
      * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
      */
     public init(
         ApiVersion: Int32 = EOS_ECOM_QUERYOWNERSHIP_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,
         CatalogItemIds: [String]?,
-        CatalogItemIdCount: Int,
         CatalogNamespace: String?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.CatalogItemIds = CatalogItemIds
-        self.CatalogItemIdCount = CatalogItemIdCount
         self.CatalogNamespace = CatalogNamespace
     }
 }

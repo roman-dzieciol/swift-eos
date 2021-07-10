@@ -7,10 +7,12 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
     /** API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST.  */
     public let ApiVersion: Int32
 
-    /** The count of records to set  */
-    public let RecordsCount: Int
-
-    /** The pointer to start of a sequential array of Presence DataRecords  */
+    /**
+     * The pointer to start of a sequential array of Presence DataRecords 
+     * 
+     * - Note: ``EOS/_tagEOS_PresenceModification_SetDataOptions/RecordsCount``:
+     * The count of records to set 
+     */
     public let Records: [SwiftEOS_Presence_DataRecord]?
 
     /**
@@ -23,7 +25,7 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
     ) throws -> _tagEOS_PresenceModification_SetDataOptions {
         try _tagEOS_PresenceModification_SetDataOptions(
             ApiVersion: ApiVersion,
-            RecordsCount: try safeNumericCast(exactly: RecordsCount),
+            RecordsCount: try safeNumericCast(exactly: Records?.count ?? .zero),
             Records: try pointerManager.managedPointerToBuffer(copyingArray: Records?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) })
         )
@@ -35,7 +37,6 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.RecordsCount = try safeNumericCast(exactly: sdkObject.RecordsCount)
         self.Records = try sdkObject.Records.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
             try SwiftEOS_Presence_DataRecord.init(sdkObject: $0.pointee) }
     }
@@ -43,16 +44,16 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
     /**
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST. 
-     * - Parameter RecordsCount:  The count of records to set 
      * - Parameter Records:  The pointer to start of a sequential array of Presence DataRecords 
+     * 
+     * - Note: ``EOS/_tagEOS_PresenceModification_SetDataOptions/RecordsCount``:
+     * The count of records to set 
      */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST,
-        RecordsCount: Int,
         Records: [SwiftEOS_Presence_DataRecord]?
     ) {
         self.ApiVersion = ApiVersion
-        self.RecordsCount = RecordsCount
         self.Records = Records
     }
 }

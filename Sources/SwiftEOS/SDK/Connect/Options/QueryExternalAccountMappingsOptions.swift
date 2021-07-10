@@ -13,11 +13,13 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
     /** External auth service supplying the account IDs in string form.  */
     public let AccountIdType: EOS_EExternalAccountType
 
-    /** An array of external account IDs to map to the product user ID representation.  */
+    /**
+     * An array of external account IDs to map to the product user ID representation. 
+     * 
+     * - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
+     * Number of account IDs to query. 
+     */
     public let ExternalAccountIds: [String]?
-
-    /** Number of account IDs to query.  */
-    public let ExternalAccountIdCount: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -33,7 +35,7 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
             AccountIdType: AccountIdType,
             ExternalAccountIds: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: ExternalAccountIds?.map { 
                     $0.utf8CString }),
-            ExternalAccountIdCount: try safeNumericCast(exactly: ExternalAccountIdCount)
+            ExternalAccountIdCount: try safeNumericCast(exactly: ExternalAccountIds?.count ?? .zero)
         )
     }
 
@@ -49,7 +51,6 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
             pointer: sdkObject.ExternalAccountIds,
             count: sdkObject.ExternalAccountIdCount
         )
-        self.ExternalAccountIdCount = try safeNumericCast(exactly: sdkObject.ExternalAccountIdCount)
     }
 
     /**
@@ -58,19 +59,19 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
      * - Parameter ExternalAccountIds:  An array of external account IDs to map to the product user ID representation. 
-     * - Parameter ExternalAccountIdCount:  Number of account IDs to query. 
+     * 
+     * - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
+     * Number of account IDs to query. 
      */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
         AccountIdType: EOS_EExternalAccountType,
-        ExternalAccountIds: [String]?,
-        ExternalAccountIdCount: Int
+        ExternalAccountIds: [String]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.AccountIdType = AccountIdType
         self.ExternalAccountIds = ExternalAccountIds
-        self.ExternalAccountIdCount = ExternalAccountIdCount
     }
 }

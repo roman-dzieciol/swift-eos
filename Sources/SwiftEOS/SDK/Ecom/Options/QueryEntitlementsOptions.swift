@@ -10,11 +10,13 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
     /** The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve  */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** An array of Entitlement Names that you want to check  */
+    /**
+     * An array of Entitlement Names that you want to check 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryEntitlementsOptions/EntitlementNameCount``:
+     * The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
+     */
     public let EntitlementNames: [String]?
-
-    /** The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account.  */
-    public let EntitlementNameCount: Int
 
     /** If true, Entitlements that have been redeemed will be included in the results.  */
     public let bIncludeRedeemed: Bool
@@ -32,7 +34,7 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
             LocalUserId: LocalUserId,
             EntitlementNames: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: EntitlementNames?.map { 
                     $0.utf8CString }),
-            EntitlementNameCount: try safeNumericCast(exactly: EntitlementNameCount),
+            EntitlementNameCount: try safeNumericCast(exactly: EntitlementNames?.count ?? .zero),
             bIncludeRedeemed: eosBoolFromSwiftBool(bIncludeRedeemed)
         )
     }
@@ -48,7 +50,6 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
             pointer: sdkObject.EntitlementNames,
             count: sdkObject.EntitlementNameCount
         )
-        self.EntitlementNameCount = try safeNumericCast(exactly: sdkObject.EntitlementNameCount)
         self.bIncludeRedeemed = try swiftBoolFromEosBool(sdkObject.bIncludeRedeemed)
     }
 
@@ -57,20 +58,20 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_QUERYENTITLEMENTS_API_LATEST. 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve 
      * - Parameter EntitlementNames:  An array of Entitlement Names that you want to check 
-     * - Parameter EntitlementNameCount:  The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
+     * 
+     * - Note: ``EOS/_tagEOS_Ecom_QueryEntitlementsOptions/EntitlementNameCount``:
+     * The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account. 
      * - Parameter bIncludeRedeemed:  If true, Entitlements that have been redeemed will be included in the results. 
      */
     public init(
         ApiVersion: Int32 = EOS_ECOM_QUERYENTITLEMENTS_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,
         EntitlementNames: [String]?,
-        EntitlementNameCount: Int,
         bIncludeRedeemed: Bool
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.EntitlementNames = EntitlementNames
-        self.EntitlementNameCount = EntitlementNameCount
         self.bIncludeRedeemed = bIncludeRedeemed
     }
 }

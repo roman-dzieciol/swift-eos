@@ -96,7 +96,9 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Product User ID for local user who is querying join room tokens. 
      * - Parameter RoomName:  Room name to request a token for. 
      * - Parameter TargetUserIds:  An array of Product User IDs indicating the users to retrieve a token for. 
-     * - Parameter TargetUserIdsCount:  The number of users included in the query. 
+     * 
+     * - Note: ``EOS/_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions/TargetUserIdsCount``:
+     * The number of users included in the query. 
      * - Parameter TargetUserIpAddresses:  Array of IP Addresses, one for each of the users we're querying tokens for.
      * There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
      * If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
@@ -111,7 +113,6 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,
         TargetUserIds: [EOS_ProductUserId]?,
-        TargetUserIdsCount: Int,
         TargetUserIpAddresses: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo) -> Void
     ) throws {
@@ -120,7 +121,6 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
                 LocalUserId: LocalUserId,
                 RoomName: RoomName,
                 TargetUserIds: TargetUserIds,
-                TargetUserIdsCount: TargetUserIdsCount,
                 TargetUserIpAddresses: TargetUserIpAddresses
             ),
             CompletionDelegate

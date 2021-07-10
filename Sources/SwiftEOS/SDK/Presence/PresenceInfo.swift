@@ -32,10 +32,12 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
     /** The rich-text of the user  */
     public let RichText: String?
 
-    /** The count of records available  */
-    public let RecordsCount: Int
-
-    /** The first data record, or NULL if RecordsCount is not at least 1  */
+    /**
+     * The first data record, or NULL if RecordsCount is not at least 1 
+     * 
+     * - Note: ``EOS/_tagEOS_Presence_Info/RecordsCount``:
+     * The count of records available 
+     */
     public let Records: [SwiftEOS_Presence_DataRecord]?
 
     /** The user-facing name for the product the user is logged in from  */
@@ -57,7 +59,7 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
             ProductVersion: pointerManager.managedPointerToBuffer(copyingArray: ProductVersion?.utf8CString),
             Platform: pointerManager.managedPointerToBuffer(copyingArray: Platform?.utf8CString),
             RichText: pointerManager.managedPointerToBuffer(copyingArray: RichText?.utf8CString),
-            RecordsCount: try safeNumericCast(exactly: RecordsCount),
+            RecordsCount: try safeNumericCast(exactly: Records?.count ?? .zero),
             Records: try pointerManager.managedPointerToBuffer(copyingArray: Records?.map { 
                     try $0.buildSdkObject(pointerManager: pointerManager) }),
             ProductName: pointerManager.managedPointerToBuffer(copyingArray: ProductName?.utf8CString)
@@ -76,7 +78,6 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
         self.ProductVersion = String(cString: sdkObject.ProductVersion)
         self.Platform = String(cString: sdkObject.Platform)
         self.RichText = String(cString: sdkObject.RichText)
-        self.RecordsCount = try safeNumericCast(exactly: sdkObject.RecordsCount)
         self.Records = try sdkObject.Records.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
             try SwiftEOS_Presence_DataRecord.init(sdkObject: $0.pointee) }
         self.ProductName = String(cString: sdkObject.ProductName)
@@ -91,8 +92,10 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
      * - Parameter ProductVersion:  The version of the product the user is logged in from 
      * - Parameter Platform:  The platform of that the user is logged in from 
      * - Parameter RichText:  The rich-text of the user 
-     * - Parameter RecordsCount:  The count of records available 
      * - Parameter Records:  The first data record, or NULL if RecordsCount is not at least 1 
+     * 
+     * - Note: ``EOS/_tagEOS_Presence_Info/RecordsCount``:
+     * The count of records available 
      * - Parameter ProductName:  The user-facing name for the product the user is logged in from 
      */
     public init(
@@ -103,7 +106,6 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
         ProductVersion: String?,
         Platform: String?,
         RichText: String?,
-        RecordsCount: Int,
         Records: [SwiftEOS_Presence_DataRecord]?,
         ProductName: String?
     ) {
@@ -114,7 +116,6 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
         self.ProductVersion = ProductVersion
         self.Platform = Platform
         self.RichText = RichText
-        self.RecordsCount = RecordsCount
         self.Records = Records
         self.ProductName = ProductName
     }

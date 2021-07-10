@@ -18,11 +18,13 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
     /** Deprecated  */
     public let EpicUserId_DEPRECATED: EOS_EpicAccountId?
 
-    /** Deprecated  */
+    /**
+     * Deprecated 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_QueryDefinitionsOptions/HiddenAchievementsCount_DEPRECATED``:
+     * Deprecated 
+     */
     public let HiddenAchievementIds_DEPRECATED: [String]?
-
-    /** Deprecated  */
-    public let HiddenAchievementsCount_DEPRECATED: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -38,7 +40,7 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
             EpicUserId_DEPRECATED: EpicUserId_DEPRECATED,
             HiddenAchievementIds_DEPRECATED: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: HiddenAchievementIds_DEPRECATED?.map { 
                     $0.utf8CString }),
-            HiddenAchievementsCount_DEPRECATED: try safeNumericCast(exactly: HiddenAchievementsCount_DEPRECATED)
+            HiddenAchievementsCount_DEPRECATED: try safeNumericCast(exactly: HiddenAchievementIds_DEPRECATED?.count ?? .zero)
         )
     }
 
@@ -54,7 +56,6 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
             pointer: sdkObject.HiddenAchievementIds_DEPRECATED,
             count: sdkObject.HiddenAchievementsCount_DEPRECATED
         )
-        self.HiddenAchievementsCount_DEPRECATED = try safeNumericCast(exactly: sdkObject.HiddenAchievementsCount_DEPRECATED)
     }
 
     /**
@@ -66,19 +67,19 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
      * If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
      * - Parameter EpicUserId_DEPRECATED:  Deprecated 
      * - Parameter HiddenAchievementIds_DEPRECATED:  Deprecated 
-     * - Parameter HiddenAchievementsCount_DEPRECATED:  Deprecated 
+     * 
+     * - Note: ``EOS/_tagEOS_Achievements_QueryDefinitionsOptions/HiddenAchievementsCount_DEPRECATED``:
+     * Deprecated 
      */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
         EpicUserId_DEPRECATED: EOS_EpicAccountId?,
-        HiddenAchievementIds_DEPRECATED: [String]?,
-        HiddenAchievementsCount_DEPRECATED: Int
+        HiddenAchievementIds_DEPRECATED: [String]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.EpicUserId_DEPRECATED = EpicUserId_DEPRECATED
         self.HiddenAchievementIds_DEPRECATED = HiddenAchievementIds_DEPRECATED
-        self.HiddenAchievementsCount_DEPRECATED = HiddenAchievementsCount_DEPRECATED
     }
 }

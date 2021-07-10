@@ -13,11 +13,13 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
     /** Room name to request a token for.  */
     public let RoomName: String?
 
-    /** An array of Product User IDs indicating the users to retrieve a token for.  */
+    /**
+     * An array of Product User IDs indicating the users to retrieve a token for. 
+     * 
+     * - Note: ``EOS/_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions/TargetUserIdsCount``:
+     * The number of users included in the query. 
+     */
     public let TargetUserIds: [EOS_ProductUserId]?
-
-    /** The number of users included in the query.  */
-    public let TargetUserIdsCount: Int
 
     /**
      * Array of IP Addresses, one for each of the users we're querying tokens for.
@@ -41,7 +43,7 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
             LocalUserId: LocalUserId,
             RoomName: pointerManager.managedPointerToBuffer(copyingArray: RoomName?.utf8CString),
             TargetUserIds: pointerManager.managedMutablePointerToBuffer(copyingArray: TargetUserIds),
-            TargetUserIdsCount: try safeNumericCast(exactly: TargetUserIdsCount),
+            TargetUserIdsCount: try safeNumericCast(exactly: TargetUserIds?.count ?? .zero),
             TargetUserIpAddresses: pointerManager.managedMutablePointerToBufferOfPointers(copyingArray: TargetUserIpAddresses?.map { 
                     $0.utf8CString })
         )
@@ -59,7 +61,6 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
             start: sdkObject.TargetUserIds,
             count: sdkObject.TargetUserIdsCount
         )
-        self.TargetUserIdsCount = try safeNumericCast(exactly: sdkObject.TargetUserIdsCount)
         self.TargetUserIpAddresses = try stringArrayFromCCharPointerPointer(
             pointer: sdkObject.TargetUserIpAddresses,
             count: sdkObject.TargetUserIdsCount
@@ -72,7 +73,9 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
      * - Parameter LocalUserId:  Product User ID for local user who is querying join room tokens. 
      * - Parameter RoomName:  Room name to request a token for. 
      * - Parameter TargetUserIds:  An array of Product User IDs indicating the users to retrieve a token for. 
-     * - Parameter TargetUserIdsCount:  The number of users included in the query. 
+     * 
+     * - Note: ``EOS/_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions/TargetUserIdsCount``:
+     * The number of users included in the query. 
      * - Parameter TargetUserIpAddresses:  Array of IP Addresses, one for each of the users we're querying tokens for.
      * There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
      * If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
@@ -84,14 +87,12 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,
         TargetUserIds: [EOS_ProductUserId]?,
-        TargetUserIdsCount: Int,
         TargetUserIpAddresses: [String]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.RoomName = RoomName
         self.TargetUserIds = TargetUserIds
-        self.TargetUserIdsCount = TargetUserIdsCount
         self.TargetUserIpAddresses = TargetUserIpAddresses
     }
 }

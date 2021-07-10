@@ -19,8 +19,10 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
      * Removes one or more rows of user-defined presence data for a local user. At least one DeleteDataInfo object
      * must be specified.
      * 
-     * - Parameter RecordsCount:  The count of data keys to delete 
      * - Parameter Records:  The pointer to start of a sequential array 
+     * 
+     * - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
+     * The count of data keys to delete 
      * @return Success if modification was added successfully, otherwise an error code related to the problem
      * 
      * @see EOS_PRESENCE_DATA_MAX_KEYS
@@ -28,21 +30,19 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
      * @see EOS_PRESENCE_DATA_MAX_VALUE_LENGTH
      */
     public func DeleteData(
-        RecordsCount: Int,
         Records: [SwiftEOS_PresenceModification_DataRecordId]?
     ) throws {
-        try ____DeleteData(.init(
-                RecordsCount: RecordsCount,
-                Records: Records
-            ))
+        try ____DeleteData(.init(Records: Records))
     }
 
     /**
      * Modifies one or more rows of user-defined presence data for a local user. At least one InfoData object
      * must be specified.
      * 
-     * - Parameter RecordsCount:  The count of records to set 
      * - Parameter Records:  The pointer to start of a sequential array of Presence DataRecords 
+     * 
+     * - Note: ``EOS/_tagEOS_PresenceModification_SetDataOptions/RecordsCount``:
+     * The count of records to set 
      * @return Success if modification was added successfully, otherwise an error code related to the problem
      * 
      * @see EOS_PRESENCE_DATA_MAX_KEYS
@@ -50,13 +50,9 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
      * @see EOS_PRESENCE_DATA_MAX_VALUE_LENGTH
      */
     public func SetData(
-        RecordsCount: Int,
         Records: [SwiftEOS_Presence_DataRecord]?
     ) throws {
-        try ____SetData(.init(
-                RecordsCount: RecordsCount,
-                Records: Records
-            ))
+        try ____SetData(.init(Records: Records))
     }
 
     /**

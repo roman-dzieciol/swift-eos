@@ -10,11 +10,13 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
     /** Name of the session for which to unregister players  */
     public let SessionName: String?
 
-    /** Array of players to unregister from the session  */
+    /**
+     * Array of players to unregister from the session 
+     * 
+     * - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
+     * Number of players in the array 
+     */
     public let PlayersToUnregister: [EOS_ProductUserId]?
-
-    /** Number of players in the array  */
-    public let PlayersToUnregisterCount: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -28,7 +30,7 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
             ApiVersion: ApiVersion,
             SessionName: pointerManager.managedPointerToBuffer(copyingArray: SessionName?.utf8CString),
             PlayersToUnregister: pointerManager.managedMutablePointerToBuffer(copyingArray: PlayersToUnregister),
-            PlayersToUnregisterCount: try safeNumericCast(exactly: PlayersToUnregisterCount)
+            PlayersToUnregisterCount: try safeNumericCast(exactly: PlayersToUnregister?.count ?? .zero)
         )
     }
 
@@ -43,7 +45,6 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
             start: sdkObject.PlayersToUnregister,
             count: sdkObject.PlayersToUnregisterCount
         )
-        self.PlayersToUnregisterCount = try safeNumericCast(exactly: sdkObject.PlayersToUnregisterCount)
     }
 
     /**
@@ -51,17 +52,17 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
      * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST. 
      * - Parameter SessionName:  Name of the session for which to unregister players 
      * - Parameter PlayersToUnregister:  Array of players to unregister from the session 
-     * - Parameter PlayersToUnregisterCount:  Number of players in the array 
+     * 
+     * - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
+     * Number of players in the array 
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST,
         SessionName: String?,
-        PlayersToUnregister: [EOS_ProductUserId]?,
-        PlayersToUnregisterCount: Int
+        PlayersToUnregister: [EOS_ProductUserId]?
     ) {
         self.ApiVersion = ApiVersion
         self.SessionName = SessionName
         self.PlayersToUnregister = PlayersToUnregister
-        self.PlayersToUnregisterCount = PlayersToUnregisterCount
     }
 }

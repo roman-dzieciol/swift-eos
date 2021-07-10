@@ -13,11 +13,13 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
     /** Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value.  */
     public let AccountIdType_DEPRECATED: EOS_EExternalAccountType
 
-    /** An array of Product User IDs to query for the given external account representation.  */
+    /**
+     * An array of Product User IDs to query for the given external account representation. 
+     * 
+     * - Note: ``EOS/_tagEOS_Connect_QueryProductUserIdMappingsOptions/ProductUserIdCount``:
+     * Number of Product User IDs to query. 
+     */
     public let ProductUserIds: [EOS_ProductUserId]?
-
-    /** Number of Product User IDs to query.  */
-    public let ProductUserIdCount: Int
 
     /**
      * Returns SDK Object initialized with values from this object
@@ -32,7 +34,7 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
             LocalUserId: LocalUserId,
             AccountIdType_DEPRECATED: AccountIdType_DEPRECATED,
             ProductUserIds: pointerManager.managedMutablePointerToBuffer(copyingArray: ProductUserIds),
-            ProductUserIdCount: try safeNumericCast(exactly: ProductUserIdCount)
+            ProductUserIdCount: try safeNumericCast(exactly: ProductUserIds?.count ?? .zero)
         )
     }
 
@@ -48,7 +50,6 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
             start: sdkObject.ProductUserIds,
             count: sdkObject.ProductUserIdCount
         )
-        self.ProductUserIdCount = try safeNumericCast(exactly: sdkObject.ProductUserIdCount)
     }
 
     /**
@@ -57,19 +58,19 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType_DEPRECATED:  Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value. 
      * - Parameter ProductUserIds:  An array of Product User IDs to query for the given external account representation. 
-     * - Parameter ProductUserIdCount:  Number of Product User IDs to query. 
+     * 
+     * - Note: ``EOS/_tagEOS_Connect_QueryProductUserIdMappingsOptions/ProductUserIdCount``:
+     * Number of Product User IDs to query. 
      */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
         AccountIdType_DEPRECATED: EOS_EExternalAccountType,
-        ProductUserIds: [EOS_ProductUserId]?,
-        ProductUserIdCount: Int
+        ProductUserIds: [EOS_ProductUserId]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId
         self.AccountIdType_DEPRECATED = AccountIdType_DEPRECATED
         self.ProductUserIds = ProductUserIds
-        self.ProductUserIdCount = ProductUserIdCount
     }
 }

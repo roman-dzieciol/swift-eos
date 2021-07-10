@@ -19,10 +19,12 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
     /** Is this chunk the last chunk of data?  */
     public let bIsLastChunk: Bool
 
-    /** The length of DataChunk in bytes that can be safely read  */
-    public let DataChunkLengthBytes: Int
-
-    /** Pointer to the start of data to be read  */
+    /**
+     * Pointer to the start of data to be read 
+     * 
+     * - Note: ``EOS/_tagEOS_PlayerDataStorage_ReadFileDataCallbackInfo/DataChunkLengthBytes``:
+     * The length of DataChunk in bytes that can be safely read 
+     */
     public let DataChunk: [UInt8]?
 
     /**
@@ -32,8 +34,10 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
      * - Parameter Filename:  The file name being read 
      * - Parameter TotalFileSizeBytes:  The total file size of the file being read 
      * - Parameter bIsLastChunk:  Is this chunk the last chunk of data? 
-     * - Parameter DataChunkLengthBytes:  The length of DataChunk in bytes that can be safely read 
      * - Parameter DataChunk:  Pointer to the start of data to be read 
+     * 
+     * - Note: ``EOS/_tagEOS_PlayerDataStorage_ReadFileDataCallbackInfo/DataChunkLengthBytes``:
+     * The length of DataChunk in bytes that can be safely read 
      */
     public init(
         ClientData: UnsafeMutableRawPointer?,
@@ -41,7 +45,6 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
         Filename: String?,
         TotalFileSizeBytes: Int,
         bIsLastChunk: Bool,
-        DataChunkLengthBytes: Int,
         DataChunk: [UInt8]?
     ) {
         self.ClientData = ClientData
@@ -49,7 +52,6 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
         self.Filename = Filename
         self.TotalFileSizeBytes = TotalFileSizeBytes
         self.bIsLastChunk = bIsLastChunk
-        self.DataChunkLengthBytes = DataChunkLengthBytes
         self.DataChunk = DataChunk
     }
 }

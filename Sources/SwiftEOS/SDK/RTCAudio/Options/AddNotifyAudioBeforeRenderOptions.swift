@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is used to call EOS_RTCAudio_AddNotifyAudioBeforeRender. */
+/** This struct is used to call `EOS_RTCAudio_AddNotifyAudioBeforeRender`. */
 public struct SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORERENDER_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORERENDER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user trying to request this operation. */
@@ -49,7 +49,7 @@ public struct SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORERENDER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORERENDER_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter RoomName: The  room this event is registered on.
     - Parameter bUnmixedAudio: Mixed audio or unmixed audio.

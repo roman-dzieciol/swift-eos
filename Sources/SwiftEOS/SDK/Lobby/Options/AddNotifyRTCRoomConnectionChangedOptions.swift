@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function. */
+/** Input parameters for the `EOS_Lobby_AddNotifyRTCRoomConnectionChanged` function. */
 public struct SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_ADDNOTIFYRTCROOMCONNECTIONCHANGED_API_LATEST */
+    /** API Version: Set this to `EOS_LOBBY_ADDNOTIFYRTCROOMCONNECTIONCHANGED_API_LATEST` */
     public let ApiVersion: Int32
 
     /** The ID of the lobby to receive RTC Room connection change notifications for */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_ADDNOTIFYRTCROOMCONNECTIONCHANGED_API_LATEST
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_ADDNOTIFYRTCROOMCONNECTIONCHANGED_API_LATEST`
     - Parameter LobbyId: The ID of the lobby to receive RTC Room connection change notifications for
     - Parameter LocalUserId: The Product User ID of the local user in the lobby
     */

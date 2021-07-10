@@ -4,7 +4,7 @@ import EOSSDK
 /** Input data for the CopyFileMetadataAtIndex function */
 public struct SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who is requesting file metadata */
@@ -41,7 +41,7 @@ public struct SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions: SwiftEO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who is requesting file metadata
     - Parameter Index: The index to get data for
     */

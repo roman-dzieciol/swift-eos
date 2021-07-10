@@ -4,7 +4,7 @@ import EOSSDK
 /** Input data for the CopyFileMetadataByFilename function */
 public struct SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the local user who is requesting file metadata (optional) */
@@ -41,7 +41,7 @@ public struct SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST`.
     - Parameter LocalUserId: Product User ID of the local user who is requesting file metadata (optional)
     - Parameter Filename: The file's name to get data for
     */

@@ -4,7 +4,7 @@ import EOSSDK
 /** This struct is used to remove a user from the audio system. */
 public struct SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_UNREGISTERPLATFORMAUDIOUSER_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_UNREGISTERPLATFORMAUDIOUSER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The account of a user associated with this event. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_UNREGISTERPLATFORMAUDIOUSER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_UNREGISTERPLATFORMAUDIOUSER_API_LATEST`.
     - Parameter UserId: The account of a user associated with this event.
     */
     public init(

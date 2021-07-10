@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Mods_UninstallMod Function. */
+/** Input parameters for the `EOS_Mods_UninstallMod` Function. */
 public struct SwiftEOS_Mods_UninstallModOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_MODS_UNINSTALLMOD_API_LATEST. */
+    /** API Version: Set this to `EOS_MODS_UNINSTALLMOD_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user for which the mod should be uninstalled */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Mods_UninstallModOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_MODS_UNINSTALLMOD_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_MODS_UNINSTALLMOD_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be uninstalled
     - Parameter Mod: The mod to uninstall
     */

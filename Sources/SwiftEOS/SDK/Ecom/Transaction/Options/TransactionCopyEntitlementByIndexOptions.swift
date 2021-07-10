@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_Transaction_CopyEntitlementByIndex function. */
+/** Input parameters for the `EOS_Ecom_Transaction_CopyEntitlementByIndex` function. */
 public struct SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The index of the entitlement to get */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST`.
     - Parameter EntitlementIndex: The index of the entitlement to get
     */
     public init(

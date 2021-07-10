@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyModification_AddMemberAttribute function. */
+/** Input parameters for the `EOS_LobbyModification_AddMemberAttribute` function. */
 public struct SwiftEOS_LobbyModification_AddMemberAttributeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Key/Value pair describing the attribute to add to the lobby member */
@@ -41,7 +41,7 @@ public struct SwiftEOS_LobbyModification_AddMemberAttributeOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST`.
     - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby member
     - Parameter Visibility: Is this attribute public or private to the rest of the lobby members
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_RTCAdmin_CopyUserTokenByIndex function. */
+/** Input parameters for the `EOS_RTCAdmin_CopyUserTokenByIndex` function. */
 public struct SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Index of the user token to retrieve from the cache. */
@@ -13,7 +13,7 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions: SwiftEOSObject {
     /**
     Query identifier received as part of a previous query.
 
-    - SeeAlso: EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+    - SeeAlso: `EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo`
     */
     public let QueryId: Int
 
@@ -45,10 +45,10 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST`.
     - Parameter UserTokenIndex: Index of the user token to retrieve from the cache.
     - Parameter QueryId: Query identifier received as part of a previous query.
-    - SeeAlso: EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+    - SeeAlso: `EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo`
     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST,

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_QueryExternalAccountMappings function. */
+/** Input parameters for the `EOS_Connect_QueryExternalAccountMappings` function. */
 public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the existing, logged-in user who is querying account mappings. */
@@ -56,7 +56,7 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user who is querying account mappings.
     - Parameter AccountIdType: External auth service supplying the account IDs in string form.
     - Parameter ExternalAccountIds: An array of external account IDs to map to the product user ID representation.

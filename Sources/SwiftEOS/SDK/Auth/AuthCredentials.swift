@@ -4,28 +4,28 @@ import EOSSDK
 /**
 A structure that contains login credentials. What is required is dependent on the type of login being initiated.
 
-This is part of the input structure EOS_Auth_LoginOptions and related to device auth.
+This is part of the input structure `EOS_Auth_LoginOptions` and related to device auth.
 
 Use of the ID and Token fields differs based on the Type. They should be null, unless specified:
-EOS_LCT_Password - ID is the email address, and Token is the password.
-EOS_LCT_ExchangeCode - Token is the exchange code.
-EOS_LCT_PersistentAuth - If targeting console platforms, Token is the long lived refresh token. Otherwise N/A.
-EOS_LCT_DeviceCode - N/A.
-EOS_LCT_Developer - ID is the host (e.g. localhost:6547), and Token is the credential name registered in the EOS Developer Authentication Tool.
-EOS_LCT_RefreshToken - Token is the refresh token.
-EOS_LCT_AccountPortal - SystemAuthCredentialsOptions may be required if targeting mobile platforms. Otherwise N/A.
-EOS_LCT_ExternalAuth - Token is the external auth token specified by ExternalType.
+`EOS_LCT_Password` - ID is the email address, and Token is the password.
+`EOS_LCT_ExchangeCode` - Token is the exchange code.
+`EOS_LCT_PersistentAuth` - If targeting console platforms, Token is the long lived refresh token. Otherwise N/A.
+`EOS_LCT_DeviceCode` - N/A.
+`EOS_LCT_Developer` - ID is the host (e.g. localhost:6547), and Token is the credential name registered in the EOS Developer Authentication Tool.
+`EOS_LCT_RefreshToken` - Token is the refresh token.
+`EOS_LCT_AccountPortal` - SystemAuthCredentialsOptions may be required if targeting mobile platforms. Otherwise N/A.
+`EOS_LCT_ExternalAuth` - Token is the external auth token specified by ExternalType.
 
-- SeeAlso: EOS_ELoginCredentialType
-- SeeAlso: EOS_Auth_Login
-- SeeAlso: EOS_Auth_DeletePersistentAuthOptions
+- SeeAlso: `EOS_ELoginCredentialType`
+- SeeAlso: `EOS_Auth_Login`
+- SeeAlso: `EOS_Auth_DeletePersistentAuthOptions`
 */
 public struct SwiftEOS_Auth_Credentials: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_AUTH_CREDENTIALS_API_LATEST. */
+    /** API Version: Set this to `EOS_AUTH_CREDENTIALS_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** ID of the user logging in, based on EOS_ELoginCredentialType */
+    /** ID of the user logging in, based on `EOS_ELoginCredentialType` */
     public let Id: String?
 
     /** Credentials or token related to the user logging in */
@@ -37,14 +37,14 @@ public struct SwiftEOS_Auth_Credentials: SwiftEOSObject {
     /**
     This field is for system specific options, if any.
 
-    If provided, the structure will be located in (System)/eos_(system).h.
-    The structure will be named EOS_(System)_Auth_CredentialsOptions.
+    If provided, the structure will be located in (System)/`eos_`(system).h.
+    The structure will be named `EOS_`(System)_`Auth_CredentialsOptions`.
     */
     public let SystemAuthCredentialsOptions: UnsafeMutableRawPointer?
 
     /**
     Type of external login. Needed to identify the external auth method to use.
-    Used when login type is set to EOS_LCT_ExternalAuth, ignored for other EOS_ELoginCredentialType methods.
+    Used when login type is set to `EOS_LCT_ExternalAuth`, ignored for other `EOS_ELoginCredentialType` methods.
     */
     public let ExternalType: EOS_EExternalCredentialType
 
@@ -82,15 +82,15 @@ public struct SwiftEOS_Auth_Credentials: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_AUTH_CREDENTIALS_API_LATEST.
-    - Parameter Id: ID of the user logging in, based on EOS_ELoginCredentialType
+    - Parameter ApiVersion: API Version: Set this to `EOS_AUTH_CREDENTIALS_API_LATEST`.
+    - Parameter Id: ID of the user logging in, based on `EOS_ELoginCredentialType`
     - Parameter Token: Credentials or token related to the user logging in
     - Parameter `Type`: Type of login. Needed to identify the auth method to use
     - Parameter SystemAuthCredentialsOptions: This field is for system specific options, if any.
-    If provided, the structure will be located in (System)/eos_(system).h.
-    The structure will be named EOS_(System)_Auth_CredentialsOptions.
+    If provided, the structure will be located in (System)/`eos_`(system).h.
+    The structure will be named `EOS_`(System)_`Auth_CredentialsOptions`.
     - Parameter ExternalType: Type of external login. Needed to identify the external auth method to use.
-    Used when login type is set to EOS_LCT_ExternalAuth, ignored for other EOS_ELoginCredentialType methods.
+    Used when login type is set to `EOS_LCT_ExternalAuth`, ignored for other `EOS_ELoginCredentialType` methods.
     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_CREDENTIALS_API_LATEST,

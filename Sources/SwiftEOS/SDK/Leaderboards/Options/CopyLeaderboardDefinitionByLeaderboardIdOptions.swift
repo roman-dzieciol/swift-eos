@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId function. */
+/** Input parameters for the `EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId` function. */
 public struct SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the leaderboard whose definition you want to copy from the cache */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdOpti
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST`.
     - Parameter LeaderboardId: The ID of the leaderboard whose definition you want to copy from the cache
     */
     public init(

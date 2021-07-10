@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_IsUserInSession function. */
+/** Input parameters for the `EOS_Sessions_IsUserInSession` function. */
 public struct SwiftEOS_Sessions_IsUserInSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_ISUSERINSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Active session name to search within */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Sessions_IsUserInSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_ISUSERINSESSION_API_LATEST`.
     - Parameter SessionName: Active session name to search within
     - Parameter TargetUserId: Product User ID to search for in the session
     */

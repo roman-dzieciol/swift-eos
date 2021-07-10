@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Struct containing detailed information about a weapon use event */
@@ -34,7 +34,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST`.
     - Parameter UseWeaponData: Struct containing detailed information about a weapon use event
     */
     public init(

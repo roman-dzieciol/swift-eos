@@ -4,14 +4,14 @@ import EOSSDK
 /**
 A structure that contains external login credentials.
 
-This is part of the input structure EOS_Connect_LoginOptions.
+This is part of the input structure `EOS_Connect_LoginOptions`.
 
-- SeeAlso: EOS_EExternalCredentialType
-- SeeAlso: EOS_Connect_Login
+- SeeAlso: `EOS_EExternalCredentialType`
+- SeeAlso: `EOS_Connect_Login`
 */
 public struct SwiftEOS_Connect_Credentials: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_CREDENTIALS_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_CREDENTIALS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** External token associated with the user logging in. */
@@ -48,7 +48,7 @@ public struct SwiftEOS_Connect_Credentials: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_CREDENTIALS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_CREDENTIALS_API_LATEST`.
     - Parameter Token: External token associated with the user logging in.
     - Parameter `Type`: Type of external login; identifies the auth method to use.
     */

@@ -2,15 +2,15 @@ import Foundation
 import EOSSDK
 
 /**
-Input parameters for the EOS_SessionSearch_SetParameter function.
+Input parameters for the `EOS_SessionSearch_SetParameter` function.
 
 A search key may be set more than once to make multiple comparisons
 The two comparisons are AND'd together
-(ie, Key GREATER_THAN 5, Key NOT_EQUALS 10)
+(ie, Key `GREATER_THAN` 5, Key `NOT_EQUALS` 10)
 */
 public struct SwiftEOS_SessionSearch_SetParameterOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Search parameter describing a key and a value to compare */
@@ -47,7 +47,7 @@ public struct SwiftEOS_SessionSearch_SetParameterOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`.
     - Parameter Parameter: Search parameter describing a key and a value to compare
     - Parameter ComparisonOp: The type of comparison to make against the search parameter
     */

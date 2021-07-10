@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is used to call EOS_RTC_AddNotifyParticipantStatusChanged. */
+/** This struct is used to call `EOS_RTC_AddNotifyParticipantStatusChanged`. */
 public struct SwiftEOS_RTC_AddNotifyParticipantStatusChangedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTC_ADDNOTIFYPARTICIPANTSTATUSCHANGED_API_LATEST. */
+    /** API Version: Set this to `EOS_RTC_ADDNOTIFYPARTICIPANTSTATUSCHANGED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user trying to request this operation. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_RTC_AddNotifyParticipantStatusChangedOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTC_ADDNOTIFYPARTICIPANTSTATUSCHANGED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTC_ADDNOTIFYPARTICIPANTSTATUSCHANGED_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter RoomName: The room this event is registered on.
     */

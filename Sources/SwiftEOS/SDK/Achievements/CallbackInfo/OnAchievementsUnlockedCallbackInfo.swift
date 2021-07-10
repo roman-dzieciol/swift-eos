@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Achievements_OnAchievementsUnlockedCallback Function. */
+/** Output parameters for the `EOS_Achievements_OnAchievementsUnlockedCallback` Function. */
 public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
 
     /** The Product User ID for the user who received the unlocked achievements notification */

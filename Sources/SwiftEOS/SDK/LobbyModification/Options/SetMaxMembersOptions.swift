@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyModification_SetMaxMembers function. */
+/** Input parameters for the `EOS_LobbyModification_SetMaxMembers` function. */
 public struct SwiftEOS_LobbyModification_SetMaxMembersOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** New maximum number of lobby members */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbyModification_SetMaxMembersOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST`.
     - Parameter MaxMembers: New maximum number of lobby members
     */
     public init(

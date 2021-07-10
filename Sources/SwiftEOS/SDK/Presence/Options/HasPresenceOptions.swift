@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_Presence_HasPresence function. */
+/** Data for the `EOS_Presence_HasPresence` function. */
 public struct SwiftEOS_Presence_HasPresenceOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_HASPRESENCE_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_HASPRESENCE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local, logged-in user making the request */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Presence_HasPresenceOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_HASPRESENCE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_HASPRESENCE_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged-in user making the request
     - Parameter TargetUserId: The Epic Online Services Account ID of the user whose cached presence data you want to locate
     */

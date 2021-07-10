@@ -16,10 +16,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
 
     /**
     Add a callback issued when an action must be applied to a connected client. The bound function
-    will only be called between a successful call to EOS_AntiCheatServer_BeginSession and the matching EOS_AntiCheatServer_EndSession call.
+    will only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter NotificationFn: The callback to be fired
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyClientActionRequired(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
@@ -29,10 +29,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
 
     /**
     Add an optional callback issued when a connected client's authentication status changes. The bound function
-    will only be called between a successful call to EOS_AntiCheatServer_BeginSession and the matching EOS_AntiCheatServer_EndSession call.
+    will only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter NotificationFn: The callback to be fired
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyClientAuthStatusChanged(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
@@ -42,10 +42,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
 
     /**
     Add a callback issued when a new message must be dispatched to a connected client. The bound function
-    will only be called between a successful call to EOS_AntiCheatServer_BeginSession and the matching EOS_AntiCheatServer_EndSession call.
+    will only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter NotificationFn: The callback to be fired
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyMessageToClient(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
@@ -54,8 +54,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     }
 
     /**
-    Begin the gameplay session. Event callbacks must be configured with EOS_AntiCheatServer_AddNotifyMessageToClient
-    and EOS_AntiCheatServer_AddNotifyClientActionRequired before calling this function.
+    Begin the gameplay session. Event callbacks must be configured with `EOS_AntiCheatServer_AddNotifyMessageToClient`
+    and `EOS_AntiCheatServer_AddNotifyClientActionRequired` before calling this function.
 
     - Parameter RegisterTimeoutSeconds: Time in seconds to allow newly registered clients to complete anti-cheat authentication.
     Recommended value: 60
@@ -63,7 +63,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Parameter bEnableGameplayData: Gameplay data collection APIs such as LogPlayerTick will be enabled if set to true.
     If you do not use these APIs, it is more efficient to set this value to false.
     - Parameter LocalUserId: The Product User ID of the local user who is associated with this session. Dedicated servers should set this to null.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func BeginSession(
         RegisterTimeoutSeconds: Int,
@@ -82,7 +82,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     /**
     End the gameplay session. Should be called when the server is shutting down or entering an idle state.
 
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func EndSession() throws {
         try ____EndSession()
@@ -94,7 +94,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     This will not change for a given SDK version, and allows one time allocation of reusable buffers.
 
     - Parameter DataLengthBytes: Length in bytes of input
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
     */
     public func GetProtectMessageOutputLength(
@@ -107,15 +107,15 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs a custom gameplay event.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter ClientHandle: Optional client who this event is primarily associated with. If not applicable, use 0.
     - Parameter EventId: Unique event identifier previously configured in RegisterEvent
     - Parameter Params: Set of parameter types previously configured in RegisterEvent, and their values
     - Note: ``EOS/_tagEOS_AntiCheatCommon_LogEventOptions/ParamsCount``:
     Number of parameters described in Params
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogEvent(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -133,11 +133,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs a game round's end and outcome.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter WinningTeamId: Optional identifier for the winning team
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogGameRoundEnd(
         WinningTeamId: Int
@@ -149,14 +149,14 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs a new game round start.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter SessionIdentifier: Optional game session or match identifier useful for some backend API integrations
     - Parameter LevelName: Optional name of the map being played
     - Parameter ModeName: Optional name of the game mode being played
     - Parameter RoundTimeSeconds: Optional length of the game round to be played, in seconds. If none, use 0.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogGameRoundStart(
         SessionIdentifier: String?,
@@ -177,11 +177,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Logs a player despawning in the game, for example as a result of the character's death,
     switching to spectator mode, etc.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter DespawnedPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerDespawn(
         DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
@@ -191,14 +191,14 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
 
     /**
     Optional Cerberus feature for gameplay data collection.
-    Logs a player being revived after being downed (see EOS_AntiCheatServer_LogPlayerTakeDamage options).
+    Logs a player being revived after being downed (see `EOS_AntiCheatServer_LogPlayerTakeDamage` options).
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter RevivedPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter ReviverPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerRevive(
         RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -214,13 +214,13 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs a player spawning into the game.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter SpawnedPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter TeamId: Optional identifier for the player's team. If none, use 0.
     - Parameter CharacterId: Optional identifier for the player's character. If none, use 0.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerSpawn(
         SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -238,8 +238,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs that a player has taken damage.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter VictimPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter VictimPlayerPosition: Victim player's current world position as a 3D vector
@@ -263,7 +263,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Parameter DamageResult: Result of the damage for the victim, if any
     - Parameter PlayerUseWeaponData: PlayerUseWeaponData associated with this damage event if available, otherwise NULL
     - Parameter TimeSincePlayerUseWeaponMs: Time in milliseconds since the PlayerUseWeaponData event occurred if available, otherwise 0
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerTakeDamage(
         VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -309,8 +309,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs a player's general state including position and view direction.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter PlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter PlayerPosition: Player's current world position as a 3D vector
@@ -318,7 +318,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Parameter bIsPlayerViewZoomed: True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false
     - Parameter PlayerHealth: Player's current health value
     - Parameter PlayerMovementState: Any movement state applicable
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerTick(
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -343,14 +343,14 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Logs that a player has used a special ability or item which affects their character's capabilities,
     for example temporarily increasing their speed or allowing them to see nearby players behind walls.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter PlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter AbilityId: Game defined unique identifier for the ability being used
     - Parameter AbilityDurationMs: Duration of the ability effect in milliseconds. If not applicable, use 0.
     - Parameter AbilityCooldownMs: Cooldown until the ability can be used again in milliseconds. If not applicable, use 0.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerUseAbility(
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -370,11 +370,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Logs that a player has used a weapon, for example firing one bullet or making one melee attack.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter UseWeaponData: Struct containing detailed information about a weapon use event
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerUseWeapon(
         UseWeaponData: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData?
@@ -393,8 +393,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_AntiCheatServer_ProtectMessageOptions/DataLengthBytes``:
     Length in bytes of input
     - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: EOS_InvalidParameters - If input data was invalid
-              EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
+              `EOS_InvalidUser` - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func ProtectMessage(
@@ -412,14 +412,14 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     /**
     Call when an anti-cheat message is received from a client.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter ClientHandle: Optional value, if non-null then only messages addressed to this specific client will be returned
     - Parameter Data: The data received
     - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
     The size of the data received
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func ReceiveMessageFromClient(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -434,8 +434,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     /**
     Register a connected client. Must be paired with a call to UnregisterClient.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter ClientHandle: Locally unique value describing the remote user (e.g. a player object pointer)
     - Parameter ClientType: Type of remote user being registered
@@ -447,7 +447,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Parameter IpAddress: Optional IP address for the remote user. May be null if not available.
     IPv4 format: "0.0.0.0"
     IPv6 format: "0:0:0:0:0:0:0:0"
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func RegisterClient(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -469,18 +469,18 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional Cerberus feature for gameplay data collection.
     Registers a custom gameplay event.
 
-    All custom game events must be registered before EOS_AntiCheatServer_BeginSession is called for the first time.
-    After the first call to EOS_AntiCheatServer_BeginSession, this function cannot be called any longer.
+    All custom game events must be registered before `EOS_AntiCheatServer_BeginSession` is called for the first time.
+    After the first call to `EOS_AntiCheatServer_BeginSession`, this function cannot be called any longer.
 
-    - Parameter EventId: Unique event identifier. Must be >= EOS_ANTICHEATCOMMON_REGISTEREVENT_CUSTOMEVENTBASE.
+    - Parameter EventId: Unique event identifier. Must be >= `EOS_ANTICHEATCOMMON_REGISTEREVENT_CUSTOMEVENTBASE`.
     - Parameter EventName: Name of the custom event. Allowed characters are 0-9, A-Z, a-z, '_', '-', '.'
     - Parameter EventType: Type of the custom event
-    - Parameter ParamDefs: Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements
+    - Parameter ParamDefs: Pointer to an array of `EOS_AntiCheatCommon_RegisterEventParamDef` with ParamDefsCount elements
     - Note: ``EOS/_tagEOS_AntiCheatCommon_RegisterEventOptions/ParamDefsCount``:
     Number of parameters described in ParamDefs. Must be
     <
-    = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    = `EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT`.
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func RegisterEvent(
         EventId: Int,
@@ -499,13 +499,13 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     /**
     Optional. Sets or updates client details including input device and admin status.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter ClientHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter ClientFlags: General flags associated with this client, if any
     - Parameter ClientInputMethod: Input device being used by this client, if known
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func SetClientDetails(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -526,12 +526,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     The bIsNetworkActive flag must be set back to true when users enter normal
     gameplay, otherwise anti-cheat enforcement will not work correctly.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter ClientHandle: Locally unique value describing the remote user (e.g. a player object pointer)
     - Parameter bIsNetworkActive: True if the network is functioning normally, false if temporarily interrupted
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func SetClientNetworkState(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -547,11 +547,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     Optional. Sets or updates a game session identifier which can be attached to other data for reference.
     The identifier can be updated at any time for currently and subsequently registered clients.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter GameSessionId: Game session identifier
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func SetGameSessionId(
         GameSessionId: String?
@@ -570,7 +570,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_AntiCheatServer_UnprotectMessageOptions/DataLengthBytes``:
     Length in bytes of input
     - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func UnprotectMessage(
@@ -588,11 +588,11 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     /**
     Unregister a disconnected client.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter ClientHandle: Locally unique value describing the remote user, as previously passed to RegisterClient
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func UnregisterClient(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle
@@ -605,10 +605,10 @@ extension SwiftEOS_AntiCheatServer_Actor {
 
     /**
     Add a callback issued when an action must be applied to a connected client. The bound function
-    will only be called between a successful call to EOS_AntiCheatServer_BeginSession and the matching EOS_AntiCheatServer_EndSession call.
+    will only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter NotificationFn: The callback to be fired
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyClientActionRequired(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
@@ -636,10 +636,10 @@ extension SwiftEOS_AntiCheatServer_Actor {
 
     /**
     Add an optional callback issued when a connected client's authentication status changes. The bound function
-    will only be called between a successful call to EOS_AntiCheatServer_BeginSession and the matching EOS_AntiCheatServer_EndSession call.
+    will only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter NotificationFn: The callback to be fired
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyClientAuthStatusChanged(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
@@ -667,10 +667,10 @@ extension SwiftEOS_AntiCheatServer_Actor {
 
     /**
     Add a callback issued when a new message must be dispatched to a connected client. The bound function
-    will only be called between a successful call to EOS_AntiCheatServer_BeginSession and the matching EOS_AntiCheatServer_EndSession call.
+    will only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter NotificationFn: The callback to be fired
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyMessageToClient(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
@@ -697,11 +697,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     }
 
     /**
-    Begin the gameplay session. Event callbacks must be configured with EOS_AntiCheatServer_AddNotifyMessageToClient
-    and EOS_AntiCheatServer_AddNotifyClientActionRequired before calling this function.
+    Begin the gameplay session. Event callbacks must be configured with `EOS_AntiCheatServer_AddNotifyMessageToClient`
+    and `EOS_AntiCheatServer_AddNotifyClientActionRequired` before calling this function.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____BeginSession(
         _ Options: SwiftEOS_AntiCheatServer_BeginSessionOptions
@@ -718,7 +718,7 @@ extension SwiftEOS_AntiCheatServer_Actor {
     /**
     End the gameplay session. Should be called when the server is shutting down or entering an idle state.
 
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____EndSession() throws {
         try withPointerManager { pointerManager in
@@ -736,7 +736,7 @@ extension SwiftEOS_AntiCheatServer_Actor {
     This will not change for a given SDK version, and allows one time allocation of reusable buffers.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
     */
     private func ____GetProtectMessageOutputLength(
@@ -757,11 +757,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs a custom gameplay event.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogEvent(
         _ Options: SwiftEOS_AntiCheatCommon_LogEventOptions
@@ -779,11 +779,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs a game round's end and outcome.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogGameRoundEnd(
         _ Options: SwiftEOS_AntiCheatCommon_LogGameRoundEndOptions
@@ -801,11 +801,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs a new game round start.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogGameRoundStart(
         _ Options: SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions
@@ -824,11 +824,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Logs a player despawning in the game, for example as a result of the character's death,
     switching to spectator mode, etc.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerDespawn(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions
@@ -844,13 +844,13 @@ extension SwiftEOS_AntiCheatServer_Actor {
 
     /**
     Optional Cerberus feature for gameplay data collection.
-    Logs a player being revived after being downed (see EOS_AntiCheatServer_LogPlayerTakeDamage options).
+    Logs a player being revived after being downed (see `EOS_AntiCheatServer_LogPlayerTakeDamage` options).
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerRevive(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerReviveOptions
@@ -868,11 +868,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs a player spawning into the game.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerSpawn(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions
@@ -890,11 +890,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs that a player has taken damage.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerTakeDamage(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions
@@ -912,11 +912,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs a player's general state including position and view direction.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerTick(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerTickOptions
@@ -935,11 +935,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Logs that a player has used a special ability or item which affects their character's capabilities,
     for example temporarily increasing their speed or allowing them to see nearby players behind walls.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerUseAbility(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions
@@ -957,11 +957,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Logs that a player has used a weapon, for example firing one bullet or making one melee attack.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____LogPlayerUseWeapon(
         _ Options: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions
@@ -982,8 +982,8 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
-              EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
+              `EOS_InvalidUser` - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
     - Returns: On success, buffer where encrypted message data will be written.
     */
     private func ____ProtectMessage(
@@ -1004,11 +1004,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     /**
     Call when an anti-cheat message is received from a client.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____ReceiveMessageFromClient(
         _ Options: SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions
@@ -1025,11 +1025,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     /**
     Register a connected client. Must be paired with a call to UnregisterClient.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____RegisterClient(
         _ Options: SwiftEOS_AntiCheatServer_RegisterClientOptions
@@ -1047,11 +1047,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional Cerberus feature for gameplay data collection.
     Registers a custom gameplay event.
 
-    All custom game events must be registered before EOS_AntiCheatServer_BeginSession is called for the first time.
-    After the first call to EOS_AntiCheatServer_BeginSession, this function cannot be called any longer.
+    All custom game events must be registered before `EOS_AntiCheatServer_BeginSession` is called for the first time.
+    After the first call to `EOS_AntiCheatServer_BeginSession`, this function cannot be called any longer.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____RegisterEvent(
         _ Options: SwiftEOS_AntiCheatCommon_RegisterEventOptions
@@ -1068,11 +1068,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     /**
     Optional. Sets or updates client details including input device and admin status.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____SetClientDetails(
         _ Options: SwiftEOS_AntiCheatCommon_SetClientDetailsOptions
@@ -1093,11 +1093,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     The bIsNetworkActive flag must be set back to true when users enter normal
     gameplay, otherwise anti-cheat enforcement will not work correctly.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____SetClientNetworkState(
         _ Options: SwiftEOS_AntiCheatServer_SetClientNetworkStateOptions
@@ -1115,11 +1115,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Optional. Sets or updates a game session identifier which can be attached to other data for reference.
     The identifier can be updated at any time for currently and subsequently registered clients.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____SetGameSessionId(
         _ Options: SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions
@@ -1140,7 +1140,7 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     - Returns: On success, buffer where encrypted message data will be written.
     */
     private func ____UnprotectMessage(
@@ -1161,11 +1161,11 @@ extension SwiftEOS_AntiCheatServer_Actor {
     /**
     Unregister a disconnected client.
 
-    This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
-    the matching EOS_AntiCheatServer_EndSession call.
+    This function may only be called between a successful call to `EOS_AntiCheatServer_BeginSession` and
+    the matching `EOS_AntiCheatServer_EndSession` call.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid
+    - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     private func ____UnregisterClient(
         _ Options: SwiftEOS_AntiCheatServer_UnregisterClientOptions

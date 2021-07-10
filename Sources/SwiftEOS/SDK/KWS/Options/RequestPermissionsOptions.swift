@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_KWS_RequestPermissions function. */
+/** Input parameters for the `EOS_KWS_RequestPermissions` function. */
 public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_REQUESTPERMISSIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_REQUESTPERMISSIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Local user requesting new permisssions */
@@ -14,7 +14,7 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
     Names of the permissions to request (Setup with KWS)
 
     - Note: ``EOS/_tagEOS_KWS_RequestPermissionsOptions/PermissionKeyCount``:
-    The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included.
+    The number of permissions to request, may not exceed `EOS_KWS_MAX_PERMISSIONS`. Only new permissions need be included.
     */
     public let PermissionKeys: [String]?
 
@@ -51,11 +51,11 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_REQUESTPERMISSIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_REQUESTPERMISSIONS_API_LATEST`.
     - Parameter LocalUserId: Local user requesting new permisssions
     - Parameter PermissionKeys: Names of the permissions to request (Setup with KWS)
     - Note: ``EOS/_tagEOS_KWS_RequestPermissionsOptions/PermissionKeyCount``:
-    The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included.
+    The number of permissions to request, may not exceed `EOS_KWS_MAX_PERMISSIONS`. Only new permissions need be included.
     */
     public init(
         ApiVersion: Int32 = EOS_KWS_REQUESTPERMISSIONS_API_LATEST,

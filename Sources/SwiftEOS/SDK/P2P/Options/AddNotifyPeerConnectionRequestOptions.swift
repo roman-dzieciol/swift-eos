@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about who would like connection notifications, and about which socket. */
 public struct SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user who is listening for incoming connection requests */
@@ -41,7 +41,7 @@ public struct SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user who is listening for incoming connection requests
     - Parameter SocketId: The optional socket ID to listen for, used as a filter for incoming connection requests; If NULL, incoming connection requests will not be filtered
     */

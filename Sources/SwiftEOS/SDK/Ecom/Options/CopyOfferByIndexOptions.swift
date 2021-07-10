@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_CopyOfferByIndex function. */
+/** Input parameters for the `EOS_Ecom_CopyOfferByIndex` function. */
 public struct SwiftEOS_Ecom_CopyOfferByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_COPYOFFERBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_COPYOFFERBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose offer is being copied */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Ecom_CopyOfferByIndexOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_COPYOFFERBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_COPYOFFERBYINDEX_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose offer is being copied
     - Parameter OfferIndex: The index of the offer to get.
     */

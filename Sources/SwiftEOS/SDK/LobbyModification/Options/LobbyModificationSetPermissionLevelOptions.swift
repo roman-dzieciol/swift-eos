@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyModification_SetPermissionLevel function. */
+/** Input parameters for the `EOS_LobbyModification_SetPermissionLevel` function. */
 public struct SwiftEOS_LobbyModification_SetPermissionLevelOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Permission level of the lobby */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbyModification_SetPermissionLevelOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST`.
     - Parameter PermissionLevel: Permission level of the lobby
     */
     public init(

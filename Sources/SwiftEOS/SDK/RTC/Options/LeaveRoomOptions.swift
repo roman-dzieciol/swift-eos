@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is used to call EOS_RTC_LeaveRoom. */
+/** This struct is used to call `EOS_RTC_LeaveRoom`. */
 public struct SwiftEOS_RTC_LeaveRoomOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTC_LEAVEROOM_API_LATEST. */
+    /** API Version: Set this to `EOS_RTC_LEAVEROOM_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the user requesting to leave the room */
@@ -41,7 +41,7 @@ public struct SwiftEOS_RTC_LeaveRoomOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTC_LEAVEROOM_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTC_LEAVEROOM_API_LATEST`.
     - Parameter LocalUserId: Product User ID of the user requesting to leave the room
     - Parameter RoomName: The room to leave.
     */

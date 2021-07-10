@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_QueryOwnership function. */
+/** Input parameters for the `EOS_Ecom_QueryOwnership` function. */
 public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_QUERYOWNERSHIP_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_QUERYOWNERSHIP_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose ownership to query */
@@ -56,7 +56,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_QUERYOWNERSHIP_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_QUERYOWNERSHIP_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose ownership to query
     - Parameter CatalogItemIds: The array of Catalog Item IDs to check for ownership
     - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipOptions/CatalogItemIdCount``:

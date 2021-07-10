@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sanctions_GetPlayerSanctionCount function. */
+/** Input parameters for the `EOS_Sanctions_GetPlayerSanctionCount` function. */
 public struct SwiftEOS_Sanctions_GetPlayerSanctionCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the user whose sanction count should be returned */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sanctions_GetPlayerSanctionCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST`.
     - Parameter TargetUserId: Product User ID of the user whose sanction count should be returned
     */
     public init(

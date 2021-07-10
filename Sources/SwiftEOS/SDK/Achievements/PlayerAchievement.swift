@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single player achievement.
 
-- Note: Release func: ``EOS_Achievements_PlayerAchievement_Release``
+- Note: Release func: ```EOS_Achievements_PlayerAchievement_Release```
 */
 public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_PLAYERACHIEVEMENT_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_PLAYERACHIEVEMENT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** This achievement's unique identifier. */
@@ -17,11 +17,11 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
     /** Progress towards completing this achievement (as a percentage). */
     public let Progress: Double
 
-    /** The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED. */
+    /** The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be `EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED`. */
     public let UnlockTime: Int
 
     /**
-    Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats.
+    Array of `EOS_Achievements_PlayerStatInfo` structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats.
 
     - Note: ``EOS/_tagEOS_Achievements_PlayerAchievement/StatInfoCount``:
     The number of player stat info entries associated with this achievement.
@@ -31,21 +31,21 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
     /**
     Localized display name for the achievement based on this specific player's current progress on the achievement.
 
-    - Note: The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+    - Note: The current progress is updated when `EOS_Achievements_QueryPlayerAchievements` succeeds and when an achievement is unlocked.
     */
     public let DisplayName: String?
 
     /**
     Localized description for the achievement based on this specific player's current progress on the achievement.
 
-    - Note: The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+    - Note: The current progress is updated when `EOS_Achievements_QueryPlayerAchievements` succeeds and when an achievement is unlocked.
     */
     public let Description: String?
 
     /**
     URL of an icon to display for the achievement based on this specific player's current progress on the achievement. This may be null if there is no data configured in the dev portal.
 
-    - Note: The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+    - Note: The current progress is updated when `EOS_Achievements_QueryPlayerAchievements` succeeds and when an achievement is unlocked.
     */
     public let IconURL: String?
 
@@ -95,19 +95,19 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_PLAYERACHIEVEMENT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_PLAYERACHIEVEMENT_API_LATEST`.
     - Parameter AchievementId: This achievement's unique identifier.
     - Parameter Progress: Progress towards completing this achievement (as a percentage).
-    - Parameter UnlockTime: The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED.
-    - Parameter StatInfo: Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats.
+    - Parameter UnlockTime: The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be `EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED`.
+    - Parameter StatInfo: Array of `EOS_Achievements_PlayerStatInfo` structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats.
     - Note: ``EOS/_tagEOS_Achievements_PlayerAchievement/StatInfoCount``:
     The number of player stat info entries associated with this achievement.
     - Parameter DisplayName: Localized display name for the achievement based on this specific player's current progress on the achievement.
-    - Note: The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+    - Note: The current progress is updated when `EOS_Achievements_QueryPlayerAchievements` succeeds and when an achievement is unlocked.
     - Parameter Description: Localized description for the achievement based on this specific player's current progress on the achievement.
-    - Note: The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+    - Note: The current progress is updated when `EOS_Achievements_QueryPlayerAchievements` succeeds and when an achievement is unlocked.
     - Parameter IconURL: URL of an icon to display for the achievement based on this specific player's current progress on the achievement. This may be null if there is no data configured in the dev portal.
-    - Note: The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+    - Note: The current progress is updated when `EOS_Achievements_QueryPlayerAchievements` succeeds and when an achievement is unlocked.
     - Parameter FlavorText: Localized flavor text that can be used by the game in an arbitrary manner. This may be null if there is no data configured in the dev portal.
     */
     public init(

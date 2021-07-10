@@ -2,13 +2,13 @@ import Foundation
 import EOSSDK
 
 /**
-An individual presence data record that belongs to a EOS_Presence_Info object. This object is released when its parent EOS_Presence_Info object is released.
+An individual presence data record that belongs to a `EOS_Presence_Info` object. This object is released when its parent `EOS_Presence_Info` object is released.
 
-- SeeAlso: EOS_Presence_Info
+- SeeAlso: `EOS_Presence_Info`
 */
 public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_DATARECORD_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The name of this data */
@@ -45,7 +45,7 @@ public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_DATARECORD_API_LATEST`.
     - Parameter Key: The name of this data
     - Parameter Value: The value of this data
     */

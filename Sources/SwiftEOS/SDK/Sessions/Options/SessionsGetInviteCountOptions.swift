@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_GetInviteCount function. */
+/** Input parameters for the `EOS_Sessions_GetInviteCount` function. */
 public struct SwiftEOS_Sessions_GetInviteCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_GETINVITECOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_GETINVITECOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who has one or more invitations in the cache */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sessions_GetInviteCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_GETINVITECOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_GETINVITECOUNT_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who has one or more invitations in the cache
     */
     public init(

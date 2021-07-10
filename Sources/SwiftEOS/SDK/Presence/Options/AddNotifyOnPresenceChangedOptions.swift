@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_Presence_AddNotifyOnPresenceChanged function. */
+/** Data for the `EOS_Presence_AddNotifyOnPresenceChanged` function. */
 public struct SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST

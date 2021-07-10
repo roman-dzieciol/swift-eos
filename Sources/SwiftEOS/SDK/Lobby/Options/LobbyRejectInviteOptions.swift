@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_RejectInvite function. */
+/** Input parameters for the `EOS_Lobby_RejectInvite` function. */
 public struct SwiftEOS_Lobby_RejectInviteOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_REJECTINVITE_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_REJECTINVITE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the lobby associated with the invitation */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Lobby_RejectInviteOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_REJECTINVITE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_REJECTINVITE_API_LATEST`.
     - Parameter InviteId: The ID of the lobby associated with the invitation
     - Parameter LocalUserId: The Product User ID of the local user who is rejecting the invitation
     */

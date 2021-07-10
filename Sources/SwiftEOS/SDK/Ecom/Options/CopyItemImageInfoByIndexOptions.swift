@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_CopyItemImageInfoByIndex function. */
+/** Input parameters for the `EOS_Ecom_CopyItemImageInfoByIndex` function. */
 public struct SwiftEOS_Ecom_CopyItemImageInfoByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_COPYITEMIMAGEINFOBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_COPYITEMIMAGEINFOBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose item image is being copied */
@@ -46,7 +46,7 @@ public struct SwiftEOS_Ecom_CopyItemImageInfoByIndexOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_COPYITEMIMAGEINFOBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_COPYITEMIMAGEINFOBYINDEX_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose item image is being copied
     - Parameter ItemId: The ID of the item to get the images for.
     - Parameter ImageInfoIndex: The index of the image to get.

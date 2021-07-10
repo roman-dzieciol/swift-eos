@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_GetLeaderboardDefinitionCount function. */
+/** Input parameters for the `EOS_Leaderboards_GetLeaderboardDefinitionCount` function. */
 public struct SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountOptions: SwiftE
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST

@@ -10,11 +10,11 @@ MAX (Tracks the maximum value)
 MIN (Tracks the minimum value)
 SUM (Generates a rolling sum of the value)
 
-- SeeAlso: EOS_Achievements_Definition
+- SeeAlso: `EOS_Achievements_Definition`
 */
 public struct SwiftEOS_Achievements_StatThresholds: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_STATTHRESHOLDS_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_STATTHRESHOLDS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The name of the stat. */
@@ -51,7 +51,7 @@ public struct SwiftEOS_Achievements_StatThresholds: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_STATTHRESHOLDS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_STATTHRESHOLDS_API_LATEST`.
     - Parameter Name: The name of the stat.
     - Parameter Threshold: The value that the stat must surpass to satisfy the requirement for unlocking an achievement.
     */

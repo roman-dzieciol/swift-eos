@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbySearch_SetLobbyId function. */
+/** Input parameters for the `EOS_LobbySearch_SetLobbyId` function. */
 public struct SwiftEOS_LobbySearch_SetLobbyIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the lobby to find */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbySearch_SetLobbyIdOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST`.
     - Parameter LobbyId: The ID of the lobby to find
     */
     public init(

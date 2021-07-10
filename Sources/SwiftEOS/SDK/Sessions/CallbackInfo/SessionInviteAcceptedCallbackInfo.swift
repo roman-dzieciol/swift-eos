@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Sessions_OnSessionInviteAcceptedCallback function. */
+/** Output parameters for the `EOS_Sessions_OnSessionInviteAcceptedCallback` function. */
 public struct SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo {
 
     /** Session ID that should be used for joining */

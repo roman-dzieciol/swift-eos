@@ -17,7 +17,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
     Register to receive upcoming authentication expiration notifications.
     Notification is approximately 10 minutes prior to expiration.
-    Call EOS_Connect_Login again with valid third party credentials to refresh access.
+    Call `EOS_Connect_Login` again with valid third party credentials to refresh access.
 
     - Note: must call RemoveNotifyAuthExpiration to remove the notification.
     - Parameter Notification: a callback that is fired when the authentication is about to expire.
@@ -44,15 +44,15 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
 
     /**
     Fetch information about an external account linked to a Product User ID.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter AccountId: External auth service account ID to look for when copying external account info from the cache.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account ID.
     */
     public func CopyProductUserExternalAccountByAccountId(
@@ -67,15 +67,15 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
 
     /**
     Fetch information about an external account of a specific type linked to a Product User ID.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter AccountIdType: External auth service account type to look for when copying external account info from the cache.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account type.
     */
     public func CopyProductUserExternalAccountByAccountType(
@@ -90,15 +90,15 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
 
     /**
     Fetch information about an external account linked to a Product User ID.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter ExternalAccountInfoIndex: Index of the external account info to retrieve from the cache.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given index.
     */
     public func CopyProductUserExternalAccountByIndex(
@@ -113,14 +113,14 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
 
     /**
     Fetch information about a Product User, using the external account that they most recently logged in with as the reference.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter TargetUserId: Product user ID to look for when copying external account info from the cache.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data last logged in for the user.
     */
     public func CopyProductUserInfo(
@@ -148,9 +148,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     user profile on the device.
 
     After a successful one-time CreateDeviceId operation, the game can login the local user
-    automatically on subsequent game starts with EOS_Connect_Login using the EOS_ECT_DEVICEID_ACCESS_TOKEN
-    credentials type. If a Device ID already exists for the local user on the device then EOS_DuplicateNotAllowed
-    error result is returned and the caller should proceed to calling EOS_Connect_Login directly.
+    automatically on subsequent game starts with `EOS_Connect_Login` using the `EOS_ECT_DEVICEID_ACCESS_TOKEN`
+    credentials type. If a Device ID already exists for the local user on the device then `EOS_DuplicateNotAllowed`
+    error result is returned and the caller should proceed to calling `EOS_Connect_Login` directly.
 
     - Parameter DeviceModel: A freeform text description identifying the device type and model,
     which can be used in account linking management to allow the player
@@ -174,7 +174,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
     Create an account association with the Epic Online Service as a product user given their external auth credentials.
 
-    - Parameter ContinuanceToken: Continuance token from previous call to EOS_Connect_Login
+    - Parameter ContinuanceToken: Continuance token from previous call to `EOS_Connect_Login`
     - Parameter CompletionDelegate: a callback that is fired when the create operation completes, either successfully or in error.
     */
     public func CreateUser(
@@ -258,7 +258,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     Fetch the number of linked external accounts for a Product User ID.
 
     - Parameter TargetUserId: The Product User ID to look for when getting external account info count from the cache.
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByIndex
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByIndex`
     - Returns: Number of external accounts or 0 otherwise.
     */
     public func GetProductUserExternalAccountCount(
@@ -273,12 +273,12 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user that is querying account mappings.
     - Parameter AccountIdType: External auth service mapping to retrieve.
     - Parameter TargetProductUserId: The Product User ID of the user whose information is being requested.
-    - Throws: An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
-              EOS_Success if the information is available and passed out in OutUserInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
-              EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
-    - Returns: The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
+    - Throws: An `EOS_EResult` that indicates the external account ID was copied into the OutBuffer.
+              `EOS_Success` if the information is available and passed out in OutUserInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the mapping doesn't exist or hasn't been queried yet.
+              `EOS_LimitExceeded` if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Returns: The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of `EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH`.
     */
     public func GetProductUserIdMapping(
         LocalUserId: EOS_ProductUserId?,
@@ -296,7 +296,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     Link a set of external auth credentials with an existing product user on the Epic Online Service.
 
     - Parameter LocalUserId: The existing logged in product user for which to link the external account described by the continuance token.
-    - Parameter ContinuanceToken: Continuance token from previous call to EOS_Connect_Login.
+    - Parameter ContinuanceToken: Continuance token from previous call to `EOS_Connect_Login`.
     - Parameter CompletionDelegate: a callback that is fired when the link operation completes, either successfully or in error.
     */
     public func LinkAccount(
@@ -338,7 +338,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
 
     /**
     Retrieve the equivalent Product User IDs from a list of external account IDs from supported account providers.
-    The values will be cached and retrievable through EOS_Connect_GetExternalAccountMapping.
+    The values will be cached and retrievable through `EOS_Connect_GetExternalAccountMapping`.
 
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user who is querying account mappings.
     - Parameter AccountIdType: External auth service supplying the account IDs in string form.
@@ -367,16 +367,16 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     Retrieve the equivalent external account mappings from a list of Product User IDs.
     This will include data for each external account info found for the linked product IDs.
 
-    The values will be cached and retrievable via EOS_Connect_GetProductUserIdMapping, EOS_Connect_CopyProductUserExternalAccountByIndex,
-    EOS_Connect_CopyProductUserExternalAccountByAccountType or EOS_Connect_CopyProductUserExternalAccountByAccountId.
+    The values will be cached and retrievable via `EOS_Connect_GetProductUserIdMapping`, `EOS_Connect_CopyProductUserExternalAccountByIndex`,
+    `EOS_Connect_CopyProductUserExternalAccountByAccountType` or `EOS_Connect_CopyProductUserExternalAccountByAccountId`.
 
-    - SeeAlso: EOS_Connect_ExternalAccountInfo
-    - SeeAlso: EOS_Connect_GetProductUserExternalAccountCount
-    - SeeAlso: EOS_Connect_GetProductUserIdMapping
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByIndex
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByAccountType
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByAccountId
-    - SeeAlso: EOS_Connect_CopyProductUserInfo
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo`
+    - SeeAlso: `EOS_Connect_GetProductUserExternalAccountCount`
+    - SeeAlso: `EOS_Connect_GetProductUserIdMapping`
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByIndex`
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByAccountType`
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByAccountId`
+    - SeeAlso: `EOS_Connect_CopyProductUserInfo`
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user who is querying account mappings.
     - Parameter AccountIdType_DEPRECATED: Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value.
     - Parameter ProductUserIds: An array of Product User IDs to query for the given external account representation.
@@ -414,8 +414,8 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     the game using the anonymous Device ID login, then later logs in using a real user
     account that they have also already used to play the same game or another game under the
     same organization within Epic Online Services. In such situation, while normally the login
-    attempt with a real user account would return EOS_InvalidUser and an EOS_ContinuanceToken
-    and allow calling the EOS_Connect_LinkAccount API to link it with the Device ID's keychain,
+    attempt with a real user account would return `EOS_InvalidUser` and an `EOS_ContinuanceToken`
+    and allow calling the `EOS_Connect_LinkAccount` API to link it with the Device ID's keychain,
     instead the login operation succeeds and finds an existing user because the association
     already exists. Because the user cannot have two product users simultaneously to play with,
     the game should prompt the user to choose which profile to keep and which one to discard
@@ -426,30 +426,30 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     login in this way into a persisted keychain allows to preserve the so far only locally persisted
     game progression and thus protect the user against a case where they lose access to the device.
 
-    On success, the completion callback will return the preserved EOS_ProductUserId that remains
-    logged in while the discarded EOS_ProductUserId has been invalidated and deleted permanently.
+    On success, the completion callback will return the preserved `EOS_ProductUserId` that remains
+    logged in while the discarded `EOS_ProductUserId` has been invalidated and deleted permanently.
     Consecutive logins using the existing Device ID login type or the external account will
-    connect the user to the same backend data belonging to the preserved EOS_ProductUserId.
+    connect the user to the same backend data belonging to the preserved `EOS_ProductUserId`.
 
     Example walkthrough: Cross-platform mobile game using the anonymous Device ID login.
 
     For onboarding new users, the game will attempt to always automatically login the local user
-    by calling EOS_Connect_Login using the EOS_ECT_DEVICEID_ACCESS_TOKEN login type. If the local
+    by calling `EOS_Connect_Login` using the `EOS_ECT_DEVICEID_ACCESS_TOKEN` login type. If the local
     Device ID credentials are not found, and the game wants a frictionless entry for the first time
-    user experience, the game will automatically call EOS_Connect_CreateDeviceId to create new
+    user experience, the game will automatically call `EOS_Connect_CreateDeviceId` to create new
     Device ID pseudo-account and then login the local user into it. Consecutive game starts will
     thus automatically login the user to their locally persisted Device ID account.
 
     The user starts playing anonymously using the Device ID login type and makes significant game progress.
     Later, they login using an external account that they have already used previously for the
     same game perhaps on another platform, or another game owned by the same organization.
-    In such case, EOS_Connect_Login will automatically login the user to their existing account
+    In such case, `EOS_Connect_Login` will automatically login the user to their existing account
     linking keychain and create automatically a new empty product user for this product.
 
     In order for the user to use their existing previously created keychain and have the locally
     created Device ID login reference to that keychain instead, the user's current product user
     needs to be moved to be under that keychain so that their existing game progression will be
-    preserved. To do so, the game can call EOS_Connect_TransferDeviceIdAccount to transfer the
+    preserved. To do so, the game can call `EOS_Connect_TransferDeviceIdAccount` to transfer the
     Device ID login and the product user associated with it into the other keychain that has real
     external user account(s) linked to it. Note that it is important that the game either automatically
     checks that the other product user does not have any meaningful progression data, or otherwise
@@ -458,14 +458,14 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     recovered, so it is very important that the user is guided to make the right choice to avoid
     accidental loss of all game progression.
 
-    - SeeAlso: EOS_Connect_Login
-    - SeeAlso: EOS_Connect_CreateDeviceId
+    - SeeAlso: `EOS_Connect_Login`
+    - SeeAlso: `EOS_Connect_CreateDeviceId`
     - Parameter PrimaryLocalUserId: The primary product user id, currently logged in, that is already associated with a real external user account (such as Epic Games, PlayStation(TM)Network, Xbox Live and other).
     The account linking keychain that owns this product user will be preserved and receive
     the Device ID login credentials under it.
     - Parameter LocalDeviceUserId: The product user id, currently logged in, that has been originally created using the anonymous local Device ID login type,
     and whose Device ID login will be transferred to the keychain of the PrimaryLocalUserId.
-    - Parameter ProductUserIdToPreserve: Specifies which EOS_ProductUserId (i.e. game progression) will be preserved in the operation.
+    - Parameter ProductUserIdToPreserve: Specifies which `EOS_ProductUserId` (i.e. game progression) will be preserved in the operation.
     After a successful transfer operation, subsequent logins using the same external account or
     the same local Device ID login will return user session for the ProductUserIdToPreserve.
     Set to either PrimaryLocalUserId or LocalDeviceUserId.
@@ -497,7 +497,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     In such scenario, after the initial platform login and a new product user creation, the user wishes to re-login
     using other set of external auth credentials to connect with their existing game progression data. In order to
     allow automatic login also on the current platform, they will need to unlink the accidentally created new keychain
-    and product user and then use the EOS_Connect_Login and EOS_Connect_LinkAccount APIs to link the local native platform
+    and product user and then use the `EOS_Connect_Login` and `EOS_Connect_LinkAccount` APIs to link the local native platform
     account with that previously created existing product user and its owning keychain.
 
     In another scenario, the user may simply want to disassociate the account that they have logged in with from the current
@@ -532,7 +532,7 @@ extension SwiftEOS_Connect_Actor {
     /**
     Register to receive upcoming authentication expiration notifications.
     Notification is approximately 10 minutes prior to expiration.
-    Call EOS_Connect_Login again with valid third party credentials to refresh access.
+    Call `EOS_Connect_Login` again with valid third party credentials to refresh access.
 
     - Note: must call RemoveNotifyAuthExpiration to remove the notification.
     - Parameter Notification: a callback that is fired when the authentication is about to expire.
@@ -595,14 +595,14 @@ extension SwiftEOS_Connect_Actor {
 
     /**
     Fetch information about an external account linked to a Product User ID.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter Options: Structure containing the target external account ID.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account ID.
     */
     private func ____CopyProductUserExternalAccountByAccountId(
@@ -625,14 +625,14 @@ extension SwiftEOS_Connect_Actor {
 
     /**
     Fetch information about an external account of a specific type linked to a Product User ID.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter Options: Structure containing the target external account type.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account type.
     */
     private func ____CopyProductUserExternalAccountByAccountType(
@@ -655,14 +655,14 @@ extension SwiftEOS_Connect_Actor {
 
     /**
     Fetch information about an external account linked to a Product User ID.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter Options: Structure containing the target index.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given index.
     */
     private func ____CopyProductUserExternalAccountByIndex(
@@ -685,14 +685,14 @@ extension SwiftEOS_Connect_Actor {
 
     /**
     Fetch information about a Product User, using the external account that they most recently logged in with as the reference.
-    On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
+    On a successful call, the caller must release the returned structure using the `EOS_Connect_ExternalAccountInfo_Release` API.
 
     - Parameter Options: Structure containing the target external account ID.
-    - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
-              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo_Release`
+    - Throws: An `EOS_EResult` that indicates the external account data was copied into the OutExternalAccountInfo.
+              `EOS_Success` if the information is available and passed out in OutExternalAccountInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data last logged in for the user.
     */
     private func ____CopyProductUserInfo(
@@ -732,9 +732,9 @@ extension SwiftEOS_Connect_Actor {
     user profile on the device.
 
     After a successful one-time CreateDeviceId operation, the game can login the local user
-    automatically on subsequent game starts with EOS_Connect_Login using the EOS_ECT_DEVICEID_ACCESS_TOKEN
-    credentials type. If a Device ID already exists for the local user on the device then EOS_DuplicateNotAllowed
-    error result is returned and the caller should proceed to calling EOS_Connect_Login directly.
+    automatically on subsequent game starts with `EOS_Connect_Login` using the `EOS_ECT_DEVICEID_ACCESS_TOKEN`
+    credentials type. If a Device ID already exists for the local user on the device then `EOS_DuplicateNotAllowed`
+    error result is returned and the caller should proceed to calling `EOS_Connect_Login` directly.
 
     - Parameter Options: structure containing operation input parameters.
     - Parameter CompletionDelegate: a callback that is fired when the create operation completes, either successfully or in error.
@@ -874,7 +874,7 @@ extension SwiftEOS_Connect_Actor {
     Fetch the number of linked external accounts for a Product User ID.
 
     - Parameter Options: The Options associated with retrieving the external account info count.
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByIndex
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByIndex`
     - Returns: Number of external accounts or 0 otherwise.
     */
     private func ____GetProductUserExternalAccountCount(
@@ -897,12 +897,12 @@ extension SwiftEOS_Connect_Actor {
     Fetch an external account ID, in string form, that maps to a given Product User ID.
 
     - Parameter Options: structure containing the local user and target Product User ID.
-    - Throws: An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
-              EOS_Success if the information is available and passed out in OutUserInfo.
-              EOS_InvalidParameters if you pass a null pointer for the out parameter.
-              EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
-              EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
-    - Returns: The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
+    - Throws: An `EOS_EResult` that indicates the external account ID was copied into the OutBuffer.
+              `EOS_Success` if the information is available and passed out in OutUserInfo.
+              `EOS_InvalidParameters` if you pass a null pointer for the out parameter.
+              `EOS_NotFound` if the mapping doesn't exist or hasn't been queried yet.
+              `EOS_LimitExceeded` if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Returns: The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of `EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH`.
     */
     private func ____GetProductUserIdMapping(
         _ Options: SwiftEOS_Connect_GetProductUserIdMappingOptions
@@ -965,7 +965,7 @@ extension SwiftEOS_Connect_Actor {
 
     /**
     Retrieve the equivalent Product User IDs from a list of external account IDs from supported account providers.
-    The values will be cached and retrievable through EOS_Connect_GetExternalAccountMapping.
+    The values will be cached and retrievable through `EOS_Connect_GetExternalAccountMapping`.
 
     - Parameter Options: structure containing a list of external account IDs, in string form, to query for the Product User ID representation.
     - Parameter CompletionDelegate: a callback that is fired when the query operation completes, either successfully or in error.
@@ -990,16 +990,16 @@ extension SwiftEOS_Connect_Actor {
     Retrieve the equivalent external account mappings from a list of Product User IDs.
     This will include data for each external account info found for the linked product IDs.
 
-    The values will be cached and retrievable via EOS_Connect_GetProductUserIdMapping, EOS_Connect_CopyProductUserExternalAccountByIndex,
-    EOS_Connect_CopyProductUserExternalAccountByAccountType or EOS_Connect_CopyProductUserExternalAccountByAccountId.
+    The values will be cached and retrievable via `EOS_Connect_GetProductUserIdMapping`, `EOS_Connect_CopyProductUserExternalAccountByIndex`,
+    `EOS_Connect_CopyProductUserExternalAccountByAccountType` or `EOS_Connect_CopyProductUserExternalAccountByAccountId`.
 
-    - SeeAlso: EOS_Connect_ExternalAccountInfo
-    - SeeAlso: EOS_Connect_GetProductUserExternalAccountCount
-    - SeeAlso: EOS_Connect_GetProductUserIdMapping
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByIndex
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByAccountType
-    - SeeAlso: EOS_Connect_CopyProductUserExternalAccountByAccountId
-    - SeeAlso: EOS_Connect_CopyProductUserInfo
+    - SeeAlso: `EOS_Connect_ExternalAccountInfo`
+    - SeeAlso: `EOS_Connect_GetProductUserExternalAccountCount`
+    - SeeAlso: `EOS_Connect_GetProductUserIdMapping`
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByIndex`
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByAccountType`
+    - SeeAlso: `EOS_Connect_CopyProductUserExternalAccountByAccountId`
+    - SeeAlso: `EOS_Connect_CopyProductUserInfo`
     - Parameter Options: structure containing a list of Product User IDs to query for the external account representation.
     - Parameter CompletionDelegate: a callback that is fired when the query operation completes, either successfully or in error.
     */
@@ -1033,8 +1033,8 @@ extension SwiftEOS_Connect_Actor {
     the game using the anonymous Device ID login, then later logs in using a real user
     account that they have also already used to play the same game or another game under the
     same organization within Epic Online Services. In such situation, while normally the login
-    attempt with a real user account would return EOS_InvalidUser and an EOS_ContinuanceToken
-    and allow calling the EOS_Connect_LinkAccount API to link it with the Device ID's keychain,
+    attempt with a real user account would return `EOS_InvalidUser` and an `EOS_ContinuanceToken`
+    and allow calling the `EOS_Connect_LinkAccount` API to link it with the Device ID's keychain,
     instead the login operation succeeds and finds an existing user because the association
     already exists. Because the user cannot have two product users simultaneously to play with,
     the game should prompt the user to choose which profile to keep and which one to discard
@@ -1045,30 +1045,30 @@ extension SwiftEOS_Connect_Actor {
     login in this way into a persisted keychain allows to preserve the so far only locally persisted
     game progression and thus protect the user against a case where they lose access to the device.
 
-    On success, the completion callback will return the preserved EOS_ProductUserId that remains
-    logged in while the discarded EOS_ProductUserId has been invalidated and deleted permanently.
+    On success, the completion callback will return the preserved `EOS_ProductUserId` that remains
+    logged in while the discarded `EOS_ProductUserId` has been invalidated and deleted permanently.
     Consecutive logins using the existing Device ID login type or the external account will
-    connect the user to the same backend data belonging to the preserved EOS_ProductUserId.
+    connect the user to the same backend data belonging to the preserved `EOS_ProductUserId`.
 
     Example walkthrough: Cross-platform mobile game using the anonymous Device ID login.
 
     For onboarding new users, the game will attempt to always automatically login the local user
-    by calling EOS_Connect_Login using the EOS_ECT_DEVICEID_ACCESS_TOKEN login type. If the local
+    by calling `EOS_Connect_Login` using the `EOS_ECT_DEVICEID_ACCESS_TOKEN` login type. If the local
     Device ID credentials are not found, and the game wants a frictionless entry for the first time
-    user experience, the game will automatically call EOS_Connect_CreateDeviceId to create new
+    user experience, the game will automatically call `EOS_Connect_CreateDeviceId` to create new
     Device ID pseudo-account and then login the local user into it. Consecutive game starts will
     thus automatically login the user to their locally persisted Device ID account.
 
     The user starts playing anonymously using the Device ID login type and makes significant game progress.
     Later, they login using an external account that they have already used previously for the
     same game perhaps on another platform, or another game owned by the same organization.
-    In such case, EOS_Connect_Login will automatically login the user to their existing account
+    In such case, `EOS_Connect_Login` will automatically login the user to their existing account
     linking keychain and create automatically a new empty product user for this product.
 
     In order for the user to use their existing previously created keychain and have the locally
     created Device ID login reference to that keychain instead, the user's current product user
     needs to be moved to be under that keychain so that their existing game progression will be
-    preserved. To do so, the game can call EOS_Connect_TransferDeviceIdAccount to transfer the
+    preserved. To do so, the game can call `EOS_Connect_TransferDeviceIdAccount` to transfer the
     Device ID login and the product user associated with it into the other keychain that has real
     external user account(s) linked to it. Note that it is important that the game either automatically
     checks that the other product user does not have any meaningful progression data, or otherwise
@@ -1077,8 +1077,8 @@ extension SwiftEOS_Connect_Actor {
     recovered, so it is very important that the user is guided to make the right choice to avoid
     accidental loss of all game progression.
 
-    - SeeAlso: EOS_Connect_Login
-    - SeeAlso: EOS_Connect_CreateDeviceId
+    - SeeAlso: `EOS_Connect_Login`
+    - SeeAlso: `EOS_Connect_CreateDeviceId`
     - Parameter Options: structure containing the logged in product users and specifying which one will be preserved.
     - Parameter CompletionDelegate: a callback that is fired when the transfer operation completes, either successfully or in error.
     */
@@ -1108,7 +1108,7 @@ extension SwiftEOS_Connect_Actor {
     In such scenario, after the initial platform login and a new product user creation, the user wishes to re-login
     using other set of external auth credentials to connect with their existing game progression data. In order to
     allow automatic login also on the current platform, they will need to unlink the accidentally created new keychain
-    and product user and then use the EOS_Connect_Login and EOS_Connect_LinkAccount APIs to link the local native platform
+    and product user and then use the `EOS_Connect_Login` and `EOS_Connect_LinkAccount` APIs to link the local native platform
     account with that previously created existing product user and its owning keychain.
 
     In another scenario, the user may simply want to disassociate the account that they have logged in with from the current

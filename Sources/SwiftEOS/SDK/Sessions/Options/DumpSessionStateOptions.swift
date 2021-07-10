@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_DumpSessionState function. */
+/** Input parameters for the `EOS_Sessions_DumpSessionState` function. */
 public struct SwiftEOS_Sessions_DumpSessionStateOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the session */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sessions_DumpSessionStateOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST`.
     - Parameter SessionName: Name of the session
     */
     public init(

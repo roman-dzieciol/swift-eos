@@ -4,7 +4,7 @@ import EOSSDK
 /** Data containing the result information for a query leaderboard ranks request. */
 public struct SwiftEOS_Leaderboards_OnQueryLeaderboardRanksCompleteCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** Initialize from SDK object */
@@ -28,7 +28,7 @@ public struct SwiftEOS_Leaderboards_OnQueryLeaderboardRanksCompleteCallbackInfo 
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     */
     public init(
         ResultCode: EOS_EResult

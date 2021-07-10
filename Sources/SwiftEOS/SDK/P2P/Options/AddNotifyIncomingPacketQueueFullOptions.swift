@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Structure containing information about what version of the EOS_P2P_AddNotifyIncomingPacketQueueFull function is supported. */
+/** Structure containing information about what version of the `EOS_P2P_AddNotifyIncomingPacketQueueFull` function is supported. */
 public struct SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST

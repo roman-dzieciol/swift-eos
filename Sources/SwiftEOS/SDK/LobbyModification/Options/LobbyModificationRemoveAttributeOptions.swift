@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyModification_RemoveAttribute function. */
+/** Input parameters for the `EOS_LobbyModification_RemoveAttribute` function. */
 public struct SwiftEOS_LobbyModification_RemoveAttributeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the key */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbyModification_RemoveAttributeOptions: SwiftEOSObject 
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST`.
     - Parameter Key: Name of the key
     */
     public init(

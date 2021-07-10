@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_RegisterPeerOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user (e.g. a player object pointer) */
@@ -63,7 +63,7 @@ public struct SwiftEOS_AntiCheatClient_RegisterPeerOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST`.
     - Parameter PeerHandle: Locally unique value describing the remote user (e.g. a player object pointer)
     - Parameter ClientType: Type of remote user being registered
     - Parameter ClientPlatform: Remote user's platform, if known

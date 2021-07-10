@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_GetEntitlementsCount function. */
+/** Input parameters for the `EOS_Ecom_GetEntitlementsCount` function. */
 public struct SwiftEOS_Ecom_GetEntitlementsCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user for which to retrieve the entitlement count */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Ecom_GetEntitlementsCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user for which to retrieve the entitlement count
     */
     public init(

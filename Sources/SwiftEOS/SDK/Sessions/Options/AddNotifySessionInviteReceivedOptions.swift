@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_AddNotifySessionInviteReceived function. */
+/** Input parameters for the `EOS_Sessions_AddNotifySessionInviteReceived` function. */
 public struct SwiftEOS_Sessions_AddNotifySessionInviteReceivedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_ADDNOTIFYSESSIONINVITERECEIVED_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_ADDNOTIFYSESSIONINVITERECEIVED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Sessions_AddNotifySessionInviteReceivedOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_ADDNOTIFYSESSIONINVITERECEIVED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_ADDNOTIFYSESSIONINVITERECEIVED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_ADDNOTIFYSESSIONINVITERECEIVED_API_LATEST

@@ -2,10 +2,10 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_UnregisterPeerOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer */
+    /** Locally unique value describing the remote user, as previously passed to `EOS_AntiCheatClient_RegisterPeer` */
     public let PeerHandle: EOS_AntiCheatCommon_ClientHandle
 
     /**
@@ -34,8 +34,8 @@ public struct SwiftEOS_AntiCheatClient_UnregisterPeerOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST.
-    - Parameter PeerHandle: Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST`.
+    - Parameter PeerHandle: Locally unique value describing the remote user, as previously passed to `EOS_AntiCheatClient_RegisterPeer`
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST,

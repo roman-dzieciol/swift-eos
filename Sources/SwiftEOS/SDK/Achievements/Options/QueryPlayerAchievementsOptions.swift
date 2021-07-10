@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_QueryPlayerAchievements function. */
+/** Input parameters for the `EOS_Achievements_QueryPlayerAchievements` function. */
 public struct SwiftEOS_Achievements_QueryPlayerAchievementsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_QUERYPLAYERACHIEVEMENTS_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_QUERYPLAYERACHIEVEMENTS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user whose achievements are to be retrieved. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Achievements_QueryPlayerAchievementsOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_QUERYPLAYERACHIEVEMENTS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_QUERYPLAYERACHIEVEMENTS_API_LATEST`.
     - Parameter TargetUserId: The Product User ID for the user whose achievements are to be retrieved.
     - Parameter LocalUserId: The Product User ID for the user who is querying for player achievements. For a Dedicated Server this should be null.
     */

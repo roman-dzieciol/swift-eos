@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_Presence_GetJoinInfo function. */
+/** Data for the `EOS_Presence_GetJoinInfo` function. */
 public struct SwiftEOS_Presence_GetJoinInfoOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_GETJOININFO_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_GETJOININFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The local user's Epic Online Services Account ID */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Presence_GetJoinInfoOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_GETJOININFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_GETJOININFO_API_LATEST`.
     - Parameter LocalUserId: The local user's Epic Online Services Account ID
     - Parameter TargetUserId: The Epic Online Services Account ID to query for join info; this value must either be a logged-in local user, or a friend of that user
     */

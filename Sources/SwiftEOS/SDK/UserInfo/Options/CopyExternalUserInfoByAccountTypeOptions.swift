@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_UserInfo_CopyExternalUserInfoByAccountType function. */
+/** Input parameters for the `EOS_UserInfo_CopyExternalUserInfoByAccountType` function. */
 public struct SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTTYPE_API_LATEST. */
+    /** API Version: Set this to `EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTTYPE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local player requesting the information */
@@ -46,7 +46,7 @@ public struct SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeOptions: SwiftE
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTTYPE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTTYPE_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
     - Parameter AccountType: Account type of the external user info to retrieve from the cache

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_RTCAdmin_QueryJoinRoomToken function. */
+/** Input parameters for the `EOS_RTCAdmin_QueryJoinRoomToken` function. */
 public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID for local user who is querying join room tokens. */
@@ -70,7 +70,7 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST`.
     - Parameter LocalUserId: Product User ID for local user who is querying join room tokens.
     - Parameter RoomName: Room name to request a token for.
     - Parameter TargetUserIds: An array of Product User IDs indicating the users to retrieve a token for.

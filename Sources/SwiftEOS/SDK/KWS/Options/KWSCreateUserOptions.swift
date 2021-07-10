@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_KWS_CreateUser function. */
+/** Input parameters for the `EOS_KWS_CreateUser` function. */
 public struct SwiftEOS_KWS_CreateUserOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_CREATEUSER_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_CREATEUSER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Local user creating a KWS entry */
@@ -46,7 +46,7 @@ public struct SwiftEOS_KWS_CreateUserOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_CREATEUSER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_CREATEUSER_API_LATEST`.
     - Parameter LocalUserId: Local user creating a KWS entry
     - Parameter DateOfBirth: Date of birth in ISO8601 form (YYYY-MM-DD)
     - Parameter ParentEmail: Parent email

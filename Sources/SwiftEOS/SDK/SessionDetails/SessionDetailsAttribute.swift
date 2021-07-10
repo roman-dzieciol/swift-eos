@@ -4,11 +4,11 @@ import EOSSDK
 /**
 An attribution value and its advertisement setting stored with a session.
 
-- Note: Release func: ``EOS_SessionDetails_Attribute_Release``
+- Note: Release func: ```EOS_SessionDetails_Attribute_Release```
 */
 public struct SwiftEOS_SessionDetails_Attribute: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_ATTRIBUTE_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_ATTRIBUTE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Key/Value pair describing the attribute */
@@ -45,7 +45,7 @@ public struct SwiftEOS_SessionDetails_Attribute: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_ATTRIBUTE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_ATTRIBUTE_API_LATEST`.
     - Parameter Data: Key/Value pair describing the attribute
     - Parameter AdvertisementType: Is this attribution advertised with the backend or simply stored locally
     */

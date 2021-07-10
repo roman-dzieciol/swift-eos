@@ -4,7 +4,7 @@ import EOSSDK
 /** Data containing the result information for querying a player's achievements request. */
 public struct SwiftEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** The Product User ID of the user who initiated this request. */
@@ -32,7 +32,7 @@ public struct SwiftEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInf
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     - Parameter UserId: The Product User ID of the user who initiated this request.
     */
     public init(

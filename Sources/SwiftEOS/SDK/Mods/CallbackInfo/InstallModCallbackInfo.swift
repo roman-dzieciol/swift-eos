@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Mods_InstallMod Function. These parameters are received through the callback provided to EOS_Mods_InstallMod */
+/** Output parameters for the `EOS_Mods_InstallMod` Function. These parameters are received through the callback provided to `EOS_Mods_InstallMod` */
 public struct SwiftEOS_Mods_InstallModCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned if the installation was successfull, otherwise one of the error codes is returned. */
+    /** Result code for the operation. `EOS_Success` is returned if the installation was successfull, otherwise one of the error codes is returned. */
     public let ResultCode: EOS_EResult
 
     /** The Epic Online Services Account ID of the user for which mod installation was requested */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Mods_InstallModCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: Result code for the operation. EOS_Success is returned if the installation was successfull, otherwise one of the error codes is returned.
+    - Parameter ResultCode: Result code for the operation. `EOS_Success` is returned if the installation was successfull, otherwise one of the error codes is returned.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user for which mod installation was requested
     - Parameter Mod: Mod for which installation was requested
     */

@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
@@ -59,7 +59,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST`.
     - Parameter PlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter PlayerPosition: Player's current world position as a 3D vector
     - Parameter PlayerViewRotation: Player's view rotation as a quaternion

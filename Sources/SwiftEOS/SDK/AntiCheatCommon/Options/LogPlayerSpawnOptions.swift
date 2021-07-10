@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
@@ -44,7 +44,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST`.
     - Parameter SpawnedPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter TeamId: Optional identifier for the player's team. If none, use 0.
     - Parameter CharacterId: Optional identifier for the player's character. If none, use 0.

@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about who would like to close connections, and by what socket ID */
 public struct SwiftEOS_P2P_CloseConnectionsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_CLOSECONNECTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_CLOSECONNECTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who would like to close all connections that use a particular socket ID */
@@ -41,7 +41,7 @@ public struct SwiftEOS_P2P_CloseConnectionsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_CLOSECONNECTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_CLOSECONNECTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who would like to close all connections that use a particular socket ID
     - Parameter SocketId: The socket ID of the connections to close
     */

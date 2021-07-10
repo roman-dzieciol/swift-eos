@@ -4,7 +4,7 @@ import EOSSDK
 /** Platform RTC options. */
 public struct SwiftEOS_Platform_RTCOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLATFORM_RTCOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLATFORM_RTCOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -12,10 +12,10 @@ public struct SwiftEOS_Platform_RTCOptions: SwiftEOSObject {
 
     If provided then the structure will be located in
     <System
-    >/eos_
+    >/`eos_`
     <System
     >.h.
-    The structure will be named EOS_
+    The structure will be named `EOS_`
     <System
     >_RTCOptions.
     */
@@ -47,14 +47,14 @@ public struct SwiftEOS_Platform_RTCOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLATFORM_RTCOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLATFORM_RTCOPTIONS_API_LATEST`.
     - Parameter PlatformSpecificOptions: This field is for platform specific initialization if any.
     If provided then the structure will be located in
     <System
-    >/eos_
+    >/`eos_`
     <System
     >.h.
-    The structure will be named EOS_
+    The structure will be named `EOS_`
     <System
     >_RTCOptions.
     */

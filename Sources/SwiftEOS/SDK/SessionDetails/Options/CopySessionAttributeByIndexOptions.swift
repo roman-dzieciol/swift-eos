@@ -1,16 +1,16 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionDetails_CopySessionAttributeByIndex function. */
+/** Input parameters for the `EOS_SessionDetails_CopySessionAttributeByIndex` function. */
 public struct SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
     The index of the attribute to retrieve
 
-    - SeeAlso: EOS_SessionDetails_GetSessionAttributeCount
+    - SeeAlso: `EOS_SessionDetails_GetSessionAttributeCount`
     */
     public let AttrIndex: Int
 
@@ -40,9 +40,9 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions: SwiftE
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST`.
     - Parameter AttrIndex: The index of the attribute to retrieve
-    - SeeAlso: EOS_SessionDetails_GetSessionAttributeCount
+    - SeeAlso: `EOS_SessionDetails_GetSessionAttributeCount`
     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST,

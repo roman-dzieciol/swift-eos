@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_CopySessionHandleForPresence function. */
+/** Input parameters for the `EOS_Sessions_CopySessionHandleForPresence` function. */
 public struct SwiftEOS_Sessions_CopySessionHandleForPresenceOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user associated with the session */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sessions_CopySessionHandleForPresenceOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user associated with the session
     */
     public init(

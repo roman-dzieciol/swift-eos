@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_UnprotectMessageOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -48,7 +48,7 @@ public struct SwiftEOS_AntiCheatClient_UnprotectMessageOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST`.
     - Parameter Data: The data to decrypt
     - Note: ``EOS/_tagEOS_AntiCheatClient_UnprotectMessageOptions/DataLengthBytes``:
     Length in bytes of input

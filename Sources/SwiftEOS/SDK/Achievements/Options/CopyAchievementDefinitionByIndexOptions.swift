@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_CopyAchievementDefinitionByIndex function. */
+/** Input parameters for the `EOS_Achievements_CopyAchievementDefinitionByIndex` function. */
 public struct SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_COPYDEFINITIONBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_COPYDEFINITIONBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Index of the achievement definition to retrieve from the cache */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions: Swi
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_COPYDEFINITIONBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_COPYDEFINITIONBYINDEX_API_LATEST`.
     - Parameter AchievementIndex: Index of the achievement definition to retrieve from the cache
     */
     public init(

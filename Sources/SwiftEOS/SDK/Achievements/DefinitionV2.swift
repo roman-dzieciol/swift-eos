@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single achievement definition with localized text.
 
-- Note: Release func: ``EOS_Achievements_DefinitionV2_Release``
+- Note: Release func: ```EOS_Achievements_DefinitionV2_Release```
 */
 public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Achievement ID that can be used to uniquely identify the achievement. */
@@ -35,11 +35,11 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     /** URL of an icon to display for the achievement when it is locked or hidden. This may be null if there is no data configured in the dev portal. */
     public let LockedIconURL: String?
 
-    /** EOS_TRUE if the achievement is hidden; EOS_FALSE otherwise. */
+    /** `EOS_TRUE` if the achievement is hidden; `EOS_FALSE` otherwise. */
     public let bIsHidden: Bool
 
     /**
-    Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
+    Array of ``EOS_Achievements_StatThresholds`` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
 
     - Note: ``EOS/_tagEOS_Achievements_DefinitionV2/StatThresholdsCount``:
     The number of stat thresholds used to monitor progress towards this achievement.
@@ -93,7 +93,7 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST`.
     - Parameter AchievementId: Achievement ID that can be used to uniquely identify the achievement.
     - Parameter UnlockedDisplayName: Localized display name for the achievement when it has been unlocked.
     - Parameter UnlockedDescription: Localized description for the achievement when it has been unlocked.
@@ -102,8 +102,8 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     - Parameter FlavorText: Localized flavor text that can be used by the game in an arbitrary manner. This may be null if there is no data configured in the dev portal.
     - Parameter UnlockedIconURL: URL of an icon to display for the achievement when it is unlocked. This may be null if there is no data configured in the dev portal.
     - Parameter LockedIconURL: URL of an icon to display for the achievement when it is locked or hidden. This may be null if there is no data configured in the dev portal.
-    - Parameter bIsHidden: EOS_TRUE if the achievement is hidden; EOS_FALSE otherwise.
-    - Parameter StatThresholds: Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
+    - Parameter bIsHidden: `EOS_TRUE` if the achievement is hidden; `EOS_FALSE` otherwise.
+    - Parameter StatThresholds: Array of ``EOS_Achievements_StatThresholds`` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
     - Note: ``EOS/_tagEOS_Achievements_DefinitionV2/StatThresholdsCount``:
     The number of stat thresholds used to monitor progress towards this achievement.
     */

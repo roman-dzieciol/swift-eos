@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Ecom_QueryEntitlements Function. */
+/** Output parameters for the `EOS_Ecom_QueryEntitlements` Function. */
 public struct SwiftEOS_Ecom_QueryEntitlementsCallbackInfo {
     public let ResultCode: EOS_EResult
 

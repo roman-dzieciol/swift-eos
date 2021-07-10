@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_UI_HideFriends function. */
+/** Output parameters for the `EOS_UI_HideFriends` function. */
 public struct SwiftEOS_UI_HideFriendsCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** The Epic Online Services Account ID of the user whose friend list is being shown. */
@@ -32,7 +32,7 @@ public struct SwiftEOS_UI_HideFriendsCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friend list is being shown.
     */
     public init(

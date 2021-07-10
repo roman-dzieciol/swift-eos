@@ -1,16 +1,16 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_GetOfferItemCount function. */
+/** Input parameters for the `EOS_Ecom_GetOfferItemCount` function. */
 public struct SwiftEOS_Ecom_GetOfferItemCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** The Epic Online Services Account ID of the local user who made the initial request for the Catalog Offer through EOS_Ecom_QueryOffers */
+    /** The Epic Online Services Account ID of the local user who made the initial request for the Catalog Offer through `EOS_Ecom_QueryOffers` */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** An ID that corresponds to a cached Catalog Offer (retrieved by EOS_Ecom_CopyOfferByIndex) */
+    /** An ID that corresponds to a cached Catalog Offer (retrieved by `EOS_Ecom_CopyOfferByIndex`) */
     public let OfferId: String?
 
     /**
@@ -41,9 +41,9 @@ public struct SwiftEOS_Ecom_GetOfferItemCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST.
-    - Parameter LocalUserId: The Epic Online Services Account ID of the local user who made the initial request for the Catalog Offer through EOS_Ecom_QueryOffers
-    - Parameter OfferId: An ID that corresponds to a cached Catalog Offer (retrieved by EOS_Ecom_CopyOfferByIndex)
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST`.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user who made the initial request for the Catalog Offer through `EOS_Ecom_QueryOffers`
+    - Parameter OfferId: An ID that corresponds to a cached Catalog Offer (retrieved by `EOS_Ecom_CopyOfferByIndex`)
     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST,

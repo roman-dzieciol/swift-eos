@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_PERMISSIONSTATUS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the permission */
@@ -39,7 +39,7 @@ public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_PERMISSIONSTATUS_API_LATEST`.
     - Parameter Name: Name of the permission
     - Parameter Status: Status of the permission
     */

@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatServer_UnprotectMessageOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATSERVER_UNPROTECTMESSAGE_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATSERVER_UNPROTECTMESSAGE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user from whom the message was received */
@@ -53,7 +53,7 @@ public struct SwiftEOS_AntiCheatServer_UnprotectMessageOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATSERVER_UNPROTECTMESSAGE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATSERVER_UNPROTECTMESSAGE_API_LATEST`.
     - Parameter ClientHandle: Locally unique value describing the remote user from whom the message was received
     - Parameter Data: The data to decrypt
     - Note: ``EOS/_tagEOS_AntiCheatServer_UnprotectMessageOptions/DataLengthBytes``:

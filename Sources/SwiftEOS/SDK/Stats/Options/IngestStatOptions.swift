@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Stats_IngestStat function. */
+/** Input parameters for the `EOS_Stats_IngestStat` function. */
 public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST. */
+    /** API Version: Set this to `EOS_STATS_INGESTSTAT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. */
@@ -14,7 +14,7 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
     Stats to ingest.
 
     - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
-    The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.
+    The number of stats to ingest, may not exceed `EOS_STATS_MAX_INGEST_STATS`.
     */
     public let Stats: [SwiftEOS_Stats_IngestData]?
 
@@ -54,11 +54,11 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_STATS_INGESTSTAT_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.
     - Parameter Stats: Stats to ingest.
     - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
-    The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.
+    The number of stats to ingest, may not exceed `EOS_STATS_MAX_INGEST_STATS`.
     - Parameter TargetUserId: The Product User ID for the user whose stat is being ingested.
     */
     public init(

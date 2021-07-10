@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionModification_AddAttribute function. */
+/** Input parameters for the `EOS_SessionModification_AddAttribute` function. */
 public struct SwiftEOS_SessionModification_AddAttributeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Key/Value pair describing the attribute to add to the session */
@@ -41,7 +41,7 @@ public struct SwiftEOS_SessionModification_AddAttributeOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST`.
     - Parameter SessionAttribute: Key/Value pair describing the attribute to add to the session
     - Parameter AdvertisementType: Is this attribution advertised with the backend or simply stored locally
     */

@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Top level details about an active session
 
-- Note: Release func: ``EOS_ActiveSession_Info_Release``
+- Note: Release func: ```EOS_ActiveSession_Info_Release```
 */
 public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST. */
+    /** API Version: Set this to `EOS_ACTIVESESSION_INFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the session */
@@ -55,7 +55,7 @@ public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACTIVESESSION_INFO_API_LATEST`.
     - Parameter SessionName: Name of the session
     - Parameter LocalUserId: The Product User ID of the local user who created or joined the session
     - Parameter State: Current state of the session

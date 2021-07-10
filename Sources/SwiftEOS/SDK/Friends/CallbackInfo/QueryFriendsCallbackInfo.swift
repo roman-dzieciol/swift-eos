@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Friends_QueryFriends Function. These parameters are received through the callback provided to EOS_Friends_QueryFriends */
+/** Output parameters for the `EOS_Friends_QueryFriends` Function. These parameters are received through the callback provided to `EOS_Friends_QueryFriends` */
 public struct SwiftEOS_Friends_QueryFriendsCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** The Epic Online Services Account ID of the user whose friends were queried */
@@ -32,7 +32,7 @@ public struct SwiftEOS_Friends_QueryFriendsCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friends were queried
     */
     public init(

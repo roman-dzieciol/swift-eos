@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionSearch_Find function. */
+/** Input parameters for the `EOS_SessionSearch_Find` function. */
 public struct SwiftEOS_SessionSearch_FindOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who is searching */
@@ -36,7 +36,7 @@ public struct SwiftEOS_SessionSearch_FindOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who is searching
     */
     public init(

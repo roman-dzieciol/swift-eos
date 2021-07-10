@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about an external account info
 
-- Note: Release func: ``EOS_Connect_ExternalAccountInfo_Release``
+- Note: Release func: ```EOS_Connect_ExternalAccountInfo_Release```
 */
 public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the target user. */
@@ -23,7 +23,7 @@ public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
     /** The identity provider that owns the external account. */
     public let AccountIdType: EOS_EExternalAccountType
 
-    /** The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED. */
+    /** The POSIX timestamp for the time the user last logged in, or `EOS_CONNECT_TIME_UNDEFINED`. */
     public let LastLoginTime: Int
 
     /**
@@ -60,12 +60,12 @@ public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST`.
     - Parameter ProductUserId: The Product User ID of the target user.
     - Parameter DisplayName: Display name, can be null if not set.
     - Parameter AccountId: External account ID.
     - Parameter AccountIdType: The identity provider that owns the external account.
-    - Parameter LastLoginTime: The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED.
+    - Parameter LastLoginTime: The POSIX timestamp for the time the user last logged in, or `EOS_CONNECT_TIME_UNDEFINED`.
     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST,

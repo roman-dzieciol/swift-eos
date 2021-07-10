@@ -1,19 +1,19 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Connect_TransferDeviceIdAccount Function. */
+/** Output parameters for the `EOS_Connect_TransferDeviceIdAccount` Function. */
 public struct SwiftEOS_Connect_TransferDeviceIdAccountCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /**
-    The ProductUserIdToPreserve that was passed to the original EOS_Connect_TransferDeviceIdAccount call.
+    The ProductUserIdToPreserve that was passed to the original `EOS_Connect_TransferDeviceIdAccount` call.
 
-    On successful operation, this EOS_ProductUserId will have a valid authentication session
-    and the other EOS_ProductUserId value has been discarded and lost forever.
+    On successful operation, this `EOS_ProductUserId` will have a valid authentication session
+    and the other `EOS_ProductUserId` value has been discarded and lost forever.
 
-    The application should remove any registered notification callbacks for the discarded EOS_ProductUserId as obsolete.
+    The application should remove any registered notification callbacks for the discarded `EOS_ProductUserId` as obsolete.
     */
     public let LocalUserId: EOS_ProductUserId?
 
@@ -39,11 +39,11 @@ public struct SwiftEOS_Connect_TransferDeviceIdAccountCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
-    - Parameter LocalUserId: The ProductUserIdToPreserve that was passed to the original EOS_Connect_TransferDeviceIdAccount call.
-    On successful operation, this EOS_ProductUserId will have a valid authentication session
-    and the other EOS_ProductUserId value has been discarded and lost forever.
-    The application should remove any registered notification callbacks for the discarded EOS_ProductUserId as obsolete.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: The ProductUserIdToPreserve that was passed to the original `EOS_Connect_TransferDeviceIdAccount` call.
+    On successful operation, this `EOS_ProductUserId` will have a valid authentication session
+    and the other `EOS_ProductUserId` value has been discarded and lost forever.
+    The application should remove any registered notification callbacks for the discarded `EOS_ProductUserId` as obsolete.
     */
     public init(
         ResultCode: EOS_EResult,

@@ -15,13 +15,13 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     }
 
     /**
-    Fetches a stat from a given index. Use EOS_Stats_Stat_Release when finished with the data.
+    Fetches a stat from a given index. Use `EOS_Stats_Stat_Release` when finished with the data.
 
     - Parameter TargetUserId: The Product User ID of the user who owns the stat
     - Parameter StatIndex: Index of the stat to retrieve from the cache
-    - SeeAlso: EOS_Stats_Stat_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_NotFound if the stat is not found
+    - SeeAlso: `EOS_Stats_Stat_Release`
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_NotFound` if the stat is not found
     - Returns: The stat data for the given index, if it exists and is valid
     */
     public func CopyStatByIndex(
@@ -35,13 +35,13 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     }
 
     /**
-    Fetches a stat from cached stats by name. Use EOS_Stats_Stat_Release when finished with the data.
+    Fetches a stat from cached stats by name. Use `EOS_Stats_Stat_Release` when finished with the data.
 
     - Parameter TargetUserId: The Product User ID of the user who owns the stat
     - Parameter Name: Name of the stat to retrieve from the cache
-    - SeeAlso: EOS_Stats_Stat_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_NotFound if the stat is not found
+    - SeeAlso: `EOS_Stats_Stat_Release`
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_NotFound` if the stat is not found
     - Returns: The stat data for the given name, if it exists and is valid
     */
     public func CopyStatByName(
@@ -58,7 +58,7 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     Fetch the number of stats that are cached locally.
 
     - Parameter TargetUserId: The Product User ID for the user whose stats are being counted
-    - SeeAlso: EOS_Stats_CopyStatByIndex
+    - SeeAlso: `EOS_Stats_CopyStatByIndex`
     - Returns: Number of stats or 0 if there is an error
     */
     public func GetStatsCount(
@@ -75,12 +75,12 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.
     - Parameter Stats: Stats to ingest.
     - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
-    The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.
+    The number of stats to ingest, may not exceed `EOS_STATS_MAX_INGEST_STATS`.
     - Parameter TargetUserId: The Product User ID for the user whose stat is being ingested.
     - Parameter CompletionDelegate: This function is called when the ingest stat operation completes.
-    - Returns: EOS_Success if the operation completes successfully
-               EOS_InvalidParameters if any of the options are incorrect
-               EOS_InvalidUser if target user ID is missing or incorrect
+    - Returns: `EOS_Success` if the operation completes successfully
+               `EOS_InvalidParameters` if any of the options are incorrect
+               `EOS_InvalidUser` if target user ID is missing or incorrect
     */
     public func IngestStat(
         LocalUserId: EOS_ProductUserId?,
@@ -102,16 +102,16 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     Query for a list of stats for a specific player.
 
     - Parameter LocalUserId: The Product User ID of the local user requesting the stats. Set to null for dedicated server.
-    - Parameter StartTime: If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional).
-    - Parameter EndTime: If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional).
+    - Parameter StartTime: If not `EOS_STATS_TIME_UNDEFINED` then this is the POSIX timestamp for start time (Optional).
+    - Parameter EndTime: If not `EOS_STATS_TIME_UNDEFINED` then this is the POSIX timestamp for end time (Optional).
     - Parameter StatNames: An array of stat names to query for (Optional).
     - Note: ``EOS/_tagEOS_Stats_QueryStatsOptions/StatNamesCount``:
-    The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS.
+    The number of stat names included in query (Optional), may not exceed `EOS_STATS_MAX_QUERY_STATS`.
     - Parameter TargetUserId: The Product User ID for the user whose stats are being retrieved
     - Parameter CompletionDelegate: This function is called when the query player stats operation completes.
-    - Returns: EOS_Success if the operation completes successfully
-               EOS_InvalidParameters if any of the options are incorrect
-               EOS_InvalidUser if target user ID is missing or incorrect
+    - Returns: `EOS_Success` if the operation completes successfully
+               `EOS_InvalidParameters` if any of the options are incorrect
+               `EOS_InvalidUser` if target user ID is missing or incorrect
     */
     public func QueryStats(
         LocalUserId: EOS_ProductUserId?,
@@ -137,12 +137,12 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
 extension SwiftEOS_Stats_Actor {
 
     /**
-    Fetches a stat from a given index. Use EOS_Stats_Stat_Release when finished with the data.
+    Fetches a stat from a given index. Use `EOS_Stats_Stat_Release` when finished with the data.
 
     - Parameter Options: Structure containing the Epic Online Services Account ID and index being accessed
-    - SeeAlso: EOS_Stats_Stat_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_NotFound if the stat is not found
+    - SeeAlso: `EOS_Stats_Stat_Release`
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_NotFound` if the stat is not found
     - Returns: The stat data for the given index, if it exists and is valid
     */
     private func ____CopyStatByIndex(
@@ -164,12 +164,12 @@ extension SwiftEOS_Stats_Actor {
     }
 
     /**
-    Fetches a stat from cached stats by name. Use EOS_Stats_Stat_Release when finished with the data.
+    Fetches a stat from cached stats by name. Use `EOS_Stats_Stat_Release` when finished with the data.
 
     - Parameter Options: Structure containing the Epic Online Services Account ID and name being accessed
-    - SeeAlso: EOS_Stats_Stat_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_NotFound if the stat is not found
+    - SeeAlso: `EOS_Stats_Stat_Release`
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_NotFound` if the stat is not found
     - Returns: The stat data for the given name, if it exists and is valid
     */
     private func ____CopyStatByName(
@@ -194,7 +194,7 @@ extension SwiftEOS_Stats_Actor {
     Fetch the number of stats that are cached locally.
 
     - Parameter Options: The Options associated with retrieving the stat count
-    - SeeAlso: EOS_Stats_CopyStatByIndex
+    - SeeAlso: `EOS_Stats_CopyStatByIndex`
     - Returns: Number of stats or 0 if there is an error
     */
     private func ____GetStatsCount(
@@ -220,9 +220,9 @@ extension SwiftEOS_Stats_Actor {
 
     - Parameter Options: Structure containing information about the stat we're ingesting.
     - Parameter CompletionDelegate: This function is called when the ingest stat operation completes.
-    - Returns: EOS_Success if the operation completes successfully
-               EOS_InvalidParameters if any of the options are incorrect
-               EOS_InvalidUser if target user ID is missing or incorrect
+    - Returns: `EOS_Success` if the operation completes successfully
+               `EOS_InvalidParameters` if any of the options are incorrect
+               `EOS_InvalidUser` if target user ID is missing or incorrect
     */
     private func ____IngestStat(
         _ Options: SwiftEOS_Stats_IngestStatOptions,
@@ -245,9 +245,9 @@ extension SwiftEOS_Stats_Actor {
 
     - Parameter Options: Structure containing information about the player whose stats we're retrieving.
     - Parameter CompletionDelegate: This function is called when the query player stats operation completes.
-    - Returns: EOS_Success if the operation completes successfully
-               EOS_InvalidParameters if any of the options are incorrect
-               EOS_InvalidUser if target user ID is missing or incorrect
+    - Returns: `EOS_Success` if the operation completes successfully
+               `EOS_InvalidParameters` if any of the options are incorrect
+               `EOS_InvalidUser` if target user ID is missing or incorrect
     */
     private func ____QueryStats(
         _ Options: SwiftEOS_Stats_QueryStatsOptions,

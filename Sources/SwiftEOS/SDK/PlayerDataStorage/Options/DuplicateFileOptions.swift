@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_PlayerDataStorage_DuplicateFile function */
+/** Input data for the `EOS_PlayerDataStorage_DuplicateFile` function */
 public struct SwiftEOS_PlayerDataStorage_DuplicateFileOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who authorized the duplication of the requested file; must be the original file's owner */
@@ -46,7 +46,7 @@ public struct SwiftEOS_PlayerDataStorage_DuplicateFileOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who authorized the duplication of the requested file; must be the original file's owner
     - Parameter SourceFilename: The name of the existing file to duplicate
     - Parameter DestinationFilename: The name of the new file

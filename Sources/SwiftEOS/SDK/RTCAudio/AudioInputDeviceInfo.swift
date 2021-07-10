@@ -4,7 +4,7 @@ import EOSSDK
 /** This struct is used to get information about a specific input device. */
 public struct SwiftEOS_RTCAudio_AudioInputDeviceInfo {
 
-    /** API Version: Set this to EOS_RTCAUDIO_AUDIOINPUTDEVICEINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_AUDIOINPUTDEVICEINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** True if this is the default audio input device in the system. */
@@ -30,7 +30,7 @@ public struct SwiftEOS_RTCAudio_AudioInputDeviceInfo {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_AUDIOINPUTDEVICEINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_AUDIOINPUTDEVICEINFO_API_LATEST`.
     - Parameter bDefaultDevice: True if this is the default audio input device in the system.
     - Parameter DeviceId: The persistent unique id of the device.
     - Parameter DeviceName: The name of the device

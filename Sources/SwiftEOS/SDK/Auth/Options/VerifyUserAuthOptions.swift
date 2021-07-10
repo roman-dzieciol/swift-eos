@@ -2,12 +2,12 @@ import Foundation
 import EOSSDK
 
 /**
-Input parameters for the EOS_Auth_VerifyUserAuth function.
+Input parameters for the `EOS_Auth_VerifyUserAuth` function.
 This operation is destructive, the pointer will remain the same but the data pointers inside will update
 */
 public struct SwiftEOS_Auth_VerifyUserAuthOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_AUTH_VERIFYUSERAUTH_API_LATEST. */
+    /** API Version: Set this to `EOS_AUTH_VERIFYUSERAUTH_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Auth token to verify against the backend service */
@@ -39,7 +39,7 @@ public struct SwiftEOS_Auth_VerifyUserAuthOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_AUTH_VERIFYUSERAUTH_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_AUTH_VERIFYUSERAUTH_API_LATEST`.
     - Parameter AuthToken: Auth token to verify against the backend service
     */
     public init(

@@ -1,26 +1,26 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Stats_QueryStats function. */
+/** Input parameters for the `EOS_Stats_QueryStats` function. */
 public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_QUERYSTATS_API_LATEST. */
+    /** API Version: Set this to `EOS_STATS_QUERYSTATS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user requesting the stats. Set to null for dedicated server. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). */
+    /** If not `EOS_STATS_TIME_UNDEFINED` then this is the POSIX timestamp for start time (Optional). */
     public let StartTime: Int
 
-    /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). */
+    /** If not `EOS_STATS_TIME_UNDEFINED` then this is the POSIX timestamp for end time (Optional). */
     public let EndTime: Int
 
     /**
     An array of stat names to query for (Optional).
 
     - Note: ``EOS/_tagEOS_Stats_QueryStatsOptions/StatNamesCount``:
-    The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS.
+    The number of stat names included in query (Optional), may not exceed `EOS_STATS_MAX_QUERY_STATS`.
     */
     public let StatNames: [String]?
 
@@ -66,13 +66,13 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_STATS_QUERYSTATS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_STATS_QUERYSTATS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user requesting the stats. Set to null for dedicated server.
-    - Parameter StartTime: If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional).
-    - Parameter EndTime: If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional).
+    - Parameter StartTime: If not `EOS_STATS_TIME_UNDEFINED` then this is the POSIX timestamp for start time (Optional).
+    - Parameter EndTime: If not `EOS_STATS_TIME_UNDEFINED` then this is the POSIX timestamp for end time (Optional).
     - Parameter StatNames: An array of stat names to query for (Optional).
     - Note: ``EOS/_tagEOS_Stats_QueryStatsOptions/StatNamesCount``:
-    The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS.
+    The number of stat names included in query (Optional), may not exceed `EOS_STATS_MAX_QUERY_STATS`.
     - Parameter TargetUserId: The Product User ID for the user whose stats are being retrieved
     */
     public init(

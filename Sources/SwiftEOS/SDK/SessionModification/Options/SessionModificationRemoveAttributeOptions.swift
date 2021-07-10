@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionModification_RemoveAttribute function. */
+/** Input parameters for the `EOS_SessionModification_RemoveAttribute` function. */
 public struct SwiftEOS_SessionModification_RemoveAttributeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Session attribute to remove from the session */
@@ -36,7 +36,7 @@ public struct SwiftEOS_SessionModification_RemoveAttributeOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`.
     - Parameter Key: Session attribute to remove from the session
     */
     public init(

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_UI_SetDisplayPreference function. */
+/** Input parameters for the `EOS_UI_SetDisplayPreference` function. */
 public struct SwiftEOS_UI_SetDisplayPreferenceOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_UI_SETDISPLAYPREFERENCE_API_LATEST. */
+    /** API Version: Set this to `EOS_UI_SETDISPLAYPREFERENCE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Preference for notification pop-up locations. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_UI_SetDisplayPreferenceOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_UI_SETDISPLAYPREFERENCE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_UI_SETDISPLAYPREFERENCE_API_LATEST`.
     - Parameter NotificationLocation: Preference for notification pop-up locations.
     */
     public init(

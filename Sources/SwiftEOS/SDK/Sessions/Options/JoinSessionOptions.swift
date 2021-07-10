@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_JoinSession function. */
+/** Input parameters for the `EOS_Sessions_JoinSession` function. */
 public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_JOINSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_JOINSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the session to create after joining session */
@@ -23,11 +23,11 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
-            * using EOS_PresenceModification_SetJoinInfo
-    - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
-    - SeeAlso: EOS_Lobby_CreateLobbyOptions
-    - SeeAlso: EOS_Lobby_JoinLobbyOptions
-    - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
+            * using `EOS_PresenceModification_SetJoinInfo`
+    - SeeAlso: `EOS_PresenceModification_SetJoinInfoOptions`
+    - SeeAlso: `EOS_Lobby_CreateLobbyOptions`
+    - SeeAlso: `EOS_Lobby_JoinLobbyOptions`
+    - SeeAlso: `EOS_Sessions_CreateSessionModificationOptions`
     */
     public let bPresenceEnabled: Bool
 
@@ -63,7 +63,7 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_JOINSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_JOINSESSION_API_LATEST`.
     - Parameter SessionName: Name of the session to create after joining session
     - Parameter SessionHandle: Session handle to join
     - Parameter LocalUserId: The Product User ID of the local user who is joining the session
@@ -72,11 +72,11 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
-            * using EOS_PresenceModification_SetJoinInfo
-    - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
-    - SeeAlso: EOS_Lobby_CreateLobbyOptions
-    - SeeAlso: EOS_Lobby_JoinLobbyOptions
-    - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
+            * using `EOS_PresenceModification_SetJoinInfo`
+    - SeeAlso: `EOS_PresenceModification_SetJoinInfoOptions`
+    - SeeAlso: `EOS_Lobby_CreateLobbyOptions`
+    - SeeAlso: `EOS_Lobby_JoinLobbyOptions`
+    - SeeAlso: `EOS_Sessions_CreateSessionModificationOptions`
     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_JOINSESSION_API_LATEST,

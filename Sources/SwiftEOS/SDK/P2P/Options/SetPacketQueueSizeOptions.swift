@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about new packet queue size settings. */
 public struct SwiftEOS_P2P_SetPacketQueueSizeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_SETPACKETQUEUESIZE_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_SETPACKETQUEUESIZE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ideal maximum amount of bytes the Incoming packet queue can consume */
@@ -41,7 +41,7 @@ public struct SwiftEOS_P2P_SetPacketQueueSizeOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_SETPACKETQUEUESIZE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_SETPACKETQUEUESIZE_API_LATEST`.
     - Parameter IncomingPacketQueueMaxSizeBytes: The ideal maximum amount of bytes the Incoming packet queue can consume
     - Parameter OutgoingPacketQueueMaxSizeBytes: The ideal maximum amount of bytes the Outgoing packet queue can consume
     */

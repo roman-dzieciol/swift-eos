@@ -2,19 +2,19 @@ import Foundation
 import EOSSDK
 
 /**
-Input parameters for the EOS_Leaderboards_QueryLeaderboardDefinitions function.
+Input parameters for the `EOS_Leaderboards_QueryLeaderboardDefinitions` function.
 StartTime and EndTime are optional parameters, they can be used to limit the list of definitions
 to overlap the time window specified.
 */
 public struct SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** An optional POSIX timestamp for the leaderboard's start time, or EOS_LEADERBOARDS_TIME_UNDEFINED */
+    /** An optional POSIX timestamp for the leaderboard's start time, or `EOS_LEADERBOARDS_TIME_UNDEFINED` */
     public let StartTime: Int
 
-    /** An optional POSIX timestamp for the leaderboard's end time, or EOS_LEADERBOARDS_TIME_UNDEFINED */
+    /** An optional POSIX timestamp for the leaderboard's end time, or `EOS_LEADERBOARDS_TIME_UNDEFINED` */
     public let EndTime: Int
 
     /**
@@ -54,9 +54,9 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsOptions: SwiftEOS
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST.
-    - Parameter StartTime: An optional POSIX timestamp for the leaderboard's start time, or EOS_LEADERBOARDS_TIME_UNDEFINED
-    - Parameter EndTime: An optional POSIX timestamp for the leaderboard's end time, or EOS_LEADERBOARDS_TIME_UNDEFINED
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST`.
+    - Parameter StartTime: An optional POSIX timestamp for the leaderboard's start time, or `EOS_LEADERBOARDS_TIME_UNDEFINED`
+    - Parameter EndTime: An optional POSIX timestamp for the leaderboard's end time, or `EOS_LEADERBOARDS_TIME_UNDEFINED`
     - Parameter LocalUserId: Product User ID for user who is querying definitions.
     Must be set when using a client policy that requires a valid logged in user.
     Not used for Dedicated Server where no user is available.

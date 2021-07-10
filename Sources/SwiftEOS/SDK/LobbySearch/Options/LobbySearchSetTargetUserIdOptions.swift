@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbySearch_SetTargetUserId function. */
+/** Input parameters for the `EOS_LobbySearch_SetTargetUserId` function. */
 public struct SwiftEOS_LobbySearch_SetTargetUserIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Search lobbies for given user by Product User ID, returning any lobbies where this user is currently registered */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbySearch_SetTargetUserIdOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST`.
     - Parameter TargetUserId: Search lobbies for given user by Product User ID, returning any lobbies where this user is currently registered
     */
     public init(

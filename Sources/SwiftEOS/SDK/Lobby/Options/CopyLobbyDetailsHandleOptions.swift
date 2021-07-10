@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_CopyLobbyDetailsHandle function. */
+/** Input parameters for the `EOS_Lobby_CopyLobbyDetailsHandle` function. */
 public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleOptions {
 
-    /** API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLE_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_COPYLOBBYDETAILSHANDLE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the lobby */
@@ -16,7 +16,7 @@ public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleOptions {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_COPYLOBBYDETAILSHANDLE_API_LATEST`.
     - Parameter LobbyId: The ID of the lobby
     - Parameter LocalUserId: The Product User ID of the local user making the request
     */

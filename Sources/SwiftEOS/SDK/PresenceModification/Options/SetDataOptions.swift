@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_PresenceModification_SetData function. */
+/** Data for the `EOS_PresenceModification_SetData` function. */
 public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -44,7 +44,7 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST`.
     - Parameter Records: The pointer to start of a sequential array of Presence DataRecords
     - Note: ``EOS/_tagEOS_PresenceModification_SetDataOptions/RecordsCount``:
     The count of records to set

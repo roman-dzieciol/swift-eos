@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** EOS_Mod_Identifier is used to identify a mod. */
+/** `EOS_Mod_Identifier` is used to identify a mod. */
 public struct SwiftEOS_Mod_Identifier: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_MOD_IDENTIFIER_API_LATEST. */
+    /** API Version: Set this to `EOS_MOD_IDENTIFIER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Item id of the Mod */
@@ -54,7 +54,7 @@ public struct SwiftEOS_Mod_Identifier: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_MOD_IDENTIFIER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_MOD_IDENTIFIER_API_LATEST`.
     - Parameter NamespaceId: Item id of the Mod
     - Parameter ItemId: Artifact id of the Mod
     - Parameter Title: Represent mod item title.

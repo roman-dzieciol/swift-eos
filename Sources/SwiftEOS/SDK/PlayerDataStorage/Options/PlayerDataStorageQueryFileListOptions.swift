@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_PlayerDataStorage_QueryFileList function */
+/** Input data for the `EOS_PlayerDataStorage_QueryFileList` function */
 public struct SwiftEOS_PlayerDataStorage_QueryFileListOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_QUERYFILELISTOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_QUERYFILELISTOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who requested file metadata */
@@ -36,7 +36,7 @@ public struct SwiftEOS_PlayerDataStorage_QueryFileListOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_QUERYFILELISTOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_QUERYFILELISTOPTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who requested file metadata
     */
     public init(

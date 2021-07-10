@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Lobby_OnJoinLobbyAcceptedCallback Function. */
+/** Output parameters for the `EOS_Lobby_OnJoinLobbyAcceptedCallback` Function. */
 public struct SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo {
 
     /** The Product User ID of the local user who is joining */
@@ -9,8 +9,8 @@ public struct SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo {
 
     /**
     The UI Event associated with this Join Game event.
-    This should be used with EOS_Lobby_CopyLobbyDetailsHandleByUiEventId to get a handle to be used
-    when calling EOS_Lobby_JoinLobby.
+    This should be used with `EOS_Lobby_CopyLobbyDetailsHandleByUiEventId` to get a handle to be used
+    when calling `EOS_Lobby_JoinLobby`.
     */
     public let UiEventId: EOS_UI_EventId
 
@@ -38,8 +38,8 @@ public struct SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo {
 
     - Parameter LocalUserId: The Product User ID of the local user who is joining
     - Parameter UiEventId: The UI Event associated with this Join Game event.
-    This should be used with EOS_Lobby_CopyLobbyDetailsHandleByUiEventId to get a handle to be used
-    when calling EOS_Lobby_JoinLobby.
+    This should be used with `EOS_Lobby_CopyLobbyDetailsHandleByUiEventId` to get a handle to be used
+    when calling `EOS_Lobby_JoinLobby`.
     */
     public init(
         LocalUserId: EOS_ProductUserId?,

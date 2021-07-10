@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_KWS_QueryPermissions function. */
+/** Input parameters for the `EOS_KWS_QueryPermissions` function. */
 public struct SwiftEOS_KWS_QueryPermissionsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_QUERYPERMISSIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_QUERYPERMISSIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Local user querying their permisssions */
@@ -36,7 +36,7 @@ public struct SwiftEOS_KWS_QueryPermissionsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_QUERYPERMISSIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_QUERYPERMISSIONS_API_LATEST`.
     - Parameter LocalUserId: Local user querying their permisssions
     */
     public init(

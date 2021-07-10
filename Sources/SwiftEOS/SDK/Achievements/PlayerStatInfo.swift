@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a collection of stat info data.
 
-- SeeAlso: EOS_Achievements_PlayerAchievement
+- SeeAlso: `EOS_Achievements_PlayerAchievement`
 */
 public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The name of the stat. */
@@ -50,7 +50,7 @@ public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST`.
     - Parameter Name: The name of the stat.
     - Parameter CurrentValue: The current value of the stat.
     - Parameter ThresholdValue: The threshold value of the stat, used in determining when to unlock an achievement.

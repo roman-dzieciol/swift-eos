@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Achievements_OnAchievementsUnlockedCallbackV2 Function. */
+/** Output parameters for the `EOS_Achievements_OnAchievementsUnlockedCallbackV2` Function. */
 public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info {
 
     /** The Product User ID for the user who received the unlocked achievements notification */
     public let UserId: EOS_ProductUserId?
 
-    /** The Achievement ID for the achievement that was unlocked. Pass this to EOS_Achievements_CopyPlayerAchievementByAchievementId to get the full achievement information. */
+    /** The Achievement ID for the achievement that was unlocked. Pass this to `EOS_Achievements_CopyPlayerAchievementByAchievementId` to get the full achievement information. */
     public let AchievementId: String?
 
     /** POSIX timestamp when the achievement was unlocked. */
@@ -37,7 +37,7 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info {
     Memberwise initializer
 
     - Parameter UserId: The Product User ID for the user who received the unlocked achievements notification
-    - Parameter AchievementId: The Achievement ID for the achievement that was unlocked. Pass this to EOS_Achievements_CopyPlayerAchievementByAchievementId to get the full achievement information.
+    - Parameter AchievementId: The Achievement ID for the achievement that was unlocked. Pass this to `EOS_Achievements_CopyPlayerAchievementByAchievementId` to get the full achievement information.
     - Parameter UnlockTime: POSIX timestamp when the achievement was unlocked.
     */
     public init(

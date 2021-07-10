@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_SetClientDetailsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
@@ -44,7 +44,7 @@ public struct SwiftEOS_AntiCheatCommon_SetClientDetailsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST`.
     - Parameter ClientHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter ClientFlags: General flags associated with this client, if any
     - Parameter ClientInputMethod: Input device being used by this client, if known

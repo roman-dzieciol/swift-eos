@@ -20,7 +20,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user who is accepting any pending or future connections with RemoteUserId
     - Parameter RemoteUserId: The Product User ID of the remote user who has either sent a connection request or is expected to in the future
     - Parameter SocketId: The socket ID of the connection to accept on
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the provided data is invalid
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the provided data is invalid
     */
     public func AcceptConnection(
         LocalUserId: EOS_ProductUserId?,
@@ -36,12 +36,12 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     /**
     Listen for when our packet queue has become full. This event gives an opportunity to read packets to make
-    room for new incoming packets. If this event fires and no packets are read by calling EOS_P2P_ReceivePacket
-    or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after
+    room for new incoming packets. If this event fires and no packets are read by calling `EOS_P2P_ReceivePacket`
+    or the packet queue size is not increased by `EOS_P2P_SetPacketQueueSize`, any packets that are received after
     this event are discarded until there is room again in the queue.
 
     - Parameter IncomingPacketQueueFullHandler: The callback to be fired when the incoming packet queue is full
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyIncomingPacketQueueFull(
         IncomingPacketQueueFullHandler: @escaping (SwiftEOS_P2P_OnIncomingPacketQueueFullInfo) -> Void
@@ -55,7 +55,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user who would like notifications
     - Parameter SocketId: The optional socket ID to listen for to be closed. If NULL, this handler will be called for all closed connections
     - Parameter ConnectionClosedHandler: The callback to be fired when we an open connection has been closed
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyPeerConnectionClosed(
         LocalUserId: EOS_ProductUserId?,
@@ -78,7 +78,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the user who is listening for incoming connection requests
     - Parameter SocketId: The optional socket ID to listen for, used as a filter for incoming connection requests; If NULL, incoming connection requests will not be filtered
     - Parameter ConnectionRequestHandler: The callback to be fired when we receive a connection request
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyPeerConnectionRequest(
         LocalUserId: EOS_ProductUserId?,
@@ -100,7 +100,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user who would like to close a previously accepted connection (or decline a pending invite)
     - Parameter RemoteUserId: The Product User ID of the remote user to disconnect from (or to reject a pending invite from)
     - Parameter SocketId: The socket ID of the connection to close (or optionally NULL to not accept any connection requests from the Remote User)
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the provided data is invalid
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the provided data is invalid
     */
     public func CloseConnection(
         LocalUserId: EOS_ProductUserId?,
@@ -119,7 +119,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who would like to close all connections that use a particular socket ID
     - Parameter SocketId: The socket ID of the connections to close
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the provided data is invalid
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the provided data is invalid
     */
     public func CloseConnections(
         LocalUserId: EOS_ProductUserId?,
@@ -134,7 +134,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
     Get our last-queried NAT-type, if it has been successfully queried.
 
-    - Throws: EOS_EResult::EOS_NotFound - If we do not have queried data cached
+    - Throws: `EOS_EResult`::`EOS_NotFound` - If we do not have queried data cached
     - Returns: The queried NAT Type, or unknown if unknown
     */
     public func GetNATType() throws -> EOS_ENATType? {
@@ -147,8 +147,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who is receiving the packet
     - Parameter RequestedChannel: An optional channel to request the data for. If NULL, we're retrieving the size of the next packet on any channel.
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
-              EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
+              `EOS_EResult`::`EOS_NotFound`  - If there are no packets available for the requesting user
     - Returns: The amount of bytes required to store the data of the next packet for the requested user
     */
     public func GetNextReceivedPacketSize(
@@ -164,7 +164,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
     Gets the current cached information related to the incoming and outgoing packet queues.
 
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The current information of the incoming and outgoing packet queues
     */
     public func GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo? {
@@ -176,7 +176,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     - Parameter OutPort: The port that will be tried first
     - Parameter OutNumAdditionalPortsToTry: The amount of ports to try above the value in OutPort, if OutPort is unavailable
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     */
     public func GetPortRange(
         OutPort: inout UInt16?,
@@ -191,7 +191,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     /**
     Get the current relay control setting.
 
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The relay control setting currently configured
     */
     public func GetRelayControl() throws -> EOS_ERelayControl? {
@@ -218,9 +218,9 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter OutPeerId: The Remote User who sent data. Only set if there was a packet to receive.
     - Parameter OutSocketId: The Socket ID of the data that was sent. Only set if there was a packet to receive.
     - Parameter OutChannel: The channel the data was sent on. Only set if there was a packet to receive.
-    - Parameter OutData: Buffer to store the data being received. Must be at least EOS_P2P_GetNextReceivedPacketSize in length or data will be truncated
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
-              EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
+    - Parameter OutData: Buffer to store the data being received. Must be at least `EOS_P2P_GetNextReceivedPacketSize` in length or data will be truncated
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
+              `EOS_EResult`::`EOS_NotFound` - If there are no packets available for the requesting user
     */
     public func ReceivePacket(
         LocalUserId: EOS_ProductUserId?,
@@ -246,7 +246,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     /**
     Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be
-    sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success
+    sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An `EOS_Success`
     result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
 
     - Parameter LocalUserId: The Product User ID of the local user who is sending this packet
@@ -258,8 +258,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     The size of the data to be sent to the RemoteUser
     - Parameter bAllowDelayedDelivery: If false and we do not already have an established connection to the peer, this data will be dropped
     - Parameter Reliability: Setting to control the delivery reliability of this packet
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
-              EOS_EResult::EOS_LimitExceeded     - If amount of data being sent is too large, or the outgoing packet queue was full
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
+              `EOS_EResult`::`EOS_LimitExceeded`     - If amount of data being sent is too large, or the outgoing packet queue was full
     */
     public func SendPacket(
         LocalUserId: EOS_ProductUserId?,
@@ -289,7 +289,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     - Parameter IncomingPacketQueueMaxSizeBytes: The ideal maximum amount of bytes the Incoming packet queue can consume
     - Parameter OutgoingPacketQueueMaxSizeBytes: The ideal maximum amount of bytes the Outgoing packet queue can consume
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     */
     public func SetPacketQueueSize(
         IncomingPacketQueueMaxSizeBytes: UInt64,
@@ -307,7 +307,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter Port: The ideal port to use for P2P traffic. The default value is 7777. If set to 0, the OS will choose a port. If set to 0, MaxAdditionalPortsToTry must be set to 0.
     - Parameter MaxAdditionalPortsToTry: The maximum amount of additional ports to try if Port is unavailable. Ports will be tried from Port to Port + MaxAdditionalPortsToTry
     inclusive, until one is available or we run out of ports. If no ports are available, P2P connections will fail. The default value is 99.
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the options are invalid in some way
     */
     public func SetPortRange(
         Port: UInt16,
@@ -325,7 +325,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     - Parameter RelayControl: The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections
     reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the options are invalid in some way
     */
     public func SetRelayControl(
         RelayControl: EOS_ERelayControl
@@ -340,7 +340,7 @@ extension SwiftEOS_P2P_Actor {
     Accept connections from a specific peer. If this peer has not attempted to connect yet, when they do, they will automatically be accepted.
 
     - Parameter Options: Information about who would like to accept a connection, and which connection
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the provided data is invalid
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the provided data is invalid
     */
     private func ____AcceptConnection(
         _ Options: SwiftEOS_P2P_AcceptConnectionOptions
@@ -356,12 +356,12 @@ extension SwiftEOS_P2P_Actor {
 
     /**
     Listen for when our packet queue has become full. This event gives an opportunity to read packets to make
-    room for new incoming packets. If this event fires and no packets are read by calling EOS_P2P_ReceivePacket
-    or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after
+    room for new incoming packets. If this event fires and no packets are read by calling `EOS_P2P_ReceivePacket`
+    or the packet queue size is not increased by `EOS_P2P_SetPacketQueueSize`, any packets that are received after
     this event are discarded until there is room again in the queue.
 
     - Parameter IncomingPacketQueueFullHandler: The callback to be fired when the incoming packet queue is full
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyIncomingPacketQueueFull(
         _ IncomingPacketQueueFullHandler: @escaping (SwiftEOS_P2P_OnIncomingPacketQueueFullInfo) -> Void
@@ -392,7 +392,7 @@ extension SwiftEOS_P2P_Actor {
 
     - Parameter Options: Information about who would like notifications about closed connections, and for which socket
     - Parameter ConnectionClosedHandler: The callback to be fired when we an open connection has been closed
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyPeerConnectionClosed(
         _ Options: SwiftEOS_P2P_AddNotifyPeerConnectionClosedOptions,
@@ -425,7 +425,7 @@ extension SwiftEOS_P2P_Actor {
 
     - Parameter Options: Information about who would like notifications, and (optionally) only for a specific socket
     - Parameter ConnectionRequestHandler: The callback to be fired when we receive a connection request
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyPeerConnectionRequest(
         _ Options: SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions,
@@ -456,7 +456,7 @@ extension SwiftEOS_P2P_Actor {
     Stop accepting new connections from a specific peer and close any open connections.
 
     - Parameter Options: Information about who would like to close a connection, and which connection.
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the provided data is invalid
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the provided data is invalid
     */
     private func ____CloseConnection(
         _ Options: SwiftEOS_P2P_CloseConnectionOptions
@@ -474,7 +474,7 @@ extension SwiftEOS_P2P_Actor {
     Close any open Connections for a specific Peer Connection ID.
 
     - Parameter Options: Information about who would like to close connections, and by what socket ID
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the provided data is invalid
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the provided data is invalid
     */
     private func ____CloseConnections(
         _ Options: SwiftEOS_P2P_CloseConnectionsOptions
@@ -491,7 +491,7 @@ extension SwiftEOS_P2P_Actor {
     /**
     Get our last-queried NAT-type, if it has been successfully queried.
 
-    - Throws: EOS_EResult::EOS_NotFound - If we do not have queried data cached
+    - Throws: `EOS_EResult`::`EOS_NotFound` - If we do not have queried data cached
     - Returns: The queried NAT Type, or unknown if unknown
     */
     private func ____GetNATType() throws -> EOS_ENATType? {
@@ -511,8 +511,8 @@ extension SwiftEOS_P2P_Actor {
     packets to be retrieved.
 
     - Parameter Options: Information about who is requesting the size of their next packet
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
-              EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
+              `EOS_EResult`::`EOS_NotFound`  - If there are no packets available for the requesting user
     - Returns: The amount of bytes required to store the data of the next packet for the requested user
     */
     private func ____GetNextReceivedPacketSize(
@@ -532,7 +532,7 @@ extension SwiftEOS_P2P_Actor {
     /**
     Gets the current cached information related to the incoming and outgoing packet queues.
 
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The current information of the incoming and outgoing packet queues
     */
     private func ____GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo? {
@@ -552,7 +552,7 @@ extension SwiftEOS_P2P_Actor {
 
     - Parameter OutPort: The port that will be tried first
     - Parameter OutNumAdditionalPortsToTry: The amount of ports to try above the value in OutPort, if OutPort is unavailable
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     */
     private func ____GetPortRange(
         _ OutPort: inout UInt16?,
@@ -574,7 +574,7 @@ extension SwiftEOS_P2P_Actor {
     /**
     Get the current relay control setting.
 
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The relay control setting currently configured
     */
     private func ____GetRelayControl() throws -> EOS_ERelayControl? {
@@ -616,9 +616,9 @@ extension SwiftEOS_P2P_Actor {
     - Parameter OutPeerId: The Remote User who sent data. Only set if there was a packet to receive.
     - Parameter OutSocketId: The Socket ID of the data that was sent. Only set if there was a packet to receive.
     - Parameter OutChannel: The channel the data was sent on. Only set if there was a packet to receive.
-    - Parameter OutData: Buffer to store the data being received. Must be at least EOS_P2P_GetNextReceivedPacketSize in length or data will be truncated
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
-              EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
+    - Parameter OutData: Buffer to store the data being received. Must be at least `EOS_P2P_GetNextReceivedPacketSize` in length or data will be truncated
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
+              `EOS_EResult`::`EOS_NotFound` - If there are no packets available for the requesting user
     */
     private func ____ReceivePacket(
         _ Options: SwiftEOS_P2P_ReceivePacketOptions,
@@ -647,12 +647,12 @@ extension SwiftEOS_P2P_Actor {
 
     /**
     Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be
-    sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success
+    sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An `EOS_Success`
     result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
 
     - Parameter Options: Information about the data being sent, by who, to who
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
-              EOS_EResult::EOS_LimitExceeded     - If amount of data being sent is too large, or the outgoing packet queue was full
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
+              `EOS_EResult`::`EOS_LimitExceeded`     - If amount of data being sent is too large, or the outgoing packet queue was full
     */
     private func ____SendPacket(
         _ Options: SwiftEOS_P2P_SendPacketOptions
@@ -673,7 +673,7 @@ extension SwiftEOS_P2P_Actor {
     packets are sent or received.
 
     - Parameter Options: Information about packet queue size
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     */
     private func ____SetPacketQueueSize(
         _ Options: SwiftEOS_P2P_SetPacketQueueSizeOptions
@@ -691,7 +691,7 @@ extension SwiftEOS_P2P_Actor {
     Set configuration options related to network ports.
 
     - Parameter Options: Information about network ports config options
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the options are invalid in some way
     */
     private func ____SetPortRange(
         _ Options: SwiftEOS_P2P_SetPortRangeOptions
@@ -710,7 +710,7 @@ extension SwiftEOS_P2P_Actor {
     connections if the connection requires renegotiation.
 
     - Parameter Options: Information about relay server config options
-    - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way
+    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the options are invalid in some way
     */
     private func ____SetRelayControl(
         _ Options: SwiftEOS_P2P_SetRelayControlOptions

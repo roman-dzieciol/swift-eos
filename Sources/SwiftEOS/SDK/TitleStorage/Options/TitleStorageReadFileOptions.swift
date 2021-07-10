@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_TitleStorage_ReadFile function */
+/** Input data for the `EOS_TitleStorage_ReadFile` function */
 public struct SwiftEOS_TitleStorage_ReadFileOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the local user who is reading the requested file (optional) */
@@ -13,7 +13,7 @@ public struct SwiftEOS_TitleStorage_ReadFileOptions: SwiftEOSObject {
     /** The file name to read; this file must already exist */
     public let Filename: String?
 
-    /** The maximum amount of data in bytes should be available to read in a single EOS_TitleStorage_OnReadFileDataCallback call */
+    /** The maximum amount of data in bytes should be available to read in a single `EOS_TitleStorage_OnReadFileDataCallback` call */
     public let ReadChunkLengthBytes: Int
 
     /** Callback function to handle copying read data */
@@ -56,10 +56,10 @@ public struct SwiftEOS_TitleStorage_ReadFileOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST`.
     - Parameter LocalUserId: Product User ID of the local user who is reading the requested file (optional)
     - Parameter Filename: The file name to read; this file must already exist
-    - Parameter ReadChunkLengthBytes: The maximum amount of data in bytes should be available to read in a single EOS_TitleStorage_OnReadFileDataCallback call
+    - Parameter ReadChunkLengthBytes: The maximum amount of data in bytes should be available to read in a single `EOS_TitleStorage_OnReadFileDataCallback` call
     - Parameter ReadFileDataCallback: Callback function to handle copying read data
     - Parameter FileTransferProgressCallback: Optional callback function to be informed of download progress, if the file is not already locally cached. If set, this will be called at least once before completion if the request is successfully started
     */

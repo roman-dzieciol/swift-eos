@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_AddNotifyAchievementsUnlocked function. */
+/** Input parameters for the `EOS_Achievements_AddNotifyAchievementsUnlocked` function. */
 public struct SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKED_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions: SwiftE
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKED_API_LATEST

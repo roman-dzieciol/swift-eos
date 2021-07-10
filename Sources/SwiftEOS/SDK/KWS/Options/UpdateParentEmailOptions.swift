@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_KWS_UpdateParentEmail function. */
+/** Input parameters for the `EOS_KWS_UpdateParentEmail` function. */
 public struct SwiftEOS_KWS_UpdateParentEmailOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_UPDATEPARENTEMAIL_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_UPDATEPARENTEMAIL_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Local user updating parental information */
@@ -41,7 +41,7 @@ public struct SwiftEOS_KWS_UpdateParentEmailOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_UPDATEPARENTEMAIL_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_UPDATEPARENTEMAIL_API_LATEST`.
     - Parameter LocalUserId: Local user updating parental information
     - Parameter ParentEmail: New parent email
     */

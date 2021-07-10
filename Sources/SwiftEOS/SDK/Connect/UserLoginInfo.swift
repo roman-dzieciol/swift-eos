@@ -10,12 +10,12 @@ For example displaying player names in Leaderboards rankings.
 */
 public struct SwiftEOS_Connect_UserLoginInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_USERLOGININFO_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_USERLOGININFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
     The user's display name on the identity provider systems as UTF-8 encoded null-terminated string.
-    The length of the name can be at maximum up to EOS_CONNECT_USERLOGININFO_DISPLAYNAME_MAX_LENGTH bytes.
+    The length of the name can be at maximum up to `EOS_CONNECT_USERLOGININFO_DISPLAYNAME_MAX_LENGTH` bytes.
     */
     public let DisplayName: String?
 
@@ -45,9 +45,9 @@ public struct SwiftEOS_Connect_UserLoginInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_USERLOGININFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_USERLOGININFO_API_LATEST`.
     - Parameter DisplayName: The user's display name on the identity provider systems as UTF-8 encoded null-terminated string.
-    The length of the name can be at maximum up to EOS_CONNECT_USERLOGININFO_DISPLAYNAME_MAX_LENGTH bytes.
+    The length of the name can be at maximum up to `EOS_CONNECT_USERLOGININFO_DISPLAYNAME_MAX_LENGTH` bytes.
     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_USERLOGININFO_API_LATEST,

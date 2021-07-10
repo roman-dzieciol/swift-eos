@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_GetOfferImageInfoCount function. */
+/** Input parameters for the `EOS_Ecom_GetOfferImageInfoCount` function. */
 public struct SwiftEOS_Ecom_GetOfferImageInfoCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose offer image is being accessed. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Ecom_GetOfferImageInfoCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose offer image is being accessed.
     - Parameter OfferId: The ID of the offer to get the images for.
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_KWS_CopyPermissionByIndex function. */
+/** Input parameters for the `EOS_KWS_CopyPermissionByIndex` function. */
 public struct SwiftEOS_KWS_CopyPermissionByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user whose permissions are being accessed */
@@ -41,7 +41,7 @@ public struct SwiftEOS_KWS_CopyPermissionByIndexOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user whose permissions are being accessed
     - Parameter Index: The index of the permission to get.
     */

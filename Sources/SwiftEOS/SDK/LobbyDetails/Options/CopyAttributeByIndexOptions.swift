@@ -1,16 +1,16 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyDetails_CopyAttributeByIndex function. */
+/** Input parameters for the `EOS_LobbyDetails_CopyAttributeByIndex` function. */
 public struct SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
     The index of the attribute to retrieve
 
-    - SeeAlso: EOS_LobbyDetails_GetAttributeCount
+    - SeeAlso: `EOS_LobbyDetails_GetAttributeCount`
     */
     public let AttrIndex: Int
 
@@ -40,9 +40,9 @@ public struct SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions: SwiftEOSObject 
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST`.
     - Parameter AttrIndex: The index of the attribute to retrieve
-    - SeeAlso: EOS_LobbyDetails_GetAttributeCount
+    - SeeAlso: `EOS_LobbyDetails_GetAttributeCount`
     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST,

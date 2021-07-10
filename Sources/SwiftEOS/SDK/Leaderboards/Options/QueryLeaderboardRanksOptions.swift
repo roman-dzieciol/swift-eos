@@ -2,13 +2,13 @@ import Foundation
 import EOSSDK
 
 /**
-Input parameters for the EOS_Leaderboards_QueryLeaderboardRanks function.
+Input parameters for the `EOS_Leaderboards_QueryLeaderboardRanks` function.
 
-- SeeAlso: EOS_Leaderboards_Definition
+- SeeAlso: `EOS_Leaderboards_Definition`
 */
 public struct SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the leaderboard whose information you want to retrieve. */
@@ -49,7 +49,7 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST`.
     - Parameter LeaderboardId: The ID of the leaderboard whose information you want to retrieve.
     - Parameter LocalUserId: Product User ID for user who is querying ranks.
     Must be set when using a client policy that requires a valid logged in user.

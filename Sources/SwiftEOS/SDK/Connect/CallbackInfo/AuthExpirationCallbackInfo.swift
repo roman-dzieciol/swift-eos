@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Connect_OnAuthExpirationCallback function. */
+/** Output parameters for the `EOS_Connect_OnAuthExpirationCallback` function. */
 public struct SwiftEOS_Connect_AuthExpirationCallbackInfo {
 
     /** The Product User ID of the local player whose status has changed. */

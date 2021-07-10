@@ -16,27 +16,27 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_ActiveSession_CopyInfo is used to immediately retrieve a copy of active session information
-    If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
+    `EOS_ActiveSession_CopyInfo` is used to immediately retrieve a copy of active session information
+    If the call returns an `EOS_Success` result, the out parameter, OutActiveSessionInfo, must be passed to `EOS_ActiveSession_Info_Release` to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_IncompatibleVersion if the API version passed in is incorrect
-    - SeeAlso: EOS_ActiveSession_Info
-    - SeeAlso: EOS_ActiveSession_CopyInfoOptions
-    - SeeAlso: EOS_ActiveSession_Info_Release
-    - Returns: Out parameter used to receive the EOS_ActiveSession_Info structure.
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_IncompatibleVersion` if the API version passed in is incorrect
+    - SeeAlso: `EOS_ActiveSession_Info`
+    - SeeAlso: `EOS_ActiveSession_CopyInfoOptions`
+    - SeeAlso: `EOS_ActiveSession_Info_Release`
+    - Returns: Out parameter used to receive the `EOS_ActiveSession_Info` structure.
     */
     public func CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
         try ____CopyInfo()
     }
 
     /**
-    EOS_ActiveSession_GetRegisteredPlayerByIndex is used to immediately retrieve individual players registered with the active session.
+    `EOS_ActiveSession_GetRegisteredPlayerByIndex` is used to immediately retrieve individual players registered with the active session.
 
     - Parameter PlayerIndex: Index of the registered player to retrieve
     - Returns: the product user ID for the registered player at a given index or null if that index is invalid
-    - SeeAlso: EOS_ActiveSession_GetRegisteredPlayerCount
-    - SeeAlso: EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
+    - SeeAlso: `EOS_ActiveSession_GetRegisteredPlayerCount`
+    - SeeAlso: `EOS_ActiveSession_GetRegisteredPlayerByIndexOptions`
     */
     public func GetRegisteredPlayerByIndex(
         PlayerIndex: Int
@@ -57,15 +57,15 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
 extension SwiftEOS_ActiveSession_Actor {
 
     /**
-    EOS_ActiveSession_CopyInfo is used to immediately retrieve a copy of active session information
-    If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
+    `EOS_ActiveSession_CopyInfo` is used to immediately retrieve a copy of active session information
+    If the call returns an `EOS_Success` result, the out parameter, OutActiveSessionInfo, must be passed to `EOS_ActiveSession_Info_Release` to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_IncompatibleVersion if the API version passed in is incorrect
-    - SeeAlso: EOS_ActiveSession_Info
-    - SeeAlso: EOS_ActiveSession_CopyInfoOptions
-    - SeeAlso: EOS_ActiveSession_Info_Release
-    - Returns: Out parameter used to receive the EOS_ActiveSession_Info structure.
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_IncompatibleVersion` if the API version passed in is incorrect
+    - SeeAlso: `EOS_ActiveSession_Info`
+    - SeeAlso: `EOS_ActiveSession_CopyInfoOptions`
+    - SeeAlso: `EOS_ActiveSession_Info_Release`
+    - Returns: Out parameter used to receive the `EOS_ActiveSession_Info` structure.
     */
     private func ____CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
         try withPointerManager { pointerManager in
@@ -84,12 +84,12 @@ extension SwiftEOS_ActiveSession_Actor {
     }
 
     /**
-    EOS_ActiveSession_GetRegisteredPlayerByIndex is used to immediately retrieve individual players registered with the active session.
+    `EOS_ActiveSession_GetRegisteredPlayerByIndex` is used to immediately retrieve individual players registered with the active session.
 
     - Parameter Options: Structure containing the input parameters
     - Returns: the product user ID for the registered player at a given index or null if that index is invalid
-    - SeeAlso: EOS_ActiveSession_GetRegisteredPlayerCount
-    - SeeAlso: EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
+    - SeeAlso: `EOS_ActiveSession_GetRegisteredPlayerCount`
+    - SeeAlso: `EOS_ActiveSession_GetRegisteredPlayerByIndexOptions`
     */
     private func ____GetRegisteredPlayerByIndex(
         _ Options: SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexOptions

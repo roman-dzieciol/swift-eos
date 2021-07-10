@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Presence_OnJoinGameAcceptedCallback Function. */
+/** Output parameters for the `EOS_Presence_OnJoinGameAcceptedCallback` Function. */
 public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
 
     /**
@@ -17,7 +17,7 @@ public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
     public let TargetUserId: EOS_EpicAccountId?
 
     /**
-    If the value is not EOS_UI_EVENTID_INVALID then it must be passed back to the SDK using EOS_UI_AcknowledgeEventId.
+    If the value is not `EOS_UI_EVENTID_INVALID` then it must be passed back to the SDK using `EOS_UI_AcknowledgeEventId`.
     This should be done after attempting to join the game and either succeeding or failing to connect.
     This is necessary to allow the Social Overlay UI to manage the `Join` button.
     */
@@ -51,7 +51,7 @@ public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
     Set to a null pointer to delete the value.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user who accepted the invitation
     - Parameter TargetUserId: The Epic Online Services Account ID of the user who sent the invitation
-    - Parameter UiEventId: If the value is not EOS_UI_EVENTID_INVALID then it must be passed back to the SDK using EOS_UI_AcknowledgeEventId.
+    - Parameter UiEventId: If the value is not `EOS_UI_EVENTID_INVALID` then it must be passed back to the SDK using `EOS_UI_AcknowledgeEventId`.
     This should be done after attempting to join the game and either succeeding or failing to connect.
     This is necessary to allow the Social Overlay UI to manage the `Join` button.
     */

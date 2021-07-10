@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATSERVER_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATSERVER_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Length in bytes of input */
@@ -34,7 +34,7 @@ public struct SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions: Swi
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATSERVER_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATSERVER_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST`.
     - Parameter DataLengthBytes: Length in bytes of input
     */
     public init(

@@ -7,7 +7,7 @@ Set the affinity to 0 to allow EOS SDK to use a platform specific default value.
 */
 public struct SwiftEOS_Initialize_ThreadAffinity: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_INITIALIZE_THREADAFFINITY_API_LATEST. */
+    /** API Version: Set this to `EOS_INITIALIZE_THREADAFFINITY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Any thread related to network management that is not IO. */
@@ -59,7 +59,7 @@ public struct SwiftEOS_Initialize_ThreadAffinity: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_INITIALIZE_THREADAFFINITY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_INITIALIZE_THREADAFFINITY_API_LATEST`.
     - Parameter NetworkWork: Any thread related to network management that is not IO.
     - Parameter StorageIo: Any thread that will interact with a storage device.
     - Parameter WebSocketIo: Any thread that will generate web socket IO.

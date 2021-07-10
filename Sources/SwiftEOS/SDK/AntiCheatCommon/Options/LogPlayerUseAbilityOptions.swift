@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
@@ -49,7 +49,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST`.
     - Parameter PlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter AbilityId: Game defined unique identifier for the ability being used
     - Parameter AbilityDurationMs: Duration of the ability effect in milliseconds. If not applicable, use 0.

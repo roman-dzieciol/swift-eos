@@ -2,15 +2,15 @@ import Foundation
 import EOSSDK
 
 /**
-All the known presence information for a specific user. This object must be released by calling EOS_Presence_Info_Release.
+All the known presence information for a specific user. This object must be released by calling `EOS_Presence_Info_Release`.
 
-- SeeAlso: EOS_Presence_CopyPresence
-- SeeAlso: EOS_Presence_Info_Release
-- Note: Release func: ``EOS_Presence_Info_Release``
+- SeeAlso: `EOS_Presence_CopyPresence`
+- SeeAlso: `EOS_Presence_Info_Release`
+- Note: Release func: ```EOS_Presence_Info_Release```
 */
 public struct SwiftEOS_Presence_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_INFO_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_INFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The status of the user */
@@ -85,7 +85,7 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_INFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_INFO_API_LATEST`.
     - Parameter Status: The status of the user
     - Parameter UserId: The Epic Online Services Account ID of the user
     - Parameter ProductId: The product ID that the user is logged in from

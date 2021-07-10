@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_Login function. */
+/** Input parameters for the `EOS_Connect_Login` function. */
 public struct SwiftEOS_Connect_LoginOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_LOGIN_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_LOGIN_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Credentials specified for a given login method */
@@ -46,7 +46,7 @@ public struct SwiftEOS_Connect_LoginOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_LOGIN_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_LOGIN_API_LATEST`.
     - Parameter Credentials: Credentials specified for a given login method
     - Parameter UserLoginInfo: Additional non-authoritative information about the local user.
     This field is required to be set and only used when authenticating the user using Apple, Google, Nintendo Account, Nintendo Service Account, Oculus or the Device ID feature login.

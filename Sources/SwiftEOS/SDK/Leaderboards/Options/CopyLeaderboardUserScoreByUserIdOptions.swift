@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_CopyLeaderboardUserScoreByUserId function. */
+/** Input parameters for the `EOS_Leaderboards_CopyLeaderboardUserScoreByUserId` function. */
 public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID to look for when copying leaderboard score data from the cache */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions: Swi
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST`.
     - Parameter UserId: The Product User ID to look for when copying leaderboard score data from the cache
     - Parameter StatName: The name of the stat that is used to rank this leaderboard
     */

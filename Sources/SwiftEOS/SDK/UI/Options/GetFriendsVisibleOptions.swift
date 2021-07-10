@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_UI_GetFriendsVisible function. */
+/** Input parameters for the `EOS_UI_GetFriendsVisible` function. */
 public struct SwiftEOS_UI_GetFriendsVisibleOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_UI_GETFRIENDSVISIBLE_API_LATEST. */
+    /** API Version: Set this to `EOS_UI_GETFRIENDSVISIBLE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user whose overlay is being updated. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_UI_GetFriendsVisibleOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_UI_GETFRIENDSVISIBLE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_UI_GETFRIENDSVISIBLE_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose overlay is being updated.
     */
     public init(

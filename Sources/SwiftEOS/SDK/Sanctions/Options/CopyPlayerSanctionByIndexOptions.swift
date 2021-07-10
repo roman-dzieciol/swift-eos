@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sanctions_CopyPlayerSanctionByIndex function */
+/** Input parameters for the `EOS_Sanctions_CopyPlayerSanctionByIndex` function */
 public struct SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the user whose active sanctions are to be copied */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST`.
     - Parameter TargetUserId: Product User ID of the user whose active sanctions are to be copied
     - Parameter SanctionIndex: Index of the sanction to retrieve from the cache
     */

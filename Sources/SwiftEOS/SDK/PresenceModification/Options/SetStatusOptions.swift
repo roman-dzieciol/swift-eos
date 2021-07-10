@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_PresenceModification_SetStatus function. */
+/** Data for the `EOS_PresenceModification_SetStatus` function. */
 public struct SwiftEOS_PresenceModification_SetStatusOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The status of the user */
@@ -36,7 +36,7 @@ public struct SwiftEOS_PresenceModification_SetStatusOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST`.
     - Parameter Status: The status of the user
     */
     public init(

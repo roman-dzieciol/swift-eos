@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyModification_SetInvitesAllowed Function. */
+/** Input parameters for the `EOS_LobbyModification_SetInvitesAllowed` Function. */
 public struct SwiftEOS_LobbyModification_SetInvitesAllowedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** If true then invites can currently be sent for the associated lobby */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbyModification_SetInvitesAllowedOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST`.
     - Parameter bInvitesAllowed: If true then invites can currently be sent for the associated lobby
     */
     public init(

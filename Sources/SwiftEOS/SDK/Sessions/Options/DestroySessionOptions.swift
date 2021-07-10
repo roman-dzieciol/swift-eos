@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_DestroySession function. */
+/** Input parameters for the `EOS_Sessions_DestroySession` function. */
 public struct SwiftEOS_Sessions_DestroySessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_DESTROYSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the session to destroy */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sessions_DestroySessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_DESTROYSESSION_API_LATEST`.
     - Parameter SessionName: Name of the session to destroy
     */
     public init(

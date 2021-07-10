@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single leaderboard record
 
-- Note: Release func: ``EOS_Leaderboards_LeaderboardRecord_Release``
+- Note: Release func: ```EOS_Leaderboards_LeaderboardRecord_Release```
 */
 public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID assoicated with this record */
@@ -55,7 +55,7 @@ public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST`.
     - Parameter UserId: The Product User ID assoicated with this record
     - Parameter Rank: Sorted position on leaderboard
     - Parameter Score: Leaderboard score

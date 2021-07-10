@@ -3,13 +3,13 @@ import EOSSDK
 
 /**
 Contains information about a single item within the catalog. Instances of this structure are created
-by EOS_Ecom_CopyOfferItemByIndex. They must be passed to EOS_Ecom_CatalogItem_Release.
+by `EOS_Ecom_CopyOfferItemByIndex`. They must be passed to `EOS_Ecom_CatalogItem_Release`.
 
-- Note: Release func: ``EOS_Ecom_CatalogItem_Release``
+- Note: Release func: ```EOS_Ecom_CatalogItem_Release```
 */
 public struct SwiftEOS_Ecom_CatalogItem: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_CATALOGITEM_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product namespace in which this item exists */
@@ -86,7 +86,7 @@ public struct SwiftEOS_Ecom_CatalogItem: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_CATALOGITEM_API_LATEST`.
     - Parameter CatalogNamespace: Product namespace in which this item exists
     - Parameter Id: The ID of this item
     - Parameter EntitlementName: The entitlement name associated with this item

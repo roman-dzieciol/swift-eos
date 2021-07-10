@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionModification_SetMaxPlayers function. */
+/** Input parameters for the `EOS_SessionModification_SetMaxPlayers` function. */
 public struct SwiftEOS_SessionModification_SetMaxPlayersOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Max number of players to allow in the session */
@@ -36,7 +36,7 @@ public struct SwiftEOS_SessionModification_SetMaxPlayersOptions: SwiftEOSObject 
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST`.
     - Parameter MaxPlayers: Max number of players to allow in the session
     */
     public init(

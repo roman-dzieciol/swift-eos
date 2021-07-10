@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_CreateLobbySearch function. */
+/** Input parameters for the `EOS_Lobby_CreateLobbySearch` function. */
 public struct SwiftEOS_Lobby_CreateLobbySearchOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Maximum number of results allowed from the search */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Lobby_CreateLobbySearchOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST`.
     - Parameter MaxResults: Maximum number of results allowed from the search
     */
     public init(

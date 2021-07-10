@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_Presence_QueryPresence function */
+/** Data for the `EOS_Presence_QueryPresence` function */
 public struct SwiftEOS_Presence_QueryPresenceOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_QUERYPRESENCE_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_QUERYPRESENCE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local, logged-in user making the request */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Presence_QueryPresenceOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_QUERYPRESENCE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_QUERYPRESENCE_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged-in user making the request
     - Parameter TargetUserId: The Epic Online Services Account ID of the user whose presence data you want to retrieve; this value must be either the user making the request, or a friend of that user
     */

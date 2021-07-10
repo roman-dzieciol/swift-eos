@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_TransferDeviceIdAccount Function. */
+/** Input parameters for the `EOS_Connect_TransferDeviceIdAccount` Function. */
 public struct SwiftEOS_Connect_TransferDeviceIdAccountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_TRANSFERDEVICEIDACCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_TRANSFERDEVICEIDACCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -22,7 +22,7 @@ public struct SwiftEOS_Connect_TransferDeviceIdAccountOptions: SwiftEOSObject {
     public let LocalDeviceUserId: EOS_ProductUserId?
 
     /**
-    Specifies which EOS_ProductUserId (i.e. game progression) will be preserved in the operation.
+    Specifies which `EOS_ProductUserId` (i.e. game progression) will be preserved in the operation.
 
     After a successful transfer operation, subsequent logins using the same external account or
     the same local Device ID login will return user session for the ProductUserIdToPreserve.
@@ -61,13 +61,13 @@ public struct SwiftEOS_Connect_TransferDeviceIdAccountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_TRANSFERDEVICEIDACCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_TRANSFERDEVICEIDACCOUNT_API_LATEST`.
     - Parameter PrimaryLocalUserId: The primary product user id, currently logged in, that is already associated with a real external user account (such as Epic Games, PlayStation(TM)Network, Xbox Live and other).
     The account linking keychain that owns this product user will be preserved and receive
     the Device ID login credentials under it.
     - Parameter LocalDeviceUserId: The product user id, currently logged in, that has been originally created using the anonymous local Device ID login type,
     and whose Device ID login will be transferred to the keychain of the PrimaryLocalUserId.
-    - Parameter ProductUserIdToPreserve: Specifies which EOS_ProductUserId (i.e. game progression) will be preserved in the operation.
+    - Parameter ProductUserIdToPreserve: Specifies which `EOS_ProductUserId` (i.e. game progression) will be preserved in the operation.
     After a successful transfer operation, subsequent logins using the same external account or
     the same local Device ID login will return user session for the ProductUserIdToPreserve.
     Set to either PrimaryLocalUserId or LocalDeviceUserId.

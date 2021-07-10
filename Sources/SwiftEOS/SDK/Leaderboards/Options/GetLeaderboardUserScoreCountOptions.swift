@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_GetLeaderboardUserScoreCount function. */
+/** Input parameters for the `EOS_Leaderboards_GetLeaderboardUserScoreCount` function. */
 public struct SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of stat used to rank leaderboard. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions: SwiftEO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST`.
     - Parameter StatName: Name of stat used to rank leaderboard.
     */
     public init(

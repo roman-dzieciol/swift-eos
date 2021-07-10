@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_DeleteDeviceId function. */
+/** Input parameters for the `EOS_Connect_DeleteDeviceId` function. */
 public struct SwiftEOS_Connect_DeleteDeviceIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_DELETEDEVICEID_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_DELETEDEVICEID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Connect_DeleteDeviceIdOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_DELETEDEVICEID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_DELETEDEVICEID_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_DELETEDEVICEID_API_LATEST

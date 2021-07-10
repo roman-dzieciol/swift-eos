@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionSearch_SetMaxResults function. */
+/** Input parameters for the `EOS_SessionSearch_SetMaxResults` function. */
 public struct SwiftEOS_SessionSearch_SetMaxResultsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** Maximum number of search results returned with this query, may not exceed EOS_SESSIONS_MAX_SEARCH_RESULTS */
+    /** Maximum number of search results returned with this query, may not exceed `EOS_SESSIONS_MAX_SEARCH_RESULTS` */
     public let MaxSearchResults: Int
 
     /**
@@ -36,8 +36,8 @@ public struct SwiftEOS_SessionSearch_SetMaxResultsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST.
-    - Parameter MaxSearchResults: Maximum number of search results returned with this query, may not exceed EOS_SESSIONS_MAX_SEARCH_RESULTS
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST`.
+    - Parameter MaxSearchResults: Maximum number of search results returned with this query, may not exceed `EOS_SESSIONS_MAX_SEARCH_RESULTS`
     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST,

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is passed in with a call to EOS_RTCAudio_UpdateSending */
+/** This struct is passed in with a call to `EOS_RTCAudio_UpdateSending` */
 public struct SwiftEOS_RTCAudio_UpdateSendingOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_UPDATESENDING_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_UPDATESENDING_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user trying to request this operation. */
@@ -46,7 +46,7 @@ public struct SwiftEOS_RTCAudio_UpdateSendingOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_UPDATESENDING_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_UPDATESENDING_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter RoomName: The room this settings should be applied on.
     - Parameter AudioStatus: Muted or unmuted audio track status

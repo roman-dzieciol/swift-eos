@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_PlayerDataStorage_GetFileMetadataCount function */
+/** Input data for the `EOS_PlayerDataStorage_GetFileMetadataCount` function */
 public struct SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who is requesting file metadata */
@@ -36,7 +36,7 @@ public struct SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions: SwiftEOSOb
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who is requesting file metadata
     */
     public init(

@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about the data being sent and to which player */
 public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_SENDPACKET_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_SENDPACKET_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who is sending this packet */
@@ -75,7 +75,7 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_SENDPACKET_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_SENDPACKET_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who is sending this packet
     - Parameter RemoteUserId: The Product User ID of the Peer you would like to send a packet to
     - Parameter SocketId: The socket ID for data you are sending in this packet

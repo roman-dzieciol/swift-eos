@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single external user info.
 
-- Note: Release func: ``EOS_UserInfo_ExternalUserInfo_Release``
+- Note: Release func: ```EOS_UserInfo_ExternalUserInfo_Release```
 */
 public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_USERINFO_EXTERNALUSERINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The type of the external account */
@@ -50,7 +50,7 @@ public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_USERINFO_EXTERNALUSERINFO_API_LATEST`.
     - Parameter AccountType: The type of the external account
     - Parameter AccountId: The ID of the external account. Can be null
     - Parameter DisplayName: The display name of the external account. Can be null

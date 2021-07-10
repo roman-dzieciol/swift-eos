@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_GetProductUserExternalAccountCount function. */
+/** Input parameters for the `EOS_Connect_GetProductUserExternalAccountCount` function. */
 public struct SwiftEOS_Connect_GetProductUserExternalAccountCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID to look for when getting external account info count from the cache. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Connect_GetProductUserExternalAccountCountOptions: SwiftE
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST`.
     - Parameter TargetUserId: The Product User ID to look for when getting external account info count from the cache.
     */
     public init(

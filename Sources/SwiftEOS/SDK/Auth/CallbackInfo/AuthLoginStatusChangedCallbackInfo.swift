@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Auth_OnLoginStatusChangedCallback Function. */
+/** Output parameters for the `EOS_Auth_OnLoginStatusChangedCallback` Function. */
 public struct SwiftEOS_Auth_LoginStatusChangedCallbackInfo {
 
     /** The Epic Online Services Account ID of the local user whose status has changed */

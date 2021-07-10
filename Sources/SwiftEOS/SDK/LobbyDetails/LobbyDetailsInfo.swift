@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYDETAILS_INFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Lobby ID */
@@ -74,7 +74,7 @@ public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYDETAILS_INFO_API_LATEST`.
     - Parameter LobbyId: Lobby ID
     - Parameter LobbyOwnerUserId: The Product User ID of the current owner of the lobby
     - Parameter PermissionLevel: Permission level of the lobby

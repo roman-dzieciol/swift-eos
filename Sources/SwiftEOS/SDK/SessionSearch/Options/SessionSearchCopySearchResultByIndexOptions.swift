@@ -1,16 +1,16 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionSearch_CopySearchResultByIndex function. */
+/** Input parameters for the `EOS_SessionSearch_CopySearchResultByIndex` function. */
 public struct SwiftEOS_SessionSearch_CopySearchResultByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
     The index of the session to retrieve within the completed search query
 
-    - SeeAlso: EOS_SessionSearch_GetSearchResultCount
+    - SeeAlso: `EOS_SessionSearch_GetSearchResultCount`
     */
     public let SessionIndex: Int
 
@@ -40,9 +40,9 @@ public struct SwiftEOS_SessionSearch_CopySearchResultByIndexOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`.
     - Parameter SessionIndex: The index of the session to retrieve within the completed search query
-    - SeeAlso: EOS_SessionSearch_GetSearchResultCount
+    - SeeAlso: `EOS_SessionSearch_GetSearchResultCount`
     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,

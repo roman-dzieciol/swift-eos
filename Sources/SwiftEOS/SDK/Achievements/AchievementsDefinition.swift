@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single achievement definition with localized text.
 
-- Note: Release func: ``EOS_Achievements_Definition_Release``
+- Note: Release func: ```EOS_Achievements_Definition_Release```
 */
 public struct SwiftEOS_Achievements_Definition: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_DEFINITION_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_DEFINITION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Achievement ID that can be used to uniquely identify the achievement. */
@@ -98,7 +98,7 @@ public struct SwiftEOS_Achievements_Definition: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_DEFINITION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_DEFINITION_API_LATEST`.
     - Parameter AchievementId: Achievement ID that can be used to uniquely identify the achievement.
     - Parameter DisplayName: Text representing the Name to display in-game when achievement has been unlocked.
     - Parameter Description: Text representing the description to display in-game when achievement has been unlocked.

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_CopyEntitlementByNameAndIndex function. */
+/** Input parameters for the `EOS_Ecom_CopyEntitlementByNameAndIndex` function. */
 public struct SwiftEOS_Ecom_CopyEntitlementByNameAndIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_COPYENTITLEMENTBYNAMEANDINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_COPYENTITLEMENTBYNAMEANDINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose entitlement is being copied */
@@ -46,7 +46,7 @@ public struct SwiftEOS_Ecom_CopyEntitlementByNameAndIndexOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_COPYENTITLEMENTBYNAMEANDINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_COPYENTITLEMENTBYNAMEANDINDEX_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose entitlement is being copied
     - Parameter EntitlementName: Name of the entitlement to retrieve from the cache
     - Parameter Index: Index of the entitlement within the named set to retrieve from the cache.

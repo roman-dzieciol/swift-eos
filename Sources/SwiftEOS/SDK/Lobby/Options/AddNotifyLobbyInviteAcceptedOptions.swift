@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -27,7 +27,7 @@ public struct SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST

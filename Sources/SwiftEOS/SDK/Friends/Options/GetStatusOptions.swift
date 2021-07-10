@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Friends_GetStatus function. */
+/** Input parameters for the `EOS_Friends_GetStatus` function. */
 public struct SwiftEOS_Friends_GetStatusOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_FRIENDS_GETSTATUS_API_LATEST. */
+    /** API Version: Set this to `EOS_FRIENDS_GETSTATUS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local, logged in user */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Friends_GetStatusOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_FRIENDS_GETSTATUS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_FRIENDS_GETSTATUS_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged in user
     - Parameter TargetUserId: The Epic Online Services Account ID of the user whose friendship status with the local user is being queried
     */

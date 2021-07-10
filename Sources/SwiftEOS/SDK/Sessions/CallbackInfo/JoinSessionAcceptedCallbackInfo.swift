@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Sessions_OnJoinSessionAcceptedCallback function. */
+/** Output parameters for the `EOS_Sessions_OnJoinSessionAcceptedCallback` function. */
 public struct SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo {
 
     /** The Product User ID for the user who initialized the game */
@@ -9,8 +9,8 @@ public struct SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo {
 
     /**
     The UI Event associated with this Join Game event.
-    This should be used with EOS_Sessions_CopySessionHandleByUiEventId to get a handle to be used
-    when calling EOS_Sessions_JoinSession.
+    This should be used with `EOS_Sessions_CopySessionHandleByUiEventId` to get a handle to be used
+    when calling `EOS_Sessions_JoinSession`.
     */
     public let UiEventId: EOS_UI_EventId
 
@@ -38,8 +38,8 @@ public struct SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo {
 
     - Parameter LocalUserId: The Product User ID for the user who initialized the game
     - Parameter UiEventId: The UI Event associated with this Join Game event.
-    This should be used with EOS_Sessions_CopySessionHandleByUiEventId to get a handle to be used
-    when calling EOS_Sessions_JoinSession.
+    This should be used with `EOS_Sessions_CopySessionHandleByUiEventId` to get a handle to be used
+    when calling `EOS_Sessions_JoinSession`.
     */
     public init(
         LocalUserId: EOS_ProductUserId?,

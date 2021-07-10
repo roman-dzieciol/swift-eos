@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is used to represent an audio buffer received in callbacks from EOS_RTCAudio_AddNotifyAudioBeforeSend and EOS_RTCAudio_AddNotifyAudioBeforeRender. */
+/** This struct is used to represent an audio buffer received in callbacks from `EOS_RTCAudio_AddNotifyAudioBeforeSend` and `EOS_RTCAudio_AddNotifyAudioBeforeRender`. */
 public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -57,7 +57,7 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST`.
     - Parameter Frames: Pointer to the data with the interleaved audio frames in signed 16 bits format.
     - Note: ``EOS/_tagEOS_RTCAudio_AudioBuffer/FramesCount``:
     Number of frames available in the Frames buffer.

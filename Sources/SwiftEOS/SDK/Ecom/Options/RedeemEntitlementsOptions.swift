@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_RedeemEntitlements function. */
+/** Input parameters for the `EOS_Ecom_RedeemEntitlements` function. */
 public struct SwiftEOS_Ecom_RedeemEntitlementsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user who is redeeming Entitlements */
@@ -51,7 +51,7 @@ public struct SwiftEOS_Ecom_RedeemEntitlementsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user who is redeeming Entitlements
     - Parameter EntitlementIds: The array of Entitlements to redeem
     - Note: ``EOS/_tagEOS_Ecom_RedeemEntitlementsOptions/EntitlementIdCount``:

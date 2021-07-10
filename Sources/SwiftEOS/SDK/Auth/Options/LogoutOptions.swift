@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Auth_Logout function. */
+/** Input parameters for the `EOS_Auth_Logout` function. */
 public struct SwiftEOS_Auth_LogoutOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_AUTH_LOGOUT_API_LATEST. */
+    /** API Version: Set this to `EOS_AUTH_LOGOUT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user who is being logged out */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Auth_LogoutOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_AUTH_LOGOUT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_AUTH_LOGOUT_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user who is being logged out
     */
     public init(

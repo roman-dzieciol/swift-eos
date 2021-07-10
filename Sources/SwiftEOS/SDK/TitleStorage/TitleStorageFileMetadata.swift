@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Metadata information for a specific file
 
-- Note: Release func: ``EOS_TitleStorage_FileMetadata_Release``
+- Note: Release func: ```EOS_TitleStorage_FileMetadata_Release```
 */
 public struct SwiftEOS_TitleStorage_FileMetadata: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_TITLESTORAGE_FILEMETADATA_API_LATEST. */
+    /** API Version: Set this to `EOS_TITLESTORAGE_FILEMETADATA_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The total size of the file in bytes (Includes file header in addition to file contents). */
@@ -55,7 +55,7 @@ public struct SwiftEOS_TitleStorage_FileMetadata: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_TITLESTORAGE_FILEMETADATA_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_TITLESTORAGE_FILEMETADATA_API_LATEST`.
     - Parameter FileSizeBytes: The total size of the file in bytes (Includes file header in addition to file contents).
     - Parameter MD5Hash: The MD5 Hash of the entire file (including additional file header), in hex digits
     - Parameter Filename: The file's name

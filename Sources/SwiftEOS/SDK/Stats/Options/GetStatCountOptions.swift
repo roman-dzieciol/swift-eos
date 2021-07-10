@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Stats_GetStatsCount function. */
+/** Input parameters for the `EOS_Stats_GetStatsCount` function. */
 public struct SwiftEOS_Stats_GetStatCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_GETSTATSCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_STATS_GETSTATSCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user whose stats are being counted */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Stats_GetStatCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_STATS_GETSTATSCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_STATS_GETSTATSCOUNT_API_LATEST`.
     - Parameter TargetUserId: The Product User ID for the user whose stats are being counted
     */
     public init(

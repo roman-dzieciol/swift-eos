@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_TitleStorage_DeleteCache function */
+/** Input data for the `EOS_TitleStorage_DeleteCache` function */
 public struct SwiftEOS_PlayerDataStorage_DeleteCacheOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_DELETECACHEOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_DELETECACHEOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the local user who is deleting his cache */
@@ -36,7 +36,7 @@ public struct SwiftEOS_PlayerDataStorage_DeleteCacheOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_DELETECACHEOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_DELETECACHEOPTIONS_API_LATEST`.
     - Parameter LocalUserId: Product User ID of the local user who is deleting his cache
     */
     public init(

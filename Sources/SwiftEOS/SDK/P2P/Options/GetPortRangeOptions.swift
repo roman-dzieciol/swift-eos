@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about getting the configured port range settings. */
 public struct SwiftEOS_P2P_GetPortRangeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_GETPORTRANGE_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_GETPORTRANGE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_P2P_GetPortRangeOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_GETPORTRANGE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_GETPORTRANGE_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_P2P_GETPORTRANGE_API_LATEST

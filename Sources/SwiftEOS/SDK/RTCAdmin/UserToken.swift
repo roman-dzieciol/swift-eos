@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a collection of user tokens for joining a room.
 
-- Note: Release func: ``EOS_RTCAdmin_UserToken_Release``
+- Note: Release func: ```EOS_RTCAdmin_UserToken_Release```
 */
 public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCADMIN_USERTOKEN_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user who owns this user token. */
@@ -45,7 +45,7 @@ public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCADMIN_USERTOKEN_API_LATEST`.
     - Parameter ProductUserId: The Product User ID for the user who owns this user token.
     - Parameter Token: Access token to enable a user to join a room
     */

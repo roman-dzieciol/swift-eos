@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_CopyProductUserExternalAccountByAccountType function. */
+/** Input parameters for the `EOS_Connect_CopyProductUserExternalAccountByAccountType` function. */
 public struct SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTTYPE_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTTYPE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID to look for when copying external account info from the cache. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOption
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTTYPE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTTYPE_API_LATEST`.
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter AccountIdType: External auth service account type to look for when copying external account info from the cache.
     */

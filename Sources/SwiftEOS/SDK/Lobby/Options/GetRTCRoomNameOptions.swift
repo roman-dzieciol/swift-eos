@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_GetRTCRoomName function. */
+/** Input parameters for the `EOS_Lobby_GetRTCRoomName` function. */
 public struct SwiftEOS_Lobby_GetRTCRoomNameOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_GETRTCROOMNAME_API_LATEST */
+    /** API Version: Set this to `EOS_LOBBY_GETRTCROOMNAME_API_LATEST` */
     public let ApiVersion: Int32
 
     /** The ID of the lobby to get the RTC Room name for */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Lobby_GetRTCRoomNameOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_GETRTCROOMNAME_API_LATEST
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_GETRTCROOMNAME_API_LATEST`
     - Parameter LobbyId: The ID of the lobby to get the RTC Room name for
     - Parameter LocalUserId: The Product User ID of the local user in the lobby
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Friends_RejectInvite Function. */
+/** Output parameters for the `EOS_Friends_RejectInvite` Function. */
 public struct SwiftEOS_Friends_RejectInviteCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned if an invite was accepted, otherwise one of the error codes is returned. See eos_common.h */
+    /** Result code for the operation. `EOS_Success` is returned if an invite was accepted, otherwise one of the error codes is returned. See `eos_common`.h */
     public let ResultCode: EOS_EResult
 
     /** The Epic Online Services Account ID of the user who is rejecting the friends list invitation */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Friends_RejectInviteCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: Result code for the operation. EOS_Success is returned if an invite was accepted, otherwise one of the error codes is returned. See eos_common.h
+    - Parameter ResultCode: Result code for the operation. `EOS_Success` is returned if an invite was accepted, otherwise one of the error codes is returned. See `eos_common`.h
     - Parameter LocalUserId: The Epic Online Services Account ID of the user who is rejecting the friends list invitation
     - Parameter TargetUserId: The Epic Online Services Account ID of the user who sent the friends list invitation
     */

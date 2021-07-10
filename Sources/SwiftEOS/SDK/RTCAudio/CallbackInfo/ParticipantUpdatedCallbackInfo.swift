@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** This struct is passed in with a call to EOS_RTCAudio_AddNotifyParticipantUpdated registered event. */
+/** This struct is passed in with a call to `EOS_RTCAudio_AddNotifyParticipantUpdated` registered event. */
 public struct SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo {
 
     /** The Product User ID of the user who initiated this request. */

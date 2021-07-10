@@ -4,7 +4,7 @@ import EOSSDK
 /** EndPlayerSession. */
 public struct SwiftEOS_Metrics_EndPlayerSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_METRICS_ENDPLAYERSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_METRICS_ENDPLAYERSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Account ID type that is set in the union. */
@@ -39,7 +39,7 @@ public struct SwiftEOS_Metrics_EndPlayerSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_METRICS_ENDPLAYERSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_METRICS_ENDPLAYERSESSION_API_LATEST`.
     - Parameter AccountIdType: The Account ID type that is set in the union.
     */
     public init(

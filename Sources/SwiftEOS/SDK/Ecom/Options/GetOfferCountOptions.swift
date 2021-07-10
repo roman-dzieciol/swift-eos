@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_GetOfferCount function. */
+/** Input parameters for the `EOS_Ecom_GetOfferCount` function. */
 public struct SwiftEOS_Ecom_GetOfferCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_GETOFFERCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_GETOFFERCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose offers are being accessed */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Ecom_GetOfferCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_GETOFFERCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_GETOFFERCOUNT_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose offers are being accessed
     */
     public init(

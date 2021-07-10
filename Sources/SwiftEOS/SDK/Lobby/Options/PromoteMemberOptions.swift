@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_PromoteMember function. */
+/** Input parameters for the `EOS_Lobby_PromoteMember` function. */
 public struct SwiftEOS_Lobby_PromoteMemberOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_PROMOTEMEMBER_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_PROMOTEMEMBER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the lobby */
@@ -46,7 +46,7 @@ public struct SwiftEOS_Lobby_PromoteMemberOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_PROMOTEMEMBER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_PROMOTEMEMBER_API_LATEST`.
     - Parameter LobbyId: The ID of the lobby
     - Parameter LocalUserId: The Product User ID of the local user making the request
     - Parameter TargetUserId: The Product User ID of the member to promote to owner of the lobby

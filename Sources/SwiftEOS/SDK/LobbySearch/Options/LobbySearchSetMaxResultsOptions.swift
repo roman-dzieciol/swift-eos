@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbySearch_SetMaxResults function. */
+/** Input parameters for the `EOS_LobbySearch_SetMaxResults` function. */
 public struct SwiftEOS_LobbySearch_SetMaxResultsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Maximum number of search results to return from the query */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbySearch_SetMaxResultsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST`.
     - Parameter MaxResults: Maximum number of search results to return from the query
     */
     public init(

@@ -2,10 +2,10 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_BeginSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** Logged in user identifier from earlier call to EOS_Connect_Login family of functions */
+    /** Logged in user identifier from earlier call to `EOS_Connect_Login` family of functions */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Operating mode */
@@ -39,8 +39,8 @@ public struct SwiftEOS_AntiCheatClient_BeginSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST.
-    - Parameter LocalUserId: Logged in user identifier from earlier call to EOS_Connect_Login family of functions
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST`.
+    - Parameter LocalUserId: Logged in user identifier from earlier call to `EOS_Connect_Login` family of functions
     - Parameter Mode: Operating mode
     */
     public init(

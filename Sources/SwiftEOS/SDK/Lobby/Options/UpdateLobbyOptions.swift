@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_UpdateLobby function. */
+/** Input parameters for the `EOS_Lobby_UpdateLobby` function. */
 public struct SwiftEOS_Lobby_UpdateLobbyOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_UPDATELOBBY_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_UPDATELOBBY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Builder handle */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Lobby_UpdateLobbyOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_UPDATELOBBY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_UPDATELOBBY_API_LATEST`.
     - Parameter LobbyModificationHandle: Builder handle
     */
     public init(

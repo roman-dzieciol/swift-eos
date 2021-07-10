@@ -4,17 +4,17 @@ import EOSSDK
 /**
 Contains information about a single unlocked achievement.
 
-- Note: Release func: ``EOS_Achievements_UnlockedAchievement_Release``
+- Note: Release func: ```EOS_Achievements_UnlockedAchievement_Release```
 */
 public struct SwiftEOS_Achievements_UnlockedAchievement: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Achievement ID that can be used to uniquely identify the unlocked achievement. */
     public let AchievementId: String?
 
-    /** If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked. */
+    /** If not `EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED` then this is the POSIX timestamp that the achievement was unlocked. */
     public let UnlockTime: Int
 
     /**
@@ -45,9 +45,9 @@ public struct SwiftEOS_Achievements_UnlockedAchievement: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST`.
     - Parameter AchievementId: Achievement ID that can be used to uniquely identify the unlocked achievement.
-    - Parameter UnlockTime: If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked.
+    - Parameter UnlockTime: If not `EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED` then this is the POSIX timestamp that the achievement was unlocked.
     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST,

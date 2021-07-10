@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Internal details about a session, found on both active sessions and within search results
 
-- Note: Release func: ``EOS_SessionDetails_Info_Release``
+- Note: Release func: ```EOS_SessionDetails_Info_Release```
 */
 public struct SwiftEOS_SessionDetails_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_INFO_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_INFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Session ID assigned by the backend service */
@@ -55,7 +55,7 @@ public struct SwiftEOS_SessionDetails_Info: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_INFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_INFO_API_LATEST`.
     - Parameter SessionId: Session ID assigned by the backend service
     - Parameter HostAddress: IP address of this session as visible by the backend service
     - Parameter NumOpenPublicConnections: Number of remaining open spaces on the session (NumPublicConnections - RegisteredPlayers

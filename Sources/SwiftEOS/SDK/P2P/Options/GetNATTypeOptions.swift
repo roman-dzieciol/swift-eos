@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information needed to get perviously queried NAT-types */
 public struct SwiftEOS_P2P_GetNATTypeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_GETNATTYPE_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_GETNATTYPE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_P2P_GetNATTypeOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_GETNATTYPE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_GETNATTYPE_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_P2P_GETNATTYPE_API_LATEST

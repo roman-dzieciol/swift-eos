@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionModification_SetHostAddress function. */
+/** Input parameters for the `EOS_SessionModification_SetHostAddress` function. */
 public struct SwiftEOS_SessionModification_SetHostAddressOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** A string representing the host address for the session, its meaning is up to the application */
@@ -36,7 +36,7 @@ public struct SwiftEOS_SessionModification_SetHostAddressOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST`.
     - Parameter HostAddress: A string representing the host address for the session, its meaning is up to the application
     */
     public init(

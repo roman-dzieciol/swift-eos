@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyDetails_GetMemberByIndex function. */
+/** Input parameters for the `EOS_LobbyDetails_GetMemberByIndex` function. */
 public struct SwiftEOS_LobbyDetails_GetMemberByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Index of the member to retrieve */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbyDetails_GetMemberByIndexOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST`.
     - Parameter MemberIndex: Index of the member to retrieve
     */
     public init(

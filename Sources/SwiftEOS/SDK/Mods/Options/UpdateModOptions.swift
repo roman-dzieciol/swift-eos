@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Mods_UpdateMod Function. */
+/** Input parameters for the `EOS_Mods_UpdateMod` Function. */
 public struct SwiftEOS_Mods_UpdateModOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_MODS_UPDATEMOD_API_LATEST. */
+    /** API Version: Set this to `EOS_MODS_UPDATEMOD_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user for which the mod should be updated */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Mods_UpdateModOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_MODS_UPDATEMOD_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_MODS_UPDATEMOD_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be updated
     - Parameter Mod: The mod to update
     */

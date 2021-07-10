@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_UserInfo_QueryUserInfoByDisplayName Function. */
+/** Output parameters for the `EOS_UserInfo_QueryUserInfoByDisplayName` Function. */
 public struct SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** The Epic Online Services Account ID of the local player requesting the information */
@@ -40,7 +40,7 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
     - Parameter DisplayName: Display name of the player being queried. This memory is only valid during the scope of the callback.

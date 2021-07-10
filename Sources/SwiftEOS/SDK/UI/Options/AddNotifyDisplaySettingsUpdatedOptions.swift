@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_UI_AddNotifyDisplaySettingsUpdated function. */
+/** Input parameters for the `EOS_UI_AddNotifyDisplaySettingsUpdated` function. */
 public struct SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST. */
+    /** API Version: Set this to `EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST

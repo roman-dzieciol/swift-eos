@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** UTF-8 path to the .bin catalog file to add */
@@ -34,7 +34,7 @@ public struct SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions: Swift
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST`.
     - Parameter PathToBinFile: UTF-8 path to the .bin catalog file to add
     */
     public init(

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_PlayerDataStorage_DeleteFile function */
+/** Input data for the `EOS_PlayerDataStorage_DeleteFile` function */
 public struct SwiftEOS_PlayerDataStorage_DeleteFileOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who authorizes deletion of the file; must be the file's owner */
@@ -41,7 +41,7 @@ public struct SwiftEOS_PlayerDataStorage_DeleteFileOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who authorizes deletion of the file; must be the file's owner
     - Parameter Filename: The name of the file to delete
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_CopyLobbyDetailsHandleByUiEventId function. */
+/** Input parameters for the `EOS_Lobby_CopyLobbyDetailsHandleByUiEventId` function. */
 public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** UI Event associated with the lobby */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST`.
     - Parameter UiEventId: UI Event associated with the lobby
     */
     public init(

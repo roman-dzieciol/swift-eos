@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information for the auth expiration notification callback. */
 public struct SwiftEOS_Connect_AddNotifyAuthExpirationOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Connect_AddNotifyAuthExpirationOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST

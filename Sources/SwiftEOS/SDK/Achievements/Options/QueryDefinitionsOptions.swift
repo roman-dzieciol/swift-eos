@@ -1,16 +1,16 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_QueryDefinitions function. */
+/** Input parameters for the `EOS_Achievements_QueryDefinitions` function. */
 public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
     Product User ID for user who is querying definitions.
     The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.
-    The localized text returned can also be overridden using EOS_Platform_SetOverrideLocaleCode to override the locale.
+    The localized text returned can also be overridden using `EOS_Platform_SetOverrideLocaleCode` to override the locale.
     If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
     */
     public let LocalUserId: EOS_ProductUserId?
@@ -61,10 +61,10 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST`.
     - Parameter LocalUserId: Product User ID for user who is querying definitions.
     The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.
-    The localized text returned can also be overridden using EOS_Platform_SetOverrideLocaleCode to override the locale.
+    The localized text returned can also be overridden using `EOS_Platform_SetOverrideLocaleCode` to override the locale.
     If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
     - Parameter EpicUserId_DEPRECATED: Deprecated
     - Parameter HiddenAchievementIds_DEPRECATED: Deprecated

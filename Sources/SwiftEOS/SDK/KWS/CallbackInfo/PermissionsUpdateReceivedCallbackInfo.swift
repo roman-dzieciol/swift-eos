@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_KWS_OnPermissionsUpdateReceivedCallback Function. */
+/** Output parameters for the `EOS_KWS_OnPermissionsUpdateReceivedCallback` Function. */
 public struct SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo {
 
     /** Recipient Local user id */

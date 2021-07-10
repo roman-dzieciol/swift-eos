@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_CreateDeviceId function. */
+/** Input parameters for the `EOS_Connect_CreateDeviceId` function. */
 public struct SwiftEOS_Connect_CreateDeviceIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_CREATEDEVICEID_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_CREATEDEVICEID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -46,7 +46,7 @@ public struct SwiftEOS_Connect_CreateDeviceIdOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_CREATEDEVICEID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_CREATEDEVICEID_API_LATEST`.
     - Parameter DeviceModel: A freeform text description identifying the device type and model,
     which can be used in account linking management to allow the player
     and customer support to identify different devices linked to an EOS

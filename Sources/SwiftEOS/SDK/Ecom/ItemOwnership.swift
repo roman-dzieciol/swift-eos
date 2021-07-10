@@ -3,11 +3,11 @@ import EOSSDK
 
 /**
 Contains information about a single item ownership associated with an account. This structure is
-returned as part of the EOS_Ecom_QueryOwnershipCallbackInfo structure.
+returned as part of the `EOS_Ecom_QueryOwnershipCallbackInfo` structure.
 */
 public struct SwiftEOS_Ecom_ItemOwnership {
 
-    /** API Version: Set this to EOS_ECOM_ITEMOWNERSHIP_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_ITEMOWNERSHIP_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** ID of the catalog item */
@@ -29,7 +29,7 @@ public struct SwiftEOS_Ecom_ItemOwnership {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_ITEMOWNERSHIP_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_ITEMOWNERSHIP_API_LATEST`.
     - Parameter Id: ID of the catalog item
     - Parameter OwnershipStatus: Is this catalog item owned by the local user
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_JoinLobby function. */
+/** Input parameters for the `EOS_Lobby_JoinLobby` function. */
 public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_JOINLOBBY_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_JOINLOBBY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The handle of the lobby to join */
@@ -20,12 +20,12 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
-            * using EOS_PresenceModification_SetJoinInfo
-    - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
-    - SeeAlso: EOS_Lobby_CreateLobbyOptions
-    - SeeAlso: EOS_Lobby_JoinLobbyOptions
-    - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
-    - SeeAlso: EOS_Sessions_JoinSessionOptions
+            * using `EOS_PresenceModification_SetJoinInfo`
+    - SeeAlso: `EOS_PresenceModification_SetJoinInfoOptions`
+    - SeeAlso: `EOS_Lobby_CreateLobbyOptions`
+    - SeeAlso: `EOS_Lobby_JoinLobbyOptions`
+    - SeeAlso: `EOS_Sessions_CreateSessionModificationOptions`
+    - SeeAlso: `EOS_Sessions_JoinSessionOptions`
     */
     public let bPresenceEnabled: Bool
 
@@ -68,7 +68,7 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_JOINLOBBY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_JOINLOBBY_API_LATEST`.
     - Parameter LobbyDetailsHandle: The handle of the lobby to join
     - Parameter LocalUserId: The Product User ID of the local user joining the lobby
     - Parameter bPresenceEnabled: If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.
@@ -76,12 +76,12 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
-            * using EOS_PresenceModification_SetJoinInfo
-    - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
-    - SeeAlso: EOS_Lobby_CreateLobbyOptions
-    - SeeAlso: EOS_Lobby_JoinLobbyOptions
-    - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
-    - SeeAlso: EOS_Sessions_JoinSessionOptions
+            * using `EOS_PresenceModification_SetJoinInfo`
+    - SeeAlso: `EOS_PresenceModification_SetJoinInfoOptions`
+    - SeeAlso: `EOS_Lobby_CreateLobbyOptions`
+    - SeeAlso: `EOS_Lobby_JoinLobbyOptions`
+    - SeeAlso: `EOS_Sessions_CreateSessionModificationOptions`
+    - SeeAlso: `EOS_Sessions_JoinSessionOptions`
     - Parameter LocalRTCOptions: (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if
     your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if
     the specified lobby does not have an RTC Room enabled and will not cause errors.

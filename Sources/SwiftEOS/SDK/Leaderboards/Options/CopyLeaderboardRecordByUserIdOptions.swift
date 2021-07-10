@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_CopyLeaderboardRecordByUserId function. */
+/** Input parameters for the `EOS_Leaderboards_CopyLeaderboardRecordByUserId` function. */
 public struct SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Leaderboard data will be copied from the cache if it relates to the user matching this Product User ID */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions: SwiftE
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST`.
     - Parameter UserId: Leaderboard data will be copied from the cache if it relates to the user matching this Product User ID
     */
     public init(

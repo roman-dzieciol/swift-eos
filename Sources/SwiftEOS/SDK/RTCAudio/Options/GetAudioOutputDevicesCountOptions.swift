@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_RTCAudio_GetAudioOutputDevicesCount function. */
+/** Output parameters for the `EOS_RTCAudio_GetAudioOutputDevicesCount` function. */
 public struct SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICESCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICESCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICESCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICESCOUNT_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICESCOUNT_API_LATEST

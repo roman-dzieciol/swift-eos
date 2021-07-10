@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Auth_AddNotifyLoginStatusChanged Function. */
+/** Input parameters for the `EOS_Auth_AddNotifyLoginStatusChanged` Function. */
 public struct SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST. */
+    /** API Version: Set this to `EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST

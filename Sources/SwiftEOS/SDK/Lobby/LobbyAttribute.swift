@@ -5,11 +5,11 @@ import EOSSDK
 An attribute and its visibility setting stored with a lobby.
 Used to store both lobby and lobby member data
 
-- Note: Release func: ``EOS_Lobby_Attribute_Release``
+- Note: Release func: ```EOS_Lobby_Attribute_Release```
 */
 public struct SwiftEOS_Lobby_Attribute: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_ATTRIBUTE_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_ATTRIBUTE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Key/Value pair describing the attribute */
@@ -46,7 +46,7 @@ public struct SwiftEOS_Lobby_Attribute: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_ATTRIBUTE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_ATTRIBUTE_API_LATEST`.
     - Parameter Data: Key/Value pair describing the attribute
     - Parameter Visibility: Is this attribute public or private to the lobby and its members
     */

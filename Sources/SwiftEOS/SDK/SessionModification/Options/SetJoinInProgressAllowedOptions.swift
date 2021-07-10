@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionModification_SetJoinInProgressAllowed function. */
+/** Input parameters for the `EOS_SessionModification_SetJoinInProgressAllowed` function. */
 public struct SwiftEOS_SessionModification_SetJoinInProgressAllowedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Does the session allow join in progress */
@@ -36,7 +36,7 @@ public struct SwiftEOS_SessionModification_SetJoinInProgressAllowedOptions: Swif
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST`.
     - Parameter bAllowJoinInProgress: Does the session allow join in progress
     */
     public init(

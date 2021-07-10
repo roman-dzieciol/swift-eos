@@ -4,7 +4,7 @@ import EOSSDK
 /** Data containing the result information for an ingest stat request. */
 public struct SwiftEOS_Stats_IngestStatCompleteCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error. */
+    /** Result code for the operation. `EOS_Success` is returned for a successful request, other codes indicate an error. */
     public let ResultCode: EOS_EResult
 
     /** The Product User ID for the user requesting the ingest */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Stats_IngestStatCompleteCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error.
+    - Parameter ResultCode: Result code for the operation. `EOS_Success` is returned for a successful request, other codes indicate an error.
     - Parameter LocalUserId: The Product User ID for the user requesting the ingest
     - Parameter TargetUserId: The Product User ID for the user whose stat is being ingested
     */

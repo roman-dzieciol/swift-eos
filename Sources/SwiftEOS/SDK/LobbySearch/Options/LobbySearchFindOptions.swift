@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbySearch_Find function. */
+/** Input parameters for the `EOS_LobbySearch_Find` function. */
 public struct SwiftEOS_LobbySearch_FindOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYSEARCH_FIND_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYSEARCH_FIND_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user making the search request */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbySearch_FindOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYSEARCH_FIND_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYSEARCH_FIND_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user making the search request
     */
     public init(

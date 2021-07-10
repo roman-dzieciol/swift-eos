@@ -4,11 +4,11 @@ import EOSSDK
 /** Options for initializing login for IOS. */
 public struct SwiftEOS_IOS_Auth_CredentialsOptions {
 
-    /** API version of EOS_IOS_Auth_CredentialsOptions. */
+    /** API version of `EOS_IOS_Auth_CredentialsOptions`. */
     public let ApiVersion: Int32
 
     /**
-    When calling EOS_Auth_Login
+    When calling `EOS_Auth_Login`
     NSObject that implements the ASWebAuthenticationPresentationContextProviding protocol,
     typically this is added to the applications UIViewController.
     Required for iOS 13+ only, for earlier versions this value must be a nullptr.
@@ -20,8 +20,8 @@ public struct SwiftEOS_IOS_Auth_CredentialsOptions {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API version of EOS_IOS_Auth_CredentialsOptions.
-    - Parameter PresentationContextProviding: When calling EOS_Auth_Login
+    - Parameter ApiVersion: API version of `EOS_IOS_Auth_CredentialsOptions`.
+    - Parameter PresentationContextProviding: When calling `EOS_Auth_Login`
     NSObject that implements the ASWebAuthenticationPresentationContextProviding protocol,
     typically this is added to the applications UIViewController.
     Required for iOS 13+ only, for earlier versions this value must be a nullptr.

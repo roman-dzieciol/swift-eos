@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatServer_ProtectMessageOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user to whom the message will be sent */
@@ -53,7 +53,7 @@ public struct SwiftEOS_AntiCheatServer_ProtectMessageOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST`.
     - Parameter ClientHandle: Locally unique value describing the remote user to whom the message will be sent
     - Parameter Data: The data to encrypt
     - Note: ``EOS/_tagEOS_AntiCheatServer_ProtectMessageOptions/DataLengthBytes``:

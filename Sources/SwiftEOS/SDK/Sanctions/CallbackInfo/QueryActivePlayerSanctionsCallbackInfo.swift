@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Sanctions_QueryActivePlayerSanctions function. */
+/** Output parameters for the `EOS_Sanctions_QueryActivePlayerSanctions` function. */
 public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** Target Product User ID that was passed to EOS_Sanctions_QueryActivePlayerSanctions. */
+    /** Target Product User ID that was passed to `EOS_Sanctions_QueryActivePlayerSanctions`. */
     public let TargetUserId: EOS_ProductUserId?
 
     /** The Product User ID of the local user who initiated this request, if applicable. */
@@ -36,8 +36,8 @@ public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
-    - Parameter TargetUserId: Target Product User ID that was passed to EOS_Sanctions_QueryActivePlayerSanctions.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
+    - Parameter TargetUserId: Target Product User ID that was passed to `EOS_Sanctions_QueryActivePlayerSanctions`.
     - Parameter LocalUserId: The Product User ID of the local user who initiated this request, if applicable.
     */
     public init(

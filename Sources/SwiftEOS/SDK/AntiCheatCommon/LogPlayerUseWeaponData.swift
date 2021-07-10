@@ -17,7 +17,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
     /** Set to true if the player is using a melee attack, otherwise false */
     public let bIsMeleeAttack: Bool
 
-    /** Name of the weapon used. Will be truncated to EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_WEAPONNAME_MAX_LENGTH bytes if longer. */
+    /** Name of the weapon used. Will be truncated to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_WEAPONNAME_MAX_LENGTH` bytes if longer. */
     public let WeaponName: String?
 
     /** Initialize from SDK object */
@@ -59,7 +59,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
     - Parameter PlayerViewRotation: Player's view rotation as a quaternion
     - Parameter bIsPlayerViewZoomed: True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false
     - Parameter bIsMeleeAttack: Set to true if the player is using a melee attack, otherwise false
-    - Parameter WeaponName: Name of the weapon used. Will be truncated to EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_WEAPONNAME_MAX_LENGTH bytes if longer.
+    - Parameter WeaponName: Name of the weapon used. Will be truncated to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_WEAPONNAME_MAX_LENGTH` bytes if longer.
     */
     public init(
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,

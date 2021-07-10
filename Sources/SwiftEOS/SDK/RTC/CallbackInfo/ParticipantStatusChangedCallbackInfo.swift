@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** This struct is passed in with a call to EOS_RTC_AddNotifyParticipantStatusChanged registered event. */
+/** This struct is passed in with a call to `EOS_RTC_AddNotifyParticipantStatusChanged` registered event. */
 public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
 
     /** The Product User ID of the user who initiated this request. */
@@ -18,11 +18,11 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
 
     /**
     The participant metadata items.
-    This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    This is only set if ParticipantStatus is `EOS_RTCPS_Joined`
 
     - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
     The participant metadata items count.
-    This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    This is only set if ParticipantStatus is `EOS_RTCPS_Joined`
     */
     public let ParticipantMetadata: [SwiftEOS_RTC_ParticipantMetadata]?
 
@@ -57,10 +57,10 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
     - Parameter ParticipantId: The participant whose status changed.
     - Parameter ParticipantStatus: What status change occurred
     - Parameter ParticipantMetadata: The participant metadata items.
-    This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    This is only set if ParticipantStatus is `EOS_RTCPS_Joined`
     - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
     The participant metadata items count.
-    This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    This is only set if ParticipantStatus is `EOS_RTCPS_Joined`
     */
     public init(
         LocalUserId: EOS_ProductUserId?,

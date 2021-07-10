@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_Mods_CopyModInfo function. */
+/** Data for the `EOS_Mods_CopyModInfo` function. */
 public struct SwiftEOS_Mods_CopyModInfoOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_MODS_COPYMODINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_MODS_COPYMODINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user for which mods should be copied */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Mods_CopyModInfoOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_MODS_COPYMODINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_MODS_COPYMODINFO_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user for which mods should be copied
     - Parameter `Type`: Type of the enumerated mod to copy
     */

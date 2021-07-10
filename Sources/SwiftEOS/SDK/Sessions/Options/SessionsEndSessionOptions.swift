@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_EndSession function. */
+/** Input parameters for the `EOS_Sessions_EndSession` function. */
 public struct SwiftEOS_Sessions_EndSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_ENDSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_ENDSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the session to set as no long in progress */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sessions_EndSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_ENDSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_ENDSESSION_API_LATEST`.
     - Parameter SessionName: Name of the session to set as no long in progress
     */
     public init(

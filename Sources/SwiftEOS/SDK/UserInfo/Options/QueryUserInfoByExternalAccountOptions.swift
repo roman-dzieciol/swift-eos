@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_UserInfo_QueryUserInfoByExternalAccount function. */
+/** Input parameters for the `EOS_UserInfo_QueryUserInfoByExternalAccount` function. */
 public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local player requesting the information */
@@ -46,7 +46,7 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter ExternalAccountId: External account ID of the user whose information is being retrieved
     - Parameter AccountType: Account type of the external user info to query

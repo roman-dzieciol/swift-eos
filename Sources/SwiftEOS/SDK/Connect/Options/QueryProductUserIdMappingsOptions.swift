@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_QueryProductUserIdMappings function. */
+/** Input parameters for the `EOS_Connect_QueryProductUserIdMappings` function. */
 public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the existing, logged-in user who is querying account mappings. */
@@ -55,7 +55,7 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user who is querying account mappings.
     - Parameter AccountIdType_DEPRECATED: Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value.
     - Parameter ProductUserIds: An array of Product User IDs to query for the given external account representation.

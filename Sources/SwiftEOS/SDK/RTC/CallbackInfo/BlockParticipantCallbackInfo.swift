@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** This struct is passed in with a call to EOS_RTC_OnBlockParticipantCallback. */
+/** This struct is passed in with a call to `EOS_RTC_OnBlockParticipantCallback`. */
 public struct SwiftEOS_RTC_BlockParticipantCallbackInfo {
 
     /**
     This returns:
-    EOS_Success if the channel was successfully blocked.
-    EOS_UnexpectedError otherwise.
+    `EOS_Success` if the channel was successfully blocked.
+    `EOS_UnexpectedError` otherwise.
     */
     public let ResultCode: EOS_EResult
 
@@ -49,8 +49,8 @@ public struct SwiftEOS_RTC_BlockParticipantCallbackInfo {
     Memberwise initializer
 
     - Parameter ResultCode: This returns:
-    EOS_Success if the channel was successfully blocked.
-    EOS_UnexpectedError otherwise.
+    `EOS_Success` if the channel was successfully blocked.
+    `EOS_UnexpectedError` otherwise.
     - Parameter LocalUserId: The Product User ID of the user who initiated this request.
     - Parameter RoomName: The room the users should be blocked on.
     - Parameter ParticipantId: The Product User ID of the participant being blocked

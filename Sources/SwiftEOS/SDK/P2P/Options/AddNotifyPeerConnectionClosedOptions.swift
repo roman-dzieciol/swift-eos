@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about who would like notifications about closed connections, and for which socket. */
 public struct SwiftEOS_P2P_AddNotifyPeerConnectionClosedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_ADDNOTIFYPEERCONNECTIONCLOSED_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_ADDNOTIFYPEERCONNECTIONCLOSED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who would like notifications */
@@ -41,7 +41,7 @@ public struct SwiftEOS_P2P_AddNotifyPeerConnectionClosedOptions: SwiftEOSObject 
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_ADDNOTIFYPEERCONNECTIONCLOSED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_ADDNOTIFYPEERCONNECTIONCLOSED_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who would like notifications
     - Parameter SocketId: The optional socket ID to listen for to be closed. If NULL, this handler will be called for all closed connections
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_RTCAdmin_SetParticipantHardMute function. */
+/** Input parameters for the `EOS_RTCAdmin_SetParticipantHardMute` function. */
 public struct SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Room to kick the participant from */
@@ -46,7 +46,7 @@ public struct SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST`.
     - Parameter RoomName: Room to kick the participant from
     - Parameter TargetUserId: Product User ID of the participant to hard mute for every participant in the room.
     - Parameter bMute: Hard mute status (Mute on or off)

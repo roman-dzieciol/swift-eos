@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyDetails_CopyAttributeByKey function. */
+/** Input parameters for the `EOS_LobbyDetails_CopyAttributeByKey` function. */
 public struct SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the attribute */
@@ -36,7 +36,7 @@ public struct SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST`.
     - Parameter AttrKey: Name of the attribute
     */
     public init(

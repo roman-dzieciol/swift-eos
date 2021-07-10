@@ -4,7 +4,7 @@ import EOSSDK
 /** Contains information about a single stat to ingest. */
 public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_INGESTDATA_API_LATEST. */
+    /** API Version: Set this to `EOS_STATS_INGESTDATA_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The name of the stat to ingest. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_STATS_INGESTDATA_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_STATS_INGESTDATA_API_LATEST`.
     - Parameter StatName: The name of the stat to ingest.
     - Parameter IngestAmount: The amount to ingest the stat.
     */

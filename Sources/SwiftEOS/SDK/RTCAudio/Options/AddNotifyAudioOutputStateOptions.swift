@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is used to call EOS_RTCAudio_AddNotifyAudioOutputState. */
+/** This struct is used to call `EOS_RTCAudio_AddNotifyAudioOutputState`. */
 public struct SwiftEOS_RTCAudio_AddNotifyAudioOutputStateOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIOOUTPUTSTATE_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_ADDNOTIFYAUDIOOUTPUTSTATE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user trying to request this operation. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_RTCAudio_AddNotifyAudioOutputStateOptions: SwiftEOSObject
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIOOUTPUTSTATE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_ADDNOTIFYAUDIOOUTPUTSTATE_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter RoomName: The  room this event is registered on.
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_CopyProductUserExternalAccountByIndex function. */
+/** Input parameters for the `EOS_Connect_CopyProductUserExternalAccountByIndex` function. */
 public struct SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID to look for when copying external account info from the cache. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions: Swi
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST`.
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter ExternalAccountInfoIndex: Index of the external account info to retrieve from the cache.
     */

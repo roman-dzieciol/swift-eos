@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Auth_DeletePersistentAuth Function. */
+/** Output parameters for the `EOS_Auth_DeletePersistentAuth` Function. */
 public struct SwiftEOS_Auth_DeletePersistentAuthCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** Initialize from SDK object */
@@ -28,7 +28,7 @@ public struct SwiftEOS_Auth_DeletePersistentAuthCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     */
     public init(
         ResultCode: EOS_EResult

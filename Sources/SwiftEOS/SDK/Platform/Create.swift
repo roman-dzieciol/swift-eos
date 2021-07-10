@@ -6,7 +6,7 @@ Create a single Epic Online Services Platform Instance.
 
 The platform instance is used to gain access to the various Epic Online Services.
 
-This function returns an opaque handle to the platform instance, and that handle must be passed to EOS_Platform_Release to release the instance.
+This function returns an opaque handle to the platform instance, and that handle must be passed to `EOS_Platform_Release` to release the instance.
 
 - Returns: An opaque handle to the platform instance.
 */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_Presence_CreatePresenceModification function. */
+/** Data for the `EOS_Presence_CreatePresenceModification` function. */
 public struct SwiftEOS_Presence_CreatePresenceModificationOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user's Epic Online Services Account ID */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Presence_CreatePresenceModificationOptions: SwiftEOSObjec
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user's Epic Online Services Account ID
     */
     public init(

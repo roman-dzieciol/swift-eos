@@ -4,7 +4,7 @@ import EOSSDK
 /** Data containing the result information for a query join room token request. */
 public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** Room the request was made for. */
@@ -17,8 +17,8 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
     If the query completed successfully, this contains an identifier that should be used to retrieve the tokens.
     This identifier is only valid for the duration of the callback.
 
-    - SeeAlso: EOS_RTCAdmin_CopyUserTokenByIndex
-    - SeeAlso: EOS_RTCAdmin_CopyUserTokenByUserId
+    - SeeAlso: `EOS_RTCAdmin_CopyUserTokenByIndex`
+    - SeeAlso: `EOS_RTCAdmin_CopyUserTokenByUserId`
     */
     public let QueryId: Int
 
@@ -50,13 +50,13 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     - Parameter RoomName: Room the request was made for.
     - Parameter ClientBaseUrl: URL passed to backend to join room.
     - Parameter QueryId: If the query completed successfully, this contains an identifier that should be used to retrieve the tokens.
     This identifier is only valid for the duration of the callback.
-    - SeeAlso: EOS_RTCAdmin_CopyUserTokenByIndex
-    - SeeAlso: EOS_RTCAdmin_CopyUserTokenByUserId
+    - SeeAlso: `EOS_RTCAdmin_CopyUserTokenByIndex`
+    - SeeAlso: `EOS_RTCAdmin_CopyUserTokenByUserId`
     - Parameter TokenCount: How many token received as result of the query
     */
     public init(

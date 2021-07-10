@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Stats_CopyStatByIndex function. */
+/** Input parameters for the `EOS_Stats_CopyStatByIndex` function. */
 public struct SwiftEOS_Stats_CopyStatByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_COPYSTATBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_STATS_COPYSTATBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user who owns the stat */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Stats_CopyStatByIndexOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_STATS_COPYSTATBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_STATS_COPYSTATBYINDEX_API_LATEST`.
     - Parameter TargetUserId: The Product User ID of the user who owns the stat
     - Parameter StatIndex: Index of the stat to retrieve from the cache
     */

@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Optional client who this event is primarily associated with. If not applicable, use 0. */
@@ -52,7 +52,7 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST`.
     - Parameter ClientHandle: Optional client who this event is primarily associated with. If not applicable, use 0.
     - Parameter EventId: Unique event identifier previously configured in RegisterEvent
     - Parameter Params: Set of parameter types previously configured in RegisterEvent, and their values

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_CopyPlayerAchievementByAchievementId function. */
+/** Input parameters for the `EOS_Achievements_CopyPlayerAchievementByAchievementId` function. */
 public struct SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYACHIEVEMENTID_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYACHIEVEMENTID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user whose achievement is to be retrieved. */
@@ -46,7 +46,7 @@ public struct SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions:
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYACHIEVEMENTID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYACHIEVEMENTID_API_LATEST`.
     - Parameter TargetUserId: The Product User ID for the user whose achievement is to be retrieved.
     - Parameter AchievementId: Achievement ID to search for when retrieving player achievement data from the cache.
     - Parameter LocalUserId: The Product User ID for the user who is querying for a player achievement. For a Dedicated Server this should be null.

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is used to call EOS_RTCAudio_AddNotifyAudioDevicesChanged. */
+/** This struct is used to call `EOS_RTCAudio_AddNotifyAudioDevicesChanged`. */
 public struct SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST

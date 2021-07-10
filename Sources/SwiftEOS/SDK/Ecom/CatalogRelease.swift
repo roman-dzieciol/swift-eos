@@ -3,13 +3,13 @@ import EOSSDK
 
 /**
 Contains information about a single release within the catalog. Instances of this structure are
-created by EOS_Ecom_CopyItemReleaseByIndex. They must be passed to EOS_Ecom_CatalogRelease_Release.
+created by `EOS_Ecom_CopyItemReleaseByIndex`. They must be passed to `EOS_Ecom_CatalogRelease_Release`.
 
-- Note: Release func: ``EOS_Ecom_CatalogRelease_Release``
+- Note: Release func: ```EOS_Ecom_CatalogRelease_Release```
 */
 public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_CATALOGRELEASE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -71,7 +71,7 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_CATALOGRELEASE_API_LATEST`.
     - Parameter CompatibleAppIds: A list of compatible APP IDs
     - Note: ``EOS/_tagEOS_Ecom_CatalogRelease/CompatibleAppIdCount``:
     The number of APP IDs

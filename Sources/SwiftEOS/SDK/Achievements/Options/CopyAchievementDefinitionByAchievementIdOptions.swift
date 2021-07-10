@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_CopyAchievementDefinitionByAchievementId function. */
+/** Input parameters for the `EOS_Achievements_CopyAchievementDefinitionByAchievementId` function. */
 public struct SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_COPYDEFINITIONBYACHIEVEMENTID_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_COPYDEFINITIONBYACHIEVEMENTID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Achievement ID to look for when copying definition from the cache */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOpti
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_COPYDEFINITIONBYACHIEVEMENTID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_COPYDEFINITIONBYACHIEVEMENTID_API_LATEST`.
     - Parameter AchievementId: Achievement ID to look for when copying definition from the cache
     */
     public init(

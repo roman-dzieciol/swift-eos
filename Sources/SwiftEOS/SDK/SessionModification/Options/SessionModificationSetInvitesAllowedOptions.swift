@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_SessionModification_SetInvitesAllowed function. */
+/** Input parameters for the `EOS_SessionModification_SetInvitesAllowed` function. */
 public struct SwiftEOS_SessionModification_SetInvitesAllowedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** If true then invites can currently be sent for the associated session */
@@ -36,7 +36,7 @@ public struct SwiftEOS_SessionModification_SetInvitesAllowedOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST`.
     - Parameter bInvitesAllowed: If true then invites can currently be sent for the associated session
     */
     public init(

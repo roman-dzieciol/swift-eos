@@ -31,10 +31,10 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     Fetches a user auth token for an Epic Online Services Account ID.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user being queried
-    - SeeAlso: EOS_Auth_Token_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_NotFound if the auth token is not found or expired.
-    - Returns: The auth token for the given user, if it exists and is valid; use EOS_Auth_Token_Release when finished
+    - SeeAlso: `EOS_Auth_Token_Release`
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_NotFound` if the auth token is not found or expired.
+    - Returns: The auth token for the given user, if it exists and is valid; use `EOS_Auth_Token_Release` when finished
     */
     public func CopyUserAuthToken(
         LocalUserId: EOS_EpicAccountId
@@ -50,7 +50,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     this function should still be called with the access token before its deletion to make the best effort in attempting to also revoke it on the authentication server.
     If the function would fail on Console, the caller should still proceed as normal to delete the access token locally as intended.
 
-    - Parameter RefreshToken: A long-lived refresh token that is used with the EOS_LCT_PersistentAuth login type and is to be revoked from the authentication server. Only used on Console platforms.
+    - Parameter RefreshToken: A long-lived refresh token that is used with the `EOS_LCT_PersistentAuth` login type and is to be revoked from the authentication server. Only used on Console platforms.
     On Desktop and Mobile platforms, set this parameter to NULL.
     - Parameter CompletionDelegate: a callback that is fired when the deletion operation completes, either successfully or in error
     */
@@ -109,7 +109,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     This will commit this external account to the Epic Account and cannot be undone in the SDK.
 
     - Parameter LinkAccountFlags: Combination of the enumeration flags to specify how the account linking operation will be performed.
-    - Parameter ContinuanceToken: Continuance token received from a previous call to the EOS_Auth_Login API.
+    - Parameter ContinuanceToken: Continuance token received from a previous call to the `EOS_Auth_Login` API.
     A continuance token is received in the case when the external account used for login was not found to be linked
     against any existing Epic Account. In such case, the application needs to proceed with an account linking operation in which case
     the user is first asked to create a new account or login into their existing Epic Account, and then link their external account to it.
@@ -117,7 +117,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     In this flow, the external account is typically the currently logged in local platform user account.
     It can also be another external user account that the user is offered to login with.
     - Parameter LocalUserId: The Epic Online Services Account ID of the logged in local user whose Epic Account will be linked with the local Nintendo NSA ID Account. By default set to NULL.
-    This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.
+    This parameter is only used and required to be set when `EOS_ELinkAccountFlags`::`EOS_LA_NintendoNsaId` is specified.
     Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
     - Parameter CompletionDelegate: a callback that is fired when the link account operation completes, either successfully or in error
     */
@@ -141,7 +141,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     Login/Authenticate with user credentials.
 
     - Parameter Credentials: Credentials specified for a given login method
-    - Parameter ScopeFlags: Auth scope flags are permissions to request from the user while they are logging in. This is a bitwise-or union of EOS_EAuthScopeFlags flags defined above
+    - Parameter ScopeFlags: Auth scope flags are permissions to request from the user while they are logging in. This is a bitwise-or union of `EOS_EAuthScopeFlags` flags defined above
     - Parameter CompletionDelegate: a callback that is fired when the login operation completes, either successfully or in error
     */
     public func Login(
@@ -229,10 +229,10 @@ extension SwiftEOS_Auth_Actor {
     Fetches a user auth token for an Epic Online Services Account ID.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user being queried
-    - SeeAlso: EOS_Auth_Token_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
-              EOS_NotFound if the auth token is not found or expired.
-    - Returns: The auth token for the given user, if it exists and is valid; use EOS_Auth_Token_Release when finished
+    - SeeAlso: `EOS_Auth_Token_Release`
+    - Throws: `EOS_InvalidParameters` if you pass a null pointer for the out parameter
+              `EOS_NotFound` if the auth token is not found or expired.
+    - Returns: The auth token for the given user, if it exists and is valid; use `EOS_Auth_Token_Release` when finished
     */
     private func ____CopyUserAuthToken(
         _ LocalUserId: EOS_EpicAccountId

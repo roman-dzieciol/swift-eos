@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_GetPlayerAchievementCount function. */
+/** Input parameters for the `EOS_Achievements_GetPlayerAchievementCount` function. */
 public struct SwiftEOS_Achievements_GetPlayerAchievementCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user whose achievement count is being retrieved. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Achievements_GetPlayerAchievementCountOptions: SwiftEOSOb
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST`.
     - Parameter UserId: The Product User ID for the user whose achievement count is being retrieved.
     */
     public init(

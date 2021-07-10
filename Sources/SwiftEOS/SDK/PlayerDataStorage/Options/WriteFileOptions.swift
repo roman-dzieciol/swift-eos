@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input data for the EOS_PlayerDataStorage_WriteFile function */
+/** Input data for the `EOS_PlayerDataStorage_WriteFile` function */
 public struct SwiftEOS_PlayerDataStorage_WriteFileOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST. */
+    /** API Version: Set this to `EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who is writing the requested file to the cloud */
@@ -56,7 +56,7 @@ public struct SwiftEOS_PlayerDataStorage_WriteFileOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who is writing the requested file to the cloud
     - Parameter Filename: The name of the file to write; if this file already exists, the contents will be replaced if the write request completes successfully
     - Parameter ChunkLengthBytes: Requested maximum amount of data (in bytes) that can be written to the file per tick

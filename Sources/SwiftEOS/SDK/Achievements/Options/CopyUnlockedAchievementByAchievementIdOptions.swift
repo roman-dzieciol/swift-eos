@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_CopyUnlockedAchievementByAchievementId function. */
+/** Input parameters for the `EOS_Achievements_CopyUnlockedAchievementByAchievementId` function. */
 public struct SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user who is copying the unlocked achievement */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOption
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST`.
     - Parameter UserId: The Product User ID for the user who is copying the unlocked achievement
     - Parameter AchievementId: AchievementId of the unlocked achievement to retrieve from the cache
     */

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_RTCAudio_GetAudioOutputDeviceByIndex function. */
+/** Input parameters for the `EOS_RTCAudio_GetAudioOutputDeviceByIndex` function. */
 public struct SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICEBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICEBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Index of the device info to retrieve. */
@@ -36,7 +36,7 @@ public struct SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions: SwiftEOSObje
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICEBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICEBYINDEX_API_LATEST`.
     - Parameter DeviceInfoIndex: Index of the device info to retrieve.
     */
     public init(

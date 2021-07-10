@@ -4,7 +4,7 @@ import EOSSDK
 /** Contains information about lobby and lobby member data */
 public struct SwiftEOS_Lobby_AttributeData: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_ATTRIBUTEDATA_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_ATTRIBUTEDATA_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the lobby attribute */
@@ -44,7 +44,7 @@ public struct SwiftEOS_Lobby_AttributeData: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_ATTRIBUTEDATA_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_ATTRIBUTEDATA_API_LATEST`.
     - Parameter Key: Name of the lobby attribute
     - Parameter ValueType: Type of value stored in the union
     */

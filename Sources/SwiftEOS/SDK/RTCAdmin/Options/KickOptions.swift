@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_RTCAdmin_Kick function. */
+/** Input parameters for the `EOS_RTCAdmin_Kick` function. */
 public struct SwiftEOS_RTCAdmin_KickOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_KICK_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCADMIN_KICK_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Room name to kick the participant from */
@@ -41,7 +41,7 @@ public struct SwiftEOS_RTCAdmin_KickOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_KICK_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCADMIN_KICK_API_LATEST`.
     - Parameter RoomName: Room name to kick the participant from
     - Parameter TargetUserId: Product User ID of the participant to kick from the room
     */

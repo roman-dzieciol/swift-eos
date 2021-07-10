@@ -39,7 +39,7 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     Listen for changes to friends for a particular account.
 
     - Parameter FriendsUpdateHandler: The callback to be invoked when a change to any friend status changes.
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     public func AddNotifyFriendsUpdate(
         FriendsUpdateHandler: @escaping (SwiftEOS_Friends_OnFriendsUpdateInfo) -> Void
@@ -48,15 +48,15 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     }
 
     /**
-    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
+    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the `EOS_Friends_QueryFriends` API.
     The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.
-    To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
+    To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the `EOS_Friends_GetStatus` function.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friend list is being queried
-    - Parameter Index: Index into the friend list. This value must be between 0 and EOS_Friends_GetFriendsCount-1 inclusively.
+    - Parameter Index: Index into the friend list. This value must be between 0 and `EOS_Friends_GetFriendsCount`-1 inclusively.
     - Returns: the Epic Online Services Account ID of the friend. Note that if the index provided is out of bounds, the returned Epic Online Services Account ID will be a "null" account ID.
-    - SeeAlso: EOS_Friends_GetFriendsCount
-    - SeeAlso: EOS_Friends_GetStatus
+    - SeeAlso: `EOS_Friends_GetFriendsCount`
+    - SeeAlso: `EOS_Friends_GetStatus`
     */
     public func GetFriendAtIndex(
         LocalUserId: EOS_EpicAccountId?,
@@ -69,11 +69,11 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     }
 
     /**
-    Retrieves the number of friends on the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
+    Retrieves the number of friends on the friends list that has already been retrieved by the `EOS_Friends_QueryFriends` API.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friends should be counted
     - Returns: the number of friends on the list
-    - SeeAlso: EOS_Friends_GetFriendAtIndex
+    - SeeAlso: `EOS_Friends_GetFriendAtIndex`
     */
     public func GetFriendsCount(
         LocalUserId: EOS_EpicAccountId?
@@ -87,11 +87,11 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged in user
     - Parameter TargetUserId: The Epic Online Services Account ID of the user whose friendship status with the local user is being queried
     - Returns: A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship
-               EOS_FS_Friends is returned for two users that have confirmed friendship
-               EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
-               EOS_FS_InviteReceived is returned when the other user has sent a friend invitation to the local user
-               EOS_FS_NotFriends is returned when there is no known relationship
-    - SeeAlso: EOS_EFriendsStatus
+               `EOS_FS_Friends` is returned for two users that have confirmed friendship
+               `EOS_FS_InviteSent` is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
+               `EOS_FS_InviteReceived` is returned when the other user has sent a friend invitation to the local user
+               `EOS_FS_NotFriends` is returned when there is no known relationship
+    - SeeAlso: `EOS_EFriendsStatus`
     */
     public func GetStatus(
         LocalUserId: EOS_EpicAccountId?,
@@ -106,7 +106,7 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     /**
     Starts an asynchronous task that reads the user's friends list from the backend service, caching it for future use.
 
-    - Note: When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
+    - Note: When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see `EOS_PF_DISABLE_SOCIAL_OVERLAY`).
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged-in user whose friends list you want to retrieve
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
     */
@@ -192,7 +192,7 @@ extension SwiftEOS_Friends_Actor {
     Listen for changes to friends for a particular account.
 
     - Parameter FriendsUpdateHandler: The callback to be invoked when a change to any friend status changes.
-    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    - Returns: A valid notification ID if successfully bound, or `EOS_INVALID_NOTIFICATIONID` otherwise
     */
     private func ____AddNotifyFriendsUpdate(
         _ FriendsUpdateHandler: @escaping (SwiftEOS_Friends_OnFriendsUpdateInfo) -> Void
@@ -219,14 +219,14 @@ extension SwiftEOS_Friends_Actor {
     }
 
     /**
-    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
+    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the `EOS_Friends_QueryFriends` API.
     The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.
-    To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
+    To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the `EOS_Friends_GetStatus` function.
 
     - Parameter Options: structure containing the Epic Online Services Account ID of the owner of the friends list and the index into the list
     - Returns: the Epic Online Services Account ID of the friend. Note that if the index provided is out of bounds, the returned Epic Online Services Account ID will be a "null" account ID.
-    - SeeAlso: EOS_Friends_GetFriendsCount
-    - SeeAlso: EOS_Friends_GetStatus
+    - SeeAlso: `EOS_Friends_GetFriendsCount`
+    - SeeAlso: `EOS_Friends_GetStatus`
     */
     private func ____GetFriendAtIndex(
         _ Options: SwiftEOS_Friends_GetFriendAtIndexOptions
@@ -240,11 +240,11 @@ extension SwiftEOS_Friends_Actor {
     }
 
     /**
-    Retrieves the number of friends on the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
+    Retrieves the number of friends on the friends list that has already been retrieved by the `EOS_Friends_QueryFriends` API.
 
     - Parameter Options: structure containing the Epic Online Services Account ID of user who owns the friends list
     - Returns: the number of friends on the list
-    - SeeAlso: EOS_Friends_GetFriendAtIndex
+    - SeeAlso: `EOS_Friends_GetFriendAtIndex`
     */
     private func ____GetFriendsCount(
         _ Options: SwiftEOS_Friends_GetFriendsCountOptions
@@ -267,11 +267,11 @@ extension SwiftEOS_Friends_Actor {
 
     - Parameter Options: structure containing the Epic Online Services Account ID of the friend list to check and the account of the user to test friendship status
     - Returns: A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship
-               EOS_FS_Friends is returned for two users that have confirmed friendship
-               EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
-               EOS_FS_InviteReceived is returned when the other user has sent a friend invitation to the local user
-               EOS_FS_NotFriends is returned when there is no known relationship
-    - SeeAlso: EOS_EFriendsStatus
+               `EOS_FS_Friends` is returned for two users that have confirmed friendship
+               `EOS_FS_InviteSent` is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
+               `EOS_FS_InviteReceived` is returned when the other user has sent a friend invitation to the local user
+               `EOS_FS_NotFriends` is returned when there is no known relationship
+    - SeeAlso: `EOS_EFriendsStatus`
     */
     private func ____GetStatus(
         _ Options: SwiftEOS_Friends_GetStatusOptions
@@ -287,7 +287,7 @@ extension SwiftEOS_Friends_Actor {
     /**
     Starts an asynchronous task that reads the user's friends list from the backend service, caching it for future use.
 
-    - Note: When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
+    - Note: When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see `EOS_PF_DISABLE_SOCIAL_OVERLAY`).
     - Parameter Options: structure containing the account for which to retrieve the friends list
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
     */

@@ -3,15 +3,15 @@ import EOSSDK
 
 /**
 Contains information about a single offer within the catalog. Instances of this structure are
-created by EOS_Ecom_CopyOfferByIndex. They must be passed to EOS_Ecom_CatalogOffer_Release.
+created by `EOS_Ecom_CopyOfferByIndex`. They must be passed to `EOS_Ecom_CatalogOffer_Release`.
 Prices are stored in the lowest denomination for the associated currency.  If CurrencyCode is
 "USD" then a price of 299 represents "$2.99".
 
-- Note: Release func: ``EOS_Ecom_CatalogOffer_Release``
+- Note: Release func: ```EOS_Ecom_CatalogOffer_Release```
 */
 public struct SwiftEOS_Ecom_CatalogOffer: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_CATALOGOFFER_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_CATALOGOFFER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -37,8 +37,8 @@ public struct SwiftEOS_Ecom_CatalogOffer: SwiftEOSObject {
 
     /**
     Deprecated.
-    EOS_Ecom_CatalogOffer::TechnicalDetailsText has been deprecated.
-    EOS_Ecom_CatalogItem::TechnicalDetailsText is still valid.
+    `EOS_Ecom_CatalogOffer`::TechnicalDetailsText has been deprecated.
+    `EOS_Ecom_CatalogItem`::TechnicalDetailsText is still valid.
     */
     public let TechnicalDetailsText_DEPRECATED: String?
 
@@ -46,7 +46,7 @@ public struct SwiftEOS_Ecom_CatalogOffer: SwiftEOSObject {
     public let CurrencyCode: String?
 
     /**
-    If this value is EOS_Success then OriginalPrice, CurrentPrice, and DiscountPercentage contain valid data.
+    If this value is `EOS_Success` then OriginalPrice, CurrentPrice, and DiscountPercentage contain valid data.
     Otherwise this value represents the error that occurred on the price query.
     */
     public let PriceResult: EOS_EResult
@@ -141,7 +141,7 @@ public struct SwiftEOS_Ecom_CatalogOffer: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_CATALOGOFFER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_CATALOGOFFER_API_LATEST`.
     - Parameter ServerIndex: The index of this offer as it exists on the server.
     This is useful for understanding pagination data.
     - Parameter CatalogNamespace: Product namespace in which this offer exists
@@ -150,10 +150,10 @@ public struct SwiftEOS_Ecom_CatalogOffer: SwiftEOSObject {
     - Parameter DescriptionText: Localized UTF-8 description of this offer
     - Parameter LongDescriptionText: Localized UTF-8 long description of this offer
     - Parameter TechnicalDetailsText_DEPRECATED: Deprecated.
-    EOS_Ecom_CatalogOffer::TechnicalDetailsText has been deprecated.
-    EOS_Ecom_CatalogItem::TechnicalDetailsText is still valid.
+    `EOS_Ecom_CatalogOffer`::TechnicalDetailsText has been deprecated.
+    `EOS_Ecom_CatalogItem`::TechnicalDetailsText is still valid.
     - Parameter CurrencyCode: The Currency Code for this offer
-    - Parameter PriceResult: If this value is EOS_Success then OriginalPrice, CurrentPrice, and DiscountPercentage contain valid data.
+    - Parameter PriceResult: If this value is `EOS_Success` then OriginalPrice, CurrentPrice, and DiscountPercentage contain valid data.
     Otherwise this value represents the error that occurred on the price query.
     - Parameter OriginalPrice_DEPRECATED: The original price of this offer as a 32-bit number is deprecated.
     - Parameter CurrentPrice_DEPRECATED: The current price including discounts of this offer as a 32-bit number is deprecated..

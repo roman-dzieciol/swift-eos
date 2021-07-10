@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single player sanction.
 
-- Note: Release func: ``EOS_Sanctions_PlayerSanction_Release``
+- Note: Release func: ```EOS_Sanctions_PlayerSanction_Release```
 */
 public struct SwiftEOS_Sanctions_PlayerSanction: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SANCTIONS_PLAYERSANCTION_API_LATEST. */
+    /** API Version: Set this to `EOS_SANCTIONS_PLAYERSANCTION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The POSIX timestamp when the sanction was placed */
@@ -45,7 +45,7 @@ public struct SwiftEOS_Sanctions_PlayerSanction: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SANCTIONS_PLAYERSANCTION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SANCTIONS_PLAYERSANCTION_API_LATEST`.
     - Parameter TimePlaced: The POSIX timestamp when the sanction was placed
     - Parameter Action: The action associated with this sanction
     */

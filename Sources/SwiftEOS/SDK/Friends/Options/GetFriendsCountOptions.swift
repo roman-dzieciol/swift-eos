@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Friends_GetFriendsCount function. */
+/** Input parameters for the `EOS_Friends_GetFriendsCount` function. */
 public struct SwiftEOS_Friends_GetFriendsCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user whose friends should be counted */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Friends_GetFriendsCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friends should be counted
     */
     public init(

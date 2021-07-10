@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Sessions_CopySessionHandleByUiEventId function. */
+/** Input parameters for the `EOS_Sessions_CopySessionHandleByUiEventId` function. */
 public struct SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** UI Event associated with the session */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST`.
     - Parameter UiEventId: UI Event associated with the session
     */
     public init(

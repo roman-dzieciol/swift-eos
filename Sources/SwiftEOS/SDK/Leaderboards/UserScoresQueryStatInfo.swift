@@ -4,7 +4,7 @@ import EOSSDK
 /** Contains information about a single stat to query with user scores. */
 public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The name of the stat to query. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST`.
     - Parameter StatName: The name of the stat to query.
     - Parameter Aggregation: Aggregation used to sort the cached user scores.
     */

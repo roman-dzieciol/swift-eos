@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyDetails_CopyMemberAttributeByIndex function. */
+/** Input parameters for the `EOS_LobbyDetails_CopyMemberAttributeByIndex` function. */
 public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the lobby member */
@@ -41,7 +41,7 @@ public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions: SwiftEOSO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST`.
     - Parameter TargetUserId: The Product User ID of the lobby member
     - Parameter AttrIndex: The index of the attribute to copy
     */

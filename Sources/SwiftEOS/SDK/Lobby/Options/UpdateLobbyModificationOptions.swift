@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_UpdateLobbyModification function. */
+/** Input parameters for the `EOS_Lobby_UpdateLobbyModification` function. */
 public struct SwiftEOS_Lobby_UpdateLobbyModificationOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the local user making modifications. Must be the owner to modify lobby data, but any lobby member can modify their own attributes. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Lobby_UpdateLobbyModificationOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST`.
     - Parameter LocalUserId: The ID of the local user making modifications. Must be the owner to modify lobby data, but any lobby member can modify their own attributes.
     - Parameter LobbyId: The ID of the lobby
     */

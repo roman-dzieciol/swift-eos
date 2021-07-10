@@ -2,13 +2,13 @@ import Foundation
 import EOSSDK
 
 /**
-Input parameters for the EOS_SessionSearch_RemoveParameter function.
+Input parameters for the `EOS_SessionSearch_RemoveParameter` function.
 
 Removal requires both the key and its comparator in order to remove as the same key can be used in more than one operation
 */
 public struct SwiftEOS_SessionSearch_RemoveParameterOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Search parameter key to remove from the search */
@@ -45,7 +45,7 @@ public struct SwiftEOS_SessionSearch_RemoveParameterOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`.
     - Parameter Key: Search parameter key to remove from the search
     - Parameter ComparisonOp: Search comparison operation associated with the key to remove
     */

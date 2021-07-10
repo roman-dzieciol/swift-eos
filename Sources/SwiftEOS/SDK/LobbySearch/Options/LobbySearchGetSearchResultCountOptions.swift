@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbySearch_GetSearchResultCount function. */
+/** Input parameters for the `EOS_LobbySearch_GetSearchResultCount` function. */
 public struct SwiftEOS_LobbySearch_GetSearchResultCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_LobbySearch_GetSearchResultCountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST

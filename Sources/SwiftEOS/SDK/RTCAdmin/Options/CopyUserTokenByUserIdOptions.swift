@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_RTCAdmin_CopyUserTokenByUserId function. */
+/** Input parameters for the `EOS_RTCAdmin_CopyUserTokenByUserId` function. */
 public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST. */
+    /** API Version: Set this to `EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID for the user whose user token we're copying. */
@@ -13,7 +13,7 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
     /**
     Query identifier received as part of a previous query.
 
-    - SeeAlso: EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+    - SeeAlso: `EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo`
     */
     public let QueryId: Int
 
@@ -45,10 +45,10 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST`.
     - Parameter TargetUserId: The Product User ID for the user whose user token we're copying.
     - Parameter QueryId: Query identifier received as part of a previous query.
-    - SeeAlso: EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+    - SeeAlso: `EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo`
     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST,

@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST. */
+    /** API Version: Set this to `EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -27,7 +27,7 @@ public struct SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions: SwiftEOSOb
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST

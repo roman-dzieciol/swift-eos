@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatServer_BeginSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATSERVER_BEGINSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATSERVER_BEGINSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -55,7 +55,7 @@ public struct SwiftEOS_AntiCheatServer_BeginSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATSERVER_BEGINSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATSERVER_BEGINSESSION_API_LATEST`.
     - Parameter RegisterTimeoutSeconds: Time in seconds to allow newly registered clients to complete anti-cheat authentication.
     Recommended value: 60
     - Parameter ServerName: Optional name of this game server

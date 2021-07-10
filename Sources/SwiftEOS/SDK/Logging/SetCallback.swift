@@ -5,8 +5,8 @@ import EOSSDK
 Set the callback function to use for SDK log messages. Any previously set callback will no longer be called.
 
 - Parameter Callback: the function to call when the SDK logs messages
-- Throws: EOS_NotConfigured is returned if the SDK has not yet been initialized, or if it has been shut down
-- SeeAlso: EOS_Initialize
+- Throws: `EOS_NotConfigured` is returned if the SDK has not yet been initialized, or if it has been shut down
+- SeeAlso: `EOS_Initialize`
 */
 public func SwiftEOS_Logging_SetCallback(
     Callback: @escaping EOS_LogMessageFunc

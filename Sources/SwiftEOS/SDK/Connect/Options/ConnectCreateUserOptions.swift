@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_CreateUser function. */
+/** Input parameters for the `EOS_Connect_CreateUser` function. */
 public struct SwiftEOS_Connect_CreateUserOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_CREATEUSER_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_CREATEUSER_API_LATEST`. */
     public let ApiVersion: Int32
 
-    /** Continuance token from previous call to EOS_Connect_Login */
+    /** Continuance token from previous call to `EOS_Connect_Login` */
     public let ContinuanceToken: EOS_ContinuanceToken?
 
     /**
@@ -36,8 +36,8 @@ public struct SwiftEOS_Connect_CreateUserOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_CREATEUSER_API_LATEST.
-    - Parameter ContinuanceToken: Continuance token from previous call to EOS_Connect_Login
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_CREATEUSER_API_LATEST`.
+    - Parameter ContinuanceToken: Continuance token from previous call to `EOS_Connect_Login`
     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_CREATEUSER_API_LATEST,

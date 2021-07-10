@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_CopyLeaderboardUserScoreByIndex function. */
+/** Input parameters for the `EOS_Leaderboards_CopyLeaderboardUserScoreByIndex` function. */
 public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Index of the sorted leaderboard user score to retrieve from the cache. */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions: Swif
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST`.
     - Parameter LeaderboardUserScoreIndex: Index of the sorted leaderboard user score to retrieve from the cache.
     - Parameter StatName: Name of the stat used to rank the leaderboard.
     */

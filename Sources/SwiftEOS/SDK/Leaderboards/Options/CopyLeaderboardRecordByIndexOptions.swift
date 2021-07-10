@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Leaderboards_CopyLeaderboardRecordByIndex function. */
+/** Input parameters for the `EOS_Leaderboards_CopyLeaderboardRecordByIndex` function. */
 public struct SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYINDEX_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYINDEX_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Index of the leaderboard record to retrieve from the cache */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexOptions: SwiftEO
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYINDEX_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYINDEX_API_LATEST`.
     - Parameter LeaderboardRecordIndex: Index of the leaderboard record to retrieve from the cache
     */
     public init(

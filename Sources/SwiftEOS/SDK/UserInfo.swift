@@ -2,13 +2,13 @@ import Foundation
 import EOSSDK
 
 /**
-A structure that contains the user information. These structures are created by EOS_UserInfo_CopyUserInfo and must be passed to EOS_UserInfo_Release.
+A structure that contains the user information. These structures are created by `EOS_UserInfo_CopyUserInfo` and must be passed to `EOS_UserInfo_Release`.
 
-- Note: Release func: ``EOS_UserInfo_Release``
+- Note: Release func: ```EOS_UserInfo_Release```
 */
 public struct SwiftEOS_UserInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_USERINFO_COPYUSERINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_USERINFO_COPYUSERINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the user */
@@ -60,7 +60,7 @@ public struct SwiftEOS_UserInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_USERINFO_COPYUSERINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_USERINFO_COPYUSERINFO_API_LATEST`.
     - Parameter UserId: The Epic Online Services Account ID of the user
     - Parameter Country: The name of the owner's country. This may be null
     - Parameter DisplayName: The display name. This may be null

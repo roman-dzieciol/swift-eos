@@ -20,9 +20,9 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who is requesting file metadata
     - Parameter Index: The index to get data for
-    - Throws: - SeeAlso: EOS_PlayerDataStorage_GetFileMetadataCount
-    - SeeAlso: EOS_PlayerDataStorage_FileMetadata_Release
-    - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_PlayerDataStorage_FileMetadata_Release.
+    - Throws: - SeeAlso: `EOS_PlayerDataStorage_GetFileMetadataCount`
+    - SeeAlso: `EOS_PlayerDataStorage_FileMetadata_Release`
+    - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling `EOS_PlayerDataStorage_FileMetadata_Release`.
     */
     public func CopyFileMetadataAtIndex(
         LocalUserId: EOS_ProductUserId?,
@@ -40,7 +40,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who is requesting file metadata
     - Parameter Filename: The file's name to get data for
-    - Throws: - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_PlayerDataStorage_FileMetadata_Release.
+    - Throws: - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling `EOS_PlayerDataStorage_FileMetadata_Release`.
     */
     public func CopyFileMetadataByFilename(
         LocalUserId: EOS_ProductUserId?,
@@ -92,7 +92,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
 
     /**
     Copies the data of an existing file to a new filename. This action happens entirely on the server and will not upload the contents of the source destination file from the host. This
-    function paired with a subsequent EOS_PlayerDataStorage_DeleteFile can be used to rename a file. If successful, the destination file's metadata will be updated in our local cache.
+    function paired with a subsequent `EOS_PlayerDataStorage_DeleteFile` can be used to rename a file. If successful, the destination file's metadata will be updated in our local cache.
 
     - Parameter LocalUserId: The Product User ID of the local user who authorized the duplication of the requested file; must be the original file's owner
     - Parameter SourceFilename: The name of the existing file to duplicate
@@ -119,7 +119,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
     Get the count of files we have previously queried information for and files we have previously read from / written to.
 
     - Parameter LocalUserId: The Product User ID of the local user who is requesting file metadata
-    - Throws: - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataAtIndex
+    - Throws: - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataAtIndex`
     - Returns: If successful, the count of metadata currently cached
     */
     public func GetFileMetadataCount(
@@ -130,14 +130,14 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
 
     /**
     Query a specific file's metadata, such as file names, size, and a MD5 hash of the data. This is not required before a file may be opened, saved, copied, or deleted. Once a file has
-    been queried, its metadata will be available by the EOS_PlayerDataStorage_CopyFileMetadataAtIndex and EOS_PlayerDataStorage_CopyFileMetadataByFilename functions.
+    been queried, its metadata will be available by the `EOS_PlayerDataStorage_CopyFileMetadataAtIndex` and `EOS_PlayerDataStorage_CopyFileMetadataByFilename` functions.
 
     - Parameter LocalUserId: The Product User ID of the local user requesting file metadata
     - Parameter Filename: The name of the file being queried
     - Parameter CompletionCallback: This function is called when the query operation completes
-    - SeeAlso: EOS_PlayerDataStorage_GetFileMetadataCount
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataAtIndex
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataByFilename
+    - SeeAlso: `EOS_PlayerDataStorage_GetFileMetadataCount`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataAtIndex`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataByFilename`
     */
     public func QueryFile(
         LocalUserId: EOS_ProductUserId?,
@@ -159,9 +159,9 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who requested file metadata
     - Parameter CompletionCallback: This function is called when the query operation completes
-    - SeeAlso: EOS_PlayerDataStorage_GetFileMetadataCount
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataAtIndex
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataByFilename
+    - SeeAlso: `EOS_PlayerDataStorage_GetFileMetadataCount`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataAtIndex`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataByFilename`
     */
     public func QueryFileList(
         LocalUserId: EOS_ProductUserId?,
@@ -180,12 +180,12 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who is reading the requested file
     - Parameter Filename: The file name to read; this file must already exist
-    - Parameter ReadChunkLengthBytes: The maximum amount of data in bytes should be available to read in a single EOS_PlayerDataStorage_OnReadFileDataCallback call
+    - Parameter ReadChunkLengthBytes: The maximum amount of data in bytes should be available to read in a single `EOS_PlayerDataStorage_OnReadFileDataCallback` call
     - Parameter ReadFileDataCallback: Callback function that handles data as it comes in, and can stop the transfer early
     - Parameter FileTransferProgressCallback: Optional callback function to be informed of download progress, if the file is not already locally cached; if provided, this will be called at least once before completion if the request is successfully started
     - Parameter CompletionCallback: This function is called when the read operation completes
     - Returns: A valid Player Data Storage File Request handle if successful, or NULL otherwise. Data contained in the completion callback will have more detailed information about issues with the request in failure cases. This handle must be released when it is no longer needed
-    - SeeAlso: EOS_PlayerDataStorageFileTransferRequest_Release
+    - SeeAlso: `EOS_PlayerDataStorageFileTransferRequest_Release`
     */
     public func ReadFile(
         LocalUserId: EOS_ProductUserId?,
@@ -219,7 +219,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
     - Parameter FileTransferProgressCallback: Optional callback function to inform the application of upload progress; will be called at least once if set
     - Parameter CompletionCallback: This function is called when the write operation completes
     - Returns: A valid Player Data Storage File Request handle if successful, or NULL otherwise. Data contained in the completion callback will have more detailed information about issues with the request in failure cases. This handle must be released when it is no longer needed
-    - SeeAlso: EOS_PlayerDataStorageFileTransferRequest_Release
+    - SeeAlso: `EOS_PlayerDataStorageFileTransferRequest_Release`
     */
     public func WriteFile(
         LocalUserId: EOS_ProductUserId?,
@@ -249,9 +249,9 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     committed by calling SaveFile. The returned pointer must be released by the user when no longer needed.
 
     - Parameter CopyFileMetadataOptions: Object containing properties related to which user is requesting metadata, and at what index
-    - Throws: - SeeAlso: EOS_PlayerDataStorage_GetFileMetadataCount
-    - SeeAlso: EOS_PlayerDataStorage_FileMetadata_Release
-    - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_PlayerDataStorage_FileMetadata_Release.
+    - Throws: - SeeAlso: `EOS_PlayerDataStorage_GetFileMetadataCount`
+    - SeeAlso: `EOS_PlayerDataStorage_FileMetadata_Release`
+    - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling `EOS_PlayerDataStorage_FileMetadata_Release`.
     */
     private func ____CopyFileMetadataAtIndex(
         _ CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions?
@@ -276,7 +276,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     completed writing. The returned pointer must be released by the user when no longer needed.
 
     - Parameter CopyFileMetadataOptions: Object containing properties related to which user is requesting metadata, and for which filename
-    - Throws: - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_PlayerDataStorage_FileMetadata_Release.
+    - Throws: - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling `EOS_PlayerDataStorage_FileMetadata_Release`.
     */
     private func ____CopyFileMetadataByFilename(
         _ CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameOptions?
@@ -344,7 +344,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
 
     /**
     Copies the data of an existing file to a new filename. This action happens entirely on the server and will not upload the contents of the source destination file from the host. This
-    function paired with a subsequent EOS_PlayerDataStorage_DeleteFile can be used to rename a file. If successful, the destination file's metadata will be updated in our local cache.
+    function paired with a subsequent `EOS_PlayerDataStorage_DeleteFile` can be used to rename a file. If successful, the destination file's metadata will be updated in our local cache.
 
     - Parameter DuplicateOptions: Object containing properties related to which user is duplicating the file, and what the source and destination file names are
     - Parameter CompletionCallback: This function is called when the duplicate operation completes
@@ -369,7 +369,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     Get the count of files we have previously queried information for and files we have previously read from / written to.
 
     - Parameter GetFileMetadataCountOptions: Object containing properties related to which user is requesting the metadata count
-    - Throws: - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataAtIndex
+    - Throws: - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataAtIndex`
     - Returns: If successful, the count of metadata currently cached
     */
     private func ____GetFileMetadataCount(
@@ -388,13 +388,13 @@ extension SwiftEOS_PlayerDataStorage_Actor {
 
     /**
     Query a specific file's metadata, such as file names, size, and a MD5 hash of the data. This is not required before a file may be opened, saved, copied, or deleted. Once a file has
-    been queried, its metadata will be available by the EOS_PlayerDataStorage_CopyFileMetadataAtIndex and EOS_PlayerDataStorage_CopyFileMetadataByFilename functions.
+    been queried, its metadata will be available by the `EOS_PlayerDataStorage_CopyFileMetadataAtIndex` and `EOS_PlayerDataStorage_CopyFileMetadataByFilename` functions.
 
     - Parameter QueryFileOptions: Object containing properties related to which user is querying files, and what file is being queried
     - Parameter CompletionCallback: This function is called when the query operation completes
-    - SeeAlso: EOS_PlayerDataStorage_GetFileMetadataCount
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataAtIndex
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataByFilename
+    - SeeAlso: `EOS_PlayerDataStorage_GetFileMetadataCount`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataAtIndex`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataByFilename`
     */
     private func ____QueryFile(
         _ QueryFileOptions: SwiftEOS_PlayerDataStorage_QueryFileOptions?,
@@ -418,9 +418,9 @@ extension SwiftEOS_PlayerDataStorage_Actor {
 
     - Parameter QueryFileListOptions: Object containing properties related to which user is querying files
     - Parameter CompletionCallback: This function is called when the query operation completes
-    - SeeAlso: EOS_PlayerDataStorage_GetFileMetadataCount
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataAtIndex
-    - SeeAlso: EOS_PlayerDataStorage_CopyFileMetadataByFilename
+    - SeeAlso: `EOS_PlayerDataStorage_GetFileMetadataCount`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataAtIndex`
+    - SeeAlso: `EOS_PlayerDataStorage_CopyFileMetadataByFilename`
     */
     private func ____QueryFileList(
         _ QueryFileListOptions: SwiftEOS_PlayerDataStorage_QueryFileListOptions?,
@@ -446,7 +446,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     - Parameter ReadOptions: Object containing properties related to which user is opening the file, what the file's name is, and related mechanisms for copying the data
     - Parameter CompletionCallback: This function is called when the read operation completes
     - Returns: A valid Player Data Storage File Request handle if successful, or NULL otherwise. Data contained in the completion callback will have more detailed information about issues with the request in failure cases. This handle must be released when it is no longer needed
-    - SeeAlso: EOS_PlayerDataStorageFileTransferRequest_Release
+    - SeeAlso: `EOS_PlayerDataStorageFileTransferRequest_Release`
     */
     private func ____ReadFile(
         _ ReadOptions: SwiftEOS_PlayerDataStorage_ReadFileOptions?,
@@ -472,7 +472,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     - Parameter WriteOptions: Object containing properties related to which user is writing the file, what the file's name is, and related mechanisms for writing the data
     - Parameter CompletionCallback: This function is called when the write operation completes
     - Returns: A valid Player Data Storage File Request handle if successful, or NULL otherwise. Data contained in the completion callback will have more detailed information about issues with the request in failure cases. This handle must be released when it is no longer needed
-    - SeeAlso: EOS_PlayerDataStorageFileTransferRequest_Release
+    - SeeAlso: `EOS_PlayerDataStorageFileTransferRequest_Release`
     */
     private func ____WriteFile(
         _ WriteOptions: SwiftEOS_PlayerDataStorage_WriteFileOptions?,

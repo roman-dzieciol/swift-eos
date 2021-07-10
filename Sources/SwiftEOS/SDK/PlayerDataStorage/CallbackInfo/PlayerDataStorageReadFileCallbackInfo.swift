@@ -4,7 +4,7 @@ import EOSSDK
 /** Data containing the result of a read file request */
 public struct SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error */
+    /** Result code for the operation. `EOS_Success` is returned for a successful request, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
     /** The Product User ID of the local user who initiated this request */
@@ -36,7 +36,7 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error
+    - Parameter ResultCode: Result code for the operation. `EOS_Success` is returned for a successful request, other codes indicate an error
     - Parameter LocalUserId: The Product User ID of the local user who initiated this request
     - Parameter Filename: The filename of the file that has been finished reading
     */

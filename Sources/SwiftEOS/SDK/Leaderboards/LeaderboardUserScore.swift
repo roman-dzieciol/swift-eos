@@ -4,11 +4,11 @@ import EOSSDK
 /**
 Contains information about a single leaderboard user score
 
-- Note: Release func: ``EOS_Leaderboards_LeaderboardUserScore_Release``
+- Note: Release func: ```EOS_Leaderboards_LeaderboardUserScore_Release```
 */
 public struct SwiftEOS_Leaderboards_LeaderboardUserScore: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDUSERSCORE_API_LATEST. */
+    /** API Version: Set this to `EOS_LEADERBOARDS_LEADERBOARDUSERSCORE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user who got this score */
@@ -45,7 +45,7 @@ public struct SwiftEOS_Leaderboards_LeaderboardUserScore: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDUSERSCORE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LEADERBOARDS_LEADERBOARDUSERSCORE_API_LATEST`.
     - Parameter UserId: The Product User ID of the user who got this score
     - Parameter Score: Leaderboard score
     */

@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about who would like to accept a connection, and which connection. */
 public struct SwiftEOS_P2P_AcceptConnectionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_ACCEPTCONNECTION_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_ACCEPTCONNECTION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the local user who is accepting any pending or future connections with RemoteUserId */
@@ -46,7 +46,7 @@ public struct SwiftEOS_P2P_AcceptConnectionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_ACCEPTCONNECTION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_ACCEPTCONNECTION_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the local user who is accepting any pending or future connections with RemoteUserId
     - Parameter RemoteUserId: The Product User ID of the remote user who has either sent a connection request or is expected to in the future
     - Parameter SocketId: The socket ID of the connection to accept on

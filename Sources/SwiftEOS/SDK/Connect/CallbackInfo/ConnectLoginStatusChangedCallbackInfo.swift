@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Connect_OnLoginStatusChangedCallback function. */
+/** Output parameters for the `EOS_Connect_OnLoginStatusChangedCallback` function. */
 public struct SwiftEOS_Connect_LoginStatusChangedCallbackInfo {
 
     /** The Product User ID of the local player whose status has changed. */

@@ -13,7 +13,7 @@ private data, like a private match's Session ID are good candidates for a socket
 */
 public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_SOCKETID_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_SOCKETID_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** A name for the connection. Must be a NULL-terminated string of between 1-32 alpha-numeric characters (A-Z, a-z, 0-9) */
@@ -45,7 +45,7 @@ public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_SOCKETID_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_SOCKETID_API_LATEST`.
     - Parameter SocketName: A name for the connection. Must be a NULL-terminated string of between 1-32 alpha-numeric characters (A-Z, a-z, 0-9)
     */
     public init(

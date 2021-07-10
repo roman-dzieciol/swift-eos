@@ -4,7 +4,7 @@ import EOSSDK
 /** Options for initializing the Epic Online Services SDK. */
 public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_INITIALIZE_API_LATEST. */
+    /** API Version: Set this to `EOS_INITIALIZE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** A custom memory allocator, if desired. */
@@ -40,10 +40,10 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
 
     If provided then the structure will be located in
     <System
-    >/eos_
+    >/`eos_`
     <system
     >.h.
-    The structure will be named EOS_
+    The structure will be named `EOS_`
     <System
     >_InitializeOptions.
     */
@@ -92,7 +92,7 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_INITIALIZE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_INITIALIZE_API_LATEST`.
     - Parameter AllocateMemoryFunction: A custom memory allocator, if desired.
     - Parameter ReallocateMemoryFunction: A corresponding memory reallocator. If the AllocateMemoryFunction is nulled, then this field must also be nulled.
     - Parameter ReleaseMemoryFunction: A corresponding memory releaser. If the AllocateMemoryFunction is nulled, then this field must also be nulled.
@@ -106,10 +106,10 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
     - Parameter SystemInitializeOptions: This field is for system specific initialization if any.
     If provided then the structure will be located in
     <System
-    >/eos_
+    >/`eos_`
     <system
     >.h.
-    The structure will be named EOS_
+    The structure will be named `EOS_`
     <System
     >_InitializeOptions.
     - Parameter OverrideThreadAffinity: The thread affinity override values for each category of thread.

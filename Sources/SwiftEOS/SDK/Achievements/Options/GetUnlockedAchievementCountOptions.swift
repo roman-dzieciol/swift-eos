@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Achievements_GetUnlockedAchievementCount function. */
+/** Input parameters for the `EOS_Achievements_GetUnlockedAchievementCount` function. */
 public struct SwiftEOS_Achievements_GetUnlockedAchievementCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID for which to retrieve the unlocked achievement count */
@@ -36,7 +36,7 @@ public struct SwiftEOS_Achievements_GetUnlockedAchievementCountOptions: SwiftEOS
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST`.
     - Parameter UserId: Product User ID for which to retrieve the unlocked achievement count
     */
     public init(

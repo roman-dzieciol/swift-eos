@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbySearch_SetParameter function. */
+/** Input parameters for the `EOS_LobbySearch_SetParameter` function. */
 public struct SwiftEOS_LobbySearch_SetParameterOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYSEARCH_SETPARAMETER_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYSEARCH_SETPARAMETER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Search parameter describing a key and a value to compare */
@@ -41,7 +41,7 @@ public struct SwiftEOS_LobbySearch_SetParameterOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYSEARCH_SETPARAMETER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYSEARCH_SETPARAMETER_API_LATEST`.
     - Parameter Parameter: Search parameter describing a key and a value to compare
     - Parameter ComparisonOp: The type of comparison to make against the search parameter
     */

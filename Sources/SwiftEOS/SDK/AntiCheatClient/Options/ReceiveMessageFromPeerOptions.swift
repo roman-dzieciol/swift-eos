@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST. */
+    /** API Version: Set this to `EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The handle describing the sender of this message */
@@ -48,7 +48,7 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST`.
     - Parameter PeerHandle: The handle describing the sender of this message
     - Parameter Data: The data received
     - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:

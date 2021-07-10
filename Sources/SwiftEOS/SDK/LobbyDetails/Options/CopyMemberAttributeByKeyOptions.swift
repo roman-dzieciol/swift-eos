@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_LobbyDetails_CopyMemberAttributeByKey function. */
+/** Input parameters for the `EOS_LobbyDetails_CopyMemberAttributeByKey` function. */
 public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the lobby member */
@@ -41,7 +41,7 @@ public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions: SwiftEOSObj
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST`.
     - Parameter TargetUserId: The Product User ID of the lobby member
     - Parameter AttrKey: Name of the attribute to copy
     */

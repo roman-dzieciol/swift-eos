@@ -1,14 +1,14 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Auth_DeletePersistentAuth function. */
+/** Input parameters for the `EOS_Auth_DeletePersistentAuth` function. */
 public struct SwiftEOS_Auth_DeletePersistentAuthOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST. */
+    /** API Version: Set this to `EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
-    A long-lived refresh token that is used with the EOS_LCT_PersistentAuth login type and is to be revoked from the authentication server. Only used on Console platforms.
+    A long-lived refresh token that is used with the `EOS_LCT_PersistentAuth` login type and is to be revoked from the authentication server. Only used on Console platforms.
     On Desktop and Mobile platforms, set this parameter to NULL.
     */
     public let RefreshToken: String?
@@ -39,8 +39,8 @@ public struct SwiftEOS_Auth_DeletePersistentAuthOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST.
-    - Parameter RefreshToken: A long-lived refresh token that is used with the EOS_LCT_PersistentAuth login type and is to be revoked from the authentication server. Only used on Console platforms.
+    - Parameter ApiVersion: API Version: Set this to `EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST`.
+    - Parameter RefreshToken: A long-lived refresh token that is used with the `EOS_LCT_PersistentAuth` login type and is to be revoked from the authentication server. Only used on Console platforms.
     On Desktop and Mobile platforms, set this parameter to NULL.
     */
     public init(

@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Data for the EOS_PresenceModification_DeleteData function. */
+/** Data for the `EOS_PresenceModification_DeleteData` function. */
 public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST. */
+    /** API Version: Set this to `EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -44,7 +44,7 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST`.
     - Parameter Records: The pointer to start of a sequential array
     - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
     The count of data keys to delete

@@ -4,7 +4,7 @@ import EOSSDK
 /** BeginPlayerSession. */
 public struct SwiftEOS_Metrics_BeginPlayerSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_METRICS_BEGINPLAYERSESSION_API_LATEST. */
+    /** API Version: Set this to `EOS_METRICS_BEGINPLAYERSESSION_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Account ID type that is set in the union. */
@@ -71,7 +71,7 @@ public struct SwiftEOS_Metrics_BeginPlayerSessionOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_METRICS_BEGINPLAYERSESSION_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_METRICS_BEGINPLAYERSESSION_API_LATEST`.
     - Parameter AccountIdType: Account ID type that is set in the union.
     - Parameter DisplayName: The in-game display name for the user as UTF-8 string.
     - Parameter ControllerType: The user's game controller type.

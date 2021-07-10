@@ -4,7 +4,7 @@ import EOSSDK
 /** Common settings associated with a single session */
 public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
+    /** API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The main indexed parameter for this session, can be any string (ie "Region:GameMode") */
@@ -56,7 +56,7 @@ public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_SESSIONDETAILS_SETTINGS_API_LATEST`.
     - Parameter BucketId: The main indexed parameter for this session, can be any string (ie "Region:GameMode")
     - Parameter NumPublicConnections: Number of total players allowed in the session
     - Parameter bAllowJoinInProgress: Are players allowed to join the session while it is in the "in progress" state

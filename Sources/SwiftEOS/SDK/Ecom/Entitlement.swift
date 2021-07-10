@@ -3,14 +3,14 @@ import EOSSDK
 
 /**
 Contains information about a single entitlement associated with an account. Instances of this structure are
-created by EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, or EOS_Ecom_CopyEntitlementById.
-They must be passed to EOS_Ecom_Entitlement_Release.
+created by `EOS_Ecom_CopyEntitlementByIndex`, `EOS_Ecom_CopyEntitlementByNameAndIndex`, or `EOS_Ecom_CopyEntitlementById`.
+They must be passed to `EOS_Ecom_Entitlement_Release`.
 
-- Note: Release func: ``EOS_Ecom_Entitlement_Release``
+- Note: Release func: ```EOS_Ecom_Entitlement_Release```
 */
 public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_ENTITLEMENT_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_ENTITLEMENT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Name of the entitlement */
@@ -70,7 +70,7 @@ public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_ENTITLEMENT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_ENTITLEMENT_API_LATEST`.
     - Parameter EntitlementName: Name of the entitlement
     - Parameter EntitlementId: ID of the entitlement owned by an account
     - Parameter CatalogItemId: ID of the item associated with the offer which granted this entitlement

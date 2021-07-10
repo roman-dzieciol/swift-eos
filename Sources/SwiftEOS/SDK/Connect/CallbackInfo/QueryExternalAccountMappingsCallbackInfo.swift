@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Output parameters for the EOS_Connect_QueryExternalAccountMappings function. */
+/** Output parameters for the `EOS_Connect_QueryExternalAccountMappings` function. */
 public struct SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
+    /** The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** The Product User ID of the existing, logged-in user who made the request. */
@@ -32,7 +32,7 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter ResultCode: The `EOS_EResult` code for the operation. `EOS_Success` indicates that the operation succeeded; other codes indicate errors.
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user who made the request.
     */
     public init(

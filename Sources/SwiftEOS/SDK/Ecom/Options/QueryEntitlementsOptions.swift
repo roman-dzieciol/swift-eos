@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_QueryEntitlements function. */
+/** Input parameters for the `EOS_Ecom_QueryEntitlements` function. */
 public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_QUERYENTITLEMENTS_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_QUERYENTITLEMENTS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve */
@@ -14,7 +14,7 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
     An array of Entitlement Names that you want to check
 
     - Note: ``EOS/_tagEOS_Ecom_QueryEntitlementsOptions/EntitlementNameCount``:
-    The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account.
+    The number of Entitlement Names included in the array, up to `EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS`; use zero to request all Entitlements associated with the user's Epic Online Services account.
     */
     public let EntitlementNames: [String]?
 
@@ -56,11 +56,11 @@ public struct SwiftEOS_Ecom_QueryEntitlementsOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_QUERYENTITLEMENTS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_QUERYENTITLEMENTS_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve
     - Parameter EntitlementNames: An array of Entitlement Names that you want to check
     - Note: ``EOS/_tagEOS_Ecom_QueryEntitlementsOptions/EntitlementNameCount``:
-    The number of Entitlement Names included in the array, up to EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS; use zero to request all Entitlements associated with the user's Epic Online Services account.
+    The number of Entitlement Names included in the array, up to `EOS_ECOM_QUERYENTITLEMENTS_MAX_ENTITLEMENT_IDS`; use zero to request all Entitlements associated with the user's Epic Online Services account.
     - Parameter bIncludeRedeemed: If true, Entitlements that have been redeemed will be included in the results.
     */
     public init(

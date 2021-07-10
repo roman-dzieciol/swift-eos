@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Connect_UnlinkAccount Function. */
+/** Input parameters for the `EOS_Connect_UnlinkAccount` Function. */
 public struct SwiftEOS_Connect_UnlinkAccountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_UNLINKACCOUNT_API_LATEST. */
+    /** API Version: Set this to `EOS_CONNECT_UNLINKACCOUNT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -41,7 +41,7 @@ public struct SwiftEOS_Connect_UnlinkAccountOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_UNLINKACCOUNT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_CONNECT_UNLINKACCOUNT_API_LATEST`.
     - Parameter LocalUserId: Existing logged in product user that is subject for the unlinking operation.
     The external account that was used to login to the product user will be unlinked from the owning keychain.
     On a successful operation, the product user will be logged out as the external account used to authenticate the user was unlinked from the owning keychain.

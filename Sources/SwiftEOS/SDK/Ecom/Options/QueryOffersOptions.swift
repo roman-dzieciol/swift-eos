@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Ecom_QueryOffers function. */
+/** Input parameters for the `EOS_Ecom_QueryOffers` function. */
 public struct SwiftEOS_Ecom_QueryOffersOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_QUERYOFFERS_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_QUERYOFFERS_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local user whose offer to query */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Ecom_QueryOffersOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_QUERYOFFERS_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_QUERYOFFERS_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose offer to query
     - Parameter OverrideCatalogNamespace: If not provided then the SandboxId is used as the catalog namespace
     */

@@ -4,7 +4,7 @@ import EOSSDK
 /** Structure containing information about who would like to receive a packet, and how much data can be stored safely. */
 public struct SwiftEOS_P2P_ReceivePacketOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_P2P_RECEIVEPACKET_API_LATEST. */
+    /** API Version: Set this to `EOS_P2P_RECEIVEPACKET_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Product User ID of the user who is receiving the packet */
@@ -46,7 +46,7 @@ public struct SwiftEOS_P2P_ReceivePacketOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_P2P_RECEIVEPACKET_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_P2P_RECEIVEPACKET_API_LATEST`.
     - Parameter LocalUserId: The Product User ID of the user who is receiving the packet
     - Parameter MaxDataSizeBytes: The maximum amount of data in bytes that can be safely copied to OutData in the function call
     - Parameter RequestedChannel: An optional channel to request the data for. If NULL, we're retrieving the next packet on any channel

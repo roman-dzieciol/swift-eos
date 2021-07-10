@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Lobby_AddNotifyLobbyMemberStatusReceived function. */
+/** Input parameters for the `EOS_Lobby_AddNotifyLobbyMemberStatusReceived` function. */
 public struct SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_ADDNOTIFYLOBBYMEMBERSTATUSRECEIVED_API_LATEST. */
+    /** API Version: Set this to `EOS_LOBBY_ADDNOTIFYLOBBYMEMBERSTATUSRECEIVED_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -29,7 +29,7 @@ public struct SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions: SwiftEOS
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_ADDNOTIFYLOBBYMEMBERSTATUSRECEIVED_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_ADDNOTIFYLOBBYMEMBERSTATUSRECEIVED_API_LATEST`.
     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_ADDNOTIFYLOBBYMEMBERSTATUSRECEIVED_API_LATEST

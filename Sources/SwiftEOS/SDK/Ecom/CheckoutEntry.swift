@@ -3,11 +3,11 @@ import EOSSDK
 
 /**
 Contains information about a request to purchase a single offer.  This structure is set as part
-of the EOS_Ecom_CheckoutOptions structure.
+of the `EOS_Ecom_CheckoutOptions` structure.
 */
 public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST. */
+    /** API Version: Set this to `EOS_ECOM_CHECKOUTENTRY_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The ID of the offer to purchase */
@@ -39,7 +39,7 @@ public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_ECOM_CHECKOUTENTRY_API_LATEST`.
     - Parameter OfferId: The ID of the offer to purchase
     */
     public init(

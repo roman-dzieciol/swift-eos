@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** Input parameters for the EOS_Friends_AcceptInvite function. */
+/** Input parameters for the `EOS_Friends_AcceptInvite` function. */
 public struct SwiftEOS_Friends_AcceptInviteOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_FRIENDS_ACCEPTINVITE_API_LATEST. */
+    /** API Version: Set this to `EOS_FRIENDS_ACCEPTINVITE_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** The Epic Online Services Account ID of the local, logged-in user who is accepting the friends list invitation */
@@ -41,7 +41,7 @@ public struct SwiftEOS_Friends_AcceptInviteOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_FRIENDS_ACCEPTINVITE_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_FRIENDS_ACCEPTINVITE_API_LATEST`.
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged-in user who is accepting the friends list invitation
     - Parameter TargetUserId: The Epic Online Services Account ID of the user who sent the friends list invitation
     */

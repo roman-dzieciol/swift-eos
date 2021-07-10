@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_Lobby_IsRTCRoomConnectedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST */
+    /** API Version: Set this to `EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST` */
     public let ApiVersion: Int32
 
     /** The ID of the lobby to get the RTC Room name for */
@@ -39,7 +39,7 @@ public struct SwiftEOS_Lobby_IsRTCRoomConnectedOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST
+    - Parameter ApiVersion: API Version: Set this to `EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST`
     - Parameter LobbyId: The ID of the lobby to get the RTC Room name for
     - Parameter LocalUserId: The Product User ID of the local user in the lobby
     */

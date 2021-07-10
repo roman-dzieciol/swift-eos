@@ -2,15 +2,15 @@ import Foundation
 import EOSSDK
 
 /**
-Data for the EOS_Mods_CopyModInfo function.
+Data for the `EOS_Mods_CopyModInfo` function.
 
-- SeeAlso: EOS_Mods_CopyModInfo
-- SeeAlso: EOS_Mods_ModInfo_Release
-- Note: Release func: ``EOS_Mods_ModInfo_Release``
+- SeeAlso: `EOS_Mods_CopyModInfo`
+- SeeAlso: `EOS_Mods_ModInfo_Release`
+- Note: Release func: ```EOS_Mods_ModInfo_Release```
 */
 public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_MODS_MODINFO_API_LATEST. */
+    /** API Version: Set this to `EOS_MODS_MODINFO_API_LATEST`. */
     public let ApiVersion: Int32
 
     /**
@@ -55,7 +55,7 @@ public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_MODS_MODINFO_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_MODS_MODINFO_API_LATEST`.
     - Parameter Mods: The array of enumerated mods or NULL if no such type of mods were enumerated
     - Note: ``EOS/_tagEOS_Mods_ModInfo/ModsCount``:
     The count of enumerated mods

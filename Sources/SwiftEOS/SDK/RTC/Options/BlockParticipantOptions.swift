@@ -1,10 +1,10 @@
 import Foundation
 import EOSSDK
 
-/** This struct is passed in with a call to EOS_RTC_BlockParticipant. */
+/** This struct is passed in with a call to `EOS_RTC_BlockParticipant`. */
 public struct SwiftEOS_RTC_BlockParticipantOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTC_BLOCKPARTICIPANT_API_LATEST. */
+    /** API Version: Set this to `EOS_RTC_BLOCKPARTICIPANT_API_LATEST`. */
     public let ApiVersion: Int32
 
     /** Product User ID of the user trying to request this operation. */
@@ -51,7 +51,7 @@ public struct SwiftEOS_RTC_BlockParticipantOptions: SwiftEOSObject {
     /**
     Memberwise initializer
 
-    - Parameter ApiVersion: API Version: Set this to EOS_RTC_BLOCKPARTICIPANT_API_LATEST.
+    - Parameter ApiVersion: API Version: Set this to `EOS_RTC_BLOCKPARTICIPANT_API_LATEST`.
     - Parameter LocalUserId: Product User ID of the user trying to request this operation.
     - Parameter RoomName: The room the users should be blocked on.
     - Parameter ParticipantId: Product User ID of the participant to block

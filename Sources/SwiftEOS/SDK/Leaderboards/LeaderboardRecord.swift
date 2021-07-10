@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single leaderboard record
 
-- Note: Release func: ```EOS_Leaderboards_LeaderboardRecord_Release```
+- Note: Release func: ``EOS_Leaderboards_LeaderboardRecord_Release``
 */
 public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
 

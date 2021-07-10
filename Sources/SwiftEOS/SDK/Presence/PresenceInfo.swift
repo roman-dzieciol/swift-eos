@@ -6,7 +6,7 @@ All the known presence information for a specific user. This object must be rele
 
 - SeeAlso: `EOS_Presence_CopyPresence`
 - SeeAlso: `EOS_Presence_Info_Release`
-- Note: Release func: ```EOS_Presence_Info_Release```
+- Note: Release func: ``EOS_Presence_Info_Release``
 */
 public struct SwiftEOS_Presence_Info: SwiftEOSObject {
 

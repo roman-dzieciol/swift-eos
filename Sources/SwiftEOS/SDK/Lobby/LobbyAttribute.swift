@@ -5,7 +5,7 @@ import EOSSDK
 An attribute and its visibility setting stored with a lobby.
 Used to store both lobby and lobby member data
 
-- Note: Release func: ```EOS_Lobby_Attribute_Release```
+- Note: Release func: ``EOS_Lobby_Attribute_Release``
 */
 public struct SwiftEOS_Lobby_Attribute: SwiftEOSObject {
 

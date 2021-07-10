@@ -7,7 +7,7 @@ created by `EOS_Ecom_CopyOfferByIndex`. They must be passed to `EOS_Ecom_Catalog
 Prices are stored in the lowest denomination for the associated currency.  If CurrencyCode is
 "USD" then a price of 299 represents "$2.99".
 
-- Note: Release func: ```EOS_Ecom_CatalogOffer_Release```
+- Note: Release func: ``EOS_Ecom_CatalogOffer_Release``
 */
 public struct SwiftEOS_Ecom_CatalogOffer: SwiftEOSObject {
 

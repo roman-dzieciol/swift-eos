@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single player sanction.
 
-- Note: Release func: ```EOS_Sanctions_PlayerSanction_Release```
+- Note: Release func: ``EOS_Sanctions_PlayerSanction_Release``
 */
 public struct SwiftEOS_Sanctions_PlayerSanction: SwiftEOSObject {
 

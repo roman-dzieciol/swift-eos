@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single external user info.
 
-- Note: Release func: ```EOS_UserInfo_ExternalUserInfo_Release```
+- Note: Release func: ``EOS_UserInfo_ExternalUserInfo_Release``
 */
 public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
 

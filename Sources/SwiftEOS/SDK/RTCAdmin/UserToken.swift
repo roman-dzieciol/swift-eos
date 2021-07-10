@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a collection of user tokens for joining a room.
 
-- Note: Release func: ```EOS_RTCAdmin_UserToken_Release```
+- Note: Release func: ``EOS_RTCAdmin_UserToken_Release``
 */
 public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
 

@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about an external account info
 
-- Note: Release func: ```EOS_Connect_ExternalAccountInfo_Release```
+- Note: Release func: ``EOS_Connect_ExternalAccountInfo_Release``
 */
 public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
 

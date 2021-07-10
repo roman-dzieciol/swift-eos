@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single achievement definition with localized text.
 
-- Note: Release func: ```EOS_Achievements_DefinitionV2_Release```
+- Note: Release func: ``EOS_Achievements_DefinitionV2_Release``
 */
 public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
 
@@ -39,7 +39,7 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     public let bIsHidden: Bool
 
     /**
-    Array of ``EOS_Achievements_StatThresholds`` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
+    Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
 
     - Note: ``EOS/_tagEOS_Achievements_DefinitionV2/StatThresholdsCount``:
     The number of stat thresholds used to monitor progress towards this achievement.
@@ -103,7 +103,7 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     - Parameter UnlockedIconURL: URL of an icon to display for the achievement when it is unlocked. This may be null if there is no data configured in the dev portal.
     - Parameter LockedIconURL: URL of an icon to display for the achievement when it is locked or hidden. This may be null if there is no data configured in the dev portal.
     - Parameter bIsHidden: `EOS_TRUE` if the achievement is hidden; `EOS_FALSE` otherwise.
-    - Parameter StatThresholds: Array of ``EOS_Achievements_StatThresholds`` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
+    - Parameter StatThresholds: Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value.
     - Note: ``EOS/_tagEOS_Achievements_DefinitionV2/StatThresholdsCount``:
     The number of stat thresholds used to monitor progress towards this achievement.
     */

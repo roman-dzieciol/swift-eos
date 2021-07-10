@@ -4,7 +4,7 @@ import EOSSDK
 /**
 A structure that contains the user information. These structures are created by `EOS_UserInfo_CopyUserInfo` and must be passed to `EOS_UserInfo_Release`.
 
-- Note: Release func: ```EOS_UserInfo_Release```
+- Note: Release func: ``EOS_UserInfo_Release``
 */
 public struct SwiftEOS_UserInfo: SwiftEOSObject {
 

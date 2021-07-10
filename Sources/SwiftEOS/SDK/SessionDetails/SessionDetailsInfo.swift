@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Internal details about a session, found on both active sessions and within search results
 
-- Note: Release func: ```EOS_SessionDetails_Info_Release```
+- Note: Release func: ``EOS_SessionDetails_Info_Release``
 */
 public struct SwiftEOS_SessionDetails_Info: SwiftEOSObject {
 

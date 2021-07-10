@@ -6,7 +6,7 @@ Contains information about a single entitlement associated with an account. Inst
 created by `EOS_Ecom_CopyEntitlementByIndex`, `EOS_Ecom_CopyEntitlementByNameAndIndex`, or `EOS_Ecom_CopyEntitlementById`.
 They must be passed to `EOS_Ecom_Entitlement_Release`.
 
-- Note: Release func: ```EOS_Ecom_Entitlement_Release```
+- Note: Release func: ``EOS_Ecom_Entitlement_Release``
 */
 public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
 

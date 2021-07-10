@@ -6,7 +6,7 @@ Data for the `EOS_Mods_CopyModInfo` function.
 
 - SeeAlso: `EOS_Mods_CopyModInfo`
 - SeeAlso: `EOS_Mods_ModInfo_Release`
-- Note: Release func: ```EOS_Mods_ModInfo_Release```
+- Note: Release func: ``EOS_Mods_ModInfo_Release``
 */
 public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
 

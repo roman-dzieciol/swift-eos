@@ -4,8 +4,8 @@ import EOSSDK
 /**
 Contains information about a single leaderboard definition
 
-- Note: Release func: ```EOS_Leaderboards_Definition_Release```
-- Note: Release func: ```EOS_Leaderboards_LeaderboardDefinition_Release```
+- Note: Release func: ``EOS_Leaderboards_Definition_Release``
+- Note: Release func: ``EOS_Leaderboards_LeaderboardDefinition_Release``
 */
 public struct SwiftEOS_Leaderboards_Definition: SwiftEOSObject {
 

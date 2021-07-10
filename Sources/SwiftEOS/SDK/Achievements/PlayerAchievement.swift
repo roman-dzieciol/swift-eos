@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single player achievement.
 
-- Note: Release func: ```EOS_Achievements_PlayerAchievement_Release```
+- Note: Release func: ``EOS_Achievements_PlayerAchievement_Release``
 */
 public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
 

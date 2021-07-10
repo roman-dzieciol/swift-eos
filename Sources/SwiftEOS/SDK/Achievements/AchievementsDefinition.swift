@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single achievement definition with localized text.
 
-- Note: Release func: ```EOS_Achievements_Definition_Release```
+- Note: Release func: ``EOS_Achievements_Definition_Release``
 */
 public struct SwiftEOS_Achievements_Definition: SwiftEOSObject {
 

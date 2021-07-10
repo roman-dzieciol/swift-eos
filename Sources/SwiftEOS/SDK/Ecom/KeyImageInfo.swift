@@ -9,7 +9,7 @@ intended to be used to provide imagery for an in-game store.
 
 - SeeAlso: `EOS_Ecom_CopyItemImageInfoByIndex`
 - SeeAlso: `EOS_Ecom_KeyImageInfo_Release`
-- Note: Release func: ```EOS_Ecom_KeyImageInfo_Release```
+- Note: Release func: ``EOS_Ecom_KeyImageInfo_Release``
 */
 public struct SwiftEOS_Ecom_KeyImageInfo: SwiftEOSObject {
 

@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single player stat.
 
-- Note: Release func: ```EOS_Stats_Stat_Release```
+- Note: Release func: ``EOS_Stats_Stat_Release``
 */
 public struct SwiftEOS_Stats_Stat: SwiftEOSObject {
 

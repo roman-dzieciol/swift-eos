@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Top level details about an active session
 
-- Note: Release func: ```EOS_ActiveSession_Info_Release```
+- Note: Release func: ``EOS_ActiveSession_Info_Release``
 */
 public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
 

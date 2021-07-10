@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single unlocked achievement.
 
-- Note: Release func: ```EOS_Achievements_UnlockedAchievement_Release```
+- Note: Release func: ``EOS_Achievements_UnlockedAchievement_Release``
 */
 public struct SwiftEOS_Achievements_UnlockedAchievement: SwiftEOSObject {
 

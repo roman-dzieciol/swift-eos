@@ -4,7 +4,7 @@ import EOSSDK
 /**
 An attribution value and its advertisement setting stored with a session.
 
-- Note: Release func: ```EOS_SessionDetails_Attribute_Release```
+- Note: Release func: ``EOS_SessionDetails_Attribute_Release``
 */
 public struct SwiftEOS_SessionDetails_Attribute: SwiftEOSObject {
 

@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Contains information about a single leaderboard user score
 
-- Note: Release func: ```EOS_Leaderboards_LeaderboardUserScore_Release```
+- Note: Release func: ``EOS_Leaderboards_LeaderboardUserScore_Release``
 */
 public struct SwiftEOS_Leaderboards_LeaderboardUserScore: SwiftEOSObject {
 

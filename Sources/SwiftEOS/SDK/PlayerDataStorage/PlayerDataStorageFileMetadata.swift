@@ -4,7 +4,7 @@ import EOSSDK
 /**
 Metadata information for a specific file
 
-- Note: Release func: ```EOS_PlayerDataStorage_FileMetadata_Release```
+- Note: Release func: ``EOS_PlayerDataStorage_FileMetadata_Release``
 */
 public struct SwiftEOS_PlayerDataStorage_FileMetadata: SwiftEOSObject {
 

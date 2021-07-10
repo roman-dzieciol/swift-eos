@@ -4,20 +4,20 @@ import EOSSDK
 /** Input data for the CopyFileMetadataByFilename function */
 public struct SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST.  */
+    /** API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Product User ID of the local user who is requesting file metadata (optional)  */
+    /** Product User ID of the local user who is requesting file metadata (optional) */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The file's name to get data for  */
+    /** The file's name to get data for */
     public let Filename: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_TitleStorage_CopyFileMetadataByFilenameOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions: SwiftEOSO
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST. 
-     * - Parameter LocalUserId:  Product User ID of the local user who is requesting file metadata (optional) 
-     * - Parameter Filename:  The file's name to get data for 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST.
+    - Parameter LocalUserId: Product User ID of the local user who is requesting file metadata (optional)
+    - Parameter Filename: The file's name to get data for
+    */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

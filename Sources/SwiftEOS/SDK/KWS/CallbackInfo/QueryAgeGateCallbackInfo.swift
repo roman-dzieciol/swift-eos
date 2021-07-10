@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_KWS_QueryAgeGate Function. These parameters are received through the callback provided to EOS_KWS_QueryAgeGate */
 public struct SwiftEOS_KWS_QueryAgeGateCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** Country code determined for this request based on the local client's ip address that the backend resolves  */
+    /** Country code determined for this request based on the local client's ip address that the backend resolves */
     public let CountryCode: String?
 
-    /** Age of consent in the given country  */
+    /** Age of consent in the given country */
     public let AgeOfConsent: Int
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_KWS_QueryAgeGateCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter CountryCode:  Country code determined for this request based on the local client's ip address that the backend resolves 
-     * - Parameter AgeOfConsent:  Age of consent in the given country 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter CountryCode: Country code determined for this request based on the local client's ip address that the backend resolves
+    - Parameter AgeOfConsent: Age of consent in the given country
+    */
     public init(
         ResultCode: EOS_EResult,
         CountryCode: String?,

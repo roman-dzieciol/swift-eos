@@ -4,13 +4,13 @@ import EOSSDK
 /** Structure containing information about a query file list request */
 public struct SwiftEOS_TitleStorage_QueryFileListCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** Product User ID of the local user who initiated this request (optional, will only be present in case it was provided during operation start)  */
+    /** Product User ID of the local user who initiated this request (optional, will only be present in case it was provided during operation start) */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** A count of files that were found, if successful  */
+    /** A count of files that were found, if successful */
     public let FileCount: Int
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_TitleStorage_QueryFileListCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error 
-     * - Parameter LocalUserId:  Product User ID of the local user who initiated this request (optional, will only be present in case it was provided during operation start) 
-     * - Parameter FileCount:  A count of files that were found, if successful 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error
+    - Parameter LocalUserId: Product User ID of the local user who initiated this request (optional, will only be present in case it was provided during operation start)
+    - Parameter FileCount: A count of files that were found, if successful
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

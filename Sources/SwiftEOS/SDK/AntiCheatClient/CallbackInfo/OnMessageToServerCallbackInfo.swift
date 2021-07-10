@@ -5,11 +5,11 @@ import EOSSDK
 public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
 
     /**
-     * The message data that must be sent to the server 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo/MessageDataSizeBytes``:
-     * The size in bytes of MessageData 
-     */
+    The message data that must be sent to the server
+
+    - Note: ``EOS/_tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo/MessageDataSizeBytes``:
+    The size in bytes of MessageData
+    */
     public let MessageData: [UInt8]?
 
     /** Initialize from SDK object */
@@ -34,12 +34,12 @@ public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter MessageData:  The message data that must be sent to the server 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo/MessageDataSizeBytes``:
-     * The size in bytes of MessageData 
-     */
+    Memberwise initializer
+
+    - Parameter MessageData: The message data that must be sent to the server
+    - Note: ``EOS/_tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo/MessageDataSizeBytes``:
+    The size in bytes of MessageData
+    */
     public init(
         MessageData: [UInt8]?
     ) {

@@ -4,19 +4,19 @@ import EOSSDK
 /** This struct is passed in with a call to EOS_RTCAudio_AddNotifyParticipantUpdated registered event. */
 public struct SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo {
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room associated with this event.  */
+    /** The room associated with this event. */
     public let RoomName: String?
 
-    /** The participant updated.  */
+    /** The participant updated. */
     public let ParticipantId: EOS_ProductUserId?
 
-    /** The participant speaking / non-speaking status.  */
+    /** The participant speaking / non-speaking status. */
     public let bSpeaking: Bool
 
-    /** The participant audio status (enabled, disabled).  */
+    /** The participant audio status (enabled, disabled). */
     public let AudioStatus: EOS_ERTCAudioStatus
 
     /** Initialize from SDK object */
@@ -42,13 +42,14 @@ public struct SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room associated with this event. 
-     * - Parameter ParticipantId:  The participant updated. 
-     * - Parameter bSpeaking:  The participant speaking / non-speaking status. 
-     * - Parameter AudioStatus:  The participant audio status (enabled, disabled). 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room associated with this event.
+    - Parameter ParticipantId: The participant updated.
+    - Parameter bSpeaking: The participant speaking / non-speaking status.
+    - Parameter AudioStatus: The participant audio status (enabled, disabled).
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

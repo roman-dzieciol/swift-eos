@@ -2,34 +2,33 @@ import Foundation
 import EOSSDK
 
 /**
- * Data for the EOS_Mods_CopyModInfo function.
- * 
- * - SeeAlso:  EOS_Mods_CopyModInfo
- * - SeeAlso:  EOS_Mods_ModInfo_Release
- * 
- * - see: release func: EOS_Mods_ModInfo_Release
- */
+Data for the EOS_Mods_CopyModInfo function.
+
+- SeeAlso: EOS_Mods_CopyModInfo
+- SeeAlso: EOS_Mods_ModInfo_Release
+- Note: Release func: ``EOS_Mods_ModInfo_Release``
+*/
 public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_MODS_MODINFO_API_LATEST.  */
+    /** API Version: Set this to EOS_MODS_MODINFO_API_LATEST. */
     public let ApiVersion: Int32
 
     /**
-     * The array of enumerated mods or NULL if no such type of mods were enumerated 
-     * 
-     * - Note: ``EOS/_tagEOS_Mods_ModInfo/ModsCount``:
-     * The count of enumerated mods 
-     */
+    The array of enumerated mods or NULL if no such type of mods were enumerated
+
+    - Note: ``EOS/_tagEOS_Mods_ModInfo/ModsCount``:
+    The count of enumerated mods
+    */
     public let Mods: [SwiftEOS_Mod_Identifier]?
 
-    /** Type of the mods  */
+    /** Type of the mods */
     public let `Type`: EOS_EModEnumerationType
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Mods_ModInfo {
@@ -54,14 +53,14 @@ public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_MODS_MODINFO_API_LATEST. 
-     * - Parameter Mods:  The array of enumerated mods or NULL if no such type of mods were enumerated 
-     * 
-     * - Note: ``EOS/_tagEOS_Mods_ModInfo/ModsCount``:
-     * The count of enumerated mods 
-     * - Parameter `Type`:  Type of the mods 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_MODS_MODINFO_API_LATEST.
+    - Parameter Mods: The array of enumerated mods or NULL if no such type of mods were enumerated
+    - Note: ``EOS/_tagEOS_Mods_ModInfo/ModsCount``:
+    The count of enumerated mods
+    - Parameter `Type`: Type of the mods
+    */
     public init(
         ApiVersion: Int32 = EOS_MODS_MODINFO_API_LATEST,
         Mods: [SwiftEOS_Mod_Identifier]?,

@@ -4,13 +4,13 @@ import EOSSDK
 /** Data containing the result information for unlocking achievements request. */
 public struct SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let UserId: EOS_ProductUserId?
 
-    /** The number of achievements that the operation unlocked.  */
+    /** The number of achievements that the operation unlocked. */
     public let AchievementsCount: Int
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter UserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter AchievementsCount:  The number of achievements that the operation unlocked. 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter UserId: The Product User ID of the user who initiated this request.
+    - Parameter AchievementsCount: The number of achievements that the operation unlocked.
+    */
     public init(
         ResultCode: EOS_EResult,
         UserId: EOS_ProductUserId?,

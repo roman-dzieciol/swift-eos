@@ -4,17 +4,17 @@ import EOSSDK
 /** Input parameters for the EOS_Ecom_GetEntitlementsCount function. */
 public struct SwiftEOS_Ecom_GetEntitlementsCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST.  */
+    /** API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Epic Online Services Account ID of the local user for which to retrieve the entitlement count  */
+    /** The Epic Online Services Account ID of the local user for which to retrieve the entitlement count */
     public let LocalUserId: EOS_EpicAccountId?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Ecom_GetEntitlementsCountOptions {
@@ -34,10 +34,11 @@ public struct SwiftEOS_Ecom_GetEntitlementsCountOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST. 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user for which to retrieve the entitlement count 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user for which to retrieve the entitlement count
+    */
     public init(
         ApiVersion: Int32 = EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

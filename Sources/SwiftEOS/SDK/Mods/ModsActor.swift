@@ -15,16 +15,16 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-     * Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release
-     * Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
-     * 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which mods should be copied 
-     * - Parameter `Type`:  Type of the enumerated mod to copy 
-     * - Returns:  Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
-     * 
-     * - SeeAlso:  EOS_Mods_ModInfo_Release
-     * This request may fail with an EOS_NotFound code if an enumeration of a certain type was not performed before this call.
-     */
+    Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user for which mods should be copied
+    - Parameter `Type`: Type of the enumerated mod to copy
+    - Throws: Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
+    - SeeAlso: EOS_Mods_ModInfo_Release
+    This request may fail with an EOS_NotFound code if an enumeration of a certain type was not performed before this call.
+
+    - Returns: Enumerated mods Info. If the returned result is success, this will be set to data that must be later released, otherwise this will be set to NULL
+    */
     public func CopyModInfo(
         LocalUserId: EOS_EpicAccountId?,
         `Type`: EOS_EModEnumerationType
@@ -36,15 +36,13 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to enumerate mods for the specified game.
-     * Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
-     * 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be enumerated 
-     * - Parameter `Type`:  Type of the mods to enumerate 
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to enumerate mods for the specified game.Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be enumerated
+    - Parameter `Type`: Type of the mods to enumerate
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     public func EnumerateMods(
         LocalUserId: EOS_EpicAccountId?,
         `Type`: EOS_EModEnumerationType,
@@ -60,15 +58,14 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to install the specified mod.
-     * 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be installed 
-     * - Parameter Mod:  The mod to install 
-     * - Parameter bRemoveAfterExit:  Indicates whether the mod should be uninstalled after exiting the game or not. 
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to install the specified mod.
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be installed
+    - Parameter Mod: The mod to install
+    - Parameter bRemoveAfterExit: Indicates whether the mod should be uninstalled after exiting the game or not.
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     public func InstallMod(
         LocalUserId: EOS_EpicAccountId?,
         Mod: SwiftEOS_Mod_Identifier?,
@@ -86,14 +83,13 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to uninstall the specified mod.
-     * 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be uninstalled 
-     * - Parameter Mod:  The mod to uninstall 
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to uninstall the specified mod.
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be uninstalled
+    - Parameter Mod: The mod to uninstall
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     public func UninstallMod(
         LocalUserId: EOS_EpicAccountId?,
         Mod: SwiftEOS_Mod_Identifier?,
@@ -109,14 +105,13 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to update the specified mod to the latest version.
-     * 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be updated 
-     * - Parameter Mod:  The mod to update 
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error. If the mod is up to date then the operation will complete with success.
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to update the specified mod to the latest version.
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be updated
+    - Parameter Mod: The mod to update
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error. If the mod is up to date then the operation will complete with success.
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     public func UpdateMod(
         LocalUserId: EOS_EpicAccountId?,
         Mod: SwiftEOS_Mod_Identifier?,
@@ -135,15 +130,15 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
 extension SwiftEOS_Mods_Actor {
 
     /**
-     * Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release
-     * Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
-     * 
-     * - Parameter Options:  structure containing the game identifier for which requesting enumerated mods
-     * - Returns:  Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
-     * 
-     * - SeeAlso:  EOS_Mods_ModInfo_Release
-     * This request may fail with an EOS_NotFound code if an enumeration of a certain type was not performed before this call.
-     */
+    Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
+
+    - Parameter Options: structure containing the game identifier for which requesting enumerated mods
+    - Throws: Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
+    - SeeAlso: EOS_Mods_ModInfo_Release
+    This request may fail with an EOS_NotFound code if an enumeration of a certain type was not performed before this call.
+
+    - Returns: Enumerated mods Info. If the returned result is success, this will be set to data that must be later released, otherwise this will be set to NULL
+    */
     private func ____CopyModInfo(
         _ Options: SwiftEOS_Mods_CopyModInfoOptions
     ) throws -> SwiftEOS_Mods_ModInfo? {
@@ -163,14 +158,12 @@ extension SwiftEOS_Mods_Actor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to enumerate mods for the specified game.
-     * Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
-     * 
-     * - Parameter Options:  structure containing the game identifiers
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to enumerate mods for the specified game.Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
+
+    - Parameter Options: structure containing the game identifiers
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     private func ____EnumerateMods(
         _ Options: SwiftEOS_Mods_EnumerateModsOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_Mods_EnumerateModsCallbackInfo) -> Void
@@ -188,13 +181,12 @@ extension SwiftEOS_Mods_Actor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to install the specified mod.
-     * 
-     * - Parameter Options:  structure containing the game and mod identifiers
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to install the specified mod.
+
+    - Parameter Options: structure containing the game and mod identifiers
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     private func ____InstallMod(
         _ Options: SwiftEOS_Mods_InstallModOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_Mods_InstallModCallbackInfo) -> Void
@@ -212,13 +204,12 @@ extension SwiftEOS_Mods_Actor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to uninstall the specified mod.
-     * 
-     * - Parameter Options:  structure containing the game and mod identifiers
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to uninstall the specified mod.
+
+    - Parameter Options: structure containing the game and mod identifiers
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     private func ____UninstallMod(
         _ Options: SwiftEOS_Mods_UninstallModOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_Mods_UninstallModCallbackInfo) -> Void
@@ -236,13 +227,12 @@ extension SwiftEOS_Mods_Actor {
     }
 
     /**
-     * Starts an asynchronous task that makes a request to update the specified mod to the latest version.
-     * 
-     * - Parameter Options:  structure containing the game and mod identifiers
-     * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error. If the mod is up to date then the operation will complete with success.
-     * 
-     * - SeeAlso:  the section related to mods in eos_result.h for more details.
-     */
+    Starts an asynchronous task that makes a request to update the specified mod to the latest version.
+
+    - Parameter Options: structure containing the game and mod identifiers
+    - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error. If the mod is up to date then the operation will complete with success.
+    - SeeAlso: the section related to mods in eos_result.h for more details.
+    */
     private func ____UpdateMod(
         _ Options: SwiftEOS_Mods_UpdateModOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_Mods_UpdateModCallbackInfo) -> Void

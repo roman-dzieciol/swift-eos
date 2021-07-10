@@ -4,25 +4,25 @@ import EOSSDK
 /** Input parameters for the EOS_Achievements_UnlockAchievements function. */
 public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST.  */
+    /** API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID for the user whose achievements we want to unlock.  */
+    /** The Product User ID for the user whose achievements we want to unlock. */
     public let UserId: EOS_ProductUserId?
 
     /**
-     * An array of Achievement IDs to unlock. 
-     * 
-     * - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
-     * The number of achievements to unlock. 
-     */
+    An array of Achievement IDs to unlock.
+
+    - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
+    The number of achievements to unlock.
+    */
     public let AchievementIds: [String]?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Achievements_UnlockAchievementsOptions {
@@ -49,14 +49,14 @@ public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST. 
-     * - Parameter UserId:  The Product User ID for the user whose achievements we want to unlock. 
-     * - Parameter AchievementIds:  An array of Achievement IDs to unlock. 
-     * 
-     * - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
-     * The number of achievements to unlock. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST.
+    - Parameter UserId: The Product User ID for the user whose achievements we want to unlock.
+    - Parameter AchievementIds: An array of Achievement IDs to unlock.
+    - Note: ``EOS/_tagEOS_Achievements_UnlockAchievementsOptions/AchievementsCount``:
+    The number of achievements to unlock.
+    */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST,
         UserId: EOS_ProductUserId?,

@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Friends_RejectInvite Function. */
 public struct SwiftEOS_Friends_RejectInviteCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned if an invite was accepted, otherwise one of the error codes is returned. See eos_common.h  */
+    /** Result code for the operation. EOS_Success is returned if an invite was accepted, otherwise one of the error codes is returned. See eos_common.h */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the user who is rejecting the friends list invitation  */
+    /** The Epic Online Services Account ID of the user who is rejecting the friends list invitation */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The Epic Online Services Account ID of the user who sent the friends list invitation  */
+    /** The Epic Online Services Account ID of the user who sent the friends list invitation */
     public let TargetUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Friends_RejectInviteCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned if an invite was accepted, otherwise one of the error codes is returned. See eos_common.h 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who is rejecting the friends list invitation 
-     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who sent the friends list invitation 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned if an invite was accepted, otherwise one of the error codes is returned. See eos_common.h
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user who is rejecting the friends list invitation
+    - Parameter TargetUserId: The Epic Online Services Account ID of the user who sent the friends list invitation
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

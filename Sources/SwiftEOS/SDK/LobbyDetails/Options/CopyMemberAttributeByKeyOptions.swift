@@ -4,20 +4,20 @@ import EOSSDK
 /** Input parameters for the EOS_LobbyDetails_CopyMemberAttributeByKey function. */
 public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST.  */
+    /** API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID of the lobby member  */
+    /** The Product User ID of the lobby member */
     public let TargetUserId: EOS_ProductUserId?
 
-    /** Name of the attribute to copy  */
+    /** Name of the attribute to copy */
     public let AttrKey: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_LobbyDetails_CopyMemberAttributeByKeyOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions: SwiftEOSObj
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST. 
-     * - Parameter TargetUserId:  The Product User ID of the lobby member 
-     * - Parameter AttrKey:  Name of the attribute to copy 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST.
+    - Parameter TargetUserId: The Product User ID of the lobby member
+    - Parameter AttrKey: Name of the attribute to copy
+    */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

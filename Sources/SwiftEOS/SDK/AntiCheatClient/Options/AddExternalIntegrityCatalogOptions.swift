@@ -2,17 +2,17 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST.  */
+    /** API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** UTF-8 path to the .bin catalog file to add  */
+    /** UTF-8 path to the .bin catalog file to add */
     public let PathToBinFile: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions {
@@ -32,10 +32,11 @@ public struct SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions: Swift
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST. 
-     * - Parameter PathToBinFile:  UTF-8 path to the .bin catalog file to add 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST.
+    - Parameter PathToBinFile: UTF-8 path to the .bin catalog file to add
+    */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST,
         PathToBinFile: String?

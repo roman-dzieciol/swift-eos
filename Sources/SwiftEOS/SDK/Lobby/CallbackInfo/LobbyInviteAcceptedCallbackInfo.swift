@@ -4,16 +4,16 @@ import EOSSDK
 /** Output parameters for the EOS_Lobby_OnLobbyInviteAcceptedCallback Function. */
 public struct SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo {
 
-    /** The invite ID  */
+    /** The invite ID */
     public let InviteId: String?
 
-    /** The Product User ID of the local user who received the invitation  */
+    /** The Product User ID of the local user who received the invitation */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The Product User ID of the user who sent the invitation  */
+    /** The Product User ID of the user who sent the invitation */
     public let TargetUserId: EOS_ProductUserId?
 
-    /** Lobby ID that the user has been invited to  */
+    /** Lobby ID that the user has been invited to */
     public let LobbyId: String?
 
     /** Initialize from SDK object */
@@ -38,12 +38,13 @@ public struct SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter InviteId:  The invite ID 
-     * - Parameter LocalUserId:  The Product User ID of the local user who received the invitation 
-     * - Parameter TargetUserId:  The Product User ID of the user who sent the invitation 
-     * - Parameter LobbyId:  Lobby ID that the user has been invited to 
-     */
+    Memberwise initializer
+
+    - Parameter InviteId: The invite ID
+    - Parameter LocalUserId: The Product User ID of the local user who received the invitation
+    - Parameter TargetUserId: The Product User ID of the user who sent the invitation
+    - Parameter LobbyId: Lobby ID that the user has been invited to
+    */
     public init(
         InviteId: String?,
         LocalUserId: EOS_ProductUserId?,

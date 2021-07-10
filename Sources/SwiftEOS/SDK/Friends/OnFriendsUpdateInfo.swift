@@ -4,16 +4,16 @@ import EOSSDK
 /** Structure containing information about a friend status update. */
 public struct SwiftEOS_Friends_OnFriendsUpdateInfo {
 
-    /** The Epic Online Services Account ID of the local user who is receiving the update  */
+    /** The Epic Online Services Account ID of the local user who is receiving the update */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The Epic Online Services Account ID of the user whose status is being updated.  */
+    /** The Epic Online Services Account ID of the user whose status is being updated. */
     public let TargetUserId: EOS_EpicAccountId?
 
-    /** The previous status of the user.  */
+    /** The previous status of the user. */
     public let PreviousStatus: EOS_EFriendsStatus
 
-    /** The current status of the user.  */
+    /** The current status of the user. */
     public let CurrentStatus: EOS_EFriendsStatus
 
     /** Initialize from SDK object */
@@ -38,12 +38,13 @@ public struct SwiftEOS_Friends_OnFriendsUpdateInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is receiving the update 
-     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose status is being updated. 
-     * - Parameter PreviousStatus:  The previous status of the user. 
-     * - Parameter CurrentStatus:  The current status of the user. 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user who is receiving the update
+    - Parameter TargetUserId: The Epic Online Services Account ID of the user whose status is being updated.
+    - Parameter PreviousStatus: The previous status of the user.
+    - Parameter CurrentStatus: The current status of the user.
+    */
     public init(
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?,

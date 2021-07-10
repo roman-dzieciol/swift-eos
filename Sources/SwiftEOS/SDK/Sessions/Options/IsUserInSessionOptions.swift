@@ -4,20 +4,20 @@ import EOSSDK
 /** Input parameters for the EOS_Sessions_IsUserInSession function. */
 public struct SwiftEOS_Sessions_IsUserInSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Active session name to search within  */
+    /** Active session name to search within */
     public let SessionName: String?
 
-    /** Product User ID to search for in the session  */
+    /** Product User ID to search for in the session */
     public let TargetUserId: EOS_ProductUserId?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Sessions_IsUserInSessionOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_Sessions_IsUserInSessionOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST. 
-     * - Parameter SessionName:  Active session name to search within 
-     * - Parameter TargetUserId:  Product User ID to search for in the session 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST.
+    - Parameter SessionName: Active session name to search within
+    - Parameter TargetUserId: Product User ID to search for in the session
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_ISUSERINSESSION_API_LATEST,
         SessionName: String?,

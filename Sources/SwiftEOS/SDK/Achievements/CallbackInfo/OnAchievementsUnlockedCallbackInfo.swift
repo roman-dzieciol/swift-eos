@@ -4,15 +4,15 @@ import EOSSDK
 /** Output parameters for the EOS_Achievements_OnAchievementsUnlockedCallback Function. */
 public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
 
-    /** The Product User ID for the user who received the unlocked achievements notification  */
+    /** The Product User ID for the user who received the unlocked achievements notification */
     public let UserId: EOS_ProductUserId?
 
     /**
-     * This member is not used and will always be set to NULL. 
-     * 
-     * - Note: ``EOS/_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo/AchievementsCount``:
-     * The number of achievements. 
-     */
+    This member is not used and will always be set to NULL.
+
+    - Note: ``EOS/_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo/AchievementsCount``:
+    The number of achievements.
+    */
     public let AchievementIds: [String]?
 
     /** Initialize from SDK object */
@@ -38,13 +38,13 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter UserId:  The Product User ID for the user who received the unlocked achievements notification 
-     * - Parameter AchievementIds:  This member is not used and will always be set to NULL. 
-     * 
-     * - Note: ``EOS/_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo/AchievementsCount``:
-     * The number of achievements. 
-     */
+    Memberwise initializer
+
+    - Parameter UserId: The Product User ID for the user who received the unlocked achievements notification
+    - Parameter AchievementIds: This member is not used and will always be set to NULL.
+    - Note: ``EOS/_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo/AchievementsCount``:
+    The number of achievements.
+    */
     public init(
         UserId: EOS_ProductUserId?,
         AchievementIds: [String]?

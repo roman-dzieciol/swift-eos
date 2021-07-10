@@ -1,26 +1,21 @@
 import Foundation
 import EOSSDK
-
-/**
- * 
- * - see: release func: EOS_KWS_PermissionStatus_Release
- */
 public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST.  */
+    /** API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the permission  */
+    /** Name of the permission */
     public let Name: String?
 
-    /** Status of the permission  */
+    /** Status of the permission */
     public let Status: EOS_EKWSPermissionStatus
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_KWS_PermissionStatus {
@@ -42,11 +37,12 @@ public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST. 
-     * - Parameter Name:  Name of the permission 
-     * - Parameter Status:  Status of the permission 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST.
+    - Parameter Name: Name of the permission
+    - Parameter Status: Status of the permission
+    */
     public init(
         ApiVersion: Int32 = EOS_KWS_PERMISSIONSTATUS_API_LATEST,
         Name: String?,

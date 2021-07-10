@@ -2,19 +2,19 @@ import Foundation
 import EOSSDK
 
 /**
- * An individual presence data record that belongs to a EOS_Presence_Info object. This object is released when its parent EOS_Presence_Info object is released.
- * 
- * - SeeAlso:  EOS_Presence_Info
- */
+An individual presence data record that belongs to a EOS_Presence_Info object. This object is released when its parent EOS_Presence_Info object is released.
+
+- SeeAlso: EOS_Presence_Info
+*/
 public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST.  */
+    /** API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The name of this data  */
+    /** The name of this data */
     public let Key: String?
 
-    /** The value of this data  */
+    /** The value of this data */
     public let Value: String?
 
     /** Initialize from SDK object */
@@ -28,10 +28,10 @@ public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Presence_DataRecord {
@@ -43,11 +43,12 @@ public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST. 
-     * - Parameter Key:  The name of this data 
-     * - Parameter Value:  The value of this data 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST.
+    - Parameter Key: The name of this data
+    - Parameter Value: The value of this data
+    */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_DATARECORD_API_LATEST,
         Key: String?,

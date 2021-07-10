@@ -5,19 +5,17 @@ import EOSSDK
 public struct SwiftEOS_RTCAudio_UpdateSendingCallbackInfo {
 
     /**
-     * This returns:
-     * EOS_Success if the channel was successfully blocked.
-     * EOS_UnexpectedError otherwise.
-     */
+    This returns:EOS_Success if the channel was successfully blocked.EOS_UnexpectedError otherwise.
+    */
     public let ResultCode: EOS_EResult
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room this settings should be applied on.  */
+    /** The room this settings should be applied on. */
     public let RoomName: String?
 
-    /** Muted or unmuted audio track status  */
+    /** Muted or unmuted audio track status */
     public let AudioStatus: EOS_ERTCAudioStatus
 
     /** Initialize from SDK object */
@@ -42,14 +40,13 @@ public struct SwiftEOS_RTCAudio_UpdateSendingCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  This returns:
-     * EOS_Success if the channel was successfully blocked.
-     * EOS_UnexpectedError otherwise.
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room this settings should be applied on. 
-     * - Parameter AudioStatus:  Muted or unmuted audio track status 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: This returns:EOS_Success if the channel was successfully blocked.EOS_UnexpectedError otherwise.
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room this settings should be applied on.
+    - Parameter AudioStatus: Muted or unmuted audio track status
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

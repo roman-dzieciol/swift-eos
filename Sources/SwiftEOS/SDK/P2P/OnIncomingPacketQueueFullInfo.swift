@@ -4,19 +4,19 @@ import EOSSDK
 /** Structure containing information about the packet queue's state and the incoming packet that would overflow the queue */
 public struct SwiftEOS_P2P_OnIncomingPacketQueueFullInfo {
 
-    /** The maximum size in bytes the incoming packet queue is allowed to use  */
+    /** The maximum size in bytes the incoming packet queue is allowed to use */
     public let PacketQueueMaxSizeBytes: UInt64
 
-    /** The current size in bytes the incoming packet queue is currently using  */
+    /** The current size in bytes the incoming packet queue is currently using */
     public let PacketQueueCurrentSizeBytes: UInt64
 
-    /** The Product User ID of the local user who is receiving the packet that would overflow the queue  */
+    /** The Product User ID of the local user who is receiving the packet that would overflow the queue */
     public let OverflowPacketLocalUserId: EOS_ProductUserId?
 
-    /** The channel the incoming packet is for  */
+    /** The channel the incoming packet is for */
     public let OverflowPacketChannel: UInt8
 
-    /** The size in bytes of the incoming packet (and related metadata) that would overflow the queue  */
+    /** The size in bytes of the incoming packet (and related metadata) that would overflow the queue */
     public let OverflowPacketSizeBytes: Int
 
     /** Initialize from SDK object */
@@ -42,13 +42,14 @@ public struct SwiftEOS_P2P_OnIncomingPacketQueueFullInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter PacketQueueMaxSizeBytes:  The maximum size in bytes the incoming packet queue is allowed to use 
-     * - Parameter PacketQueueCurrentSizeBytes:  The current size in bytes the incoming packet queue is currently using 
-     * - Parameter OverflowPacketLocalUserId:  The Product User ID of the local user who is receiving the packet that would overflow the queue 
-     * - Parameter OverflowPacketChannel:  The channel the incoming packet is for 
-     * - Parameter OverflowPacketSizeBytes:  The size in bytes of the incoming packet (and related metadata) that would overflow the queue 
-     */
+    Memberwise initializer
+
+    - Parameter PacketQueueMaxSizeBytes: The maximum size in bytes the incoming packet queue is allowed to use
+    - Parameter PacketQueueCurrentSizeBytes: The current size in bytes the incoming packet queue is currently using
+    - Parameter OverflowPacketLocalUserId: The Product User ID of the local user who is receiving the packet that would overflow the queue
+    - Parameter OverflowPacketChannel: The channel the incoming packet is for
+    - Parameter OverflowPacketSizeBytes: The size in bytes of the incoming packet (and related metadata) that would overflow the queue
+    */
     public init(
         PacketQueueMaxSizeBytes: UInt64,
         PacketQueueCurrentSizeBytes: UInt64,

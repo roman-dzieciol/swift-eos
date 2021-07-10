@@ -4,22 +4,22 @@ import EOSSDK
 /** Data for the EOS_PresenceModification_DeleteData function. */
 public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST.  */
+    /** API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST. */
     public let ApiVersion: Int32
 
     /**
-     * The pointer to start of a sequential array 
-     * 
-     * - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
-     * The count of data keys to delete 
-     */
+    The pointer to start of a sequential array
+
+    - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
+    The count of data keys to delete
+    */
     public let Records: [SwiftEOS_PresenceModification_DataRecordId]?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_PresenceModification_DeleteDataOptions {
@@ -42,13 +42,13 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST. 
-     * - Parameter Records:  The pointer to start of a sequential array 
-     * 
-     * - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
-     * The count of data keys to delete 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST.
+    - Parameter Records: The pointer to start of a sequential array
+    - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
+    The count of data keys to delete
+    */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST,
         Records: [SwiftEOS_PresenceModification_DataRecordId]?

@@ -2,22 +2,22 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a collection of stat info data.
- * 
- * - SeeAlso:  EOS_Achievements_PlayerAchievement
- */
+Contains information about a collection of stat info data.
+
+- SeeAlso: EOS_Achievements_PlayerAchievement
+*/
 public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST.  */
+    /** API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The name of the stat.  */
+    /** The name of the stat. */
     public let Name: String?
 
-    /** The current value of the stat.  */
+    /** The current value of the stat. */
     public let CurrentValue: Int
 
-    /** The threshold value of the stat, used in determining when to unlock an achievement.  */
+    /** The threshold value of the stat, used in determining when to unlock an achievement. */
     public let ThresholdValue: Int
 
     /** Initialize from SDK object */
@@ -32,10 +32,10 @@ public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Achievements_PlayerStatInfo {
@@ -48,12 +48,13 @@ public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST. 
-     * - Parameter Name:  The name of the stat. 
-     * - Parameter CurrentValue:  The current value of the stat. 
-     * - Parameter ThresholdValue:  The threshold value of the stat, used in determining when to unlock an achievement. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST.
+    - Parameter Name: The name of the stat.
+    - Parameter CurrentValue: The current value of the stat.
+    - Parameter ThresholdValue: The threshold value of the stat, used in determining when to unlock an achievement.
+    */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST,
         Name: String?,

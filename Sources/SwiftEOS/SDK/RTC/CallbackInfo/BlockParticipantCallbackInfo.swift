@@ -5,22 +5,20 @@ import EOSSDK
 public struct SwiftEOS_RTC_BlockParticipantCallbackInfo {
 
     /**
-     * This returns:
-     * EOS_Success if the channel was successfully blocked.
-     * EOS_UnexpectedError otherwise.
-     */
+    This returns:EOS_Success if the channel was successfully blocked.EOS_UnexpectedError otherwise.
+    */
     public let ResultCode: EOS_EResult
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room the users should be blocked on.  */
+    /** The room the users should be blocked on. */
     public let RoomName: String?
 
-    /** The Product User ID of the participant being blocked  */
+    /** The Product User ID of the participant being blocked */
     public let ParticipantId: EOS_ProductUserId?
 
-    /** The block state that should have been set  */
+    /** The block state that should have been set */
     public let bBlocked: Bool
 
     /** Initialize from SDK object */
@@ -46,15 +44,14 @@ public struct SwiftEOS_RTC_BlockParticipantCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  This returns:
-     * EOS_Success if the channel was successfully blocked.
-     * EOS_UnexpectedError otherwise.
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room the users should be blocked on. 
-     * - Parameter ParticipantId:  The Product User ID of the participant being blocked 
-     * - Parameter bBlocked:  The block state that should have been set 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: This returns:EOS_Success if the channel was successfully blocked.EOS_UnexpectedError otherwise.
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room the users should be blocked on.
+    - Parameter ParticipantId: The Product User ID of the participant being blocked
+    - Parameter bBlocked: The block state that should have been set
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

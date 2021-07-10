@@ -4,23 +4,20 @@ import EOSSDK
 /** This struct is passed in with a call to EOS_RTCAudio_AddNotifyAudioBeforeRender registered event. */
 public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room associated with this event.  */
+    /** The room associated with this event. */
     public let RoomName: String?
 
     /**
-     * Audio buffer.
-     * If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should
-     * not modify this buffer.
-     */
+    Audio buffer.If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should not modify this buffer.
+    */
     public let Buffer: SwiftEOS_RTCAudio_AudioBuffer?
 
     /**
-     * The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if
-     * bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
-     */
+    The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
+    */
     public let ParticipantId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -45,15 +42,13 @@ public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room associated with this event. 
-     * - Parameter Buffer:  Audio buffer.
-     * If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should
-     * not modify this buffer.
-     * - Parameter ParticipantId:  The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if
-     * bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room associated with this event.
+    - Parameter Buffer: Audio buffer.If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should not modify this buffer.
+    - Parameter ParticipantId: The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

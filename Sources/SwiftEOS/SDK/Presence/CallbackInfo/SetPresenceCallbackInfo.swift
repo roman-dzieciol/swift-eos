@@ -4,10 +4,10 @@ import EOSSDK
 /** The result meta-data from setting a user's presence. */
 public struct SwiftEOS_Presence_SetPresenceCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned if presence was successfully set, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned if presence was successfully set, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the local user that had their presence set  */
+    /** The Epic Online Services Account ID of the local user that had their presence set */
     public let LocalUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Presence_SetPresenceCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned if presence was successfully set, other codes indicate an error 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user that had their presence set 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned if presence was successfully set, other codes indicate an error
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user that had their presence set
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?

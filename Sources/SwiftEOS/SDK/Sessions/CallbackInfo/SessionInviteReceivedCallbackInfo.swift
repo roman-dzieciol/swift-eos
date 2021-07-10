@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Sessions_OnSessionInviteReceivedCallback function. */
 public struct SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo {
 
-    /** The Product User ID of the user who received the invite  */
+    /** The Product User ID of the user who received the invite */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The Product User ID of the user who sent the invitation  */
+    /** The Product User ID of the user who sent the invitation */
     public let TargetUserId: EOS_ProductUserId?
 
-    /** Invite ID used to retrieve the actual session details  */
+    /** Invite ID used to retrieve the actual session details */
     public let InviteId: String?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the user who received the invite 
-     * - Parameter TargetUserId:  The Product User ID of the user who sent the invitation 
-     * - Parameter InviteId:  Invite ID used to retrieve the actual session details 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the user who received the invite
+    - Parameter TargetUserId: The Product User ID of the user who sent the invitation
+    - Parameter InviteId: Invite ID used to retrieve the actual session details
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         TargetUserId: EOS_ProductUserId?,

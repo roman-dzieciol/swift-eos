@@ -4,20 +4,20 @@ import EOSSDK
 /** Input parameters for the EOS_Sanctions_QueryActivePlayerSanctions API. */
 public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST.  */
+    /** API Version: Set this to EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Product User ID of the user whose active sanctions are to be retrieved.  */
+    /** Product User ID of the user whose active sanctions are to be retrieved. */
     public let TargetUserId: EOS_ProductUserId?
 
-    /** The Product User ID of the local user who initiated this request. Dedicated servers should set this to null.  */
+    /** The Product User ID of the local user who initiated this request. Dedicated servers should set this to null. */
     public let LocalUserId: EOS_ProductUserId?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Sanctions_QueryActivePlayerSanctionsOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions: SwiftEOSObje
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST. 
-     * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be retrieved. 
-     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request. Dedicated servers should set this to null. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST.
+    - Parameter TargetUserId: Product User ID of the user whose active sanctions are to be retrieved.
+    - Parameter LocalUserId: The Product User ID of the local user who initiated this request. Dedicated servers should set this to null.
+    */
     public init(
         ApiVersion: Int32 = EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

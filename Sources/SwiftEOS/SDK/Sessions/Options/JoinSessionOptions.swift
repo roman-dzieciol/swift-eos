@@ -4,40 +4,34 @@ import EOSSDK
 /** Input parameters for the EOS_Sessions_JoinSession function. */
 public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_JOINSESSION_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONS_JOINSESSION_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the session to create after joining session  */
+    /** Name of the session to create after joining session */
     public let SessionName: String?
 
-    /** Session handle to join  */
+    /** Session handle to join */
     public let SessionHandle: EOS_HSessionDetails?
 
-    /** The Product User ID of the local user who is joining the session  */
+    /** The Product User ID of the local user who is joining the session */
     public let LocalUserId: EOS_ProductUserId?
 
     /**
-     * 
-     * If true, this session will be associated with presence. Only one session at a time can have this flag true.
-     * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-     * 
-     * - Note:  The Social Overlay can handle only one of the following three options at a time:
-     * * using the bPresenceEnabled flags within the Sessions interface
-     * * using the bPresenceEnabled flags within the Lobby interface
-     * * using EOS_PresenceModification_SetJoinInfo
-     * 
-     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
-     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
-     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
-     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
-     */
+    If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+
+    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
+    - SeeAlso: EOS_Lobby_CreateLobbyOptions
+    - SeeAlso: EOS_Lobby_JoinLobbyOptions
+    - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
+    */
     public let bPresenceEnabled: Bool
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Sessions_JoinSessionOptions {
@@ -63,25 +57,19 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_JOINSESSION_API_LATEST. 
-     * - Parameter SessionName:  Name of the session to create after joining session 
-     * - Parameter SessionHandle:  Session handle to join 
-     * - Parameter LocalUserId:  The Product User ID of the local user who is joining the session 
-     * - Parameter bPresenceEnabled:  
-     * If true, this session will be associated with presence. Only one session at a time can have this flag true.
-     * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-     * 
-     * - Note:  The Social Overlay can handle only one of the following three options at a time:
-     * * using the bPresenceEnabled flags within the Sessions interface
-     * * using the bPresenceEnabled flags within the Lobby interface
-     * * using EOS_PresenceModification_SetJoinInfo
-     * 
-     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
-     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
-     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
-     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_JOINSESSION_API_LATEST.
+    - Parameter SessionName: Name of the session to create after joining session
+    - Parameter SessionHandle: Session handle to join
+    - Parameter LocalUserId: The Product User ID of the local user who is joining the session
+    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
+    - SeeAlso: EOS_Lobby_CreateLobbyOptions
+    - SeeAlso: EOS_Lobby_JoinLobbyOptions
+    - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_JOINSESSION_API_LATEST,
         SessionName: String?,

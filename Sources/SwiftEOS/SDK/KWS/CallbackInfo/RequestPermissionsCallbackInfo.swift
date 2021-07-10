@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_KWS_RequestPermissionsOptions Function. These parameters are received through the callback provided to EOS_KWS_RequestPermissions */
 public struct SwiftEOS_KWS_RequestPermissionsCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** Local user requesting new permisssions  */
+    /** Local user requesting new permisssions */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_KWS_RequestPermissionsCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  Local user requesting new permisssions 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: Local user requesting new permisssions
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

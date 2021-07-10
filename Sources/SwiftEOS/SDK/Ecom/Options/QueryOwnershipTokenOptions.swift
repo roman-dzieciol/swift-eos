@@ -4,28 +4,28 @@ import EOSSDK
 /** Input parameters for the EOS_Ecom_QueryOwnershipToken function. */
 public struct SwiftEOS_Ecom_QueryOwnershipTokenOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_QUERYOWNERSHIPTOKEN_API_LATEST.  */
+    /** API Version: Set this to EOS_ECOM_QUERYOWNERSHIPTOKEN_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Epic Online Services Account ID of the local user whose ownership token you want to query  */
+    /** The Epic Online Services Account ID of the local user whose ownership token you want to query */
     public let LocalUserId: EOS_EpicAccountId?
 
     /**
-     * The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount 
-     * 
-     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipTokenOptions/CatalogItemIdCount``:
-     * The number of catalog item IDs to query 
-     */
+    The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount
+
+    - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipTokenOptions/CatalogItemIdCount``:
+    The number of catalog item IDs to query
+    */
     public let CatalogItemIds: [String]?
 
-    /** Optional product namespace, if not the one specified during initialization  */
+    /** Optional product namespace, if not the one specified during initialization */
     public let CatalogNamespace: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Ecom_QueryOwnershipTokenOptions {
@@ -54,15 +54,15 @@ public struct SwiftEOS_Ecom_QueryOwnershipTokenOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_QUERYOWNERSHIPTOKEN_API_LATEST. 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership token you want to query 
-     * - Parameter CatalogItemIds:  The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount 
-     * 
-     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipTokenOptions/CatalogItemIdCount``:
-     * The number of catalog item IDs to query 
-     * - Parameter CatalogNamespace:  Optional product namespace, if not the one specified during initialization 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_QUERYOWNERSHIPTOKEN_API_LATEST.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose ownership token you want to query
+    - Parameter CatalogItemIds: The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount
+    - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipTokenOptions/CatalogItemIdCount``:
+    The number of catalog item IDs to query
+    - Parameter CatalogNamespace: Optional product namespace, if not the one specified during initialization
+    */
     public init(
         ApiVersion: Int32 = EOS_ECOM_QUERYOWNERSHIPTOKEN_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

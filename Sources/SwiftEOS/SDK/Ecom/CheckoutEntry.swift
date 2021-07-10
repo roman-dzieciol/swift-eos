@@ -2,15 +2,14 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a request to purchase a single offer.  This structure is set as part
- * of the EOS_Ecom_CheckoutOptions structure.
- */
+Contains information about a request to purchase a single offer.  This structure is set as part of the EOS_Ecom_CheckoutOptions structure.
+*/
 public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST.  */
+    /** API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The ID of the offer to purchase  */
+    /** The ID of the offer to purchase */
     public let OfferId: String?
 
     /** Initialize from SDK object */
@@ -23,10 +22,10 @@ public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Ecom_CheckoutEntry {
@@ -37,10 +36,11 @@ public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST. 
-     * - Parameter OfferId:  The ID of the offer to purchase 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST.
+    - Parameter OfferId: The ID of the offer to purchase
+    */
     public init(
         ApiVersion: Int32 = EOS_ECOM_CHECKOUTENTRY_API_LATEST,
         OfferId: String?

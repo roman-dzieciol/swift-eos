@@ -2,74 +2,69 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST.  */
+    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Locally unique value used in RegisterClient/RegisterPeer  */
+    /** Locally unique value used in RegisterClient/RegisterPeer */
     public let VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** Victim player's current world position as a 3D vector  */
+    /** Victim player's current world position as a 3D vector */
     public let VictimPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
 
-    /** Victim player's view rotation as a quaternion  */
+    /** Victim player's view rotation as a quaternion */
     public let VictimPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?
 
-    /** Locally unique value used in RegisterClient/RegisterPeer  */
+    /** Locally unique value used in RegisterClient/RegisterPeer */
     public let AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** Attacker player's current world position as a 3D vector  */
+    /** Attacker player's current world position as a 3D vector */
     public let AttackerPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
 
-    /** Attacker player's view rotation as a quaternion  */
+    /** Attacker player's view rotation as a quaternion */
     public let AttackerPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?
 
     /**
-     * True if the damage was applied instantly at the time of attack from the game
-     * simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
-     */
+    True if the damage was applied instantly at the time of attack from the game simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
+    */
     public let bIsHitscanAttack: Bool
 
     /**
-     * True if there is a visible line of sight between the attacker and the victim at the time
-     * that damage is being applied, false if there is an obstacle like a wall or terrain in
-     * the way. For some situations like melee or hitscan weapons this is trivially
-     * true, for others like projectiles with simulated physics it may not be e.g. a player
-     * could fire a slow moving projectile and then move behind cover before it strikes.
-     */
+    True if there is a visible line of sight between the attacker and the victim at the time that damage is being applied, false if there is an obstacle like a wall or terrain in the way. For some situations like melee or hitscan weapons this is trivially true, for others like projectiles with simulated physics it may not be e.g. a player could fire a slow moving projectile and then move behind cover before it strikes.
+    */
     public let bHasLineOfSight: Bool
 
-    /** True if this was a critical hit that causes extra damage (e.g. headshot)  */
+    /** True if this was a critical hit that causes extra damage (e.g. headshot) */
     public let bIsCriticalHit: Bool
 
-    /** Identifier of the victim bone hit in this damage event  */
+    /** Identifier of the victim bone hit in this damage event */
     public let HitBoneId: Int
 
-    /** Number of health points that the victim lost due to this damage event  */
+    /** Number of health points that the victim lost due to this damage event */
     public let DamageTaken: Float
 
-    /** Number of health points that the victim has remaining after this damage event  */
+    /** Number of health points that the victim has remaining after this damage event */
     public let HealthRemaining: Float
 
-    /** Source of the damage event  */
+    /** Source of the damage event */
     public let DamageSource: EOS_EAntiCheatCommonPlayerTakeDamageSource
 
-    /** Type of the damage being applied  */
+    /** Type of the damage being applied */
     public let DamageType: EOS_EAntiCheatCommonPlayerTakeDamageType
 
-    /** Result of the damage for the victim, if any  */
+    /** Result of the damage for the victim, if any */
     public let DamageResult: EOS_EAntiCheatCommonPlayerTakeDamageResult
 
-    /** PlayerUseWeaponData associated with this damage event if available, otherwise NULL  */
+    /** PlayerUseWeaponData associated with this damage event if available, otherwise NULL */
     public let PlayerUseWeaponData: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData?
 
-    /** Time in milliseconds since the PlayerUseWeaponData event occurred if available, otherwise 0  */
+    /** Time in milliseconds since the PlayerUseWeaponData event occurred if available, otherwise 0 */
     public let TimeSincePlayerUseWeaponMs: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_LogPlayerTakeDamageOptions {
@@ -121,31 +116,27 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST. 
-     * - Parameter VictimPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
-     * - Parameter VictimPlayerPosition:  Victim player's current world position as a 3D vector 
-     * - Parameter VictimPlayerViewRotation:  Victim player's view rotation as a quaternion 
-     * - Parameter AttackerPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
-     * - Parameter AttackerPlayerPosition:  Attacker player's current world position as a 3D vector 
-     * - Parameter AttackerPlayerViewRotation:  Attacker player's view rotation as a quaternion 
-     * - Parameter bIsHitscanAttack:  True if the damage was applied instantly at the time of attack from the game
-     * simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
-     * - Parameter bHasLineOfSight:  True if there is a visible line of sight between the attacker and the victim at the time
-     * that damage is being applied, false if there is an obstacle like a wall or terrain in
-     * the way. For some situations like melee or hitscan weapons this is trivially
-     * true, for others like projectiles with simulated physics it may not be e.g. a player
-     * could fire a slow moving projectile and then move behind cover before it strikes.
-     * - Parameter bIsCriticalHit:  True if this was a critical hit that causes extra damage (e.g. headshot) 
-     * - Parameter HitBoneId:  Identifier of the victim bone hit in this damage event 
-     * - Parameter DamageTaken:  Number of health points that the victim lost due to this damage event 
-     * - Parameter HealthRemaining:  Number of health points that the victim has remaining after this damage event 
-     * - Parameter DamageSource:  Source of the damage event 
-     * - Parameter DamageType:  Type of the damage being applied 
-     * - Parameter DamageResult:  Result of the damage for the victim, if any 
-     * - Parameter PlayerUseWeaponData:  PlayerUseWeaponData associated with this damage event if available, otherwise NULL 
-     * - Parameter TimeSincePlayerUseWeaponMs:  Time in milliseconds since the PlayerUseWeaponData event occurred if available, otherwise 0 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST.
+    - Parameter VictimPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
+    - Parameter VictimPlayerPosition: Victim player's current world position as a 3D vector
+    - Parameter VictimPlayerViewRotation: Victim player's view rotation as a quaternion
+    - Parameter AttackerPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
+    - Parameter AttackerPlayerPosition: Attacker player's current world position as a 3D vector
+    - Parameter AttackerPlayerViewRotation: Attacker player's view rotation as a quaternion
+    - Parameter bIsHitscanAttack: True if the damage was applied instantly at the time of attack from the game simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
+    - Parameter bHasLineOfSight: True if there is a visible line of sight between the attacker and the victim at the time that damage is being applied, false if there is an obstacle like a wall or terrain in the way. For some situations like melee or hitscan weapons this is trivially true, for others like projectiles with simulated physics it may not be e.g. a player could fire a slow moving projectile and then move behind cover before it strikes.
+    - Parameter bIsCriticalHit: True if this was a critical hit that causes extra damage (e.g. headshot)
+    - Parameter HitBoneId: Identifier of the victim bone hit in this damage event
+    - Parameter DamageTaken: Number of health points that the victim lost due to this damage event
+    - Parameter HealthRemaining: Number of health points that the victim has remaining after this damage event
+    - Parameter DamageSource: Source of the damage event
+    - Parameter DamageType: Type of the damage being applied
+    - Parameter DamageResult: Result of the damage for the victim, if any
+    - Parameter PlayerUseWeaponData: PlayerUseWeaponData associated with this damage event if available, otherwise NULL
+    - Parameter TimeSincePlayerUseWeaponMs: Time in milliseconds since the PlayerUseWeaponData event occurred if available, otherwise 0
+    */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST,
         VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle,

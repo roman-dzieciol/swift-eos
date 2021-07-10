@@ -1,19 +1,19 @@
 import Foundation
 import EOSSDK
 
-/** Structure containing details about a required client/peer action  */
+/** Structure containing details about a required client/peer action */
 public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
 
-    /** The identifier of the client/peer that this action applies to. See the RegisterClient and RegisterPeer functions.  */
+    /** The identifier of the client/peer that this action applies to. See the RegisterClient and RegisterPeer functions. */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** The action that must be applied to the specified client/peer  */
+    /** The action that must be applied to the specified client/peer */
     public let ClientAction: EOS_EAntiCheatCommonClientAction
 
-    /** Code indicating the reason for the action  */
+    /** Code indicating the reason for the action */
     public let ActionReasonCode: EOS_EAntiCheatCommonClientActionReason
 
-    /** String containing details about the action reason  */
+    /** String containing details about the action reason */
     public let ActionReasonDetailsString: String?
 
     /** Initialize from SDK object */
@@ -38,12 +38,13 @@ public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ClientHandle:  The identifier of the client/peer that this action applies to. See the RegisterClient and RegisterPeer functions. 
-     * - Parameter ClientAction:  The action that must be applied to the specified client/peer 
-     * - Parameter ActionReasonCode:  Code indicating the reason for the action 
-     * - Parameter ActionReasonDetailsString:  String containing details about the action reason 
-     */
+    Memberwise initializer
+
+    - Parameter ClientHandle: The identifier of the client/peer that this action applies to. See the RegisterClient and RegisterPeer functions.
+    - Parameter ClientAction: The action that must be applied to the specified client/peer
+    - Parameter ActionReasonCode: Code indicating the reason for the action
+    - Parameter ActionReasonDetailsString: String containing details about the action reason
+    */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         ClientAction: EOS_EAntiCheatCommonClientAction,

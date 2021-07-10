@@ -16,31 +16,30 @@ public class SwiftEOS_TitleStorageFileTransferRequest_Actor: SwiftEOSActor {
     }
 
     /**
-     * Attempt to cancel this file request in progress. This is a best-effort command and is not guaranteed to be successful if the request has completed before this function is called.
-     * 
-     * - Returns:  EOS_Success if cancel is successful, EOS_NoChange if request had already completed (can't be canceled), EOS_AlreadyPending if it's already been canceled before (this is a final state for canceled request and won't change over time).
-     */
+    Attempt to cancel this file request in progress. This is a best-effort command and is not guaranteed to be successful if the request has completed before this function is called.
+
+    - Throws: EOS_NoChange if request had already completed (can't be canceled), EOS_AlreadyPending if it's already been canceled before (this is a final state for canceled request and won't change over time).
+    */
     public func CancelRequest() throws {
         try ____CancelRequest()
     }
 
     /**
-     * Get the current state of a file request.
-     * 
-     * - Returns:  EOS_Success if complete and successful, EOS_RequestInProgress if the request is still in progress, or another state for failure.
-     */
+    Get the current state of a file request.
+
+    - Throws: EOS_RequestInProgress if the request is still in progress, or another state for failure.
+    */
     public func GetFileRequestState() throws {
         try ____GetFileRequestState()
     }
 
     /**
-     * Get the file name of the file this request is for. OutStringLength will always be set to the string length of the file name if it is not NULL.
-     * 
-     * - Parameter FilenameStringBufferSizeBytes:  The maximum number of bytes that can be written to OutStringBuffer
-     * - Returns:  EOS_Success if the file name was successfully written to OutFilenameBuffer, a failure result otherwise
-     * 
-     * - SeeAlso:  EOS_TITLESTORAGE_FILENAME_MAX_LENGTH_BYTES
-     */
+    Get the file name of the file this request is for. OutStringLength will always be set to the string length of the file name if it is not NULL.
+
+    - Parameter FilenameStringBufferSizeBytes: The maximum number of bytes that can be written to OutStringBuffer
+    - Throws: - SeeAlso: EOS_TITLESTORAGE_FILENAME_MAX_LENGTH_BYTES
+    - Returns: The buffer to write the NULL-terminated utf8 file name into, if successful
+    */
     public func GetFilename(
         FilenameStringBufferSizeBytes: Int
     ) throws -> String? {
@@ -51,10 +50,10 @@ public class SwiftEOS_TitleStorageFileTransferRequest_Actor: SwiftEOSActor {
 extension SwiftEOS_TitleStorageFileTransferRequest_Actor {
 
     /**
-     * Attempt to cancel this file request in progress. This is a best-effort command and is not guaranteed to be successful if the request has completed before this function is called.
-     * 
-     * - Returns:  EOS_Success if cancel is successful, EOS_NoChange if request had already completed (can't be canceled), EOS_AlreadyPending if it's already been canceled before (this is a final state for canceled request and won't change over time).
-     */
+    Attempt to cancel this file request in progress. This is a best-effort command and is not guaranteed to be successful if the request has completed before this function is called.
+
+    - Throws: EOS_NoChange if request had already completed (can't be canceled), EOS_AlreadyPending if it's already been canceled before (this is a final state for canceled request and won't change over time).
+    */
     private func ____CancelRequest() throws {
         try withPointerManager { pointerManager in
             try throwingSdkResult { 
@@ -62,10 +61,10 @@ extension SwiftEOS_TitleStorageFileTransferRequest_Actor {
     }
 
     /**
-     * Get the current state of a file request.
-     * 
-     * - Returns:  EOS_Success if complete and successful, EOS_RequestInProgress if the request is still in progress, or another state for failure.
-     */
+    Get the current state of a file request.
+
+    - Throws: EOS_RequestInProgress if the request is still in progress, or another state for failure.
+    */
     private func ____GetFileRequestState() throws {
         try withPointerManager { pointerManager in
             try throwingSdkResult { 
@@ -73,13 +72,12 @@ extension SwiftEOS_TitleStorageFileTransferRequest_Actor {
     }
 
     /**
-     * Get the file name of the file this request is for. OutStringLength will always be set to the string length of the file name if it is not NULL.
-     * 
-     * - Parameter FilenameStringBufferSizeBytes:  The maximum number of bytes that can be written to OutStringBuffer
-     * - Returns:  EOS_Success if the file name was successfully written to OutFilenameBuffer, a failure result otherwise
-     * 
-     * - SeeAlso:  EOS_TITLESTORAGE_FILENAME_MAX_LENGTH_BYTES
-     */
+    Get the file name of the file this request is for. OutStringLength will always be set to the string length of the file name if it is not NULL.
+
+    - Parameter FilenameStringBufferSizeBytes: The maximum number of bytes that can be written to OutStringBuffer
+    - Throws: - SeeAlso: EOS_TITLESTORAGE_FILENAME_MAX_LENGTH_BYTES
+    - Returns: The buffer to write the NULL-terminated utf8 file name into, if successful
+    */
     private func ____GetFilename(
         _ FilenameStringBufferSizeBytes: Int
     ) throws -> String? {

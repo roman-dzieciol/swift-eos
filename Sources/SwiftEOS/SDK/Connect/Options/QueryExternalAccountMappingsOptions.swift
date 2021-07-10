@@ -4,28 +4,28 @@ import EOSSDK
 /** Input parameters for the EOS_Connect_QueryExternalAccountMappings function. */
 public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST.  */
+    /** API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID of the existing, logged-in user who is querying account mappings.  */
+    /** The Product User ID of the existing, logged-in user who is querying account mappings. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** External auth service supplying the account IDs in string form.  */
+    /** External auth service supplying the account IDs in string form. */
     public let AccountIdType: EOS_EExternalAccountType
 
     /**
-     * An array of external account IDs to map to the product user ID representation. 
-     * 
-     * - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
-     * Number of account IDs to query. 
-     */
+    An array of external account IDs to map to the product user ID representation.
+
+    - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
+    Number of account IDs to query.
+    */
     public let ExternalAccountIds: [String]?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Connect_QueryExternalAccountMappingsOptions {
@@ -54,15 +54,15 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST. 
-     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
-     * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
-     * - Parameter ExternalAccountIds:  An array of external account IDs to map to the product user ID representation. 
-     * 
-     * - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
-     * Number of account IDs to query. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST.
+    - Parameter LocalUserId: The Product User ID of the existing, logged-in user who is querying account mappings.
+    - Parameter AccountIdType: External auth service supplying the account IDs in string form.
+    - Parameter ExternalAccountIds: An array of external account IDs to map to the product user ID representation.
+    - Note: ``EOS/_tagEOS_Connect_QueryExternalAccountMappingsOptions/ExternalAccountIdCount``:
+    Number of account IDs to query.
+    */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

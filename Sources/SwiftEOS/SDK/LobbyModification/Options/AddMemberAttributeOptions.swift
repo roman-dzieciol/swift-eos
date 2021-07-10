@@ -4,20 +4,20 @@ import EOSSDK
 /** Input parameters for the EOS_LobbyModification_AddMemberAttribute function. */
 public struct SwiftEOS_LobbyModification_AddMemberAttributeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST.  */
+    /** API Version: Set this to EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Key/Value pair describing the attribute to add to the lobby member  */
+    /** Key/Value pair describing the attribute to add to the lobby member */
     public let Attribute: SwiftEOS_Lobby_AttributeData?
 
-    /** Is this attribute public or private to the rest of the lobby members  */
+    /** Is this attribute public or private to the rest of the lobby members */
     public let Visibility: EOS_ELobbyAttributeVisibility
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_LobbyModification_AddMemberAttributeOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_LobbyModification_AddMemberAttributeOptions: SwiftEOSObje
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST. 
-     * - Parameter Attribute:  Key/Value pair describing the attribute to add to the lobby member 
-     * - Parameter Visibility:  Is this attribute public or private to the rest of the lobby members 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST.
+    - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby member
+    - Parameter Visibility: Is this attribute public or private to the rest of the lobby members
+    */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST,
         Attribute: SwiftEOS_Lobby_AttributeData?,

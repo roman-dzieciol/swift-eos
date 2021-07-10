@@ -4,25 +4,25 @@ import EOSSDK
 /** Input parameters for the EOS_Sessions_UnregisterPlayers function. */
 public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the session for which to unregister players  */
+    /** Name of the session for which to unregister players */
     public let SessionName: String?
 
     /**
-     * Array of players to unregister from the session 
-     * 
-     * - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
-     * Number of players in the array 
-     */
+    Array of players to unregister from the session
+
+    - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
+    Number of players in the array
+    */
     public let PlayersToUnregister: [EOS_ProductUserId]?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Sessions_UnregisterPlayersOptions {
@@ -48,14 +48,14 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST. 
-     * - Parameter SessionName:  Name of the session for which to unregister players 
-     * - Parameter PlayersToUnregister:  Array of players to unregister from the session 
-     * 
-     * - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
-     * Number of players in the array 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST.
+    - Parameter SessionName: Name of the session for which to unregister players
+    - Parameter PlayersToUnregister: Array of players to unregister from the session
+    - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
+    Number of players in the array
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST,
         SessionName: String?,

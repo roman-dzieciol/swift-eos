@@ -4,14 +4,14 @@ import EOSSDK
 /** Structure containing information or the connect user login status change callback. */
 public struct SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST.  */
+    /** API Version: Set this to EOS_CONNECT_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST. */
     public let ApiVersion: Int32
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Connect_AddNotifyLoginStatusChangedOptions {
@@ -27,9 +27,10 @@ public struct SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions: SwiftEOSObjec
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST.
+    */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST
     ) {

@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_KWS_UpdateParentEmailOptions Function. These parameters are received through the callback provided to EOS_KWS_UpdateParentEmail */
 public struct SwiftEOS_KWS_UpdateParentEmailCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** Local user updating their parental email  */
+    /** Local user updating their parental email */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_KWS_UpdateParentEmailCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  Local user updating their parental email 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: Local user updating their parental email
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

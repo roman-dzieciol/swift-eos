@@ -4,20 +4,20 @@ import EOSSDK
 /** Input parameters for the EOS_Sessions_RejectInvite function. */
 public struct SwiftEOS_Sessions_RejectInviteOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_REJECTINVITE_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONS_REJECTINVITE_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID of the local user rejecting the invitation  */
+    /** The Product User ID of the local user rejecting the invitation */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The invite ID to reject  */
+    /** The invite ID to reject */
     public let InviteId: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Sessions_RejectInviteOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_Sessions_RejectInviteOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_REJECTINVITE_API_LATEST. 
-     * - Parameter LocalUserId:  The Product User ID of the local user rejecting the invitation 
-     * - Parameter InviteId:  The invite ID to reject 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_REJECTINVITE_API_LATEST.
+    - Parameter LocalUserId: The Product User ID of the local user rejecting the invitation
+    - Parameter InviteId: The invite ID to reject
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_REJECTINVITE_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

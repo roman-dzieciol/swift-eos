@@ -2,26 +2,26 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a collection of user tokens for joining a room.
- * 
- * - see: release func: EOS_RTCAdmin_UserToken_Release
- */
+Contains information about a collection of user tokens for joining a room.
+
+- Note: Release func: ``EOS_RTCAdmin_UserToken_Release``
+*/
 public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST.  */
+    /** API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID for the user who owns this user token.  */
+    /** The Product User ID for the user who owns this user token. */
     public let ProductUserId: EOS_ProductUserId?
 
-    /** Access token to enable a user to join a room  */
+    /** Access token to enable a user to join a room */
     public let Token: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_RTCAdmin_UserToken {
@@ -43,11 +43,12 @@ public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST. 
-     * - Parameter ProductUserId:  The Product User ID for the user who owns this user token. 
-     * - Parameter Token:  Access token to enable a user to join a room 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST.
+    - Parameter ProductUserId: The Product User ID for the user who owns this user token.
+    - Parameter Token: Access token to enable a user to join a room
+    */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_USERTOKEN_API_LATEST,
         ProductUserId: EOS_ProductUserId?,

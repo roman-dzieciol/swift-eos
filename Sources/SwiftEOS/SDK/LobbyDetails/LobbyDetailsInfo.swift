@@ -1,47 +1,42 @@
 import Foundation
 import EOSSDK
-
-/**
- * 
- * - see: release func: EOS_LobbyDetails_Info_Release
- */
 public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST.  */
+    /** API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Lobby ID  */
+    /** Lobby ID */
     public let LobbyId: String?
 
-    /** The Product User ID of the current owner of the lobby  */
+    /** The Product User ID of the current owner of the lobby */
     public let LobbyOwnerUserId: EOS_ProductUserId?
 
-    /** Permission level of the lobby  */
+    /** Permission level of the lobby */
     public let PermissionLevel: EOS_ELobbyPermissionLevel
 
-    /** Current available space  */
+    /** Current available space */
     public let AvailableSlots: Int
 
-    /** Max allowed members in the lobby  */
+    /** Max allowed members in the lobby */
     public let MaxMembers: Int
 
-    /** If true, users can invite others to this lobby  */
+    /** If true, users can invite others to this lobby */
     public let bAllowInvites: Bool
 
-    /** The main indexed parameter for this lobby, can be any string (ie "Region:GameMode")  */
+    /** The main indexed parameter for this lobby, can be any string (ie "Region:GameMode") */
     public let BucketId: String?
 
-    /** Is host migration allowed  */
+    /** Is host migration allowed */
     public let bAllowHostMigration: Bool
 
-    /** Was a Real-Time Communication (RTC) room enabled at lobby creation?  */
+    /** Was a Real-Time Communication (RTC) room enabled at lobby creation? */
     public let bRTCRoomEnabled: Bool
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_LobbyDetails_Info {
@@ -77,18 +72,19 @@ public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST. 
-     * - Parameter LobbyId:  Lobby ID 
-     * - Parameter LobbyOwnerUserId:  The Product User ID of the current owner of the lobby 
-     * - Parameter PermissionLevel:  Permission level of the lobby 
-     * - Parameter AvailableSlots:  Current available space 
-     * - Parameter MaxMembers:  Max allowed members in the lobby 
-     * - Parameter bAllowInvites:  If true, users can invite others to this lobby 
-     * - Parameter BucketId:  The main indexed parameter for this lobby, can be any string (ie "Region:GameMode") 
-     * - Parameter bAllowHostMigration:  Is host migration allowed 
-     * - Parameter bRTCRoomEnabled:  Was a Real-Time Communication (RTC) room enabled at lobby creation? 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST.
+    - Parameter LobbyId: Lobby ID
+    - Parameter LobbyOwnerUserId: The Product User ID of the current owner of the lobby
+    - Parameter PermissionLevel: Permission level of the lobby
+    - Parameter AvailableSlots: Current available space
+    - Parameter MaxMembers: Max allowed members in the lobby
+    - Parameter bAllowInvites: If true, users can invite others to this lobby
+    - Parameter BucketId: The main indexed parameter for this lobby, can be any string (ie "Region:GameMode")
+    - Parameter bAllowHostMigration: Is host migration allowed
+    - Parameter bRTCRoomEnabled: Was a Real-Time Communication (RTC) room enabled at lobby creation?
+    */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_INFO_API_LATEST,
         LobbyId: String?,

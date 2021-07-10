@@ -4,13 +4,13 @@ import EOSSDK
 /** The result information for a request to write data to a file */
 public struct SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** The Product User ID of the local user who initiated this request  */
+    /** The Product User ID of the local user who initiated this request */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The file name that is being written to  */
+    /** The file name that is being written to */
     public let Filename: String?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error 
-     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request 
-     * - Parameter Filename:  The file name that is being written to 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error
+    - Parameter LocalUserId: The Product User ID of the local user who initiated this request
+    - Parameter Filename: The file name that is being written to
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

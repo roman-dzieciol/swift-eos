@@ -4,28 +4,28 @@ import EOSSDK
 /** Input parameters for the EOS_Stats_IngestStat function. */
 public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST.  */
+    /** API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.  */
+    /** The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. */
     public let LocalUserId: EOS_ProductUserId?
 
     /**
-     * Stats to ingest. 
-     * 
-     * - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
-     * The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
-     */
+    Stats to ingest.
+
+    - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
+    The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.
+    */
     public let Stats: [SwiftEOS_Stats_IngestData]?
 
-    /** The Product User ID for the user whose stat is being ingested.  */
+    /** The Product User ID for the user whose stat is being ingested. */
     public let TargetUserId: EOS_ProductUserId?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Stats_IngestStatOptions {
@@ -52,15 +52,15 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST. 
-     * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
-     * - Parameter Stats:  Stats to ingest. 
-     * 
-     * - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
-     * The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
-     * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST.
+    - Parameter LocalUserId: The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.
+    - Parameter Stats: Stats to ingest.
+    - Note: ``EOS/_tagEOS_Stats_IngestStatOptions/StatsCount``:
+    The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS.
+    - Parameter TargetUserId: The Product User ID for the user whose stat is being ingested.
+    */
     public init(
         ApiVersion: Int32 = EOS_STATS_INGESTSTAT_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

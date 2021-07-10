@@ -2,17 +2,17 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST.  */
+    /** API Version: Set this to EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Game session identifier  */
+    /** Game session identifier */
     public let GameSessionId: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_SetGameSessionIdOptions {
@@ -32,10 +32,11 @@ public struct SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST. 
-     * - Parameter GameSessionId:  Game session identifier 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST.
+    - Parameter GameSessionId: Game session identifier
+    */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST,
         GameSessionId: String?

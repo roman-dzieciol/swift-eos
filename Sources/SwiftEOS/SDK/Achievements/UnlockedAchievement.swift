@@ -2,26 +2,26 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a single unlocked achievement.
- * 
- * - see: release func: EOS_Achievements_UnlockedAchievement_Release
- */
+Contains information about a single unlocked achievement.
+
+- Note: Release func: ``EOS_Achievements_UnlockedAchievement_Release``
+*/
 public struct SwiftEOS_Achievements_UnlockedAchievement: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST.  */
+    /** API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Achievement ID that can be used to uniquely identify the unlocked achievement.  */
+    /** Achievement ID that can be used to uniquely identify the unlocked achievement. */
     public let AchievementId: String?
 
-    /** If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked.  */
+    /** If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked. */
     public let UnlockTime: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Achievements_UnlockedAchievement {
@@ -43,11 +43,12 @@ public struct SwiftEOS_Achievements_UnlockedAchievement: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST. 
-     * - Parameter AchievementId:  Achievement ID that can be used to uniquely identify the unlocked achievement. 
-     * - Parameter UnlockTime:  If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST.
+    - Parameter AchievementId: Achievement ID that can be used to uniquely identify the unlocked achievement.
+    - Parameter UnlockTime: If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked.
+    */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST,
         AchievementId: String?,

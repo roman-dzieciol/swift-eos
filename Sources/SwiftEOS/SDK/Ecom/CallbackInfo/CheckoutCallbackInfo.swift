@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Ecom_Checkout Function. */
 public struct SwiftEOS_Ecom_CheckoutCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, otherwise one of the error codes is returned. See eos_common.h  */
+    /** Result code for the operation. EOS_Success is returned for a successful request, otherwise one of the error codes is returned. See eos_common.h */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the user who initiated the purchase  */
+    /** The Epic Online Services Account ID of the user who initiated the purchase */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The transaction ID which can be used to obtain an EOS_Ecom_HTransaction using EOS_Ecom_CopyTransactionById.  */
+    /** The transaction ID which can be used to obtain an EOS_Ecom_HTransaction using EOS_Ecom_CopyTransactionById. */
     public let TransactionId: String?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Ecom_CheckoutCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, otherwise one of the error codes is returned. See eos_common.h 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who initiated the purchase 
-     * - Parameter TransactionId:  The transaction ID which can be used to obtain an EOS_Ecom_HTransaction using EOS_Ecom_CopyTransactionById. 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, otherwise one of the error codes is returned. See eos_common.h
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user who initiated the purchase
+    - Parameter TransactionId: The transaction ID which can be used to obtain an EOS_Ecom_HTransaction using EOS_Ecom_CopyTransactionById.
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

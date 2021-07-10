@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_UI_ShowFriends function. */
 public struct SwiftEOS_UI_ShowFriendsCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the user whose friend list is being shown.  */
+    /** The Epic Online Services Account ID of the user whose friend list is being shown. */
     public let LocalUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_UI_ShowFriendsCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friend list is being shown.
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?

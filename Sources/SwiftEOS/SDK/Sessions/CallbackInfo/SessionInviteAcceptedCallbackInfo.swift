@@ -4,16 +4,16 @@ import EOSSDK
 /** Output parameters for the EOS_Sessions_OnSessionInviteAcceptedCallback function. */
 public struct SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo {
 
-    /** Session ID that should be used for joining  */
+    /** Session ID that should be used for joining */
     public let SessionId: String?
 
-    /** The Product User ID of the user who accepted the invitation  */
+    /** The Product User ID of the user who accepted the invitation */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The Product User ID of the user who sent the invitation  */
+    /** The Product User ID of the user who sent the invitation */
     public let TargetUserId: EOS_ProductUserId?
 
-    /** Invite ID that was accepted  */
+    /** Invite ID that was accepted */
     public let InviteId: String?
 
     /** Initialize from SDK object */
@@ -38,12 +38,13 @@ public struct SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter SessionId:  Session ID that should be used for joining 
-     * - Parameter LocalUserId:  The Product User ID of the user who accepted the invitation 
-     * - Parameter TargetUserId:  The Product User ID of the user who sent the invitation 
-     * - Parameter InviteId:  Invite ID that was accepted 
-     */
+    Memberwise initializer
+
+    - Parameter SessionId: Session ID that should be used for joining
+    - Parameter LocalUserId: The Product User ID of the user who accepted the invitation
+    - Parameter TargetUserId: The Product User ID of the user who sent the invitation
+    - Parameter InviteId: Invite ID that was accepted
+    */
     public init(
         SessionId: String?,
         LocalUserId: EOS_ProductUserId?,

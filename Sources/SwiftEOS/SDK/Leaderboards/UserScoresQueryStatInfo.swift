@@ -4,13 +4,13 @@ import EOSSDK
 /** Contains information about a single stat to query with user scores. */
 public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST.  */
+    /** API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The name of the stat to query.  */
+    /** The name of the stat to query. */
     public let StatName: String?
 
-    /** Aggregation used to sort the cached user scores.  */
+    /** Aggregation used to sort the cached user scores. */
     public let Aggregation: EOS_ELeaderboardAggregation
 
     /** Initialize from SDK object */
@@ -24,10 +24,10 @@ public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Leaderboards_UserScoresQueryStatInfo {
@@ -39,11 +39,12 @@ public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST. 
-     * - Parameter StatName:  The name of the stat to query. 
-     * - Parameter Aggregation:  Aggregation used to sort the cached user scores. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST.
+    - Parameter StatName: The name of the stat to query.
+    - Parameter Aggregation: Aggregation used to sort the cached user scores.
+    */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST,
         StatName: String?,

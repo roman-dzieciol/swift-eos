@@ -2,7 +2,7 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogEventParamPair: SwiftEOSObject {
 
-    /** Parameter type  */
+    /** Parameter type */
     public let ParamValueType: EOS_EAntiCheatCommonEventParamType
     public let ParamValue: _tagEOS_AntiCheatCommon_LogEventParamPair.__Unnamed_union_ParamValue
 
@@ -16,10 +16,10 @@ public struct SwiftEOS_AntiCheatCommon_LogEventParamPair: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_LogEventParamPair {
@@ -30,9 +30,10 @@ public struct SwiftEOS_AntiCheatCommon_LogEventParamPair: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ParamValueType:  Parameter type 
-     */
+    Memberwise initializer
+
+    - Parameter ParamValueType: Parameter type
+    */
     public init(
         ParamValueType: EOS_EAntiCheatCommonEventParamType,
         ParamValue: _tagEOS_AntiCheatCommon_LogEventParamPair.__Unnamed_union_ParamValue

@@ -2,37 +2,36 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a single leaderboard definition
- * 
- * - see: release func: EOS_Leaderboards_Definition_Release
- * 
- * - see: release func: EOS_Leaderboards_LeaderboardDefinition_Release
- */
+Contains information about a single leaderboard definition
+
+- Note: Release func: ``EOS_Leaderboards_Definition_Release``
+- Note: Release func: ``EOS_Leaderboards_LeaderboardDefinition_Release``
+*/
 public struct SwiftEOS_Leaderboards_Definition: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_DEFINITION_API_LATEST.  */
+    /** API Version: Set this to EOS_LEADERBOARDS_DEFINITION_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Unique ID to identify leaderboard.  */
+    /** Unique ID to identify leaderboard. */
     public let LeaderboardId: String?
 
-    /** Name of stat used to rank leaderboard.  */
+    /** Name of stat used to rank leaderboard. */
     public let StatName: String?
 
-    /** Aggregation used to sort leaderboard.  */
+    /** Aggregation used to sort leaderboard. */
     public let Aggregation: EOS_ELeaderboardAggregation
 
-    /** The POSIX timestamp for the start time, or EOS_LEADERBOARDS_TIME_UNDEFINED.  */
+    /** The POSIX timestamp for the start time, or EOS_LEADERBOARDS_TIME_UNDEFINED. */
     public let StartTime: Int
 
-    /** The POSIX timestamp for the end time, or EOS_LEADERBOARDS_TIME_UNDEFINED.  */
+    /** The POSIX timestamp for the end time, or EOS_LEADERBOARDS_TIME_UNDEFINED. */
     public let EndTime: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Leaderboards_Definition {
@@ -60,14 +59,15 @@ public struct SwiftEOS_Leaderboards_Definition: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_DEFINITION_API_LATEST. 
-     * - Parameter LeaderboardId:  Unique ID to identify leaderboard. 
-     * - Parameter StatName:  Name of stat used to rank leaderboard. 
-     * - Parameter Aggregation:  Aggregation used to sort leaderboard. 
-     * - Parameter StartTime:  The POSIX timestamp for the start time, or EOS_LEADERBOARDS_TIME_UNDEFINED. 
-     * - Parameter EndTime:  The POSIX timestamp for the end time, or EOS_LEADERBOARDS_TIME_UNDEFINED. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_DEFINITION_API_LATEST.
+    - Parameter LeaderboardId: Unique ID to identify leaderboard.
+    - Parameter StatName: Name of stat used to rank leaderboard.
+    - Parameter Aggregation: Aggregation used to sort leaderboard.
+    - Parameter StartTime: The POSIX timestamp for the start time, or EOS_LEADERBOARDS_TIME_UNDEFINED.
+    - Parameter EndTime: The POSIX timestamp for the end time, or EOS_LEADERBOARDS_TIME_UNDEFINED.
+    */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_DEFINITION_API_LATEST,
         LeaderboardId: String?,

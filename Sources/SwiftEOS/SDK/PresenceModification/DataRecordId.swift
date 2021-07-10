@@ -4,10 +4,10 @@ import EOSSDK
 /** Data for identifying which data records should be deleted. */
 public struct SwiftEOS_PresenceModification_DataRecordId: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST.  */
+    /** API Version: Set this to EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The key to be deleted from the data record  */
+    /** The key to be deleted from the data record */
     public let Key: String?
 
     /** Initialize from SDK object */
@@ -20,10 +20,10 @@ public struct SwiftEOS_PresenceModification_DataRecordId: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_PresenceModification_DataRecordId {
@@ -34,10 +34,11 @@ public struct SwiftEOS_PresenceModification_DataRecordId: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST. 
-     * - Parameter Key:  The key to be deleted from the data record 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST.
+    - Parameter Key: The key to be deleted from the data record
+    */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST,
         Key: String?

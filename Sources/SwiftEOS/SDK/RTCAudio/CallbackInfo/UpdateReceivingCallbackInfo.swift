@@ -5,22 +5,20 @@ import EOSSDK
 public struct SwiftEOS_RTCAudio_UpdateReceivingCallbackInfo {
 
     /**
-     * This returns:
-     * EOS_Success if the users were successfully unblocked.
-     * EOS_UnexpectedError otherwise.
-     */
+    This returns:EOS_Success if the users were successfully unblocked.EOS_UnexpectedError otherwise.
+    */
     public let ResultCode: EOS_EResult
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room this settings should be applied on.  */
+    /** The room this settings should be applied on. */
     public let RoomName: String?
 
-    /** The participant to modify or null to update the global configuration  */
+    /** The participant to modify or null to update the global configuration */
     public let ParticipantId: EOS_ProductUserId?
 
-    /** Muted or unmuted audio track  */
+    /** Muted or unmuted audio track */
     public let bAudioEnabled: Bool
 
     /** Initialize from SDK object */
@@ -46,15 +44,14 @@ public struct SwiftEOS_RTCAudio_UpdateReceivingCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  This returns:
-     * EOS_Success if the users were successfully unblocked.
-     * EOS_UnexpectedError otherwise.
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room this settings should be applied on. 
-     * - Parameter ParticipantId:  The participant to modify or null to update the global configuration 
-     * - Parameter bAudioEnabled:  Muted or unmuted audio track 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: This returns:EOS_Success if the users were successfully unblocked.EOS_UnexpectedError otherwise.
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room this settings should be applied on.
+    - Parameter ParticipantId: The participant to modify or null to update the global configuration
+    - Parameter bAudioEnabled: Muted or unmuted audio track
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

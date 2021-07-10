@@ -4,15 +4,15 @@ import EOSSDK
 /** Structure containing details about a new message that must be dispatched to a connected client/peer. */
 public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
 
-    /** The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions.  */
+    /** The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions. */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
     /**
-     * The message data that must be sent to the client 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo/MessageDataSizeBytes``:
-     * The size in bytes of MessageData 
-     */
+    The message data that must be sent to the client
+
+    - Note: ``EOS/_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo/MessageDataSizeBytes``:
+    The size in bytes of MessageData
+    */
     public let MessageData: [UInt8]?
 
     /** Initialize from SDK object */
@@ -38,13 +38,13 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ClientHandle:  The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions. 
-     * - Parameter MessageData:  The message data that must be sent to the client 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo/MessageDataSizeBytes``:
-     * The size in bytes of MessageData 
-     */
+    Memberwise initializer
+
+    - Parameter ClientHandle: The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions.
+    - Parameter MessageData: The message data that must be sent to the client
+    - Note: ``EOS/_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo/MessageDataSizeBytes``:
+    The size in bytes of MessageData
+    */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         MessageData: [UInt8]?

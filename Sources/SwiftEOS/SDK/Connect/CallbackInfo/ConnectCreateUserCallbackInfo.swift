@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_Connect_CreateUser function. */
 public struct SwiftEOS_Connect_CreateUserCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** If the operation succeeded, this is the Product User ID of the local user who was created.  */
+    /** If the operation succeeded, this is the Product User ID of the local user who was created. */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Connect_CreateUserCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  If the operation succeeded, this is the Product User ID of the local user who was created. 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: If the operation succeeded, this is the Product User ID of the local user who was created.
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

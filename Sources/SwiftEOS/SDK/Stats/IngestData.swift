@@ -4,13 +4,13 @@ import EOSSDK
 /** Contains information about a single stat to ingest. */
 public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_INGESTDATA_API_LATEST.  */
+    /** API Version: Set this to EOS_STATS_INGESTDATA_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The name of the stat to ingest.  */
+    /** The name of the stat to ingest. */
     public let StatName: String?
 
-    /** The amount to ingest the stat.  */
+    /** The amount to ingest the stat. */
     public let IngestAmount: Int
 
     /** Initialize from SDK object */
@@ -24,10 +24,10 @@ public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Stats_IngestData {
@@ -39,11 +39,12 @@ public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_INGESTDATA_API_LATEST. 
-     * - Parameter StatName:  The name of the stat to ingest. 
-     * - Parameter IngestAmount:  The amount to ingest the stat. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_STATS_INGESTDATA_API_LATEST.
+    - Parameter StatName: The name of the stat to ingest.
+    - Parameter IngestAmount: The amount to ingest the stat.
+    */
     public init(
         ApiVersion: Int32 = EOS_STATS_INGESTDATA_API_LATEST,
         StatName: String?,

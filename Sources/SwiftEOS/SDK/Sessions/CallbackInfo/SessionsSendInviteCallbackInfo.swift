@@ -4,7 +4,7 @@ import EOSSDK
 /** Output parameters for the EOS_Sessions_SendInvite function. */
 public struct SwiftEOS_Sessions_SendInviteCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
     /** Initialize from SDK object */
@@ -26,9 +26,10 @@ public struct SwiftEOS_Sessions_SendInviteCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    */
     public init(
         ResultCode: EOS_EResult
     ) {

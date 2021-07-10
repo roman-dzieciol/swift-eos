@@ -2,32 +2,32 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a single player stat.
- * 
- * - see: release func: EOS_Stats_Stat_Release
- */
+Contains information about a single player stat.
+
+- Note: Release func: ``EOS_Stats_Stat_Release``
+*/
 public struct SwiftEOS_Stats_Stat: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_STATS_STAT_API_LATEST.  */
+    /** API Version: Set this to EOS_STATS_STAT_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the stat.  */
+    /** Name of the stat. */
     public let Name: String?
 
-    /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time.  */
+    /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time. */
     public let StartTime: Int
 
-    /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time.  */
+    /** If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time. */
     public let EndTime: Int
 
-    /** Current value for the stat.  */
+    /** Current value for the stat. */
     public let Value: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Stats_Stat {
@@ -53,13 +53,14 @@ public struct SwiftEOS_Stats_Stat: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_STAT_API_LATEST. 
-     * - Parameter Name:  Name of the stat. 
-     * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time. 
-     * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time. 
-     * - Parameter Value:  Current value for the stat. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_STATS_STAT_API_LATEST.
+    - Parameter Name: Name of the stat.
+    - Parameter StartTime: If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time.
+    - Parameter EndTime: If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time.
+    - Parameter Value: Current value for the stat.
+    */
     public init(
         ApiVersion: Int32 = EOS_STATS_STAT_API_LATEST,
         Name: String?,

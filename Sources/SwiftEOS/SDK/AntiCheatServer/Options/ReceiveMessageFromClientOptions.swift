@@ -2,25 +2,25 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST.  */
+    /** API Version: Set this to EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Optional value, if non-null then only messages addressed to this specific client will be returned  */
+    /** Optional value, if non-null then only messages addressed to this specific client will be returned */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
     /**
-     * The data received 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
-     * The size of the data received 
-     */
+    The data received
+
+    - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
+    The size of the data received
+    */
     public let Data: [UInt8]?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions {
@@ -46,14 +46,14 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST. 
-     * - Parameter ClientHandle:  Optional value, if non-null then only messages addressed to this specific client will be returned 
-     * - Parameter Data:  The data received 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
-     * The size of the data received 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST.
+    - Parameter ClientHandle: Optional value, if non-null then only messages addressed to this specific client will be returned
+    - Parameter Data: The data received
+    - Note: ``EOS/_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions/DataLengthBytes``:
+    The size of the data received
+    */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,

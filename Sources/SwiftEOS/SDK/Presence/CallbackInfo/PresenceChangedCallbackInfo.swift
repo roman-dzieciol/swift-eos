@@ -4,10 +4,10 @@ import EOSSDK
 /** Data containing which users presence has changed */
 public struct SwiftEOS_Presence_PresenceChangedCallbackInfo {
 
-    /** The Epic Online Services Account ID of the local user who is being informed for PresenceUserId's presence change  */
+    /** The Epic Online Services Account ID of the local user who is being informed for PresenceUserId's presence change */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The Epic Online Services Account ID of the user who had their presence changed  */
+    /** The Epic Online Services Account ID of the user who had their presence changed */
     public let PresenceUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Presence_PresenceChangedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is being informed for PresenceUserId's presence change 
-     * - Parameter PresenceUserId:  The Epic Online Services Account ID of the user who had their presence changed 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user who is being informed for PresenceUserId's presence change
+    - Parameter PresenceUserId: The Epic Online Services Account ID of the user who had their presence changed
+    */
     public init(
         LocalUserId: EOS_EpicAccountId?,
         PresenceUserId: EOS_EpicAccountId?

@@ -4,19 +4,19 @@ import EOSSDK
 /** Output parameters for the EOS_UserInfo_QueryUserInfoByExternalAccount Function. */
 public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the local player who requested the information  */
+    /** The Epic Online Services Account ID of the local player who requested the information */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** External account id of the user whose information has been retrieved  */
+    /** External account id of the user whose information has been retrieved */
     public let ExternalAccountId: String?
 
-    /** Account type of the external account id  */
+    /** Account type of the external account id */
     public let AccountType: EOS_EExternalAccountType
 
-    /** Account ID of the player whose information has been retrieved  */
+    /** Account ID of the player whose information has been retrieved */
     public let TargetUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -42,13 +42,14 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player who requested the information 
-     * - Parameter ExternalAccountId:  External account id of the user whose information has been retrieved 
-     * - Parameter AccountType:  Account type of the external account id 
-     * - Parameter TargetUserId:  Account ID of the player whose information has been retrieved 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local player who requested the information
+    - Parameter ExternalAccountId: External account id of the user whose information has been retrieved
+    - Parameter AccountType: Account type of the external account id
+    - Parameter TargetUserId: Account ID of the player whose information has been retrieved
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

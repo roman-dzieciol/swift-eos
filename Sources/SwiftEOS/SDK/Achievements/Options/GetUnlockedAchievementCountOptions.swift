@@ -4,17 +4,17 @@ import EOSSDK
 /** Input parameters for the EOS_Achievements_GetUnlockedAchievementCount function. */
 public struct SwiftEOS_Achievements_GetUnlockedAchievementCountOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST.  */
+    /** API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Product User ID for which to retrieve the unlocked achievement count  */
+    /** Product User ID for which to retrieve the unlocked achievement count */
     public let UserId: EOS_ProductUserId?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Achievements_GetUnlockedAchievementCountOptions {
@@ -34,10 +34,11 @@ public struct SwiftEOS_Achievements_GetUnlockedAchievementCountOptions: SwiftEOS
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST. 
-     * - Parameter UserId:  Product User ID for which to retrieve the unlocked achievement count 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST.
+    - Parameter UserId: Product User ID for which to retrieve the unlocked achievement count
+    */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST,
         UserId: EOS_ProductUserId?

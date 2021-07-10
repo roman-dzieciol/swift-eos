@@ -2,29 +2,29 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a single external user info.
- * 
- * - see: release func: EOS_UserInfo_ExternalUserInfo_Release
- */
+Contains information about a single external user info.
+
+- Note: Release func: ``EOS_UserInfo_ExternalUserInfo_Release``
+*/
 public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST.  */
+    /** API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The type of the external account  */
+    /** The type of the external account */
     public let AccountType: EOS_EExternalAccountType
 
-    /** The ID of the external account. Can be null  */
+    /** The ID of the external account. Can be null */
     public let AccountId: String?
 
-    /** The display name of the external account. Can be null  */
+    /** The display name of the external account. Can be null */
     public let DisplayName: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_UserInfo_ExternalUserInfo {
@@ -48,12 +48,13 @@ public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST. 
-     * - Parameter AccountType:  The type of the external account 
-     * - Parameter AccountId:  The ID of the external account. Can be null 
-     * - Parameter DisplayName:  The display name of the external account. Can be null 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST.
+    - Parameter AccountType: The type of the external account
+    - Parameter AccountId: The ID of the external account. Can be null
+    - Parameter DisplayName: The display name of the external account. Can be null
+    */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_EXTERNALUSERINFO_API_LATEST,
         AccountType: EOS_EExternalAccountType,

@@ -4,29 +4,28 @@ import EOSSDK
 /** This struct is used to call EOS_RTCAudio_SetAudioInputSettings. */
 public struct SwiftEOS_RTCAudio_SetAudioInputSettingsOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_RTCAUDIO_SETAUDIOINPUTSETTINGS_API_LATEST.  */
+    /** API Version: Set this to EOS_RTCAUDIO_SETAUDIOINPUTSETTINGS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID of the user trying to request this operation.  */
+    /** The Product User ID of the user trying to request this operation. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The device Id to be used for this user. Pass NULL or empty string to use default input device.  */
+    /** The device Id to be used for this user. Pass NULL or empty string to use default input device. */
     public let DeviceId: String?
 
     /**
-     * The volume to be configured for this device (range 0.0 to 100.0).
-     * At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
-     */
+    The volume to be configured for this device (range 0.0 to 100.0).At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
+    */
     public let Volume: Float
 
-    /** Enable or disable Platform AEC (Acoustic Echo Cancellation) if available.  */
+    /** Enable or disable Platform AEC (Acoustic Echo Cancellation) if available. */
     public let bPlatformAEC: Bool
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_RTCAudio_SetAudioInputSettingsOptions {
@@ -52,14 +51,14 @@ public struct SwiftEOS_RTCAudio_SetAudioInputSettingsOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_SETAUDIOINPUTSETTINGS_API_LATEST. 
-     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
-     * - Parameter DeviceId:  The device Id to be used for this user. Pass NULL or empty string to use default input device. 
-     * - Parameter Volume:  The volume to be configured for this device (range 0.0 to 100.0).
-     * At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
-     * - Parameter bPlatformAEC:  Enable or disable Platform AEC (Acoustic Echo Cancellation) if available. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_SETAUDIOINPUTSETTINGS_API_LATEST.
+    - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
+    - Parameter DeviceId: The device Id to be used for this user. Pass NULL or empty string to use default input device.
+    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0).At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
+    - Parameter bPlatformAEC: Enable or disable Platform AEC (Acoustic Echo Cancellation) if available.
+    */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_SETAUDIOINPUTSETTINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

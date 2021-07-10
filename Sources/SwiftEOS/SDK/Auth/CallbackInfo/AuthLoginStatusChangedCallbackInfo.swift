@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Auth_OnLoginStatusChangedCallback Function. */
 public struct SwiftEOS_Auth_LoginStatusChangedCallbackInfo {
 
-    /** The Epic Online Services Account ID of the local user whose status has changed  */
+    /** The Epic Online Services Account ID of the local user whose status has changed */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The status prior to the change  */
+    /** The status prior to the change */
     public let PrevStatus: EOS_ELoginStatus
 
-    /** The status at the time of the notification  */
+    /** The status at the time of the notification */
     public let CurrentStatus: EOS_ELoginStatus
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Auth_LoginStatusChangedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose status has changed 
-     * - Parameter PrevStatus:  The status prior to the change 
-     * - Parameter CurrentStatus:  The status at the time of the notification 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose status has changed
+    - Parameter PrevStatus: The status prior to the change
+    - Parameter CurrentStatus: The status at the time of the notification
+    */
     public init(
         LocalUserId: EOS_EpicAccountId?,
         PrevStatus: EOS_ELoginStatus,

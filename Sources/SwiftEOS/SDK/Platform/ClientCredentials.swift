@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** Client credentials.  */
+/** Client credentials. */
 public struct SwiftEOS_Platform_ClientCredentials: SwiftEOSObject {
 
-    /** Client ID of the service permissions entry. Set to NULL if no service permissions are used.  */
+    /** Client ID of the service permissions entry. Set to NULL if no service permissions are used. */
     public let ClientId: String?
 
-    /** Client secret for accessing the set of permissions. Set to NULL if no service permissions are used.  */
+    /** Client secret for accessing the set of permissions. Set to NULL if no service permissions are used. */
     public let ClientSecret: String?
 
     /** Initialize from SDK object */
@@ -20,10 +20,10 @@ public struct SwiftEOS_Platform_ClientCredentials: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Platform_ClientCredentials {
@@ -34,10 +34,11 @@ public struct SwiftEOS_Platform_ClientCredentials: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ClientId:  Client ID of the service permissions entry. Set to NULL if no service permissions are used. 
-     * - Parameter ClientSecret:  Client secret for accessing the set of permissions. Set to NULL if no service permissions are used. 
-     */
+    Memberwise initializer
+
+    - Parameter ClientId: Client ID of the service permissions entry. Set to NULL if no service permissions are used.
+    - Parameter ClientSecret: Client secret for accessing the set of permissions. Set to NULL if no service permissions are used.
+    */
     public init(
         ClientId: String?,
         ClientSecret: String?

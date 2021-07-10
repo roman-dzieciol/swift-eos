@@ -2,32 +2,32 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST.  */
+    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Locally unique value used in RegisterClient/RegisterPeer  */
+    /** Locally unique value used in RegisterClient/RegisterPeer */
     public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** Player's current world position as a 3D vector  */
+    /** Player's current world position as a 3D vector */
     public let PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
 
-    /** Player's view rotation as a quaternion  */
+    /** Player's view rotation as a quaternion */
     public let PlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?
 
-    /** True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false  */
+    /** True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false */
     public let bIsPlayerViewZoomed: Bool
 
-    /** Player's current health value  */
+    /** Player's current health value */
     public let PlayerHealth: Float
 
-    /** Any movement state applicable  */
+    /** Any movement state applicable */
     public let PlayerMovementState: EOS_EAntiCheatCommonPlayerMovementState
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_LogPlayerTickOptions {
@@ -57,15 +57,16 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST. 
-     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
-     * - Parameter PlayerPosition:  Player's current world position as a 3D vector 
-     * - Parameter PlayerViewRotation:  Player's view rotation as a quaternion 
-     * - Parameter bIsPlayerViewZoomed:  True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false 
-     * - Parameter PlayerHealth:  Player's current health value 
-     * - Parameter PlayerMovementState:  Any movement state applicable 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST.
+    - Parameter PlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
+    - Parameter PlayerPosition: Player's current world position as a 3D vector
+    - Parameter PlayerViewRotation: Player's view rotation as a quaternion
+    - Parameter bIsPlayerViewZoomed: True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false
+    - Parameter PlayerHealth: Player's current health value
+    - Parameter PlayerMovementState: Any movement state applicable
+    */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST,
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,

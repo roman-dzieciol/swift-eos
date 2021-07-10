@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_Lobby_LeaveLobby function. */
 public struct SwiftEOS_Lobby_LeaveLobbyCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The ID of the lobby  */
+    /** The ID of the lobby */
     public let LobbyId: String?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Lobby_LeaveLobbyCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LobbyId:  The ID of the lobby 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LobbyId: The ID of the lobby
+    */
     public init(
         ResultCode: EOS_EResult,
         LobbyId: String?

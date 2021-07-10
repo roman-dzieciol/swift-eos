@@ -1,13 +1,13 @@
 import Foundation
 import EOSSDK
 
-/** Structure containing details about a client/peer authentication status change  */
+/** Structure containing details about a client/peer authentication status change */
 public struct SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo {
 
-    /** The identifier of the client/peer that this status change applies to. See the RegisterClient and RegisterPeer functions.  */
+    /** The identifier of the client/peer that this status change applies to. See the RegisterClient and RegisterPeer functions. */
     public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** The client/peer's new authentication status  */
+    /** The client/peer's new authentication status */
     public let ClientAuthStatus: EOS_EAntiCheatCommonClientAuthStatus
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ClientHandle:  The identifier of the client/peer that this status change applies to. See the RegisterClient and RegisterPeer functions. 
-     * - Parameter ClientAuthStatus:  The client/peer's new authentication status 
-     */
+    Memberwise initializer
+
+    - Parameter ClientHandle: The identifier of the client/peer that this status change applies to. See the RegisterClient and RegisterPeer functions.
+    - Parameter ClientAuthStatus: The client/peer's new authentication status
+    */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         ClientAuthStatus: EOS_EAntiCheatCommonClientAuthStatus

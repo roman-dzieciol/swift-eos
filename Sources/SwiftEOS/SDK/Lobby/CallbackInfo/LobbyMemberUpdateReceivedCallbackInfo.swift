@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_Lobby_OnLobbyMemberUpdateReceivedCallback Function. */
 public struct SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo {
 
-    /** The ID of the lobby  */
+    /** The ID of the lobby */
     public let LobbyId: String?
 
-    /** The Product User ID of the lobby member  */
+    /** The Product User ID of the lobby member */
     public let TargetUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LobbyId:  The ID of the lobby 
-     * - Parameter TargetUserId:  The Product User ID of the lobby member 
-     */
+    Memberwise initializer
+
+    - Parameter LobbyId: The ID of the lobby
+    - Parameter TargetUserId: The Product User ID of the lobby member
+    */
     public init(
         LobbyId: String?,
         TargetUserId: EOS_ProductUserId?

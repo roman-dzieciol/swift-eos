@@ -4,13 +4,13 @@ import EOSSDK
 /** This struct is passed in with a call to EOS_RTCAudio_AddNotifyAudioBeforeSend registered event. */
 public struct SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo {
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room associated with this event.  */
+    /** The room associated with this event. */
     public let RoomName: String?
 
-    /** Audio buffer.  */
+    /** Audio buffer. */
     public let Buffer: SwiftEOS_RTCAudio_AudioBuffer?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room associated with this event. 
-     * - Parameter Buffer:  Audio buffer. 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room associated with this event.
+    - Parameter Buffer: Audio buffer.
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

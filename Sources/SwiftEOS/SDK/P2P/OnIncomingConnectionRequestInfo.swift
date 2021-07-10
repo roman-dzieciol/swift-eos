@@ -4,13 +4,13 @@ import EOSSDK
 /** Structure containing information about an incoming connection request. */
 public struct SwiftEOS_P2P_OnIncomingConnectionRequestInfo {
 
-    /** The Product User ID of the local user who is being requested to open a P2P session with RemoteUserId  */
+    /** The Product User ID of the local user who is being requested to open a P2P session with RemoteUserId */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The Product User ID of the remote user who requested a peer connection with the local user  */
+    /** The Product User ID of the remote user who requested a peer connection with the local user */
     public let RemoteUserId: EOS_ProductUserId?
 
-    /** The ID of the socket the Remote User wishes to communicate on  */
+    /** The ID of the socket the Remote User wishes to communicate on */
     public let SocketId: SwiftEOS_P2P_SocketId?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_P2P_OnIncomingConnectionRequestInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the local user who is being requested to open a P2P session with RemoteUserId 
-     * - Parameter RemoteUserId:  The Product User ID of the remote user who requested a peer connection with the local user 
-     * - Parameter SocketId:  The ID of the socket the Remote User wishes to communicate on 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the local user who is being requested to open a P2P session with RemoteUserId
+    - Parameter RemoteUserId: The Product User ID of the remote user who requested a peer connection with the local user
+    - Parameter SocketId: The ID of the socket the Remote User wishes to communicate on
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RemoteUserId: EOS_ProductUserId?,

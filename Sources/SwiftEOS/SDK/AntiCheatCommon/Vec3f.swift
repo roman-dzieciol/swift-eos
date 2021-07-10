@@ -1,16 +1,16 @@
 import Foundation
 import EOSSDK
 
-/** Vector using left-handed coordinate system (as in Unreal Engine)  */
+/** Vector using left-handed coordinate system (as in Unreal Engine) */
 public struct SwiftEOS_AntiCheatCommon_Vec3f: SwiftEOSObject {
 
-    /** X axis coordinate - forward direction  */
+    /** X axis coordinate - forward direction */
     public let x: Float
 
-    /** Y axis coordinate - right direction  */
+    /** Y axis coordinate - right direction */
     public let y: Float
 
-    /** Z axis coordinate - up direction  */
+    /** Z axis coordinate - up direction */
     public let z: Float
 
     /** Initialize from SDK object */
@@ -24,10 +24,10 @@ public struct SwiftEOS_AntiCheatCommon_Vec3f: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_Vec3f {
@@ -39,11 +39,12 @@ public struct SwiftEOS_AntiCheatCommon_Vec3f: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter x:  X axis coordinate - forward direction 
-     * - Parameter y:  Y axis coordinate - right direction 
-     * - Parameter z:  Z axis coordinate - up direction 
-     */
+    Memberwise initializer
+
+    - Parameter x: X axis coordinate - forward direction
+    - Parameter y: Y axis coordinate - right direction
+    - Parameter z: Z axis coordinate - up direction
+    */
     public init(
         x: Float,
         y: Float,

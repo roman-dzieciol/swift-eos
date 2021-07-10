@@ -5,7 +5,7 @@ import EOSSDK
 public struct SwiftEOS_Ecom_QueryEntitlementsCallbackInfo {
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the local user whose entitlement was queried  */
+    /** The Epic Online Services Account ID of the local user whose entitlement was queried */
     public let LocalUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -28,9 +28,10 @@ public struct SwiftEOS_Ecom_QueryEntitlementsCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement was queried 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose entitlement was queried
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?

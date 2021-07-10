@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_Lobby_RejectInvite function. */
 public struct SwiftEOS_Lobby_RejectInviteCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The ID of the invitation being rejected  */
+    /** The ID of the invitation being rejected */
     public let InviteId: String?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Lobby_RejectInviteCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter InviteId:  The ID of the invitation being rejected 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter InviteId: The ID of the invitation being rejected
+    */
     public init(
         ResultCode: EOS_EResult,
         InviteId: String?

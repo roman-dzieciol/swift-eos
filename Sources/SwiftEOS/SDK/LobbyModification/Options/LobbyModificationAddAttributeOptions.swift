@@ -4,20 +4,20 @@ import EOSSDK
 /** Input parameters for the EOS_LobbyModification_AddAttribute function. */
 public struct SwiftEOS_LobbyModification_AddAttributeOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LOBBYMODIFICATION_ADDATTRIBUTE_API_LATEST.  */
+    /** API Version: Set this to EOS_LOBBYMODIFICATION_ADDATTRIBUTE_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Key/Value pair describing the attribute to add to the lobby  */
+    /** Key/Value pair describing the attribute to add to the lobby */
     public let Attribute: SwiftEOS_Lobby_AttributeData?
 
-    /** Is this attribute public or private to the lobby and its members  */
+    /** Is this attribute public or private to the lobby and its members */
     public let Visibility: EOS_ELobbyAttributeVisibility
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_LobbyModification_AddAttributeOptions {
@@ -39,11 +39,12 @@ public struct SwiftEOS_LobbyModification_AddAttributeOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_ADDATTRIBUTE_API_LATEST. 
-     * - Parameter Attribute:  Key/Value pair describing the attribute to add to the lobby 
-     * - Parameter Visibility:  Is this attribute public or private to the lobby and its members 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LOBBYMODIFICATION_ADDATTRIBUTE_API_LATEST.
+    - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby
+    - Parameter Visibility: Is this attribute public or private to the lobby and its members
+    */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_ADDATTRIBUTE_API_LATEST,
         Attribute: SwiftEOS_Lobby_AttributeData?,

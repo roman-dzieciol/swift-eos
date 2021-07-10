@@ -4,13 +4,13 @@ import EOSSDK
 /** The result meta-data for a presence query. */
 public struct SwiftEOS_Presence_QueryPresenceCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the local user who made this request  */
+    /** The Epic Online Services Account ID of the local user who made this request */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The Epic Online Services Account ID of the user whose presence was potentially queried  */
+    /** The Epic Online Services Account ID of the user whose presence was potentially queried */
     public let TargetUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Presence_QueryPresenceCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who made this request 
-     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose presence was potentially queried 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user who made this request
+    - Parameter TargetUserId: The Epic Online Services Account ID of the user whose presence was potentially queried
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

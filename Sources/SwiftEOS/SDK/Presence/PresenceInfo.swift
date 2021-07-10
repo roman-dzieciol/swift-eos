@@ -2,52 +2,51 @@ import Foundation
 import EOSSDK
 
 /**
- * All the known presence information for a specific user. This object must be released by calling EOS_Presence_Info_Release.
- * 
- * - SeeAlso:  EOS_Presence_CopyPresence
- * - SeeAlso:  EOS_Presence_Info_Release
- * 
- * - see: release func: EOS_Presence_Info_Release
- */
+All the known presence information for a specific user. This object must be released by calling EOS_Presence_Info_Release.
+
+- SeeAlso: EOS_Presence_CopyPresence
+- SeeAlso: EOS_Presence_Info_Release
+- Note: Release func: ``EOS_Presence_Info_Release``
+*/
 public struct SwiftEOS_Presence_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_PRESENCE_INFO_API_LATEST.  */
+    /** API Version: Set this to EOS_PRESENCE_INFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The status of the user  */
+    /** The status of the user */
     public let Status: EOS_Presence_EStatus
 
-    /** The Epic Online Services Account ID of the user  */
+    /** The Epic Online Services Account ID of the user */
     public let UserId: EOS_EpicAccountId?
 
-    /** The product ID that the user is logged in from  */
+    /** The product ID that the user is logged in from */
     public let ProductId: String?
 
-    /** The version of the product the user is logged in from  */
+    /** The version of the product the user is logged in from */
     public let ProductVersion: String?
 
-    /** The platform of that the user is logged in from  */
+    /** The platform of that the user is logged in from */
     public let Platform: String?
 
-    /** The rich-text of the user  */
+    /** The rich-text of the user */
     public let RichText: String?
 
     /**
-     * The first data record, or NULL if RecordsCount is not at least 1 
-     * 
-     * - Note: ``EOS/_tagEOS_Presence_Info/RecordsCount``:
-     * The count of records available 
-     */
+    The first data record, or NULL if RecordsCount is not at least 1
+
+    - Note: ``EOS/_tagEOS_Presence_Info/RecordsCount``:
+    The count of records available
+    */
     public let Records: [SwiftEOS_Presence_DataRecord]?
 
-    /** The user-facing name for the product the user is logged in from  */
+    /** The user-facing name for the product the user is logged in from */
     public let ProductName: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Presence_Info {
@@ -84,20 +83,20 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_INFO_API_LATEST. 
-     * - Parameter Status:  The status of the user 
-     * - Parameter UserId:  The Epic Online Services Account ID of the user 
-     * - Parameter ProductId:  The product ID that the user is logged in from 
-     * - Parameter ProductVersion:  The version of the product the user is logged in from 
-     * - Parameter Platform:  The platform of that the user is logged in from 
-     * - Parameter RichText:  The rich-text of the user 
-     * - Parameter Records:  The first data record, or NULL if RecordsCount is not at least 1 
-     * 
-     * - Note: ``EOS/_tagEOS_Presence_Info/RecordsCount``:
-     * The count of records available 
-     * - Parameter ProductName:  The user-facing name for the product the user is logged in from 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_PRESENCE_INFO_API_LATEST.
+    - Parameter Status: The status of the user
+    - Parameter UserId: The Epic Online Services Account ID of the user
+    - Parameter ProductId: The product ID that the user is logged in from
+    - Parameter ProductVersion: The version of the product the user is logged in from
+    - Parameter Platform: The platform of that the user is logged in from
+    - Parameter RichText: The rich-text of the user
+    - Parameter Records: The first data record, or NULL if RecordsCount is not at least 1
+    - Note: ``EOS/_tagEOS_Presence_Info/RecordsCount``:
+    The count of records available
+    - Parameter ProductName: The user-facing name for the product the user is logged in from
+    */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_INFO_API_LATEST,
         Status: EOS_Presence_EStatus,

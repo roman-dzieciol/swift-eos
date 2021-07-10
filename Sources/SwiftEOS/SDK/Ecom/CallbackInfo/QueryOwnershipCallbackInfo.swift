@@ -4,18 +4,18 @@ import EOSSDK
 /** Output parameters for the EOS_Ecom_QueryOwnership Function. */
 public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the local user whose ownership was queried  */
+    /** The Epic Online Services Account ID of the local user whose ownership was queried */
     public let LocalUserId: EOS_EpicAccountId?
 
     /**
-     * List of catalog items and their ownership status 
-     * 
-     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipCallbackInfo/ItemOwnershipCount``:
-     * Number of ownership results are included in this callback 
-     */
+    List of catalog items and their ownership status
+
+    - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipCallbackInfo/ItemOwnershipCount``:
+    Number of ownership results are included in this callback
+    */
     public let ItemOwnership: [SwiftEOS_Ecom_ItemOwnership]?
 
     /** Initialize from SDK object */
@@ -40,14 +40,14 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership was queried 
-     * - Parameter ItemOwnership:  List of catalog items and their ownership status 
-     * 
-     * - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipCallbackInfo/ItemOwnershipCount``:
-     * Number of ownership results are included in this callback 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose ownership was queried
+    - Parameter ItemOwnership: List of catalog items and their ownership status
+    - Note: ``EOS/_tagEOS_Ecom_QueryOwnershipCallbackInfo/ItemOwnershipCount``:
+    Number of ownership results are included in this callback
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

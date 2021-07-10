@@ -15,15 +15,11 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Optional. Adds an integrity catalog and certificate pair from outside the game directory,
-     * for example to support mods that load from elsewhere.
-     * Mode: All
-     * 
-     * - Parameter PathToBinFile:  UTF-8 path to the .bin catalog file to add 
-     * 
-     * - Returns:  EOS_Success - If the integrity catalog was added successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     */
+    Optional. Adds an integrity catalog and certificate pair from outside the game directory,for example to support mods that load from elsewhere.Mode: All
+
+    - Parameter PathToBinFile: UTF-8 path to the .bin catalog file to add
+    - Throws: EOS_InvalidParameters - If input data was invalid
+    */
     public func AddExternalIntegrityCatalog(
         PathToBinFile: String?
     ) throws {
@@ -31,13 +27,11 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Add a callback issued when a new message must be dispatched to a connected peer. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add a callback issued when a new message must be dispatched to a connected peer. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     public func AddNotifyMessageToPeer(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo> {
@@ -45,13 +39,11 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Add a callback issued when a new message must be dispatched to the game server. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_ClientServer.
-     * Mode: EOS_ACCM_ClientServer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add a callback issued when a new message must be dispatched to the game server. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_ClientServer.Mode: EOS_ACCM_ClientServer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     public func AddNotifyMessageToServer(
         NotificationFn: @escaping (SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo> {
@@ -59,13 +51,11 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Add a callback issued when an action must be applied to a connected client. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add a callback issued when an action must be applied to a connected client. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     public func AddNotifyPeerActionRequired(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo> {
@@ -73,13 +63,11 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Add an optional callback issued when a connected peer's authentication status changes. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add an optional callback issued when a connected peer's authentication status changes. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     public func AddNotifyPeerAuthStatusChanged(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo> {
@@ -87,18 +75,12 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Begins a multiplayer game session. After this call returns successfully, the client is ready to exchange
-     * anti-cheat messages with a game server or peer(s). When leaving one game session and connecting to a
-     * different one, a new anti-cheat session must be created by calling EOS_AntiCheatClient_EndSession and EOS_AntiCheatClient_BeginSession again.
-     * Mode: All
-     * 
-     * - Parameter LocalUserId:  Logged in user identifier from earlier call to EOS_Connect_Login family of functions 
-     * - Parameter Mode:  Operating mode 
-     * 
-     * - Returns:  EOS_Success - If the session was started successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Begins a multiplayer game session. After this call returns successfully, the client is ready to exchange anti-cheat messages with a game server or peer(s). When leaving one game session and connecting to a different one, a new anti-cheat session must be created by calling EOS_AntiCheatClient_EndSession and EOS_AntiCheatClient_BeginSession again.Mode: All
+
+    - Parameter LocalUserId: Logged in user identifier from earlier call to EOS_Connect_Login family of functions
+    - Parameter Mode: Operating mode
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     public func BeginSession(
         LocalUserId: EOS_ProductUserId?,
         Mode: EOS_EAntiCheatClientMode
@@ -110,31 +92,23 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Ends a multiplayer game session, either by leaving an ongoing session or shutting it down entirely.
-     * Mode: All
-     * Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
-     * 
-     * 
-     * - Returns:  EOS_Success - If the session was ended normally
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Ends a multiplayer game session, either by leaving an ongoing session or shutting it down entirely.Mode: All
+
+    Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
+
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     public func EndSession() throws {
         try ____EndSession()
     }
 
     /**
-     * Optional NetProtect feature for game message encryption.
-     * Calculates the required decrypted buffer size for a given input data length.
-     * This will not change for a given SDK version, and allows one time allocation of reusable buffers.
-     * Mode: EOS_ACCM_ClientServer.
-     * 
-     * - Parameter DataLengthBytes:  Length in bytes of input 
-     * 
-     * - Returns:  EOS_Success - If the output length was calculated successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Optional NetProtect feature for game message encryption.Calculates the required decrypted buffer size for a given input data length.This will not change for a given SDK version, and allows one time allocation of reusable buffers.Mode: EOS_ACCM_ClientServer.
+
+    - Parameter DataLengthBytes: Length in bytes of input
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
+    */
     public func GetProtectMessageOutputLength(
         DataLengthBytes: Int
     ) throws -> Int? {
@@ -142,24 +116,15 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Polls for changes in client integrity status.
-     * Mode: All
-     * The purpose of this function is to allow the game to display information
-     * about anti-cheat integrity problems to the user. These are often the result of a
-     * corrupt game installation rather than cheating attempts. This function does not
-     * check for violations, it only provides information about violations which have
-     * automatically been discovered by the anti-cheat client. Such a violation may occur
-     * at any time and afterwards the user will be unable to join any protected multiplayer
-     * session until after restarting the game.
-     * 
-     * - Parameter OutMessageLength:  The size of OutMessage in bytes. Recommended size is 256 bytes. 
-     * - Parameter ViolationType:  On success, receives a code describing the violation that occurred.
-     * - Parameter OutMessage:  On success, receives a string describing the violation which should be displayed to the user.
-     * 
-     * - Returns:  EOS_Success - If violation information was returned successfully
-     * 		   EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.
-     *         EOS_NotFound - If no violation has occurred since the last call
-     */
+    Polls for changes in client integrity status.Mode: All
+
+    The purpose of this function is to allow the game to display information about anti-cheat integrity problems to the user. These are often the result of a corrupt game installation rather than cheating attempts. This function does not check for violations, it only provides information about violations which have automatically been discovered by the anti-cheat client. Such a violation may occur at any time and afterwards the user will be unable to join any protected multiplayer session until after restarting the game.
+
+    - Parameter OutMessageLength: The size of OutMessage in bytes. Recommended size is 256 bytes.
+    - Parameter ViolationType: On success, receives a code describing the violation that occurred.
+    - Parameter OutMessage: On success, receives a string describing the violation which should be displayed to the user.
+    - Throws: EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.EOS_NotFound - If no violation has occurred since the last call
+    */
     public func PollStatus(
         OutMessageLength: Int,
         ViolationType: inout EOS_EAntiCheatClientViolationType?,
@@ -173,21 +138,17 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Optional NetProtect feature for game message encryption.
-     * Encrypts an arbitrary message that will be sent to the game server and decrypted on the other side.
-     * Mode: EOS_ACCM_ClientServer.
-     * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
-     * 
-     * - Parameter Data:  The data to encrypt 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
-     * Length in bytes of input 
-     * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
-     * 
-     * - Returns:  EOS_Success - If the message was protected successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Optional NetProtect feature for game message encryption.Encrypts an arbitrary message that will be sent to the game server and decrypted on the other side.Mode: EOS_ACCM_ClientServer.
+
+    Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
+
+    - Parameter Data: The data to encrypt
+    - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
+    Length in bytes of input
+    - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Returns: On success, buffer where encrypted message data will be written.
+    */
     public func ProtectMessage(
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
@@ -199,19 +160,14 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Call when an anti-cheat message is received from a peer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter PeerHandle:  The handle describing the sender of this message 
-     * - Parameter Data:  The data received 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
-     * The size of the data received 
-     * 
-     * - Returns:  EOS_Success - If the message was processed successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Call when an anti-cheat message is received from a peer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter PeerHandle: The handle describing the sender of this message
+    - Parameter Data: The data received
+    - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
+    The size of the data received
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     public func ReceiveMessageFromPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,
         Data: [UInt8]?
@@ -223,18 +179,13 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Call when an anti-cheat message is received from the game server.
-     * Mode: EOS_ACCM_ClientServer.
-     * 
-     * - Parameter Data:  The data received 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromServerOptions/DataLengthBytes``:
-     * The size of the data received 
-     * 
-     * - Returns:  EOS_Success - If the message was processed successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Call when an anti-cheat message is received from the game server.Mode: EOS_ACCM_ClientServer.
+
+    - Parameter Data: The data received
+    - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromServerOptions/DataLengthBytes``:
+    The size of the data received
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     public func ReceiveMessageFromServer(
         Data: [UInt8]?
     ) throws {
@@ -242,28 +193,17 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Registers a connected peer-to-peer client.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * Must be paired with a call to EOS_AntiCheatClient_UnregisterPeer if this user leaves the session
-     * in progress, or EOS_AntiCheatClient_EndSession if the entire session is ending.
-     * 
-     * - Parameter PeerHandle:  Locally unique value describing the remote user (e.g. a player object pointer) 
-     * - Parameter ClientType:  Type of remote user being registered 
-     * - Parameter ClientPlatform:  Remote user's platform, if known 
-     * - Parameter AccountId:  
-     * Identifier for the remote user. This is typically a string representation of an
-     * account ID, but it can be any string which is both unique (two different users will never
-     * have the same string) and consistent (if the same user connects to this game session
-     * twice, the same string will be used) in the scope of a single protected game session.
-     * - Parameter IpAddress:  
-     * Optional IP address for the remote user. May be null if not available.
-     * IPv4 format: "0.0.0.0"
-     * IPv6 format: "0:0:0:0:0:0:0:0"
-     * 
-     * - Returns:  EOS_Success - If the player was registered successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Registers a connected peer-to-peer client.Mode: EOS_ACCM_PeerToPeer.
+
+    Must be paired with a call to EOS_AntiCheatClient_UnregisterPeer if this user leaves the session in progress, or EOS_AntiCheatClient_EndSession if the entire session is ending.
+
+    - Parameter PeerHandle: Locally unique value describing the remote user (e.g. a player object pointer)
+    - Parameter ClientType: Type of remote user being registered
+    - Parameter ClientPlatform: Remote user's platform, if known
+    - Parameter AccountId: Identifier for the remote user. This is typically a string representation of an account ID, but it can be any string which is both unique (two different users will never have the same string) and consistent (if the same user connects to this game session twice, the same string will be used) in the scope of a single protected game session.
+    - Parameter IpAddress: Optional IP address for the remote user. May be null if not available.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     public func RegisterPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,
         ClientType: EOS_EAntiCheatCommonClientType,
@@ -281,21 +221,17 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Optional NetProtect feature for game message encryption.
-     * Decrypts an encrypted message received from the game server.
-     * Mode: EOS_ACCM_ClientServer.
-     * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
-     * 
-     * - Parameter Data:  The data to decrypt 
-     * 
-     * - Note: ``EOS/_tagEOS_AntiCheatClient_UnprotectMessageOptions/DataLengthBytes``:
-     * Length in bytes of input 
-     * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
-     * 
-     * - Returns:  EOS_Success - If the message was unprotected successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Optional NetProtect feature for game message encryption.Decrypts an encrypted message received from the game server.Mode: EOS_ACCM_ClientServer.
+
+    Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
+
+    - Parameter Data: The data to decrypt
+    - Note: ``EOS/_tagEOS_AntiCheatClient_UnprotectMessageOptions/DataLengthBytes``:
+    Length in bytes of input
+    - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Returns: On success, buffer where encrypted message data will be written.
+    */
     public func UnprotectMessage(
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
@@ -307,16 +243,13 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-     * Unregisters a disconnected peer-to-peer client.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * Must be called when a user leaves a session in progress.
-     * 
-     * - Parameter PeerHandle:  Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer 
-     * 
-     * - Returns:  EOS_Success - If the player was unregistered successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Unregisters a disconnected peer-to-peer client.Mode: EOS_ACCM_PeerToPeer.
+
+    Must be called when a user leaves a session in progress.
+
+    - Parameter PeerHandle: Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     public func UnregisterPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle
     ) throws {
@@ -327,15 +260,11 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
 extension SwiftEOS_AntiCheatClient_Actor {
 
     /**
-     * Optional. Adds an integrity catalog and certificate pair from outside the game directory,
-     * for example to support mods that load from elsewhere.
-     * Mode: All
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the integrity catalog was added successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     */
+    Optional. Adds an integrity catalog and certificate pair from outside the game directory,for example to support mods that load from elsewhere.Mode: All
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid
+    */
     private func ____AddExternalIntegrityCatalog(
         _ Options: SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions
     ) throws {
@@ -349,13 +278,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Add a callback issued when a new message must be dispatched to a connected peer. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add a callback issued when a new message must be dispatched to a connected peer. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     private func ____AddNotifyMessageToPeer(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo> {
@@ -381,13 +308,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Add a callback issued when a new message must be dispatched to the game server. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_ClientServer.
-     * Mode: EOS_ACCM_ClientServer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add a callback issued when a new message must be dispatched to the game server. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_ClientServer.Mode: EOS_ACCM_ClientServer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     private func ____AddNotifyMessageToServer(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo> {
@@ -413,13 +338,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Add a callback issued when an action must be applied to a connected client. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add a callback issued when an action must be applied to a connected client. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     private func ____AddNotifyPeerActionRequired(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo> {
@@ -445,13 +368,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Add an optional callback issued when a connected peer's authentication status changes. The bound function will only be called
-     * between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter NotificationFn:  The callback to be fired
-     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
-     */
+    Add an optional callback issued when a connected peer's authentication status changes. The bound function will only be called between a successful call to EOS_AntiCheatClient_BeginSession and the matching EOS_AntiCheatClient_EndSession call in mode EOS_ACCM_PeerToPeer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter NotificationFn: The callback to be fired
+    - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+    */
     private func ____AddNotifyPeerAuthStatusChanged(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo> {
@@ -477,17 +398,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Begins a multiplayer game session. After this call returns successfully, the client is ready to exchange
-     * anti-cheat messages with a game server or peer(s). When leaving one game session and connecting to a
-     * different one, a new anti-cheat session must be created by calling EOS_AntiCheatClient_EndSession and EOS_AntiCheatClient_BeginSession again.
-     * Mode: All
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the session was started successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Begins a multiplayer game session. After this call returns successfully, the client is ready to exchange anti-cheat messages with a game server or peer(s). When leaving one game session and connecting to a different one, a new anti-cheat session must be created by calling EOS_AntiCheatClient_EndSession and EOS_AntiCheatClient_BeginSession again.Mode: All
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     private func ____BeginSession(
         _ Options: SwiftEOS_AntiCheatClient_BeginSessionOptions
     ) throws {
@@ -501,15 +416,12 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Ends a multiplayer game session, either by leaving an ongoing session or shutting it down entirely.
-     * Mode: All
-     * Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
-     * 
-     * 
-     * - Returns:  EOS_Success - If the session was ended normally
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Ends a multiplayer game session, either by leaving an ongoing session or shutting it down entirely.Mode: All
+
+    Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
+
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     private func ____EndSession() throws {
         try withPointerManager { pointerManager in
             try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_EndSessionOptions(), managedBy: pointerManager) { Options in
@@ -521,17 +433,12 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Optional NetProtect feature for game message encryption.
-     * Calculates the required decrypted buffer size for a given input data length.
-     * This will not change for a given SDK version, and allows one time allocation of reusable buffers.
-     * Mode: EOS_ACCM_ClientServer.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the output length was calculated successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Optional NetProtect feature for game message encryption.Calculates the required decrypted buffer size for a given input data length.This will not change for a given SDK version, and allows one time allocation of reusable buffers.Mode: EOS_ACCM_ClientServer.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
+    */
     private func ____GetProtectMessageOutputLength(
         _ Options: SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthOptions
     ) throws -> Int? {
@@ -547,24 +454,15 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Polls for changes in client integrity status.
-     * Mode: All
-     * The purpose of this function is to allow the game to display information
-     * about anti-cheat integrity problems to the user. These are often the result of a
-     * corrupt game installation rather than cheating attempts. This function does not
-     * check for violations, it only provides information about violations which have
-     * automatically been discovered by the anti-cheat client. Such a violation may occur
-     * at any time and afterwards the user will be unable to join any protected multiplayer
-     * session until after restarting the game.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * - Parameter ViolationType:  On success, receives a code describing the violation that occurred.
-     * - Parameter OutMessage:  On success, receives a string describing the violation which should be displayed to the user.
-     * 
-     * - Returns:  EOS_Success - If violation information was returned successfully
-     * 		   EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.
-     *         EOS_NotFound - If no violation has occurred since the last call
-     */
+    Polls for changes in client integrity status.Mode: All
+
+    The purpose of this function is to allow the game to display information about anti-cheat integrity problems to the user. These are often the result of a corrupt game installation rather than cheating attempts. This function does not check for violations, it only provides information about violations which have automatically been discovered by the anti-cheat client. Such a violation may occur at any time and afterwards the user will be unable to join any protected multiplayer session until after restarting the game.
+
+    - Parameter Options: Structure containing input data.
+    - Parameter ViolationType: On success, receives a code describing the violation that occurred.
+    - Parameter OutMessage: On success, receives a string describing the violation which should be displayed to the user.
+    - Throws: EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.EOS_NotFound - If no violation has occurred since the last call
+    */
     private func ____PollStatus(
         _ Options: SwiftEOS_AntiCheatClient_PollStatusOptions,
         _ ViolationType: inout EOS_EAntiCheatClientViolationType?,
@@ -584,17 +482,14 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Optional NetProtect feature for game message encryption.
-     * Encrypts an arbitrary message that will be sent to the game server and decrypted on the other side.
-     * Mode: EOS_ACCM_ClientServer.
-     * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the message was protected successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Optional NetProtect feature for game message encryption.Encrypts an arbitrary message that will be sent to the game server and decrypted on the other side.Mode: EOS_ACCM_ClientServer.
+
+    Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Returns: On success, buffer where encrypted message data will be written.
+    */
     private func ____ProtectMessage(
         _ Options: SwiftEOS_AntiCheatClient_ProtectMessageOptions
     ) throws -> [UInt8]? {
@@ -611,15 +506,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Call when an anti-cheat message is received from a peer.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the message was processed successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Call when an anti-cheat message is received from a peer.Mode: EOS_ACCM_PeerToPeer.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     private func ____ReceiveMessageFromPeer(
         _ Options: SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions
     ) throws {
@@ -633,15 +524,11 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Call when an anti-cheat message is received from the game server.
-     * Mode: EOS_ACCM_ClientServer.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the message was processed successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Call when an anti-cheat message is received from the game server.Mode: EOS_ACCM_ClientServer.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     private func ____ReceiveMessageFromServer(
         _ Options: SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions
     ) throws {
@@ -655,17 +542,13 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Registers a connected peer-to-peer client.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * Must be paired with a call to EOS_AntiCheatClient_UnregisterPeer if this user leaves the session
-     * in progress, or EOS_AntiCheatClient_EndSession if the entire session is ending.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the player was registered successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Registers a connected peer-to-peer client.Mode: EOS_ACCM_PeerToPeer.
+
+    Must be paired with a call to EOS_AntiCheatClient_UnregisterPeer if this user leaves the session in progress, or EOS_AntiCheatClient_EndSession if the entire session is ending.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     private func ____RegisterPeer(
         _ Options: SwiftEOS_AntiCheatClient_RegisterPeerOptions
     ) throws {
@@ -679,17 +562,14 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Optional NetProtect feature for game message encryption.
-     * Decrypts an encrypted message received from the game server.
-     * Mode: EOS_ACCM_ClientServer.
-     * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns:  EOS_Success - If the message was unprotected successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Optional NetProtect feature for game message encryption.Decrypts an encrypted message received from the game server.Mode: EOS_ACCM_ClientServer.
+
+    Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Returns: On success, buffer where encrypted message data will be written.
+    */
     private func ____UnprotectMessage(
         _ Options: SwiftEOS_AntiCheatClient_UnprotectMessageOptions
     ) throws -> [UInt8]? {
@@ -706,16 +586,13 @@ extension SwiftEOS_AntiCheatClient_Actor {
     }
 
     /**
-     * Unregisters a disconnected peer-to-peer client.
-     * Mode: EOS_ACCM_PeerToPeer.
-     * Must be called when a user leaves a session in progress.
-     * 
-     * - Parameter Options:  Structure containing input data.
-     * 
-     * - Returns: EOS_Success - If the player was unregistered successfully
-     *         EOS_InvalidParameters - If input data was invalid
-     *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
-     */
+    Unregisters a disconnected peer-to-peer client.Mode: EOS_ACCM_PeerToPeer.
+
+    Must be called when a user leaves a session in progress.
+
+    - Parameter Options: Structure containing input data.
+    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    */
     private func ____UnregisterPeer(
         _ Options: SwiftEOS_AntiCheatClient_UnregisterPeerOptions
     ) throws {

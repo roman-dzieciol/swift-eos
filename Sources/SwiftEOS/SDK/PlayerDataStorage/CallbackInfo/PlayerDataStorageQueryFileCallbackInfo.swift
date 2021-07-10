@@ -4,10 +4,10 @@ import EOSSDK
 /** Data containing information about a query file request */
 public struct SwiftEOS_PlayerDataStorage_QueryFileCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** The Product User ID of the local user who initiated this request  */
+    /** The Product User ID of the local user who initiated this request */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_PlayerDataStorage_QueryFileCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error 
-     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error
+    - Parameter LocalUserId: The Product User ID of the local user who initiated this request
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

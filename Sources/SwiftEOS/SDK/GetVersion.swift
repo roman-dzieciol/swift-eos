@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-/** Get the version of the EOSSDK binary  */
+/** Get the version of the EOSSDK binary */
 public func SwiftEOS_GetVersion() -> String? {
     withPointerManager { pointerManager in
         returningTransformedResult(

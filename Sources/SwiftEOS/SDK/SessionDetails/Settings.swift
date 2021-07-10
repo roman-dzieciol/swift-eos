@@ -1,25 +1,25 @@
 import Foundation
 import EOSSDK
 
-/** Common settings associated with a single session  */
+/** Common settings associated with a single session */
 public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The main indexed parameter for this session, can be any string (ie "Region:GameMode")  */
+    /** The main indexed parameter for this session, can be any string (ie "Region:GameMode") */
     public let BucketId: String?
 
-    /** Number of total players allowed in the session  */
+    /** Number of total players allowed in the session */
     public let NumPublicConnections: Int
 
-    /** Are players allowed to join the session while it is in the "in progress" state  */
+    /** Are players allowed to join the session while it is in the "in progress" state */
     public let bAllowJoinInProgress: Bool
 
-    /** Permission level describing allowed access to the session when joining or searching for the session  */
+    /** Permission level describing allowed access to the session when joining or searching for the session */
     public let PermissionLevel: EOS_EOnlineSessionPermissionLevel
 
-    /** Are players allowed to send invites for the session  */
+    /** Are players allowed to send invites for the session */
     public let bInvitesAllowed: Bool
 
     /** Initialize from SDK object */
@@ -36,10 +36,10 @@ public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_SessionDetails_Settings {
@@ -54,14 +54,15 @@ public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. 
-     * - Parameter BucketId:  The main indexed parameter for this session, can be any string (ie "Region:GameMode") 
-     * - Parameter NumPublicConnections:  Number of total players allowed in the session 
-     * - Parameter bAllowJoinInProgress:  Are players allowed to join the session while it is in the "in progress" state 
-     * - Parameter PermissionLevel:  Permission level describing allowed access to the session when joining or searching for the session 
-     * - Parameter bInvitesAllowed:  Are players allowed to send invites for the session 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST.
+    - Parameter BucketId: The main indexed parameter for this session, can be any string (ie "Region:GameMode")
+    - Parameter NumPublicConnections: Number of total players allowed in the session
+    - Parameter bAllowJoinInProgress: Are players allowed to join the session while it is in the "in progress" state
+    - Parameter PermissionLevel: Permission level describing allowed access to the session when joining or searching for the session
+    - Parameter bInvitesAllowed: Are players allowed to send invites for the session
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,
         BucketId: String?,

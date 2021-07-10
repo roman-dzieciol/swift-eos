@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Connect_OnLoginStatusChangedCallback function. */
 public struct SwiftEOS_Connect_LoginStatusChangedCallbackInfo {
 
-    /** The Product User ID of the local player whose status has changed.  */
+    /** The Product User ID of the local player whose status has changed. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The status prior to the change.  */
+    /** The status prior to the change. */
     public let PreviousStatus: EOS_ELoginStatus
 
-    /** The status at the time of the notification.  */
+    /** The status at the time of the notification. */
     public let CurrentStatus: EOS_ELoginStatus
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Connect_LoginStatusChangedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the local player whose status has changed. 
-     * - Parameter PreviousStatus:  The status prior to the change. 
-     * - Parameter CurrentStatus:  The status at the time of the notification. 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the local player whose status has changed.
+    - Parameter PreviousStatus: The status prior to the change.
+    - Parameter CurrentStatus: The status at the time of the notification.
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         PreviousStatus: EOS_ELoginStatus,

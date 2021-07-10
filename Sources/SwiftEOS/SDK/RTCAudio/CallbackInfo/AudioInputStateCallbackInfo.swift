@@ -4,13 +4,13 @@ import EOSSDK
 /** This struct is passed in with a call to EOS_RTCAudio_AddNotifyAudioInputState registered event. */
 public struct SwiftEOS_RTCAudio_AudioInputStateCallbackInfo {
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room associated with this event.  */
+    /** The room associated with this event. */
     public let RoomName: String?
 
-    /** The status of the audio input.  */
+    /** The status of the audio input. */
     public let Status: EOS_ERTCAudioInputStatus
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_RTCAudio_AudioInputStateCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room associated with this event. 
-     * - Parameter Status:  The status of the audio input. 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room associated with this event.
+    - Parameter Status: The status of the audio input.
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

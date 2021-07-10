@@ -4,7 +4,7 @@ import EOSSDK
 /** Output parameters for the EOS_Connect_OnAuthExpirationCallback function. */
 public struct SwiftEOS_Connect_AuthExpirationCallbackInfo {
 
-    /** The Product User ID of the local player whose status has changed.  */
+    /** The Product User ID of the local player whose status has changed. */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -26,9 +26,10 @@ public struct SwiftEOS_Connect_AuthExpirationCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the local player whose status has changed. 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the local player whose status has changed.
+    */
     public init(
         LocalUserId: EOS_ProductUserId?
     ) {

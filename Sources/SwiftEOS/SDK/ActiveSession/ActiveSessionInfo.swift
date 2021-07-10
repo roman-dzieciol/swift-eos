@@ -2,32 +2,32 @@ import Foundation
 import EOSSDK
 
 /**
- * Top level details about an active session
- * 
- * - see: release func: EOS_ActiveSession_Info_Release
- */
+Top level details about an active session
+
+- Note: Release func: ``EOS_ActiveSession_Info_Release``
+*/
 public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST.  */
+    /** API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the session  */
+    /** Name of the session */
     public let SessionName: String?
 
-    /** The Product User ID of the local user who created or joined the session  */
+    /** The Product User ID of the local user who created or joined the session */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** Current state of the session  */
+    /** Current state of the session */
     public let State: EOS_EOnlineSessionState
 
-    /** Session details  */
+    /** Session details */
     public let SessionDetails: SwiftEOS_SessionDetails_Info?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_ActiveSession_Info {
@@ -53,13 +53,14 @@ public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST. 
-     * - Parameter SessionName:  Name of the session 
-     * - Parameter LocalUserId:  The Product User ID of the local user who created or joined the session 
-     * - Parameter State:  Current state of the session 
-     * - Parameter SessionDetails:  Session details 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST.
+    - Parameter SessionName: Name of the session
+    - Parameter LocalUserId: The Product User ID of the local user who created or joined the session
+    - Parameter State: Current state of the session
+    - Parameter SessionDetails: Session details
+    */
     public init(
         ApiVersion: Int32 = EOS_ACTIVESESSION_INFO_API_LATEST,
         SessionName: String?,

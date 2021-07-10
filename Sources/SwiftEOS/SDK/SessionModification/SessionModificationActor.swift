@@ -16,17 +16,12 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Associate an attribute with this session
-     * An attribute is something that may or may not be advertised with the session.
-     * If advertised, it can be queried for in a search, otherwise the data remains local to the client
-     * 
-     * - Parameter SessionAttribute:  Key/Value pair describing the attribute to add to the session 
-     * - Parameter AdvertisementType:  Is this attribution advertised with the backend or simply stored locally 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     * 		   EOS_InvalidParameters if the attribution is missing information or otherwise invalid
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Associate an attribute with this session An attribute is something that may or may not be advertised with the session.If advertised, it can be queried for in a search, otherwise the data remains local to the client
+
+    - Parameter SessionAttribute: Key/Value pair describing the attribute to add to the session
+    - Parameter AdvertisementType: Is this attribution advertised with the backend or simply stored locally
+    - Throws: EOS_InvalidParameters if the attribution is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func AddAttribute(
         SessionAttribute: SwiftEOS_Sessions_AttributeData?,
         AdvertisementType: EOS_ESessionAttributeAdvertisementType
@@ -38,14 +33,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Remove an attribute from this session
-     * 
-     * - Parameter Key:  Session attribute to remove from the session 
-     * 
-     * - Returns:  EOS_Success if removing this parameter was successful
-     * 		   EOS_InvalidParameters if the key is null or empty
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Remove an attribute from this session
+
+    - Parameter Key: Session attribute to remove from the session
+    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func RemoveAttribute(
         Key: String?
     ) throws {
@@ -53,16 +45,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Set the bucket ID associated with this session.
-     * Values such as region, game mode, etc can be combined here depending on game need.
-     * Setting this is strongly recommended to improve search performance.
-     * 
-     * - Parameter BucketId:  The new bucket id associated with the session 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_InvalidParameters if the bucket ID is invalid or null
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the bucket ID associated with this session.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
+
+    - Parameter BucketId: The new bucket id associated with the session
+    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func SetBucketId(
         BucketId: String?
     ) throws {
@@ -70,18 +57,12 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Set the host address associated with this session
-     * Setting this is optional, if the value is not set the SDK will fill the value in from the service.
-     * It is useful to set if other addressing mechanisms are desired or if LAN addresses are preferred during development
-     * 
-     * - Note:  No validation of this value occurs to allow for flexibility in addressing methods
-     * 
-     * - Parameter HostAddress:  A string representing the host address for the session, its meaning is up to the application 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_InvalidParameters if the host ID is an empty string
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the host address associated with this session Setting this is optional, if the value is not set the SDK will fill the value in from the service.It is useful to set if other addressing mechanisms are desired or if LAN addresses are preferred during development
+
+    - Note: No validation of this value occurs to allow for flexibility in addressing methods
+    - Parameter HostAddress: A string representing the host address for the session, its meaning is up to the application
+    - Throws: EOS_InvalidParameters if the host ID is an empty string EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func SetHostAddress(
         HostAddress: String?
     ) throws {
@@ -89,14 +70,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Allows enabling or disabling invites for this session.
-     * The session will also need to have `bPresenceEnabled` true.
-     * 
-     * - Parameter bInvitesAllowed:  If true then invites can currently be sent for the associated session 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Allows enabling or disabling invites for this session.The session will also need to have `bPresenceEnabled` true.
+
+    - Parameter bInvitesAllowed: If true then invites can currently be sent for the associated session
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func SetInvitesAllowed(
         bInvitesAllowed: Bool
     ) throws {
@@ -104,14 +82,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Set whether or not join in progress is allowed
-     * Once a session is started, it will no longer be visible to search queries unless this flag is set or the session returns to the pending or ended state
-     * 
-     * - Parameter bAllowJoinInProgress:  Does the session allow join in progress 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set whether or not join in progress is allowed Once a session is started, it will no longer be visible to search queries unless this flag is set or the session returns to the pending or ended state
+
+    - Parameter bAllowJoinInProgress: Does the session allow join in progress
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func SetJoinInProgressAllowed(
         bAllowJoinInProgress: Bool
     ) throws {
@@ -119,14 +94,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Set the maximum number of players allowed in this session.
-     * When updating the session, it is not possible to reduce this number below the current number of existing players
-     * 
-     * - Parameter MaxPlayers:  Max number of players to allow in the session 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the maximum number of players allowed in this session.When updating the session, it is not possible to reduce this number below the current number of existing players
+
+    - Parameter MaxPlayers: Max number of players to allow in the session
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func SetMaxPlayers(
         MaxPlayers: Int
     ) throws {
@@ -134,14 +106,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     }
 
     /**
-     * Set the session permissions associated with this session.
-     * The permissions range from "public" to "invite only" and are described by EOS_EOnlineSessionPermissionLevel
-     * 
-     * - Parameter PermissionLevel:  Permission level to set on the sesion 
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the session permissions associated with this session.The permissions range from "public" to "invite only" and are described by EOS_EOnlineSessionPermissionLevel
+
+    - Parameter PermissionLevel: Permission level to set on the sesion
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     public func SetPermissionLevel(
         PermissionLevel: EOS_EOnlineSessionPermissionLevel
     ) throws {
@@ -152,16 +121,11 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
 extension SwiftEOS_SessionModification_Actor {
 
     /**
-     * Associate an attribute with this session
-     * An attribute is something that may or may not be advertised with the session.
-     * If advertised, it can be queried for in a search, otherwise the data remains local to the client
-     * 
-     * - Parameter Options:  Options to set the attribute and its advertised state
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     * 		   EOS_InvalidParameters if the attribution is missing information or otherwise invalid
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Associate an attribute with this session An attribute is something that may or may not be advertised with the session.If advertised, it can be queried for in a search, otherwise the data remains local to the client
+
+    - Parameter Options: Options to set the attribute and its advertised state
+    - Throws: EOS_InvalidParameters if the attribution is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____AddAttribute(
         _ Options: SwiftEOS_SessionModification_AddAttributeOptions
     ) throws {
@@ -175,14 +139,11 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Remove an attribute from this session
-     * 
-     * - Parameter Options:  Specify the key of the attribute to remove
-     * 
-     * - Returns:  EOS_Success if removing this parameter was successful
-     * 		   EOS_InvalidParameters if the key is null or empty
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Remove an attribute from this session
+
+    - Parameter Options: Specify the key of the attribute to remove
+    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____RemoveAttribute(
         _ Options: SwiftEOS_SessionModification_RemoveAttributeOptions
     ) throws {
@@ -196,16 +157,11 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Set the bucket ID associated with this session.
-     * Values such as region, game mode, etc can be combined here depending on game need.
-     * Setting this is strongly recommended to improve search performance.
-     * 
-     * - Parameter Options:  Options associated with the bucket ID of the session
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_InvalidParameters if the bucket ID is invalid or null
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the bucket ID associated with this session.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
+
+    - Parameter Options: Options associated with the bucket ID of the session
+    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____SetBucketId(
         _ Options: SwiftEOS_SessionModification_SetBucketIdOptions
     ) throws {
@@ -219,18 +175,12 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Set the host address associated with this session
-     * Setting this is optional, if the value is not set the SDK will fill the value in from the service.
-     * It is useful to set if other addressing mechanisms are desired or if LAN addresses are preferred during development
-     * 
-     * - Note:  No validation of this value occurs to allow for flexibility in addressing methods
-     * 
-     * - Parameter Options:  Options associated with the host address of the session
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_InvalidParameters if the host ID is an empty string
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the host address associated with this session Setting this is optional, if the value is not set the SDK will fill the value in from the service.It is useful to set if other addressing mechanisms are desired or if LAN addresses are preferred during development
+
+    - Note: No validation of this value occurs to allow for flexibility in addressing methods
+    - Parameter Options: Options associated with the host address of the session
+    - Throws: EOS_InvalidParameters if the host ID is an empty string EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____SetHostAddress(
         _ Options: SwiftEOS_SessionModification_SetHostAddressOptions
     ) throws {
@@ -244,14 +194,11 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Allows enabling or disabling invites for this session.
-     * The session will also need to have `bPresenceEnabled` true.
-     * 
-     * - Parameter Options:  Options associated with invites allowed flag for this session.
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Allows enabling or disabling invites for this session.The session will also need to have `bPresenceEnabled` true.
+
+    - Parameter Options: Options associated with invites allowed flag for this session.
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____SetInvitesAllowed(
         _ Options: SwiftEOS_SessionModification_SetInvitesAllowedOptions
     ) throws {
@@ -265,14 +212,11 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Set whether or not join in progress is allowed
-     * Once a session is started, it will no longer be visible to search queries unless this flag is set or the session returns to the pending or ended state
-     * 
-     * - Parameter Options:  Options associated with setting the join in progress state the session
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set whether or not join in progress is allowed Once a session is started, it will no longer be visible to search queries unless this flag is set or the session returns to the pending or ended state
+
+    - Parameter Options: Options associated with setting the join in progress state the session
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____SetJoinInProgressAllowed(
         _ Options: SwiftEOS_SessionModification_SetJoinInProgressAllowedOptions
     ) throws {
@@ -286,14 +230,11 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Set the maximum number of players allowed in this session.
-     * When updating the session, it is not possible to reduce this number below the current number of existing players
-     * 
-     * - Parameter Options:  Options associated with max number of players in this session
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the maximum number of players allowed in this session.When updating the session, it is not possible to reduce this number below the current number of existing players
+
+    - Parameter Options: Options associated with max number of players in this session
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____SetMaxPlayers(
         _ Options: SwiftEOS_SessionModification_SetMaxPlayersOptions
     ) throws {
@@ -307,14 +248,11 @@ extension SwiftEOS_SessionModification_Actor {
     }
 
     /**
-     * Set the session permissions associated with this session.
-     * The permissions range from "public" to "invite only" and are described by EOS_EOnlineSessionPermissionLevel
-     * 
-     * - Parameter Options:  Options associated with the permission level of the session
-     * 
-     * - Returns:  EOS_Success if setting this parameter was successful
-     *         EOS_IncompatibleVersion if the API version passed in is incorrect
-     */
+    Set the session permissions associated with this session.The permissions range from "public" to "invite only" and are described by EOS_EOnlineSessionPermissionLevel
+
+    - Parameter Options: Options associated with the permission level of the session
+    - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
+    */
     private func ____SetPermissionLevel(
         _ Options: SwiftEOS_SessionModification_SetPermissionLevelOptions
     ) throws {

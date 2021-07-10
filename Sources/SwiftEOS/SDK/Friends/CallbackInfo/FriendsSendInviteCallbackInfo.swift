@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Friends_SendInvite API. */
 public struct SwiftEOS_Friends_SendInviteCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned if the invitation was sent, otherwise one of the error codes is returned. See eos_common.h  */
+    /** Result code for the operation. EOS_Success is returned if the invitation was sent, otherwise one of the error codes is returned. See eos_common.h */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the user who sent the friends list invitation  */
+    /** The Epic Online Services Account ID of the user who sent the friends list invitation */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The Epic Online Services Account ID of the user to whom the friends list invitation was sent  */
+    /** The Epic Online Services Account ID of the user to whom the friends list invitation was sent */
     public let TargetUserId: EOS_EpicAccountId?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Friends_SendInviteCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned if the invitation was sent, otherwise one of the error codes is returned. See eos_common.h 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who sent the friends list invitation 
-     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user to whom the friends list invitation was sent 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned if the invitation was sent, otherwise one of the error codes is returned. See eos_common.h
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user who sent the friends list invitation
+    - Parameter TargetUserId: The Epic Online Services Account ID of the user to whom the friends list invitation was sent
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

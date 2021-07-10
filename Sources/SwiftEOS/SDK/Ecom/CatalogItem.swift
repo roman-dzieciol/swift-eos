@@ -2,51 +2,50 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a single item within the catalog. Instances of this structure are created
- * by EOS_Ecom_CopyOfferItemByIndex. They must be passed to EOS_Ecom_CatalogItem_Release.
- * 
- * - see: release func: EOS_Ecom_CatalogItem_Release
- */
+Contains information about a single item within the catalog. Instances of this structure are created by EOS_Ecom_CopyOfferItemByIndex. They must be passed to EOS_Ecom_CatalogItem_Release.
+
+- Note: Release func: ``EOS_Ecom_CatalogItem_Release``
+*/
 public struct SwiftEOS_Ecom_CatalogItem: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST.  */
+    /** API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Product namespace in which this item exists  */
+    /** Product namespace in which this item exists */
     public let CatalogNamespace: String?
 
-    /** The ID of this item  */
+    /** The ID of this item */
     public let Id: String?
 
-    /** The entitlement name associated with this item  */
+    /** The entitlement name associated with this item */
     public let EntitlementName: String?
 
-    /** Localized UTF-8 title of this item  */
+    /** Localized UTF-8 title of this item */
     public let TitleText: String?
 
-    /** Localized UTF-8 description of this item  */
+    /** Localized UTF-8 description of this item */
     public let DescriptionText: String?
 
-    /** Localized UTF-8 long description of this item  */
+    /** Localized UTF-8 long description of this item */
     public let LongDescriptionText: String?
 
-    /** Localized UTF-8 technical details of this item  */
+    /** Localized UTF-8 technical details of this item */
     public let TechnicalDetailsText: String?
 
-    /** Localized UTF-8 developer of this item  */
+    /** Localized UTF-8 developer of this item */
     public let DeveloperText: String?
 
-    /** The type of item as defined in the catalog  */
+    /** The type of item as defined in the catalog */
     public let ItemType: EOS_EEcomItemType
 
-    /** If not -1 then this is the POSIX timestamp that the entitlement will end  */
+    /** If not -1 then this is the POSIX timestamp that the entitlement will end */
     public let EntitlementEndTimestamp: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Ecom_CatalogItem {
@@ -84,19 +83,20 @@ public struct SwiftEOS_Ecom_CatalogItem: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST. 
-     * - Parameter CatalogNamespace:  Product namespace in which this item exists 
-     * - Parameter Id:  The ID of this item 
-     * - Parameter EntitlementName:  The entitlement name associated with this item 
-     * - Parameter TitleText:  Localized UTF-8 title of this item 
-     * - Parameter DescriptionText:  Localized UTF-8 description of this item 
-     * - Parameter LongDescriptionText:  Localized UTF-8 long description of this item 
-     * - Parameter TechnicalDetailsText:  Localized UTF-8 technical details of this item 
-     * - Parameter DeveloperText:  Localized UTF-8 developer of this item 
-     * - Parameter ItemType:  The type of item as defined in the catalog 
-     * - Parameter EntitlementEndTimestamp:  If not -1 then this is the POSIX timestamp that the entitlement will end 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST.
+    - Parameter CatalogNamespace: Product namespace in which this item exists
+    - Parameter Id: The ID of this item
+    - Parameter EntitlementName: The entitlement name associated with this item
+    - Parameter TitleText: Localized UTF-8 title of this item
+    - Parameter DescriptionText: Localized UTF-8 description of this item
+    - Parameter LongDescriptionText: Localized UTF-8 long description of this item
+    - Parameter TechnicalDetailsText: Localized UTF-8 technical details of this item
+    - Parameter DeveloperText: Localized UTF-8 developer of this item
+    - Parameter ItemType: The type of item as defined in the catalog
+    - Parameter EntitlementEndTimestamp: If not -1 then this is the POSIX timestamp that the entitlement will end
+    */
     public init(
         ApiVersion: Int32 = EOS_ECOM_CATALOGITEM_API_LATEST,
         CatalogNamespace: String?,

@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Ecom_QueryOwnershipToken Function. */
 public struct SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The Epic Online Services Account ID of the local user whose ownership token was queried  */
+    /** The Epic Online Services Account ID of the local user whose ownership token was queried */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** Ownership token containing details about the catalog items queried  */
+    /** Ownership token containing details about the catalog items queried */
     public let OwnershipToken: String?
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership token was queried 
-     * - Parameter OwnershipToken:  Ownership token containing details about the catalog items queried 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose ownership token was queried
+    - Parameter OwnershipToken: Ownership token containing details about the catalog items queried
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

@@ -5,24 +5,19 @@ import EOSSDK
 public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
 
     /**
-     * 
-     * The Join Info custom game-data string to use to join the target user.
-     * Set to a null pointer to delete the value.
-     */
+    The Join Info custom game-data string to use to join the target user.Set to a null pointer to delete the value.
+    */
     public let JoinInfo: String?
 
-    /** The Epic Online Services Account ID of the user who accepted the invitation  */
+    /** The Epic Online Services Account ID of the user who accepted the invitation */
     public let LocalUserId: EOS_EpicAccountId?
 
-    /** The Epic Online Services Account ID of the user who sent the invitation  */
+    /** The Epic Online Services Account ID of the user who sent the invitation */
     public let TargetUserId: EOS_EpicAccountId?
 
     /**
-     * 
-     * If the value is not EOS_UI_EVENTID_INVALID then it must be passed back to the SDK using EOS_UI_AcknowledgeEventId.
-     * This should be done after attempting to join the game and either succeeding or failing to connect.
-     * This is necessary to allow the Social Overlay UI to manage the `Join` button.
-     */
+    If the value is not EOS_UI_EVENTID_INVALID then it must be passed back to the SDK using EOS_UI_AcknowledgeEventId.This should be done after attempting to join the game and either succeeding or failing to connect.This is necessary to allow the Social Overlay UI to manage the `Join` button.
+    */
     public let UiEventId: EOS_UI_EventId
 
     /** Initialize from SDK object */
@@ -47,17 +42,13 @@ public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter JoinInfo:  
-     * The Join Info custom game-data string to use to join the target user.
-     * Set to a null pointer to delete the value.
-     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who accepted the invitation 
-     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who sent the invitation 
-     * - Parameter UiEventId:  
-     * If the value is not EOS_UI_EVENTID_INVALID then it must be passed back to the SDK using EOS_UI_AcknowledgeEventId.
-     * This should be done after attempting to join the game and either succeeding or failing to connect.
-     * This is necessary to allow the Social Overlay UI to manage the `Join` button.
-     */
+    Memberwise initializer
+
+    - Parameter JoinInfo: The Join Info custom game-data string to use to join the target user.Set to a null pointer to delete the value.
+    - Parameter LocalUserId: The Epic Online Services Account ID of the user who accepted the invitation
+    - Parameter TargetUserId: The Epic Online Services Account ID of the user who sent the invitation
+    - Parameter UiEventId: If the value is not EOS_UI_EVENTID_INVALID then it must be passed back to the SDK using EOS_UI_AcknowledgeEventId.This should be done after attempting to join the game and either succeeding or failing to connect.This is necessary to allow the Social Overlay UI to manage the `Join` button.
+    */
     public init(
         JoinInfo: String?,
         LocalUserId: EOS_EpicAccountId?,

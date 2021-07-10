@@ -4,10 +4,10 @@ import EOSSDK
 /** Output parameters for the EOS_Lobby_PromoteMember function. */
 public struct SwiftEOS_Lobby_PromoteMemberCallbackInfo {
 
-    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.  */
+    /** The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. */
     public let ResultCode: EOS_EResult
 
-    /** The ID of the lobby where the user was promoted  */
+    /** The ID of the lobby where the user was promoted */
     public let LobbyId: String?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_Lobby_PromoteMemberCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
-     * - Parameter LobbyId:  The ID of the lobby where the user was promoted 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors.
+    - Parameter LobbyId: The ID of the lobby where the user was promoted
+    */
     public init(
         ResultCode: EOS_EResult,
         LobbyId: String?

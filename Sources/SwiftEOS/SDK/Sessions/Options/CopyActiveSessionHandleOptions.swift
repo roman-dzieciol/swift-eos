@@ -4,17 +4,18 @@ import EOSSDK
 /** Input parameters for the EOS_Sessions_CopyActiveSessionHandle function. */
 public struct SwiftEOS_Sessions_CopyActiveSessionHandleOptions {
 
-    /** API Version: Set this to EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the session for which to retrieve a session handle  */
+    /** Name of the session for which to retrieve a session handle */
     public let SessionName: String?
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST. 
-     * - Parameter SessionName:  Name of the session for which to retrieve a session handle 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST.
+    - Parameter SessionName: Name of the session for which to retrieve a session handle
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST,
         SessionName: String?

@@ -4,10 +4,10 @@ import EOSSDK
 /** Structure containing the result of a delete cache operation */
 public struct SwiftEOS_PlayerDataStorage_DeleteCacheCallbackInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** Product User ID of the local user who initiated this request  */
+    /** Product User ID of the local user who initiated this request */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_PlayerDataStorage_DeleteCacheCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error 
-     * - Parameter LocalUserId:  Product User ID of the local user who initiated this request 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error
+    - Parameter LocalUserId: Product User ID of the local user who initiated this request
+    */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

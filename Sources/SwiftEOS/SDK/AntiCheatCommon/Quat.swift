@@ -1,19 +1,19 @@
 import Foundation
 import EOSSDK
 
-/** Quaternion using left-handed coordinate system (as in Unreal Engine)  */
+/** Quaternion using left-handed coordinate system (as in Unreal Engine) */
 public struct SwiftEOS_AntiCheatCommon_Quat: SwiftEOSObject {
 
-    /** W component - scalar part  */
+    /** W component - scalar part */
     public let w: Float
 
-    /** X component - forward direction  */
+    /** X component - forward direction */
     public let x: Float
 
-    /** Y component - right direction  */
+    /** Y component - right direction */
     public let y: Float
 
-    /** Z component - up direction  */
+    /** Z component - up direction */
     public let z: Float
 
     /** Initialize from SDK object */
@@ -28,10 +28,10 @@ public struct SwiftEOS_AntiCheatCommon_Quat: SwiftEOSObject {
     }
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_Quat {
@@ -44,12 +44,13 @@ public struct SwiftEOS_AntiCheatCommon_Quat: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter w:  W component - scalar part 
-     * - Parameter x:  X component - forward direction 
-     * - Parameter y:  Y component - right direction 
-     * - Parameter z:  Z component - up direction 
-     */
+    Memberwise initializer
+
+    - Parameter w: W component - scalar part
+    - Parameter x: X component - forward direction
+    - Parameter y: Y component - right direction
+    - Parameter z: Z component - up direction
+    */
     public init(
         w: Float,
         x: Float,

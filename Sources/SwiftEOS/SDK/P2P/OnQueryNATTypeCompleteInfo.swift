@@ -4,10 +4,10 @@ import EOSSDK
 /** Structure containing information about the local network NAT type */
 public struct SwiftEOS_P2P_OnQueryNATTypeCompleteInfo {
 
-    /** Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error  */
+    /** Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error */
     public let ResultCode: EOS_EResult
 
-    /** The queried NAT type  */
+    /** The queried NAT type */
     public let NATType: EOS_ENATType
 
     /** Initialize from SDK object */
@@ -30,10 +30,11 @@ public struct SwiftEOS_P2P_OnQueryNATTypeCompleteInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error 
-     * - Parameter NATType:  The queried NAT type 
-     */
+    Memberwise initializer
+
+    - Parameter ResultCode: Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error
+    - Parameter NATType: The queried NAT type
+    */
     public init(
         ResultCode: EOS_EResult,
         NATType: EOS_ENATType

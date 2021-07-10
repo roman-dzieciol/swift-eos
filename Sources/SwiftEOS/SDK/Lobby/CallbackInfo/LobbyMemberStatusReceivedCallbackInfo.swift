@@ -4,13 +4,13 @@ import EOSSDK
 /** Output parameters for the EOS_Lobby_AddNotifyLobbyMemberStatusReceived function. */
 public struct SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo {
 
-    /** The ID of the lobby  */
+    /** The ID of the lobby */
     public let LobbyId: String?
 
-    /** The Product User ID of the lobby member  */
+    /** The Product User ID of the lobby member */
     public let TargetUserId: EOS_ProductUserId?
 
-    /** Latest status of the user  */
+    /** Latest status of the user */
     public let CurrentStatus: EOS_ELobbyMemberStatus
 
     /** Initialize from SDK object */
@@ -34,11 +34,12 @@ public struct SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LobbyId:  The ID of the lobby 
-     * - Parameter TargetUserId:  The Product User ID of the lobby member 
-     * - Parameter CurrentStatus:  Latest status of the user 
-     */
+    Memberwise initializer
+
+    - Parameter LobbyId: The ID of the lobby
+    - Parameter TargetUserId: The Product User ID of the lobby member
+    - Parameter CurrentStatus: Latest status of the user
+    */
     public init(
         LobbyId: String?,
         TargetUserId: EOS_ProductUserId?,

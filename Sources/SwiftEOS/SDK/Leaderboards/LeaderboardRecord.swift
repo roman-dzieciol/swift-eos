@@ -2,32 +2,32 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about a single leaderboard record
- * 
- * - see: release func: EOS_Leaderboards_LeaderboardRecord_Release
- */
+Contains information about a single leaderboard record
+
+- Note: Release func: ``EOS_Leaderboards_LeaderboardRecord_Release``
+*/
 public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST.  */
+    /** API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID assoicated with this record  */
+    /** The Product User ID assoicated with this record */
     public let UserId: EOS_ProductUserId?
 
-    /** Sorted position on leaderboard  */
+    /** Sorted position on leaderboard */
     public let Rank: Int
 
-    /** Leaderboard score  */
+    /** Leaderboard score */
     public let Score: Int
 
-    /** The latest display name seen for the user since they last time logged in. This is empty if the user does not have a display name set.  */
+    /** The latest display name seen for the user since they last time logged in. This is empty if the user does not have a display name set. */
     public let UserDisplayName: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Leaderboards_LeaderboardRecord {
@@ -53,13 +53,14 @@ public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST. 
-     * - Parameter UserId:  The Product User ID assoicated with this record 
-     * - Parameter Rank:  Sorted position on leaderboard 
-     * - Parameter Score:  Leaderboard score 
-     * - Parameter UserDisplayName:  The latest display name seen for the user since they last time logged in. This is empty if the user does not have a display name set. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST.
+    - Parameter UserId: The Product User ID assoicated with this record
+    - Parameter Rank: Sorted position on leaderboard
+    - Parameter Score: Leaderboard score
+    - Parameter UserDisplayName: The latest display name seen for the user since they last time logged in. This is empty if the user does not have a display name set.
+    */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST,
         UserId: EOS_ProductUserId?,

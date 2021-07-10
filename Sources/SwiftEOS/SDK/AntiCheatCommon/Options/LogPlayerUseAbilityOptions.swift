@@ -2,26 +2,26 @@ import Foundation
 import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST.  */
+    /** API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Locally unique value used in RegisterClient/RegisterPeer  */
+    /** Locally unique value used in RegisterClient/RegisterPeer */
     public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle
 
-    /** Game defined unique identifier for the ability being used  */
+    /** Game defined unique identifier for the ability being used */
     public let AbilityId: Int
 
-    /** Duration of the ability effect in milliseconds. If not applicable, use 0.  */
+    /** Duration of the ability effect in milliseconds. If not applicable, use 0. */
     public let AbilityDurationMs: Int
 
-    /** Cooldown until the ability can be used again in milliseconds. If not applicable, use 0.  */
+    /** Cooldown until the ability can be used again in milliseconds. If not applicable, use 0. */
     public let AbilityCooldownMs: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_AntiCheatCommon_LogPlayerUseAbilityOptions {
@@ -47,13 +47,14 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObjec
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST. 
-     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
-     * - Parameter AbilityId:  Game defined unique identifier for the ability being used 
-     * - Parameter AbilityDurationMs:  Duration of the ability effect in milliseconds. If not applicable, use 0. 
-     * - Parameter AbilityCooldownMs:  Cooldown until the ability can be used again in milliseconds. If not applicable, use 0. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST.
+    - Parameter PlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
+    - Parameter AbilityId: Game defined unique identifier for the ability being used
+    - Parameter AbilityDurationMs: Duration of the ability effect in milliseconds. If not applicable, use 0.
+    - Parameter AbilityCooldownMs: Cooldown until the ability can be used again in milliseconds. If not applicable, use 0.
+    */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST,
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,

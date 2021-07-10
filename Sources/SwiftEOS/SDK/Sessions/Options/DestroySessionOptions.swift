@@ -4,17 +4,17 @@ import EOSSDK
 /** Input parameters for the EOS_Sessions_DestroySession function. */
 public struct SwiftEOS_Sessions_DestroySessionOptions: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST.  */
+    /** API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** Name of the session to destroy  */
+    /** Name of the session to destroy */
     public let SessionName: String?
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Sessions_DestroySessionOptions {
@@ -34,10 +34,11 @@ public struct SwiftEOS_Sessions_DestroySessionOptions: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST. 
-     * - Parameter SessionName:  Name of the session to destroy 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST.
+    - Parameter SessionName: Name of the session to destroy
+    */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_DESTROYSESSION_API_LATEST,
         SessionName: String?

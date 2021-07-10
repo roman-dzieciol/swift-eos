@@ -2,35 +2,35 @@ import Foundation
 import EOSSDK
 
 /**
- * Contains information about an external account info
- * 
- * - see: release func: EOS_Connect_ExternalAccountInfo_Release
- */
+Contains information about an external account info
+
+- Note: Release func: ``EOS_Connect_ExternalAccountInfo_Release``
+*/
 public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
 
-    /** API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST.  */
+    /** API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST. */
     public let ApiVersion: Int32
 
-    /** The Product User ID of the target user.  */
+    /** The Product User ID of the target user. */
     public let ProductUserId: EOS_ProductUserId?
 
-    /** Display name, can be null if not set.  */
+    /** Display name, can be null if not set. */
     public let DisplayName: String?
 
-    /** External account ID.  */
+    /** External account ID. */
     public let AccountId: String?
 
-    /** The identity provider that owns the external account.  */
+    /** The identity provider that owns the external account. */
     public let AccountIdType: EOS_EExternalAccountType
 
-    /** The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED.  */
+    /** The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED. */
     public let LastLoginTime: Int
 
     /**
-     * Returns SDK Object initialized with values from this object
-     * 
-     * Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
-     */
+    Returns SDK Object initialized with values from this object
+
+    Pointers in the SDK object are managed by provided SwiftEOS__PointerManager object
+    */
     public func buildSdkObject(
         pointerManager: SwiftEOS__PointerManager
     ) throws -> _tagEOS_Connect_ExternalAccountInfo {
@@ -58,14 +58,15 @@ public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST. 
-     * - Parameter ProductUserId:  The Product User ID of the target user. 
-     * - Parameter DisplayName:  Display name, can be null if not set. 
-     * - Parameter AccountId:  External account ID. 
-     * - Parameter AccountIdType:  The identity provider that owns the external account. 
-     * - Parameter LastLoginTime:  The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED. 
-     */
+    Memberwise initializer
+
+    - Parameter ApiVersion: API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST.
+    - Parameter ProductUserId: The Product User ID of the target user.
+    - Parameter DisplayName: Display name, can be null if not set.
+    - Parameter AccountId: External account ID.
+    - Parameter AccountIdType: The identity provider that owns the external account.
+    - Parameter LastLoginTime: The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED.
+    */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST,
         ProductUserId: EOS_ProductUserId?,

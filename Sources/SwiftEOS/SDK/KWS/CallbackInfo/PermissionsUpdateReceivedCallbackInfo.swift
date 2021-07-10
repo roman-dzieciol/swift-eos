@@ -4,7 +4,7 @@ import EOSSDK
 /** Output parameters for the EOS_KWS_OnPermissionsUpdateReceivedCallback Function. */
 public struct SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo {
 
-    /** Recipient Local user id  */
+    /** Recipient Local user id */
     public let LocalUserId: EOS_ProductUserId?
 
     /** Initialize from SDK object */
@@ -26,9 +26,10 @@ public struct SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  Recipient Local user id 
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: Recipient Local user id
+    */
     public init(
         LocalUserId: EOS_ProductUserId?
     ) {

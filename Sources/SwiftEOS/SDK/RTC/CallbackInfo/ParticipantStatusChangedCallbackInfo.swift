@@ -4,26 +4,24 @@ import EOSSDK
 /** This struct is passed in with a call to EOS_RTC_AddNotifyParticipantStatusChanged registered event. */
 public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
 
-    /** The Product User ID of the user who initiated this request.  */
+    /** The Product User ID of the user who initiated this request. */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** The room associated with this event.  */
+    /** The room associated with this event. */
     public let RoomName: String?
 
-    /** The participant whose status changed.  */
+    /** The participant whose status changed. */
     public let ParticipantId: EOS_ProductUserId?
 
-    /** What status change occurred  */
+    /** What status change occurred */
     public let ParticipantStatus: EOS_ERTCParticipantStatus
 
     /**
-     * The participant metadata items.
-     * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     * 
-     * - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
-     * The participant metadata items count.
-     * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     */
+    The participant metadata items.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+
+    - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
+    The participant metadata items count.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    */
     public let ParticipantMetadata: [SwiftEOS_RTC_ParticipantMetadata]?
 
     /** Initialize from SDK object */
@@ -50,18 +48,16 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
     }
 
     /**
-     * Memberwise initializer
-     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
-     * - Parameter RoomName:  The room associated with this event. 
-     * - Parameter ParticipantId:  The participant whose status changed. 
-     * - Parameter ParticipantStatus:  What status change occurred 
-     * - Parameter ParticipantMetadata:  The participant metadata items.
-     * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     * 
-     * - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
-     * The participant metadata items count.
-     * This is only set if ParticipantStatus is EOS_RTCPS_Joined
-     */
+    Memberwise initializer
+
+    - Parameter LocalUserId: The Product User ID of the user who initiated this request.
+    - Parameter RoomName: The room associated with this event.
+    - Parameter ParticipantId: The participant whose status changed.
+    - Parameter ParticipantStatus: What status change occurred
+    - Parameter ParticipantMetadata: The participant metadata items.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
+    The participant metadata items count.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

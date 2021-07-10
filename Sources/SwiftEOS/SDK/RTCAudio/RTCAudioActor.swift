@@ -246,7 +246,9 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     - Parameter RoomName: The  room this event is registered on.
     - Parameter Buffer: Audio buffer, which must have a duration of 10 ms.
     - Note: The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
-    - Throws: EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if the specified room was not found EOS_InvalidState if manual recording was not enabled when joining the room.
+    - Throws: EOS_InvalidParameters if any of the parameters are incorrect
+              EOS_NotFound if the specified room was not found
+              EOS_InvalidState if manual recording was not enabled when joining the room.
     - SeeAlso: EOS_RTC_JoinRoomOptions
     - SeeAlso: EOS_Lobby_LocalRTCOptions
     */
@@ -326,7 +328,9 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     - Parameter ParticipantId: The participant to modify or null to update the global configuration
     - Parameter bAudioEnabled: Mute or unmute audio track
     - Parameter CompletionDelegate: The callback to be fired when the operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if either the local user or specified participant are not in the room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if either the local user or specified participant are not in the room
     */
     public func UpdateReceiving(
         LocalUserId: EOS_ProductUserId?,
@@ -354,7 +358,9 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     - Parameter RoomName: The room this settings should be applied on.
     - Parameter AudioStatus: Muted or unmuted audio track status
     - Parameter CompletionDelegate: The callback to be fired when the operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if the local user is not in the room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if the local user is not in the room
     */
     public func UpdateSending(
         LocalUserId: EOS_ProductUserId?,
@@ -710,7 +716,9 @@ extension SwiftEOS_RTCAudio_Actor {
     This should only be used if Manual Audio Input was enabled locally for the specified room.
 
     - Parameter Options: structure containing the parameters for the operation.
-    - Throws: EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if the specified room was not found EOS_InvalidState if manual recording was not enabled when joining the room.
+    - Throws: EOS_InvalidParameters if any of the parameters are incorrect
+              EOS_NotFound if the specified room was not found
+              EOS_InvalidState if manual recording was not enabled when joining the room.
     - SeeAlso: EOS_RTC_JoinRoomOptions
     - SeeAlso: EOS_Lobby_LocalRTCOptions
     */
@@ -786,7 +794,9 @@ extension SwiftEOS_RTCAudio_Actor {
     - Note: Due to internal implementation details, this function requires that you first register to any notification for room
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: The callback to be fired when the operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if either the local user or specified participant are not in the room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if either the local user or specified participant are not in the room
     */
     private func ____UpdateReceiving(
         _ Options: SwiftEOS_RTCAudio_UpdateReceivingOptions,
@@ -810,7 +820,9 @@ extension SwiftEOS_RTCAudio_Actor {
     - Note: Due to internal implementation details, this function requires that you first register to any notification for room
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: The callback to be fired when the operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if the local user is not in the room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if the local user is not in the room
     */
     private func ____UpdateSending(
         _ Options: SwiftEOS_RTCAudio_UpdateSendingOptions,

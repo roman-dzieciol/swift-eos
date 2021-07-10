@@ -24,9 +24,13 @@ public class SwiftEOS_Metrics_Actor: SwiftEOSActor {
     - Parameter DisplayName: The in-game display name for the user as UTF-8 string.
     - Parameter ControllerType: The user's game controller type.
     - Parameter ServerIp: IP address of the game server hosting the game session. For a localhost session, set to NULL.
-    - details: Must be in either one of the following IPv4 or IPv6 string formats:* "127.0.0.1".* "1200:0000:AB00:1234:0000:2552:7777:1313".If both IPv4 and IPv6 addresses are available, use the IPv6 address.
+    - details: Must be in either one of the following IPv4 or IPv6 string formats:
+               * "127.0.0.1".
+               * "1200:0000:AB00:1234:0000:2552:7777:1313".
+               If both IPv4 and IPv6 addresses are available, use the IPv6 address.
     - Parameter GameSessionId: Optional, application-defined custom match session identifier. If the identifier is not used, set to NULL.
-    - details: The game can tag each game session with a custom session match identifier,which will be shown in the Played Sessions listing at the user profile dashboard.
+    - details: The game can tag each game session with a custom session match identifier,
+               which will be shown in the Played Sessions listing at the user profile dashboard.
     - Throws: */
     public func BeginPlayerSession(
         AccountIdType: EOS_EMetricsAccountIdType,

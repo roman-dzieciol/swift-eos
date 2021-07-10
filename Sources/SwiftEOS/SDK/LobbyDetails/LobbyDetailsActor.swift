@@ -20,7 +20,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
 
     - Parameter AttrIndex: The index of the attribute to retrieve
     - SeeAlso: EOS_LobbyDetails_GetAttributeCount
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyAttributeByIndexOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -36,7 +37,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter AttrKey: Name of the attribute
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyAttributeByKeyOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -51,7 +53,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     /**
     EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_LobbyDetails_Info
     - SeeAlso: EOS_LobbyDetails_CopyInfoOptions
     - SeeAlso: EOS_LobbyDetails_Info_Release
@@ -66,7 +69,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
 
     - Parameter TargetUserId: The Product User ID of the lobby member
     - Parameter AttrIndex: The index of the attribute to copy
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyMemberAttributeByIndexOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -87,7 +91,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
 
     - Parameter TargetUserId: The Product User ID of the lobby member
     - Parameter AttrKey: Name of the attribute to copy
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyMemberAttributeByKeyOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -165,7 +170,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     EOS_LobbyDetails_CopyAttributeByIndex is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyAttributeByIndexOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -193,7 +199,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyAttributeByKeyOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -220,7 +227,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     /**
     EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_LobbyDetails_Info
     - SeeAlso: EOS_LobbyDetails_CopyInfoOptions
     - SeeAlso: EOS_LobbyDetails_Info_Release
@@ -246,7 +254,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     EOS_LobbyDetails_CopyMemberAttributeByIndex is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyMemberAttributeByIndexOptions
     - SeeAlso: EOS_Lobby_Attribute_Release
@@ -274,7 +283,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     EOS_LobbyDetails_CopyMemberAttributeByKey is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_Lobby_Attribute
     - SeeAlso: EOS_LobbyDetails_CopyMemberAttributeByKeyOptions
     - SeeAlso: EOS_Lobby_Attribute_Release

@@ -86,7 +86,11 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The local user's Epic Online Services Account ID
     - Parameter TargetUserId: The Epic Online Services Account ID to query for join info; this value must either be a logged-in local user, or a friend of that user
-    - Throws: An EOS_EResult that indicates whether the location string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if there is user or the location string was not found.EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the location string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if there is user or the location string was not found.
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH.
     */
@@ -286,7 +290,11 @@ extension SwiftEOS_Presence_Actor {
     This value will be valid only after a QueryPresence call has successfully completed.
 
     - Parameter Options: Object containing an associated user
-    - Throws: An EOS_EResult that indicates whether the location string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if there is user or the location string was not found.EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the location string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if there is user or the location string was not found.
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH.
     */

@@ -20,9 +20,11 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     - Parameter UserTokenIndex: Index of the user token to retrieve from the cache.
     - Parameter QueryId: Query identifier received as part of a previous query.
     - SeeAlso: EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
-    - Note: The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when initiating the query.
+    - Note: The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when
+            initiating the query.
     - SeeAlso: EOS_RTCAdmin_UserToken_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the user token is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the user token is not found
     - Returns: The user token for the given index, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
     */
     public func CopyUserTokenByIndex(
@@ -42,7 +44,8 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     - Parameter QueryId: Query identifier received as part of a previous query.
     - SeeAlso: EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
     - SeeAlso: EOS_RTCAdmin_UserToken_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the user token is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the user token is not found
     - Returns: The user token for the given user ID, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
     */
     public func CopyUserTokenByUserId(
@@ -90,7 +93,8 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     The number of users included in the query.
     - Parameter TargetUserIpAddresses: Array of IP Addresses, one for each of the users we're querying tokens for.There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
     - Parameter CompletionDelegate: This function is called when the query join room token operation completes.
-    - Returns: EOS_Success if the operation completes successfully EOS_InvalidParameters if any of the options are incorrect
+    - Returns: EOS_Success if the operation completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
     */
     public func QueryJoinRoomToken(
         LocalUserId: EOS_ProductUserId?,
@@ -143,9 +147,11 @@ extension SwiftEOS_RTCAdmin_Actor {
     Fetches a user token when called inside of the OnQueryJoinRoomTokenComplete callback.
 
     - Parameter Options: Structure containing the index being accessed
-    - Note: The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when initiating the query.
+    - Note: The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when
+            initiating the query.
     - SeeAlso: EOS_RTCAdmin_UserToken_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the user token is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the user token is not found
     - Returns: The user token for the given index, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
     */
     private func ____CopyUserTokenByIndex(
@@ -171,7 +177,8 @@ extension SwiftEOS_RTCAdmin_Actor {
 
     - Parameter Options: Structure containing the user ID being accessed
     - SeeAlso: EOS_RTCAdmin_UserToken_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the user token is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the user token is not found
     - Returns: The user token for the given user ID, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
     */
     private func ____CopyUserTokenByUserId(
@@ -223,7 +230,8 @@ extension SwiftEOS_RTCAdmin_Actor {
 
     - Parameter Options: Structure containing information about the application whose user tokens we're retrieving.
     - Parameter CompletionDelegate: This function is called when the query join room token operation completes.
-    - Returns: EOS_Success if the operation completes successfully EOS_InvalidParameters if any of the options are incorrect
+    - Returns: EOS_Success if the operation completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
     */
     private func ____QueryJoinRoomToken(
         _ Options: SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions,

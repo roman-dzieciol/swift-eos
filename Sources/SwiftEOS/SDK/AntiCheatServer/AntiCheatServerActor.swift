@@ -357,7 +357,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_AntiCheatServer_ProtectMessageOptions/DataLengthBytes``:
     Length in bytes of input
     - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func ProtectMessage(
@@ -897,7 +898,8 @@ extension SwiftEOS_AntiCheatServer_Actor {
     Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
     - Returns: On success, buffer where encrypted message data will be written.
     */
     private func ____ProtectMessage(

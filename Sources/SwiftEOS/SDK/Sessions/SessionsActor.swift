@@ -57,7 +57,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     EOS_Sessions_CopySessionHandleByInviteId is used to immediately retrieve a handle to the session information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter InviteId: Invite ID for which to retrieve a session handle
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if the invite ID cannot be found
     - SeeAlso: EOS_Sessions_CopySessionHandleByInviteIdOptions
     - SeeAlso: EOS_SessionDetails_Release
     - Returns: out parameter used to receive the session handle
@@ -72,7 +74,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     EOS_Sessions_CopySessionHandleByUiEventId is used to immediately retrieve a handle to the session information from after notification of a join game event.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter UiEventId: UI Event associated with the session
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if the invite ID cannot be found
     - SeeAlso: EOS_Sessions_CopySessionHandleByUiEventIdOptions
     - SeeAlso: EOS_SessionDetails_Release
     - Returns: out parameter used to receive the session handle
@@ -87,7 +91,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     EOS_Sessions_CopySessionHandleForPresence is used to immediately retrieve a handle to the session information which was marked with bPresenceEnabled on create or join.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter LocalUserId: The Product User ID of the local user associated with the session
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if there is no session with bPresenceEnabled
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if there is no session with bPresenceEnabled
     - SeeAlso: EOS_Sessions_CopySessionHandleForPresenceOptions
     - SeeAlso: EOS_SessionDetails_Release
     - Returns: out parameter used to receive the session handle
@@ -106,7 +112,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Parameter MaxPlayers: Maximum number of players allowed in the session
     - Parameter LocalUserId: The Product User ID of the local user associated with the session
     - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_CreateLobbyOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
@@ -153,7 +162,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
 
     - Parameter SessionName: Name of the session to destroy
     - Parameter CompletionDelegate: A callback that is fired when the destroy operation completes, either successfully or in error
-    - Returns: EOS_Success if the destroy completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_AlreadyPending if the session is already marked for destroy EOS_NotFound if a session to be destroyed does not exist
+    - Returns: EOS_Success if the destroy completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_AlreadyPending if the session is already marked for destroy
+               EOS_NotFound if a session to be destroyed does not exist
     */
     public func DestroySession(
         SessionName: String?,
@@ -169,7 +181,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     Dump the contents of active sessions that exist locally to the log output, purely for debug purposes
 
     - Parameter SessionName: Name of the session
-    - Throws: EOS_NotFound if the session specified does not exist EOS_InvalidParameters if any of the options are incorrect
+    - Throws: EOS_NotFound if the session specified does not exist
+              EOS_InvalidParameters if any of the options are incorrect
     */
     public func DumpSessionState(
         SessionName: String?
@@ -182,7 +195,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
 
     - Parameter SessionName: Name of the session to set as no long in progress
     - Parameter CompletionDelegate: A callback that is fired when the end operation completes, either successfully or in error
-    - Returns: EOS_Success if the end completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be ended does not exist
+    - Returns: EOS_Success if the end completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be ended does not exist
     */
     public func EndSession(
         SessionName: String?,
@@ -211,7 +227,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who has an invitation in the cache
     - Parameter Index: Index of the invite ID to retrieve
-    - Throws: EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite doesn't exist
+    - Throws: EOS_InvalidParameters if any of the options are incorrect
+              EOS_NotFound if the invite doesn't exist
     - SeeAlso: EOS_Sessions_GetInviteCount
     - SeeAlso: EOS_Sessions_CopySessionHandleByInviteId
     - Returns:  
@@ -231,7 +248,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
 
     - Parameter SessionName: Active session name to search within
     - Parameter TargetUserId: Product User ID to search for in the session
-    - Throws: EOS_NotFound if the user is not found in the specified session EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_Invalid_ProductUserID if an invalid target user is specified EOS_Sessions_InvalidSession if the session specified is invalid
+    - Throws: EOS_NotFound if the user is not found in the specified session
+              EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_Invalid_ProductUserID if an invalid target user is specified
+              EOS_Sessions_InvalidSession if the session specified is invalid
     */
     public func IsUserInSession(
         SessionName: String?,
@@ -250,13 +271,18 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Parameter SessionHandle: Session handle to join
     - Parameter LocalUserId: The Product User ID of the local user who is joining the session
     - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_CreateLobbyOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
     - Parameter CompletionDelegate: A callback that is fired when the join operation completes, either successfully or in error
-    - Returns: EOS_Success if the join completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_SessionAlreadyExists if the session is already exists or is in the process of being joined
+    - Returns: EOS_Success if the join completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_SessionAlreadyExists if the session is already exists or is in the process of being joined
     */
     public func JoinSession(
         SessionName: String?,
@@ -300,7 +326,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_Sessions_RegisterPlayersOptions/PlayersToRegisterCount``:
     Number of players in the array
     - Parameter CompletionDelegate: A callback that is fired when the registration operation completes, either successfully or in error
-    - Returns: EOS_Success if the register completes successfully EOS_NoChange if the players to register registered previously EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to register players does not exist
+    - Returns: EOS_Success if the register completes successfully
+               EOS_NoChange if the players to register registered previously
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to register players does not exist
     */
     public func RegisterPlayers(
         SessionName: String?,
@@ -322,7 +352,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user rejecting the invitation
     - Parameter InviteId: The invite ID to reject
     - Parameter CompletionDelegate: A callback that is fired when the reject invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the invite rejection completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite does not exist
+    - Returns: EOS_Success if the invite rejection completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the invite does not exist
     */
     public func RejectInvite(
         LocalUserId: EOS_ProductUserId?,
@@ -345,7 +377,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user sending the invitation
     - Parameter TargetUserId: The Product User of the remote user receiving the invitation
     - Parameter CompletionDelegate: A callback that is fired when the send invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the send invite completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the session to send the invite from does not exist
+    - Returns: EOS_Success if the send invite completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the session to send the invite from does not exist
     */
     public func SendInvite(
         SessionName: String?,
@@ -368,7 +402,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
 
     - Parameter SessionName: Name of the session to set in progress
     - Parameter CompletionDelegate: A callback that is fired when the start operation completes, either successfully or in error
-    - Returns: EOS_Success if the start completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be started does not exist
+    - Returns: EOS_Success if the start completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be started does not exist
     */
     public func StartSession(
         SessionName: String?,
@@ -388,7 +425,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
     Number of players in the array
     - Parameter CompletionDelegate: A callback that is fired when the unregistration operation completes, either successfully or in error
-    - Returns: EOS_Success if the unregister completes successfully EOS_NoChange if the players to unregister were not found EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be unregister players does not exist
+    - Returns: EOS_Success if the unregister completes successfully
+               EOS_NoChange if the players to unregister were not found
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be unregister players does not exist
     */
     public func UnregisterPlayers(
         SessionName: String?,
@@ -409,7 +450,10 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
 
     - Parameter SessionModificationHandle: Builder handle
     - Parameter CompletionDelegate: A callback that is fired when the update operation completes, either successfully or in error
-    - Returns: EOS_Success if the update completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be updated does not exist
+    - Returns: EOS_Success if the update completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be updated does not exist
     */
     public func UpdateSession(
         SessionModificationHandle: EOS_HSessionModification?,
@@ -536,7 +580,9 @@ extension SwiftEOS_Sessions_Actor {
     EOS_Sessions_CopySessionHandleByInviteId is used to immediately retrieve a handle to the session information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if the invite ID cannot be found
     - SeeAlso: EOS_Sessions_CopySessionHandleByInviteIdOptions
     - SeeAlso: EOS_SessionDetails_Release
     - Returns: out parameter used to receive the session handle
@@ -559,7 +605,9 @@ extension SwiftEOS_Sessions_Actor {
     EOS_Sessions_CopySessionHandleByUiEventId is used to immediately retrieve a handle to the session information from after notification of a join game event.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if the invite ID cannot be found
     - SeeAlso: EOS_Sessions_CopySessionHandleByUiEventIdOptions
     - SeeAlso: EOS_SessionDetails_Release
     - Returns: out parameter used to receive the session handle
@@ -582,7 +630,9 @@ extension SwiftEOS_Sessions_Actor {
     EOS_Sessions_CopySessionHandleForPresence is used to immediately retrieve a handle to the session information which was marked with bPresenceEnabled on create or join.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if there is no session with bPresenceEnabled
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if there is no session with bPresenceEnabled
     - SeeAlso: EOS_Sessions_CopySessionHandleForPresenceOptions
     - SeeAlso: EOS_SessionDetails_Release
     - Returns: out parameter used to receive the session handle
@@ -650,7 +700,10 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session to be destroyed
     - Parameter CompletionDelegate: A callback that is fired when the destroy operation completes, either successfully or in error
-    - Returns: EOS_Success if the destroy completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_AlreadyPending if the session is already marked for destroy EOS_NotFound if a session to be destroyed does not exist
+    - Returns: EOS_Success if the destroy completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_AlreadyPending if the session is already marked for destroy
+               EOS_NotFound if a session to be destroyed does not exist
     */
     private func ____DestroySession(
         _ Options: SwiftEOS_Sessions_DestroySessionOptions,
@@ -672,7 +725,8 @@ extension SwiftEOS_Sessions_Actor {
     Dump the contents of active sessions that exist locally to the log output, purely for debug purposes
 
     - Parameter Options: Options related to dumping session state such as the session name
-    - Throws: EOS_NotFound if the session specified does not exist EOS_InvalidParameters if any of the options are incorrect
+    - Throws: EOS_NotFound if the session specified does not exist
+              EOS_InvalidParameters if any of the options are incorrect
     */
     private func ____DumpSessionState(
         _ Options: SwiftEOS_Sessions_DumpSessionStateOptions
@@ -691,7 +745,10 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session to be ended
     - Parameter CompletionDelegate: A callback that is fired when the end operation completes, either successfully or in error
-    - Returns: EOS_Success if the end completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be ended does not exist
+    - Returns: EOS_Success if the end completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be ended does not exist
     */
     private func ____EndSession(
         _ Options: SwiftEOS_Sessions_EndSessionOptions,
@@ -735,7 +792,8 @@ extension SwiftEOS_Sessions_Actor {
     Retrieve an invite ID from a list of active invites for a given user
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite doesn't exist
+    - Throws: EOS_InvalidParameters if any of the options are incorrect
+              EOS_NotFound if the invite doesn't exist
     - SeeAlso: EOS_Sessions_GetInviteCount
     - SeeAlso: EOS_Sessions_CopySessionHandleByInviteId
     - Returns:  
@@ -759,7 +817,11 @@ extension SwiftEOS_Sessions_Actor {
     EOS_Sessions_IsUserInSession returns whether or not a given user can be found in a specified session
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_NotFound if the user is not found in the specified session EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_Invalid_ProductUserID if an invalid target user is specified EOS_Sessions_InvalidSession if the session specified is invalid
+    - Throws: EOS_NotFound if the user is not found in the specified session
+              EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_Invalid_ProductUserID if an invalid target user is specified
+              EOS_Sessions_InvalidSession if the session specified is invalid
     */
     private func ____IsUserInSession(
         _ Options: SwiftEOS_Sessions_IsUserInSessionOptions
@@ -778,7 +840,9 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session to be joined
     - Parameter CompletionDelegate: A callback that is fired when the join operation completes, either successfully or in error
-    - Returns: EOS_Success if the join completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_SessionAlreadyExists if the session is already exists or is in the process of being joined
+    - Returns: EOS_Success if the join completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_SessionAlreadyExists if the session is already exists or is in the process of being joined
     */
     private func ____JoinSession(
         _ Options: SwiftEOS_Sessions_JoinSessionOptions,
@@ -823,7 +887,11 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session and players to be registered
     - Parameter CompletionDelegate: A callback that is fired when the registration operation completes, either successfully or in error
-    - Returns: EOS_Success if the register completes successfully EOS_NoChange if the players to register registered previously EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to register players does not exist
+    - Returns: EOS_Success if the register completes successfully
+               EOS_NoChange if the players to register registered previously
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to register players does not exist
     */
     private func ____RegisterPlayers(
         _ Options: SwiftEOS_Sessions_RegisterPlayersOptions,
@@ -846,7 +914,9 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the invite to reject
     - Parameter CompletionDelegate: A callback that is fired when the reject invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the invite rejection completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite does not exist
+    - Returns: EOS_Success if the invite rejection completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the invite does not exist
     */
     private func ____RejectInvite(
         _ Options: SwiftEOS_Sessions_RejectInviteOptions,
@@ -869,7 +939,9 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session and player to invite
     - Parameter CompletionDelegate: A callback that is fired when the send invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the send invite completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the session to send the invite from does not exist
+    - Returns: EOS_Success if the send invite completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the session to send the invite from does not exist
     */
     private func ____SendInvite(
         _ Options: SwiftEOS_Sessions_SendInviteOptions,
@@ -892,7 +964,10 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session to be started
     - Parameter CompletionDelegate: A callback that is fired when the start operation completes, either successfully or in error
-    - Returns: EOS_Success if the start completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be started does not exist
+    - Returns: EOS_Success if the start completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be started does not exist
     */
     private func ____StartSession(
         _ Options: SwiftEOS_Sessions_StartSessionOptions,
@@ -915,7 +990,11 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session and players to be unregistered
     - Parameter CompletionDelegate: A callback that is fired when the unregistration operation completes, either successfully or in error
-    - Returns: EOS_Success if the unregister completes successfully EOS_NoChange if the players to unregister were not found EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be unregister players does not exist
+    - Returns: EOS_Success if the unregister completes successfully
+               EOS_NoChange if the players to unregister were not found
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be unregister players does not exist
     */
     private func ____UnregisterPlayers(
         _ Options: SwiftEOS_Sessions_UnregisterPlayersOptions,
@@ -938,7 +1017,10 @@ extension SwiftEOS_Sessions_Actor {
 
     - Parameter Options: Structure containing information about the session to be updated
     - Parameter CompletionDelegate: A callback that is fired when the update operation completes, either successfully or in error
-    - Returns: EOS_Success if the update completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend EOS_NotFound if a session to be updated does not exist
+    - Returns: EOS_Success if the update completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Sessions_OutOfSync if the session is out of sync and will be updated on the next connection with the backend
+               EOS_NotFound if a session to be updated does not exist
     */
     private func ____UpdateSession(
         _ Options: SwiftEOS_Sessions_UpdateSessionOptions,

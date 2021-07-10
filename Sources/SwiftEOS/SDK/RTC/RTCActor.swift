@@ -77,7 +77,9 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     - Parameter ParticipantId: Product User ID of the participant to block
     - Parameter bBlocked: Block or unblock the participant
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if either the local user or specified participant are not in the specified room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if either the local user or specified participant are not in the specified room
     */
     public func BlockParticipant(
         LocalUserId: EOS_ProductUserId?,
@@ -157,7 +159,9 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     - Parameter LocalUserId: Product User ID of the user requesting to leave the room
     - Parameter RoomName: The room to leave.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if not in the specified room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if not in the specified room
     */
     public func LeaveRoom(
         LocalUserId: EOS_ProductUserId?,
@@ -254,7 +258,9 @@ extension SwiftEOS_RTC_Actor {
 
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if either the local user or specified participant are not in the specified room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if either the local user or specified participant are not in the specified room
     */
     private func ____BlockParticipant(
         _ Options: SwiftEOS_RTC_BlockParticipantOptions,
@@ -315,7 +321,9 @@ extension SwiftEOS_RTC_Actor {
 
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
-    - Returns: EOS_Success if the operation succeeded EOS_InvalidParameters if any of the parameters are incorrect EOS_NotFound if not in the specified room
+    - Returns: EOS_Success if the operation succeeded
+               EOS_InvalidParameters if any of the parameters are incorrect
+               EOS_NotFound if not in the specified room
     */
     private func ____LeaveRoom(
         _ Options: SwiftEOS_RTC_LeaveRoomOptions,

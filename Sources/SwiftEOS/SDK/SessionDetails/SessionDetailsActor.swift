@@ -18,7 +18,8 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
     /**
     EOS_SessionDetails_CopyInfo is used to immediately retrieve a copy of session information from a given source such as a active session or a search result.If the call returns an EOS_Success result, the out parameter, OutSessionInfo, must be passed to EOS_SessionDetails_Info_Release to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_SessionDetails_Info
     - SeeAlso: EOS_SessionDetails_CopyInfoOptions
     - SeeAlso: EOS_SessionDetails_Info_Release
@@ -33,7 +34,8 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
 
     - Parameter AttrIndex: The index of the attribute to retrieve
     - SeeAlso: EOS_SessionDetails_GetSessionAttributeCount
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_SessionDetails_Attribute
     - SeeAlso: EOS_SessionDetails_CopySessionAttributeByIndexOptions
     - SeeAlso: EOS_SessionDetails_Attribute_Release
@@ -50,7 +52,8 @@ public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
 
     - Parameter AttrKey: The name of the key to get the session attribution for
     - SeeAlso: EOS_SessionModification_AddAttribute
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_SessionDetails_Attribute
     - SeeAlso: EOS_SessionDetails_CopySessionAttributeByKeyOptions
     - SeeAlso: EOS_SessionDetails_Attribute_Release
@@ -77,7 +80,8 @@ extension SwiftEOS_SessionDetails_Actor {
     /**
     EOS_SessionDetails_CopyInfo is used to immediately retrieve a copy of session information from a given source such as a active session or a search result.If the call returns an EOS_Success result, the out parameter, OutSessionInfo, must be passed to EOS_SessionDetails_Info_Release to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_SessionDetails_Info
     - SeeAlso: EOS_SessionDetails_CopyInfoOptions
     - SeeAlso: EOS_SessionDetails_Info_Release
@@ -103,7 +107,8 @@ extension SwiftEOS_SessionDetails_Actor {
     EOS_SessionDetails_CopySessionAttributeByIndex is used to immediately retrieve a copy of session attribution from a given source such as a active session or a search result.If the call returns an EOS_Success result, the out parameter, OutSessionAttribute, must be passed to EOS_SessionDetails_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_SessionDetails_Attribute
     - SeeAlso: EOS_SessionDetails_CopySessionAttributeByIndexOptions
     - SeeAlso: EOS_SessionDetails_Attribute_Release
@@ -131,7 +136,8 @@ extension SwiftEOS_SessionDetails_Actor {
     EOS_SessionDetails_CopySessionAttributeByKey is used to immediately retrieve a copy of session attribution from a given source such as a active session or a search result.If the call returns an EOS_Success result, the out parameter, OutSessionAttribute, must be passed to EOS_SessionDetails_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_SessionDetails_Attribute
     - SeeAlso: EOS_SessionDetails_CopySessionAttributeByKeyOptions
     - SeeAlso: EOS_SessionDetails_Attribute_Release

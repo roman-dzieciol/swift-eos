@@ -19,7 +19,10 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     /**
     If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
 
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_CreateLobbyOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
@@ -64,7 +67,10 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     - Parameter SessionHandle: Session handle to join
     - Parameter LocalUserId: The Product User ID of the local user who is joining the session
     - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_CreateLobbyOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions

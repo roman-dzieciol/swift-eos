@@ -19,7 +19,10 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
     /**
     If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
 
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
@@ -105,7 +108,10 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
     - Parameter MaxLobbyMembers: The maximum number of users who can be in the lobby at a time
     - Parameter PermissionLevel: The initial permission level of the lobby
     - Parameter bPresenceEnabled: If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_CreateSessionModificationOptions

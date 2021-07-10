@@ -127,7 +127,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     EOS_Lobby_CopyLobbyDetailsHandleByInviteId is used to immediately retrieve a handle to the lobby information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter InviteId: The ID of an invitation to join the lobby
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound If the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound If the invite ID cannot be found
     - SeeAlso: EOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions
     - SeeAlso: EOS_LobbyDetails_Release
     - Returns: out parameter used to receive the lobby handle
@@ -142,7 +144,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     EOS_Lobby_CopyLobbyDetailsHandleByUiEventId is used to immediately retrieve a handle to the lobby information from after notification of an join game If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter UiEventId: UI Event associated with the lobby
-    - Throws: EOS_InvalidParameters if you pass an invalid ui event ID EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound If the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid ui event ID
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound If the invite ID cannot be found
     - SeeAlso: EOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions
     - SeeAlso: EOS_LobbyDetails_Release
     - Returns: out parameter used to receive the lobby handle
@@ -162,7 +166,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter MaxLobbyMembers: The maximum number of users who can be in the lobby at a time
     - Parameter PermissionLevel: The initial permission level of the lobby
     - Parameter bPresenceEnabled: If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
@@ -176,7 +183,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LocalRTCOptions: (Optional) Allows the local application to set local audio options for the RTC Room if it is enabled. Set this to NULL if the RTC RTC room is disabled or you would like to use the defaults.
     - Parameter LobbyId: (Optional) Set to a globally unique value to override the backend assignment If not specified the backend service will assign one to the lobby.  Do not mix and match override and non override settings.This value can be of size [EOS_LOBBY_MIN_LOBBYIDOVERRIDE_LENGTH, EOS_LOBBY_MAX_LOBBYIDOVERRIDE_LENGTH]
     - Parameter CompletionDelegate: A callback that is fired when the create operation completes, either successfully or in error
-    - Returns: EOS_Success if the creation completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_LimitExceeded if the number of allowed lobbies is exceeded
+    - Returns: EOS_Success if the creation completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_LimitExceeded if the number of allowed lobbies is exceeded
     */
     public func CreateLobby(
         LocalUserId: EOS_ProductUserId?,
@@ -227,7 +236,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user requesting destruction of the lobby; this user must currently own the lobby
     - Parameter LobbyId: The ID of the lobby to destroy
     - Parameter CompletionDelegate: A callback that is fired when the destroy operation completes, either successfully or in error
-    - Returns: EOS_Success if the destroy completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_AlreadyPending if the lobby is already marked for destroy EOS_NotFound if the lobby to be destroyed does not exist
+    - Returns: EOS_Success if the destroy completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_AlreadyPending if the lobby is already marked for destroy
+               EOS_NotFound if the lobby to be destroyed does not exist
     */
     public func DestroyLobby(
         LocalUserId: EOS_ProductUserId?,
@@ -260,7 +272,8 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who received the cached invitation
     - Parameter Index: The index of the invitation ID to retrieve
-    - Throws: EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite doesn't exist
+    - Throws: EOS_InvalidParameters if any of the options are incorrect
+              EOS_NotFound if the invite doesn't exist
     - SeeAlso: EOS_Lobby_GetInviteCount
     - SeeAlso: EOS_Lobby_CopyLobbyDetailsHandleByInviteId
     - Returns:  
@@ -284,7 +297,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
 
     - Parameter LobbyId: The ID of the lobby to get the RTC Room name for
     - Parameter LocalUserId: The Product User ID of the local user in the lobby
-    - Throws: EOS_NotFound if the lobby does not exist EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created EOS_InvalidParameters if you pass a null pointer on invalid length for any of the parameters EOS_LimitExceeded The OutBuffer is not large enough to receive the room name. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: EOS_NotFound if the lobby does not exist
+              EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created
+              EOS_InvalidParameters if you pass a null pointer on invalid length for any of the parameters
+              EOS_LimitExceeded The OutBuffer is not large enough to receive the room name. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - Returns: The buffer to store the null-terminated room name string within
     */
     public func GetRTCRoomName(
@@ -306,7 +322,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
 
     - Parameter LobbyId: The ID of the lobby to get the RTC Room name for
     - Parameter LocalUserId: The Product User ID of the local user in the lobby
-    - Throws: EOS_NotFound if the lobby doesn't exist EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created EOS_InvalidParameters if bOutIsConnected is NULL, or any other parameters are NULL or invalid
+    - Throws: EOS_NotFound if the lobby doesn't exist
+              EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created
+              EOS_InvalidParameters if bOutIsConnected is NULL, or any other parameters are NULL or invalid
     - SeeAlso: EOS_Lobby_AddNotifyRTCRoomConnectionChanged
     - Returns: If the result is EOS_Success, this will be set to EOS_TRUE if we are connected, or EOS_FALSE if we are not yet connected.
     */
@@ -328,7 +346,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LobbyDetailsHandle: The handle of the lobby to join
     - Parameter LocalUserId: The Product User ID of the local user joining the lobby
     - Parameter bPresenceEnabled: If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
-    - Note: The Social Overlay can handle only one of the following three options at a time:* using the bPresenceEnabled flags within the Sessions interface * using the bPresenceEnabled flags within the Lobby interface * using EOS_PresenceModification_SetJoinInfo
+    - Note: The Social Overlay can handle only one of the following three options at a time:
+            * using the bPresenceEnabled flags within the Sessions interface
+            * using the bPresenceEnabled flags within the Lobby interface
+            * using EOS_PresenceModification_SetJoinInfo
     - SeeAlso: EOS_PresenceModification_SetJoinInfoOptions
     - SeeAlso: EOS_Lobby_CreateLobbyOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
@@ -336,7 +357,8 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - SeeAlso: EOS_Sessions_JoinSessionOptions
     - Parameter LocalRTCOptions: (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if the specified lobby does not have an RTC Room enabled and will not cause errors.
     - Parameter CompletionDelegate: A callback that is fired when the join operation completes, either successfully or in error
-    - Returns: EOS_Success if the destroy completes successfully EOS_InvalidParameters if any of the options are incorrect
+    - Returns: EOS_Success if the destroy completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
     */
     public func JoinLobby(
         LobbyDetailsHandle: EOS_HLobbyDetails?,
@@ -363,7 +385,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user requesting the removal; this user must be the lobby owner
     - Parameter TargetUserId: The Product User ID of the lobby member to remove
     - Parameter CompletionDelegate: A callback that is fired when the kick operation completes, either successfully or in error
-    - Returns: EOS_Success if the kick completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Lobby_NotOwner if the calling user is not the owner of the lobby EOS_NotFound if a lobby of interest does not exist
+    - Returns: EOS_Success if the kick completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Lobby_NotOwner if the calling user is not the owner of the lobby
+               EOS_NotFound if a lobby of interest does not exist
     */
     public func KickMember(
         LobbyId: String?,
@@ -389,7 +414,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user leaving the lobby
     - Parameter LobbyId: The ID of the lobby
     - Parameter CompletionDelegate: A callback that is fired when the leave operation completes, either successfully or in error
-    - Returns: EOS_Success if the leave completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_AlreadyPending if the lobby is already marked for leave EOS_NotFound if a lobby to be left does not exist
+    - Returns: EOS_Success if the leave completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_AlreadyPending if the lobby is already marked for leave
+               EOS_NotFound if a lobby to be left does not exist
     */
     public func LeaveLobby(
         LocalUserId: EOS_ProductUserId?,
@@ -412,7 +440,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user making the request
     - Parameter TargetUserId: The Product User ID of the member to promote to owner of the lobby
     - Parameter CompletionDelegate: A callback that is fired when the promotion operation completes, either successfully or in error
-    - Returns: EOS_Success if the promote completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Lobby_NotOwner if the calling user is not the owner of the lobby EOS_NotFound if the lobby of interest does not exist
+    - Returns: EOS_Success if the promote completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Lobby_NotOwner if the calling user is not the owner of the lobby
+               EOS_NotFound if the lobby of interest does not exist
     */
     public func PromoteMember(
         LobbyId: String?,
@@ -452,7 +483,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter InviteId: The ID of the lobby associated with the invitation
     - Parameter LocalUserId: The Product User ID of the local user who is rejecting the invitation
     - Parameter CompletionDelegate: A callback that is fired when the reject invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the invite rejection completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite does not exist
+    - Returns: EOS_Success if the invite rejection completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the invite does not exist
     */
     public func RejectInvite(
         InviteId: String?,
@@ -475,7 +508,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the local user sending the invitation
     - Parameter TargetUserId: The Product User ID of the user receiving the invitation
     - Parameter CompletionDelegate: A callback that is fired when the send invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the send invite completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the lobby to send the invite from does not exist
+    - Returns: EOS_Success if the send invite completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the lobby to send the invite from does not exist
     */
     public func SendInvite(
         LobbyId: String?,
@@ -498,7 +533,10 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
 
     - Parameter LobbyModificationHandle: Builder handle
     - Parameter CompletionDelegate: A callback that is fired when the update operation completes, either successfully or in error
-    - Returns: EOS_Success if the update completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Lobby_NotOwner if the lobby modification contains modifications that are only allowed by the owner EOS_NotFound if the lobby to update does not exist
+    - Returns: EOS_Success if the update completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Lobby_NotOwner if the lobby modification contains modifications that are only allowed by the owner
+               EOS_NotFound if the lobby to update does not exist
     */
     public func UpdateLobby(
         LobbyModificationHandle: EOS_HLobbyModification?,
@@ -765,7 +803,9 @@ extension SwiftEOS_Lobby_Actor {
     EOS_Lobby_CopyLobbyDetailsHandleByInviteId is used to immediately retrieve a handle to the lobby information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound If the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound If the invite ID cannot be found
     - SeeAlso: EOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions
     - SeeAlso: EOS_LobbyDetails_Release
     - Returns: out parameter used to receive the lobby handle
@@ -788,7 +828,9 @@ extension SwiftEOS_Lobby_Actor {
     EOS_Lobby_CopyLobbyDetailsHandleByUiEventId is used to immediately retrieve a handle to the lobby information from after notification of an join game If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass an invalid ui event ID EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound If the invite ID cannot be found
+    - Throws: EOS_InvalidParameters if you pass an invalid ui event ID
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound If the invite ID cannot be found
     - SeeAlso: EOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions
     - SeeAlso: EOS_LobbyDetails_Release
     - Returns: out parameter used to receive the lobby handle
@@ -814,7 +856,9 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Required fields for the creation of a lobby such as a user count and its starting advertised state
     - Parameter CompletionDelegate: A callback that is fired when the create operation completes, either successfully or in error
-    - Returns: EOS_Success if the creation completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_LimitExceeded if the number of allowed lobbies is exceeded
+    - Returns: EOS_Success if the creation completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_LimitExceeded if the number of allowed lobbies is exceeded
     */
     private func ____CreateLobby(
         _ Options: SwiftEOS_Lobby_CreateLobbyOptions,
@@ -858,7 +902,10 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby to be destroyed
     - Parameter CompletionDelegate: A callback that is fired when the destroy operation completes, either successfully or in error
-    - Returns: EOS_Success if the destroy completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_AlreadyPending if the lobby is already marked for destroy EOS_NotFound if the lobby to be destroyed does not exist
+    - Returns: EOS_Success if the destroy completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_AlreadyPending if the lobby is already marked for destroy
+               EOS_NotFound if the lobby to be destroyed does not exist
     */
     private func ____DestroyLobby(
         _ Options: SwiftEOS_Lobby_DestroyLobbyOptions,
@@ -902,7 +949,8 @@ extension SwiftEOS_Lobby_Actor {
     Retrieve an invite ID from a list of active invites for a given user
 
     - Parameter Options: Structure containing the input parameters
-    - Throws: EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite doesn't exist
+    - Throws: EOS_InvalidParameters if any of the options are incorrect
+              EOS_NotFound if the invite doesn't exist
     - SeeAlso: EOS_Lobby_GetInviteCount
     - SeeAlso: EOS_Lobby_CopyLobbyDetailsHandleByInviteId
     - Returns:  
@@ -930,7 +978,10 @@ extension SwiftEOS_Lobby_Actor {
     This function will only succeed when called on a lobby the local user is currently a member of.
 
     - Parameter Options: Structure containing information about the RTC room name to retrieve
-    - Throws: EOS_NotFound if the lobby does not exist EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created EOS_InvalidParameters if you pass a null pointer on invalid length for any of the parameters EOS_LimitExceeded The OutBuffer is not large enough to receive the room name. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: EOS_NotFound if the lobby does not exist
+              EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created
+              EOS_InvalidParameters if you pass a null pointer on invalid length for any of the parameters
+              EOS_LimitExceeded The OutBuffer is not large enough to receive the room name. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - Returns: The buffer to store the null-terminated room name string within
     */
     private func ____GetRTCRoomName(
@@ -956,7 +1007,9 @@ extension SwiftEOS_Lobby_Actor {
     This function will only succeed when called on a lobby the local user is currently a member of.
 
     - Parameter Options: Structure containing information about the lobby to query the RTC Room connection status for
-    - Throws: EOS_NotFound if the lobby doesn't exist EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created EOS_InvalidParameters if bOutIsConnected is NULL, or any other parameters are NULL or invalid
+    - Throws: EOS_NotFound if the lobby doesn't exist
+              EOS_Disabled if the lobby exists, but did not have the RTC Room feature enabled when created
+              EOS_InvalidParameters if bOutIsConnected is NULL, or any other parameters are NULL or invalid
     - SeeAlso: EOS_Lobby_AddNotifyRTCRoomConnectionChanged
     - Returns: If the result is EOS_Success, this will be set to EOS_TRUE if we are connected, or EOS_FALSE if we are not yet connected.
     */
@@ -981,7 +1034,8 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby to be joined
     - Parameter CompletionDelegate: A callback that is fired when the join operation completes, either successfully or in error
-    - Returns: EOS_Success if the destroy completes successfully EOS_InvalidParameters if any of the options are incorrect
+    - Returns: EOS_Success if the destroy completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
     */
     private func ____JoinLobby(
         _ Options: SwiftEOS_Lobby_JoinLobbyOptions,
@@ -1004,7 +1058,10 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby and member to be kicked
     - Parameter CompletionDelegate: A callback that is fired when the kick operation completes, either successfully or in error
-    - Returns: EOS_Success if the kick completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Lobby_NotOwner if the calling user is not the owner of the lobby EOS_NotFound if a lobby of interest does not exist
+    - Returns: EOS_Success if the kick completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Lobby_NotOwner if the calling user is not the owner of the lobby
+               EOS_NotFound if a lobby of interest does not exist
     */
     private func ____KickMember(
         _ Options: SwiftEOS_Lobby_KickMemberOptions,
@@ -1029,7 +1086,10 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby to be left
     - Parameter CompletionDelegate: A callback that is fired when the leave operation completes, either successfully or in error
-    - Returns: EOS_Success if the leave completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_AlreadyPending if the lobby is already marked for leave EOS_NotFound if a lobby to be left does not exist
+    - Returns: EOS_Success if the leave completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_AlreadyPending if the lobby is already marked for leave
+               EOS_NotFound if a lobby to be left does not exist
     */
     private func ____LeaveLobby(
         _ Options: SwiftEOS_Lobby_LeaveLobbyOptions,
@@ -1052,7 +1112,10 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby and member to be promoted
     - Parameter CompletionDelegate: A callback that is fired when the promotion operation completes, either successfully or in error
-    - Returns: EOS_Success if the promote completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Lobby_NotOwner if the calling user is not the owner of the lobby EOS_NotFound if the lobby of interest does not exist
+    - Returns: EOS_Success if the promote completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Lobby_NotOwner if the calling user is not the owner of the lobby
+               EOS_NotFound if the lobby of interest does not exist
     */
     private func ____PromoteMember(
         _ Options: SwiftEOS_Lobby_PromoteMemberOptions,
@@ -1097,7 +1160,9 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the invite to reject
     - Parameter CompletionDelegate: A callback that is fired when the reject invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the invite rejection completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the invite does not exist
+    - Returns: EOS_Success if the invite rejection completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the invite does not exist
     */
     private func ____RejectInvite(
         _ Options: SwiftEOS_Lobby_RejectInviteOptions,
@@ -1120,7 +1185,9 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby and user to invite
     - Parameter CompletionDelegate: A callback that is fired when the send invite operation completes, either successfully or in error
-    - Returns: EOS_Success if the send invite completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_NotFound if the lobby to send the invite from does not exist
+    - Returns: EOS_Success if the send invite completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_NotFound if the lobby to send the invite from does not exist
     */
     private func ____SendInvite(
         _ Options: SwiftEOS_Lobby_SendInviteOptions,
@@ -1143,7 +1210,10 @@ extension SwiftEOS_Lobby_Actor {
 
     - Parameter Options: Structure containing information about the lobby to be updated
     - Parameter CompletionDelegate: A callback that is fired when the update operation completes, either successfully or in error
-    - Returns: EOS_Success if the update completes successfully EOS_InvalidParameters if any of the options are incorrect EOS_Lobby_NotOwner if the lobby modification contains modifications that are only allowed by the owner EOS_NotFound if the lobby to update does not exist
+    - Returns: EOS_Success if the update completes successfully
+               EOS_InvalidParameters if any of the options are incorrect
+               EOS_Lobby_NotOwner if the lobby modification contains modifications that are only allowed by the owner
+               EOS_NotFound if the lobby to update does not exist
     */
     private func ____UpdateLobby(
         _ Options: SwiftEOS_Lobby_UpdateLobbyOptions,

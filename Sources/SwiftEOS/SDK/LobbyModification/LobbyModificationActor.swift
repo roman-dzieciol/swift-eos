@@ -20,7 +20,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
 
     - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby
     - Parameter Visibility: Is this attribute public or private to the lobby and its members
-    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func AddAttribute(
         Attribute: SwiftEOS_Lobby_AttributeData?,
@@ -37,7 +38,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
 
     - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby member
     - Parameter Visibility: Is this attribute public or private to the rest of the lobby members
-    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func AddMemberAttribute(
         Attribute: SwiftEOS_Lobby_AttributeData?,
@@ -53,7 +55,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     Remove an attribute associated with the lobby
 
     - Parameter Key: Name of the key
-    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the key is null or empty
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func RemoveAttribute(
         Key: String?
@@ -65,7 +68,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     Remove an attribute associated with of member of the lobby
 
     - Parameter Key: Name of the key
-    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the key is null or empty
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func RemoveMemberAttribute(
         Key: String?
@@ -77,7 +81,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     Set the bucket ID associated with this lobby.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
 
     - Parameter BucketId: The new bucket id associated with the lobby
-    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func SetBucketId(
         BucketId: String?
@@ -128,7 +133,8 @@ extension SwiftEOS_LobbyModification_Actor {
     Associate an attribute with this lobby An attribute is something may be public or private with the lobby.If public, it can be queried for in a search, otherwise the data remains known only to lobby members
 
     - Parameter Options: Options to set the attribute and its visibility state
-    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____AddAttribute(
         _ Options: SwiftEOS_LobbyModification_AddAttributeOptions
@@ -146,7 +152,8 @@ extension SwiftEOS_LobbyModification_Actor {
     Associate an attribute with a member of the lobby Lobby member data is always private to the lobby
 
     - Parameter Options: Options to set the attribute and its visibility state
-    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____AddMemberAttribute(
         _ Options: SwiftEOS_LobbyModification_AddMemberAttributeOptions
@@ -164,7 +171,8 @@ extension SwiftEOS_LobbyModification_Actor {
     Remove an attribute associated with the lobby
 
     - Parameter Options: Specify the key of the attribute to remove
-    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the key is null or empty
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____RemoveAttribute(
         _ Options: SwiftEOS_LobbyModification_RemoveAttributeOptions
@@ -182,7 +190,8 @@ extension SwiftEOS_LobbyModification_Actor {
     Remove an attribute associated with of member of the lobby
 
     - Parameter Options: Specify the key of the member attribute to remove
-    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the key is null or empty
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____RemoveMemberAttribute(
         _ Options: SwiftEOS_LobbyModification_RemoveMemberAttributeOptions
@@ -200,7 +209,8 @@ extension SwiftEOS_LobbyModification_Actor {
     Set the bucket ID associated with this lobby.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
 
     - Parameter Options: Options associated with the bucket ID of the lobby
-    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____SetBucketId(
         _ Options: SwiftEOS_LobbyModification_SetBucketIdOptions

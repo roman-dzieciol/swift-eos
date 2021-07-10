@@ -79,7 +79,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: Logged in user identifier from earlier call to EOS_Connect_Login family of functions
     - Parameter Mode: Operating mode
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     public func BeginSession(
         LocalUserId: EOS_ProductUserId?,
@@ -96,7 +97,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
 
     Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
 
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     public func EndSession() throws {
         try ____EndSession()
@@ -106,7 +108,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     Optional NetProtect feature for game message encryption.Calculates the required decrypted buffer size for a given input data length.This will not change for a given SDK version, and allows one time allocation of reusable buffers.Mode: EOS_ACCM_ClientServer.
 
     - Parameter DataLengthBytes: Length in bytes of input
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
     */
     public func GetProtectMessageOutputLength(
@@ -123,7 +126,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     - Parameter OutMessageLength: The size of OutMessage in bytes. Recommended size is 256 bytes.
     - Parameter ViolationType: On success, receives a code describing the violation that occurred.
     - Parameter OutMessage: On success, receives a string describing the violation which should be displayed to the user.
-    - Throws: EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.EOS_NotFound - If no violation has occurred since the last call
+    - Throws: EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.
+              EOS_NotFound - If no violation has occurred since the last call
     */
     public func PollStatus(
         OutMessageLength: Int,
@@ -146,7 +150,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
     Length in bytes of input
     - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func ProtectMessage(
@@ -166,7 +171,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     - Parameter Data: The data received
     - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
     The size of the data received
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     public func ReceiveMessageFromPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -184,7 +190,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     - Parameter Data: The data received
     - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromServerOptions/DataLengthBytes``:
     The size of the data received
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     public func ReceiveMessageFromServer(
         Data: [UInt8]?
@@ -202,7 +209,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     - Parameter ClientPlatform: Remote user's platform, if known
     - Parameter AccountId: Identifier for the remote user. This is typically a string representation of an account ID, but it can be any string which is both unique (two different users will never have the same string) and consistent (if the same user connects to this game session twice, the same string will be used) in the scope of a single protected game session.
     - Parameter IpAddress: Optional IP address for the remote user. May be null if not available.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     public func RegisterPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,
@@ -229,7 +237,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     - Note: ``EOS/_tagEOS_AntiCheatClient_UnprotectMessageOptions/DataLengthBytes``:
     Length in bytes of input
     - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func UnprotectMessage(
@@ -248,7 +257,8 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     Must be called when a user leaves a session in progress.
 
     - Parameter PeerHandle: Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     public func UnregisterPeer(
         PeerHandle: EOS_AntiCheatCommon_ClientHandle
@@ -401,7 +411,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Begins a multiplayer game session. After this call returns successfully, the client is ready to exchange anti-cheat messages with a game server or peer(s). When leaving one game session and connecting to a different one, a new anti-cheat session must be created by calling EOS_AntiCheatClient_EndSession and EOS_AntiCheatClient_BeginSession again.Mode: All
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     private func ____BeginSession(
         _ Options: SwiftEOS_AntiCheatClient_BeginSessionOptions
@@ -420,7 +431,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
 
     Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
 
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     private func ____EndSession() throws {
         try withPointerManager { pointerManager in
@@ -436,7 +448,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Optional NetProtect feature for game message encryption.Calculates the required decrypted buffer size for a given input data length.This will not change for a given SDK version, and allows one time allocation of reusable buffers.Mode: EOS_ACCM_ClientServer.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
     */
     private func ____GetProtectMessageOutputLength(
@@ -461,7 +474,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     - Parameter Options: Structure containing input data.
     - Parameter ViolationType: On success, receives a code describing the violation that occurred.
     - Parameter OutMessage: On success, receives a string describing the violation which should be displayed to the user.
-    - Throws: EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.EOS_NotFound - If no violation has occurred since the last call
+    - Throws: EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.
+              EOS_NotFound - If no violation has occurred since the last call
     */
     private func ____PollStatus(
         _ Options: SwiftEOS_AntiCheatClient_PollStatusOptions,
@@ -487,7 +501,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     - Returns: On success, buffer where encrypted message data will be written.
     */
     private func ____ProtectMessage(
@@ -509,7 +524,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Call when an anti-cheat message is received from a peer.Mode: EOS_ACCM_PeerToPeer.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     private func ____ReceiveMessageFromPeer(
         _ Options: SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions
@@ -527,7 +543,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Call when an anti-cheat message is received from the game server.Mode: EOS_ACCM_ClientServer.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     private func ____ReceiveMessageFromServer(
         _ Options: SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions
@@ -547,7 +564,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Must be paired with a call to EOS_AntiCheatClient_UnregisterPeer if this user leaves the session in progress, or EOS_AntiCheatClient_EndSession if the entire session is ending.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     private func ____RegisterPeer(
         _ Options: SwiftEOS_AntiCheatClient_RegisterPeerOptions
@@ -567,7 +585,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     - Returns: On success, buffer where encrypted message data will be written.
     */
     private func ____UnprotectMessage(
@@ -591,7 +610,8 @@ extension SwiftEOS_AntiCheatClient_Actor {
     Must be called when a user leaves a session in progress.
 
     - Parameter Options: Structure containing input data.
-    - Throws: EOS_InvalidParameters - If input data was invalid EOS_AntiCheat_InvalidMode - If the current mode does not support this function
+    - Throws: EOS_InvalidParameters - If input data was invalid
+              EOS_AntiCheat_InvalidMode - If the current mode does not support this function
     */
     private func ____UnregisterPeer(
         _ Options: SwiftEOS_AntiCheatClient_UnregisterPeerOptions

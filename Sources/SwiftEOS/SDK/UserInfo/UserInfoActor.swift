@@ -21,7 +21,8 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
     - Parameter AccountId: The external account ID associated with the (external) user info to retrieve from the cache; cannot be null
     - SeeAlso: EOS_UserInfo_ExternalUserInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the external user info is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the external user info is not found
     - Returns: The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
     */
     public func CopyExternalUserInfoByAccountId(
@@ -43,7 +44,8 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
     - Parameter AccountType: Account type of the external user info to retrieve from the cache
     - SeeAlso: EOS_UserInfo_ExternalUserInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the external user info is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the external user info is not found
     - Returns: The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
     */
     public func CopyExternalUserInfoByAccountType(
@@ -65,7 +67,8 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
     - Parameter Index: Index of the external user info to retrieve from the cache
     - SeeAlso: EOS_UserInfo_ExternalUserInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the external user info is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the external user info is not found
     - Returns: The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
     */
     public func CopyExternalUserInfoByIndex(
@@ -85,7 +88,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if the user info is not locally cached. The information must have been previously cached by a call to EOS_UserInfo_QueryUserInfo
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if the user info is not locally cached. The information must have been previously cached by a call to EOS_UserInfo_QueryUserInfo
     - SeeAlso: EOS_UserInfo
     - SeeAlso: EOS_UserInfo_CopyUserInfoOptions
     - SeeAlso: EOS_UserInfo_Release
@@ -204,7 +209,8 @@ extension SwiftEOS_UserInfo_Actor {
 
     - Parameter Options: Structure containing the account ID being accessed
     - SeeAlso: EOS_UserInfo_ExternalUserInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the external user info is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the external user info is not found
     - Returns: The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
     */
     private func ____CopyExternalUserInfoByAccountId(
@@ -230,7 +236,8 @@ extension SwiftEOS_UserInfo_Actor {
 
     - Parameter Options: Structure containing the account type being accessed
     - SeeAlso: EOS_UserInfo_ExternalUserInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the external user info is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the external user info is not found
     - Returns: The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
     */
     private func ____CopyExternalUserInfoByAccountType(
@@ -256,7 +263,8 @@ extension SwiftEOS_UserInfo_Actor {
 
     - Parameter Options: Structure containing the index being accessed
     - SeeAlso: EOS_UserInfo_ExternalUserInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the external user info is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the external user info is not found
     - Returns: The external user info. If it exists and is valid, use EOS_UserInfo_ExternalUserInfo_Release when finished
     */
     private func ____CopyExternalUserInfoByIndex(
@@ -281,7 +289,9 @@ extension SwiftEOS_UserInfo_Actor {
     EOS_UserInfo_CopyUserInfo is used to immediately retrieve a copy of user information based on an Epic Online Services Account ID, cached by a previous call to EOS_UserInfo_QueryUserInfo.If the call returns an EOS_Success result, the out parameter, OutUserInfo, must be passed to EOS_UserInfo_Release to release the memory associated with it.
 
     - Parameter Options: structure containing the input parameters
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect EOS_NotFound if the user info is not locally cached. The information must have been previously cached by a call to EOS_UserInfo_QueryUserInfo
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
+              EOS_NotFound if the user info is not locally cached. The information must have been previously cached by a call to EOS_UserInfo_QueryUserInfo
     - SeeAlso: EOS_UserInfo
     - SeeAlso: EOS_UserInfo_CopyUserInfoOptions
     - SeeAlso: EOS_UserInfo_Release

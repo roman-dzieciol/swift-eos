@@ -46,7 +46,10 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter AccountId: External auth service account ID to look for when copying external account info from the cache.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account ID.
     */
     public func CopyProductUserExternalAccountByAccountId(
@@ -65,7 +68,10 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter AccountIdType: External auth service account type to look for when copying external account info from the cache.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account type.
     */
     public func CopyProductUserExternalAccountByAccountType(
@@ -84,7 +90,10 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     - Parameter TargetUserId: The Product User ID to look for when copying external account info from the cache.
     - Parameter ExternalAccountInfoIndex: Index of the external account info to retrieve from the cache.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given index.
     */
     public func CopyProductUserExternalAccountByIndex(
@@ -102,7 +111,10 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
 
     - Parameter TargetUserId: Product user ID to look for when copying external account info from the cache.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data last logged in for the user.
     */
     public func CopyProductUserInfo(
@@ -238,7 +250,11 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Product User ID of the existing, logged-in user that is querying account mappings.
     - Parameter AccountIdType: External auth service mapping to retrieve.
     - Parameter TargetProductUserId: The Product User ID of the user whose information is being requested.
-    - Throws: An EOS_EResult that indicates the external account ID was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutUserInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutUserInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
+              EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - Returns: The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
     */
     public func GetProductUserIdMapping(
@@ -495,7 +511,10 @@ extension SwiftEOS_Connect_Actor {
 
     - Parameter Options: Structure containing the target external account ID.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account ID.
     */
     private func ____CopyProductUserExternalAccountByAccountId(
@@ -521,7 +540,10 @@ extension SwiftEOS_Connect_Actor {
 
     - Parameter Options: Structure containing the target external account type.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given external account type.
     */
     private func ____CopyProductUserExternalAccountByAccountType(
@@ -547,7 +569,10 @@ extension SwiftEOS_Connect_Actor {
 
     - Parameter Options: Structure containing the target index.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data for the user with given index.
     */
     private func ____CopyProductUserExternalAccountByIndex(
@@ -573,7 +598,10 @@ extension SwiftEOS_Connect_Actor {
 
     - Parameter Options: Structure containing the target external account ID.
     - SeeAlso: EOS_Connect_ExternalAccountInfo_Release
-    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.EOS_Success if the information is available and passed out in OutExternalAccountInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
+    - Throws: An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+              EOS_Success if the information is available and passed out in OutExternalAccountInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
     - Returns: The external account info data last logged in for the user.
     */
     private func ____CopyProductUserInfo(
@@ -765,7 +793,11 @@ extension SwiftEOS_Connect_Actor {
     Fetch an external account ID, in string form, that maps to a given Product User ID.
 
     - Parameter Options: structure containing the local user and target Product User ID.
-    - Throws: An EOS_EResult that indicates the external account ID was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutUserInfo.EOS_InvalidParameters if you pass a null pointer for the out parameter.EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutUserInfo.
+              EOS_InvalidParameters if you pass a null pointer for the out parameter.
+              EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
+              EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - Returns: The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
     */
     private func ____GetProductUserIdMapping(

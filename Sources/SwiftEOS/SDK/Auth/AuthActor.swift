@@ -32,7 +32,8 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user being queried
     - SeeAlso: EOS_Auth_Token_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the auth token is not found or expired.
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the auth token is not found or expired.
     - Returns: The auth token for the given user, if it exists and is valid; use EOS_Auth_Token_Release when finished
     */
     public func CopyUserAuthToken(
@@ -216,7 +217,8 @@ extension SwiftEOS_Auth_Actor {
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user being queried
     - SeeAlso: EOS_Auth_Token_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the auth token is not found or expired.
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the auth token is not found or expired.
     - Returns: The auth token for the given user, if it exists and is valid; use EOS_Auth_Token_Release when finished
     */
     private func ____CopyUserAuthToken(

@@ -21,7 +21,8 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
     - Parameter SanctionIndex: Index of the sanction to retrieve from the cache
     - SeeAlso: EOS_Sanctions_QueryActivePlayerSanctions
     - SeeAlso: EOS_Sanctions_PlayerSanction_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the player achievement is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the player achievement is not found
     - Returns: The player sanction data for the given index, if it exists and is valid
     */
     public func CopyPlayerSanctionByIndex(
@@ -80,7 +81,8 @@ extension SwiftEOS_Sanctions_Actor {
     - Parameter Options: Structure containing the input parameters
     - SeeAlso: EOS_Sanctions_QueryActivePlayerSanctions
     - SeeAlso: EOS_Sanctions_PlayerSanction_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the player achievement is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the player achievement is not found
     - Returns: The player sanction data for the given index, if it exists and is valid
     */
     private func ____CopyPlayerSanctionByIndex(

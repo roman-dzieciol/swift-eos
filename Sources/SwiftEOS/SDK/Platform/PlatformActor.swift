@@ -40,7 +40,11 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     This only will return the value set as the override otherwise EOS_NotFound is returned.This is not currently used for anything internally.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
-    - Throws: An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if there is not an override country code for the user.EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if there is not an override country code for the user.
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_COUNTRYCODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
@@ -55,7 +59,11 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     Get the active locale code that the SDK will send to services which require it.This returns the override value otherwise it will use the locale code of the given user.This is used for localization. This follows ISO 639.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
-    - Throws: An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if there is neither an override nor an available locale code for the user.EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if there is neither an override nor an available locale code for the user.
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_LOCALECODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
@@ -190,7 +198,10 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     /**
     Get the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
 
-    - Throws: An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_COUNTRYCODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
@@ -202,7 +213,10 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     /**
     Get the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
 
-    - Throws: An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_LOCALECODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
@@ -347,7 +361,9 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     /**
     Set the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
 
-    - Throws: An EOS_EResult that indicates whether the override country code string was saved.EOS_Success if the country code was overridden EOS_InvalidParameters if you pass an invalid country code
+    - Throws: An EOS_EResult that indicates whether the override country code string was saved.
+              EOS_Success if the country code was overridden
+              EOS_InvalidParameters if you pass an invalid country code
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_COUNTRYCODE_MAX_LENGTH
     */
@@ -360,7 +376,9 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     /**
     Set the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
 
-    - Throws: An EOS_EResult that indicates whether the override locale code string was saved.EOS_Success if the locale code was overridden EOS_InvalidParameters if you pass an invalid locale code
+    - Throws: An EOS_EResult that indicates whether the override locale code string was saved.
+              EOS_Success if the locale code was overridden
+              EOS_InvalidParameters if you pass an invalid locale code
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_LOCALECODE_MAX_LENGTH
     */
@@ -409,7 +427,11 @@ extension SwiftEOS_Platform_Actor {
     This only will return the value set as the override otherwise EOS_NotFound is returned.This is not currently used for anything internally.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
-    - Throws: An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if there is not an override country code for the user.EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if there is not an override country code for the user.
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_COUNTRYCODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
@@ -432,7 +454,11 @@ extension SwiftEOS_Platform_Actor {
     Get the active locale code that the SDK will send to services which require it.This returns the override value otherwise it will use the locale code of the given user.This is used for localization. This follows ISO 639.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
-    - Throws: An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if there is neither an override nor an available locale code for the user.EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if there is neither an override nor an available locale code for the user.
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_LOCALECODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
@@ -597,7 +623,10 @@ extension SwiftEOS_Platform_Actor {
     /**
     Get the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
 
-    - Throws: An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the country code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_COUNTRYCODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_COUNTRYCODE_MAX_LENGTH.
@@ -616,7 +645,10 @@ extension SwiftEOS_Platform_Actor {
     /**
     Get the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
 
-    - Throws: An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.EOS_Success if the information is available and passed out in OutBuffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
+    - Throws: An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.
+              EOS_Success if the information is available and passed out in OutBuffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_LimitExceeded - The OutBuffer is not large enough to receive the locale code string. InOutBufferLength contains the required minimum length to perform the operation successfully.
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_LOCALECODE_MAX_LENGTH
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_LOCALECODE_MAX_LENGTH.
@@ -792,7 +824,9 @@ extension SwiftEOS_Platform_Actor {
     /**
     Set the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
 
-    - Throws: An EOS_EResult that indicates whether the override country code string was saved.EOS_Success if the country code was overridden EOS_InvalidParameters if you pass an invalid country code
+    - Throws: An EOS_EResult that indicates whether the override country code string was saved.
+              EOS_Success if the country code was overridden
+              EOS_InvalidParameters if you pass an invalid country code
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_COUNTRYCODE_MAX_LENGTH
     */
@@ -816,7 +850,9 @@ extension SwiftEOS_Platform_Actor {
     /**
     Set the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
 
-    - Throws: An EOS_EResult that indicates whether the override locale code string was saved.EOS_Success if the locale code was overridden EOS_InvalidParameters if you pass an invalid locale code
+    - Throws: An EOS_EResult that indicates whether the override locale code string was saved.
+              EOS_Success if the locale code was overridden
+              EOS_InvalidParameters if you pass an invalid locale code
     - SeeAlso: eos_ecom.h
     - SeeAlso: EOS_LOCALECODE_MAX_LENGTH
     */

@@ -49,7 +49,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter EntitlementId: ID of the entitlement to retrieve from the cache
     - SeeAlso: EOS_Ecom_CopyEntitlementByNameAndIndex
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given ID, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     public func CopyEntitlementById(
@@ -68,7 +70,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose entitlement is being copied
     - Parameter EntitlementIndex: Index of the entitlement to retrieve from the cache
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     public func CopyEntitlementByIndex(
@@ -88,7 +92,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter EntitlementName: Name of the entitlement to retrieve from the cache
     - Parameter Index: Index of the entitlement within the named set to retrieve from the cache.
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given name index pair, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     public func CopyEntitlementByNameAndIndex(
@@ -111,7 +117,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - SeeAlso: EOS_Ecom_CatalogItem_Release
     - SeeAlso: EOS_Ecom_GetItemImageInfoCount
     - SeeAlso: EOS_Ecom_GetItemReleaseCount
-    - Throws: EOS_Ecom_CatalogItemStale if the item information is stale and passed out in OutItem EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the offer is not found
+    - Throws: EOS_Ecom_CatalogItemStale if the item information is stale and passed out in OutItem
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the offer is not found
     - Returns: the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
     */
     public func CopyItemById(
@@ -131,7 +139,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter ItemId: The ID of the item to get the images for.
     - Parameter ImageInfoIndex: The index of the image to get.
     - SeeAlso: EOS_Ecom_KeyImageInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogItemStale if the associated item information is stale EOS_NotFound if the image is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogItemStale if the associated item information is stale
+              EOS_NotFound if the image is not found
     - Returns: the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
     */
     public func CopyItemImageInfoByIndex(
@@ -153,7 +163,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter ItemId: The ID of the item to get the releases for.
     - Parameter ReleaseIndex: The index of the release to get.
     - SeeAlso: EOS_Ecom_CatalogRelease_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogItemStale if the associated item information is stale EOS_NotFound if the release is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogItemStale if the associated item information is stale
+              EOS_NotFound if the release is not found
     - Returns: the release for the given index, if it exists and is valid, use EOS_Ecom_CatalogRelease_Release when finished
     */
     public func CopyItemReleaseByIndex(
@@ -175,7 +187,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter OfferId: The ID of the offer to get.
     - SeeAlso: EOS_Ecom_CatalogOffer_Release
     - SeeAlso: EOS_Ecom_GetOfferItemCount
-    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the offer is not found
+    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
+              EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the offer is not found
     - Returns: the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
     */
     public func CopyOfferById(
@@ -195,7 +210,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter OfferIndex: The index of the offer to get.
     - SeeAlso: EOS_Ecom_CatalogOffer_Release
     - SeeAlso: EOS_Ecom_GetOfferItemCount
-    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the offer is not found
+    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
+              EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the offer is not found
     - Returns: the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
     */
     public func CopyOfferByIndex(
@@ -215,7 +233,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter OfferId: The ID of the offer to get the images for.
     - Parameter ImageInfoIndex: The index of the image to get.
     - SeeAlso: EOS_Ecom_KeyImageInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogOfferStale if the associated offer information is stale EOS_NotFound if the image is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogOfferStale if the associated offer information is stale
+              EOS_NotFound if the image is not found
     - Returns: the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
     */
     public func CopyOfferImageInfoByIndex(
@@ -239,7 +259,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - SeeAlso: EOS_Ecom_CatalogItem_Release
     - SeeAlso: EOS_Ecom_GetItemImageInfoCount
     - SeeAlso: EOS_Ecom_GetItemReleaseCount
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogItemStale if the item information is stale EOS_NotFound if the item is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogItemStale if the item information is stale
+              EOS_NotFound if the item is not found
     - Returns: the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
     */
     public func CopyOfferItemByIndex(
@@ -261,7 +283,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter TransactionId: The ID of the transaction to get
     - SeeAlso: EOS_Ecom_CheckoutCallbackInfo
     - SeeAlso: EOS_Ecom_Transaction_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the transaction is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the transaction is not found
     - Returns:  
     */
     public func CopyTransactionById(
@@ -281,7 +304,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - Parameter TransactionIndex: The index of the transaction to get
     - SeeAlso: EOS_Ecom_CheckoutCallbackInfo
     - SeeAlso: EOS_Ecom_Transaction_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the transaction is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the transaction is not found
     - Returns:  
     */
     public func CopyTransactionByIndex(
@@ -547,7 +571,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
 
     - Parameter EntitlementIndex: The index of the entitlement to get
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     public func Transaction_CopyEntitlementByIndex(
@@ -610,7 +636,9 @@ extension SwiftEOS_Ecom_Actor {
     - Parameter Options: structure containing the Epic Online Services Account ID and entitlement ID being accessed
     - SeeAlso: EOS_Ecom_CopyEntitlementByNameAndIndex
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given ID, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     private func ____CopyEntitlementById(
@@ -636,7 +664,9 @@ extension SwiftEOS_Ecom_Actor {
 
     - Parameter Options: structure containing the Epic Online Services Account ID and index being accessed
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     private func ____CopyEntitlementByIndex(
@@ -662,7 +692,9 @@ extension SwiftEOS_Ecom_Actor {
 
     - Parameter Options: structure containing the Epic Online Services Account ID, entitlement name, and index being accessed
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given name index pair, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     private func ____CopyEntitlementByNameAndIndex(
@@ -690,7 +722,9 @@ extension SwiftEOS_Ecom_Actor {
     - SeeAlso: EOS_Ecom_CatalogItem_Release
     - SeeAlso: EOS_Ecom_GetItemImageInfoCount
     - SeeAlso: EOS_Ecom_GetItemReleaseCount
-    - Throws: EOS_Ecom_CatalogItemStale if the item information is stale and passed out in OutItem EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the offer is not found
+    - Throws: EOS_Ecom_CatalogItemStale if the item information is stale and passed out in OutItem
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the offer is not found
     - Returns: the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
     */
     private func ____CopyItemById(
@@ -716,7 +750,9 @@ extension SwiftEOS_Ecom_Actor {
 
     - Parameter Options: structure containing the item ID and index being accessed
     - SeeAlso: EOS_Ecom_KeyImageInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogItemStale if the associated item information is stale EOS_NotFound if the image is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogItemStale if the associated item information is stale
+              EOS_NotFound if the image is not found
     - Returns: the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
     */
     private func ____CopyItemImageInfoByIndex(
@@ -742,7 +778,9 @@ extension SwiftEOS_Ecom_Actor {
 
     - Parameter Options: structure containing the item ID and index being accessed
     - SeeAlso: EOS_Ecom_CatalogRelease_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogItemStale if the associated item information is stale EOS_NotFound if the release is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogItemStale if the associated item information is stale
+              EOS_NotFound if the release is not found
     - Returns: the release for the given index, if it exists and is valid, use EOS_Ecom_CatalogRelease_Release when finished
     */
     private func ____CopyItemReleaseByIndex(
@@ -769,7 +807,10 @@ extension SwiftEOS_Ecom_Actor {
     - Parameter Options: structure containing the Epic Online Services Account ID and offer ID being accessed
     - SeeAlso: EOS_Ecom_CatalogOffer_Release
     - SeeAlso: EOS_Ecom_GetOfferItemCount
-    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the offer is not found
+    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
+              EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the offer is not found
     - Returns: the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
     */
     private func ____CopyOfferById(
@@ -796,7 +837,10 @@ extension SwiftEOS_Ecom_Actor {
     - Parameter Options: structure containing the Epic Online Services Account ID and index being accessed
     - SeeAlso: EOS_Ecom_CatalogOffer_Release
     - SeeAlso: EOS_Ecom_GetOfferItemCount
-    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the offer is not found
+    - Throws: EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
+              EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the offer is not found
     - Returns: the offer for the given index, if it exists and is valid, use EOS_Ecom_CatalogOffer_Release when finished
     */
     private func ____CopyOfferByIndex(
@@ -822,7 +866,9 @@ extension SwiftEOS_Ecom_Actor {
 
     - Parameter Options: structure containing the offer ID and index being accessed
     - SeeAlso: EOS_Ecom_KeyImageInfo_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogOfferStale if the associated offer information is stale EOS_NotFound if the image is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogOfferStale if the associated offer information is stale
+              EOS_NotFound if the image is not found
     - Returns: the image for the given index, if it exists and is valid, use EOS_Ecom_KeyImageInfo_Release when finished
     */
     private func ____CopyOfferImageInfoByIndex(
@@ -850,7 +896,9 @@ extension SwiftEOS_Ecom_Actor {
     - SeeAlso: EOS_Ecom_CatalogItem_Release
     - SeeAlso: EOS_Ecom_GetItemImageInfoCount
     - SeeAlso: EOS_Ecom_GetItemReleaseCount
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_Ecom_CatalogItemStale if the item information is stale EOS_NotFound if the item is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_Ecom_CatalogItemStale if the item information is stale
+              EOS_NotFound if the item is not found
     - Returns: the item for the given index, if it exists and is valid, use EOS_Ecom_CatalogItem_Release when finished
     */
     private func ____CopyOfferItemByIndex(
@@ -877,7 +925,8 @@ extension SwiftEOS_Ecom_Actor {
     - Parameter Options: structure containing the Epic Online Services Account ID and transaction ID being accessed
     - SeeAlso: EOS_Ecom_CheckoutCallbackInfo
     - SeeAlso: EOS_Ecom_Transaction_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the transaction is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the transaction is not found
     - Returns:  
     */
     private func ____CopyTransactionById(
@@ -900,7 +949,8 @@ extension SwiftEOS_Ecom_Actor {
     - Parameter Options: structure containing the Epic Online Services Account ID and index being accessed
     - SeeAlso: EOS_Ecom_CheckoutCallbackInfo
     - SeeAlso: EOS_Ecom_Transaction_Release
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the transaction is not found
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the transaction is not found
     - Returns:  
     */
     private func ____CopyTransactionByIndex(
@@ -1208,7 +1258,9 @@ extension SwiftEOS_Ecom_Actor {
 
     - Parameter Options: structure containing the index being accessed
     - SeeAlso: EOS_Ecom_Entitlement_Release
-    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_NotFound if the entitlement is not found
+    - Throws: EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
+              EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_NotFound if the entitlement is not found
     - Returns: the entitlement for the given index, if it exists and is valid, use EOS_Ecom_Entitlement_Release when finished
     */
     private func ____Transaction_CopyEntitlementByIndex(

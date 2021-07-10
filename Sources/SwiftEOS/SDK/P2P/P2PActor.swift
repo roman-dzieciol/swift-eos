@@ -142,7 +142,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the local user who is receiving the packet
     - Parameter RequestedChannel: An optional channel to request the data for. If NULL, we're retrieving the size of the next packet on any channel.
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
+    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
+              EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
     - Returns: The amount of bytes required to store the data of the next packet for the requested user
     */
     public func GetNextReceivedPacketSize(
@@ -213,7 +214,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Parameter OutSocketId: The Socket ID of the data that was sent. Only set if there was a packet to receive.
     - Parameter OutChannel: The channel the data was sent on. Only set if there was a packet to receive.
     - Parameter OutData: Buffer to store the data being received. Must be at least EOS_P2P_GetNextReceivedPacketSize in length or data will be truncated
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
+    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
+              EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
     */
     public func ReceivePacket(
         LocalUserId: EOS_ProductUserId?,
@@ -249,7 +251,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     The size of the data to be sent to the RemoteUser
     - Parameter bAllowDelayedDelivery: If false and we do not already have an established connection to the peer, this data will be dropped
     - Parameter Reliability: Setting to control the delivery reliability of this packet
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid EOS_EResult::EOS_LimitExceeded     - If amount of data being sent is too large, or the outgoing packet queue was full
+    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
+              EOS_EResult::EOS_LimitExceeded     - If amount of data being sent is too large, or the outgoing packet queue was full
     */
     public func SendPacket(
         LocalUserId: EOS_ProductUserId?,
@@ -490,7 +493,8 @@ extension SwiftEOS_P2P_Actor {
     Gets the size of the packet that will be returned by ReceivePacket for a particular user, if there is any available packets to be retrieved.
 
     - Parameter Options: Information about who is requesting the size of their next packet
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
+    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
+              EOS_EResult::EOS_NotFound  - If there are no packets available for the requesting user
     - Returns: The amount of bytes required to store the data of the next packet for the requested user
     */
     private func ____GetNextReceivedPacketSize(
@@ -595,7 +599,8 @@ extension SwiftEOS_P2P_Actor {
     - Parameter OutSocketId: The Socket ID of the data that was sent. Only set if there was a packet to receive.
     - Parameter OutChannel: The channel the data was sent on. Only set if there was a packet to receive.
     - Parameter OutData: Buffer to store the data being received. Must be at least EOS_P2P_GetNextReceivedPacketSize in length or data will be truncated
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
+    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
+              EOS_EResult::EOS_NotFound - If there are no packets available for the requesting user
     */
     private func ____ReceivePacket(
         _ Options: SwiftEOS_P2P_ReceivePacketOptions,
@@ -626,7 +631,8 @@ extension SwiftEOS_P2P_Actor {
     Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
 
     - Parameter Options: Information about the data being sent, by who, to who
-    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid EOS_EResult::EOS_LimitExceeded     - If amount of data being sent is too large, or the outgoing packet queue was full
+    - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
+              EOS_EResult::EOS_LimitExceeded     - If amount of data being sent is too large, or the outgoing packet queue was full
     */
     private func ____SendPacket(
         _ Options: SwiftEOS_P2P_SendPacketOptions

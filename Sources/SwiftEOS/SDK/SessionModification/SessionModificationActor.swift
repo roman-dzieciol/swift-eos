@@ -20,7 +20,8 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
 
     - Parameter SessionAttribute: Key/Value pair describing the attribute to add to the session
     - Parameter AdvertisementType: Is this attribution advertised with the backend or simply stored locally
-    - Throws: EOS_InvalidParameters if the attribution is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the attribution is missing information or otherwise invalid
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func AddAttribute(
         SessionAttribute: SwiftEOS_Sessions_AttributeData?,
@@ -36,7 +37,8 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     Remove an attribute from this session
 
     - Parameter Key: Session attribute to remove from the session
-    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the key is null or empty
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func RemoveAttribute(
         Key: String?
@@ -48,7 +50,8 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
     Set the bucket ID associated with this session.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
 
     - Parameter BucketId: The new bucket id associated with the session
-    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func SetBucketId(
         BucketId: String?
@@ -61,7 +64,8 @@ public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
 
     - Note: No validation of this value occurs to allow for flexibility in addressing methods
     - Parameter HostAddress: A string representing the host address for the session, its meaning is up to the application
-    - Throws: EOS_InvalidParameters if the host ID is an empty string EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the host ID is an empty string
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     public func SetHostAddress(
         HostAddress: String?
@@ -124,7 +128,8 @@ extension SwiftEOS_SessionModification_Actor {
     Associate an attribute with this session An attribute is something that may or may not be advertised with the session.If advertised, it can be queried for in a search, otherwise the data remains local to the client
 
     - Parameter Options: Options to set the attribute and its advertised state
-    - Throws: EOS_InvalidParameters if the attribution is missing information or otherwise invalid EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the attribution is missing information or otherwise invalid
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____AddAttribute(
         _ Options: SwiftEOS_SessionModification_AddAttributeOptions
@@ -142,7 +147,8 @@ extension SwiftEOS_SessionModification_Actor {
     Remove an attribute from this session
 
     - Parameter Options: Specify the key of the attribute to remove
-    - Throws: EOS_InvalidParameters if the key is null or empty EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the key is null or empty
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____RemoveAttribute(
         _ Options: SwiftEOS_SessionModification_RemoveAttributeOptions
@@ -160,7 +166,8 @@ extension SwiftEOS_SessionModification_Actor {
     Set the bucket ID associated with this session.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
 
     - Parameter Options: Options associated with the bucket ID of the session
-    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the bucket ID is invalid or null
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____SetBucketId(
         _ Options: SwiftEOS_SessionModification_SetBucketIdOptions
@@ -179,7 +186,8 @@ extension SwiftEOS_SessionModification_Actor {
 
     - Note: No validation of this value occurs to allow for flexibility in addressing methods
     - Parameter Options: Options associated with the host address of the session
-    - Throws: EOS_InvalidParameters if the host ID is an empty string EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if the host ID is an empty string
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     */
     private func ____SetHostAddress(
         _ Options: SwiftEOS_SessionModification_SetHostAddressOptions

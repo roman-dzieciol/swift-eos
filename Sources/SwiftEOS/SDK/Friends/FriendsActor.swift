@@ -84,7 +84,11 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged in user
     - Parameter TargetUserId: The Epic Online Services Account ID of the user whose friendship status with the local user is being queried
-    - Returns: A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship EOS_FS_Friends is returned for two users that have confirmed friendship EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it EOS_FS_InviteReceived is returned when the other user has sent a friend invitation to the local user EOS_FS_NotFriends is returned when there is no known relationship
+    - Returns: A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship
+               EOS_FS_Friends is returned for two users that have confirmed friendship
+               EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
+               EOS_FS_InviteReceived is returned when the other user has sent a friend invitation to the local user
+               EOS_FS_NotFriends is returned when there is no known relationship
     - SeeAlso: EOS_EFriendsStatus
     */
     public func GetStatus(
@@ -257,7 +261,11 @@ extension SwiftEOS_Friends_Actor {
     Retrieve the friendship status between the local user and another user.
 
     - Parameter Options: structure containing the Epic Online Services Account ID of the friend list to check and the account of the user to test friendship status
-    - Returns: A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship EOS_FS_Friends is returned for two users that have confirmed friendship EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it EOS_FS_InviteReceived is returned when the other user has sent a friend invitation to the local user EOS_FS_NotFriends is returned when there is no known relationship
+    - Returns: A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship
+               EOS_FS_Friends is returned for two users that have confirmed friendship
+               EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
+               EOS_FS_InviteReceived is returned when the other user has sent a friend invitation to the local user
+               EOS_FS_NotFriends is returned when there is no known relationship
     - SeeAlso: EOS_EFriendsStatus
     */
     private func ____GetStatus(

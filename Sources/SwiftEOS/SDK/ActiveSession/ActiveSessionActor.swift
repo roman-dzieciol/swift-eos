@@ -18,7 +18,8 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
     /**
     EOS_ActiveSession_CopyInfo is used to immediately retrieve a copy of active session information If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_ActiveSession_Info
     - SeeAlso: EOS_ActiveSession_CopyInfoOptions
     - SeeAlso: EOS_ActiveSession_Info_Release
@@ -57,7 +58,8 @@ extension SwiftEOS_ActiveSession_Actor {
     /**
     EOS_ActiveSession_CopyInfo is used to immediately retrieve a copy of active session information If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
 
-    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter EOS_IncompatibleVersion if the API version passed in is incorrect
+    - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
+              EOS_IncompatibleVersion if the API version passed in is incorrect
     - SeeAlso: EOS_ActiveSession_Info
     - SeeAlso: EOS_ActiveSession_CopyInfoOptions
     - SeeAlso: EOS_ActiveSession_Info_Release

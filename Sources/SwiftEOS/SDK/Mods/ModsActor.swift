@@ -15,7 +15,8 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-    Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
+    Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release
+    Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user for which mods should be copied
     - Parameter `Type`: Type of the enumerated mod to copy
@@ -36,7 +37,8 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     }
 
     /**
-    Starts an asynchronous task that makes a request to enumerate mods for the specified game.Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
+    Starts an asynchronous task that makes a request to enumerate mods for the specified game.
+    Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user for which the mod should be enumerated
     - Parameter `Type`: Type of the mods to enumerate
@@ -130,7 +132,8 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
 extension SwiftEOS_Mods_Actor {
 
     /**
-    Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
+    Get cached enumerated mods object. If successful, this data must be released by calling EOS_Mods_ModInfo_Release
+    Types of the cached enumerated mods can be specified through EOS_Mods_CopyModInfoOptions
 
     - Parameter Options: structure containing the game identifier for which requesting enumerated mods
     - Throws: Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
@@ -158,7 +161,8 @@ extension SwiftEOS_Mods_Actor {
     }
 
     /**
-    Starts an asynchronous task that makes a request to enumerate mods for the specified game.Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
+    Starts an asynchronous task that makes a request to enumerate mods for the specified game.
+    Types of the mods to enumerate can be specified through EOS_Mods_EnumerateModsOptions
 
     - Parameter Options: structure containing the game identifiers
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error

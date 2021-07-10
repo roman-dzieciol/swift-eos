@@ -68,7 +68,9 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     }
 
     /**
-    Ingest a stat by the amount specified in Options.When the operation is complete and the delegate is triggered the stat will be uploaded to the backend to be processed.The stat may not be updated immediately and an achievement using the stat may take a while to be unlocked once the stat has been uploaded.
+    Ingest a stat by the amount specified in Options.
+    When the operation is complete and the delegate is triggered the stat will be uploaded to the backend to be processed.
+    The stat may not be updated immediately and an achievement using the stat may take a while to be unlocked once the stat has been uploaded.
 
     - Parameter LocalUserId: The Product User ID of the local user requesting the ingest.  Set to null for dedicated server.
     - Parameter Stats: Stats to ingest.
@@ -212,7 +214,9 @@ extension SwiftEOS_Stats_Actor {
     }
 
     /**
-    Ingest a stat by the amount specified in Options.When the operation is complete and the delegate is triggered the stat will be uploaded to the backend to be processed.The stat may not be updated immediately and an achievement using the stat may take a while to be unlocked once the stat has been uploaded.
+    Ingest a stat by the amount specified in Options.
+    When the operation is complete and the delegate is triggered the stat will be uploaded to the backend to be processed.
+    The stat may not be updated immediately and an achievement using the stat may take a while to be unlocked once the stat has been uploaded.
 
     - Parameter Options: Structure containing information about the stat we're ingesting.
     - Parameter CompletionDelegate: This function is called when the ingest stat operation completes.

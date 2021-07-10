@@ -2,7 +2,10 @@ import Foundation
 import EOSSDK
 
 /**
-Contains information about a key image used by the catalog.  Instances of this structure are created by EOS_Ecom_CopyItemImageInfoByIndex.  They must be passed to EOS_Ecom_KeyImageInfo_Release.A Key Image is defined within Dev Portal and is associated with a Catalog Item.  A Key Image is intended to be used to provide imagery for an in-game store.
+Contains information about a key image used by the catalog.  Instances of this structure are
+created by EOS_Ecom_CopyItemImageInfoByIndex.  They must be passed to EOS_Ecom_KeyImageInfo_Release.
+A Key Image is defined within Dev Portal and is associated with a Catalog Item.  A Key Image is
+intended to be used to provide imagery for an in-game store.
 
 - SeeAlso: EOS_Ecom_CopyItemImageInfoByIndex
 - SeeAlso: EOS_Ecom_KeyImageInfo_Release

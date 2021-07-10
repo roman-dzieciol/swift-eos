@@ -18,7 +18,9 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
     Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements
 
     - Note: ``EOS/_tagEOS_AntiCheatCommon_RegisterEventOptions/ParamDefsCount``:
-    Number of parameters described in ParamDefs. Must be <= EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT.
+    Number of parameters described in ParamDefs. Must be
+    <
+    = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT.
     */
     public let ParamDefs: [SwiftEOS_AntiCheatCommon_RegisterEventParamDef]?
 
@@ -63,7 +65,9 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
     - Parameter EventType: Type of the custom event
     - Parameter ParamDefs: Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements
     - Note: ``EOS/_tagEOS_AntiCheatCommon_RegisterEventOptions/ParamDefsCount``:
-    Number of parameters described in ParamDefs. Must be <= EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT.
+    Number of parameters described in ParamDefs. Must be
+    <
+    = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT.
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_REGISTEREVENT_API_LATEST,

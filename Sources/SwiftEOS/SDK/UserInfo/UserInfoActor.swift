@@ -84,7 +84,8 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_UserInfo_CopyUserInfo is used to immediately retrieve a copy of user information based on an Epic Online Services Account ID, cached by a previous call to EOS_UserInfo_QueryUserInfo.If the call returns an EOS_Success result, the out parameter, OutUserInfo, must be passed to EOS_UserInfo_Release to release the memory associated with it.
+    EOS_UserInfo_CopyUserInfo is used to immediately retrieve a copy of user information based on an Epic Online Services Account ID, cached by a previous call to EOS_UserInfo_QueryUserInfo.
+    If the call returns an EOS_Success result, the out parameter, OutUserInfo, must be passed to EOS_UserInfo_Release to release the memory associated with it.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
@@ -125,7 +126,8 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_UserInfo_QueryUserInfo is used to start an asynchronous query to retrieve information, such as display name, about another account.Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
+    EOS_UserInfo_QueryUserInfo is used to start an asynchronous query to retrieve information, such as display name, about another account.
+    Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter TargetUserId: The Epic Online Services Account ID of the player whose information is being retrieved
@@ -150,7 +152,8 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_UserInfo_QueryUserInfoByDisplayName is used to start an asynchronous query to retrieve user information by display name. This can be useful for getting the EOS_EpicAccountId for a display name.Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
+    EOS_UserInfo_QueryUserInfoByDisplayName is used to start an asynchronous query to retrieve user information by display name. This can be useful for getting the EOS_EpicAccountId for a display name.
+    Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter DisplayName: Display name of the player being queried
@@ -175,7 +178,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_UserInfo_QueryUserInfoByExternalAccount is used to start an asynchronous query to retrieve user information by external accounts.This can be useful for getting the EOS_EpicAccountId for external accounts.Once the callback has been fired with a successful ResultCode, it is possible to call CopyUserInfo to receive an EOS_UserInfo containing the available information.
+    EOS_UserInfo_QueryUserInfoByExternalAccount is used to start an asynchronous query to retrieve user information by external accounts.
+    This can be useful for getting the EOS_EpicAccountId for external accounts.
+    Once the callback has been fired with a successful ResultCode, it is possible to call CopyUserInfo to receive an EOS_UserInfo containing the available information.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local player requesting the information
     - Parameter ExternalAccountId: External account ID of the user whose information is being retrieved
@@ -286,7 +291,8 @@ extension SwiftEOS_UserInfo_Actor {
     }
 
     /**
-    EOS_UserInfo_CopyUserInfo is used to immediately retrieve a copy of user information based on an Epic Online Services Account ID, cached by a previous call to EOS_UserInfo_QueryUserInfo.If the call returns an EOS_Success result, the out parameter, OutUserInfo, must be passed to EOS_UserInfo_Release to release the memory associated with it.
+    EOS_UserInfo_CopyUserInfo is used to immediately retrieve a copy of user information based on an Epic Online Services Account ID, cached by a previous call to EOS_UserInfo_QueryUserInfo.
+    If the call returns an EOS_Success result, the out parameter, OutUserInfo, must be passed to EOS_UserInfo_Release to release the memory associated with it.
 
     - Parameter Options: structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -339,7 +345,8 @@ extension SwiftEOS_UserInfo_Actor {
     }
 
     /**
-    EOS_UserInfo_QueryUserInfo is used to start an asynchronous query to retrieve information, such as display name, about another account.Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
+    EOS_UserInfo_QueryUserInfo is used to start an asynchronous query to retrieve information, such as display name, about another account.
+    Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
 
     - Parameter Options: structure containing the input parameters
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -365,7 +372,8 @@ extension SwiftEOS_UserInfo_Actor {
     }
 
     /**
-    EOS_UserInfo_QueryUserInfoByDisplayName is used to start an asynchronous query to retrieve user information by display name. This can be useful for getting the EOS_EpicAccountId for a display name.Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
+    EOS_UserInfo_QueryUserInfoByDisplayName is used to start an asynchronous query to retrieve user information by display name. This can be useful for getting the EOS_EpicAccountId for a display name.
+    Once the callback has been fired with a successful ResultCode, it is possible to call EOS_UserInfo_CopyUserInfo to receive an EOS_UserInfo containing the available information.
 
     - Parameter Options: structure containing the input parameters
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -391,7 +399,9 @@ extension SwiftEOS_UserInfo_Actor {
     }
 
     /**
-    EOS_UserInfo_QueryUserInfoByExternalAccount is used to start an asynchronous query to retrieve user information by external accounts.This can be useful for getting the EOS_EpicAccountId for external accounts.Once the callback has been fired with a successful ResultCode, it is possible to call CopyUserInfo to receive an EOS_UserInfo containing the available information.
+    EOS_UserInfo_QueryUserInfoByExternalAccount is used to start an asynchronous query to retrieve user information by external accounts.
+    This can be useful for getting the EOS_EpicAccountId for external accounts.
+    Once the callback has been fired with a successful ResultCode, it is possible to call CopyUserInfo to receive an EOS_UserInfo containing the available information.
 
     - Parameter Options: structure containing the input parameters
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error

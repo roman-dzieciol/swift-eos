@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-Retrieve a null-terminated stringified Product User ID from an EOS_ProductUserId. This is useful for replication of Product User IDs in multiplayer games.This string will be no larger than EOS_PRODUCTUSERID_MAX_LENGTH + 1 and will only contain UTF8-encoded printable characters (excluding the null-terminator).
+Retrieve a null-terminated stringified Product User ID from an EOS_ProductUserId. This is useful for replication of Product User IDs in multiplayer games.
+This string will be no larger than EOS_PRODUCTUSERID_MAX_LENGTH + 1 and will only contain UTF8-encoded printable characters (excluding the null-terminator).
 
 - Parameter AccountId: The Product User ID for which to retrieve the stringified version.
 - Throws: An EOS_EResult that indicates whether the Product User ID string was copied into the OutBuffer.

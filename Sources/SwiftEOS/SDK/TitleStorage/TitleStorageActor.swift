@@ -34,7 +34,8 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     }
 
     /**
-    Create a cached copy of a file's metadata by filename. The metadata will be for the last retrieved or successfully saved version, and will not include any changes that have not completed writing. The returned pointer must be released by the user when no longer needed.
+    Create a cached copy of a file's metadata by filename. The metadata will be for the last retrieved or successfully saved version, and will not include any changes that have not
+    completed writing. The returned pointer must be released by the user when no longer needed.
 
     - Parameter LocalUserId: Product User ID of the local user who is requesting file metadata (optional)
     - Parameter Filename: The file's name to get data for
@@ -51,7 +52,8 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     }
 
     /**
-    Clear previously cached file data. This operation will be done asynchronously. All cached files except those corresponding to the transfers in progress will be removed.Warning: Use this with care. Cache system generally tries to clear old and unused cached files from time to time. Unnecessarily clearing cache can degrade performance as SDK will have to re-download data.
+    Clear previously cached file data. This operation will be done asynchronously. All cached files except those corresponding to the transfers in progress will be removed.
+    Warning: Use this with care. Cache system generally tries to clear old and unused cached files from time to time. Unnecessarily clearing cache can degrade performance as SDK will have to re-download data.
 
     - Parameter LocalUserId: Product User ID of the local user who is deleting his cache (optional)
     - Parameter CompletionCallback: This function is called when the delete cache operation completes
@@ -80,7 +82,8 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     }
 
     /**
-    Query a specific file's metadata, such as file names, size, and a MD5 hash of the data. This is not required before a file may be opened. Once a file has been queried, its metadata will be available by the EOS_TitleStorage_CopyFileMetadataAtIndex and EOS_TitleStorage_CopyFileMetadataByFilename functions.
+    Query a specific file's metadata, such as file names, size, and a MD5 hash of the data. This is not required before a file may be opened. Once a file has
+    been queried, its metadata will be available by the EOS_TitleStorage_CopyFileMetadataAtIndex and EOS_TitleStorage_CopyFileMetadataByFilename functions.
 
     - Parameter LocalUserId: Product User ID of the local user requesting file metadata (optional)
     - Parameter Filename: The requested file's name
@@ -104,7 +107,8 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     }
 
     /**
-    Query the file metadata, such as file names, size, and a MD5 hash of the data, for all files available for current user based on their settings (such as game role) and tags provided.This is not required before a file can be downloaded by name.
+    Query the file metadata, such as file names, size, and a MD5 hash of the data, for all files available for current user based on their settings (such as game role) and tags provided.
+    This is not required before a file can be downloaded by name.
 
     - Parameter LocalUserId: Product User ID of the local user who requested file metadata (optional)
     - Parameter ListOfTags: List of tags to use for lookup.
@@ -127,7 +131,9 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     }
 
     /**
-    Retrieve the contents of a specific file, potentially downloading the contents if we do not have a local copy, from the cloud. This request will occur asynchronously, potentially over multiple frames. All callbacks for this function will come from the same thread that the SDK is ticked from. If specified, the FileTransferProgressCallback will always be called at least once if the request is started successfully.
+    Retrieve the contents of a specific file, potentially downloading the contents if we do not have a local copy, from the cloud. This request will occur asynchronously, potentially over
+    multiple frames. All callbacks for this function will come from the same thread that the SDK is ticked from. If specified, the FileTransferProgressCallback will always be called at
+    least once if the request is started successfully.
 
     - Parameter LocalUserId: Product User ID of the local user who is reading the requested file (optional)
     - Parameter Filename: The file name to read; this file must already exist
@@ -188,7 +194,8 @@ extension SwiftEOS_TitleStorage_Actor {
     }
 
     /**
-    Create a cached copy of a file's metadata by filename. The metadata will be for the last retrieved or successfully saved version, and will not include any changes that have not completed writing. The returned pointer must be released by the user when no longer needed.
+    Create a cached copy of a file's metadata by filename. The metadata will be for the last retrieved or successfully saved version, and will not include any changes that have not
+    completed writing. The returned pointer must be released by the user when no longer needed.
 
     - Parameter Options: Object containing properties related to which user is requesting metadata, and for which filename
     - Throws: - Returns: A copy of the FileMetadata structure will be set if successful.  This data must be released by calling EOS_TitleStorage_FileMetadata_Release.
@@ -212,7 +219,8 @@ extension SwiftEOS_TitleStorage_Actor {
     }
 
     /**
-    Clear previously cached file data. This operation will be done asynchronously. All cached files except those corresponding to the transfers in progress will be removed.Warning: Use this with care. Cache system generally tries to clear old and unused cached files from time to time. Unnecessarily clearing cache can degrade performance as SDK will have to re-download data.
+    Clear previously cached file data. This operation will be done asynchronously. All cached files except those corresponding to the transfers in progress will be removed.
+    Warning: Use this with care. Cache system generally tries to clear old and unused cached files from time to time. Unnecessarily clearing cache can degrade performance as SDK will have to re-download data.
 
     - Parameter Options: Object containing properties related to which user is deleting cache
     - Parameter CompletionCallback: This function is called when the delete cache operation completes
@@ -258,7 +266,8 @@ extension SwiftEOS_TitleStorage_Actor {
     }
 
     /**
-    Query a specific file's metadata, such as file names, size, and a MD5 hash of the data. This is not required before a file may be opened. Once a file has been queried, its metadata will be available by the EOS_TitleStorage_CopyFileMetadataAtIndex and EOS_TitleStorage_CopyFileMetadataByFilename functions.
+    Query a specific file's metadata, such as file names, size, and a MD5 hash of the data. This is not required before a file may be opened. Once a file has
+    been queried, its metadata will be available by the EOS_TitleStorage_CopyFileMetadataAtIndex and EOS_TitleStorage_CopyFileMetadataByFilename functions.
 
     - Parameter Options: Object containing properties related to which user is querying files, and what file is being queried
     - Parameter CompletionCallback: This function is called when the query operation completes
@@ -283,7 +292,8 @@ extension SwiftEOS_TitleStorage_Actor {
     }
 
     /**
-    Query the file metadata, such as file names, size, and a MD5 hash of the data, for all files available for current user based on their settings (such as game role) and tags provided.This is not required before a file can be downloaded by name.
+    Query the file metadata, such as file names, size, and a MD5 hash of the data, for all files available for current user based on their settings (such as game role) and tags provided.
+    This is not required before a file can be downloaded by name.
 
     - Parameter Options: Object containing properties related to which user is querying files and the list of tags
     - Parameter CompletionCallback: This function is called when the query operation completes
@@ -305,7 +315,9 @@ extension SwiftEOS_TitleStorage_Actor {
     }
 
     /**
-    Retrieve the contents of a specific file, potentially downloading the contents if we do not have a local copy, from the cloud. This request will occur asynchronously, potentially over multiple frames. All callbacks for this function will come from the same thread that the SDK is ticked from. If specified, the FileTransferProgressCallback will always be called at least once if the request is started successfully.
+    Retrieve the contents of a specific file, potentially downloading the contents if we do not have a local copy, from the cloud. This request will occur asynchronously, potentially over
+    multiple frames. All callbacks for this function will come from the same thread that the SDK is ticked from. If specified, the FileTransferProgressCallback will always be called at
+    least once if the request is started successfully.
 
     - Parameter Options: Object containing properties related to which user is opening the file, what the file's name is, and related mechanisms for copying the data
     - Parameter CompletionCallback: This function is called when the read operation completes

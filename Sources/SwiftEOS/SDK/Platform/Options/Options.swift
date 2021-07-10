@@ -41,7 +41,9 @@ public struct SwiftEOS_Platform_Options: SwiftEOSObject {
     public let CacheDirectory: String?
 
     /**
-    A budget, measured in milliseconds, for EOS_Platform_Tick to do its work. When the budget is met or exceeded (or if no work is available), EOS_Platform_Tick will return.This allows your game to amortize the cost of SDK work across multiple frames in the event that a lot of work is queued for processing.Zero is interpreted as "perform all available work".
+    A budget, measured in milliseconds, for EOS_Platform_Tick to do its work. When the budget is met or exceeded (or if no work is available), EOS_Platform_Tick will return.
+    This allows your game to amortize the cost of SDK work across multiple frames in the event that a lot of work is queued for processing.
+    Zero is interpreted as "perform all available work".
     */
     public let TickBudgetInMilliseconds: Int
 
@@ -110,7 +112,9 @@ public struct SwiftEOS_Platform_Options: SwiftEOSObject {
     - Parameter DeploymentId: The deployment ID for the running application, found on the dev portal
     - Parameter Flags: Platform creation flags, e.g. EOS_PF_LOADING_IN_EDITOR. This is a bitwise-or union of the defined flags.
     - Parameter CacheDirectory: Used by Player Data Storage and Title Storage. Must be null initialized if unused. Cache directory path. Absolute path to the folder that is going to be used for caching temporary data. The path is created if it's missing.
-    - Parameter TickBudgetInMilliseconds: A budget, measured in milliseconds, for EOS_Platform_Tick to do its work. When the budget is met or exceeded (or if no work is available), EOS_Platform_Tick will return.This allows your game to amortize the cost of SDK work across multiple frames in the event that a lot of work is queued for processing.Zero is interpreted as "perform all available work".
+    - Parameter TickBudgetInMilliseconds: A budget, measured in milliseconds, for EOS_Platform_Tick to do its work. When the budget is met or exceeded (or if no work is available), EOS_Platform_Tick will return.
+    This allows your game to amortize the cost of SDK work across multiple frames in the event that a lot of work is queued for processing.
+    Zero is interpreted as "perform all available work".
     - Parameter RTCOptions: RTC options. Setting to NULL will disable RTC features (e.g. voice)
     */
     public init(

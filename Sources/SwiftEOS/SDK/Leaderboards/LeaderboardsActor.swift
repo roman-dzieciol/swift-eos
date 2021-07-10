@@ -155,7 +155,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
 
     - Parameter StartTime: An optional POSIX timestamp for the leaderboard's start time, or EOS_LEADERBOARDS_TIME_UNDEFINED
     - Parameter EndTime: An optional POSIX timestamp for the leaderboard's end time, or EOS_LEADERBOARDS_TIME_UNDEFINED
-    - Parameter LocalUserId: Product User ID for user who is querying definitions.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    - Parameter LocalUserId: Product User ID for user who is querying definitions.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     - Parameter CompletionDelegate: This function is called when the query operation completes.
     - Returns: EOS_Success if the operation completes successfully
                EOS_InvalidParameters if any of the options are incorrect
@@ -180,7 +182,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     Retrieves top leaderboard records by rank in the leaderboard matching the given leaderboard ID.
 
     - Parameter LeaderboardId: The ID of the leaderboard whose information you want to retrieve.
-    - Parameter LocalUserId: Product User ID for user who is querying ranks.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    - Parameter LocalUserId: Product User ID for user who is querying ranks.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     - Parameter CompletionDelegate: This function is called when the query operation completes.
     - Returns: EOS_Success if the operation completes successfully
                EOS_InvalidParameters if any of the options are incorrect
@@ -210,7 +214,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     The number of stats to query
     - Parameter StartTime: An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time
     - Parameter EndTime: An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made before this time
-    - Parameter LocalUserId: Product User ID for user who is querying user scores.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    - Parameter LocalUserId: Product User ID for user who is querying user scores.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     - Parameter CompletionDelegate: This function is called when the query operation completes.
     - Returns: EOS_Success if the operation completes successfully
                EOS_InvalidParameters if any of the options are incorrect

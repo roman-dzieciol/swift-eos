@@ -16,7 +16,8 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Removes one or more rows of user-defined presence data for a local user. At least one DeleteDataInfo object must be specified.
+    Removes one or more rows of user-defined presence data for a local user. At least one DeleteDataInfo object
+    must be specified.
 
     - Parameter Records: The pointer to start of a sequential array
     - Note: ``EOS/_tagEOS_PresenceModification_DeleteDataOptions/RecordsCount``:
@@ -33,7 +34,8 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Modifies one or more rows of user-defined presence data for a local user. At least one InfoData object must be specified.
+    Modifies one or more rows of user-defined presence data for a local user. At least one InfoData object
+    must be specified.
 
     - Parameter Records: The pointer to start of a sequential array of Presence DataRecords
     - Note: ``EOS/_tagEOS_PresenceModification_SetDataOptions/RecordsCount``:
@@ -50,9 +52,13 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Sets your new join info custom game-data string. This is a helper function for reading the presence data related to how a user can be joined.Its meaning is entirely application dependent.
+    Sets your new join info custom game-data string. This is a helper function for reading the presence data related to how a user can be joined.
+    Its meaning is entirely application dependent.
 
-    - Parameter JoinInfo: The string which will be advertised as this player's join info.An application is expected to freely define the meaning of this string to use for connecting to an active game session.The string should not exceed EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH in length.This affects the ability of the Social Overlay to show game related actions to take in the player's social graph.
+    - Parameter JoinInfo: The string which will be advertised as this player's join info.
+    An application is expected to freely define the meaning of this string to use for connecting to an active game session.
+    The string should not exceed EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH in length.
+    This affects the ability of the Social Overlay to show game related actions to take in the player's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
@@ -71,7 +77,8 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Modifies a user's Rich Presence string to a new state. This is the exact value other users will see when they query the local user's presence.
+    Modifies a user's Rich Presence string to a new state. This is the exact value other users will see
+    when they query the local user's presence.
 
     - Parameter RichText: The status of the user
     - Throws: Success if modification was added successfully, otherwise an error code related to the problem
@@ -99,7 +106,8 @@ public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
 extension SwiftEOS_PresenceModification_Actor {
 
     /**
-    Removes one or more rows of user-defined presence data for a local user. At least one DeleteDataInfo object must be specified.
+    Removes one or more rows of user-defined presence data for a local user. At least one DeleteDataInfo object
+    must be specified.
 
     - Parameter Options: Object containing an array of new presence data.
     - Throws: Success if modification was added successfully, otherwise an error code related to the problem
@@ -120,7 +128,8 @@ extension SwiftEOS_PresenceModification_Actor {
     }
 
     /**
-    Modifies one or more rows of user-defined presence data for a local user. At least one InfoData object must be specified.
+    Modifies one or more rows of user-defined presence data for a local user. At least one InfoData object
+    must be specified.
 
     - Parameter Options: Object containing an array of new presence data.
     - Throws: Success if modification was added successfully, otherwise an error code related to the problem
@@ -141,7 +150,8 @@ extension SwiftEOS_PresenceModification_Actor {
     }
 
     /**
-    Sets your new join info custom game-data string. This is a helper function for reading the presence data related to how a user can be joined.Its meaning is entirely application dependent.
+    Sets your new join info custom game-data string. This is a helper function for reading the presence data related to how a user can be joined.
+    Its meaning is entirely application dependent.
 
     - Parameter Options: Object containing a join info string and associated user data
     - Throws: Success if modification was added successfully, otherwise an error code related to the problem
@@ -160,7 +170,8 @@ extension SwiftEOS_PresenceModification_Actor {
     }
 
     /**
-    Modifies a user's Rich Presence string to a new state. This is the exact value other users will see when they query the local user's presence.
+    Modifies a user's Rich Presence string to a new state. This is the exact value other users will see
+    when they query the local user's presence.
 
     - Parameter Options: Object containing properties related to setting a user's RichText string
     - Throws: Success if modification was added successfully, otherwise an error code related to the problem

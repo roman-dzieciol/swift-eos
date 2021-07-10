@@ -16,7 +16,8 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_SessionSearch_CopySearchResultByIndex is used to immediately retrieve a handle to the session information from a given search result.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_SessionSearch_CopySearchResultByIndex is used to immediately retrieve a handle to the session information from a given search result.
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter SessionIndex: The index of the session to retrieve within the completed search query
     - SeeAlso: EOS_SessionSearch_GetSearchResultCount
@@ -33,7 +34,8 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
     }
 
     /**
-    Find sessions matching the search criteria setup via this session search handle.When the operation completes, this handle will have the search results that can be parsed
+    Find sessions matching the search criteria setup via this session search handle.
+    When the operation completes, this handle will have the search results that can be parsed
 
     - Parameter LocalUserId: The Product User ID of the local user who is searching
     - Parameter CompletionDelegate: A callback that is fired when the search operation completes, either successfully or in error
@@ -143,7 +145,8 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
 extension SwiftEOS_SessionSearch_Actor {
 
     /**
-    EOS_SessionSearch_CopySearchResultByIndex is used to immediately retrieve a handle to the session information from a given search result.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_SessionSearch_CopySearchResultByIndex is used to immediately retrieve a handle to the session information from a given search result.
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid index or a null pointer for the out parameter
@@ -167,7 +170,8 @@ extension SwiftEOS_SessionSearch_Actor {
     }
 
     /**
-    Find sessions matching the search criteria setup via this session search handle.When the operation completes, this handle will have the search results that can be parsed
+    Find sessions matching the search criteria setup via this session search handle.
+    When the operation completes, this handle will have the search results that can be parsed
 
     - Parameter Options: Structure containing information about the search criteria to use
     - Parameter CompletionDelegate: A callback that is fired when the search operation completes, either successfully or in error

@@ -8,7 +8,8 @@ public struct SwiftEOS_P2P_SetRelayControlOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /**
-    The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
+    The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections
+    reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
     */
     public let RelayControl: EOS_ERelayControl
 
@@ -39,7 +40,8 @@ public struct SwiftEOS_P2P_SetRelayControlOptions: SwiftEOSObject {
     Memberwise initializer
 
     - Parameter ApiVersion: API Version: Set this to EOS_P2P_SETRELAYCONTROL_API_LATEST.
-    - Parameter RelayControl: The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
+    - Parameter RelayControl: The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections
+    reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
     */
     public init(
         ApiVersion: Int32 = EOS_P2P_SETRELAYCONTROL_API_LATEST,

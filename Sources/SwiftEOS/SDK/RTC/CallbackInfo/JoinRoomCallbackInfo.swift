@@ -5,7 +5,13 @@ import EOSSDK
 public struct SwiftEOS_RTC_JoinRoomCallbackInfo {
 
     /**
-    This returns:EOS_Success if the channel was successfully joined.EOS_NoConnection: unable to connect to RTC servers (retryable).EOS_InvalidAuth: if the token is invalid (not retryable).EOS_RTC_TooManyParticipants: if the room cannot accept more participants (not retryable).EOS_AccessDenied: if the room name belongs to the Lobby voice system (not retryable).EOS_UnexpectedError otherwise (retryable).
+    This returns:
+    EOS_Success if the channel was successfully joined.
+    EOS_NoConnection: unable to connect to RTC servers (retryable).
+    EOS_InvalidAuth: if the token is invalid (not retryable).
+    EOS_RTC_TooManyParticipants: if the room cannot accept more participants (not retryable).
+    EOS_AccessDenied: if the room name belongs to the Lobby voice system (not retryable).
+    EOS_UnexpectedError otherwise (retryable).
     */
     public let ResultCode: EOS_EResult
 
@@ -38,7 +44,13 @@ public struct SwiftEOS_RTC_JoinRoomCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: This returns:EOS_Success if the channel was successfully joined.EOS_NoConnection: unable to connect to RTC servers (retryable).EOS_InvalidAuth: if the token is invalid (not retryable).EOS_RTC_TooManyParticipants: if the room cannot accept more participants (not retryable).EOS_AccessDenied: if the room name belongs to the Lobby voice system (not retryable).EOS_UnexpectedError otherwise (retryable).
+    - Parameter ResultCode: This returns:
+    EOS_Success if the channel was successfully joined.
+    EOS_NoConnection: unable to connect to RTC servers (retryable).
+    EOS_InvalidAuth: if the token is invalid (not retryable).
+    EOS_RTC_TooManyParticipants: if the room cannot accept more participants (not retryable).
+    EOS_AccessDenied: if the room name belongs to the Lobby voice system (not retryable).
+    EOS_UnexpectedError otherwise (retryable).
     - Parameter LocalUserId: The Product User ID of the user who initiated this request.
     - Parameter RoomName: The room the user was trying to join.
     */

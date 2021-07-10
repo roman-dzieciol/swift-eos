@@ -15,7 +15,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Initiates the purchase flow for a set of offers.  The callback is triggered after the purchase flow.On success, the set of entitlements that were unlocked will be cached.On success, a Transaction ID will be returned. The Transaction ID can be used to obtain an EOS_Ecom_HTransaction handle. The handle can then be used to retrieve the entitlements rewarded by the purchase.
+    Initiates the purchase flow for a set of offers.  The callback is triggered after the purchase flow.
+    On success, the set of entitlements that were unlocked will be cached.
+    On success, a Transaction ID will be returned. The Transaction ID can be used to obtain an
+    EOS_Ecom_HTransaction handle. The handle can then be used to retrieve the entitlements rewarded by the purchase.
 
     - SeeAlso: EOS_Ecom_Transaction_Release
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user who is making the purchase
@@ -86,7 +89,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Fetches a single entitlement with a given Entitlement Name.  The Index is used to access individual entitlements among those with the same Entitlement Name.  The Index can be a value from 0 to one less than the result from EOS_Ecom_GetEntitlementsByNameCount.
+    Fetches a single entitlement with a given Entitlement Name.  The Index is used to access individual
+    entitlements among those with the same Entitlement Name.  The Index can be a value from 0 to
+    one less than the result from EOS_Ecom_GetEntitlementsByNameCount.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose entitlement is being copied
     - Parameter EntitlementName: Name of the entitlement to retrieve from the cache
@@ -445,7 +450,11 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Query the entitlement information defined with Epic Online Services.A set of entitlement names can be provided to filter the set of entitlements associated with the account.This data will be cached for a limited time and retrieved again from the backend when necessary.Use EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, and EOS_Ecom_CopyEntitlementById to get the entitlement details.Use EOS_Ecom_GetEntitlementsByNameCount to retrieve the number of entitlements with a specific entitlement name.
+    Query the entitlement information defined with Epic Online Services.
+    A set of entitlement names can be provided to filter the set of entitlements associated with the account.
+    This data will be cached for a limited time and retrieved again from the backend when necessary.
+    Use EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, and EOS_Ecom_CopyEntitlementById to get the entitlement details.
+    Use EOS_Ecom_GetEntitlementsByNameCount to retrieve the number of entitlements with a specific entitlement name.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose Entitlements you want to retrieve
     - Parameter EntitlementNames: An array of Entitlement Names that you want to check
@@ -471,7 +480,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Query for a list of catalog offers defined with Epic Online Services.This data will be cached for a limited time and retrieved again from the backend when necessary.
+    Query for a list of catalog offers defined with Epic Online Services.
+    This data will be cached for a limited time and retrieved again from the backend when necessary.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose offer to query
     - Parameter OverrideCatalogNamespace: If not provided then the SandboxId is used as the catalog namespace
@@ -492,7 +502,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.This data will be cached for a limited time and retrieved again from the backend when necessary
+    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.
+    This data will be cached for a limited time and retrieved again from the backend when necessary
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose ownership to query
     - Parameter CatalogItemIds: The array of Catalog Item IDs to check for ownership
@@ -518,7 +529,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.The data is return via the callback in the form of a signed JWT that should be verified by an external backend server using a public key for authenticity.
+    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.
+    The data is return via the callback in the form of a signed JWT that should be verified by an external backend server using a public key for authenticity.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user whose ownership token you want to query
     - Parameter CatalogItemIds: The array of Catalog Item IDs to check for ownership, matching in number to the CatalogItemIdCount
@@ -544,7 +556,8 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    Requests that the provided entitlement be marked redeemed.  This will cause that entitlement to no longer be returned from QueryEntitlements unless the include redeemed request flag is set true.
+    Requests that the provided entitlement be marked redeemed.  This will cause that entitlement
+    to no longer be returned from QueryEntitlements unless the include redeemed request flag is set true.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user who is redeeming Entitlements
     - Parameter EntitlementIds: The array of Entitlements to redeem
@@ -593,7 +606,12 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     }
 
     /**
-    The Ecom Transaction Interface exposes getters for accessing information about a completed transaction.All Ecom Transaction Interface calls take a handle of type EOS_Ecom_HTransaction as the first parameter.An EOS_Ecom_HTransaction handle is originally returned as part of the EOS_Ecom_CheckoutCallbackInfo struct.An EOS_Ecom_HTransaction handle can also be retrieved from an EOS_HEcom handle using EOS_Ecom_CopyTransactionByIndex.It is expected that after a transaction that EOS_Ecom_Transaction_Release is called.When EOS_Platform_Release is called any remaining transactions will also be released.
+    The Ecom Transaction Interface exposes getters for accessing information about a completed transaction.
+    All Ecom Transaction Interface calls take a handle of type EOS_Ecom_HTransaction as the first parameter.
+    An EOS_Ecom_HTransaction handle is originally returned as part of the EOS_Ecom_CheckoutCallbackInfo struct.
+    An EOS_Ecom_HTransaction handle can also be retrieved from an EOS_HEcom handle using EOS_Ecom_CopyTransactionByIndex.
+    It is expected that after a transaction that EOS_Ecom_Transaction_Release is called.
+    When EOS_Platform_Release is called any remaining transactions will also be released.
 
     - SeeAlso: EOS_Ecom_CheckoutCallbackInfo
     - SeeAlso: EOS_Ecom_GetTransactionCount
@@ -608,7 +626,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
 extension SwiftEOS_Ecom_Actor {
 
     /**
-    Initiates the purchase flow for a set of offers.  The callback is triggered after the purchase flow.On success, the set of entitlements that were unlocked will be cached.On success, a Transaction ID will be returned. The Transaction ID can be used to obtain an EOS_Ecom_HTransaction handle. The handle can then be used to retrieve the entitlements rewarded by the purchase.
+    Initiates the purchase flow for a set of offers.  The callback is triggered after the purchase flow.
+    On success, the set of entitlements that were unlocked will be cached.
+    On success, a Transaction ID will be returned. The Transaction ID can be used to obtain an
+    EOS_Ecom_HTransaction handle. The handle can then be used to retrieve the entitlements rewarded by the purchase.
 
     - SeeAlso: EOS_Ecom_Transaction_Release
     - Parameter Options: structure containing filter criteria
@@ -688,7 +709,9 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    Fetches a single entitlement with a given Entitlement Name.  The Index is used to access individual entitlements among those with the same Entitlement Name.  The Index can be a value from 0 to one less than the result from EOS_Ecom_GetEntitlementsByNameCount.
+    Fetches a single entitlement with a given Entitlement Name.  The Index is used to access individual
+    entitlements among those with the same Entitlement Name.  The Index can be a value from 0 to
+    one less than the result from EOS_Ecom_GetEntitlementsByNameCount.
 
     - Parameter Options: structure containing the Epic Online Services Account ID, entitlement name, and index being accessed
     - SeeAlso: EOS_Ecom_Entitlement_Release
@@ -1144,7 +1167,11 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    Query the entitlement information defined with Epic Online Services.A set of entitlement names can be provided to filter the set of entitlements associated with the account.This data will be cached for a limited time and retrieved again from the backend when necessary.Use EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, and EOS_Ecom_CopyEntitlementById to get the entitlement details.Use EOS_Ecom_GetEntitlementsByNameCount to retrieve the number of entitlements with a specific entitlement name.
+    Query the entitlement information defined with Epic Online Services.
+    A set of entitlement names can be provided to filter the set of entitlements associated with the account.
+    This data will be cached for a limited time and retrieved again from the backend when necessary.
+    Use EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, and EOS_Ecom_CopyEntitlementById to get the entitlement details.
+    Use EOS_Ecom_GetEntitlementsByNameCount to retrieve the number of entitlements with a specific entitlement name.
 
     - Parameter Options: structure containing the account and entitlement names to retrieve
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -1166,7 +1193,8 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    Query for a list of catalog offers defined with Epic Online Services.This data will be cached for a limited time and retrieved again from the backend when necessary.
+    Query for a list of catalog offers defined with Epic Online Services.
+    This data will be cached for a limited time and retrieved again from the backend when necessary.
 
     - Parameter Options: structure containing filter criteria
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -1188,7 +1216,8 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.This data will be cached for a limited time and retrieved again from the backend when necessary
+    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.
+    This data will be cached for a limited time and retrieved again from the backend when necessary
 
     - Parameter Options: structure containing the account and catalog item IDs to retrieve
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -1210,7 +1239,8 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.The data is return via the callback in the form of a signed JWT that should be verified by an external backend server using a public key for authenticity.
+    Query the ownership status for a given list of catalog item IDs defined with Epic Online Services.
+    The data is return via the callback in the form of a signed JWT that should be verified by an external backend server using a public key for authenticity.
 
     - Parameter Options: structure containing the account and catalog item IDs to retrieve in token form
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -1232,7 +1262,8 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    Requests that the provided entitlement be marked redeemed.  This will cause that entitlement to no longer be returned from QueryEntitlements unless the include redeemed request flag is set true.
+    Requests that the provided entitlement be marked redeemed.  This will cause that entitlement
+    to no longer be returned from QueryEntitlements unless the include redeemed request flag is set true.
 
     - Parameter Options: structure containing entitlement to redeem
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -1302,7 +1333,12 @@ extension SwiftEOS_Ecom_Actor {
     }
 
     /**
-    The Ecom Transaction Interface exposes getters for accessing information about a completed transaction.All Ecom Transaction Interface calls take a handle of type EOS_Ecom_HTransaction as the first parameter.An EOS_Ecom_HTransaction handle is originally returned as part of the EOS_Ecom_CheckoutCallbackInfo struct.An EOS_Ecom_HTransaction handle can also be retrieved from an EOS_HEcom handle using EOS_Ecom_CopyTransactionByIndex.It is expected that after a transaction that EOS_Ecom_Transaction_Release is called.When EOS_Platform_Release is called any remaining transactions will also be released.
+    The Ecom Transaction Interface exposes getters for accessing information about a completed transaction.
+    All Ecom Transaction Interface calls take a handle of type EOS_Ecom_HTransaction as the first parameter.
+    An EOS_Ecom_HTransaction handle is originally returned as part of the EOS_Ecom_CheckoutCallbackInfo struct.
+    An EOS_Ecom_HTransaction handle can also be retrieved from an EOS_HEcom handle using EOS_Ecom_CopyTransactionByIndex.
+    It is expected that after a transaction that EOS_Ecom_Transaction_Release is called.
+    When EOS_Platform_Release is called any remaining transactions will also be released.
 
     - SeeAlso: EOS_Ecom_CheckoutCallbackInfo
     - SeeAlso: EOS_Ecom_GetTransactionCount

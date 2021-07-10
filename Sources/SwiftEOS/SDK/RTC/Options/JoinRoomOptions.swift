@@ -26,12 +26,14 @@ public struct SwiftEOS_RTC_JoinRoomOptions: SwiftEOSObject {
     public let Flags: Int
 
     /**
-    Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio buffers must be passed manually using EOS_RTCAudio_SendAudio.
+    Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio
+    buffers must be passed manually using EOS_RTCAudio_SendAudio.
     */
     public let bManualAudioInputEnabled: Bool
 
     /**
-    Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
+    Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio
+    buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
     */
     public let bManualAudioOutputEnabled: Bool
 
@@ -82,8 +84,10 @@ public struct SwiftEOS_RTC_JoinRoomOptions: SwiftEOSObject {
     - Parameter ParticipantToken: Authorization credential token to join the room.
     - Parameter ParticipantId: The participant id used to join the room. If set to NULL the LocalUserId will be used instead.
     - Parameter Flags: Join room flags, e.g. EOS_RTC_JOINROOMFLAGS_ENABLE_ECHO. This is a bitwise-or union of the defined flags.
-    - Parameter bManualAudioInputEnabled: Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio buffers must be passed manually using EOS_RTCAudio_SendAudio.
-    - Parameter bManualAudioOutputEnabled: Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
+    - Parameter bManualAudioInputEnabled: Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio
+    buffers must be passed manually using EOS_RTCAudio_SendAudio.
+    - Parameter bManualAudioOutputEnabled: Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio
+    buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
     */
     public init(
         ApiVersion: Int32 = EOS_RTC_JOINROOM_API_LATEST,

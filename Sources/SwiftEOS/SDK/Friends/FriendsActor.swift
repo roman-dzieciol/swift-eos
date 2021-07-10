@@ -48,7 +48,9 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     }
 
     /**
-    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
+    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
+    The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.
+    To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the user whose friend list is being queried
     - Parameter Index: Index into the friend list. This value must be between 0 and EOS_Friends_GetFriendsCount-1 inclusively.
@@ -140,7 +142,8 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     }
 
     /**
-    Starts an asynchronous task that sends a friend invitation to another user. The completion delegate is executed after the backend response has been received.It does not indicate that the target user has responded to the friend invitation.
+    Starts an asynchronous task that sends a friend invitation to another user. The completion delegate is executed after the backend response has been received.
+    It does not indicate that the target user has responded to the friend invitation.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged-in user who is sending the friends list invitation
     - Parameter TargetUserId: The Epic Online Services Account ID of the user who is receiving the friends list invitation
@@ -216,7 +219,9 @@ extension SwiftEOS_Friends_Actor {
     }
 
     /**
-    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
+    Retrieves the Epic Online Services Account ID of an entry from the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
+    The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.
+    To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
 
     - Parameter Options: structure containing the Epic Online Services Account ID of the owner of the friends list and the index into the list
     - Returns: the Epic Online Services Account ID of the friend. Note that if the index provided is out of bounds, the returned Epic Online Services Account ID will be a "null" account ID.
@@ -325,7 +330,8 @@ extension SwiftEOS_Friends_Actor {
     }
 
     /**
-    Starts an asynchronous task that sends a friend invitation to another user. The completion delegate is executed after the backend response has been received.It does not indicate that the target user has responded to the friend invitation.
+    Starts an asynchronous task that sends a friend invitation to another user. The completion delegate is executed after the backend response has been received.
+    It does not indicate that the target user has responded to the friend invitation.
 
     - Parameter Options: structure containing the account to send the invite from and the account to send the invite to
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error

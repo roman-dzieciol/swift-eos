@@ -19,7 +19,9 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
     /**
     The name of the product using the Epic Online Services SDK.
 
-    The name string is required to be non-empty and at maximum of 64 characters long.The string buffer can consist of the following characters:A-Z, a-z, 0-9, dot, underscore, space, exclamation mark, question mark, and sign, hyphen, parenthesis, plus, minus, colon.
+    The name string is required to be non-empty and at maximum of 64 characters long.
+    The string buffer can consist of the following characters:
+    A-Z, a-z, 0-9, dot, underscore, space, exclamation mark, question mark, and sign, hyphen, parenthesis, plus, minus, colon.
     */
     public let ProductName: String?
 
@@ -36,7 +38,14 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
     /**
     This field is for system specific initialization if any.
 
-    If provided then the structure will be located in <System >/eos_ <system >.h.The structure will be named EOS_ <System >_InitializeOptions.
+    If provided then the structure will be located in
+    <System
+    >/eos_
+    <system
+    >.h.
+    The structure will be named EOS_
+    <System
+    >_InitializeOptions.
     */
     public let SystemInitializeOptions: UnsafeMutableRawPointer?
 
@@ -88,12 +97,21 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
     - Parameter ReallocateMemoryFunction: A corresponding memory reallocator. If the AllocateMemoryFunction is nulled, then this field must also be nulled.
     - Parameter ReleaseMemoryFunction: A corresponding memory releaser. If the AllocateMemoryFunction is nulled, then this field must also be nulled.
     - Parameter ProductName: The name of the product using the Epic Online Services SDK.
-    The name string is required to be non-empty and at maximum of 64 characters long.The string buffer can consist of the following characters:A-Z, a-z, 0-9, dot, underscore, space, exclamation mark, question mark, and sign, hyphen, parenthesis, plus, minus, colon.
+    The name string is required to be non-empty and at maximum of 64 characters long.
+    The string buffer can consist of the following characters:
+    A-Z, a-z, 0-9, dot, underscore, space, exclamation mark, question mark, and sign, hyphen, parenthesis, plus, minus, colon.
     - Parameter ProductVersion: Product version of the running application.
     The name string has same requirements as the ProductName string.
     - Parameter Reserved: A reserved field that should always be nulled.
     - Parameter SystemInitializeOptions: This field is for system specific initialization if any.
-    If provided then the structure will be located in <System >/eos_ <system >.h.The structure will be named EOS_ <System >_InitializeOptions.
+    If provided then the structure will be located in
+    <System
+    >/eos_
+    <system
+    >.h.
+    The structure will be named EOS_
+    <System
+    >_InitializeOptions.
     - Parameter OverrideThreadAffinity: The thread affinity override values for each category of thread.
     */
     public init(

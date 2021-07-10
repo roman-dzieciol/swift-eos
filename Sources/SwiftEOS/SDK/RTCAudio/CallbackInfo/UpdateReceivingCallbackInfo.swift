@@ -5,7 +5,9 @@ import EOSSDK
 public struct SwiftEOS_RTCAudio_UpdateReceivingCallbackInfo {
 
     /**
-    This returns:EOS_Success if the users were successfully unblocked.EOS_UnexpectedError otherwise.
+    This returns:
+    EOS_Success if the users were successfully unblocked.
+    EOS_UnexpectedError otherwise.
     */
     public let ResultCode: EOS_EResult
 
@@ -46,7 +48,9 @@ public struct SwiftEOS_RTCAudio_UpdateReceivingCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: This returns:EOS_Success if the users were successfully unblocked.EOS_UnexpectedError otherwise.
+    - Parameter ResultCode: This returns:
+    EOS_Success if the users were successfully unblocked.
+    EOS_UnexpectedError otherwise.
     - Parameter LocalUserId: The Product User ID of the user who initiated this request.
     - Parameter RoomName: The room this settings should be applied on.
     - Parameter ParticipantId: The participant to modify or null to update the global configuration

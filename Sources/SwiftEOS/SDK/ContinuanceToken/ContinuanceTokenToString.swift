@@ -4,7 +4,8 @@ import EOSSDK
 /**
 Retrieve a null-terminated stringified continuance token from an EOS_ContinuanceToken.
 
-To get the required buffer size, call once with OutBuffer set to NULL, InOutBufferLength will contain the buffer size needed.Call again with valid params to get the stringified continuance token which will only contain UTF8-encoded printable characters (excluding the null-terminator).
+To get the required buffer size, call once with OutBuffer set to NULL, InOutBufferLength will contain the buffer size needed.
+Call again with valid params to get the stringified continuance token which will only contain UTF8-encoded printable characters (excluding the null-terminator).
 
 - Parameter ContinuanceToken: The continuance token for which to retrieve the stringified version.
 - Throws: An EOS_EResult that indicates whether the continuance token string was copied into the OutBuffer.

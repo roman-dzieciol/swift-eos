@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-Intermediate data needed to complete account restriction verification during login flow, returned by EOS_Auth_LoginCallbackInfo when the ResultCode is EOS_Auth_AccountFeatureRestricted The URI inside should be exposed to the user for entry in a web browser. The URI must be copied out of this struct before completion of the callback.
+Intermediate data needed to complete account restriction verification during login flow, returned by EOS_Auth_LoginCallbackInfo when the ResultCode is EOS_Auth_AccountFeatureRestricted
+The URI inside should be exposed to the user for entry in a web browser. The URI must be copied out of this struct before completion of the callback.
 */
 public struct SwiftEOS_Auth_AccountFeatureRestrictedInfo {
 

@@ -15,7 +15,9 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions: SwiftEOSObject
     public let LeaderboardId: String?
 
     /**
-    Product User ID for user who is querying ranks.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    Product User ID for user who is querying ranks.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     */
     public let LocalUserId: EOS_ProductUserId?
 
@@ -49,7 +51,9 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions: SwiftEOSObject
 
     - Parameter ApiVersion: API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST.
     - Parameter LeaderboardId: The ID of the leaderboard whose information you want to retrieve.
-    - Parameter LocalUserId: Product User ID for user who is querying ranks.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    - Parameter LocalUserId: Product User ID for user who is querying ranks.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST,

@@ -54,7 +54,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_Sessions_CopySessionHandleByInviteId is used to immediately retrieve a handle to the session information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_Sessions_CopySessionHandleByInviteId is used to immediately retrieve a handle to the session information from after notification of an invite
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter InviteId: Invite ID for which to retrieve a session handle
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -71,7 +72,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_Sessions_CopySessionHandleByUiEventId is used to immediately retrieve a handle to the session information from after notification of a join game event.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_Sessions_CopySessionHandleByUiEventId is used to immediately retrieve a handle to the session information from after notification of a join game event.
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter UiEventId: UI Event associated with the session
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -88,7 +90,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_Sessions_CopySessionHandleForPresence is used to immediately retrieve a handle to the session information which was marked with bPresenceEnabled on create or join.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_Sessions_CopySessionHandleForPresence is used to immediately retrieve a handle to the session information which was marked with bPresenceEnabled on create or join.
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter LocalUserId: The Product User ID of the local user associated with the session
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -105,13 +108,15 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     }
 
     /**
-    Creates a session modification handle (EOS_HSessionModification).  The session modification handle is used to build a new session and can be applied with EOS_Sessions_UpdateSession The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it no longer needed.
+    Creates a session modification handle (EOS_HSessionModification).  The session modification handle is used to build a new session and can be applied with EOS_Sessions_UpdateSession
+    The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it no longer needed.
 
     - Parameter SessionName: Name of the session to create
     - Parameter BucketId: Bucket ID associated with the session
     - Parameter MaxPlayers: Maximum number of players allowed in the session
     - Parameter LocalUserId: The Product User ID of the local user associated with the session
-    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
@@ -120,7 +125,9 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - SeeAlso: EOS_Lobby_CreateLobbyOptions
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_JoinSessionOptions
-    - Parameter SessionId: Optional session id - set to a globally unique value to override the backend assignment If not specified the backend service will assign one to the session.  Do not mix and match.This value can be of size [EOS_SESSIONMODIFICATION_MIN_SESSIONIDOVERRIDE_LENGTH, EOS_SESSIONMODIFICATION_MAX_SESSIONIDOVERRIDE_LENGTH]
+    - Parameter SessionId: Optional session id - set to a globally unique value to override the backend assignment
+    If not specified the backend service will assign one to the session.  Do not mix and match.
+    This value can be of size [EOS_SESSIONMODIFICATION_MIN_SESSIONIDOVERRIDE_LENGTH, EOS_SESSIONMODIFICATION_MAX_SESSIONIDOVERRIDE_LENGTH]
     - Throws: - SeeAlso: EOS_SessionModification_Release
     - SeeAlso: EOS_Sessions_UpdateSession
     - SeeAlso: EOS_HSessionModification
@@ -145,7 +152,11 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     }
 
     /**
-    Create a session search handle.  This handle may be modified to include various search parameters.Searching is possible in three methods, all mutually exclusive - set the session ID to find a specific session - set the target user ID to find a specific user - set session parameters to find an array of sessions that match the search criteria
+    Create a session search handle.  This handle may be modified to include various search parameters.
+    Searching is possible in three methods, all mutually exclusive
+    - set the session ID to find a specific session
+    - set the target user ID to find a specific user
+    - set session parameters to find an array of sessions that match the search criteria
 
     - Parameter MaxSearchResults: Max number of results to return
     - Throws: EOS_InvalidParameters if any of the options are incorrect
@@ -270,7 +281,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     - Parameter SessionName: Name of the session to create after joining session
     - Parameter SessionHandle: Session handle to join
     - Parameter LocalUserId: The Product User ID of the local user who is joining the session
-    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
@@ -466,7 +478,8 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     }
 
     /**
-    Creates a session modification handle (EOS_HSessionModification). The session modification handle is used to modify an existing session and can be applied with EOS_Sessions_UpdateSession.The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it is no longer needed.
+    Creates a session modification handle (EOS_HSessionModification). The session modification handle is used to modify an existing session and can be applied with EOS_Sessions_UpdateSession.
+    The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it is no longer needed.
 
     - Parameter SessionName: Name of the session to update
     - Throws: - SeeAlso: EOS_SessionModification_Release
@@ -577,7 +590,8 @@ extension SwiftEOS_Sessions_Actor {
     }
 
     /**
-    EOS_Sessions_CopySessionHandleByInviteId is used to immediately retrieve a handle to the session information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_Sessions_CopySessionHandleByInviteId is used to immediately retrieve a handle to the session information from after notification of an invite
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -602,7 +616,8 @@ extension SwiftEOS_Sessions_Actor {
     }
 
     /**
-    EOS_Sessions_CopySessionHandleByUiEventId is used to immediately retrieve a handle to the session information from after notification of a join game event.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_Sessions_CopySessionHandleByUiEventId is used to immediately retrieve a handle to the session information from after notification of a join game event.
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -627,7 +642,8 @@ extension SwiftEOS_Sessions_Actor {
     }
 
     /**
-    EOS_Sessions_CopySessionHandleForPresence is used to immediately retrieve a handle to the session information which was marked with bPresenceEnabled on create or join.If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
+    EOS_Sessions_CopySessionHandleForPresence is used to immediately retrieve a handle to the session information which was marked with bPresenceEnabled on create or join.
+    If the call returns an EOS_Success result, the out parameter, OutSessionHandle, must be passed to EOS_SessionDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -652,7 +668,8 @@ extension SwiftEOS_Sessions_Actor {
     }
 
     /**
-    Creates a session modification handle (EOS_HSessionModification).  The session modification handle is used to build a new session and can be applied with EOS_Sessions_UpdateSession The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it no longer needed.
+    Creates a session modification handle (EOS_HSessionModification).  The session modification handle is used to build a new session and can be applied with EOS_Sessions_UpdateSession
+    The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it no longer needed.
 
     - Parameter Options: Required fields for the creation of a session such as a name, bucketid, and max players
     - Throws: - SeeAlso: EOS_SessionModification_Release
@@ -675,7 +692,11 @@ extension SwiftEOS_Sessions_Actor {
     }
 
     /**
-    Create a session search handle.  This handle may be modified to include various search parameters.Searching is possible in three methods, all mutually exclusive - set the session ID to find a specific session - set the target user ID to find a specific user - set session parameters to find an array of sessions that match the search criteria
+    Create a session search handle.  This handle may be modified to include various search parameters.
+    Searching is possible in three methods, all mutually exclusive
+    - set the session ID to find a specific session
+    - set the target user ID to find a specific user
+    - set session parameters to find an array of sessions that match the search criteria
 
     - Parameter Options: Structure containing required parameters such as the maximum number of search results
     - Throws: EOS_InvalidParameters if any of the options are incorrect
@@ -1039,7 +1060,8 @@ extension SwiftEOS_Sessions_Actor {
     }
 
     /**
-    Creates a session modification handle (EOS_HSessionModification). The session modification handle is used to modify an existing session and can be applied with EOS_Sessions_UpdateSession.The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it is no longer needed.
+    Creates a session modification handle (EOS_HSessionModification). The session modification handle is used to modify an existing session and can be applied with EOS_Sessions_UpdateSession.
+    The EOS_HSessionModification must be released by calling EOS_SessionModification_Release once it is no longer needed.
 
     - Parameter Options: Required fields such as session name
     - Throws: - SeeAlso: EOS_SessionModification_Release

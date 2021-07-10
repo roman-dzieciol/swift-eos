@@ -35,7 +35,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Listen for when our packet queue has become full. This event gives an opportunity to read packets to make room for new incoming packets. If this event fires and no packets are read by calling EOS_P2P_ReceivePacket or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after this event are discarded until there is room again in the queue.
+    Listen for when our packet queue has become full. This event gives an opportunity to read packets to make
+    room for new incoming packets. If this event fires and no packets are read by calling EOS_P2P_ReceivePacket
+    or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after
+    this event are discarded until there is room again in the queue.
 
     - Parameter IncomingPacketQueueFullHandler: The callback to be fired when the incoming packet queue is full
     - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
@@ -69,7 +72,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Listen for incoming connection requests on a particular Socket ID, or optionally all Socket IDs. The bound function will only be called if the connection has not already been accepted.
+    Listen for incoming connection requests on a particular Socket ID, or optionally all Socket IDs. The bound function
+    will only be called if the connection has not already been accepted.
 
     - Parameter LocalUserId: The Product User ID of the user who is listening for incoming connection requests
     - Parameter SocketId: The optional socket ID to listen for, used as a filter for incoming connection requests; If NULL, incoming connection requests will not be filtered
@@ -138,7 +142,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Gets the size of the packet that will be returned by ReceivePacket for a particular user, if there is any available packets to be retrieved.
+    Gets the size of the packet that will be returned by ReceivePacket for a particular user, if there is any available
+    packets to be retrieved.
 
     - Parameter LocalUserId: The Product User ID of the local user who is receiving the packet
     - Parameter RequestedChannel: An optional channel to request the data for. If NULL, we're retrieving the size of the next packet on any channel.
@@ -240,7 +245,9 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
+    Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be
+    sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success
+    result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
 
     - Parameter LocalUserId: The Product User ID of the local user who is sending this packet
     - Parameter RemoteUserId: The Product User ID of the Peer you would like to send a packet to
@@ -275,7 +282,10 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Sets the maximum packet queue sizes that packets waiting to be sent or received can use. If the packet queue size is made smaller than the current queue size while there are packets in the queue that would push this packet size over, existing packets are kept but new packets may not be added to the full queue until enough packets are sent or received.
+    Sets the maximum packet queue sizes that packets waiting to be sent or received can use. If the packet queue
+    size is made smaller than the current queue size while there are packets in the queue that would push this
+    packet size over, existing packets are kept but new packets may not be added to the full queue until enough
+    packets are sent or received.
 
     - Parameter IncomingPacketQueueMaxSizeBytes: The ideal maximum amount of bytes the Incoming packet queue can consume
     - Parameter OutgoingPacketQueueMaxSizeBytes: The ideal maximum amount of bytes the Outgoing packet queue can consume
@@ -295,7 +305,8 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     Set configuration options related to network ports.
 
     - Parameter Port: The ideal port to use for P2P traffic. The default value is 7777. If set to 0, the OS will choose a port. If set to 0, MaxAdditionalPortsToTry must be set to 0.
-    - Parameter MaxAdditionalPortsToTry: The maximum amount of additional ports to try if Port is unavailable. Ports will be tried from Port to Port + MaxAdditionalPortsToTry inclusive, until one is available or we run out of ports. If no ports are available, P2P connections will fail. The default value is 99.
+    - Parameter MaxAdditionalPortsToTry: The maximum amount of additional ports to try if Port is unavailable. Ports will be tried from Port to Port + MaxAdditionalPortsToTry
+    inclusive, until one is available or we run out of ports. If no ports are available, P2P connections will fail. The default value is 99.
     - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way
     */
     public func SetPortRange(
@@ -309,9 +320,11 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Set how relay servers are to be used. This setting does not immediately apply to existing connections, but may apply to existing connections if the connection requires renegotiation.
+    Set how relay servers are to be used. This setting does not immediately apply to existing connections, but may apply to existing
+    connections if the connection requires renegotiation.
 
-    - Parameter RelayControl: The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
+    - Parameter RelayControl: The requested level of relay servers for P2P connections. This setting is only applied to new P2P connections, or when existing P2P connections
+    reconnect during a temporary connectivity outage. Peers with an incompatible setting to the local setting will not be able to connnect.
     - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way
     */
     public func SetRelayControl(
@@ -342,7 +355,10 @@ extension SwiftEOS_P2P_Actor {
     }
 
     /**
-    Listen for when our packet queue has become full. This event gives an opportunity to read packets to make room for new incoming packets. If this event fires and no packets are read by calling EOS_P2P_ReceivePacket or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after this event are discarded until there is room again in the queue.
+    Listen for when our packet queue has become full. This event gives an opportunity to read packets to make
+    room for new incoming packets. If this event fires and no packets are read by calling EOS_P2P_ReceivePacket
+    or the packet queue size is not increased by EOS_P2P_SetPacketQueueSize, any packets that are received after
+    this event are discarded until there is room again in the queue.
 
     - Parameter IncomingPacketQueueFullHandler: The callback to be fired when the incoming packet queue is full
     - Returns: A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
@@ -404,7 +420,8 @@ extension SwiftEOS_P2P_Actor {
     }
 
     /**
-    Listen for incoming connection requests on a particular Socket ID, or optionally all Socket IDs. The bound function will only be called if the connection has not already been accepted.
+    Listen for incoming connection requests on a particular Socket ID, or optionally all Socket IDs. The bound function
+    will only be called if the connection has not already been accepted.
 
     - Parameter Options: Information about who would like notifications, and (optionally) only for a specific socket
     - Parameter ConnectionRequestHandler: The callback to be fired when we receive a connection request
@@ -490,7 +507,8 @@ extension SwiftEOS_P2P_Actor {
     }
 
     /**
-    Gets the size of the packet that will be returned by ReceivePacket for a particular user, if there is any available packets to be retrieved.
+    Gets the size of the packet that will be returned by ReceivePacket for a particular user, if there is any available
+    packets to be retrieved.
 
     - Parameter Options: Information about who is requesting the size of their next packet
     - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
@@ -628,7 +646,9 @@ extension SwiftEOS_P2P_Actor {
     }
 
     /**
-    Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
+    Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be
+    sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An EOS_Success
+    result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
 
     - Parameter Options: Information about the data being sent, by who, to who
     - Throws: EOS_EResult::EOS_InvalidParameters - If input was invalid
@@ -647,7 +667,10 @@ extension SwiftEOS_P2P_Actor {
     }
 
     /**
-    Sets the maximum packet queue sizes that packets waiting to be sent or received can use. If the packet queue size is made smaller than the current queue size while there are packets in the queue that would push this packet size over, existing packets are kept but new packets may not be added to the full queue until enough packets are sent or received.
+    Sets the maximum packet queue sizes that packets waiting to be sent or received can use. If the packet queue
+    size is made smaller than the current queue size while there are packets in the queue that would push this
+    packet size over, existing packets are kept but new packets may not be added to the full queue until enough
+    packets are sent or received.
 
     - Parameter Options: Information about packet queue size
     - Throws: EOS_EResult::EOS_InvalidParameters - if the input was invalid in some way
@@ -683,7 +706,8 @@ extension SwiftEOS_P2P_Actor {
     }
 
     /**
-    Set how relay servers are to be used. This setting does not immediately apply to existing connections, but may apply to existing connections if the connection requires renegotiation.
+    Set how relay servers are to be used. This setting does not immediately apply to existing connections, but may apply to existing
+    connections if the connection requires renegotiation.
 
     - Parameter Options: Information about relay server config options
     - Throws: EOS_EResult::EOS_InvalidParameters - if the options are invalid in some way

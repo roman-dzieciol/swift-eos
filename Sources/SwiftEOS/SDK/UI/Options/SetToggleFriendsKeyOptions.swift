@@ -8,7 +8,9 @@ public struct SwiftEOS_UI_SetToggleFriendsKeyOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /**
-    The new key combination which will be used to toggle the friends overlay.The combination can be any set of modifiers and one key.A value of EOS_UIK_None will cause the key to revert to the default.
+    The new key combination which will be used to toggle the friends overlay.
+    The combination can be any set of modifiers and one key.
+    A value of EOS_UIK_None will cause the key to revert to the default.
     */
     public let KeyCombination: EOS_UI_EKeyCombination
 
@@ -39,7 +41,9 @@ public struct SwiftEOS_UI_SetToggleFriendsKeyOptions: SwiftEOSObject {
     Memberwise initializer
 
     - Parameter ApiVersion: API Version: Set this to EOS_UI_SETTOGGLEFRIENDSKEY_API_LATEST.
-    - Parameter KeyCombination: The new key combination which will be used to toggle the friends overlay.The combination can be any set of modifiers and one key.A value of EOS_UIK_None will cause the key to revert to the default.
+    - Parameter KeyCombination: The new key combination which will be used to toggle the friends overlay.
+    The combination can be any set of modifiers and one key.
+    A value of EOS_UIK_None will cause the key to revert to the default.
     */
     public init(
         ApiVersion: Int32 = EOS_UI_SETTOGGLEFRIENDSKEY_API_LATEST,

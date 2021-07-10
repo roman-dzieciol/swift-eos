@@ -82,7 +82,8 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     /**
     Query for a list of user tokens for joining a room.
 
-    Each query generates a query id ( see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo ) which should be used to retrieve the tokens from inside the callback.
+    Each query generates a query id ( see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo ) which should be used
+    to retrieve the tokens from inside the callback.
 
     This query id and query result itself are only valid for the duration of the callback.
 
@@ -91,7 +92,11 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     - Parameter TargetUserIds: An array of Product User IDs indicating the users to retrieve a token for.
     - Note: ``EOS/_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions/TargetUserIdsCount``:
     The number of users included in the query.
-    - Parameter TargetUserIpAddresses: Array of IP Addresses, one for each of the users we're querying tokens for.There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
+    - Parameter TargetUserIpAddresses: Array of IP Addresses, one for each of the users we're querying tokens for.
+    There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
+    If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
+    IPv4 format: "0.0.0.0"
+    IPv6 format: "0:0:0:0:0:0:0:0"
     - Parameter CompletionDelegate: This function is called when the query join room token operation completes.
     - Returns: EOS_Success if the operation completes successfully
                EOS_InvalidParameters if any of the options are incorrect
@@ -224,7 +229,8 @@ extension SwiftEOS_RTCAdmin_Actor {
     /**
     Query for a list of user tokens for joining a room.
 
-    Each query generates a query id ( see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo ) which should be used to retrieve the tokens from inside the callback.
+    Each query generates a query id ( see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo ) which should be used
+    to retrieve the tokens from inside the callback.
 
     This query id and query result itself are only valid for the duration of the callback.
 

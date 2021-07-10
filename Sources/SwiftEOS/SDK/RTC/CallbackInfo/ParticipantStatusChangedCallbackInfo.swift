@@ -17,10 +17,12 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
     public let ParticipantStatus: EOS_ERTCParticipantStatus
 
     /**
-    The participant metadata items.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    The participant metadata items.
+    This is only set if ParticipantStatus is EOS_RTCPS_Joined
 
     - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
-    The participant metadata items count.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    The participant metadata items count.
+    This is only set if ParticipantStatus is EOS_RTCPS_Joined
     */
     public let ParticipantMetadata: [SwiftEOS_RTC_ParticipantMetadata]?
 
@@ -54,9 +56,11 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
     - Parameter RoomName: The room associated with this event.
     - Parameter ParticipantId: The participant whose status changed.
     - Parameter ParticipantStatus: What status change occurred
-    - Parameter ParticipantMetadata: The participant metadata items.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    - Parameter ParticipantMetadata: The participant metadata items.
+    This is only set if ParticipantStatus is EOS_RTCPS_Joined
     - Note: ``EOS/_tagEOS_RTC_ParticipantStatusChangedCallbackInfo/ParticipantMetadataCount``:
-    The participant metadata items count.This is only set if ParticipantStatus is EOS_RTCPS_Joined
+    The participant metadata items count.
+    This is only set if ParticipantStatus is EOS_RTCPS_Joined
     */
     public init(
         LocalUserId: EOS_ProductUserId?,

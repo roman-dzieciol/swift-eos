@@ -30,7 +30,9 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
     public let EndTime: Int
 
     /**
-    Product User ID for user who is querying user scores.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    Product User ID for user who is querying user scores.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     */
     public let LocalUserId: EOS_ProductUserId?
 
@@ -84,7 +86,9 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
     The number of stats to query
     - Parameter StartTime: An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time
     - Parameter EndTime: An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made before this time
-    - Parameter LocalUserId: Product User ID for user who is querying user scores.Must be set when using a client policy that requires a valid logged in user.Not used for Dedicated Server where no user is available.
+    - Parameter LocalUserId: Product User ID for user who is querying user scores.
+    Must be set when using a client policy that requires a valid logged in user.
+    Not used for Dedicated Server where no user is available.
     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST,

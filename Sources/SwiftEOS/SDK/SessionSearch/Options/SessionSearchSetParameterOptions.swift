@@ -4,7 +4,9 @@ import EOSSDK
 /**
 Input parameters for the EOS_SessionSearch_SetParameter function.
 
-A search key may be set more than once to make multiple comparisons The two comparisons are AND'd together (ie, Key GREATER_THAN 5, Key NOT_EQUALS 10)
+A search key may be set more than once to make multiple comparisons
+The two comparisons are AND'd together
+(ie, Key GREATER_THAN 5, Key NOT_EQUALS 10)
 */
 public struct SwiftEOS_SessionSearch_SetParameterOptions: SwiftEOSObject {
 

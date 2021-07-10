@@ -11,7 +11,9 @@ public struct SwiftEOS_UI_AcknowledgeEventIdOptions: SwiftEOSObject {
     public let UiEventId: EOS_UI_EventId
 
     /**
-    The result to use for the acknowledgment.When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the result code from the JoinSession call.
+    The result to use for the acknowledgment.
+    When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the
+    result code from the JoinSession call.
     */
     public let Result: EOS_EResult
 
@@ -45,7 +47,9 @@ public struct SwiftEOS_UI_AcknowledgeEventIdOptions: SwiftEOSObject {
 
     - Parameter ApiVersion: API Version: Set this to EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST.
     - Parameter UiEventId: The ID being acknowledged.
-    - Parameter Result: The result to use for the acknowledgment.When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the result code from the JoinSession call.
+    - Parameter Result: The result to use for the acknowledgment.
+    When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the
+    result code from the JoinSession call.
     */
     public init(
         ApiVersion: Int32 = EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST,

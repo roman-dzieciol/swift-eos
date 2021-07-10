@@ -19,7 +19,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
 
     This gives you access to the audio data received, allowing for example the implementation of custom filters/effects.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeRender when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeRender when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -27,7 +28,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     - SeeAlso: EOS_RTCAudio_RemoveNotifyAudioBeforeRender
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter RoomName: The  room this event is registered on.
-    - Parameter bUnmixedAudio: Mixed audio or unmixed audio.For unmixed audio notifications it is not supported to modify the samples in the callback.
+    - Parameter bUnmixedAudio: Mixed audio or unmixed audio.
+    For unmixed audio notifications it is not supported to modify the samples in the callback.
     */
     public func AddNotifyAudioBeforeRender(
         LocalUserId: EOS_ProductUserId?,
@@ -50,7 +52,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
 
     This gives you access to the audio data about to be sent, allowing for example the implementation of custom filters/effects.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeSend when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeSend when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -76,7 +79,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     /**
     Register to receive notifications when an audio device is added or removed to the system.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioDevicesChanged when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioDevicesChanged when you no longer wish
+    to have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when an audio device change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -92,7 +96,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     /**
     Register to receive notifications when audio input state changed.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioInputState when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioInputState when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when audio input state changes
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -118,7 +123,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     /**
     Register to receive notifications when audio output state changed.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioOutputState when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioOutputState when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when audio output state changes
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -144,7 +150,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     /**
     Register to receive notifications when a room participant audio status is updated (f.e when speaking flag changes).
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyParticipantUpdated when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyParticipantUpdated when you no longer wish
+    to have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -168,7 +175,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     }
 
     /**
-    Fetches an audio input device's info from then given index. The returned value should not be cached and important information should be copied off of the result object immediately.
+    Fetches an audio input device's info from then given index. The returned value should not be cached and important
+    information should be copied off of the result object immediately.
 
     - Parameter DeviceInfoIndex: Index of the device info to retrieve.
     - Returns: A pointer to the device information, or NULL on error. You should NOT keep hold of this pointer.
@@ -184,7 +192,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     /**
     Returns the number of audio input devices available in the system.
 
-    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioInputDeviceByIndex function.
+    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioInputDeviceByIndex
+    function.
 
     - Returns: The number of audio input devices
     - SeeAlso: EOS_RTCAudio_GetAudioInputDeviceByIndex
@@ -213,7 +222,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
     /**
     Returns the number of audio output devices available in the system.
 
-    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioOutputDeviceByIndex function.
+    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioOutputDeviceByIndex
+    function.
 
     - Returns: The number of audio output devices
     - SeeAlso: EOS_RTCAudio_GetAudioOutputDeviceByIndex
@@ -269,7 +279,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter DeviceId: The device Id to be used for this user. Pass NULL or empty string to use default input device.
-    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0).At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
+    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0).
+    At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
     - Parameter bPlatformAEC: Enable or disable Platform AEC (Acoustic Echo Cancellation) if available.
     - Throws: EOS_InvalidParameters if any of the parameters are incorrect
     */
@@ -292,7 +303,8 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
 
     - Parameter LocalUserId: The Product User ID of the user who initiated this request.
     - Parameter DeviceId: The device Id to be used for this user. Pass NULL or empty string to use default output device.
-    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0). Volume 50 means that the audio volume is not modified and stays in its source value.
+    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0). Volume 50 means that the audio volume is not modified
+    and stays in its source value.
     - Throws: EOS_InvalidParameters if any of the parameters are incorrect
     */
     public func SetAudioOutputSettings(
@@ -386,7 +398,8 @@ extension SwiftEOS_RTCAudio_Actor {
 
     This gives you access to the audio data received, allowing for example the implementation of custom filters/effects.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeRender when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeRender when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -423,7 +436,8 @@ extension SwiftEOS_RTCAudio_Actor {
 
     This gives you access to the audio data about to be sent, allowing for example the implementation of custom filters/effects.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeSend when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioBeforeSend when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -458,7 +472,8 @@ extension SwiftEOS_RTCAudio_Actor {
     /**
     Register to receive notifications when an audio device is added or removed to the system.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioDevicesChanged when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioDevicesChanged when you no longer wish
+    to have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when an audio device change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -492,7 +507,8 @@ extension SwiftEOS_RTCAudio_Actor {
     /**
     Register to receive notifications when audio input state changed.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioInputState when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioInputState when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when audio input state changes
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -527,7 +543,8 @@ extension SwiftEOS_RTCAudio_Actor {
     /**
     Register to receive notifications when audio output state changed.
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioOutputState when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyAudioOutputState when you no longer wish to
+    have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when audio output state changes
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -562,7 +579,8 @@ extension SwiftEOS_RTCAudio_Actor {
     /**
     Register to receive notifications when a room participant audio status is updated (f.e when speaking flag changes).
 
-    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyParticipantUpdated when you no longer wish to have your CompletionDelegate called.
+    If the returned NotificationId is valid, you must call EOS_RTCAudio_RemoveNotifyParticipantUpdated when you no longer wish
+    to have your CompletionDelegate called.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -595,7 +613,8 @@ extension SwiftEOS_RTCAudio_Actor {
     }
 
     /**
-    Fetches an audio input device's info from then given index. The returned value should not be cached and important information should be copied off of the result object immediately.
+    Fetches an audio input device's info from then given index. The returned value should not be cached and important
+    information should be copied off of the result object immediately.
 
     - Parameter Options: structure containing the index being accessed
     - Returns: A pointer to the device information, or NULL on error. You should NOT keep hold of this pointer.
@@ -621,7 +640,8 @@ extension SwiftEOS_RTCAudio_Actor {
     /**
     Returns the number of audio input devices available in the system.
 
-    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioInputDeviceByIndex function.
+    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioInputDeviceByIndex
+    function.
 
     - Returns: The number of audio input devices
     - SeeAlso: EOS_RTCAudio_GetAudioInputDeviceByIndex
@@ -670,7 +690,8 @@ extension SwiftEOS_RTCAudio_Actor {
     /**
     Returns the number of audio output devices available in the system.
 
-    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioOutputDeviceByIndex function.
+    The returned value should not be cached and should instead be used immediately with the EOS_RTCAudio_GetAudioOutputDeviceByIndex
+    function.
 
     - Returns: The number of audio output devices
     - SeeAlso: EOS_RTCAudio_GetAudioOutputDeviceByIndex

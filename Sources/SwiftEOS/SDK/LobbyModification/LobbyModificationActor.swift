@@ -16,7 +16,9 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Associate an attribute with this lobby An attribute is something may be public or private with the lobby.If public, it can be queried for in a search, otherwise the data remains known only to lobby members
+    Associate an attribute with this lobby
+    An attribute is something may be public or private with the lobby.
+    If public, it can be queried for in a search, otherwise the data remains known only to lobby members
 
     - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby
     - Parameter Visibility: Is this attribute public or private to the lobby and its members
@@ -34,7 +36,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Associate an attribute with a member of the lobby Lobby member data is always private to the lobby
+    Associate an attribute with a member of the lobby
+    Lobby member data is always private to the lobby
 
     - Parameter Attribute: Key/Value pair describing the attribute to add to the lobby member
     - Parameter Visibility: Is this attribute public or private to the rest of the lobby members
@@ -78,7 +81,9 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Set the bucket ID associated with this lobby.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
+    Set the bucket ID associated with this lobby.
+    Values such as region, game mode, etc can be combined here depending on game need.
+    Setting this is strongly recommended to improve search performance.
 
     - Parameter BucketId: The new bucket id associated with the lobby
     - Throws: EOS_InvalidParameters if the bucket ID is invalid or null
@@ -91,7 +96,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Allows enabling or disabling invites for this lobby.The lobby will also need to have `bPresenceEnabled` true.
+    Allows enabling or disabling invites for this lobby.
+    The lobby will also need to have `bPresenceEnabled` true.
 
     - Parameter bInvitesAllowed: If true then invites can currently be sent for the associated lobby
     - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -103,7 +109,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Set the maximum number of members allowed in this lobby.When updating the lobby, it is not possible to reduce this number below the current number of existing members
+    Set the maximum number of members allowed in this lobby.
+    When updating the lobby, it is not possible to reduce this number below the current number of existing members
 
     - Parameter MaxMembers: New maximum number of lobby members
     - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -115,7 +122,8 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
     }
 
     /**
-    Set the permissions associated with this lobby.The permissions range from "public" to "invite only" and are described by EOS_ELobbyPermissionLevel
+    Set the permissions associated with this lobby.
+    The permissions range from "public" to "invite only" and are described by EOS_ELobbyPermissionLevel
 
     - Parameter PermissionLevel: Permission level of the lobby
     - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -130,7 +138,9 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
 extension SwiftEOS_LobbyModification_Actor {
 
     /**
-    Associate an attribute with this lobby An attribute is something may be public or private with the lobby.If public, it can be queried for in a search, otherwise the data remains known only to lobby members
+    Associate an attribute with this lobby
+    An attribute is something may be public or private with the lobby.
+    If public, it can be queried for in a search, otherwise the data remains known only to lobby members
 
     - Parameter Options: Options to set the attribute and its visibility state
     - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid
@@ -149,7 +159,8 @@ extension SwiftEOS_LobbyModification_Actor {
     }
 
     /**
-    Associate an attribute with a member of the lobby Lobby member data is always private to the lobby
+    Associate an attribute with a member of the lobby
+    Lobby member data is always private to the lobby
 
     - Parameter Options: Options to set the attribute and its visibility state
     - Throws: EOS_InvalidParameters if the attribute is missing information or otherwise invalid
@@ -206,7 +217,9 @@ extension SwiftEOS_LobbyModification_Actor {
     }
 
     /**
-    Set the bucket ID associated with this lobby.Values such as region, game mode, etc can be combined here depending on game need.Setting this is strongly recommended to improve search performance.
+    Set the bucket ID associated with this lobby.
+    Values such as region, game mode, etc can be combined here depending on game need.
+    Setting this is strongly recommended to improve search performance.
 
     - Parameter Options: Options associated with the bucket ID of the lobby
     - Throws: EOS_InvalidParameters if the bucket ID is invalid or null
@@ -225,7 +238,8 @@ extension SwiftEOS_LobbyModification_Actor {
     }
 
     /**
-    Allows enabling or disabling invites for this lobby.The lobby will also need to have `bPresenceEnabled` true.
+    Allows enabling or disabling invites for this lobby.
+    The lobby will also need to have `bPresenceEnabled` true.
 
     - Parameter Options: Options associated with invites allowed flag for this lobby.
     - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -243,7 +257,8 @@ extension SwiftEOS_LobbyModification_Actor {
     }
 
     /**
-    Set the maximum number of members allowed in this lobby.When updating the lobby, it is not possible to reduce this number below the current number of existing members
+    Set the maximum number of members allowed in this lobby.
+    When updating the lobby, it is not possible to reduce this number below the current number of existing members
 
     - Parameter Options: Options associated with max number of members in this lobby
     - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -261,7 +276,8 @@ extension SwiftEOS_LobbyModification_Actor {
     }
 
     /**
-    Set the permissions associated with this lobby.The permissions range from "public" to "invite only" and are described by EOS_ELobbyPermissionLevel
+    Set the permissions associated with this lobby.
+    The permissions range from "public" to "invite only" and are described by EOS_ELobbyPermissionLevel
 
     - Parameter Options: Options associated with the permission level of the lobby
     - Throws: EOS_IncompatibleVersion if the API version passed in is incorrect

@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-Contains information about a request to purchase a single offer.  This structure is set as part of the EOS_Ecom_CheckoutOptions structure.
+Contains information about a request to purchase a single offer.  This structure is set as part
+of the EOS_Ecom_CheckoutOptions structure.
 */
 public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
 

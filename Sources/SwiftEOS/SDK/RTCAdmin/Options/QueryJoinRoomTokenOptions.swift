@@ -22,7 +22,11 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
     public let TargetUserIds: [EOS_ProductUserId]?
 
     /**
-    Array of IP Addresses, one for each of the users we're querying tokens for.There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
+    Array of IP Addresses, one for each of the users we're querying tokens for.
+    There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
+    If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
+    IPv4 format: "0.0.0.0"
+    IPv6 format: "0:0:0:0:0:0:0:0"
     */
     public let TargetUserIpAddresses: [String]?
 
@@ -72,7 +76,11 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
     - Parameter TargetUserIds: An array of Product User IDs indicating the users to retrieve a token for.
     - Note: ``EOS/_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions/TargetUserIdsCount``:
     The number of users included in the query.
-    - Parameter TargetUserIpAddresses: Array of IP Addresses, one for each of the users we're querying tokens for.There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
+    - Parameter TargetUserIpAddresses: Array of IP Addresses, one for each of the users we're querying tokens for.
+    There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
+    If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
+    IPv4 format: "0.0.0.0"
+    IPv6 format: "0:0:0:0:0:0:0:0"
     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST,

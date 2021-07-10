@@ -14,7 +14,8 @@ public struct SwiftEOS_RTCAudio_SetAudioInputSettingsOptions: SwiftEOSObject {
     public let DeviceId: String?
 
     /**
-    The volume to be configured for this device (range 0.0 to 100.0).At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
+    The volume to be configured for this device (range 0.0 to 100.0).
+    At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
     */
     public let Volume: Float
 
@@ -56,7 +57,8 @@ public struct SwiftEOS_RTCAudio_SetAudioInputSettingsOptions: SwiftEOSObject {
     - Parameter ApiVersion: API Version: Set this to EOS_RTCAUDIO_SETAUDIOINPUTSETTINGS_API_LATEST.
     - Parameter LocalUserId: The Product User ID of the user trying to request this operation.
     - Parameter DeviceId: The device Id to be used for this user. Pass NULL or empty string to use default input device.
-    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0).At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
+    - Parameter Volume: The volume to be configured for this device (range 0.0 to 100.0).
+    At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
     - Parameter bPlatformAEC: Enable or disable Platform AEC (Acoustic Echo Cancellation) if available.
     */
     public init(

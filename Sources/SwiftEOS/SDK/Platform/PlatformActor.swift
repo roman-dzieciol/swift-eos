@@ -19,7 +19,9 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     Checks if the app was launched through the Epic Launcher, and relaunches it through the Epic Launcher if it wasn't.
 
     - Throws: An EOS_EResult is returned to indicate success or an error.
-    EOS_Success is returned if the app is being restarted. You should quit your process as soon as possible.EOS_NoChange is returned if the app was already launched through the Epic Launcher, and no action needs to be taken.EOS_UnexpectedError is returned if the LauncherCheck module failed to initialize, or the module tried and failed to restart the app.
+    EOS_Success is returned if the app is being restarted. You should quit your process as soon as possible.
+    EOS_NoChange is returned if the app was already launched through the Epic Launcher, and no action needs to be taken.
+    EOS_UnexpectedError is returned if the LauncherCheck module failed to initialize, or the module tried and failed to restart the app.
     */
     public func CheckForLauncherAndRestart() throws {
         try ____CheckForLauncherAndRestart()
@@ -37,7 +39,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    This only will return the value set as the override otherwise EOS_NotFound is returned.This is not currently used for anything internally.
+    This only will return the value set as the override otherwise EOS_NotFound is returned.
+    This is not currently used for anything internally.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
     - Throws: An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.
@@ -56,7 +59,9 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Get the active locale code that the SDK will send to services which require it.This returns the override value otherwise it will use the locale code of the given user.This is used for localization. This follows ISO 639.
+    Get the active locale code that the SDK will send to services which require it.
+    This returns the override value otherwise it will use the locale code of the given user.
+    This is used for localization. This follows ISO 639.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
     - Throws: An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.
@@ -196,7 +201,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Get the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
+    Get the override country code that the SDK will send to services which require it.
+    This is not currently used for anything internally.
 
     - Throws: An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.
               EOS_Success if the information is available and passed out in OutBuffer
@@ -211,7 +217,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Get the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
+    Get the override locale code that the SDK will send to services which require it.
+    This is used for localization. This follows ISO 639.
 
     - Throws: An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.
               EOS_Success if the information is available and passed out in OutBuffer
@@ -270,7 +277,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Get a handle to the Real Time Communications Interface (RTC).From the RTC interface you can retrieve the handle to the audio interface (RTCAudio), which is a component of RTC.
+    Get a handle to the Real Time Communications Interface (RTC).
+    From the RTC interface you can retrieve the handle to the audio interface (RTCAudio), which is a component of RTC.
 
     - Returns: EOS_HRTC handle
     - SeeAlso: EOS_RTC_GetAudioInterface
@@ -359,7 +367,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Set the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
+    Set the override country code that the SDK will send to services which require it.
+    This is not currently used for anything internally.
 
     - Throws: An EOS_EResult that indicates whether the override country code string was saved.
               EOS_Success if the country code was overridden
@@ -374,7 +383,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Set the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
+    Set the override locale code that the SDK will send to services which require it.
+    This is used for localization. This follows ISO 639.
 
     - Throws: An EOS_EResult that indicates whether the override locale code string was saved.
               EOS_Success if the locale code was overridden
@@ -389,7 +399,8 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     }
 
     /**
-    Notify the platform instance to do work. This function must be called frequently in order for the services provided by the SDK to properly function. For tick-based applications, it is usually desireable to call this once per-tick.
+    Notify the platform instance to do work. This function must be called frequently in order for the services provided by the SDK to properly
+    function. For tick-based applications, it is usually desireable to call this once per-tick.
     */
     public func Tick() {
         ____Tick()
@@ -402,7 +413,9 @@ extension SwiftEOS_Platform_Actor {
     Checks if the app was launched through the Epic Launcher, and relaunches it through the Epic Launcher if it wasn't.
 
     - Throws: An EOS_EResult is returned to indicate success or an error.
-    EOS_Success is returned if the app is being restarted. You should quit your process as soon as possible.EOS_NoChange is returned if the app was already launched through the Epic Launcher, and no action needs to be taken.EOS_UnexpectedError is returned if the LauncherCheck module failed to initialize, or the module tried and failed to restart the app.
+    EOS_Success is returned if the app is being restarted. You should quit your process as soon as possible.
+    EOS_NoChange is returned if the app was already launched through the Epic Launcher, and no action needs to be taken.
+    EOS_UnexpectedError is returned if the LauncherCheck module failed to initialize, or the module tried and failed to restart the app.
     */
     private func ____CheckForLauncherAndRestart() throws {
         try withPointerManager { pointerManager in
@@ -424,7 +437,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    This only will return the value set as the override otherwise EOS_NotFound is returned.This is not currently used for anything internally.
+    This only will return the value set as the override otherwise EOS_NotFound is returned.
+    This is not currently used for anything internally.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
     - Throws: An EOS_EResult that indicates whether the active country code string was copied into the OutBuffer.
@@ -451,7 +465,9 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Get the active locale code that the SDK will send to services which require it.This returns the override value otherwise it will use the locale code of the given user.This is used for localization. This follows ISO 639.
+    Get the active locale code that the SDK will send to services which require it.
+    This returns the override value otherwise it will use the locale code of the given user.
+    This is used for localization. This follows ISO 639.
 
     - Parameter LocalUserId: The account to use for lookup if no override exists.
     - Throws: An EOS_EResult that indicates whether the active locale code string was copied into the OutBuffer.
@@ -621,7 +637,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Get the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
+    Get the override country code that the SDK will send to services which require it.
+    This is not currently used for anything internally.
 
     - Throws: An EOS_EResult that indicates whether the override country code string was copied into the OutBuffer.
               EOS_Success if the information is available and passed out in OutBuffer
@@ -643,7 +660,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Get the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
+    Get the override locale code that the SDK will send to services which require it.
+    This is used for localization. This follows ISO 639.
 
     - Throws: An EOS_EResult that indicates whether the override locale code string was copied into the OutBuffer.
               EOS_Success if the information is available and passed out in OutBuffer
@@ -717,7 +735,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Get a handle to the Real Time Communications Interface (RTC).From the RTC interface you can retrieve the handle to the audio interface (RTCAudio), which is a component of RTC.
+    Get a handle to the Real Time Communications Interface (RTC).
+    From the RTC interface you can retrieve the handle to the audio interface (RTCAudio), which is a component of RTC.
 
     - Returns: EOS_HRTC handle
     - SeeAlso: EOS_RTC_GetAudioInterface
@@ -822,7 +841,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Set the override country code that the SDK will send to services which require it.This is not currently used for anything internally.
+    Set the override country code that the SDK will send to services which require it.
+    This is not currently used for anything internally.
 
     - Throws: An EOS_EResult that indicates whether the override country code string was saved.
               EOS_Success if the country code was overridden
@@ -848,7 +868,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Set the override locale code that the SDK will send to services which require it.This is used for localization. This follows ISO 639.
+    Set the override locale code that the SDK will send to services which require it.
+    This is used for localization. This follows ISO 639.
 
     - Throws: An EOS_EResult that indicates whether the override locale code string was saved.
               EOS_Success if the locale code was overridden
@@ -874,7 +895,8 @@ extension SwiftEOS_Platform_Actor {
     }
 
     /**
-    Notify the platform instance to do work. This function must be called frequently in order for the services provided by the SDK to properly function. For tick-based applications, it is usually desireable to call this once per-tick.
+    Notify the platform instance to do work. This function must be called frequently in order for the services provided by the SDK to properly
+    function. For tick-based applications, it is usually desireable to call this once per-tick.
     */
     private func ____Tick() {
         withPointerManager { pointerManager in

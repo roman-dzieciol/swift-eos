@@ -11,12 +11,15 @@ public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
     public let RoomName: String?
 
     /**
-    Audio buffer.If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should not modify this buffer.
+    Audio buffer.
+    If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should
+    not modify this buffer.
     */
     public let Buffer: SwiftEOS_RTCAudio_AudioBuffer?
 
     /**
-    The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
+    The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if
+    bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
     */
     public let ParticipantId: EOS_ProductUserId?
 
@@ -46,8 +49,11 @@ public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
 
     - Parameter LocalUserId: The Product User ID of the user who initiated this request.
     - Parameter RoomName: The room associated with this event.
-    - Parameter Buffer: Audio buffer.If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should not modify this buffer.
-    - Parameter ParticipantId: The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
+    - Parameter Buffer: Audio buffer.
+    If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should
+    not modify this buffer.
+    - Parameter ParticipantId: The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if
+    bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
     */
     public init(
         LocalUserId: EOS_ProductUserId?,

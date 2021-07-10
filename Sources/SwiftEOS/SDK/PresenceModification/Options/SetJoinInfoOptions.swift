@@ -8,7 +8,10 @@ public struct SwiftEOS_PresenceModification_SetJoinInfoOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /**
-    The string which will be advertised as this player's join info.An application is expected to freely define the meaning of this string to use for connecting to an active game session.The string should not exceed EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH in length.This affects the ability of the Social Overlay to show game related actions to take in the player's social graph.
+    The string which will be advertised as this player's join info.
+    An application is expected to freely define the meaning of this string to use for connecting to an active game session.
+    The string should not exceed EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH in length.
+    This affects the ability of the Social Overlay to show game related actions to take in the player's social graph.
 
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
@@ -48,7 +51,10 @@ public struct SwiftEOS_PresenceModification_SetJoinInfoOptions: SwiftEOSObject {
     Memberwise initializer
 
     - Parameter ApiVersion: API Version: Set this to EOS_PRESENCEMODIFICATION_SETJOININFO_API_LATEST.
-    - Parameter JoinInfo: The string which will be advertised as this player's join info.An application is expected to freely define the meaning of this string to use for connecting to an active game session.The string should not exceed EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH in length.This affects the ability of the Social Overlay to show game related actions to take in the player's social graph.
+    - Parameter JoinInfo: The string which will be advertised as this player's join info.
+    An application is expected to freely define the meaning of this string to use for connecting to an active game session.
+    The string should not exceed EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH in length.
+    This affects the ability of the Social Overlay to show game related actions to take in the player's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface

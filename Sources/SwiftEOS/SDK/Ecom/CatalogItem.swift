@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-Contains information about a single item within the catalog. Instances of this structure are created by EOS_Ecom_CopyOfferItemByIndex. They must be passed to EOS_Ecom_CatalogItem_Release.
+Contains information about a single item within the catalog. Instances of this structure are created
+by EOS_Ecom_CopyOfferItemByIndex. They must be passed to EOS_Ecom_CatalogItem_Release.
 
 - Note: Release func: ``EOS_Ecom_CatalogItem_Release``
 */

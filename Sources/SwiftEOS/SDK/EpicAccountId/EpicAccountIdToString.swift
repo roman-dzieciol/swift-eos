@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-Retrieve a null-terminated stringified Epic Online Services Account ID from an EOS_EpicAccountId. This is useful for replication of Epic Online Services Account IDs in multiplayer games.This string will be no larger than EOS_EPICACCOUNTID_MAX_LENGTH + 1 and will only contain UTF8-encoded printable characters (excluding the null-terminator).
+Retrieve a null-terminated stringified Epic Online Services Account ID from an EOS_EpicAccountId. This is useful for replication of Epic Online Services Account IDs in multiplayer games.
+This string will be no larger than EOS_EPICACCOUNTID_MAX_LENGTH + 1 and will only contain UTF8-encoded printable characters (excluding the null-terminator).
 
 - Parameter AccountId: The Epic Online Services Account ID for which to retrieve the stringified version.
 - Throws: An EOS_EResult that indicates whether the Epic Online Services Account ID string was copied into the OutBuffer.

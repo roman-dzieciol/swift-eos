@@ -2,7 +2,9 @@ import Foundation
 import EOSSDK
 
 /**
-Intermediate data needed to complete the EOS_LCT_DeviceCode and EOS_LCT_ExternalAuth login flows, returned by EOS_Auth_LoginCallbackInfo.The data inside should be exposed to the user for entry on a secondary device.All data must be copied out before the completion of this callback.
+Intermediate data needed to complete the EOS_LCT_DeviceCode and EOS_LCT_ExternalAuth login flows, returned by EOS_Auth_LoginCallbackInfo.
+The data inside should be exposed to the user for entry on a secondary device.
+All data must be copied out before the completion of this callback.
 */
 public struct SwiftEOS_Auth_PinGrantInfo {
 

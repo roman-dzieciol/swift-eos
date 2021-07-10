@@ -6,7 +6,8 @@ public struct SwiftEOS_AntiCheatServer_BeginSessionOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /**
-    Time in seconds to allow newly registered clients to complete anti-cheat authentication.Recommended value: 60
+    Time in seconds to allow newly registered clients to complete anti-cheat authentication.
+    Recommended value: 60
     */
     public let RegisterTimeoutSeconds: Int
 
@@ -14,7 +15,8 @@ public struct SwiftEOS_AntiCheatServer_BeginSessionOptions: SwiftEOSObject {
     public let ServerName: String?
 
     /**
-    Gameplay data collection APIs such as LogPlayerTick will be enabled if set to true.If you do not use these APIs, it is more efficient to set this value to false.
+    Gameplay data collection APIs such as LogPlayerTick will be enabled if set to true.
+    If you do not use these APIs, it is more efficient to set this value to false.
     */
     public let bEnableGameplayData: Bool
 
@@ -54,9 +56,11 @@ public struct SwiftEOS_AntiCheatServer_BeginSessionOptions: SwiftEOSObject {
     Memberwise initializer
 
     - Parameter ApiVersion: API Version: Set this to EOS_ANTICHEATSERVER_BEGINSESSION_API_LATEST.
-    - Parameter RegisterTimeoutSeconds: Time in seconds to allow newly registered clients to complete anti-cheat authentication.Recommended value: 60
+    - Parameter RegisterTimeoutSeconds: Time in seconds to allow newly registered clients to complete anti-cheat authentication.
+    Recommended value: 60
     - Parameter ServerName: Optional name of this game server
-    - Parameter bEnableGameplayData: Gameplay data collection APIs such as LogPlayerTick will be enabled if set to true.If you do not use these APIs, it is more efficient to set this value to false.
+    - Parameter bEnableGameplayData: Gameplay data collection APIs such as LogPlayerTick will be enabled if set to true.
+    If you do not use these APIs, it is more efficient to set this value to false.
     - Parameter LocalUserId: The Product User ID of the local user who is associated with this session. Dedicated servers should set this to null.
     */
     public init(

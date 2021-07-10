@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-Contains information about a single item ownership associated with an account. This structure is returned as part of the EOS_Ecom_QueryOwnershipCallbackInfo structure.
+Contains information about a single item ownership associated with an account. This structure is
+returned as part of the EOS_Ecom_QueryOwnershipCallbackInfo structure.
 */
 public struct SwiftEOS_Ecom_ItemOwnership {
 

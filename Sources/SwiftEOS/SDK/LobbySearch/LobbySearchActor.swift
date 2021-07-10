@@ -16,7 +16,8 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_LobbySearch_CopySearchResultByIndex is used to immediately retrieve a handle to the lobby information from a given search result.If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
+    EOS_LobbySearch_CopySearchResultByIndex is used to immediately retrieve a handle to the lobby information from a given search result.
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter LobbyIndex: The index of the lobby to retrieve within the completed search query
     - SeeAlso: EOS_LobbySearch_GetSearchResultCount
@@ -33,7 +34,8 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
     }
 
     /**
-    Find lobbies matching the search criteria setup via this lobby search handle.When the operation completes, this handle will have the search results that can be parsed
+    Find lobbies matching the search criteria setup via this lobby search handle.
+    When the operation completes, this handle will have the search results that can be parsed
 
     - Parameter LocalUserId: The Product User ID of the user making the search request
     - Parameter CompletionDelegate: A callback that is fired when the search operation completes, either successfully or in error
@@ -143,7 +145,8 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
 extension SwiftEOS_LobbySearch_Actor {
 
     /**
-    EOS_LobbySearch_CopySearchResultByIndex is used to immediately retrieve a handle to the lobby information from a given search result.If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
+    EOS_LobbySearch_CopySearchResultByIndex is used to immediately retrieve a handle to the lobby information from a given search result.
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid index or a null pointer for the out parameter
@@ -167,7 +170,8 @@ extension SwiftEOS_LobbySearch_Actor {
     }
 
     /**
-    Find lobbies matching the search criteria setup via this lobby search handle.When the operation completes, this handle will have the search results that can be parsed
+    Find lobbies matching the search criteria setup via this lobby search handle.
+    When the operation completes, this handle will have the search results that can be parsed
 
     - Parameter Options: Structure containing information about the search criteria to use
     - Parameter CompletionDelegate: A callback that is fired when the search operation completes, either successfully or in error

@@ -18,11 +18,14 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     Lets the SDK know that the given UI event ID has been acknowledged and should be released.
 
     - Throws: An EOS_EResult is returned to indicate success or an error.
-    EOS_Success is returned if the UI event ID has been acknowledged.EOS_NotFound is returned if the UI event ID does not exist.
+    EOS_Success is returned if the UI event ID has been acknowledged.
+    EOS_NotFound is returned if the UI event ID does not exist.
 
     - SeeAlso: EOS_Presence_JoinGameAcceptedCallbackInfo
     - Parameter UiEventId: The ID being acknowledged.
-    - Parameter Result: The result to use for the acknowledgment.When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the result code from the JoinSession call.
+    - Parameter Result: The result to use for the acknowledgment.
+    When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the
+    result code from the JoinSession call.
     */
     public func AcknowledgeEventId(
         UiEventId: EOS_UI_EventId,
@@ -35,7 +38,8 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     }
 
     /**
-    Register to receive notifications when the overlay display settings are updated.Newly registered handlers will always be called the next tick with the current state.
+    Register to receive notifications when the overlay display settings are updated.
+    Newly registered handlers will always be called the next tick with the current state.
 
     - Note: must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
     - Parameter NotificationFn: A callback that is fired when the overlay display settings are updated.
@@ -69,7 +73,8 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     }
 
     /**
-    Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
+    Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends
+    overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
 
     - Returns: A valid key combination which represent a single key with zero or more modifier keys.
                EOS_UIK_None will be returned if any error occurs.
@@ -99,7 +104,9 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     }
 
     /**
-    Determine if a key combination is valid. A key combinations must have a single key and at least one modifier.The single key must be one of the following: F1 through F12, Space, Backspace, Escape, or Tab.The modifier key must be one or more of the following: Shift, Control, or Alt.
+    Determine if a key combination is valid. A key combinations must have a single key and at least one modifier.
+    The single key must be one of the following: F1 through F12, Space, Backspace, Escape, or Tab.
+    The modifier key must be one or more of the following: Shift, Control, or Alt.
 
     - Parameter KeyCombination: The key to test.
     - Returns: EOS_TRUE if the provided key combination is valid.
@@ -125,9 +132,14 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     }
 
     /**
-    Updates the current Toggle Friends Key.  This key can be used by the user to toggle the friends overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.The provided key should satisfy EOS_UI_IsValidKeyCombination. The value EOS_UIK_None is specially handled by resetting the key binding to the system default.
+    Updates the current Toggle Friends Key.  This key can be used by the user to toggle the friends
+    overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
+    The provided key should satisfy EOS_UI_IsValidKeyCombination. The value EOS_UIK_None is specially handled
+    by resetting the key binding to the system default.
 
-    - Parameter KeyCombination: The new key combination which will be used to toggle the friends overlay.The combination can be any set of modifiers and one key.A value of EOS_UIK_None will cause the key to revert to the default.
+    - Parameter KeyCombination: The new key combination which will be used to toggle the friends overlay.
+    The combination can be any set of modifiers and one key.
+    A value of EOS_UIK_None will cause the key to revert to the default.
     - Throws: EOS_InvalidParameters If any of the options are incorrect.
               EOS_NotConfigured If the overlay is not properly configured.
               EOS_NoChange If the key combination did not change.
@@ -166,7 +178,8 @@ extension SwiftEOS_UI_Actor {
     Lets the SDK know that the given UI event ID has been acknowledged and should be released.
 
     - Throws: An EOS_EResult is returned to indicate success or an error.
-    EOS_Success is returned if the UI event ID has been acknowledged.EOS_NotFound is returned if the UI event ID does not exist.
+    EOS_Success is returned if the UI event ID has been acknowledged.
+    EOS_NotFound is returned if the UI event ID does not exist.
 
     - SeeAlso: EOS_Presence_JoinGameAcceptedCallbackInfo
     */
@@ -183,7 +196,8 @@ extension SwiftEOS_UI_Actor {
     }
 
     /**
-    Register to receive notifications when the overlay display settings are updated.Newly registered handlers will always be called the next tick with the current state.
+    Register to receive notifications when the overlay display settings are updated.
+    Newly registered handlers will always be called the next tick with the current state.
 
     - Note: must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
     - Parameter NotificationFn: A callback that is fired when the overlay display settings are updated.
@@ -246,7 +260,8 @@ extension SwiftEOS_UI_Actor {
     }
 
     /**
-    Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
+    Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends
+    overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
 
     - Returns: A valid key combination which represent a single key with zero or more modifier keys.
                EOS_UIK_None will be returned if any error occurs.
@@ -287,7 +302,9 @@ extension SwiftEOS_UI_Actor {
     }
 
     /**
-    Determine if a key combination is valid. A key combinations must have a single key and at least one modifier.The single key must be one of the following: F1 through F12, Space, Backspace, Escape, or Tab.The modifier key must be one or more of the following: Shift, Control, or Alt.
+    Determine if a key combination is valid. A key combinations must have a single key and at least one modifier.
+    The single key must be one of the following: F1 through F12, Space, Backspace, Escape, or Tab.
+    The modifier key must be one or more of the following: Shift, Control, or Alt.
 
     - Parameter KeyCombination: The key to test.
     - Returns: EOS_TRUE if the provided key combination is valid.
@@ -328,7 +345,10 @@ extension SwiftEOS_UI_Actor {
     }
 
     /**
-    Updates the current Toggle Friends Key.  This key can be used by the user to toggle the friends overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.The provided key should satisfy EOS_UI_IsValidKeyCombination. The value EOS_UIK_None is specially handled by resetting the key binding to the system default.
+    Updates the current Toggle Friends Key.  This key can be used by the user to toggle the friends
+    overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
+    The provided key should satisfy EOS_UI_IsValidKeyCombination. The value EOS_UIK_None is specially handled
+    by resetting the key binding to the system default.
 
     - Parameter Options: Structure containing the key combination to use.
     - Throws: EOS_InvalidParameters If any of the options are incorrect.

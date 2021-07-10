@@ -2,7 +2,8 @@ import Foundation
 import EOSSDK
 
 /**
-A structure that contains an auth token.These structures are created by EOS_Auth_CopyUserAuthToken and must be passed to EOS_Auth_Token_Release.
+A structure that contains an auth token.
+These structures are created by EOS_Auth_CopyUserAuthToken and must be passed to EOS_Auth_Token_Release.
 
 - Note: Release func: ``EOS_Auth_Token_Release``
 */

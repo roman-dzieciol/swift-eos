@@ -24,12 +24,17 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
     public let AttackerPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?
 
     /**
-    True if the damage was applied instantly at the time of attack from the game simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
+    True if the damage was applied instantly at the time of attack from the game
+    simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
     */
     public let bIsHitscanAttack: Bool
 
     /**
-    True if there is a visible line of sight between the attacker and the victim at the time that damage is being applied, false if there is an obstacle like a wall or terrain in the way. For some situations like melee or hitscan weapons this is trivially true, for others like projectiles with simulated physics it may not be e.g. a player could fire a slow moving projectile and then move behind cover before it strikes.
+    True if there is a visible line of sight between the attacker and the victim at the time
+    that damage is being applied, false if there is an obstacle like a wall or terrain in
+    the way. For some situations like melee or hitscan weapons this is trivially
+    true, for others like projectiles with simulated physics it may not be e.g. a player
+    could fire a slow moving projectile and then move behind cover before it strikes.
     */
     public let bHasLineOfSight: Bool
 
@@ -125,8 +130,13 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
     - Parameter AttackerPlayerHandle: Locally unique value used in RegisterClient/RegisterPeer
     - Parameter AttackerPlayerPosition: Attacker player's current world position as a 3D vector
     - Parameter AttackerPlayerViewRotation: Attacker player's view rotation as a quaternion
-    - Parameter bIsHitscanAttack: True if the damage was applied instantly at the time of attack from the game simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
-    - Parameter bHasLineOfSight: True if there is a visible line of sight between the attacker and the victim at the time that damage is being applied, false if there is an obstacle like a wall or terrain in the way. For some situations like melee or hitscan weapons this is trivially true, for others like projectiles with simulated physics it may not be e.g. a player could fire a slow moving projectile and then move behind cover before it strikes.
+    - Parameter bIsHitscanAttack: True if the damage was applied instantly at the time of attack from the game
+    simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
+    - Parameter bHasLineOfSight: True if there is a visible line of sight between the attacker and the victim at the time
+    that damage is being applied, false if there is an obstacle like a wall or terrain in
+    the way. For some situations like melee or hitscan weapons this is trivially
+    true, for others like projectiles with simulated physics it may not be e.g. a player
+    could fire a slow moving projectile and then move behind cover before it strikes.
     - Parameter bIsCriticalHit: True if this was a critical hit that causes extra damage (e.g. headshot)
     - Parameter HitBoneId: Identifier of the victim bone hit in this damage event
     - Parameter DamageTaken: Number of health points that the victim lost due to this damage event

@@ -16,7 +16,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_LobbyDetails_CopyAttributeByIndex is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyAttributeByIndex is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter AttrIndex: The index of the attribute to retrieve
     - SeeAlso: EOS_LobbyDetails_GetAttributeCount
@@ -34,7 +35,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter AttrKey: Name of the attribute
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -51,7 +53,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
 
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
               EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -65,7 +68,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_LobbyDetails_CopyMemberAttributeByIndex is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyMemberAttributeByIndex is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter TargetUserId: The Product User ID of the lobby member
     - Parameter AttrIndex: The index of the attribute to copy
@@ -87,7 +91,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_LobbyDetails_CopyMemberAttributeByKey is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyMemberAttributeByKey is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter TargetUserId: The Product User ID of the lobby member
     - Parameter AttrKey: Name of the attribute to copy
@@ -167,7 +172,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
 extension SwiftEOS_LobbyDetails_Actor {
 
     /**
-    EOS_LobbyDetails_CopyAttributeByIndex is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyAttributeByIndex is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -196,7 +202,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     }
 
     /**
-    EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -225,7 +232,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     }
 
     /**
-    EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyInfo is used to immediately retrieve a copy of lobby information from a given source such as a existing lobby or a search result.
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
 
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
               EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -251,7 +259,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     }
 
     /**
-    EOS_LobbyDetails_CopyMemberAttributeByIndex is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyMemberAttributeByIndex is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -280,7 +289,8 @@ extension SwiftEOS_LobbyDetails_Actor {
     }
 
     /**
-    EOS_LobbyDetails_CopyMemberAttributeByKey is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
+    EOS_LobbyDetails_CopyMemberAttributeByKey is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.
+    If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass a null pointer for the out parameter

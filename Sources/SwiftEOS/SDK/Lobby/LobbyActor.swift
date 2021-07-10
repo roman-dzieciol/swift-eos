@@ -95,9 +95,13 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     /**
     Register to receive notifications of when the RTC Room for a particular lobby has a connection status change.
 
-    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting from the RTC room when a lobby is left or disconnected.
+    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep
+    them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting
+    from the RTC room when a lobby is left or disconnected.
 
-    This notification is entirely informational and requires no action in response by the application. If the connected status is offline (bIsConnected is EOS_FALSE), the connection will automatically attempt to reconnect. The purpose of this notification is to allow applications to show the current connection status of the RTC room when the connection is not established.
+    This notification is entirely informational and requires no action in response by the application. If the connected status is offline
+    (bIsConnected is EOS_FALSE), the connection will automatically attempt to reconnect. The purpose of this notification is to allow
+    applications to show the current connection status of the RTC room when the connection is not established.
 
     Unlike EOS_RTC_AddNotifyDisconnected, EOS_RTC_LeaveRoom should not be called when the RTC room is disconnected.
 
@@ -124,7 +128,8 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_Lobby_CopyLobbyDetailsHandleByInviteId is used to immediately retrieve a handle to the lobby information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
+    EOS_Lobby_CopyLobbyDetailsHandleByInviteId is used to immediately retrieve a handle to the lobby information from after notification of an invite
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter InviteId: The ID of an invitation to join the lobby
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -141,7 +146,8 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     }
 
     /**
-    EOS_Lobby_CopyLobbyDetailsHandleByUiEventId is used to immediately retrieve a handle to the lobby information from after notification of an join game If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
+    EOS_Lobby_CopyLobbyDetailsHandleByUiEventId is used to immediately retrieve a handle to the lobby information from after notification of an join game
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter UiEventId: UI Event associated with the lobby
     - Throws: EOS_InvalidParameters if you pass an invalid ui event ID
@@ -160,12 +166,16 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     /**
     Creates a lobby and adds the user to the lobby membership.  There is no data associated with the lobby at the start and can be added vis EOS_Lobby_UpdateLobbyModification
 
-    If the lobby is successfully created with an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;to block or unblock room participants; to set local audio device settings; and more.
+    If the lobby is successfully created with an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the
+    local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with
+    many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;
+    to block or unblock room participants; to set local audio device settings; and more.
 
     - Parameter LocalUserId: The Product User ID of the local user creating the lobby; this user will automatically join the lobby as its owner
     - Parameter MaxLobbyMembers: The maximum number of users who can be in the lobby at a time
     - Parameter PermissionLevel: The initial permission level of the lobby
-    - Parameter bPresenceEnabled: If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Parameter bPresenceEnabled: If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
@@ -176,12 +186,19 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - SeeAlso: EOS_Sessions_JoinSessionOptions
     - Parameter bAllowInvites: Are members of the lobby allowed to invite others
     - Parameter BucketId: Bucket ID associated with the lobby
-    - Parameter bDisableHostMigration: Is host migration allowed (will the lobby stay open if the original host leaves?)NOTE: EOS_Lobby_PromoteMember is still allowed regardless of this setting
-    - Parameter bEnableRTCRoom: Creates a real-time communication (RTC) room for all members of this lobby. All members of the lobby will automatically join the RTC room when they connect to the lobby and they will automatically leave the RTC room when they leave or are removed from the lobby.While the joining and leaving of the RTC room is automatic, applications will still need to use the EOS RTC interfaces to handle all other functionality for the room.
+    - Parameter bDisableHostMigration: Is host migration allowed (will the lobby stay open if the original host leaves?)
+    NOTE: EOS_Lobby_PromoteMember is still allowed regardless of this setting
+    - Parameter bEnableRTCRoom: Creates a real-time communication (RTC) room for all members of this lobby. All members of the lobby will automatically join the RTC
+    room when they connect to the lobby and they will automatically leave the RTC room when they leave or are removed from the lobby.
+    While the joining and leaving of the RTC room is automatic, applications will still need to use the EOS RTC interfaces to handle all
+    other functionality for the room.
     - SeeAlso: EOS_Lobby_GetRTCRoomName
     - SeeAlso: EOS_Lobby_AddNotifyRTCRoomConnectionChanged
-    - Parameter LocalRTCOptions: (Optional) Allows the local application to set local audio options for the RTC Room if it is enabled. Set this to NULL if the RTC RTC room is disabled or you would like to use the defaults.
-    - Parameter LobbyId: (Optional) Set to a globally unique value to override the backend assignment If not specified the backend service will assign one to the lobby.  Do not mix and match override and non override settings.This value can be of size [EOS_LOBBY_MIN_LOBBYIDOVERRIDE_LENGTH, EOS_LOBBY_MAX_LOBBYIDOVERRIDE_LENGTH]
+    - Parameter LocalRTCOptions: (Optional) Allows the local application to set local audio options for the RTC Room if it is enabled. Set this to NULL if the RTC
+    RTC room is disabled or you would like to use the defaults.
+    - Parameter LobbyId: (Optional) Set to a globally unique value to override the backend assignment
+    If not specified the backend service will assign one to the lobby.  Do not mix and match override and non override settings.
+    This value can be of size [EOS_LOBBY_MIN_LOBBYIDOVERRIDE_LENGTH, EOS_LOBBY_MAX_LOBBYIDOVERRIDE_LENGTH]
     - Parameter CompletionDelegate: A callback that is fired when the create operation completes, either successfully or in error
     - Returns: EOS_Success if the creation completes successfully
                EOS_InvalidParameters if any of the options are incorrect
@@ -218,7 +235,11 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     }
 
     /**
-    Create a lobby search handle.  This handle may be modified to include various search parameters.Searching is possible in three methods, all mutually exclusive - set the lobby ID to find a specific lobby - set the target user ID to find a specific user - set lobby parameters to find an array of lobbies that match the search criteria (not available yet)
+    Create a lobby search handle.  This handle may be modified to include various search parameters.
+    Searching is possible in three methods, all mutually exclusive
+    - set the lobby ID to find a specific lobby
+    - set the target user ID to find a specific user
+    - set lobby parameters to find an array of lobbies that match the search criteria (not available yet)
 
     - Parameter MaxResults: Maximum number of results allowed from the search
     - Throws: EOS_InvalidParameters if any of the options are incorrect
@@ -291,7 +312,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     /**
     Get the name of the RTC room associated with a specific lobby a local user belongs to.
 
-    This value can be used whenever you need a RoomName value in the RTC_* suite of functions. RTC Room Names must not be used with EOS_RTC_JoinRoom, EOS_RTC_LeaveRoom, or EOS_RTC_AddNotifyDisconnected. Doing so will return EOS_AccessDenied or EOS_INVALID_NOTIFICATIONID if used with those functions.
+    This value can be used whenever you need a RoomName value in the RTC_* suite of functions. RTC Room Names must not be used with
+    EOS_RTC_JoinRoom, EOS_RTC_LeaveRoom, or EOS_RTC_AddNotifyDisconnected. Doing so will return EOS_AccessDenied or
+    EOS_INVALID_NOTIFICATIONID if used with those functions.
 
     This function will only succeed when called on a lobby the local user is currently a member of.
 
@@ -316,7 +339,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     /**
     Get the current connection status of the RTC Room for a lobby.
 
-    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting from the RTC room when a lobby is left or disconnected.
+    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep
+    them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting
+    from the RTC room when a lobby is left or disconnected.
 
     This function will only succeed when called on a lobby the local user is currently a member of.
 
@@ -341,11 +366,15 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     /**
     Join a lobby, creating a local instance under a given lobby ID.  Backend will validate various conditions to make sure it is possible to join the lobby.
 
-    If the lobby is successfully join has an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;to block or unblock room participants; to set local audio device settings; and more.
+    If the lobby is successfully join has an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the
+    local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with
+    many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;
+    to block or unblock room participants; to set local audio device settings; and more.
 
     - Parameter LobbyDetailsHandle: The handle of the lobby to join
     - Parameter LocalUserId: The Product User ID of the local user joining the lobby
-    - Parameter bPresenceEnabled: If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Parameter bPresenceEnabled: If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
@@ -355,7 +384,9 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
     - SeeAlso: EOS_Sessions_JoinSessionOptions
-    - Parameter LocalRTCOptions: (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if the specified lobby does not have an RTC Room enabled and will not cause errors.
+    - Parameter LocalRTCOptions: (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if
+    your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if
+    the specified lobby does not have an RTC Room enabled and will not cause errors.
     - Parameter CompletionDelegate: A callback that is fired when the join operation completes, either successfully or in error
     - Returns: EOS_Success if the destroy completes successfully
                EOS_InvalidParameters if any of the options are incorrect
@@ -549,7 +580,8 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     }
 
     /**
-    Creates a lobby modification handle (EOS_HLobbyModification). The lobby modification handle is used to modify an existing lobby and can be applied with EOS_Lobby_UpdateLobby.The EOS_HLobbyModification must be released by calling EOS_LobbyModification_Release once it is no longer needed.
+    Creates a lobby modification handle (EOS_HLobbyModification). The lobby modification handle is used to modify an existing lobby and can be applied with EOS_Lobby_UpdateLobby.
+    The EOS_HLobbyModification must be released by calling EOS_LobbyModification_Release once it is no longer needed.
 
     - Parameter LocalUserId: The ID of the local user making modifications. Must be the owner to modify lobby data, but any lobby member can modify their own attributes.
     - Parameter LobbyId: The ID of the lobby
@@ -761,9 +793,13 @@ extension SwiftEOS_Lobby_Actor {
     /**
     Register to receive notifications of when the RTC Room for a particular lobby has a connection status change.
 
-    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting from the RTC room when a lobby is left or disconnected.
+    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep
+    them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting
+    from the RTC room when a lobby is left or disconnected.
 
-    This notification is entirely informational and requires no action in response by the application. If the connected status is offline (bIsConnected is EOS_FALSE), the connection will automatically attempt to reconnect. The purpose of this notification is to allow applications to show the current connection status of the RTC room when the connection is not established.
+    This notification is entirely informational and requires no action in response by the application. If the connected status is offline
+    (bIsConnected is EOS_FALSE), the connection will automatically attempt to reconnect. The purpose of this notification is to allow
+    applications to show the current connection status of the RTC room when the connection is not established.
 
     Unlike EOS_RTC_AddNotifyDisconnected, EOS_RTC_LeaveRoom should not be called when the RTC room is disconnected.
 
@@ -800,7 +836,8 @@ extension SwiftEOS_Lobby_Actor {
     }
 
     /**
-    EOS_Lobby_CopyLobbyDetailsHandleByInviteId is used to immediately retrieve a handle to the lobby information from after notification of an invite If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
+    EOS_Lobby_CopyLobbyDetailsHandleByInviteId is used to immediately retrieve a handle to the lobby information from after notification of an invite
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid invite ID or a null pointer for the out parameter
@@ -825,7 +862,8 @@ extension SwiftEOS_Lobby_Actor {
     }
 
     /**
-    EOS_Lobby_CopyLobbyDetailsHandleByUiEventId is used to immediately retrieve a handle to the lobby information from after notification of an join game If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
+    EOS_Lobby_CopyLobbyDetailsHandleByUiEventId is used to immediately retrieve a handle to the lobby information from after notification of an join game
+    If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
 
     - Parameter Options: Structure containing the input parameters
     - Throws: EOS_InvalidParameters if you pass an invalid ui event ID
@@ -852,7 +890,10 @@ extension SwiftEOS_Lobby_Actor {
     /**
     Creates a lobby and adds the user to the lobby membership.  There is no data associated with the lobby at the start and can be added vis EOS_Lobby_UpdateLobbyModification
 
-    If the lobby is successfully created with an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;to block or unblock room participants; to set local audio device settings; and more.
+    If the lobby is successfully created with an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the
+    local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with
+    many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;
+    to block or unblock room participants; to set local audio device settings; and more.
 
     - Parameter Options: Required fields for the creation of a lobby such as a user count and its starting advertised state
     - Parameter CompletionDelegate: A callback that is fired when the create operation completes, either successfully or in error
@@ -877,7 +918,11 @@ extension SwiftEOS_Lobby_Actor {
     }
 
     /**
-    Create a lobby search handle.  This handle may be modified to include various search parameters.Searching is possible in three methods, all mutually exclusive - set the lobby ID to find a specific lobby - set the target user ID to find a specific user - set lobby parameters to find an array of lobbies that match the search criteria (not available yet)
+    Create a lobby search handle.  This handle may be modified to include various search parameters.
+    Searching is possible in three methods, all mutually exclusive
+    - set the lobby ID to find a specific lobby
+    - set the target user ID to find a specific user
+    - set lobby parameters to find an array of lobbies that match the search criteria (not available yet)
 
     - Parameter Options: Structure containing required parameters such as the maximum number of search results
     - Throws: EOS_InvalidParameters if any of the options are incorrect
@@ -973,7 +1018,9 @@ extension SwiftEOS_Lobby_Actor {
     /**
     Get the name of the RTC room associated with a specific lobby a local user belongs to.
 
-    This value can be used whenever you need a RoomName value in the RTC_* suite of functions. RTC Room Names must not be used with EOS_RTC_JoinRoom, EOS_RTC_LeaveRoom, or EOS_RTC_AddNotifyDisconnected. Doing so will return EOS_AccessDenied or EOS_INVALID_NOTIFICATIONID if used with those functions.
+    This value can be used whenever you need a RoomName value in the RTC_* suite of functions. RTC Room Names must not be used with
+    EOS_RTC_JoinRoom, EOS_RTC_LeaveRoom, or EOS_RTC_AddNotifyDisconnected. Doing so will return EOS_AccessDenied or
+    EOS_INVALID_NOTIFICATIONID if used with those functions.
 
     This function will only succeed when called on a lobby the local user is currently a member of.
 
@@ -1002,7 +1049,9 @@ extension SwiftEOS_Lobby_Actor {
     /**
     Get the current connection status of the RTC Room for a lobby.
 
-    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting from the RTC room when a lobby is left or disconnected.
+    The RTC Room connection status is independent of the lobby connection status, however the lobby system will attempt to keep
+    them consistent, automatically connecting to the RTC room after joining a lobby which has an associated RTC room and disconnecting
+    from the RTC room when a lobby is left or disconnected.
 
     This function will only succeed when called on a lobby the local user is currently a member of.
 
@@ -1030,7 +1079,10 @@ extension SwiftEOS_Lobby_Actor {
     /**
     Join a lobby, creating a local instance under a given lobby ID.  Backend will validate various conditions to make sure it is possible to join the lobby.
 
-    If the lobby is successfully join has an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;to block or unblock room participants; to set local audio device settings; and more.
+    If the lobby is successfully join has an RTC Room enabled, the lobby system will automatically join and maintain the connection to the RTC room as long as the
+    local user remains in the lobby. Applications can use the EOS_Lobby_GetRTCRoomName to get the name of the RTC Room associated with a lobby, which may be used with
+    many of the EOS_RTC_* suite of functions. This can be useful to: register for notifications for talking status; to mute or unmute the local user's audio output;
+    to block or unblock room participants; to set local audio device settings; and more.
 
     - Parameter Options: Structure containing information about the lobby to be joined
     - Parameter CompletionDelegate: A callback that is fired when the join operation completes, either successfully or in error
@@ -1232,7 +1284,8 @@ extension SwiftEOS_Lobby_Actor {
     }
 
     /**
-    Creates a lobby modification handle (EOS_HLobbyModification). The lobby modification handle is used to modify an existing lobby and can be applied with EOS_Lobby_UpdateLobby.The EOS_HLobbyModification must be released by calling EOS_LobbyModification_Release once it is no longer needed.
+    Creates a lobby modification handle (EOS_HLobbyModification). The lobby modification handle is used to modify an existing lobby and can be applied with EOS_Lobby_UpdateLobby.
+    The EOS_HLobbyModification must be released by calling EOS_LobbyModification_Release once it is no longer needed.
 
     - Parameter Options: Required fields such as lobby ID
     - Throws: EOS_InvalidParameters if any of the options are incorrect

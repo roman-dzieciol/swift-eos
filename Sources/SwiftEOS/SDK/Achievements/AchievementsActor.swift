@@ -246,7 +246,10 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     Query for a list of definitions for all existing achievements, including localized text, icon IDs and whether an achievement is hidden.
 
     - Note: When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
-    - Parameter LocalUserId: Product User ID for user who is querying definitions.The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.The localized text returned can also be overridden using EOS_Platform_SetOverrideLocaleCode to override the locale.If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
+    - Parameter LocalUserId: Product User ID for user who is querying definitions.
+    The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.
+    The localized text returned can also be overridden using EOS_Platform_SetOverrideLocaleCode to override the locale.
+    If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
     - Parameter EpicUserId_DEPRECATED: Deprecated
     - Parameter HiddenAchievementIds_DEPRECATED: Deprecated
     - Note: ``EOS/_tagEOS_Achievements_QueryDefinitionsOptions/HiddenAchievementsCount_DEPRECATED``:

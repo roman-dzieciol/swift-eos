@@ -17,7 +17,8 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     public let LocalUserId: EOS_ProductUserId?
 
     /**
-    If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    If true, this session will be associated with presence. Only one session at a time can have this flag true.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
 
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
@@ -66,7 +67,8 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
     - Parameter SessionName: Name of the session to create after joining session
     - Parameter SessionHandle: Session handle to join
     - Parameter LocalUserId: The Product User ID of the local user who is joining the session
-    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Parameter bPresenceEnabled: If true, this session will be associated with presence. Only one session at a time can have this flag true.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface

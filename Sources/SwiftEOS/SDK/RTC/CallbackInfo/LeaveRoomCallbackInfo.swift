@@ -5,7 +5,10 @@ import EOSSDK
 public struct SwiftEOS_RTC_LeaveRoomCallbackInfo {
 
     /**
-    This returns:EOS_Success if the channel was successfully left.EOS_AccessDenied if the room name belongs to the Lobby voice system.EOS_UnexpectedError otherwise.
+    This returns:
+    EOS_Success if the channel was successfully left.
+    EOS_AccessDenied if the room name belongs to the Lobby voice system.
+    EOS_UnexpectedError otherwise.
     */
     public let ResultCode: EOS_EResult
 
@@ -38,7 +41,10 @@ public struct SwiftEOS_RTC_LeaveRoomCallbackInfo {
     /**
     Memberwise initializer
 
-    - Parameter ResultCode: This returns:EOS_Success if the channel was successfully left.EOS_AccessDenied if the room name belongs to the Lobby voice system.EOS_UnexpectedError otherwise.
+    - Parameter ResultCode: This returns:
+    EOS_Success if the channel was successfully left.
+    EOS_AccessDenied if the room name belongs to the Lobby voice system.
+    EOS_UnexpectedError otherwise.
     - Parameter LocalUserId: The Product User ID of the user who initiated this request.
     - Parameter RoomName: The room the user was trying to leave.
     */

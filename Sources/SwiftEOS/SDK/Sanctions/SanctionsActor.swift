@@ -15,7 +15,9 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
     }
 
     /**
-    Copies an active player sanction.You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.On success, EOS_Sanctions_PlayerSanction_Release must be called on OutSanction to free memory.
+    Copies an active player sanction.
+    You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
+    On success, EOS_Sanctions_PlayerSanction_Release must be called on OutSanction to free memory.
 
     - Parameter TargetUserId: Product User ID of the user whose active sanctions are to be copied
     - Parameter SanctionIndex: Index of the sanction to retrieve from the cache
@@ -36,7 +38,8 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
     }
 
     /**
-    Fetch the number of player sanctions that have been retrieved for a given player.You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
+    Fetch the number of player sanctions that have been retrieved for a given player.
+    You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
 
     - Parameter TargetUserId: Product User ID of the user whose sanction count should be returned
     - SeeAlso: EOS_Sanctions_QueryActivePlayerSanctions
@@ -50,7 +53,8 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
     }
 
     /**
-    Start an asynchronous query to retrieve any active sanctions for a specified user.Call EOS_Sanctions_GetPlayerSanctionCount and EOS_Sanctions_CopyPlayerSanctionByIndex to retrieve the data.
+    Start an asynchronous query to retrieve any active sanctions for a specified user.
+    Call EOS_Sanctions_GetPlayerSanctionCount and EOS_Sanctions_CopyPlayerSanctionByIndex to retrieve the data.
 
     - Parameter TargetUserId: Product User ID of the user whose active sanctions are to be retrieved.
     - Parameter LocalUserId: The Product User ID of the local user who initiated this request. Dedicated servers should set this to null.
@@ -76,7 +80,9 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
 extension SwiftEOS_Sanctions_Actor {
 
     /**
-    Copies an active player sanction.You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.On success, EOS_Sanctions_PlayerSanction_Release must be called on OutSanction to free memory.
+    Copies an active player sanction.
+    You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
+    On success, EOS_Sanctions_PlayerSanction_Release must be called on OutSanction to free memory.
 
     - Parameter Options: Structure containing the input parameters
     - SeeAlso: EOS_Sanctions_QueryActivePlayerSanctions
@@ -104,7 +110,8 @@ extension SwiftEOS_Sanctions_Actor {
     }
 
     /**
-    Fetch the number of player sanctions that have been retrieved for a given player.You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
+    Fetch the number of player sanctions that have been retrieved for a given player.
+    You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
 
     - Parameter Options: Structure containing the input parameters
     - SeeAlso: EOS_Sanctions_QueryActivePlayerSanctions
@@ -128,7 +135,8 @@ extension SwiftEOS_Sanctions_Actor {
     }
 
     /**
-    Start an asynchronous query to retrieve any active sanctions for a specified user.Call EOS_Sanctions_GetPlayerSanctionCount and EOS_Sanctions_CopyPlayerSanctionByIndex to retrieve the data.
+    Start an asynchronous query to retrieve any active sanctions for a specified user.
+    Call EOS_Sanctions_GetPlayerSanctionCount and EOS_Sanctions_CopyPlayerSanctionByIndex to retrieve the data.
 
     - Parameter Options: Structure containing the input parameters
     - Parameter CompletionDelegate: A callback that is fired when the async operation completes, either successfully or in error

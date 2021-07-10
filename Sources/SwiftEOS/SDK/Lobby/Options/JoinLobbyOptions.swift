@@ -14,7 +14,8 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     public let LocalUserId: EOS_ProductUserId?
 
     /**
-    If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
 
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
@@ -29,7 +30,9 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     public let bPresenceEnabled: Bool
 
     /**
-    (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if the specified lobby does not have an RTC Room enabled and will not cause errors.
+    (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if
+    your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if
+    the specified lobby does not have an RTC Room enabled and will not cause errors.
     */
     public let LocalRTCOptions: SwiftEOS_Lobby_LocalRTCOptions?
 
@@ -68,7 +71,8 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     - Parameter ApiVersion: API Version: Set this to EOS_LOBBY_JOINLOBBY_API_LATEST.
     - Parameter LobbyDetailsHandle: The handle of the lobby to join
     - Parameter LocalUserId: The Product User ID of the local user joining the lobby
-    - Parameter bPresenceEnabled: If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+    - Parameter bPresenceEnabled: If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.
+    This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
     - Note: The Social Overlay can handle only one of the following three options at a time:
             * using the bPresenceEnabled flags within the Sessions interface
             * using the bPresenceEnabled flags within the Lobby interface
@@ -78,7 +82,9 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
     - SeeAlso: EOS_Lobby_JoinLobbyOptions
     - SeeAlso: EOS_Sessions_CreateSessionModificationOptions
     - SeeAlso: EOS_Sessions_JoinSessionOptions
-    - Parameter LocalRTCOptions: (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if the specified lobby does not have an RTC Room enabled and will not cause errors.
+    - Parameter LocalRTCOptions: (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if
+    your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if
+    the specified lobby does not have an RTC Room enabled and will not cause errors.
     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_JOINLOBBY_API_LATEST,

@@ -13,14 +13,20 @@ public struct SwiftEOS_Auth_LinkAccountOptions: SwiftEOSObject {
     /**
     Continuance token received from a previous call to the EOS_Auth_Login API.
 
-    A continuance token is received in the case when the external account used for login was not found to be linked against any existing Epic Account. In such case, the application needs to proceed with an account linking operation in which case the user is first asked to create a new account or login into their existing Epic Account, and then link their external account to it.Alternatively, the application may suggest the user to login using another external account that they have already linked to their existing Epic Account.In this flow, the external account is typically the currently logged in local platform user account.It can also be another external user account that the user is offered to login with.
+    A continuance token is received in the case when the external account used for login was not found to be linked
+    against any existing Epic Account. In such case, the application needs to proceed with an account linking operation in which case
+    the user is first asked to create a new account or login into their existing Epic Account, and then link their external account to it.
+    Alternatively, the application may suggest the user to login using another external account that they have already linked to their existing Epic Account.
+    In this flow, the external account is typically the currently logged in local platform user account.
+    It can also be another external user account that the user is offered to login with.
     */
     public let ContinuanceToken: EOS_ContinuanceToken?
 
     /**
     The Epic Online Services Account ID of the logged in local user whose Epic Account will be linked with the local Nintendo NSA ID Account. By default set to NULL.
 
-    This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
+    This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.
+    Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
     */
     public let LocalUserId: EOS_EpicAccountId?
 
@@ -57,9 +63,15 @@ public struct SwiftEOS_Auth_LinkAccountOptions: SwiftEOSObject {
     - Parameter ApiVersion: API Version: Set this to EOS_AUTH_LINKACCOUNT_API_LATEST.
     - Parameter LinkAccountFlags: Combination of the enumeration flags to specify how the account linking operation will be performed.
     - Parameter ContinuanceToken: Continuance token received from a previous call to the EOS_Auth_Login API.
-    A continuance token is received in the case when the external account used for login was not found to be linked against any existing Epic Account. In such case, the application needs to proceed with an account linking operation in which case the user is first asked to create a new account or login into their existing Epic Account, and then link their external account to it.Alternatively, the application may suggest the user to login using another external account that they have already linked to their existing Epic Account.In this flow, the external account is typically the currently logged in local platform user account.It can also be another external user account that the user is offered to login with.
+    A continuance token is received in the case when the external account used for login was not found to be linked
+    against any existing Epic Account. In such case, the application needs to proceed with an account linking operation in which case
+    the user is first asked to create a new account or login into their existing Epic Account, and then link their external account to it.
+    Alternatively, the application may suggest the user to login using another external account that they have already linked to their existing Epic Account.
+    In this flow, the external account is typically the currently logged in local platform user account.
+    It can also be another external user account that the user is offered to login with.
     - Parameter LocalUserId: The Epic Online Services Account ID of the logged in local user whose Epic Account will be linked with the local Nintendo NSA ID Account. By default set to NULL.
-    This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
+    This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.
+    Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_LINKACCOUNT_API_LATEST,

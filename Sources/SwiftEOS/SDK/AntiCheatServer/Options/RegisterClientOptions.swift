@@ -15,12 +15,17 @@ public struct SwiftEOS_AntiCheatServer_RegisterClientOptions: SwiftEOSObject {
     public let ClientPlatform: EOS_EAntiCheatCommonClientPlatform
 
     /**
-    Identifier for the remote user. This is typically a string representation of an account ID, but it can be any string which is both unique (two different users will never have the same string) and consistent (if the same user connects to this game session twice, the same string will be used) in the scope of a single protected game session.
+    Identifier for the remote user. This is typically a string representation of an
+    account ID, but it can be any string which is both unique (two different users will never
+    have the same string) and consistent (if the same user connects to this game session
+    twice, the same string will be used) in the scope of a single protected game session.
     */
     public let AccountId: String?
 
     /**
-    Optional IP address for the remote user. May be null if not available.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
+    Optional IP address for the remote user. May be null if not available.
+    IPv4 format: "0.0.0.0"
+    IPv6 format: "0:0:0:0:0:0:0:0"
     */
     public let IpAddress: String?
 
@@ -62,8 +67,13 @@ public struct SwiftEOS_AntiCheatServer_RegisterClientOptions: SwiftEOSObject {
     - Parameter ClientHandle: Locally unique value describing the remote user (e.g. a player object pointer)
     - Parameter ClientType: Type of remote user being registered
     - Parameter ClientPlatform: Remote user's platform, if known
-    - Parameter AccountId: Identifier for the remote user. This is typically a string representation of an account ID, but it can be any string which is both unique (two different users will never have the same string) and consistent (if the same user connects to this game session twice, the same string will be used) in the scope of a single protected game session.
-    - Parameter IpAddress: Optional IP address for the remote user. May be null if not available.IPv4 format: "0.0.0.0"IPv6 format: "0:0:0:0:0:0:0:0"
+    - Parameter AccountId: Identifier for the remote user. This is typically a string representation of an
+    account ID, but it can be any string which is both unique (two different users will never
+    have the same string) and consistent (if the same user connects to this game session
+    twice, the same string will be used) in the scope of a single protected game session.
+    - Parameter IpAddress: Optional IP address for the remote user. May be null if not available.
+    IPv4 format: "0.0.0.0"
+    IPv6 format: "0:0:0:0:0:0:0:0"
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_REGISTERCLIENT_API_LATEST,

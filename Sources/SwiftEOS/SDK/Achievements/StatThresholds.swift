@@ -4,7 +4,11 @@ import EOSSDK
 /**
 Contains information about a collection of stat threshold data.
 
-The threshold will depend on the stat aggregate type:LATEST (Tracks the latest value)MAX (Tracks the maximum value)MIN (Tracks the minimum value)SUM (Generates a rolling sum of the value)
+The threshold will depend on the stat aggregate type:
+LATEST (Tracks the latest value)
+MAX (Tracks the maximum value)
+MIN (Tracks the minimum value)
+SUM (Generates a rolling sum of the value)
 
 - SeeAlso: EOS_Achievements_Definition
 */

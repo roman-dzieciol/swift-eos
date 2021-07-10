@@ -15,9 +15,11 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     }
 
     /**
-    Register to receive notifications when disconnected from the room. If the returned NotificationId is valid, you must call EOS_RTC_RemoveNotifyDisconnected when you no longer wish to have your CompletionDelegate called.
+    Register to receive notifications when disconnected from the room. If the returned NotificationId is valid, you must call
+    EOS_RTC_RemoveNotifyDisconnected when you no longer wish to have your CompletionDelegate called.
 
-    This function will always return EOS_INVALID_NOTIFICATIONID when used with lobby RTC room. To be notified of the connection status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
+    This function will always return EOS_INVALID_NOTIFICATIONID when used with lobby RTC room. To be notified of the connection
+    status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -41,11 +43,15 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     }
 
     /**
-    Register to receive notifications when a participant's status changes (e.g: join or leave the room). If the returned NotificationId is valid, you must call EOS_RTC_RemoveNotifyParticipantStatusChanged when you no longer wish to have your CompletionDelegate called.
+    Register to receive notifications when a participant's status changes (e.g: join or leave the room). If the returned NotificationId is valid, you must call
+    EOS_RTC_RemoveNotifyParticipantStatusChanged when you no longer wish to have your CompletionDelegate called.
 
-    If you register to this notification before joining a room, you will receive a notification for every member already in the room when you join said room.This allows you to know who is already in the room when you join.
+    If you register to this notification before joining a room, you will receive a notification for every member already in the room when you join said room.
+    This allows you to know who is already in the room when you join.
 
-    To be used effectively with a Lobby-managed RTC room, this should be registered during the EOS_Lobby_CreateLobby or EOS_Lobby_JoinLobby completion callbacks when the ResultCode is EOS_Success. If this notification is registered after that point, it is possible to miss notifications for already-existing room participants.
+    To be used effectively with a Lobby-managed RTC room, this should be registered during the EOS_Lobby_CreateLobby or EOS_Lobby_JoinLobby completion
+    callbacks when the ResultCode is EOS_Success. If this notification is registered after that point, it is possible to miss notifications for
+    already-existing room participants.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -70,7 +76,8 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     }
 
     /**
-    Use this function to block a participant already connected to the room. After blocking them no media will be sent or received between that user and the local user. This method can be used after receiving the OnParticipantStatusChanged notification.
+    Use this function to block a participant already connected to the room. After blocking them no media will be sent or received between
+    that user and the local user. This method can be used after receiving the OnParticipantStatusChanged notification.
 
     - Parameter LocalUserId: Product User ID of the user trying to request this operation.
     - Parameter RoomName: The room the users should be blocked on.
@@ -113,7 +120,8 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     /**
     Use this function to join a room.
 
-    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
+    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will
+    automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
 
     - Parameter LocalUserId: The product user id of the user trying to request this operation.
     - Parameter RoomName: The room the user would like to join.
@@ -121,8 +129,10 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     - Parameter ParticipantToken: Authorization credential token to join the room.
     - Parameter ParticipantId: The participant id used to join the room. If set to NULL the LocalUserId will be used instead.
     - Parameter Flags: Join room flags, e.g. EOS_RTC_JOINROOMFLAGS_ENABLE_ECHO. This is a bitwise-or union of the defined flags.
-    - Parameter bManualAudioInputEnabled: Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio buffers must be passed manually using EOS_RTCAudio_SendAudio.
-    - Parameter bManualAudioOutputEnabled: Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
+    - Parameter bManualAudioInputEnabled: Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio
+    buffers must be passed manually using EOS_RTCAudio_SendAudio.
+    - Parameter bManualAudioOutputEnabled: Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio
+    buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
     */
     public func JoinRoom(
@@ -152,9 +162,11 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     }
 
     /**
-    Use this function to leave a room and clean up all the resources associated with it. This function has to always be called when the room is abandoned even if the user is already disconnected for other reasons.
+    Use this function to leave a room and clean up all the resources associated with it. This function has to always be called when the
+    room is abandoned even if the user is already disconnected for other reasons.
 
-    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
+    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will
+    automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
 
     - Parameter LocalUserId: Product User ID of the user requesting to leave the room
     - Parameter RoomName: The room to leave.
@@ -181,9 +193,11 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
 extension SwiftEOS_RTC_Actor {
 
     /**
-    Register to receive notifications when disconnected from the room. If the returned NotificationId is valid, you must call EOS_RTC_RemoveNotifyDisconnected when you no longer wish to have your CompletionDelegate called.
+    Register to receive notifications when disconnected from the room. If the returned NotificationId is valid, you must call
+    EOS_RTC_RemoveNotifyDisconnected when you no longer wish to have your CompletionDelegate called.
 
-    This function will always return EOS_INVALID_NOTIFICATIONID when used with lobby RTC room. To be notified of the connection status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
+    This function will always return EOS_INVALID_NOTIFICATIONID when used with lobby RTC room. To be notified of the connection
+    status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -216,11 +230,15 @@ extension SwiftEOS_RTC_Actor {
     }
 
     /**
-    Register to receive notifications when a participant's status changes (e.g: join or leave the room). If the returned NotificationId is valid, you must call EOS_RTC_RemoveNotifyParticipantStatusChanged when you no longer wish to have your CompletionDelegate called.
+    Register to receive notifications when a participant's status changes (e.g: join or leave the room). If the returned NotificationId is valid, you must call
+    EOS_RTC_RemoveNotifyParticipantStatusChanged when you no longer wish to have your CompletionDelegate called.
 
-    If you register to this notification before joining a room, you will receive a notification for every member already in the room when you join said room.This allows you to know who is already in the room when you join.
+    If you register to this notification before joining a room, you will receive a notification for every member already in the room when you join said room.
+    This allows you to know who is already in the room when you join.
 
-    To be used effectively with a Lobby-managed RTC room, this should be registered during the EOS_Lobby_CreateLobby or EOS_Lobby_JoinLobby completion callbacks when the ResultCode is EOS_Success. If this notification is registered after that point, it is possible to miss notifications for already-existing room participants.
+    To be used effectively with a Lobby-managed RTC room, this should be registered during the EOS_Lobby_CreateLobby or EOS_Lobby_JoinLobby completion
+    callbacks when the ResultCode is EOS_Success. If this notification is registered after that point, it is possible to miss notifications for
+    already-existing room participants.
 
     - Parameter CompletionDelegate: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -254,7 +272,8 @@ extension SwiftEOS_RTC_Actor {
     }
 
     /**
-    Use this function to block a participant already connected to the room. After blocking them no media will be sent or received between that user and the local user. This method can be used after receiving the OnParticipantStatusChanged notification.
+    Use this function to block a participant already connected to the room. After blocking them no media will be sent or received between
+    that user and the local user. This method can be used after receiving the OnParticipantStatusChanged notification.
 
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -293,7 +312,8 @@ extension SwiftEOS_RTC_Actor {
     /**
     Use this function to join a room.
 
-    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
+    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will
+    automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
 
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error
@@ -315,9 +335,11 @@ extension SwiftEOS_RTC_Actor {
     }
 
     /**
-    Use this function to leave a room and clean up all the resources associated with it. This function has to always be called when the room is abandoned even if the user is already disconnected for other reasons.
+    Use this function to leave a room and clean up all the resources associated with it. This function has to always be called when the
+    room is abandoned even if the user is already disconnected for other reasons.
 
-    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
+    This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will
+    automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
 
     - Parameter Options: structure containing the parameters for the operation.
     - Parameter CompletionDelegate: a callback that is fired when the async operation completes, either successfully or in error

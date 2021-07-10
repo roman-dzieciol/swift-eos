@@ -2,7 +2,9 @@ import Foundation
 import EOSSDK
 
 /**
-Contains information about a single entitlement associated with an account. Instances of this structure are created by EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, or EOS_Ecom_CopyEntitlementById.They must be passed to EOS_Ecom_Entitlement_Release.
+Contains information about a single entitlement associated with an account. Instances of this structure are
+created by EOS_Ecom_CopyEntitlementByIndex, EOS_Ecom_CopyEntitlementByNameAndIndex, or EOS_Ecom_CopyEntitlementById.
+They must be passed to EOS_Ecom_Entitlement_Release.
 
 - Note: Release func: ``EOS_Ecom_Entitlement_Release``
 */
@@ -21,7 +23,8 @@ public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
     public let CatalogItemId: String?
 
     /**
-    If queried using pagination then ServerIndex represents the index of the entitlement as it exists on the server.  If not queried using pagination then ServerIndex will be -1.
+    If queried using pagination then ServerIndex represents the index of the entitlement as it
+    exists on the server.  If not queried using pagination then ServerIndex will be -1.
     */
     public let ServerIndex: Int
 
@@ -71,7 +74,8 @@ public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
     - Parameter EntitlementName: Name of the entitlement
     - Parameter EntitlementId: ID of the entitlement owned by an account
     - Parameter CatalogItemId: ID of the item associated with the offer which granted this entitlement
-    - Parameter ServerIndex: If queried using pagination then ServerIndex represents the index of the entitlement as it exists on the server.  If not queried using pagination then ServerIndex will be -1.
+    - Parameter ServerIndex: If queried using pagination then ServerIndex represents the index of the entitlement as it
+    exists on the server.  If not queried using pagination then ServerIndex will be -1.
     - Parameter bRedeemed: If true then the catalog has this entitlement marked as redeemed
     - Parameter EndTimestamp: If not -1 then this is a POSIX timestamp that this entitlement will end
     */

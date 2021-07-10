@@ -28,7 +28,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     }
 
     /**
-    Register to receive notifications when presence changes. If the returned NotificationId is valid, you must call RemoveNotifyOnPresenceChanged when you no longer wish to have your NotificationHandler called
+    Register to receive notifications when presence changes. If the returned NotificationId is valid, you must call RemoveNotifyOnPresenceChanged when you no longer wish to
+    have your NotificationHandler called
 
     - Parameter NotificationHandler: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -61,7 +62,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     }
 
     /**
-    Creates a presence modification handle. This handle can used to add multiple changes to your presence that can be applied with EOS_Presence_SetPresence.The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
+    Creates a presence modification handle. This handle can used to add multiple changes to your presence that can be applied with EOS_Presence_SetPresence.
+    The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local user's Epic Online Services Account ID
     - Throws: Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
@@ -80,7 +82,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     }
 
     /**
-    Gets a join info custom game-data string for a specific user. This is a helper function for reading the presence data related to how a user can be joined.Its meaning is entirely application dependent.
+    Gets a join info custom game-data string for a specific user. This is a helper function for reading the presence data related to how a user can be joined.
+    Its meaning is entirely application dependent.
 
     This value will be valid only after a QueryPresence call has successfully completed.
 
@@ -122,7 +125,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     }
 
     /**
-    Query a user's presence. This must complete successfully before CopyPresence will have valid results. If HasPresence returns true for a remote user, this does not need to be called.
+    Query a user's presence. This must complete successfully before CopyPresence will have valid results. If HasPresence returns true for a remote
+    user, this does not need to be called.
 
     - Parameter LocalUserId: The Epic Online Services Account ID of the local, logged-in user making the request
     - Parameter TargetUserId: The Epic Online Services Account ID of the user whose presence data you want to retrieve; this value must be either the user making the request, or a friend of that user
@@ -200,7 +204,8 @@ extension SwiftEOS_Presence_Actor {
     }
 
     /**
-    Register to receive notifications when presence changes. If the returned NotificationId is valid, you must call RemoveNotifyOnPresenceChanged when you no longer wish to have your NotificationHandler called
+    Register to receive notifications when presence changes. If the returned NotificationId is valid, you must call RemoveNotifyOnPresenceChanged when you no longer wish to
+    have your NotificationHandler called
 
     - Parameter NotificationHandler: The callback to be fired when a presence change occurs
     - Returns: Notification ID representing the registered callback if successful, an invalid NotificationId if not
@@ -258,7 +263,8 @@ extension SwiftEOS_Presence_Actor {
     }
 
     /**
-    Creates a presence modification handle. This handle can used to add multiple changes to your presence that can be applied with EOS_Presence_SetPresence.The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
+    Creates a presence modification handle. This handle can used to add multiple changes to your presence that can be applied with EOS_Presence_SetPresence.
+    The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
 
     - Parameter Options: Object containing properties related to the user modifying their presence
     - Throws: Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
@@ -285,7 +291,8 @@ extension SwiftEOS_Presence_Actor {
     }
 
     /**
-    Gets a join info custom game-data string for a specific user. This is a helper function for reading the presence data related to how a user can be joined.Its meaning is entirely application dependent.
+    Gets a join info custom game-data string for a specific user. This is a helper function for reading the presence data related to how a user can be joined.
+    Its meaning is entirely application dependent.
 
     This value will be valid only after a QueryPresence call has successfully completed.
 
@@ -336,7 +343,8 @@ extension SwiftEOS_Presence_Actor {
     }
 
     /**
-    Query a user's presence. This must complete successfully before CopyPresence will have valid results. If HasPresence returns true for a remote user, this does not need to be called.
+    Query a user's presence. This must complete successfully before CopyPresence will have valid results. If HasPresence returns true for a remote
+    user, this does not need to be called.
 
     - Parameter Options: Object containing properties related to who is querying presence and for what user
     - Parameter CompletionDelegate: Pointer to a function that handles receiving the completion information

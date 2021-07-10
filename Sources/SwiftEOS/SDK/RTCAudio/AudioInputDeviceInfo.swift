@@ -30,7 +30,14 @@ public struct SwiftEOS_RTCAudio_AudioInputDeviceInfo {
         self.DeviceName = String(cString: sdkObject.DeviceName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_AUDIOINPUTDEVICEINFO_API_LATEST. 
+     * - Parameter bDefaultDevice:  True if this is the default audio input device in the system. 
+     * - Parameter DeviceId:  
+     *  The persistent unique id of the device.
+     * - Parameter DeviceName:  The name of the device
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_AUDIOINPUTDEVICEINFO_API_LATEST,
         bDefaultDevice: Bool,

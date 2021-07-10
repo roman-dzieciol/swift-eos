@@ -33,7 +33,12 @@ public struct SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LobbyId:  The ID of the lobby 
+     * - Parameter TargetUserId:  The Product User ID of the lobby member 
+     * - Parameter CurrentStatus:  Latest status of the user 
+     */
     public init(
         LobbyId: String?,
         TargetUserId: EOS_ProductUserId?,

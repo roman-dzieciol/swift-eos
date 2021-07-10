@@ -40,7 +40,17 @@ public struct SwiftEOS_RTC_DisconnectedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  This returns:
+     * EOS_Success The room was left cleanly.
+     * EOS_NoConnection: There was a network issue connecting to the server (retryable).
+     * EOS_RTC_UserKicked: The user has been kicked by the server (retryable).
+     * EOS_ServiceFailure: A known error occurred during interaction with the server (retryable).
+     * EOS_UnexpectedError Unexpected error (retryable).
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room associated with this event. 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

@@ -43,7 +43,13 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions: SwiftEOSO
         self.AccountType = sdkObject.AccountType
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
+     * - Parameter ExternalAccountId:  External account ID of the user whose information is being retrieved 
+     * - Parameter AccountType:  Account type of the external user info to query 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

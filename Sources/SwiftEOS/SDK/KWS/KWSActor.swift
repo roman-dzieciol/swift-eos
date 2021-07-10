@@ -36,7 +36,8 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Fetch a permission for a given by index for a given local user
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
+     * - Parameter Index:  The index of the permission to get. 
      * - Parameter OutPermission:  the permission for the given index, if it exists and is valid, use EOS_KWS_PermissionStatus_Release when finished
      * 
      * @see EOS_KWS_CreateUser
@@ -48,16 +49,22 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user is not found or the index is invalid
      */
     public func CopyPermissionByIndex(
-        Options: SwiftEOS_KWS_CopyPermissionByIndexOptions
+        LocalUserId: EOS_ProductUserId?,
+        Index: Int
     ) throws -> SwiftEOS_KWS_PermissionStatus? {
-        try ____CopyPermissionByIndex(Options)
+        try ____CopyPermissionByIndex(.init(
+                LocalUserId: LocalUserId,
+                Index: Index
+            ))
     }
 
     /**
      * This interface is not available for general access at this time.
      * Create an account with Kids Web Services and associate it with the local Product User ID
      * 
-     * - Parameter Options:  options required for creating an account such as the local users Product User ID, their data of birth, and parental contact information
+     * - Parameter LocalUserId:  Local user creating a KWS entry 
+     * - Parameter DateOfBirth:  Date of birth in ISO8601 form (YYYY-MM-DD) 
+     * - Parameter ParentEmail:  Parent email 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
@@ -66,11 +73,17 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
     public func CreateUser(
-        Options: SwiftEOS_KWS_CreateUserOptions,
+        LocalUserId: EOS_ProductUserId?,
+        DateOfBirth: String?,
+        ParentEmail: String?,
         CompletionDelegate: @escaping (SwiftEOS_KWS_CreateUserCallbackInfo) -> Void
     ) throws {
         try ____CreateUser(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                DateOfBirth: DateOfBirth,
+                ParentEmail: ParentEmail
+            ),
             CompletionDelegate
         )
     }
@@ -79,7 +92,8 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Fetch the state of a given permission that are cached for a given local user.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter LocalUserId:  The Product User ID of the local user getting permissions 
+     * - Parameter Key:  Permission name to query 
      * - Parameter OutPermission:  the permission for the given key, if it exists and is valid
      * 
      * @see EOS_KWS_CreateUser
@@ -90,23 +104,27 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user or the permission is not found
      */
     public func GetPermissionByKey(
-        Options: SwiftEOS_KWS_GetPermissionByKeyOptions
+        LocalUserId: EOS_ProductUserId?,
+        Key: String?
     ) throws -> EOS_EKWSPermissionStatus? {
-        try ____GetPermissionByKey(Options)
+        try ____GetPermissionByKey(.init(
+                LocalUserId: LocalUserId,
+                Key: Key
+            ))
     }
 
     /**
      * This interface is not available for general access at this time.
      * Fetch the number of permissions found for a given local user
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
      * 
      * @return the number of permissions associated with the given user
      */
     public func GetPermissionsCount(
-        Options: SwiftEOS_KWS_GetPermissionsCountOptions
+        LocalUserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetPermissionsCount(Options)
+        try ____GetPermissionsCount(.init(LocalUserId: LocalUserId))
     }
 
     /**
@@ -131,7 +149,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Query the current state of permissions for a given local Product User ID
      * 
-     * - Parameter Options:  options required for querying permissions such as the local users Product User ID
+     * - Parameter LocalUserId:  Local user querying their permisssions 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
@@ -140,11 +158,11 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
     public func QueryPermissions(
-        Options: SwiftEOS_KWS_QueryPermissionsOptions,
+        LocalUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_KWS_QueryPermissionsCallbackInfo) -> Void
     ) throws {
         try ____QueryPermissions(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }
@@ -153,7 +171,11 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Request new permissions for a given local Product User ID
      * 
-     * - Parameter Options:  options required for updating permissions such as the new list of permissions
+     * - Parameter LocalUserId:  Local user requesting new permisssions 
+     * - Parameter PermissionKeyCount:  The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
+     * - array buffer: PermissionKeys
+     * - Parameter PermissionKeys:  Names of the permissions to request (Setup with KWS) 
+     * - array num: PermissionKeyCount
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
@@ -164,11 +186,17 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_LimitExceeded if the number of permissions exceeds EOS_KWS_MAX_PERMISSIONS, or if any permission name exceeds EOS_KWS_MAX_PERMISSION_LENGTH
      */
     public func RequestPermissions(
-        Options: SwiftEOS_KWS_RequestPermissionsOptions,
+        LocalUserId: EOS_ProductUserId?,
+        PermissionKeyCount: Int,
+        PermissionKeys: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_KWS_RequestPermissionsCallbackInfo) -> Void
     ) throws {
         try ____RequestPermissions(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                PermissionKeyCount: PermissionKeyCount,
+                PermissionKeys: PermissionKeys
+            ),
             CompletionDelegate
         )
     }
@@ -177,7 +205,8 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Update the parent contact information for a given local Product User ID
      * 
-     * - Parameter Options:  options required for updating the contact information such as the new email address
+     * - Parameter LocalUserId:  Local user updating parental information 
+     * - Parameter ParentEmail:  New parent email 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
@@ -186,11 +215,15 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
     public func UpdateParentEmail(
-        Options: SwiftEOS_KWS_UpdateParentEmailOptions,
+        LocalUserId: EOS_ProductUserId?,
+        ParentEmail: String?,
         CompletionDelegate: @escaping (SwiftEOS_KWS_UpdateParentEmailCallbackInfo) -> Void
     ) throws {
         try ____UpdateParentEmail(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                ParentEmail: ParentEmail
+            ),
             CompletionDelegate
         )
     }

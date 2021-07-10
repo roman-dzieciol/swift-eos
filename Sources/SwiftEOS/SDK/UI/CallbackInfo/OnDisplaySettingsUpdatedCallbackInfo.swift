@@ -31,7 +31,13 @@ public struct SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter bIsVisible:  True when any portion of the overlay is visible. 
+     * - Parameter bIsExclusiveInput:  
+     * True when the overlay has switched to exclusive input mode. 
+     * While in exclusive input mode, no keyboard or mouse input will be sent to the game.
+     */
     public init(
         bIsVisible: Bool,
         bIsExclusiveInput: Bool

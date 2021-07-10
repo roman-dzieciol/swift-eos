@@ -42,7 +42,14 @@ public struct SwiftEOS_Connect_LoginOptions: SwiftEOSObject {
         self.UserLoginInfo = try SwiftEOS_Connect_UserLoginInfo.init(sdkObject: sdkObject.UserLoginInfo.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_LOGIN_API_LATEST. 
+     * - Parameter Credentials:  Credentials specified for a given login method 
+     * - Parameter UserLoginInfo:  Additional non-authoritative information about the local user.
+     * This field is required to be set and only used when authenticating the user using Apple, Google, Nintendo Account, Nintendo Service Account, Oculus or the Device ID feature login.
+     * When using other identity providers, set to NULL.
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_LOGIN_API_LATEST,
         Credentials: SwiftEOS_Connect_Credentials?,

@@ -36,7 +36,11 @@ public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CHECKOUTENTRY_API_LATEST. 
+     * - Parameter OfferId:  The ID of the offer to purchase 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_CHECKOUTENTRY_API_LATEST,
         OfferId: String?

@@ -52,7 +52,14 @@ public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
         self.SessionDetails = try SwiftEOS_SessionDetails_Info.init(sdkObject: sdkObject.SessionDetails.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACTIVESESSION_INFO_API_LATEST. 
+     * - Parameter SessionName:  Name of the session 
+     * - Parameter LocalUserId:  The Product User ID of the local user who created or joined the session 
+     * - Parameter State:  Current state of the session 
+     * - Parameter SessionDetails:  Session details 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACTIVESESSION_INFO_API_LATEST,
         SessionName: String?,

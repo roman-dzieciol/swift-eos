@@ -38,7 +38,12 @@ public struct SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions: SwiftEOSO
         self.Filename = String(cString: sdkObject.Filename)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the local user who is requesting file metadata (optional) 
+     * - Parameter Filename:  The file's name to get data for 
+     */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

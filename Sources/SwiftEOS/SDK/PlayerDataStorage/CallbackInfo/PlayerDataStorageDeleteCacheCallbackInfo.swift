@@ -29,7 +29,11 @@ public struct SwiftEOS_PlayerDataStorage_DeleteCacheCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error 
+     * - Parameter LocalUserId:  Product User ID of the local user who initiated this request 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

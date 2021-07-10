@@ -37,7 +37,13 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
+     * - Parameter DisplayName:  Display name of the player being queried. This memory is only valid during the scope of the callback. 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

@@ -29,7 +29,11 @@ public struct SwiftEOS_P2P_OnQueryNATTypeCompleteInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful query, other codes indicate an error 
+     * - Parameter NATType:  The queried NAT type 
+     */
     public init(
         ResultCode: EOS_EResult,
         NATType: EOS_ENATType

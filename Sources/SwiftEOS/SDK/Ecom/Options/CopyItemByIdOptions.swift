@@ -38,7 +38,12 @@ public struct SwiftEOS_Ecom_CopyItemByIdOptions: SwiftEOSObject {
         self.ItemId = String(cString: sdkObject.ItemId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_COPYITEMBYID_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item is being copied 
+     * - Parameter ItemId:  The ID of the item to get. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_COPYITEMBYID_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

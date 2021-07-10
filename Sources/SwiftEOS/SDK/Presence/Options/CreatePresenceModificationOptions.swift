@@ -33,7 +33,11 @@ public struct SwiftEOS_Presence_CreatePresenceModificationOptions: SwiftEOSObjec
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user's Epic Online Services Account ID 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

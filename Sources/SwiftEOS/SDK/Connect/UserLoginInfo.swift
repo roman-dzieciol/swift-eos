@@ -41,7 +41,12 @@ public struct SwiftEOS_Connect_UserLoginInfo: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_USERLOGININFO_API_LATEST. 
+     * - Parameter DisplayName:  The user's display name on the identity provider systems as UTF-8 encoded null-terminated string.
+     * The length of the name can be at maximum up to EOS_CONNECT_USERLOGININFO_DISPLAYNAME_MAX_LENGTH bytes.
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_USERLOGININFO_API_LATEST,
         DisplayName: String?

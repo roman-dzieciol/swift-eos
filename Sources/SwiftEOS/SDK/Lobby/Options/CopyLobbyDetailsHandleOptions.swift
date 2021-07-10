@@ -13,7 +13,12 @@ public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleOptions {
     /** The Product User ID of the local user making the request  */
     public let LocalUserId: EOS_ProductUserId?
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLE_API_LATEST. 
+     * - Parameter LobbyId:  The ID of the lobby 
+     * - Parameter LocalUserId:  The Product User ID of the local user making the request 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_COPYLOBBYDETAILSHANDLE_API_LATEST,
         LobbyId: String?,

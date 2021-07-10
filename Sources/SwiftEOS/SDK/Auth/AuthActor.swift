@@ -58,16 +58,17 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * this function should still be called with the access token before its deletion to make the best effort in attempting to also revoke it on the authentication server.
      * If the function would fail on Console, the caller should still proceed as normal to delete the access token locally as intended.
      * 
-     * - Parameter Options:  structure containing operation input parameters
+     * - Parameter RefreshToken:  A long-lived refresh token that is used with the EOS_LCT_PersistentAuth login type and is to be revoked from the authentication server. Only used on Console platforms.
+     * On Desktop and Mobile platforms, set this parameter to NULL.
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the deletion operation completes, either successfully or in error
      */
     public func DeletePersistentAuth(
-        Options: SwiftEOS_Auth_DeletePersistentAuthOptions,
+        RefreshToken: String?,
         CompletionDelegate: @escaping (SwiftEOS_Auth_DeletePersistentAuthCallbackInfo) -> Void
     ) throws {
         try ____DeletePersistentAuth(
-            Options,
+            .init(RefreshToken: RefreshToken),
             CompletionDelegate
         )
     }
@@ -115,16 +116,33 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * On success, the user will be logged in at the completion of this action.
      * This will commit this external account to the Epic Account and cannot be undone in the SDK.
      * 
-     * - Parameter Options:  structure containing the account credentials to use during the link account operation
+     * - Parameter LinkAccountFlags:  Combination of the enumeration flags to specify how the account linking operation will be performed.
+     * - Parameter ContinuanceToken:  
+     * Continuance token received from a previous call to the EOS_Auth_Login API.
+     * A continuance token is received in the case when the external account used for login was not found to be linked
+     * against any existing Epic Account. In such case, the application needs to proceed with an account linking operation in which case
+     * the user is first asked to create a new account or login into their existing Epic Account, and then link their external account to it.
+     * Alternatively, the application may suggest the user to login using another external account that they have already linked to their existing Epic Account.
+     * In this flow, the external account is typically the currently logged in local platform user account.
+     * It can also be another external user account that the user is offered to login with.
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the logged in local user whose Epic Account will be linked with the local Nintendo NSA ID Account. By default set to NULL.
+     * This parameter is only used and required to be set when EOS_ELinkAccountFlags::EOS_LA_NintendoNsaId is specified.
+     * Otherwise, set to NULL, as the standard account linking and login flow using continuance token will handle logging in the user to their Epic Account.
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the link account operation completes, either successfully or in error
      */
     public func LinkAccount(
-        Options: SwiftEOS_Auth_LinkAccountOptions,
+        LinkAccountFlags: EOS_ELinkAccountFlags,
+        ContinuanceToken: EOS_ContinuanceToken?,
+        LocalUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Auth_LinkAccountCallbackInfo) -> Void
     ) throws {
         try ____LinkAccount(
-            Options,
+            .init(
+                LinkAccountFlags: LinkAccountFlags,
+                ContinuanceToken: ContinuanceToken,
+                LocalUserId: LocalUserId
+            ),
             CompletionDelegate
         )
     }
@@ -132,16 +150,21 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     /**
      * Login/Authenticate with user credentials.
      * 
-     * - Parameter Options:  structure containing the account credentials to use during the login operation
+     * - Parameter Credentials:  Credentials specified for a given login method 
+     * - Parameter ScopeFlags:  Auth scope flags are permissions to request from the user while they are logging in. This is a bitwise-or union of EOS_EAuthScopeFlags flags defined above 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the login operation completes, either successfully or in error
      */
     public func Login(
-        Options: SwiftEOS_Auth_LoginOptions,
+        Credentials: SwiftEOS_Auth_Credentials?,
+        ScopeFlags: EOS_EAuthScopeFlags,
         CompletionDelegate: @escaping (SwiftEOS_Auth_LoginCallbackInfo) -> Void
     ) throws {
         try ____Login(
-            Options,
+            .init(
+                Credentials: Credentials,
+                ScopeFlags: ScopeFlags
+            ),
             CompletionDelegate
         )
     }
@@ -149,16 +172,16 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     /**
      * Signs the player out of the online service.
      * 
-     * - Parameter Options:  structure containing information about which account to log out.
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is being logged out 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the logout operation completes, either successfully or in error
      */
     public func Logout(
-        Options: SwiftEOS_Auth_LogoutOptions,
+        LocalUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Auth_LogoutCallbackInfo) -> Void
     ) throws {
         try ____Logout(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }
@@ -167,16 +190,16 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * Contact the backend service to verify validity of an existing user auth token.
      * This function is intended for server-side use only.
      * 
-     * - Parameter Options:  structure containing information about the auth token being verified
+     * - Parameter AuthToken:  Auth token to verify against the backend service 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the logout operation completes, either successfully or in error
      */
     public func VerifyUserAuth(
-        Options: SwiftEOS_Auth_VerifyUserAuthOptions,
+        AuthToken: SwiftEOS_Auth_Token?,
         CompletionDelegate: @escaping (SwiftEOS_Auth_VerifyUserAuthCallbackInfo) -> Void
     ) throws {
         try ____VerifyUserAuth(
-            Options,
+            .init(AuthToken: AuthToken),
             CompletionDelegate
         )
     }

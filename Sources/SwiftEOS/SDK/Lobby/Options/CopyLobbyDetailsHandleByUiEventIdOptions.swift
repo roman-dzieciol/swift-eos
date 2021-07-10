@@ -33,7 +33,11 @@ public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions: SwiftEOSO
         self.UiEventId = sdkObject.UiEventId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST. 
+     * - Parameter UiEventId:  UI Event associated with the lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST,
         UiEventId: EOS_UI_EventId

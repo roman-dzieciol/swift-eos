@@ -45,7 +45,16 @@ public struct SwiftEOS_RTC_BlockParticipantCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  This returns:
+     * EOS_Success if the channel was successfully blocked.
+     * EOS_UnexpectedError otherwise.
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room the users should be blocked on. 
+     * - Parameter ParticipantId:  The Product User ID of the participant being blocked 
+     * - Parameter bBlocked:  The block state that should have been set 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

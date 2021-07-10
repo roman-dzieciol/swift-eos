@@ -38,7 +38,12 @@ public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST. 
+     * - Parameter StatName:  The name of the stat to query. 
+     * - Parameter Aggregation:  Aggregation used to sort the cached user scores. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_USERSCORESQUERYSTATINFO_API_LATEST,
         StatName: String?,

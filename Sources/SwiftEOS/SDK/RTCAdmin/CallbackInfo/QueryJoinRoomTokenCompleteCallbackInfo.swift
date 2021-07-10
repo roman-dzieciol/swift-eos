@@ -47,7 +47,18 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter RoomName:  Room the request was made for. 
+     * - Parameter ClientBaseUrl:  URL passed to backend to join room. 
+     * - Parameter QueryId:  If the query completed successfully, this contains an identifier that should be used to retrieve the tokens.
+     * This identifier is only valid for the duration of the callback. 
+     * 
+     * @see EOS_RTCAdmin_CopyUserTokenByIndex
+     * @see EOS_RTCAdmin_CopyUserTokenByUserId
+     * - Parameter TokenCount:  How many token received as result of the query 
+     */
     public init(
         ResultCode: EOS_EResult,
         RoomName: String?,

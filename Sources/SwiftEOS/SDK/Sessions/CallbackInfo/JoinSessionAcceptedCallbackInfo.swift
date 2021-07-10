@@ -34,7 +34,14 @@ public struct SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID for the user who initialized the game 
+     * - Parameter UiEventId:  
+     * The UI Event associated with this Join Game event.
+     * This should be used with EOS_Sessions_CopySessionHandleByUiEventId to get a handle to be used
+     * when calling EOS_Sessions_JoinSession.
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         UiEventId: EOS_UI_EventId

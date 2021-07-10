@@ -31,7 +31,11 @@ public struct SwiftEOS_Sessions_UpdateSessionOptions: SwiftEOSObject {
         self.SessionModificationHandle = sdkObject.SessionModificationHandle
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_UPDATESESSION_API_LATEST. 
+     * - Parameter SessionModificationHandle:  Builder handle 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_UPDATESESSION_API_LATEST,
         SessionModificationHandle: EOS_HSessionModification?

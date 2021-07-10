@@ -44,7 +44,16 @@ public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room associated with this event. 
+     * - Parameter Buffer:  Audio buffer.
+     * If bUnmixedAudio was set to true when setting the notifications (aka: you get buffers per participant), then you should
+     * not modify this buffer.
+     * - Parameter ParticipantId:  The Product User ID of the participant if bUnmixedAudio was set to true when setting the notifications, or empty if
+     * bUnmixedAudio was set to false and thus the buffer is the mixed audio of all participants
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

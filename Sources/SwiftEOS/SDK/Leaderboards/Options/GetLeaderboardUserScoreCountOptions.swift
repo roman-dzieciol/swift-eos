@@ -33,7 +33,11 @@ public struct SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions: SwiftEO
         self.StatName = String(cString: sdkObject.StatName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST. 
+     * - Parameter StatName:  Name of stat used to rank leaderboard. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST,
         StatName: String?

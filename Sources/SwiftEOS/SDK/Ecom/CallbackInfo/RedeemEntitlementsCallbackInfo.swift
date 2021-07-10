@@ -29,7 +29,11 @@ public struct SwiftEOS_Ecom_RedeemEntitlementsCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, otherwise one of the error codes is returned. See eos_common.h 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who has redeemed entitlements 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?

@@ -58,7 +58,15 @@ public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
         self.`Type` = sdkObject.`Type`
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_MODS_MODINFO_API_LATEST. 
+     * - Parameter ModsCount:  The count of enumerated mods 
+     * - array buffer: Mods
+     * - Parameter Mods:  The array of enumerated mods or NULL if no such type of mods were enumerated 
+     * - array num: ModsCount
+     * - Parameter `Type`:  Type of the mods 
+     */
     public init(
         ApiVersion: Int32 = EOS_MODS_MODINFO_API_LATEST,
         ModsCount: Int,

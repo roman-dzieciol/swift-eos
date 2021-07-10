@@ -47,7 +47,13 @@ public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
         self.DisplayName = String(cString: sdkObject.DisplayName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_EXTERNALUSERINFO_API_LATEST. 
+     * - Parameter AccountType:  The type of the external account 
+     * - Parameter AccountId:  The ID of the external account. Can be null 
+     * - Parameter DisplayName:  The display name of the external account. Can be null 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_EXTERNALUSERINFO_API_LATEST,
         AccountType: EOS_EExternalAccountType,

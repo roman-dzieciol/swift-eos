@@ -29,7 +29,11 @@ public struct SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LobbyId:  The ID of the lobby 
+     * - Parameter TargetUserId:  The Product User ID of the lobby member 
+     */
     public init(
         LobbyId: String?,
         TargetUserId: EOS_ProductUserId?

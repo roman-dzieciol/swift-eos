@@ -46,7 +46,14 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObjec
         self.AbilityCooldownMs = try safeNumericCast(exactly: sdkObject.AbilityCooldownMs)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST. 
+     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter AbilityId:  Game defined unique identifier for the ability being used 
+     * - Parameter AbilityDurationMs:  Duration of the ability effect in milliseconds. If not applicable, use 0. 
+     * - Parameter AbilityCooldownMs:  Cooldown until the ability can be used again in milliseconds. If not applicable, use 0. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST,
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,

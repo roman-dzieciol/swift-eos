@@ -43,7 +43,13 @@ public struct SwiftEOS_AntiCheatCommon_Quat: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter w:  W component - scalar part 
+     * - Parameter x:  X component - forward direction 
+     * - Parameter y:  Y component - right direction 
+     * - Parameter z:  Z component - up direction 
+     */
     public init(
         w: Float,
         x: Float,

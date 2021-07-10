@@ -33,7 +33,11 @@ public struct SwiftEOS_Achievements_GetPlayerAchievementCountOptions: SwiftEOSOb
         self.UserId = sdkObject.UserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST. 
+     * - Parameter UserId:  The Product User ID for the user whose achievement count is being retrieved. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST,
         UserId: EOS_ProductUserId?

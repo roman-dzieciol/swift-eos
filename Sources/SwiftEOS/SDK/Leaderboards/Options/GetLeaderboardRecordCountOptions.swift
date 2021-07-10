@@ -26,7 +26,10 @@ public struct SwiftEOS_Leaderboards_GetLeaderboardRecordCountOptions: SwiftEOSOb
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_GETLEADERBOARDRECORDCOUNT_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_GETLEADERBOARDRECORDCOUNT_API_LATEST
     ) {

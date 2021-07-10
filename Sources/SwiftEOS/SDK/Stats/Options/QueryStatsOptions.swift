@@ -68,7 +68,18 @@ public struct SwiftEOS_Stats_QueryStatsOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_QUERYSTATS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting the stats. Set to null for dedicated server. 
+     * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). 
+     * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). 
+     * - Parameter StatNames:  An array of stat names to query for (Optional). 
+     * - array num: StatNamesCount
+     * - Parameter StatNamesCount:  The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
+     * - array buffer: StatNames
+     * - Parameter TargetUserId:  The Product User ID for the user whose stats are being retrieved 
+     */
     public init(
         ApiVersion: Int32 = EOS_STATS_QUERYSTATS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -26,13 +26,23 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTCAudio_RemoveNotifyAudioBeforeRender
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
+     * - Parameter bUnmixedAudio:  Mixed audio or unmixed audio.
+     * For unmixed audio notifications it is not supported to modify the samples in the callback.
      */
     public func AddNotifyAudioBeforeRender(
-        Options: inout SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        bUnmixedAudio: Bool,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo> {
         try ____AddNotifyAudioBeforeRender(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                bUnmixedAudio: bUnmixedAudio
+            ),
             CompletionDelegate
         )
     }
@@ -49,13 +59,19 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTCAudio_RemoveNotifyAudioBeforeSend
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
      */
     public func AddNotifyAudioBeforeSend(
-        Options: inout SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo> {
         try ____AddNotifyAudioBeforeSend(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -89,13 +105,19 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTCAudio_RemoveNotifyAudioInputState
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this event is registered on. 
      */
     public func AddNotifyAudioInputState(
-        Options: inout SwiftEOS_RTCAudio_AddNotifyAudioInputStateOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioInputStateCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioInputStateCallbackInfo> {
         try ____AddNotifyAudioInputState(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -111,13 +133,19 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTCAudio_RemoveNotifyAudioOutputState
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
      */
     public func AddNotifyAudioOutputState(
-        Options: inout SwiftEOS_RTCAudio_AddNotifyAudioOutputStateOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioOutputStateCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioOutputStateCallbackInfo> {
         try ____AddNotifyAudioOutputState(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -133,13 +161,19 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTCAudio_RemoveNotifyParticipantUpdated
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
      */
     public func AddNotifyParticipantUpdated(
-        Options: inout SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo> {
         try ____AddNotifyParticipantUpdated(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -148,15 +182,15 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * Fetches an audio input device's info from then given index. The returned value should not be cached and important
      * information should be copied off of the result object immediately.
      * 
-     * - Parameter Options:  structure containing the index being accessed
+     * - Parameter DeviceInfoIndex:  Index of the device info to retrieve. 
      * @return A pointer to the device information, or NULL on error. You should NOT keep hold of this pointer.
      * @see EOS_RTCAudio_GetAudioInputDevicesCount
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
      */
     public func GetAudioInputDeviceByIndex(
-        Options: SwiftEOS_RTCAudio_GetAudioInputDeviceByIndexOptions
+        DeviceInfoIndex: Int
     ) throws -> SwiftEOS_RTCAudio_AudioInputDeviceInfo? {
-        try ____GetAudioInputDeviceByIndex(Options)
+        try ____GetAudioInputDeviceByIndex(.init(DeviceInfoIndex: DeviceInfoIndex))
     }
 
     /**
@@ -177,15 +211,15 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * Fetches an audio output device's info from then given index.
      * The returned value should not be cached and important information should be copied off of the result object immediately.
      * 
-     * - Parameter Options:  structure containing the index being accessed
+     * - Parameter DeviceInfoIndex:  Index of the device info to retrieve. 
      * @return A pointer to the device information, or NULL on error. You should NOT keep hold of this pointer.
      * @see EOS_RTCAudio_GetAudioOutputDevicesCount
      * @see EOS_RTCAudio_AddNotifyAudioDevicesChanged
      */
     public func GetAudioOutputDeviceByIndex(
-        Options: SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions
+        DeviceInfoIndex: Int
     ) throws -> SwiftEOS_RTCAudio_AudioOutputDeviceInfo? {
-        try ____GetAudioOutputDeviceByIndex(Options)
+        try ____GetAudioOutputDeviceByIndex(.init(DeviceInfoIndex: DeviceInfoIndex))
     }
 
     /**
@@ -206,20 +240,24 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * Use this function to inform the audio system of a user.
      * This function is only necessary for some platforms.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter UserId:  Platform dependent user id. 
      * @return EOS_Success if the user was successfully registered, EOS_UnexpectedError otherwise.
      */
     public func RegisterPlatformAudioUser(
-        Options: SwiftEOS_RTCAudio_RegisterPlatformAudioUserOptions
+        UserId: String?
     ) throws {
-        try ____RegisterPlatformAudioUser(Options)
+        try ____RegisterPlatformAudioUser(.init(UserId: UserId))
     }
 
     /**
      * Use this function to push a new audio buffer to be sent to the participants of a room.
      * This should only be used if Manual Audio Input was enabled locally for the specified room.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
+     * - Parameter Buffer:  Audio buffer, which must have a duration of 10 ms.
+     * 
+     * @note The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
      * @return EOS_Success if the buffer was successfully queued for sending
      *         EOS_InvalidParameters if any of the parameters are incorrect
      *         EOS_NotFound if the specified room was not found
@@ -228,47 +266,74 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * @see EOS_Lobby_LocalRTCOptions
      */
     public func SendAudio(
-        Options: SwiftEOS_RTCAudio_SendAudioOptions
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        Buffer: SwiftEOS_RTCAudio_AudioBuffer?
     ) throws {
-        try ____SendAudio(Options)
+        try ____SendAudio(.init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                Buffer: Buffer
+            ))
     }
 
     /**
      * Use this function to set audio input settings, such as the active input device, volume, or platform AEC.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter DeviceId:  The device Id to be used for this user. Pass NULL or empty string to use default input device. 
+     * - Parameter Volume:  The volume to be configured for this device (range 0.0 to 100.0).
+     * At the moment, the only value that produce any effect is 0.0 (silence). Any other value is ignored and causes no change to the volume.
+     * - Parameter bPlatformAEC:  Enable or disable Platform AEC (Acoustic Echo Cancellation) if available. 
      * @return EOS_Success if the setting was successful
      *         EOS_InvalidParameters if any of the parameters are incorrect
      */
     public func SetAudioInputSettings(
-        Options: SwiftEOS_RTCAudio_SetAudioInputSettingsOptions
+        LocalUserId: EOS_ProductUserId?,
+        DeviceId: String?,
+        Volume: Float,
+        bPlatformAEC: Bool
     ) throws {
-        try ____SetAudioInputSettings(Options)
+        try ____SetAudioInputSettings(.init(
+                LocalUserId: LocalUserId,
+                DeviceId: DeviceId,
+                Volume: Volume,
+                bPlatformAEC: bPlatformAEC
+            ))
     }
 
     /**
      * Use this function to set audio output settings, such as the active output device or volume.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter DeviceId:  The device Id to be used for this user. Pass NULL or empty string to use default output device. 
+     * - Parameter Volume:  The volume to be configured for this device (range 0.0 to 100.0). Volume 50 means that the audio volume is not modified
+     * and stays in its source value.
      * @return EOS_Success if the setting was successful
      *         EOS_InvalidParameters if any of the parameters are incorrect
      */
     public func SetAudioOutputSettings(
-        Options: SwiftEOS_RTCAudio_SetAudioOutputSettingsOptions
+        LocalUserId: EOS_ProductUserId?,
+        DeviceId: String?,
+        Volume: Float
     ) throws {
-        try ____SetAudioOutputSettings(Options)
+        try ____SetAudioOutputSettings(.init(
+                LocalUserId: LocalUserId,
+                DeviceId: DeviceId,
+                Volume: Volume
+            ))
     }
 
     /**
      * Use this function to remove a user that was added with EOS_RTCAudio_RegisterPlatformAudioUser.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter UserId:  The account of a user associated with this event. 
      * @return EOS_Success if the user was successfully unregistered, EOS_UnexpectedError otherwise.
      */
     public func UnregisterPlatformAudioUser(
-        Options: SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions
+        UserId: String?
     ) throws {
-        try ____UnregisterPlatformAudioUser(Options)
+        try ____UnregisterPlatformAudioUser(.init(UserId: UserId))
     }
 
     /**
@@ -276,7 +341,10 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @note Due to internal implementation details, this function requires that you first register to any notification for room
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this settings should be applied on. 
+     * - Parameter ParticipantId:  The participant to modify or null to update the global configuration 
+     * - Parameter bAudioEnabled:  Mute or unmute audio track 
      * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when the operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
@@ -284,11 +352,19 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      *         EOS_NotFound if either the local user or specified participant are not in the room
      */
     public func UpdateReceiving(
-        Options: SwiftEOS_RTCAudio_UpdateReceivingOptions,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        ParticipantId: EOS_ProductUserId?,
+        bAudioEnabled: Bool,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_UpdateReceivingCallbackInfo) -> Void
     ) throws {
         try ____UpdateReceiving(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                ParticipantId: ParticipantId,
+                bAudioEnabled: bAudioEnabled
+            ),
             CompletionDelegate
         )
     }
@@ -298,7 +374,9 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      * 
      * @note Due to internal implementation details, this function requires that you first register to any notification for room
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this settings should be applied on. 
+     * - Parameter AudioStatus:  Muted or unmuted audio track status 
      * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  The callback to be fired when the operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
@@ -306,11 +384,17 @@ public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
      *         EOS_NotFound if the local user is not in the room
      */
     public func UpdateSending(
-        Options: SwiftEOS_RTCAudio_UpdateSendingOptions,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        AudioStatus: EOS_ERTCAudioStatus,
         CompletionDelegate: @escaping (SwiftEOS_RTCAudio_UpdateSendingCallbackInfo) -> Void
     ) throws {
         try ____UpdateSending(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                AudioStatus: AudioStatus
+            ),
             CompletionDelegate
         )
     }
@@ -332,7 +416,7 @@ extension SwiftEOS_RTCAudio_Actor {
      * @see EOS_RTCAudio_RemoveNotifyAudioBeforeRender
      */
     private func ____AddNotifyAudioBeforeRender(
-        _ Options: inout SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions?,
+        _ Options: SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -340,7 +424,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioBeforeRender(
                             Handle,
                             Options,
@@ -370,7 +454,7 @@ extension SwiftEOS_RTCAudio_Actor {
      * @see EOS_RTCAudio_RemoveNotifyAudioBeforeSend
      */
     private func ____AddNotifyAudioBeforeSend(
-        _ Options: inout SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendOptions?,
+        _ Options: SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -378,7 +462,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioBeforeSend(
                             Handle,
                             Options,
@@ -443,7 +527,7 @@ extension SwiftEOS_RTCAudio_Actor {
      * @see EOS_RTCAudio_RemoveNotifyAudioInputState
      */
     private func ____AddNotifyAudioInputState(
-        _ Options: inout SwiftEOS_RTCAudio_AddNotifyAudioInputStateOptions?,
+        _ Options: SwiftEOS_RTCAudio_AddNotifyAudioInputStateOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioInputStateCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioInputStateCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -451,7 +535,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioInputState(
                             Handle,
                             Options,
@@ -480,7 +564,7 @@ extension SwiftEOS_RTCAudio_Actor {
      * @see EOS_RTCAudio_RemoveNotifyAudioOutputState
      */
     private func ____AddNotifyAudioOutputState(
-        _ Options: inout SwiftEOS_RTCAudio_AddNotifyAudioOutputStateOptions?,
+        _ Options: SwiftEOS_RTCAudio_AddNotifyAudioOutputStateOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTCAudio_AudioOutputStateCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioOutputStateCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -488,7 +572,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioOutputState(
                             Handle,
                             Options,
@@ -517,7 +601,7 @@ extension SwiftEOS_RTCAudio_Actor {
      * @see EOS_RTCAudio_RemoveNotifyParticipantUpdated
      */
     private func ____AddNotifyParticipantUpdated(
-        _ Options: inout SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedOptions?,
+        _ Options: SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -525,7 +609,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyParticipantUpdated(
                             Handle,
                             Options,

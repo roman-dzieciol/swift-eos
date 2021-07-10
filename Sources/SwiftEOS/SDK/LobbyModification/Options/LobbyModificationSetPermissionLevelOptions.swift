@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyModification_SetPermissionLevelOptions: SwiftEOSObje
         self.PermissionLevel = sdkObject.PermissionLevel
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST. 
+     * - Parameter PermissionLevel:  Permission level of the lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST,
         PermissionLevel: EOS_ELobbyPermissionLevel

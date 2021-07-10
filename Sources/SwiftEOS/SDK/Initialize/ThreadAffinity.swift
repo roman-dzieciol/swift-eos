@@ -56,7 +56,15 @@ public struct SwiftEOS_Initialize_ThreadAffinity: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_INITIALIZE_THREADAFFINITY_API_LATEST. 
+     * - Parameter NetworkWork:  Any thread related to network management that is not IO. 
+     * - Parameter StorageIo:  Any thread that will interact with a storage device. 
+     * - Parameter WebSocketIo:  Any thread that will generate web socket IO. 
+     * - Parameter P2PIo:  Any thread that will generate IO related to P2P traffic and mangement. 
+     * - Parameter HttpRequestIo:  Any thread that will generate http request IO. 
+     */
     public init(
         ApiVersion: Int32 = EOS_INITIALIZE_THREADAFFINITY_API_LATEST,
         NetworkWork: UInt64,

@@ -47,7 +47,15 @@ public struct SwiftEOS_RTCAudio_SendAudioOptions: SwiftEOSObject {
         self.Buffer = try SwiftEOS_RTCAudio_AudioBuffer.init(sdkObject: sdkObject.Buffer.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_SENDAUDIO_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
+     * - Parameter Buffer:  Audio buffer, which must have a duration of 10 ms.
+     * 
+     * @note The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_SENDAUDIO_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

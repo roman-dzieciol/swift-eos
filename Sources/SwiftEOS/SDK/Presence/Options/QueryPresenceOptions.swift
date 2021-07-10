@@ -38,7 +38,12 @@ public struct SwiftEOS_Presence_QueryPresenceOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_QUERYPRESENCE_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose presence data you want to retrieve; this value must be either the user making the request, or a friend of that user 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_QUERYPRESENCE_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

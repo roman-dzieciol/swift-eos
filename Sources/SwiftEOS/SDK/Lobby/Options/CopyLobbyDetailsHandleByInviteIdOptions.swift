@@ -33,7 +33,11 @@ public struct SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions: SwiftEOSOb
         self.InviteId = String(cString: sdkObject.InviteId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYINVITEID_API_LATEST. 
+     * - Parameter InviteId:  The ID of an invitation to join the lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYINVITEID_API_LATEST,
         InviteId: String?

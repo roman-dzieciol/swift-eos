@@ -43,7 +43,13 @@ public struct SwiftEOS_PlayerDataStorage_DuplicateFileOptions: SwiftEOSObject {
         self.DestinationFilename = String(cString: sdkObject.DestinationFilename)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who authorized the duplication of the requested file; must be the original file's owner 
+     * - Parameter SourceFilename:  The name of the existing file to duplicate 
+     * - Parameter DestinationFilename:  The name of the new file 
+     */
     public init(
         ApiVersion: Int32 = EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -33,7 +33,11 @@ public struct SwiftEOS_Friends_GetFriendsCountOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friends should be counted 
+     */
     public init(
         ApiVersion: Int32 = EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

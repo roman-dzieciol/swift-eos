@@ -19,7 +19,8 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
      * On success, EOS_Sanctions_PlayerSanction_Release must be called on OutSanction to free memory.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be copied 
+     * - Parameter SanctionIndex:  Index of the sanction to retrieve from the cache 
      * - Parameter OutSanction:  The player sanction data for the given index, if it exists and is valid
      * 
      * @see EOS_Sanctions_QueryActivePlayerSanctions
@@ -30,16 +31,20 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      *         EOS_NotFound if the player achievement is not found
      */
     public func CopyPlayerSanctionByIndex(
-        Options: SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions
+        TargetUserId: EOS_ProductUserId?,
+        SanctionIndex: Int
     ) throws -> SwiftEOS_Sanctions_PlayerSanction? {
-        try ____CopyPlayerSanctionByIndex(Options)
+        try ____CopyPlayerSanctionByIndex(.init(
+                TargetUserId: TargetUserId,
+                SanctionIndex: SanctionIndex
+            ))
     }
 
     /**
      * Fetch the number of player sanctions that have been retrieved for a given player.
      * You must call QueryActivePlayerSanctions first to retrieve the data from the service backend.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter TargetUserId:  Product User ID of the user whose sanction count should be returned 
      * 
      * @see EOS_Sanctions_QueryActivePlayerSanctions
      * @see EOS_Sanctions_CopyPlayerSanctionByIndex
@@ -47,16 +52,17 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * @return Number of available sanctions for this player.
      */
     public func GetPlayerSanctionCount(
-        Options: SwiftEOS_Sanctions_GetPlayerSanctionCountOptions
+        TargetUserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetPlayerSanctionCount(Options)
+        try ____GetPlayerSanctionCount(.init(TargetUserId: TargetUserId))
     }
 
     /**
      * Start an asynchronous query to retrieve any active sanctions for a specified user.
      * Call EOS_Sanctions_GetPlayerSanctionCount and EOS_Sanctions_CopyPlayerSanctionByIndex to retrieve the data.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be retrieved. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request. Dedicated servers should set this to null. 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the async operation completes, either successfully or in error
      * 
@@ -64,11 +70,15 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * @see EOS_Sanctions_CopyPlayerSanctionByIndex
      */
     public func QueryActivePlayerSanctions(
-        Options: SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions,
+        TargetUserId: EOS_ProductUserId?,
+        LocalUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo) -> Void
     ) throws {
         try ____QueryActivePlayerSanctions(
-            Options,
+            .init(
+                TargetUserId: TargetUserId,
+                LocalUserId: LocalUserId
+            ),
             CompletionDelegate
         )
     }

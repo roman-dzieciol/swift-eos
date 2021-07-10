@@ -58,7 +58,16 @@ public struct SwiftEOS_Connect_QueryExternalAccountMappingsOptions: SwiftEOSObje
         self.ExternalAccountIdCount = try safeNumericCast(exactly: sdkObject.ExternalAccountIdCount)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
+     * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
+     * - Parameter ExternalAccountIds:  An array of external account IDs to map to the product user ID representation. 
+     * - array num: ExternalAccountIdCount
+     * - Parameter ExternalAccountIdCount:  Number of account IDs to query. 
+     * - array buffer: ExternalAccountIds
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

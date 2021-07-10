@@ -42,7 +42,12 @@ public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_DATARECORD_API_LATEST. 
+     * - Parameter Key:  The name of this data 
+     * - Parameter Value:  The value of this data 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_DATARECORD_API_LATEST,
         Key: String?,

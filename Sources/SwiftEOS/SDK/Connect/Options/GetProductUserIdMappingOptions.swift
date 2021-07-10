@@ -43,7 +43,13 @@ public struct SwiftEOS_Connect_GetProductUserIdMappingOptions: SwiftEOSObject {
         self.TargetProductUserId = sdkObject.TargetProductUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_GETPRODUCTUSERIDMAPPING_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user that is querying account mappings. 
+     * - Parameter AccountIdType:  External auth service mapping to retrieve. 
+     * - Parameter TargetProductUserId:  The Product User ID of the user whose information is being requested. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_GETPRODUCTUSERIDMAPPING_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

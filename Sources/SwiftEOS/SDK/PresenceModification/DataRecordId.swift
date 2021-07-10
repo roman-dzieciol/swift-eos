@@ -33,7 +33,11 @@ public struct SwiftEOS_PresenceModification_DataRecordId: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST. 
+     * - Parameter Key:  The key to be deleted from the data record 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_DATARECORDID_API_LATEST,
         Key: String?

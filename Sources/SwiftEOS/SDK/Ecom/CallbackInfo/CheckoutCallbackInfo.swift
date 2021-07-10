@@ -33,7 +33,12 @@ public struct SwiftEOS_Ecom_CheckoutCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, otherwise one of the error codes is returned. See eos_common.h 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who initiated the purchase 
+     * - Parameter TransactionId:  The transaction ID which can be used to obtain an EOS_Ecom_HTransaction using EOS_Ecom_CopyTransactionById. 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

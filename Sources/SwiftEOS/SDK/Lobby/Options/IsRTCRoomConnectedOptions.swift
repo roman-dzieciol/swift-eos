@@ -36,7 +36,12 @@ public struct SwiftEOS_Lobby_IsRTCRoomConnectedOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST 
+     * - Parameter LobbyId:  The ID of the lobby to get the RTC Room name for 
+     * - Parameter LocalUserId:  The Product User ID of the local user in the lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST,
         LobbyId: String?,

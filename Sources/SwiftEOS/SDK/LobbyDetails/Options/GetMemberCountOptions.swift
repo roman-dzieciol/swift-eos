@@ -26,7 +26,10 @@ public struct SwiftEOS_LobbyDetails_GetMemberCountOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_GETMEMBERCOUNT_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_GETMEMBERCOUNT_API_LATEST
     ) {

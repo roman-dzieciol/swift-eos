@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions: SwiftEOSObject {
         self.AttrKey = String(cString: sdkObject.AttrKey)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST. 
+     * - Parameter AttrKey:  Name of the attribute 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST,
         AttrKey: String?

@@ -17,16 +17,21 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     /**
      * Starts an asynchronous task that accepts a friend invitation from another user. The completion delegate is executed after the backend response has been received.
      * 
-     * - Parameter Options:  structure containing the logged in account and the inviting account
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is accepting the friends list invitation 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who sent the friends list invitation 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func AcceptInvite(
-        Options: SwiftEOS_Friends_AcceptInviteOptions,
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Friends_AcceptInviteCallbackInfo) -> Void
     ) throws {
         try ____AcceptInvite(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }
@@ -50,36 +55,42 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * The Epic Online Services Account ID returned by this function may belong to an account that has been invited to be a friend or that has invited the local user to be a friend.
      * To determine if the Epic Online Services Account ID returned by this function is a friend or a pending friend invitation, use the EOS_Friends_GetStatus function.
      * 
-     * - Parameter Options:  structure containing the Epic Online Services Account ID of the owner of the friends list and the index into the list
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being queried 
+     * - Parameter Index:  Index into the friend list. This value must be between 0 and EOS_Friends_GetFriendsCount-1 inclusively. 
      * @return the Epic Online Services Account ID of the friend. Note that if the index provided is out of bounds, the returned Epic Online Services Account ID will be a "null" account ID.
      * 
      * @see EOS_Friends_GetFriendsCount
      * @see EOS_Friends_GetStatus
      */
     public func GetFriendAtIndex(
-        Options: SwiftEOS_Friends_GetFriendAtIndexOptions
+        LocalUserId: EOS_EpicAccountId?,
+        Index: Int
     ) throws -> EOS_EpicAccountId {
-        try ____GetFriendAtIndex(Options)
+        try ____GetFriendAtIndex(.init(
+                LocalUserId: LocalUserId,
+                Index: Index
+            ))
     }
 
     /**
      * Retrieves the number of friends on the friends list that has already been retrieved by the EOS_Friends_QueryFriends API.
      * 
-     * - Parameter Options:  structure containing the Epic Online Services Account ID of user who owns the friends list
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friends should be counted 
      * @return the number of friends on the list
      * 
      * @see EOS_Friends_GetFriendAtIndex
      */
     public func GetFriendsCount(
-        Options: SwiftEOS_Friends_GetFriendsCountOptions
+        LocalUserId: EOS_EpicAccountId?
     ) throws -> Int {
-        try ____GetFriendsCount(Options)
+        try ____GetFriendsCount(.init(LocalUserId: LocalUserId))
     }
 
     /**
      * Retrieve the friendship status between the local user and another user.
      * 
-     * - Parameter Options:  structure containing the Epic Online Services Account ID of the friend list to check and the account of the user to test friendship status
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged in user 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose friendship status with the local user is being queried 
      * @return A value indicating whether the two accounts have a friendship, pending invites in either direction, or no relationship
      *         EOS_FS_Friends is returned for two users that have confirmed friendship
      *         EOS_FS_InviteSent is returned when the local user has sent a friend invitation but the other user has not accepted or rejected it
@@ -89,9 +100,13 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * @see EOS_EFriendsStatus
      */
     public func GetStatus(
-        Options: SwiftEOS_Friends_GetStatusOptions
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?
     ) throws -> EOS_EFriendsStatus {
-        try ____GetStatus(Options)
+        try ____GetStatus(.init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ))
     }
 
     /**
@@ -99,16 +114,16 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * 
      * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
-     * - Parameter Options:  structure containing the account for which to retrieve the friends list
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user whose friends list you want to retrieve 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func QueryFriends(
-        Options: SwiftEOS_Friends_QueryFriendsOptions,
+        LocalUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Friends_QueryFriendsCallbackInfo) -> Void
     ) throws {
         try ____QueryFriends(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }
@@ -116,16 +131,21 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     /**
      * Starts an asynchronous task that rejects a friend invitation from another user. The completion delegate is executed after the backend response has been received.
      * 
-     * - Parameter Options:  structure containing the logged in account and the inviting account
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is rejecting a friends list invitation 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who sent the friends list invitation 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func RejectInvite(
-        Options: SwiftEOS_Friends_RejectInviteOptions,
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Friends_RejectInviteCallbackInfo) -> Void
     ) throws {
         try ____RejectInvite(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }
@@ -134,16 +154,21 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
      * Starts an asynchronous task that sends a friend invitation to another user. The completion delegate is executed after the backend response has been received.
      * It does not indicate that the target user has responded to the friend invitation.
      * 
-     * - Parameter Options:  structure containing the account to send the invite from and the account to send the invite to
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is sending the friends list invitation 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who is receiving the friends list invitation 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func SendInvite(
-        Options: SwiftEOS_Friends_SendInviteOptions,
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Friends_SendInviteCallbackInfo) -> Void
     ) throws {
         try ____SendInvite(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }

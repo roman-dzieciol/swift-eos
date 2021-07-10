@@ -33,7 +33,12 @@ public struct SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the user who received the invite 
+     * - Parameter TargetUserId:  The Product User ID of the user who sent the invitation 
+     * - Parameter InviteId:  Invite ID used to retrieve the actual session details 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         TargetUserId: EOS_ProductUserId?,

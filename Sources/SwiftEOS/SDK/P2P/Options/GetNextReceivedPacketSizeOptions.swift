@@ -38,7 +38,12 @@ public struct SwiftEOS_P2P_GetNextReceivedPacketSizeOptions: SwiftEOSObject {
         self.RequestedChannel = sdkObject.RequestedChannel.pointee
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_GETNEXTRECEIVEDPACKETSIZE_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who is receiving the packet 
+     * - Parameter RequestedChannel:  An optional channel to request the data for. If NULL, we're retrieving the size of the next packet on any channel. 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_GETNEXTRECEIVEDPACKETSIZE_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

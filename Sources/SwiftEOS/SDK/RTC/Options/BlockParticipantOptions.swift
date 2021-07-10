@@ -48,7 +48,14 @@ public struct SwiftEOS_RTC_BlockParticipantOptions: SwiftEOSObject {
         self.bBlocked = try swiftBoolFromEosBool(sdkObject.bBlocked)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTC_BLOCKPARTICIPANT_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room the users should be blocked on. 
+     * - Parameter ParticipantId:  Product User ID of the participant to block 
+     * - Parameter bBlocked:  Block or unblock the participant 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTC_BLOCKPARTICIPANT_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

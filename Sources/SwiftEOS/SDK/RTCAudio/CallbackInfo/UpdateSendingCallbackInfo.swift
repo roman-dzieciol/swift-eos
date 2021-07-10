@@ -41,7 +41,15 @@ public struct SwiftEOS_RTCAudio_UpdateSendingCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  This returns:
+     * EOS_Success if the channel was successfully blocked.
+     * EOS_UnexpectedError otherwise.
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room this settings should be applied on. 
+     * - Parameter AudioStatus:  Muted or unmuted audio track status 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

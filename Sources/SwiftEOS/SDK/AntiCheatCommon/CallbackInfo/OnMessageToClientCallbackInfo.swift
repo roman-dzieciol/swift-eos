@@ -42,7 +42,14 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientHandle:  The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions. 
+     * - Parameter MessageData:  The message data that must be sent to the client 
+     * - array num: MessageDataSizeBytes
+     * - Parameter MessageDataSizeBytes:  The size in bytes of MessageData 
+     * - array buffer: MessageData
+     */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         MessageData: [UInt8]?,

@@ -24,7 +24,10 @@ public struct SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedOptions: SwiftEOS
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_ADDNOTIFYLOBBYMEMBERUPDATERECEIVED_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_ADDNOTIFYLOBBYMEMBERUPDATERECEIVED_API_LATEST
     ) {

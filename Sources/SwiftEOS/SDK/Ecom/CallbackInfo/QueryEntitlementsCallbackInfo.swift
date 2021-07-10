@@ -27,7 +27,10 @@ public struct SwiftEOS_Ecom_QueryEntitlementsCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement was queried 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?

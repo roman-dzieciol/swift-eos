@@ -26,7 +26,12 @@ public struct SwiftEOS_Ecom_ItemOwnership {
         self.OwnershipStatus = sdkObject.OwnershipStatus
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_ITEMOWNERSHIP_API_LATEST. 
+     * - Parameter Id:  ID of the catalog item 
+     * - Parameter OwnershipStatus:  Is this catalog item owned by the local user 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_ITEMOWNERSHIP_API_LATEST,
         Id: String?,

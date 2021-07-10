@@ -36,7 +36,11 @@ public struct SwiftEOS_Metrics_EndPlayerSessionOptions: SwiftEOSObject {
         self.AccountId = sdkObject.AccountId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_METRICS_ENDPLAYERSESSION_API_LATEST. 
+     * - Parameter AccountIdType:  The Account ID type that is set in the union. 
+     */
     public init(
         ApiVersion: Int32 = EOS_METRICS_ENDPLAYERSESSION_API_LATEST,
         AccountIdType: EOS_EMetricsAccountIdType,

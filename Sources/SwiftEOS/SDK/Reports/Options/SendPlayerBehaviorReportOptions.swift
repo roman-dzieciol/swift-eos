@@ -62,7 +62,20 @@ public struct SwiftEOS_Reports_SendPlayerBehaviorReportOptions: SwiftEOSObject {
         self.Context = String(cString: sdkObject.Context)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_REPORTS_SENDPLAYERBEHAVIORREPORT_API_LATEST. 
+     * - Parameter ReporterUserId:  Product User ID of the reporting player 
+     * - Parameter ReportedUserId:  Product User ID of the reported player. 
+     * - Parameter Category:  Category for the player report. 
+     * - Parameter Message:  Optional plain text string associated with the report as UTF-8 encoded null-terminated string.
+     * The length of the message can be at maximum up to EOS_REPORTS_REPORTMESSAGE_MAX_LENGTH bytes
+     * and any excess characters will be truncated upon sending the report.
+     * - Parameter Context:  Optional JSON string associated with the report as UTF-8 encoded null-terminated string.
+     * This is intended as a way to associate arbitrary structured context information with a report.
+     * This string needs to be valid JSON, report will fail otherwise.
+     * The length of the context can be at maximum up to EOS_REPORTS_REPORTCONTEXT_MAX_LENGTH bytes, not including the null terminator, report will fail otherwise.
+     */
     public init(
         ApiVersion: Int32 = EOS_REPORTS_SENDPLAYERBEHAVIORREPORT_API_LATEST,
         ReporterUserId: EOS_ProductUserId?,

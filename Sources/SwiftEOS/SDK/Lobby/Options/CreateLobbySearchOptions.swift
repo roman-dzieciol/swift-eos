@@ -33,7 +33,11 @@ public struct SwiftEOS_Lobby_CreateLobbySearchOptions: SwiftEOSObject {
         self.MaxResults = try safeNumericCast(exactly: sdkObject.MaxResults)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST. 
+     * - Parameter MaxResults:  Maximum number of results allowed from the search 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST,
         MaxResults: Int

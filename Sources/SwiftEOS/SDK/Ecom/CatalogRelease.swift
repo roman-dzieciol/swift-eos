@@ -78,7 +78,19 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
         self.ReleaseNote = String(cString: sdkObject.ReleaseNote)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CATALOGRELEASE_API_LATEST. 
+     * - Parameter CompatibleAppIdCount:  The number of APP IDs 
+     * - array buffer: CompatibleAppIds
+     * - Parameter CompatibleAppIds:  A list of compatible APP IDs 
+     * - array num: CompatibleAppIdCount
+     * - Parameter CompatiblePlatformCount:  The number of platforms 
+     * - array buffer: CompatiblePlatforms
+     * - Parameter CompatiblePlatforms:  A list of compatible Platforms 
+     * - array num: CompatiblePlatformCount
+     * - Parameter ReleaseNote:  Release note for compatible versions 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_CATALOGRELEASE_API_LATEST,
         CompatibleAppIdCount: Int,

@@ -31,7 +31,18 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileDataCallbackInfo {
      */
     public let DataChunk: [UInt8]?
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientData:  Client-specified data passed into the file request 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request 
+     * - Parameter Filename:  The file name being read 
+     * - Parameter TotalFileSizeBytes:  The total file size of the file being read 
+     * - Parameter bIsLastChunk:  Is this chunk the last chunk of data? 
+     * - Parameter DataChunkLengthBytes:  The length of DataChunk in bytes that can be safely read 
+     * - array buffer: DataChunk
+     * - Parameter DataChunk:  Pointer to the start of data to be read 
+     * - array num: DataChunkLengthBytes
+     */
     public init(
         ClientData: UnsafeMutableRawPointer?,
         LocalUserId: EOS_ProductUserId?,

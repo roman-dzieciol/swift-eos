@@ -43,7 +43,12 @@ public struct SwiftEOS_SessionSearch_SetParameterOptions: SwiftEOSObject {
         self.ComparisonOp = sdkObject.ComparisonOp
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. 
+     * - Parameter Parameter:  Search parameter describing a key and a value to compare 
+     * - Parameter ComparisonOp:  The type of comparison to make against the search parameter 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,
         Parameter: SwiftEOS_Sessions_AttributeData?,

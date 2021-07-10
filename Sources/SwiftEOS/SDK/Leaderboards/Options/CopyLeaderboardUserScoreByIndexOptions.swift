@@ -38,7 +38,12 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions: Swif
         self.StatName = String(cString: sdkObject.StatName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST. 
+     * - Parameter LeaderboardUserScoreIndex:  Index of the sorted leaderboard user score to retrieve from the cache. 
+     * - Parameter StatName:  Name of the stat used to rank the leaderboard. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST,
         LeaderboardUserScoreIndex: Int,

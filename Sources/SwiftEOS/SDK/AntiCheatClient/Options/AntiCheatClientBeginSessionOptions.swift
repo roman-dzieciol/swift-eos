@@ -36,7 +36,12 @@ public struct SwiftEOS_AntiCheatClient_BeginSessionOptions: SwiftEOSObject {
         self.Mode = sdkObject.Mode
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST. 
+     * - Parameter LocalUserId:  Logged in user identifier from earlier call to EOS_Connect_Login family of functions 
+     * - Parameter Mode:  Operating mode 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

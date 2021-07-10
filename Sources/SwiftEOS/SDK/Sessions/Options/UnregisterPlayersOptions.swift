@@ -52,7 +52,15 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
         self.PlayersToUnregisterCount = try safeNumericCast(exactly: sdkObject.PlayersToUnregisterCount)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST. 
+     * - Parameter SessionName:  Name of the session for which to unregister players 
+     * - Parameter PlayersToUnregister:  Array of players to unregister from the session 
+     * - array num: PlayersToUnregisterCount
+     * - Parameter PlayersToUnregisterCount:  Number of players in the array 
+     * - array buffer: PlayersToUnregister
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST,
         SessionName: String?,

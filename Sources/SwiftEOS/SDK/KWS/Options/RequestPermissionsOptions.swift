@@ -53,7 +53,15 @@ public struct SwiftEOS_KWS_RequestPermissionsOptions: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_REQUESTPERMISSIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Local user requesting new permisssions 
+     * - Parameter PermissionKeyCount:  The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
+     * - array buffer: PermissionKeys
+     * - Parameter PermissionKeys:  Names of the permissions to request (Setup with KWS) 
+     * - array num: PermissionKeyCount
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_REQUESTPERMISSIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

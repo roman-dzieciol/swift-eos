@@ -33,7 +33,11 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions: SwiftE
         self.UserId = sdkObject.UserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST. 
+     * - Parameter UserId:  Leaderboard data will be copied from the cache if it relates to the user matching this Product User ID 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST,
         UserId: EOS_ProductUserId?

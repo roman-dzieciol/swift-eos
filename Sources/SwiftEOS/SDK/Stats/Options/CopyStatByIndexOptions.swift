@@ -38,7 +38,12 @@ public struct SwiftEOS_Stats_CopyStatByIndexOptions: SwiftEOSObject {
         self.StatIndex = try safeNumericCast(exactly: sdkObject.StatIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_COPYSTATBYINDEX_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID of the user who owns the stat 
+     * - Parameter StatIndex:  Index of the stat to retrieve from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_STATS_COPYSTATBYINDEX_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

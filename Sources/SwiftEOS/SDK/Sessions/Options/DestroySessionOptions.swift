@@ -33,7 +33,11 @@ public struct SwiftEOS_Sessions_DestroySessionOptions: SwiftEOSObject {
         self.SessionName = String(cString: sdkObject.SessionName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_DESTROYSESSION_API_LATEST. 
+     * - Parameter SessionName:  Name of the session to destroy 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_DESTROYSESSION_API_LATEST,
         SessionName: String?

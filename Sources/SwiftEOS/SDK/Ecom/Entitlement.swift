@@ -67,7 +67,17 @@ public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
         self.EndTimestamp = try safeNumericCast(exactly: sdkObject.EndTimestamp)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_ENTITLEMENT_API_LATEST. 
+     * - Parameter EntitlementName:  Name of the entitlement 
+     * - Parameter EntitlementId:  ID of the entitlement owned by an account 
+     * - Parameter CatalogItemId:  ID of the item associated with the offer which granted this entitlement 
+     * - Parameter ServerIndex:  If queried using pagination then ServerIndex represents the index of the entitlement as it
+     * exists on the server.  If not queried using pagination then ServerIndex will be -1.
+     * - Parameter bRedeemed:  If true then the catalog has this entitlement marked as redeemed 
+     * - Parameter EndTimestamp:  If not -1 then this is a POSIX timestamp that this entitlement will end 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_ENTITLEMENT_API_LATEST,
         EntitlementName: String?,

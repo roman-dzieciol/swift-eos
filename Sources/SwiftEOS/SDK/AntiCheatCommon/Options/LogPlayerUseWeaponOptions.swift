@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions: SwiftEOSObject
         self.UseWeaponData = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData.init(sdkObject: sdkObject.UseWeaponData.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST. 
+     * - Parameter UseWeaponData:  Struct containing detailed information about a weapon use event 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST,
         UseWeaponData: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData?

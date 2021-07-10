@@ -38,7 +38,12 @@ public struct SwiftEOS_Lobby_UpdateLobbyModificationOptions: SwiftEOSObject {
         self.LobbyId = String(cString: sdkObject.LobbyId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST. 
+     * - Parameter LocalUserId:  The ID of the local user making modifications. Must be the owner to modify lobby data, but any lobby member can modify their own attributes. 
+     * - Parameter LobbyId:  The ID of the lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

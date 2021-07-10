@@ -57,7 +57,16 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
         self.ProductUserIdCount = try safeNumericCast(exactly: sdkObject.ProductUserIdCount)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
+     * - Parameter AccountIdType_DEPRECATED:  Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value. 
+     * - Parameter ProductUserIds:  An array of Product User IDs to query for the given external account representation. 
+     * - array num: ProductUserIdCount
+     * - Parameter ProductUserIdCount:  Number of Product User IDs to query. 
+     * - array buffer: ProductUserIds
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

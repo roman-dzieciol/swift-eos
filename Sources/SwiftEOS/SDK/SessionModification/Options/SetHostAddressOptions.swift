@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionModification_SetHostAddressOptions: SwiftEOSObject
         self.HostAddress = String(cString: sdkObject.HostAddress)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST. 
+     * - Parameter HostAddress:  A string representing the host address for the session, its meaning is up to the application 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST,
         HostAddress: String?

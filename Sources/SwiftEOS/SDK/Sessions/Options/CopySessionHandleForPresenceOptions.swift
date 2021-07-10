@@ -33,7 +33,11 @@ public struct SwiftEOS_Sessions_CopySessionHandleForPresenceOptions: SwiftEOSObj
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user associated with the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST,
         LocalUserId: EOS_ProductUserId?

@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionModification_RemoveAttributeOptions: SwiftEOSObjec
         self.Key = String(cString: sdkObject.Key)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. 
+     * - Parameter Key:  Session attribute to remove from the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,
         Key: String?

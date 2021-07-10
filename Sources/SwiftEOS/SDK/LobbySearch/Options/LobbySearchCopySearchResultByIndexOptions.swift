@@ -37,7 +37,13 @@ public struct SwiftEOS_LobbySearch_CopySearchResultByIndexOptions: SwiftEOSObjec
         self.LobbyIndex = try safeNumericCast(exactly: sdkObject.LobbyIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST. 
+     * - Parameter LobbyIndex:  The index of the lobby to retrieve within the completed search query
+     * 
+     * @see EOS_LobbySearch_GetSearchResultCount
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST,
         LobbyIndex: Int

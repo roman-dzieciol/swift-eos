@@ -33,7 +33,11 @@ public struct SwiftEOS_KWS_QueryPermissionsOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_QUERYPERMISSIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Local user querying their permisssions 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_QUERYPERMISSIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?

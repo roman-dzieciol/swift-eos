@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyModification_RemoveAttributeOptions: SwiftEOSObject 
         self.Key = String(cString: sdkObject.Key)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST. 
+     * - Parameter Key:  Name of the key 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST,
         Key: String?

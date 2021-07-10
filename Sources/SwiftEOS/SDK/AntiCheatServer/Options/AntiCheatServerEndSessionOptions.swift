@@ -24,7 +24,10 @@ public struct SwiftEOS_AntiCheatServer_EndSessionOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_ENDSESSION_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_ENDSESSION_API_LATEST
     ) {

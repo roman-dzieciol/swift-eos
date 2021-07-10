@@ -52,7 +52,15 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
         self.PlayersToRegisterCount = try safeNumericCast(exactly: sdkObject.PlayersToRegisterCount)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_REGISTERPLAYERS_API_LATEST. 
+     * - Parameter SessionName:  Name of the session for which to register players 
+     * - Parameter PlayersToRegister:  Array of players to register with the session 
+     * - array num: PlayersToRegisterCount
+     * - Parameter PlayersToRegisterCount:  Number of players in the array 
+     * - array buffer: PlayersToRegister
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_REGISTERPLAYERS_API_LATEST,
         SessionName: String?,

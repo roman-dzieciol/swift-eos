@@ -26,13 +26,19 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTC_RemoveNotifyDisconnected
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this event is registered on. 
      */
     public func AddNotifyDisconnected(
-        Options: inout SwiftEOS_RTC_AddNotifyDisconnectedOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTC_DisconnectedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTC_DisconnectedCallbackInfo> {
         try ____AddNotifyDisconnected(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -54,13 +60,19 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * 
      * @see EOS_INVALID_NOTIFICATIONID
      * @see EOS_RTC_RemoveNotifyParticipantStatusChanged
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this event is registered on. 
      */
     public func AddNotifyParticipantStatusChanged(
-        Options: inout SwiftEOS_RTC_AddNotifyParticipantStatusChangedOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo> {
         try ____AddNotifyParticipantStatusChanged(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -69,7 +81,10 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * Use this function to block a participant already connected to the room. After blocking them no media will be sent or received between
      * that user and the local user. This method can be used after receiving the OnParticipantStatusChanged notification.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room the users should be blocked on. 
+     * - Parameter ParticipantId:  Product User ID of the participant to block 
+     * - Parameter bBlocked:  Block or unblock the participant 
      * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
@@ -77,11 +92,19 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      *         EOS_NotFound if either the local user or specified participant are not in the specified room
      */
     public func BlockParticipant(
-        Options: inout SwiftEOS_RTC_BlockParticipantOptions?,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        ParticipantId: EOS_ProductUserId?,
+        bBlocked: Bool,
         CompletionDelegate: @escaping (SwiftEOS_RTC_BlockParticipantCallbackInfo) -> Void
     ) throws {
         try ____BlockParticipant(
-            &Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                ParticipantId: ParticipantId,
+                bBlocked: bBlocked
+            ),
             CompletionDelegate
         )
     }
@@ -103,16 +126,41 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will
      * automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  The product user id of the user trying to request this operation. 
+     * - Parameter RoomName:  The room the user would like to join. 
+     * - Parameter ClientBaseUrl:  The room the user would like to join. 
+     * - Parameter ParticipantToken:  Authorization credential token to join the room. 
+     * - Parameter ParticipantId:  The participant id used to join the room. If set to NULL the LocalUserId will be used instead. 
+     * - Parameter Flags:  Join room flags, e.g. EOS_RTC_JOINROOMFLAGS_ENABLE_ECHO. This is a bitwise-or union of the defined flags. 
+     * - Parameter bManualAudioInputEnabled:  Enable or disable Manual Audio Input. If manual audio input is enabled audio recording is not started and the audio
+     * buffers must be passed manually using EOS_RTCAudio_SendAudio.
+     * - Parameter bManualAudioOutputEnabled:  Enable or disable Manual Audio Output. If manual audio output is enabled audio rendering is not started and the audio
+     * buffers must be received with EOS_RTCAudio_AddNotifyAudioBeforeRender and rendered manually.
      * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func JoinRoom(
-        Options: SwiftEOS_RTC_JoinRoomOptions,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        ClientBaseUrl: String?,
+        ParticipantToken: String?,
+        ParticipantId: EOS_ProductUserId?,
+        Flags: Int,
+        bManualAudioInputEnabled: Bool,
+        bManualAudioOutputEnabled: Bool,
         CompletionDelegate: @escaping (SwiftEOS_RTC_JoinRoomCallbackInfo) -> Void
     ) throws {
         try ____JoinRoom(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                ClientBaseUrl: ClientBaseUrl,
+                ParticipantToken: ParticipantToken,
+                ParticipantId: ParticipantId,
+                Flags: Flags,
+                bManualAudioInputEnabled: bManualAudioInputEnabled,
+                bManualAudioOutputEnabled: bManualAudioOutputEnabled
+            ),
             CompletionDelegate
         )
     }
@@ -123,7 +171,8 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * This function does not need to called for the Lobby RTC Room system; doing so will return EOS_AccessDenied. The lobby system will
      * automatically join and leave RTC Rooms for all lobbies that have RTC rooms enabled.
      * 
-     * - Parameter Options:  structure containing the parameters for the operation.
+     * - Parameter LocalUserId:  Product User ID of the user requesting to leave the room 
+     * - Parameter RoomName:  The room to leave. 
      * - Parameter ClientData:  Arbitrary data that is passed back in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * @return EOS_Success if the operation succeeded
@@ -131,11 +180,15 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      *         EOS_NotFound if not in the specified room
      */
     public func LeaveRoom(
-        Options: SwiftEOS_RTC_LeaveRoomOptions,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
         CompletionDelegate: @escaping (SwiftEOS_RTC_LeaveRoomCallbackInfo) -> Void
     ) throws {
         try ____LeaveRoom(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName
+            ),
             CompletionDelegate
         )
     }
@@ -157,7 +210,7 @@ extension SwiftEOS_RTC_Actor {
      * @see EOS_RTC_RemoveNotifyDisconnected
      */
     private func ____AddNotifyDisconnected(
-        _ Options: inout SwiftEOS_RTC_AddNotifyDisconnectedOptions?,
+        _ Options: SwiftEOS_RTC_AddNotifyDisconnectedOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTC_DisconnectedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTC_DisconnectedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -165,7 +218,7 @@ extension SwiftEOS_RTC_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTC_AddNotifyDisconnected(
                             Handle,
                             Options,
@@ -200,7 +253,7 @@ extension SwiftEOS_RTC_Actor {
      * @see EOS_RTC_RemoveNotifyParticipantStatusChanged
      */
     private func ____AddNotifyParticipantStatusChanged(
-        _ Options: inout SwiftEOS_RTC_AddNotifyParticipantStatusChangedOptions?,
+        _ Options: SwiftEOS_RTC_AddNotifyParticipantStatusChangedOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo) -> Void
     ) throws -> SwiftEOS_Notification<SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo> {
         try withPointerManager { pointerManager in
@@ -208,7 +261,7 @@ extension SwiftEOS_RTC_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTC_AddNotifyParticipantStatusChanged(
                             Handle,
                             Options,
@@ -236,12 +289,12 @@ extension SwiftEOS_RTC_Actor {
      *         EOS_NotFound if either the local user or specified participant are not in the specified room
      */
     private func ____BlockParticipant(
-        _ Options: inout SwiftEOS_RTC_BlockParticipantOptions?,
+        _ Options: SwiftEOS_RTC_BlockParticipantOptions,
         _ CompletionDelegate: @escaping (SwiftEOS_RTC_BlockParticipantCallbackInfo) -> Void
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromInOutSwiftObject(&Options, managedBy: pointerManager) { Options in
+                try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTC_BlockParticipant(
                         Handle,
                         Options,

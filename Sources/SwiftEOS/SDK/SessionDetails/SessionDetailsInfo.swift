@@ -52,7 +52,14 @@ public struct SwiftEOS_SessionDetails_Info: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_INFO_API_LATEST. 
+     * - Parameter SessionId:  Session ID assigned by the backend service 
+     * - Parameter HostAddress:  IP address of this session as visible by the backend service 
+     * - Parameter NumOpenPublicConnections:  Number of remaining open spaces on the session (NumPublicConnections - RegisteredPlayers 
+     * - Parameter Settings:  Reference to the additional settings associated with this session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_INFO_API_LATEST,
         SessionId: String?,

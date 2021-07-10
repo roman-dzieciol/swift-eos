@@ -33,7 +33,12 @@ public struct SwiftEOS_KWS_QueryAgeGateCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter CountryCode:  Country code determined for this request based on the local client's ip address that the backend resolves 
+     * - Parameter AgeOfConsent:  Age of consent in the given country 
+     */
     public init(
         ResultCode: EOS_EResult,
         CountryCode: String?,

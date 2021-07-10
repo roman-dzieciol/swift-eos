@@ -38,7 +38,12 @@ public struct SwiftEOS_TitleStorage_CopyFileMetadataAtIndexOptions: SwiftEOSObje
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the local user who is requesting file metadata (optional) 
+     * - Parameter Index:  The index to get data for 
+     */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

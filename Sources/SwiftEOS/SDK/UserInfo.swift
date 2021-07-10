@@ -57,7 +57,15 @@ public struct SwiftEOS_UserInfo: SwiftEOSObject {
         self.Nickname = String(cString: sdkObject.Nickname)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_COPYUSERINFO_API_LATEST. 
+     * - Parameter UserId:  The Epic Online Services Account ID of the user 
+     * - Parameter Country:  The name of the owner's country. This may be null 
+     * - Parameter DisplayName:  The display name. This may be null 
+     * - Parameter PreferredLanguage:  The ISO 639 language code for the user's preferred language. This may be null 
+     * - Parameter Nickname:  A nickname/alias for the target user assigned by the local user. This may be null 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_COPYUSERINFO_API_LATEST,
         UserId: EOS_EpicAccountId?,

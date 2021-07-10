@@ -37,7 +37,13 @@ public struct SwiftEOS_P2P_OnRemoteConnectionClosedInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The local user who is being notified of a connection being closed 
+     * - Parameter RemoteUserId:  The Product User ID of the remote user who this connection was with 
+     * - Parameter SocketId:  The socket ID of the connection being closed 
+     * - Parameter Reason:  The reason the connection was closed (if known) 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RemoteUserId: EOS_ProductUserId?,

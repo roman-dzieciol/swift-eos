@@ -41,7 +41,13 @@ public struct SwiftEOS_AntiCheatCommon_SetClientDetailsOptions: SwiftEOSObject {
         self.ClientInputMethod = sdkObject.ClientInputMethod
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST. 
+     * - Parameter ClientHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter ClientFlags:  General flags associated with this client, if any 
+     * - Parameter ClientInputMethod:  Input device being used by this client, if known 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,

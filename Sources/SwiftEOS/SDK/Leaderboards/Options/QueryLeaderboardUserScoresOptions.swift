@@ -84,7 +84,23 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST. 
+     * - Parameter UserIds:  An array of Product User IDs indicating the users whose scores you want to retrieve 
+     * - array num: UserIdsCount
+     * - Parameter UserIdsCount:  The number of users included in query 
+     * - array buffer: UserIds
+     * - Parameter StatInfo:  The stats to be collected, along with the sorting method to use when determining rank order for each stat 
+     * - array num: StatInfoCount
+     * - Parameter StatInfoCount:  The number of stats to query 
+     * - array buffer: StatInfo
+     * - Parameter StartTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made after this time 
+     * - Parameter EndTime:  An optional POSIX timestamp, or EOS_LEADERBOARDS_TIME_UNDEFINED; results will only include scores made before this time 
+     * - Parameter LocalUserId:  Product User ID for user who is querying user scores.
+     * Must be set when using a client policy that requires a valid logged in user.
+     * Not used for Dedicated Server where no user is available.
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST,
         UserIds: [EOS_ProductUserId]?,

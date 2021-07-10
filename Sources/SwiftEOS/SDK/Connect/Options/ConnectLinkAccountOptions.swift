@@ -38,7 +38,12 @@ public struct SwiftEOS_Connect_LinkAccountOptions: SwiftEOSObject {
         self.ContinuanceToken = sdkObject.ContinuanceToken
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_LINKACCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The existing logged in product user for which to link the external account described by the continuance token. 
+     * - Parameter ContinuanceToken:  Continuance token from previous call to EOS_Connect_Login. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_LINKACCOUNT_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

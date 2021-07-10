@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyModification_SetInvitesAllowedOptions: SwiftEOSObjec
         self.bInvitesAllowed = try swiftBoolFromEosBool(sdkObject.bInvitesAllowed)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST. 
+     * - Parameter bInvitesAllowed:  If true then invites can currently be sent for the associated lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST,
         bInvitesAllowed: Bool

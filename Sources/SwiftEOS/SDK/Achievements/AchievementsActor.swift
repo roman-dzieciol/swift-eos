@@ -57,7 +57,7 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * DEPRECATED! Use EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId instead.
      * Fetches an achievement definition from a given achievement ID.
      * 
-     * - Parameter Options:  Structure containing the achievement ID being accessed
+     * - Parameter AchievementId:  Achievement ID to look for when copying definition from the cache 
      * - Parameter OutDefinition:  The achievement definition for the given achievement ID, if it exists and is valid, use EOS_Achievements_Definition_Release when finished
      * 
      * @see EOS_Achievements_Definition_Release
@@ -68,16 +68,16 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the achievement definition is not found
      */
     public func CopyAchievementDefinitionByAchievementId(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOptions
+        AchievementId: String?
     ) throws -> SwiftEOS_Achievements_Definition? {
-        try ____CopyAchievementDefinitionByAchievementId(Options)
+        try ____CopyAchievementDefinitionByAchievementId(.init(AchievementId: AchievementId))
     }
 
     /**
      * DEPRECATED! Use EOS_Achievements_CopyAchievementDefinitionV2ByIndex instead.
      * Fetches an achievement definition from a given index.
      * 
-     * - Parameter Options:  Structure containing the index being accessed
+     * - Parameter AchievementIndex:  Index of the achievement definition to retrieve from the cache 
      * - Parameter OutDefinition:  The achievement definition for the given index, if it exists and is valid, use EOS_Achievements_Definition_Release when finished
      * 
      * @see EOS_Achievements_CopyAchievementDefinitionV2ByIndex
@@ -88,15 +88,15 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the achievement definition is not found
      */
     public func CopyAchievementDefinitionByIndex(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions
+        AchievementIndex: Int
     ) throws -> SwiftEOS_Achievements_Definition? {
-        try ____CopyAchievementDefinitionByIndex(Options)
+        try ____CopyAchievementDefinitionByIndex(.init(AchievementIndex: AchievementIndex))
     }
 
     /**
      * Fetches an achievement definition from a given achievement ID.
      * 
-     * - Parameter Options:  Structure containing the achievement ID being accessed
+     * - Parameter AchievementId:  Achievement ID to look for when copying the definition from the cache. 
      * - Parameter OutDefinition:  The achievement definition for the given achievement ID, if it exists and is valid, use EOS_Achievements_Definition_Release when finished
      * 
      * @see EOS_Achievements_DefinitionV2_Release
@@ -107,15 +107,15 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
      */
     public func CopyAchievementDefinitionV2ByAchievementId(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdOptions
+        AchievementId: String?
     ) throws -> SwiftEOS_Achievements_DefinitionV2? {
-        try ____CopyAchievementDefinitionV2ByAchievementId(Options)
+        try ____CopyAchievementDefinitionV2ByAchievementId(.init(AchievementId: AchievementId))
     }
 
     /**
      * Fetches an achievement definition from a given index.
      * 
-     * - Parameter Options:  Structure containing the index being accessed
+     * - Parameter AchievementIndex:  Index of the achievement definition to retrieve from the cache. 
      * - Parameter OutDefinition:  The achievement definition for the given index, if it exists and is valid, use EOS_Achievements_Definition_Release when finished
      * 
      * @see EOS_Achievements_DefinitionV2_Release
@@ -126,15 +126,17 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
      */
     public func CopyAchievementDefinitionV2ByIndex(
-        Options: SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexOptions
+        AchievementIndex: Int
     ) throws -> SwiftEOS_Achievements_DefinitionV2? {
-        try ____CopyAchievementDefinitionV2ByIndex(Options)
+        try ____CopyAchievementDefinitionV2ByIndex(.init(AchievementIndex: AchievementIndex))
     }
 
     /**
      * Fetches a player achievement from a given achievement ID.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID and achievement ID being accessed
+     * - Parameter TargetUserId:  The Product User ID for the user whose achievement is to be retrieved. 
+     * - Parameter AchievementId:  Achievement ID to search for when retrieving player achievement data from the cache. 
+     * - Parameter LocalUserId:  The Product User ID for the user who is querying for a player achievement. For a Dedicated Server this should be null. 
      * - Parameter OutAchievement:  The player achievement data for the given achievement ID, if it exists and is valid, use EOS_Achievements_PlayerAchievement_Release when finished
      * 
      * @see EOS_Achievements_PlayerAchievement_Release
@@ -145,15 +147,23 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
      */
     public func CopyPlayerAchievementByAchievementId(
-        Options: SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions
+        TargetUserId: EOS_ProductUserId?,
+        AchievementId: String?,
+        LocalUserId: EOS_ProductUserId?
     ) throws -> SwiftEOS_Achievements_PlayerAchievement? {
-        try ____CopyPlayerAchievementByAchievementId(Options)
+        try ____CopyPlayerAchievementByAchievementId(.init(
+                TargetUserId: TargetUserId,
+                AchievementId: AchievementId,
+                LocalUserId: LocalUserId
+            ))
     }
 
     /**
      * Fetches a player achievement from a given index.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID and index being accessed
+     * - Parameter TargetUserId:  The Product User ID for the user whose achievement is to be retrieved. 
+     * - Parameter AchievementIndex:  The index of the player achievement data to retrieve from the cache. 
+     * - Parameter LocalUserId:  The Product User ID for the user who is querying for a player achievement. For a Dedicated Server this should be null. 
      * - Parameter OutAchievement:  The player achievement data for the given index, if it exists and is valid, use EOS_Achievements_PlayerAchievement_Release when finished
      * 
      * @see EOS_Achievements_PlayerAchievement_Release
@@ -164,16 +174,23 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
      */
     public func CopyPlayerAchievementByIndex(
-        Options: SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptions
+        TargetUserId: EOS_ProductUserId?,
+        AchievementIndex: Int,
+        LocalUserId: EOS_ProductUserId?
     ) throws -> SwiftEOS_Achievements_PlayerAchievement? {
-        try ____CopyPlayerAchievementByIndex(Options)
+        try ____CopyPlayerAchievementByIndex(.init(
+                TargetUserId: TargetUserId,
+                AchievementIndex: AchievementIndex,
+                LocalUserId: LocalUserId
+            ))
     }
 
     /**
      * DEPRECATED! Use EOS_Achievements_CopyPlayerAchievementByAchievementId instead.
      * Fetches an unlocked achievement from a given achievement ID.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID and achievement ID being accessed
+     * - Parameter UserId:  The Product User ID for the user who is copying the unlocked achievement 
+     * - Parameter AchievementId:  AchievementId of the unlocked achievement to retrieve from the cache 
      * - Parameter OutAchievement:  The unlocked achievement data for the given achievement ID, if it exists and is valid, use EOS_Achievements_UnlockedAchievement_Release when finished
      * 
      * @see EOS_Achievements_UnlockedAchievement_Release
@@ -183,16 +200,21 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the unlocked achievement is not found
      */
     public func CopyUnlockedAchievementByAchievementId(
-        Options: SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions
+        UserId: EOS_ProductUserId?,
+        AchievementId: String?
     ) throws -> SwiftEOS_Achievements_UnlockedAchievement? {
-        try ____CopyUnlockedAchievementByAchievementId(Options)
+        try ____CopyUnlockedAchievementByAchievementId(.init(
+                UserId: UserId,
+                AchievementId: AchievementId
+            ))
     }
 
     /**
      * DEPRECATED! Use EOS_Achievements_CopyPlayerAchievementByAchievementId instead.
      * Fetches an unlocked achievement from a given index.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID and index being accessed
+     * - Parameter UserId:  The Product User ID for the user who is copying the unlocked achievement 
+     * - Parameter AchievementIndex:  Index of the unlocked achievement to retrieve from the cache 
      * - Parameter OutAchievement:  The unlocked achievement data for the given index, if it exists and is valid, use EOS_Achievements_UnlockedAchievement_Release when finished
      * 
      * @see EOS_Achievements_UnlockedAchievement_Release
@@ -202,9 +224,13 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_NotFound if the unlocked achievement is not found
      */
     public func CopyUnlockedAchievementByIndex(
-        Options: SwiftEOS_Achievements_CopyUnlockedAchievementByIndexOptions
+        UserId: EOS_ProductUserId?,
+        AchievementIndex: Int
     ) throws -> SwiftEOS_Achievements_UnlockedAchievement? {
-        try ____CopyUnlockedAchievementByIndex(Options)
+        try ____CopyUnlockedAchievementByIndex(.init(
+                UserId: UserId,
+                AchievementIndex: AchievementIndex
+            ))
     }
 
     /**
@@ -223,32 +249,32 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     /**
      * Fetch the number of player achievements that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the player achievement count
+     * - Parameter UserId:  The Product User ID for the user whose achievement count is being retrieved. 
      * 
      * @see EOS_Achievements_CopyPlayerAchievementByIndex
      * 
      * @return Number of player achievements or 0 if there is an error
      */
     public func GetPlayerAchievementCount(
-        Options: SwiftEOS_Achievements_GetPlayerAchievementCountOptions
+        UserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetPlayerAchievementCount(Options)
+        try ____GetPlayerAchievementCount(.init(UserId: UserId))
     }
 
     /**
      * DEPRECATED! Use EOS_Achievements_GetPlayerAchievementCount, EOS_Achievements_CopyPlayerAchievementByIndex and filter for unlocked instead.
      * Fetch the number of unlocked achievements that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the unlocked achievement count
+     * - Parameter UserId:  Product User ID for which to retrieve the unlocked achievement count 
      * 
      * @see EOS_Achievements_CopyUnlockedAchievementByIndex
      * 
      * @return Number of unlocked achievements or 0 if there is an error
      */
     public func GetUnlockedAchievementCount(
-        Options: SwiftEOS_Achievements_GetUnlockedAchievementCountOptions
+        UserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetUnlockedAchievementCount(Options)
+        try ____GetUnlockedAchievementCount(.init(UserId: UserId))
     }
 
     /**
@@ -256,7 +282,15 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
-     * - Parameter Options:  Structure containing information about the application whose achievement definitions we're retrieving.
+     * - Parameter LocalUserId:  Product User ID for user who is querying definitions.
+     * The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.
+     * The localized text returned can also be overridden using EOS_Platform_SetOverrideLocaleCode to override the locale.
+     * If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
+     * - Parameter EpicUserId_DEPRECATED:  Deprecated 
+     * - Parameter HiddenAchievementIds_DEPRECATED:  Deprecated 
+     * - array num: HiddenAchievementsCount_DEPRECATED
+     * - Parameter HiddenAchievementsCount_DEPRECATED:  Deprecated 
+     * - array buffer: HiddenAchievementIds_DEPRECATED
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query definitions operation completes.
      * 
@@ -264,11 +298,19 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func QueryDefinitions(
-        Options: SwiftEOS_Achievements_QueryDefinitionsOptions,
+        LocalUserId: EOS_ProductUserId?,
+        EpicUserId_DEPRECATED: EOS_EpicAccountId?,
+        HiddenAchievementIds_DEPRECATED: [String]?,
+        HiddenAchievementsCount_DEPRECATED: Int,
         CompletionDelegate: @escaping (SwiftEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo) -> Void
     ) throws {
         try ____QueryDefinitions(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                EpicUserId_DEPRECATED: EpicUserId_DEPRECATED,
+                HiddenAchievementIds_DEPRECATED: HiddenAchievementIds_DEPRECATED,
+                HiddenAchievementsCount_DEPRECATED: HiddenAchievementsCount_DEPRECATED
+            ),
             CompletionDelegate
         )
     }
@@ -278,7 +320,8 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
-     * - Parameter Options:  Structure containing information about the player whose achievements we're retrieving.
+     * - Parameter TargetUserId:  The Product User ID for the user whose achievements are to be retrieved. 
+     * - Parameter LocalUserId:  The Product User ID for the user who is querying for player achievements. For a Dedicated Server this should be null. 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query player achievements operation completes.
      * 
@@ -287,11 +330,15 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the other options are incorrect
      */
     public func QueryPlayerAchievements(
-        Options: SwiftEOS_Achievements_QueryPlayerAchievementsOptions,
+        TargetUserId: EOS_ProductUserId?,
+        LocalUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo) -> Void
     ) throws {
         try ____QueryPlayerAchievements(
-            Options,
+            .init(
+                TargetUserId: TargetUserId,
+                LocalUserId: LocalUserId
+            ),
             CompletionDelegate
         )
     }
@@ -299,7 +346,11 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     /**
      * Unlocks a number of achievements for a specific player.
      * 
-     * - Parameter Options:  Structure containing information about the achievements and the player whose achievements we're unlocking.
+     * - Parameter UserId:  The Product User ID for the user whose achievements we want to unlock. 
+     * - Parameter AchievementIds:  An array of Achievement IDs to unlock. 
+     * - array num: AchievementsCount
+     * - Parameter AchievementsCount:  The number of achievements to unlock. 
+     * - array buffer: AchievementIds
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the unlock achievements operation completes.
      * 
@@ -307,11 +358,17 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func UnlockAchievements(
-        Options: SwiftEOS_Achievements_UnlockAchievementsOptions,
+        UserId: EOS_ProductUserId?,
+        AchievementIds: [String]?,
+        AchievementsCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo) -> Void
     ) throws {
         try ____UnlockAchievements(
-            Options,
+            .init(
+                UserId: UserId,
+                AchievementIds: AchievementIds,
+                AchievementsCount: AchievementsCount
+            ),
             CompletionDelegate
         )
     }

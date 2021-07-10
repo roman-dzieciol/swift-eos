@@ -43,7 +43,13 @@ public struct SwiftEOS_P2P_CloseConnectionOptions: SwiftEOSObject {
         self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_CLOSECONNECTION_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who would like to close a previously accepted connection (or decline a pending invite) 
+     * - Parameter RemoteUserId:  The Product User ID of the remote user to disconnect from (or to reject a pending invite from) 
+     * - Parameter SocketId:  The socket ID of the connection to close (or optionally NULL to not accept any connection requests from the Remote User) 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_CLOSECONNECTION_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -38,7 +38,12 @@ public struct SwiftEOS_Ecom_CopyTransactionByIdOptions: SwiftEOSObject {
         self.TransactionId = String(cString: sdkObject.TransactionId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_COPYTRANSACTIONBYID_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is associated with the transaction 
+     * - Parameter TransactionId:  The ID of the transaction to get 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_COPYTRANSACTIONBYID_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

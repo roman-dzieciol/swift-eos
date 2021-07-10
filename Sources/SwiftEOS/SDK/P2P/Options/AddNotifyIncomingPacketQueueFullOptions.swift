@@ -26,7 +26,10 @@ public struct SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions: SwiftEOSObje
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST
     ) {

@@ -37,7 +37,13 @@ public struct SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter SessionId:  Session ID that should be used for joining 
+     * - Parameter LocalUserId:  The Product User ID of the user who accepted the invitation 
+     * - Parameter TargetUserId:  The Product User ID of the user who sent the invitation 
+     * - Parameter InviteId:  Invite ID that was accepted 
+     */
     public init(
         SessionId: String?,
         LocalUserId: EOS_ProductUserId?,

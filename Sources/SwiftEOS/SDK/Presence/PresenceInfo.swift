@@ -88,7 +88,21 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
         self.ProductName = String(cString: sdkObject.ProductName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_INFO_API_LATEST. 
+     * - Parameter Status:  The status of the user 
+     * - Parameter UserId:  The Epic Online Services Account ID of the user 
+     * - Parameter ProductId:  The product ID that the user is logged in from 
+     * - Parameter ProductVersion:  The version of the product the user is logged in from 
+     * - Parameter Platform:  The platform of that the user is logged in from 
+     * - Parameter RichText:  The rich-text of the user 
+     * - Parameter RecordsCount:  The count of records available 
+     * - array buffer: Records
+     * - Parameter Records:  The first data record, or NULL if RecordsCount is not at least 1 
+     * - array num: RecordsCount
+     * - Parameter ProductName:  The user-facing name for the product the user is logged in from 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_INFO_API_LATEST,
         Status: EOS_Presence_EStatus,

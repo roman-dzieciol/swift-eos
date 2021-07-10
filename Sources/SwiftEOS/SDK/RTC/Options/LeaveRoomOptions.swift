@@ -38,7 +38,12 @@ public struct SwiftEOS_RTC_LeaveRoomOptions: SwiftEOSObject {
         self.RoomName = String(cString: sdkObject.RoomName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTC_LEAVEROOM_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the user requesting to leave the room 
+     * - Parameter RoomName:  The room to leave. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTC_LEAVEROOM_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -38,7 +38,12 @@ public struct SwiftEOS_RTCAdmin_KickOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_KICK_API_LATEST. 
+     * - Parameter RoomName:  Room name to kick the participant from 
+     * - Parameter TargetUserId:  Product User ID of the participant to kick from the room 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_KICK_API_LATEST,
         RoomName: String?,

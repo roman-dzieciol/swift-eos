@@ -38,7 +38,12 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions: Swi
         self.StatName = String(cString: sdkObject.StatName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST. 
+     * - Parameter UserId:  The Product User ID to look for when copying leaderboard score data from the cache 
+     * - Parameter StatName:  The name of the stat that is used to rank this leaderboard 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST,
         UserId: EOS_ProductUserId?,

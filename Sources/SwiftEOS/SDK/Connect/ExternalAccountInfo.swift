@@ -57,7 +57,15 @@ public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
         self.LastLoginTime = try safeNumericCast(exactly: sdkObject.LastLoginTime)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST. 
+     * - Parameter ProductUserId:  The Product User ID of the target user. 
+     * - Parameter DisplayName:  Display name, can be null if not set. 
+     * - Parameter AccountId:  External account ID. 
+     * - Parameter AccountIdType:  The identity provider that owns the external account. 
+     * - Parameter LastLoginTime:  The POSIX timestamp for the time the user last logged in, or EOS_CONNECT_TIME_UNDEFINED. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_EXTERNALACCOUNTINFO_API_LATEST,
         ProductUserId: EOS_ProductUserId?,

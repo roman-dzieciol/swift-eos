@@ -43,7 +43,13 @@ public struct SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions: SwiftEOS
         self.AccountId = String(cString: sdkObject.AccountId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTID_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
+     * - Parameter AccountId:  The external account ID associated with the (external) user info to retrieve from the cache; cannot be null 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTID_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

@@ -26,7 +26,10 @@ public struct SwiftEOS_UI_GetToggleFriendsKeyOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_UI_GETTOGGLEFRIENDSKEY_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_UI_GETTOGGLEFRIENDSKEY_API_LATEST
     ) {

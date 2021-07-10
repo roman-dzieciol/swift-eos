@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions: Swi
         self.DataLengthBytes = try safeNumericCast(exactly: sdkObject.DataLengthBytes)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST. 
+     * - Parameter DataLengthBytes:  Length in bytes of input 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST,
         DataLengthBytes: Int

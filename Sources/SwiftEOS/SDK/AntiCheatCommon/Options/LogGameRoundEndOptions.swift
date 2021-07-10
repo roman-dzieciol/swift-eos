@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatCommon_LogGameRoundEndOptions: SwiftEOSObject {
         self.WinningTeamId = try safeNumericCast(exactly: sdkObject.WinningTeamId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGGAMEROUNDEND_API_LATEST. 
+     * - Parameter WinningTeamId:  Optional identifier for the winning team 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGGAMEROUNDEND_API_LATEST,
         WinningTeamId: Int

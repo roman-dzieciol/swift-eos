@@ -51,23 +51,28 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     /**
      * Get a user's cached presence object. If successful, this data must be released by calling EOS_Presence_Info_Release
      * 
-     * - Parameter Options:  Object containing properties related to who is requesting presence and for what user
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose cached presence data you want to copy from the cache 
      * - Parameter OutPresence:  A pointer to a pointer of Presence Info. If the returned result is success, this will be set to data that must be later released, otherwise this will be set to NULL
      * @return Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
      * 
      * @see EOS_Presence_Info_Release
      */
     public func CopyPresence(
-        Options: SwiftEOS_Presence_CopyPresenceOptions
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?
     ) throws -> SwiftEOS_Presence_Info? {
-        try ____CopyPresence(Options)
+        try ____CopyPresence(.init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ))
     }
 
     /**
      * Creates a presence modification handle. This handle can used to add multiple changes to your presence that can be applied with EOS_Presence_SetPresence.
      * The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
      * 
-     * - Parameter Options:  Object containing properties related to the user modifying their presence
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user's Epic Online Services Account ID 
      * - Parameter OutPresenceModificationHandle:  Pointer to a Presence Modification Handle to be set if successful
      * @return Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
      * 
@@ -79,9 +84,9 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @see EOS_PresenceModification_DeleteData
      */
     public func CreatePresenceModification(
-        Options: SwiftEOS_Presence_CreatePresenceModificationOptions
+        LocalUserId: EOS_EpicAccountId?
     ) throws -> EOS_HPresenceModification? {
-        try ____CreatePresenceModification(Options)
+        try ____CreatePresenceModification(.init(LocalUserId: LocalUserId))
     }
 
     /**
@@ -89,7 +94,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * Its meaning is entirely application dependent.
      * This value will be valid only after a QueryPresence call has successfully completed.
      * 
-     * - Parameter Options:  Object containing an associated user
+     * - Parameter LocalUserId:  The local user's Epic Online Services Account ID 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID to query for join info; this value must either be a logged-in local user, or a friend of that user 
      * - Parameter OutBuffer:  The buffer into which the character data should be written.  The buffer must be long enough to hold a string of EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH.
      * - Parameter InOutBufferLength:  Used as an input to define the OutBuffer length.
      *                          The input buffer should include enough space to be null-terminated.
@@ -104,37 +110,51 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @see EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
      */
     public func GetJoinInfo(
-        Options: SwiftEOS_Presence_GetJoinInfoOptions
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?
     ) throws -> String? {
-        try ____GetJoinInfo(Options)
+        try ____GetJoinInfo(.init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ))
     }
 
     /**
      * Check if we already have presence for a user
      * 
-     * - Parameter Options:  Object containing properties related to who is requesting presence and for what user
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose cached presence data you want to locate 
      * @return EOS_TRUE if we have presence for the requested user, or EOS_FALSE if the request was invalid or we do not have cached data
      */
     public func HasPresence(
-        Options: SwiftEOS_Presence_HasPresenceOptions
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?
     ) throws -> Bool {
-        try ____HasPresence(Options)
+        try ____HasPresence(.init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ))
     }
 
     /**
      * Query a user's presence. This must complete successfully before CopyPresence will have valid results. If HasPresence returns true for a remote
      * user, this does not need to be called.
      * 
-     * - Parameter Options:  Object containing properties related to who is querying presence and for what user
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose presence data you want to retrieve; this value must be either the user making the request, or a friend of that user 
      * - Parameter ClientData:  Optional pointer to help track this request, that is returned in the completion callback
      * - Parameter CompletionDelegate:  Pointer to a function that handles receiving the completion information
      */
     public func QueryPresence(
-        Options: SwiftEOS_Presence_QueryPresenceOptions,
+        LocalUserId: EOS_EpicAccountId?,
+        TargetUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_Presence_QueryPresenceCallbackInfo) -> Void
     ) throws {
         try ____QueryPresence(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }
@@ -142,7 +162,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     /**
      * Sets your new presence with the data applied to a PresenceModificationHandle. The PresenceModificationHandle can be released safely after calling this function.
      * 
-     * - Parameter Options:  Object containing a PresenceModificationHandle and associated user data
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user's Epic Online Services Account ID 
+     * - Parameter PresenceModificationHandle:  The handle to the presence update 
      * - Parameter ClientData:  Optional pointer to help track this request, that is returned in the completion callback
      * - Parameter CompletionDelegate:  Pointer to a function that handles receiving the completion information
      * 
@@ -150,11 +171,15 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * @see EOS_PresenceModification_Release
      */
     public func SetPresence(
-        Options: SwiftEOS_Presence_SetPresenceOptions,
+        LocalUserId: EOS_EpicAccountId?,
+        PresenceModificationHandle: EOS_HPresenceModification?,
         CompletionDelegate: @escaping (SwiftEOS_Presence_SetPresenceCallbackInfo) -> Void
     ) throws {
         try ____SetPresence(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                PresenceModificationHandle: PresenceModificationHandle
+            ),
             CompletionDelegate
         )
     }

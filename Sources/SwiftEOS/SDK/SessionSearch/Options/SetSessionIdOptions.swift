@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionSearch_SetSessionIdOptions: SwiftEOSObject {
         self.SessionId = String(cString: sdkObject.SessionId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. 
+     * - Parameter SessionId:  Search sessions for a specific session ID, returning at most one session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,
         SessionId: String?

@@ -33,7 +33,12 @@ public struct SwiftEOS_Stats_IngestStatCompleteCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error. 
+     * - Parameter LocalUserId:  The Product User ID for the user requesting the ingest 
+     * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

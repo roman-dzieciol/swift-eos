@@ -33,7 +33,11 @@ public struct SwiftEOS_Connect_CreateUserOptions: SwiftEOSObject {
         self.ContinuanceToken = sdkObject.ContinuanceToken
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_CREATEUSER_API_LATEST. 
+     * - Parameter ContinuanceToken:  Continuance token from previous call to EOS_Connect_Login 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_CREATEUSER_API_LATEST,
         ContinuanceToken: EOS_ContinuanceToken?

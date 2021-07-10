@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbySearch_SetTargetUserIdOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST. 
+     * - Parameter TargetUserId:  Search lobbies for given user by Product User ID, returning any lobbies where this user is currently registered 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST,
         TargetUserId: EOS_ProductUserId?

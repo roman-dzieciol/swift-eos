@@ -29,7 +29,11 @@ public struct SwiftEOS_Lobby_RejectInviteCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter InviteId:  The ID of the invitation being rejected 
+     */
     public init(
         ResultCode: EOS_EResult,
         InviteId: String?

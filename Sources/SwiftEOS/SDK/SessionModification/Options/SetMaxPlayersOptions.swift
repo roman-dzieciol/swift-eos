@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionModification_SetMaxPlayersOptions: SwiftEOSObject 
         self.MaxPlayers = try safeNumericCast(exactly: sdkObject.MaxPlayers)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST. 
+     * - Parameter MaxPlayers:  Max number of players to allow in the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST,
         MaxPlayers: Int

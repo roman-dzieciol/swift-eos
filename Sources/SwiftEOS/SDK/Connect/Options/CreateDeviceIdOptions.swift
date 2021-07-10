@@ -41,7 +41,17 @@ public struct SwiftEOS_Connect_CreateDeviceIdOptions: SwiftEOSObject {
         self.DeviceModel = String(cString: sdkObject.DeviceModel)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_CREATEDEVICEID_API_LATEST. 
+     * - Parameter DeviceModel:  A freeform text description identifying the device type and model,
+     * which can be used in account linking management to allow the player
+     * and customer support to identify different devices linked to an EOS
+     * user keychain. For example 'iPhone 6S' or 'PC Windows'.
+     * The input string must be in UTF-8 character format, with a maximum
+     * length of 64 characters. Longer string will be silently truncated.
+     * This field is required to be present.
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_CREATEDEVICEID_API_LATEST,
         DeviceModel: String?

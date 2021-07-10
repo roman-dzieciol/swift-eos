@@ -41,7 +41,12 @@ public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
         self.Status = sdkObject.Status
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_PERMISSIONSTATUS_API_LATEST. 
+     * - Parameter Name:  Name of the permission 
+     * - Parameter Status:  Status of the permission 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_PERMISSIONSTATUS_API_LATEST,
         Name: String?,

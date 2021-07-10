@@ -43,7 +43,13 @@ public struct SwiftEOS_Ecom_CopyEntitlementByNameAndIndexOptions: SwiftEOSObject
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_COPYENTITLEMENTBYNAMEANDINDEX_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement is being copied 
+     * - Parameter EntitlementName:  Name of the entitlement to retrieve from the cache 
+     * - Parameter Index:  Index of the entitlement within the named set to retrieve from the cache. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_COPYENTITLEMENTBYNAMEANDINDEX_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

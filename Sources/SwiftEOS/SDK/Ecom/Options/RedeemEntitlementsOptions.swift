@@ -53,7 +53,15 @@ public struct SwiftEOS_Ecom_RedeemEntitlementsOptions: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user who is redeeming Entitlements 
+     * - Parameter EntitlementIdCount:  The number of Entitlements to redeem 
+     * - array buffer: EntitlementIds
+     * - Parameter EntitlementIds:  The array of Entitlements to redeem 
+     * - array num: EntitlementIdCount
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

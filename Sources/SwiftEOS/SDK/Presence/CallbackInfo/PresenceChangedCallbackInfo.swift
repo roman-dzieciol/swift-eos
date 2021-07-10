@@ -29,7 +29,11 @@ public struct SwiftEOS_Presence_PresenceChangedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is being informed for PresenceUserId's presence change 
+     * - Parameter PresenceUserId:  The Epic Online Services Account ID of the user who had their presence changed 
+     */
     public init(
         LocalUserId: EOS_EpicAccountId?,
         PresenceUserId: EOS_EpicAccountId?

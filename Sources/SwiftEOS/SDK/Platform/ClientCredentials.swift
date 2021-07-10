@@ -33,7 +33,11 @@ public struct SwiftEOS_Platform_ClientCredentials: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientId:  Client ID of the service permissions entry. Set to NULL if no service permissions are used. 
+     * - Parameter ClientSecret:  Client secret for accessing the set of permissions. Set to NULL if no service permissions are used. 
+     */
     public init(
         ClientId: String?,
         ClientSecret: String?

@@ -33,7 +33,11 @@ public struct SwiftEOS_Sanctions_GetPlayerSanctionCountOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST. 
+     * - Parameter TargetUserId:  Product User ID of the user whose sanction count should be returned 
+     */
     public init(
         ApiVersion: Int32 = EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST,
         TargetUserId: EOS_ProductUserId?

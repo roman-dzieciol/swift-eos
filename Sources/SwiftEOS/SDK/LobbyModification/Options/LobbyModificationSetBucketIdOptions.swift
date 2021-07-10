@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyModification_SetBucketIdOptions: SwiftEOSObject {
         self.BucketId = String(cString: sdkObject.BucketId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_SETBUCKETID_API_LATEST. 
+     * - Parameter BucketId:  The new bucket id associated with the lobby 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_SETBUCKETID_API_LATEST,
         BucketId: String?

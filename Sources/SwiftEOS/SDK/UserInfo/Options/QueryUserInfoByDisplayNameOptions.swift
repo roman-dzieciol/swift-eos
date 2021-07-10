@@ -38,7 +38,12 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByDisplayNameOptions: SwiftEOSObjec
         self.DisplayName = String(cString: sdkObject.DisplayName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_QUERYUSERINFOBYDISPLAYNAME_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
+     * - Parameter DisplayName:  Display name of the player being queried 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_QUERYUSERINFOBYDISPLAYNAME_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

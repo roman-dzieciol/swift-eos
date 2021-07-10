@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyDetails_GetMemberByIndexOptions: SwiftEOSObject {
         self.MemberIndex = try safeNumericCast(exactly: sdkObject.MemberIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST. 
+     * - Parameter MemberIndex:  Index of the member to retrieve 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST,
         MemberIndex: Int

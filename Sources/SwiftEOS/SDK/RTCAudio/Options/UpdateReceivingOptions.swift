@@ -48,7 +48,14 @@ public struct SwiftEOS_RTCAudio_UpdateReceivingOptions: SwiftEOSObject {
         self.bAudioEnabled = try swiftBoolFromEosBool(sdkObject.bAudioEnabled)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_UPDATERECEIVING_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this settings should be applied on. 
+     * - Parameter ParticipantId:  The participant to modify or null to update the global configuration 
+     * - Parameter bAudioEnabled:  Mute or unmute audio track 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_UPDATERECEIVING_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

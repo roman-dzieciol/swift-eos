@@ -38,7 +38,12 @@ public struct SwiftEOS_Stats_CopyStatByNameOptions: SwiftEOSObject {
         self.Name = String(cString: sdkObject.Name)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_COPYSTATBYNAME_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID of the user who owns the stat 
+     * - Parameter Name:  Name of the stat to retrieve from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_STATS_COPYSTATBYNAME_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

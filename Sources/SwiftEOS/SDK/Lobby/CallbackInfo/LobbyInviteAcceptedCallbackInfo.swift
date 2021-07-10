@@ -37,7 +37,13 @@ public struct SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter InviteId:  The invite ID 
+     * - Parameter LocalUserId:  The Product User ID of the local user who received the invitation 
+     * - Parameter TargetUserId:  The Product User ID of the user who sent the invitation 
+     * - Parameter LobbyId:  Lobby ID that the user has been invited to 
+     */
     public init(
         InviteId: String?,
         LocalUserId: EOS_ProductUserId?,

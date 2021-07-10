@@ -33,7 +33,12 @@ public struct SwiftEOS_Auth_LoginStatusChangedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose status has changed 
+     * - Parameter PrevStatus:  The status prior to the change 
+     * - Parameter CurrentStatus:  The status at the time of the notification 
+     */
     public init(
         LocalUserId: EOS_EpicAccountId?,
         PrevStatus: EOS_ELoginStatus,

@@ -33,7 +33,11 @@ public struct SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions: SwiftEOSObje
         self.InviteId = String(cString: sdkObject.InviteId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEBYINVITEID_API_LATEST. 
+     * - Parameter InviteId:  Invite ID for which to retrieve a session handle 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_COPYSESSIONHANDLEBYINVITEID_API_LATEST,
         InviteId: String?

@@ -38,7 +38,12 @@ public struct SwiftEOS_KWS_GetPermissionByKeyOptions: SwiftEOSObject {
         self.Key = String(cString: sdkObject.Key)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_GETPERMISSIONBYKEY_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user getting permissions 
+     * - Parameter Key:  Permission name to query 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_GETPERMISSIONBYKEY_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

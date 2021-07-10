@@ -38,7 +38,12 @@ public struct SwiftEOS_Ecom_GetEntitlementsByNameCountOptions: SwiftEOSObject {
         self.EntitlementName = String(cString: sdkObject.EntitlementName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_GETENTITLEMENTSBYNAMECOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user for which to retrieve the entitlement count 
+     * - Parameter EntitlementName:  Name of the entitlement to count in the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_GETENTITLEMENTSBYNAMECOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

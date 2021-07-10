@@ -38,7 +38,12 @@ public struct SwiftEOS_Presence_HasPresenceOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_HASPRESENCE_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose cached presence data you want to locate 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_HASPRESENCE_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

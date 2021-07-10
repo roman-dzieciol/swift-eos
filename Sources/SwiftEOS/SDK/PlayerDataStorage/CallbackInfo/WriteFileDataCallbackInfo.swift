@@ -16,7 +16,13 @@ public struct SwiftEOS_PlayerDataStorage_WriteFileDataCallbackInfo {
     /** The maximum amount of data in bytes that can be written safely to DataBuffer  */
     public let DataBufferLengthBytes: Int
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientData:  Client-specified data passed into the file write request 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request 
+     * - Parameter Filename:  The file name that is being written to 
+     * - Parameter DataBufferLengthBytes:  The maximum amount of data in bytes that can be written safely to DataBuffer 
+     */
     public init(
         ClientData: UnsafeMutableRawPointer?,
         LocalUserId: EOS_ProductUserId?,

@@ -51,7 +51,14 @@ public struct SwiftEOS_Mod_Identifier: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_MOD_IDENTIFIER_API_LATEST. 
+     * - Parameter NamespaceId:  Item id of the Mod 
+     * - Parameter ItemId:  Artifact id of the Mod 
+     * - Parameter Title:  Represent mod item title. 
+     * - Parameter Version:  Represent mod item version. 
+     */
     public init(
         ApiVersion: Int32 = EOS_MOD_IDENTIFIER_API_LATEST,
         NamespaceId: String?,

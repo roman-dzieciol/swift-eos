@@ -54,7 +54,8 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * Fetch information about an external account linked to a Product User ID.
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
-     * - Parameter Options:  Structure containing the target external account ID.
+     * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
+     * - Parameter AccountId:  External auth service account ID to look for when copying external account info from the cache. 
      * - Parameter OutExternalAccountInfo:  The external account info data for the user with given external account ID.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
@@ -65,16 +66,21 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserExternalAccountByAccountId(
-        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdOptions
+        TargetUserId: EOS_ProductUserId?,
+        AccountId: String?
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
-        try ____CopyProductUserExternalAccountByAccountId(Options)
+        try ____CopyProductUserExternalAccountByAccountId(.init(
+                TargetUserId: TargetUserId,
+                AccountId: AccountId
+            ))
     }
 
     /**
      * Fetch information about an external account of a specific type linked to a Product User ID.
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
-     * - Parameter Options:  Structure containing the target external account type.
+     * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
+     * - Parameter AccountIdType:  External auth service account type to look for when copying external account info from the cache. 
      * - Parameter OutExternalAccountInfo:  The external account info data for the user with given external account type.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
@@ -85,16 +91,21 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserExternalAccountByAccountType(
-        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions
+        TargetUserId: EOS_ProductUserId?,
+        AccountIdType: EOS_EExternalAccountType
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
-        try ____CopyProductUserExternalAccountByAccountType(Options)
+        try ____CopyProductUserExternalAccountByAccountType(.init(
+                TargetUserId: TargetUserId,
+                AccountIdType: AccountIdType
+            ))
     }
 
     /**
      * Fetch information about an external account linked to a Product User ID.
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
-     * - Parameter Options:  Structure containing the target index.
+     * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
+     * - Parameter ExternalAccountInfoIndex:  Index of the external account info to retrieve from the cache. 
      * - Parameter OutExternalAccountInfo:  The external account info data for the user with given index.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
@@ -105,16 +116,20 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserExternalAccountByIndex(
-        Options: SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions
+        TargetUserId: EOS_ProductUserId?,
+        ExternalAccountInfoIndex: Int
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
-        try ____CopyProductUserExternalAccountByIndex(Options)
+        try ____CopyProductUserExternalAccountByIndex(.init(
+                TargetUserId: TargetUserId,
+                ExternalAccountInfoIndex: ExternalAccountInfoIndex
+            ))
     }
 
     /**
      * Fetch information about a Product User, using the external account that they most recently logged in with as the reference.
      * On a successful call, the caller must release the returned structure using the EOS_Connect_ExternalAccountInfo_Release API.
      * 
-     * - Parameter Options:  Structure containing the target external account ID.
+     * - Parameter TargetUserId:  Product user ID to look for when copying external account info from the cache. 
      * - Parameter OutExternalAccountInfo:  The external account info data last logged in for the user.
      * 
      * @see EOS_Connect_ExternalAccountInfo_Release
@@ -125,9 +140,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
      */
     public func CopyProductUserInfo(
-        Options: SwiftEOS_Connect_CopyProductUserInfoOptions
+        TargetUserId: EOS_ProductUserId?
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo? {
-        try ____CopyProductUserInfo(Options)
+        try ____CopyProductUserInfo(.init(TargetUserId: TargetUserId))
     }
 
     /**
@@ -149,16 +164,22 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * credentials type. If a Device ID already exists for the local user on the device then EOS_DuplicateNotAllowed
      * error result is returned and the caller should proceed to calling EOS_Connect_Login directly.
      * 
-     * - Parameter Options:  structure containing operation input parameters.
+     * - Parameter DeviceModel:  A freeform text description identifying the device type and model,
+     * which can be used in account linking management to allow the player
+     * and customer support to identify different devices linked to an EOS
+     * user keychain. For example 'iPhone 6S' or 'PC Windows'.
+     * The input string must be in UTF-8 character format, with a maximum
+     * length of 64 characters. Longer string will be silently truncated.
+     * This field is required to be present.
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the create operation completes, either successfully or in error.
      */
     public func CreateDeviceId(
-        Options: SwiftEOS_Connect_CreateDeviceIdOptions,
+        DeviceModel: String?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_CreateDeviceIdCallbackInfo) -> Void
     ) throws {
         try ____CreateDeviceId(
-            Options,
+            .init(DeviceModel: DeviceModel),
             CompletionDelegate
         )
     }
@@ -166,16 +187,16 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
      * Create an account association with the Epic Online Service as a product user given their external auth credentials.
      * 
-     * - Parameter Options:  structure containing a continuance token from a "user not found" response during Login (always try login first).
+     * - Parameter ContinuanceToken:  Continuance token from previous call to EOS_Connect_Login 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the create operation completes, either successfully or in error.
      */
     public func CreateUser(
-        Options: SwiftEOS_Connect_CreateUserOptions,
+        ContinuanceToken: EOS_ContinuanceToken?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_CreateUserCallbackInfo) -> Void
     ) throws {
         try ____CreateUser(
-            Options,
+            .init(ContinuanceToken: ContinuanceToken),
             CompletionDelegate
         )
     }
@@ -198,14 +219,22 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
      * Fetch a Product User ID that maps to an external account ID cached from a previous query.
      * 
-     * - Parameter Options:  structure containing the local user and target external account ID.
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
+     * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
+     * - Parameter TargetExternalUserId:  Target user to retrieve the mapping for, as an external account ID. 
      * 
      * @return The Product User ID, previously retrieved from the backend service, for the given target external account.
      */
     public func GetExternalAccountMapping(
-        Options: SwiftEOS_Connect_GetExternalAccountMappingsOptions
+        LocalUserId: EOS_ProductUserId?,
+        AccountIdType: EOS_EExternalAccountType,
+        TargetExternalUserId: String?
     ) throws -> EOS_ProductUserId {
-        try ____GetExternalAccountMapping(Options)
+        try ____GetExternalAccountMapping(.init(
+                LocalUserId: LocalUserId,
+                AccountIdType: AccountIdType,
+                TargetExternalUserId: TargetExternalUserId
+            ))
     }
 
     /**
@@ -246,22 +275,24 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
      * Fetch the number of linked external accounts for a Product User ID.
      * 
-     * - Parameter Options:  The Options associated with retrieving the external account info count.
+     * - Parameter TargetUserId:  The Product User ID to look for when getting external account info count from the cache. 
      * 
      * @see EOS_Connect_CopyProductUserExternalAccountByIndex
      * 
      * @return Number of external accounts or 0 otherwise.
      */
     public func GetProductUserExternalAccountCount(
-        Options: SwiftEOS_Connect_GetProductUserExternalAccountCountOptions
+        TargetUserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetProductUserExternalAccountCount(Options)
+        try ____GetProductUserExternalAccountCount(.init(TargetUserId: TargetUserId))
     }
 
     /**
      * Fetch an external account ID, in string form, that maps to a given Product User ID.
      * 
-     * - Parameter Options:  structure containing the local user and target Product User ID.
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user that is querying account mappings. 
+     * - Parameter AccountIdType:  External auth service mapping to retrieve. 
+     * - Parameter TargetProductUserId:  The Product User ID of the user whose information is being requested. 
      * - Parameter OutBuffer:  The buffer into which the external account ID data should be written. The buffer must be long enough to hold a string of EOS_CONNECT_EXTERNAL_ACCOUNT_ID_MAX_LENGTH.
      * - Parameter InOutBufferLength:  The size of the OutBuffer in characters.
      *                          The input buffer should include enough space to be null-terminated.
@@ -274,24 +305,35 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      *         EOS_LimitExceeded if the OutBuffer is not large enough to receive the external account ID. InOutBufferLength contains the required minimum length to perform the operation successfully.
      */
     public func GetProductUserIdMapping(
-        Options: SwiftEOS_Connect_GetProductUserIdMappingOptions
+        LocalUserId: EOS_ProductUserId?,
+        AccountIdType: EOS_EExternalAccountType,
+        TargetProductUserId: EOS_ProductUserId?
     ) throws -> String? {
-        try ____GetProductUserIdMapping(Options)
+        try ____GetProductUserIdMapping(.init(
+                LocalUserId: LocalUserId,
+                AccountIdType: AccountIdType,
+                TargetProductUserId: TargetProductUserId
+            ))
     }
 
     /**
      * Link a set of external auth credentials with an existing product user on the Epic Online Service.
      * 
-     * - Parameter Options:  structure containing a continuance token from a "user not found" response during Login (always try login first) and a currently logged in user not already associated with this external auth provider.
+     * - Parameter LocalUserId:  The existing logged in product user for which to link the external account described by the continuance token. 
+     * - Parameter ContinuanceToken:  Continuance token from previous call to EOS_Connect_Login. 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the link operation completes, either successfully or in error.
      */
     public func LinkAccount(
-        Options: SwiftEOS_Connect_LinkAccountOptions,
+        LocalUserId: EOS_ProductUserId?,
+        ContinuanceToken: EOS_ContinuanceToken?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_LinkAccountCallbackInfo) -> Void
     ) throws {
         try ____LinkAccount(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                ContinuanceToken: ContinuanceToken
+            ),
             CompletionDelegate
         )
     }
@@ -299,16 +341,23 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
      * Login/Authenticate given a valid set of external auth credentials.
      * 
-     * - Parameter Options:  structure containing the external account credentials and type to use during the login operation.
+     * - Parameter Credentials:  Credentials specified for a given login method 
+     * - Parameter UserLoginInfo:  Additional non-authoritative information about the local user.
+     * This field is required to be set and only used when authenticating the user using Apple, Google, Nintendo Account, Nintendo Service Account, Oculus or the Device ID feature login.
+     * When using other identity providers, set to NULL.
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the login operation completes, either successfully or in error.
      */
     public func Login(
-        Options: SwiftEOS_Connect_LoginOptions,
+        Credentials: SwiftEOS_Connect_Credentials?,
+        UserLoginInfo: SwiftEOS_Connect_UserLoginInfo?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_LoginCallbackInfo) -> Void
     ) throws {
         try ____Login(
-            Options,
+            .init(
+                Credentials: Credentials,
+                UserLoginInfo: UserLoginInfo
+            ),
             CompletionDelegate
         )
     }
@@ -317,16 +366,29 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * Retrieve the equivalent Product User IDs from a list of external account IDs from supported account providers.
      * The values will be cached and retrievable through EOS_Connect_GetExternalAccountMapping.
      * 
-     * - Parameter Options:  structure containing a list of external account IDs, in string form, to query for the Product User ID representation.
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
+     * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
+     * - Parameter ExternalAccountIds:  An array of external account IDs to map to the product user ID representation. 
+     * - array num: ExternalAccountIdCount
+     * - Parameter ExternalAccountIdCount:  Number of account IDs to query. 
+     * - array buffer: ExternalAccountIds
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     public func QueryExternalAccountMappings(
-        Options: SwiftEOS_Connect_QueryExternalAccountMappingsOptions,
+        LocalUserId: EOS_ProductUserId?,
+        AccountIdType: EOS_EExternalAccountType,
+        ExternalAccountIds: [String]?,
+        ExternalAccountIdCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo) -> Void
     ) throws {
         try ____QueryExternalAccountMappings(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                AccountIdType: AccountIdType,
+                ExternalAccountIds: ExternalAccountIds,
+                ExternalAccountIdCount: ExternalAccountIdCount
+            ),
             CompletionDelegate
         )
     }
@@ -345,16 +407,29 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * @see EOS_Connect_CopyProductUserExternalAccountByAccountId
      * @see EOS_Connect_CopyProductUserInfo
      * 
-     * - Parameter Options:  structure containing a list of Product User IDs to query for the external account representation.
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
+     * - Parameter AccountIdType_DEPRECATED:  Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value. 
+     * - Parameter ProductUserIds:  An array of Product User IDs to query for the given external account representation. 
+     * - array num: ProductUserIdCount
+     * - Parameter ProductUserIdCount:  Number of Product User IDs to query. 
+     * - array buffer: ProductUserIds
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
      */
     public func QueryProductUserIdMappings(
-        Options: SwiftEOS_Connect_QueryProductUserIdMappingsOptions,
+        LocalUserId: EOS_ProductUserId?,
+        AccountIdType_DEPRECATED: EOS_EExternalAccountType,
+        ProductUserIds: [EOS_ProductUserId]?,
+        ProductUserIdCount: Int,
         CompletionDelegate: @escaping (SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo) -> Void
     ) throws {
         try ____QueryProductUserIdMappings(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                AccountIdType_DEPRECATED: AccountIdType_DEPRECATED,
+                ProductUserIds: ProductUserIds,
+                ProductUserIdCount: ProductUserIdCount
+            ),
             CompletionDelegate
         )
     }
@@ -413,16 +488,30 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * @see EOS_Connect_Login
      * @see EOS_Connect_CreateDeviceId
      * 
-     * - Parameter Options:  structure containing the logged in product users and specifying which one will be preserved.
+     * - Parameter PrimaryLocalUserId:  The primary product user id, currently logged in, that is already associated with a real external user account (such as Epic Games, PlayStation(TM)Network, Xbox Live and other).
+     * The account linking keychain that owns this product user will be preserved and receive
+     * the Device ID login credentials under it.
+     * - Parameter LocalDeviceUserId:  The product user id, currently logged in, that has been originally created using the anonymous local Device ID login type,
+     * and whose Device ID login will be transferred to the keychain of the PrimaryLocalUserId.
+     * - Parameter ProductUserIdToPreserve:  Specifies which EOS_ProductUserId (i.e. game progression) will be preserved in the operation.
+     * After a successful transfer operation, subsequent logins using the same external account or
+     * the same local Device ID login will return user session for the ProductUserIdToPreserve.
+     * Set to either PrimaryLocalUserId or LocalDeviceUserId.
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the transfer operation completes, either successfully or in error.
      */
     public func TransferDeviceIdAccount(
-        Options: SwiftEOS_Connect_TransferDeviceIdAccountOptions,
+        PrimaryLocalUserId: EOS_ProductUserId?,
+        LocalDeviceUserId: EOS_ProductUserId?,
+        ProductUserIdToPreserve: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_TransferDeviceIdAccountCallbackInfo) -> Void
     ) throws {
         try ____TransferDeviceIdAccount(
-            Options,
+            .init(
+                PrimaryLocalUserId: PrimaryLocalUserId,
+                LocalDeviceUserId: LocalDeviceUserId,
+                ProductUserIdToPreserve: ProductUserIdToPreserve
+            ),
             CompletionDelegate
         )
     }
@@ -447,16 +536,18 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * authenticating with one of the other linked accounts in the keychain. These restrictions limit the potential attack surface
      * related to account theft scenarios.
      * 
-     * - Parameter Options:  structure containing operation input parameters.
+     * - Parameter LocalUserId:  Existing logged in product user that is subject for the unlinking operation.
+     * The external account that was used to login to the product user will be unlinked from the owning keychain.
+     * On a successful operation, the product user will be logged out as the external account used to authenticate the user was unlinked from the owning keychain.
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  a callback that is fired when the unlink operation completes, either successfully or in error.
      */
     public func UnlinkAccount(
-        Options: SwiftEOS_Connect_UnlinkAccountOptions,
+        LocalUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_UnlinkAccountCallbackInfo) -> Void
     ) throws {
         try ____UnlinkAccount(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }

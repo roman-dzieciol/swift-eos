@@ -33,7 +33,11 @@ public struct SwiftEOS_PresenceModification_SetRawRichTextOptions: SwiftEOSObjec
         self.RichText = String(cString: sdkObject.RichText)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_SETRAWRICHTEXT_API_LATEST. 
+     * - Parameter RichText:  The status of the user 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_SETRAWRICHTEXT_API_LATEST,
         RichText: String?

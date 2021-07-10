@@ -33,7 +33,11 @@ public struct SwiftEOS_Friends_QueryFriendsOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_FRIENDS_QUERYFRIENDS_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user whose friends list you want to retrieve 
+     */
     public init(
         ApiVersion: Int32 = EOS_FRIENDS_QUERYFRIENDS_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

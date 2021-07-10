@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionModification_SetJoinInProgressAllowedOptions: Swif
         self.bAllowJoinInProgress = try swiftBoolFromEosBool(sdkObject.bAllowJoinInProgress)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST. 
+     * - Parameter bAllowJoinInProgress:  Does the session allow join in progress 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST,
         bAllowJoinInProgress: Bool

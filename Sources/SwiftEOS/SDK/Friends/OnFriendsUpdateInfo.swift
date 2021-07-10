@@ -37,7 +37,13 @@ public struct SwiftEOS_Friends_OnFriendsUpdateInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is receiving the update 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose status is being updated. 
+     * - Parameter PreviousStatus:  The previous status of the user. 
+     * - Parameter CurrentStatus:  The current status of the user. 
+     */
     public init(
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?,

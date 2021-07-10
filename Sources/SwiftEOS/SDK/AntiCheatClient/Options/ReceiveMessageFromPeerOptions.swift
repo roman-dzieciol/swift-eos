@@ -50,7 +50,15 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
             ))
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST. 
+     * - Parameter PeerHandle:  The handle describing the sender of this message 
+     * - Parameter DataLengthBytes:  The size of the data received 
+     * - array buffer: Data
+     * - Parameter Data:  The data received 
+     * - array num: DataLengthBytes
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST,
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,

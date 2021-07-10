@@ -63,15 +63,30 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * Begin the gameplay session. Event callbacks must be configured with EOS_AntiCheatServer_AddNotifyMessageToClient
      * and EOS_AntiCheatServer_AddNotifyClientActionRequired before calling this function.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter RegisterTimeoutSeconds:  
+     * Time in seconds to allow newly registered clients to complete anti-cheat authentication.
+     * Recommended value: 60
+     * - Parameter ServerName:  Optional name of this game server 
+     * - Parameter bEnableGameplayData:  
+     * Gameplay data collection APIs such as LogPlayerTick will be enabled if set to true.
+     * If you do not use these APIs, it is more efficient to set this value to false.
+     * - Parameter LocalUserId:  The Product User ID of the local user who is associated with this session. Dedicated servers should set this to null. 
      * 
      * @return EOS_Success - If the initialization succeeded
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func BeginSession(
-        Options: SwiftEOS_AntiCheatServer_BeginSessionOptions
+        RegisterTimeoutSeconds: Int,
+        ServerName: String?,
+        bEnableGameplayData: Bool,
+        LocalUserId: EOS_ProductUserId?
     ) throws {
-        try ____BeginSession(Options)
+        try ____BeginSession(.init(
+                RegisterTimeoutSeconds: RegisterTimeoutSeconds,
+                ServerName: ServerName,
+                bEnableGameplayData: bEnableGameplayData,
+                LocalUserId: LocalUserId
+            ))
     }
 
     /**
@@ -91,16 +106,16 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * Calculates the required decrypted buffer size for a given input data length.
      * This will not change for a given SDK version, and allows one time allocation of reusable buffers.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter DataLengthBytes:  Length in bytes of input 
      * - Parameter OutBufferLengthBytes:  The length in bytes that is required to call ProtectMessage on the given input size.
      * 
      * @return EOS_Success - If the output length was calculated successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func GetProtectMessageOutputLength(
-        Options: SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions
+        DataLengthBytes: Int
     ) throws -> Int? {
-        try ____GetProtectMessageOutputLength(Options)
+        try ____GetProtectMessageOutputLength(.init(DataLengthBytes: DataLengthBytes))
     }
 
     /**
@@ -109,15 +124,28 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Optional client who this event is primarily associated with. If not applicable, use 0. 
+     * - Parameter EventId:  Unique event identifier previously configured in RegisterEvent 
+     * - Parameter ParamsCount:  Number of parameters described in Params 
+     * - array buffer: Params
+     * - Parameter Params:  Set of parameter types previously configured in RegisterEvent, and their values 
+     * - array num: ParamsCount
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogEvent(
-        Options: SwiftEOS_AntiCheatCommon_LogEventOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        EventId: Int,
+        ParamsCount: Int,
+        Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
     ) throws {
-        try ____LogEvent(Options)
+        try ____LogEvent(.init(
+                ClientHandle: ClientHandle,
+                EventId: EventId,
+                ParamsCount: ParamsCount,
+                Params: Params
+            ))
     }
 
     /**
@@ -126,15 +154,15 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter WinningTeamId:  Optional identifier for the winning team 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogGameRoundEnd(
-        Options: SwiftEOS_AntiCheatCommon_LogGameRoundEndOptions
+        WinningTeamId: Int
     ) throws {
-        try ____LogGameRoundEnd(Options)
+        try ____LogGameRoundEnd(.init(WinningTeamId: WinningTeamId))
     }
 
     /**
@@ -143,15 +171,26 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter SessionIdentifier:  Optional game session or match identifier useful for some backend API integrations 
+     * - Parameter LevelName:  Optional name of the map being played 
+     * - Parameter ModeName:  Optional name of the game mode being played 
+     * - Parameter RoundTimeSeconds:  Optional length of the game round to be played, in seconds. If none, use 0. 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogGameRoundStart(
-        Options: SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions
+        SessionIdentifier: String?,
+        LevelName: String?,
+        ModeName: String?,
+        RoundTimeSeconds: Int
     ) throws {
-        try ____LogGameRoundStart(Options)
+        try ____LogGameRoundStart(.init(
+                SessionIdentifier: SessionIdentifier,
+                LevelName: LevelName,
+                ModeName: ModeName,
+                RoundTimeSeconds: RoundTimeSeconds
+            ))
     }
 
     /**
@@ -161,15 +200,15 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter DespawnedPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerDespawn(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions
+        DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
     ) throws {
-        try ____LogPlayerDespawn(Options)
+        try ____LogPlayerDespawn(.init(DespawnedPlayerHandle: DespawnedPlayerHandle))
     }
 
     /**
@@ -178,15 +217,20 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter RevivedPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter ReviverPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerRevive(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerReviveOptions
+        RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle
     ) throws {
-        try ____LogPlayerRevive(Options)
+        try ____LogPlayerRevive(.init(
+                RevivedPlayerHandle: RevivedPlayerHandle,
+                ReviverPlayerHandle: ReviverPlayerHandle
+            ))
     }
 
     /**
@@ -195,15 +239,23 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter SpawnedPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter TeamId:  Optional identifier for the player's team. If none, use 0. 
+     * - Parameter CharacterId:  Optional identifier for the player's character. If none, use 0. 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerSpawn(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions
+        SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        TeamId: Int,
+        CharacterId: Int
     ) throws {
-        try ____LogPlayerSpawn(Options)
+        try ____LogPlayerSpawn(.init(
+                SpawnedPlayerHandle: SpawnedPlayerHandle,
+                TeamId: TeamId,
+                CharacterId: CharacterId
+            ))
     }
 
     /**
@@ -212,15 +264,70 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter VictimPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter VictimPlayerPosition:  Victim player's current world position as a 3D vector 
+     * - Parameter VictimPlayerViewRotation:  Victim player's view rotation as a quaternion 
+     * - Parameter AttackerPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter AttackerPlayerPosition:  Attacker player's current world position as a 3D vector 
+     * - Parameter AttackerPlayerViewRotation:  Attacker player's view rotation as a quaternion 
+     * - Parameter bIsHitscanAttack:  True if the damage was applied instantly at the time of attack from the game
+     * simulation's perspective, otherwise false (simulated ballistics, arrow, etc).
+     * - Parameter bHasLineOfSight:  True if there is a visible line of sight between the attacker and the victim at the time
+     * that damage is being applied, false if there is an obstacle like a wall or terrain in
+     * the way. For some situations like melee or hitscan weapons this is trivially
+     * true, for others like projectiles with simulated physics it may not be e.g. a player
+     * could fire a slow moving projectile and then move behind cover before it strikes.
+     * - Parameter bIsCriticalHit:  True if this was a critical hit that causes extra damage (e.g. headshot) 
+     * - Parameter HitBoneId:  Identifier of the victim bone hit in this damage event 
+     * - Parameter DamageTaken:  Number of health points that the victim lost due to this damage event 
+     * - Parameter HealthRemaining:  Number of health points that the victim has remaining after this damage event 
+     * - Parameter DamageSource:  Source of the damage event 
+     * - Parameter DamageType:  Type of the damage being applied 
+     * - Parameter DamageResult:  Result of the damage for the victim, if any 
+     * - Parameter PlayerUseWeaponData:  PlayerUseWeaponData associated with this damage event if available, otherwise NULL 
+     * - Parameter TimeSincePlayerUseWeaponMs:  Time in milliseconds since the PlayerUseWeaponData event occurred if available, otherwise 0 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerTakeDamage(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions
+        VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        VictimPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
+        VictimPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
+        AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        AttackerPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
+        AttackerPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
+        bIsHitscanAttack: Bool,
+        bHasLineOfSight: Bool,
+        bIsCriticalHit: Bool,
+        HitBoneId: Int,
+        DamageTaken: Float,
+        HealthRemaining: Float,
+        DamageSource: EOS_EAntiCheatCommonPlayerTakeDamageSource,
+        DamageType: EOS_EAntiCheatCommonPlayerTakeDamageType,
+        DamageResult: EOS_EAntiCheatCommonPlayerTakeDamageResult,
+        PlayerUseWeaponData: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData?,
+        TimeSincePlayerUseWeaponMs: Int
     ) throws {
-        try ____LogPlayerTakeDamage(Options)
+        try ____LogPlayerTakeDamage(.init(
+                VictimPlayerHandle: VictimPlayerHandle,
+                VictimPlayerPosition: VictimPlayerPosition,
+                VictimPlayerViewRotation: VictimPlayerViewRotation,
+                AttackerPlayerHandle: AttackerPlayerHandle,
+                AttackerPlayerPosition: AttackerPlayerPosition,
+                AttackerPlayerViewRotation: AttackerPlayerViewRotation,
+                bIsHitscanAttack: bIsHitscanAttack,
+                bHasLineOfSight: bHasLineOfSight,
+                bIsCriticalHit: bIsCriticalHit,
+                HitBoneId: HitBoneId,
+                DamageTaken: DamageTaken,
+                HealthRemaining: HealthRemaining,
+                DamageSource: DamageSource,
+                DamageType: DamageType,
+                DamageResult: DamageResult,
+                PlayerUseWeaponData: PlayerUseWeaponData,
+                TimeSincePlayerUseWeaponMs: TimeSincePlayerUseWeaponMs
+            ))
     }
 
     /**
@@ -229,15 +336,32 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter PlayerPosition:  Player's current world position as a 3D vector 
+     * - Parameter PlayerViewRotation:  Player's view rotation as a quaternion 
+     * - Parameter bIsPlayerViewZoomed:  True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false 
+     * - Parameter PlayerHealth:  Player's current health value 
+     * - Parameter PlayerMovementState:  Any movement state applicable 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerTick(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerTickOptions
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
+        PlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
+        bIsPlayerViewZoomed: Bool,
+        PlayerHealth: Float,
+        PlayerMovementState: EOS_EAntiCheatCommonPlayerMovementState
     ) throws {
-        try ____LogPlayerTick(Options)
+        try ____LogPlayerTick(.init(
+                PlayerHandle: PlayerHandle,
+                PlayerPosition: PlayerPosition,
+                PlayerViewRotation: PlayerViewRotation,
+                bIsPlayerViewZoomed: bIsPlayerViewZoomed,
+                PlayerHealth: PlayerHealth,
+                PlayerMovementState: PlayerMovementState
+            ))
     }
 
     /**
@@ -247,15 +371,26 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter AbilityId:  Game defined unique identifier for the ability being used 
+     * - Parameter AbilityDurationMs:  Duration of the ability effect in milliseconds. If not applicable, use 0. 
+     * - Parameter AbilityCooldownMs:  Cooldown until the ability can be used again in milliseconds. If not applicable, use 0. 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerUseAbility(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        AbilityId: Int,
+        AbilityDurationMs: Int,
+        AbilityCooldownMs: Int
     ) throws {
-        try ____LogPlayerUseAbility(Options)
+        try ____LogPlayerUseAbility(.init(
+                PlayerHandle: PlayerHandle,
+                AbilityId: AbilityId,
+                AbilityDurationMs: AbilityDurationMs,
+                AbilityCooldownMs: AbilityCooldownMs
+            ))
     }
 
     /**
@@ -264,15 +399,15 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter UseWeaponData:  Struct containing detailed information about a weapon use event 
      * 
      * @return EOS_Success - If the event was logged successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func LogPlayerUseWeapon(
-        Options: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions
+        UseWeaponData: SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData?
     ) throws {
-        try ____LogPlayerUseWeapon(Options)
+        try ____LogPlayerUseWeapon(.init(UseWeaponData: UseWeaponData))
     }
 
     /**
@@ -280,7 +415,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * Encrypts an arbitrary message that will be sent to a game client and decrypted on the other side.
      * Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Locally unique value describing the remote user to whom the message will be sent 
+     * - Parameter DataLengthBytes:  Length in bytes of input 
+     * - array buffer: Data
+     * - Parameter Data:  The data to encrypt 
+     * - array num: DataLengthBytes
+     * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * - Parameter OutBuffer:  On success, buffer where encrypted message data will be written.
      * - Parameter OutBufferLengthBytes:  Number of bytes that were written to OutBuffer.
      * 
@@ -289,9 +429,17 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      *         EOS_InvalidUser - If the specified ClientHandle was invalid or not currently registered. See RegisterClient.
      */
     public func ProtectMessage(
-        Options: SwiftEOS_AntiCheatServer_ProtectMessageOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        DataLengthBytes: Int,
+        Data: [UInt8]?,
+        OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
-        try ____ProtectMessage(Options)
+        try ____ProtectMessage(.init(
+                ClientHandle: ClientHandle,
+                DataLengthBytes: DataLengthBytes,
+                Data: Data,
+                OutBufferSizeBytes: OutBufferSizeBytes
+            ))
     }
 
     /**
@@ -299,15 +447,25 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Optional value, if non-null then only messages addressed to this specific client will be returned 
+     * - Parameter DataLengthBytes:  The size of the data received 
+     * - array buffer: Data
+     * - Parameter Data:  The data received 
+     * - array num: DataLengthBytes
      * 
      * @return EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func ReceiveMessageFromClient(
-        Options: SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        DataLengthBytes: Int,
+        Data: [UInt8]?
     ) throws {
-        try ____ReceiveMessageFromClient(Options)
+        try ____ReceiveMessageFromClient(.init(
+                ClientHandle: ClientHandle,
+                DataLengthBytes: DataLengthBytes,
+                Data: Data
+            ))
     }
 
     /**
@@ -315,15 +473,36 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Locally unique value describing the remote user (e.g. a player object pointer) 
+     * - Parameter ClientType:  Type of remote user being registered 
+     * - Parameter ClientPlatform:  Remote user's platform, if known 
+     * - Parameter AccountId:  
+     * Identifier for the remote user. This is typically a string representation of an
+     * account ID, but it can be any string which is both unique (two different users will never
+     * have the same string) and consistent (if the same user connects to this game session
+     * twice, the same string will be used) in the scope of a single protected game session.
+     * - Parameter IpAddress:  
+     * Optional IP address for the remote user. May be null if not available.
+     * IPv4 format: "0.0.0.0"
+     * IPv6 format: "0:0:0:0:0:0:0:0"
      * 
      * @return EOS_Success - If the player was registered successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func RegisterClient(
-        Options: SwiftEOS_AntiCheatServer_RegisterClientOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientType: EOS_EAntiCheatCommonClientType,
+        ClientPlatform: EOS_EAntiCheatCommonClientPlatform,
+        AccountId: String?,
+        IpAddress: String?
     ) throws {
-        try ____RegisterClient(Options)
+        try ____RegisterClient(.init(
+                ClientHandle: ClientHandle,
+                ClientType: ClientType,
+                ClientPlatform: ClientPlatform,
+                AccountId: AccountId,
+                IpAddress: IpAddress
+            ))
     }
 
     /**
@@ -332,15 +511,33 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * All custom game events must be registered before EOS_AntiCheatServer_BeginSession is called for the first time.
      * After the first call to EOS_AntiCheatServer_BeginSession, this function cannot be called any longer.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter EventId:  Unique event identifier. Must be >= EOS_ANTICHEATCOMMON_REGISTEREVENT_CUSTOMEVENTBASE. 
+     * - Parameter EventName:  Name of the custom event. Allowed characters are 0-9, A-Z, a-z, '_', '-', '.' 
+     * - Parameter EventType:  Type of the custom event 
+     * - Parameter ParamDefsCount:  Number of parameters described in ParamDefs. Must be 
+     * <
+     * = EOS_ANTICHEATCOMMON_REGISTEREVENT_MAX_PARAMDEFSCOUNT. 
+     * - array buffer: ParamDefs
+     * - Parameter ParamDefs:  Pointer to an array of EOS_AntiCheatCommon_RegisterEventParamDef with ParamDefsCount elements 
+     * - array num: ParamDefsCount
      * 
      * @return EOS_Success - If the event was registered successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func RegisterEvent(
-        Options: SwiftEOS_AntiCheatCommon_RegisterEventOptions
+        EventId: Int,
+        EventName: String?,
+        EventType: EOS_EAntiCheatCommonEventType,
+        ParamDefsCount: Int,
+        ParamDefs: [SwiftEOS_AntiCheatCommon_RegisterEventParamDef]?
     ) throws {
-        try ____RegisterEvent(Options)
+        try ____RegisterEvent(.init(
+                EventId: EventId,
+                EventName: EventName,
+                EventType: EventType,
+                ParamDefsCount: ParamDefsCount,
+                ParamDefs: ParamDefs
+            ))
     }
 
     /**
@@ -348,15 +545,23 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter ClientFlags:  General flags associated with this client, if any 
+     * - Parameter ClientInputMethod:  Input device being used by this client, if known 
      * 
      * @return EOS_Success - If the flags were updated successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func SetClientDetails(
-        Options: SwiftEOS_AntiCheatCommon_SetClientDetailsOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientFlags: EOS_EAntiCheatCommonClientFlags,
+        ClientInputMethod: EOS_EAntiCheatCommonClientInput
     ) throws {
-        try ____SetClientDetails(Options)
+        try ____SetClientDetails(.init(
+                ClientHandle: ClientHandle,
+                ClientFlags: ClientFlags,
+                ClientInputMethod: ClientInputMethod
+            ))
     }
 
     /**
@@ -367,15 +572,20 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Locally unique value describing the remote user (e.g. a player object pointer) 
+     * - Parameter bIsNetworkActive:  True if the network is functioning normally, false if temporarily interrupted 
      * 
      * @return EOS_Success - If the network state was updated successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func SetClientNetworkState(
-        Options: SwiftEOS_AntiCheatServer_SetClientNetworkStateOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        bIsNetworkActive: Bool
     ) throws {
-        try ____SetClientNetworkState(Options)
+        try ____SetClientNetworkState(.init(
+                ClientHandle: ClientHandle,
+                bIsNetworkActive: bIsNetworkActive
+            ))
     }
 
     /**
@@ -384,15 +594,15 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter GameSessionId:  Game session identifier 
      * 
      * @return EOS_Success - If the game session identifier was set successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func SetGameSessionId(
-        Options: SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions
+        GameSessionId: String?
     ) throws {
-        try ____SetGameSessionId(Options)
+        try ____SetGameSessionId(.init(GameSessionId: GameSessionId))
     }
 
     /**
@@ -400,7 +610,12 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * Decrypts an encrypted message received from a game client.
      * Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Locally unique value describing the remote user from whom the message was received 
+     * - Parameter DataLengthBytes:  Length in bytes of input 
+     * - array buffer: Data
+     * - Parameter Data:  The data to decrypt 
+     * - array num: DataLengthBytes
+     * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * - Parameter OutBuffer:  On success, buffer where encrypted message data will be written.
      * - Parameter OutBufferLengthBytes:  Number of bytes that were written to OutBuffer.
      * 
@@ -408,9 +623,17 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func UnprotectMessage(
-        Options: SwiftEOS_AntiCheatServer_UnprotectMessageOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        DataLengthBytes: Int,
+        Data: [UInt8]?,
+        OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
-        try ____UnprotectMessage(Options)
+        try ____UnprotectMessage(.init(
+                ClientHandle: ClientHandle,
+                DataLengthBytes: DataLengthBytes,
+                Data: Data,
+                OutBufferSizeBytes: OutBufferSizeBytes
+            ))
     }
 
     /**
@@ -418,15 +641,15 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
      * This function may only be called between a successful call to EOS_AntiCheatServer_BeginSession and
      * the matching EOS_AntiCheatServer_EndSession call.
      * 
-     * - Parameter Options:  Structure containing input data.
+     * - Parameter ClientHandle:  Locally unique value describing the remote user, as previously passed to RegisterClient 
      * 
      * @return EOS_Success - If the player was unregistered successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func UnregisterClient(
-        Options: SwiftEOS_AntiCheatServer_UnregisterClientOptions
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle
     ) throws {
-        try ____UnregisterClient(Options)
+        try ____UnregisterClient(.init(ClientHandle: ClientHandle))
     }
 }
 

@@ -38,7 +38,12 @@ public struct SwiftEOS_SessionModification_AddAttributeOptions: SwiftEOSObject {
         self.AdvertisementType = sdkObject.AdvertisementType
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST. 
+     * - Parameter SessionAttribute:  Key/Value pair describing the attribute to add to the session 
+     * - Parameter AdvertisementType:  Is this attribution advertised with the backend or simply stored locally 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST,
         SessionAttribute: SwiftEOS_Sessions_AttributeData?,

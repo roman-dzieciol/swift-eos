@@ -38,7 +38,12 @@ public struct SwiftEOS_Lobby_DestroyLobbyOptions: SwiftEOSObject {
         self.LobbyId = String(cString: sdkObject.LobbyId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_DESTROYLOBBY_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting destruction of the lobby; this user must currently own the lobby 
+     * - Parameter LobbyId:  The ID of the lobby to destroy 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_DESTROYLOBBY_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

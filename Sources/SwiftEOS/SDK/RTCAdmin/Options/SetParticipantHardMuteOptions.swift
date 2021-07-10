@@ -43,7 +43,13 @@ public struct SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions: SwiftEOSObject {
         self.bMute = try swiftBoolFromEosBool(sdkObject.bMute)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST. 
+     * - Parameter RoomName:  Room to kick the participant from 
+     * - Parameter TargetUserId:  Product User ID of the participant to hard mute for every participant in the room. 
+     * - Parameter bMute:  Hard mute status (Mute on or off) 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST,
         RoomName: String?,

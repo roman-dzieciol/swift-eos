@@ -33,7 +33,11 @@ public struct SwiftEOS_Stats_GetStatCountOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_GETSTATSCOUNT_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID for the user whose stats are being counted 
+     */
     public init(
         ApiVersion: Int32 = EOS_STATS_GETSTATSCOUNT_API_LATEST,
         TargetUserId: EOS_ProductUserId?

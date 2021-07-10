@@ -62,7 +62,22 @@ public struct SwiftEOS_AntiCheatClient_RegisterPeerOptions: SwiftEOSObject {
         self.IpAddress = String(cString: sdkObject.IpAddress)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST. 
+     * - Parameter PeerHandle:  Locally unique value describing the remote user (e.g. a player object pointer) 
+     * - Parameter ClientType:  Type of remote user being registered 
+     * - Parameter ClientPlatform:  Remote user's platform, if known 
+     * - Parameter AccountId:  
+     * Identifier for the remote user. This is typically a string representation of an
+     * account ID, but it can be any string which is both unique (two different users will never
+     * have the same string) and consistent (if the same user connects to this game session
+     * twice, the same string will be used) in the scope of a single protected game session.
+     * - Parameter IpAddress:  
+     * Optional IP address for the remote user. May be null if not available.
+     * IPv4 format: "0.0.0.0"
+     * IPv6 format: "0:0:0:0:0:0:0:0"
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST,
         PeerHandle: EOS_AntiCheatCommon_ClientHandle,

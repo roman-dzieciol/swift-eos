@@ -46,7 +46,14 @@ public struct SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions: SwiftEOSObjec
         self.bUnmixedAudio = try swiftBoolFromEosBool(sdkObject.bUnmixedAudio)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORERENDER_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The  room this event is registered on. 
+     * - Parameter bUnmixedAudio:  Mixed audio or unmixed audio.
+     * For unmixed audio notifications it is not supported to modify the samples in the callback.
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORERENDER_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -29,7 +29,10 @@ public struct SwiftEOS_AntiCheatCommon_LogEventParamPair: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ParamValueType:  Parameter type 
+     */
     public init(
         ParamValueType: EOS_EAntiCheatCommonEventParamType,
         ParamValue: _tagEOS_AntiCheatCommon_LogEventParamPair.__Unnamed_union_ParamValue

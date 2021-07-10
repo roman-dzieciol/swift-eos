@@ -98,7 +98,26 @@ public struct SwiftEOS_Platform_Options: SwiftEOSObject {
         self.RTCOptions = try SwiftEOS_Platform_RTCOptions.init(sdkObject: sdkObject.RTCOptions.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLATFORM_OPTIONS_API_LATEST. 
+     * - Parameter Reserved:  A reserved field that should always be nulled. 
+     * - Parameter ProductId:  The product ID for the running application, found on the dev portal 
+     * - Parameter SandboxId:  The sandbox ID for the running application, found on the dev portal 
+     * - Parameter ClientCredentials:  Set of service permissions associated with the running application 
+     * - Parameter bIsServer:  Is this running as a server 
+     * - Parameter EncryptionKey:  Used by Player Data Storage and Title Storage. Must be null initialized if unused. 256-bit Encryption Key for file encryption in hexadecimal format (64 hex chars)
+     * - Parameter OverrideCountryCode:  The override country code to use for the logged in user. (EOS_COUNTRYCODE_MAX_LENGTH)
+     * - Parameter OverrideLocaleCode:  The override locale code to use for the logged in user. This follows ISO 639. (EOS_LOCALECODE_MAX_LENGTH)
+     * - Parameter DeploymentId:  The deployment ID for the running application, found on the dev portal 
+     * - Parameter Flags:  Platform creation flags, e.g. EOS_PF_LOADING_IN_EDITOR. This is a bitwise-or union of the defined flags. 
+     * - Parameter CacheDirectory:  Used by Player Data Storage and Title Storage. Must be null initialized if unused. Cache directory path. Absolute path to the folder that is going to be used for caching temporary data. The path is created if it's missing. 
+     * - Parameter TickBudgetInMilliseconds:  
+     * A budget, measured in milliseconds, for EOS_Platform_Tick to do its work. When the budget is met or exceeded (or if no work is available), EOS_Platform_Tick will return.
+     * This allows your game to amortize the cost of SDK work across multiple frames in the event that a lot of work is queued for processing.
+     * Zero is interpreted as "perform all available work".
+     * - Parameter RTCOptions:  RTC options. Setting to NULL will disable RTC features (e.g. voice) 
+     */
     public init(
         ApiVersion: Int32 = EOS_PLATFORM_OPTIONS_API_LATEST,
         Reserved: UnsafeMutableRawPointer?,

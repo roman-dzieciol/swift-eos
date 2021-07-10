@@ -55,7 +55,16 @@ public struct SwiftEOS_AntiCheatServer_ProtectMessageOptions: SwiftEOSObject {
         self.OutBufferSizeBytes = try safeNumericCast(exactly: sdkObject.OutBufferSizeBytes)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST. 
+     * - Parameter ClientHandle:  Locally unique value describing the remote user to whom the message will be sent 
+     * - Parameter DataLengthBytes:  Length in bytes of input 
+     * - array buffer: Data
+     * - Parameter Data:  The data to encrypt 
+     * - array num: DataLengthBytes
+     * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,

@@ -38,7 +38,12 @@ public struct SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions: SwiftEOSObject
         self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user who is listening for incoming connection requests 
+     * - Parameter SocketId:  The optional socket ID to listen for, used as a filter for incoming connection requests; If NULL, incoming connection requests will not be filtered 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

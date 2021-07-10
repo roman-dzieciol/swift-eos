@@ -33,7 +33,12 @@ public struct SwiftEOS_Connect_LoginStatusChangedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the local player whose status has changed. 
+     * - Parameter PreviousStatus:  The status prior to the change. 
+     * - Parameter CurrentStatus:  The status at the time of the notification. 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         PreviousStatus: EOS_ELoginStatus,

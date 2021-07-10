@@ -83,7 +83,20 @@ public struct SwiftEOS_Ecom_CatalogItem: SwiftEOSObject {
         self.EntitlementEndTimestamp = try safeNumericCast(exactly: sdkObject.EntitlementEndTimestamp)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_CATALOGITEM_API_LATEST. 
+     * - Parameter CatalogNamespace:  Product namespace in which this item exists 
+     * - Parameter Id:  The ID of this item 
+     * - Parameter EntitlementName:  The entitlement name associated with this item 
+     * - Parameter TitleText:  Localized UTF-8 title of this item 
+     * - Parameter DescriptionText:  Localized UTF-8 description of this item 
+     * - Parameter LongDescriptionText:  Localized UTF-8 long description of this item 
+     * - Parameter TechnicalDetailsText:  Localized UTF-8 technical details of this item 
+     * - Parameter DeveloperText:  Localized UTF-8 developer of this item 
+     * - Parameter ItemType:  The type of item as defined in the catalog 
+     * - Parameter EntitlementEndTimestamp:  If not -1 then this is the POSIX timestamp that the entitlement will end 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_CATALOGITEM_API_LATEST,
         CatalogNamespace: String?,

@@ -43,7 +43,13 @@ public struct SwiftEOS_Connect_GetExternalAccountMappingsOptions: SwiftEOSObject
         self.TargetExternalUserId = String(cString: sdkObject.TargetExternalUserId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_GETEXTERNALACCOUNTMAPPING_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
+     * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
+     * - Parameter TargetExternalUserId:  Target user to retrieve the mapping for, as an external account ID. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_GETEXTERNALACCOUNTMAPPING_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -24,7 +24,10 @@ public struct SwiftEOS_Presence_AddNotifyJoinGameAcceptedOptions: SwiftEOSObject
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_ADDNOTIFYJOINGAMEACCEPTED_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_ADDNOTIFYJOINGAMEACCEPTED_API_LATEST
     ) {

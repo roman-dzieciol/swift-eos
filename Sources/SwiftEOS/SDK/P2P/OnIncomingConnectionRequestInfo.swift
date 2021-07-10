@@ -33,7 +33,12 @@ public struct SwiftEOS_P2P_OnIncomingConnectionRequestInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the local user who is being requested to open a P2P session with RemoteUserId 
+     * - Parameter RemoteUserId:  The Product User ID of the remote user who requested a peer connection with the local user 
+     * - Parameter SocketId:  The ID of the socket the Remote User wishes to communicate on 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RemoteUserId: EOS_ProductUserId?,

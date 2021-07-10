@@ -38,7 +38,12 @@ public struct SwiftEOS_P2P_CloseConnectionsOptions: SwiftEOSObject {
         self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_CLOSECONNECTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who would like to close all connections that use a particular socket ID 
+     * - Parameter SocketId:  The socket ID of the connections to close 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_CLOSECONNECTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

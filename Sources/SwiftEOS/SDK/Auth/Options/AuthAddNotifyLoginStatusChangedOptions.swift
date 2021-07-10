@@ -26,7 +26,10 @@ public struct SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST
     ) {

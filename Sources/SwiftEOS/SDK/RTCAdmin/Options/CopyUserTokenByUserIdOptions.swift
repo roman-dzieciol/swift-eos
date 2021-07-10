@@ -42,7 +42,14 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
         self.QueryId = try safeNumericCast(exactly: sdkObject.QueryId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID for the user whose user token we're copying. 
+     * - Parameter QueryId:  Query identifier received as part of a previous query.
+     * 
+     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

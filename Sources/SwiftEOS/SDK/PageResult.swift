@@ -13,7 +13,12 @@ public struct SwiftEOS_PageResult {
     /** The number of results associated with they original query options.  */
     public let TotalCount: Int
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter StartIndex:  The index into the ordered query results to start the page at. 
+     * - Parameter Count:  The number of results in the current page. 
+     * - Parameter TotalCount:  The number of results associated with they original query options. 
+     */
     public init(
         StartIndex: Int,
         Count: Int,

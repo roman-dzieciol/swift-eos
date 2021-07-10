@@ -26,7 +26,10 @@ public struct SwiftEOS_ActiveSession_GetRegisteredPlayerCountOptions: SwiftEOSOb
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACTIVESESSION_GETREGISTEREDPLAYERCOUNT_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACTIVESESSION_GETREGISTEREDPLAYERCOUNT_API_LATEST
     ) {

@@ -33,7 +33,11 @@ public struct SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexOptions: S
         self.AchievementIndex = try safeNumericCast(exactly: sdkObject.AchievementIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYINDEX_API_LATEST. 
+     * - Parameter AchievementIndex:  Index of the achievement definition to retrieve from the cache. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYINDEX_API_LATEST,
         AchievementIndex: Int

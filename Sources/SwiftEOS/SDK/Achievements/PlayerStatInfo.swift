@@ -47,7 +47,13 @@ public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST. 
+     * - Parameter Name:  The name of the stat. 
+     * - Parameter CurrentValue:  The current value of the stat. 
+     * - Parameter ThresholdValue:  The threshold value of the stat, used in determining when to unlock an achievement. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_PLAYERSTATINFO_API_LATEST,
         Name: String?,

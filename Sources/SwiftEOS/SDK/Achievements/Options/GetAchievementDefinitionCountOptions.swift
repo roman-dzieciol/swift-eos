@@ -26,7 +26,10 @@ public struct SwiftEOS_Achievements_GetAchievementDefinitionCountOptions: SwiftE
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_GETACHIEVEMENTDEFINITIONCOUNT_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_GETACHIEVEMENTDEFINITIONCOUNT_API_LATEST
     ) {

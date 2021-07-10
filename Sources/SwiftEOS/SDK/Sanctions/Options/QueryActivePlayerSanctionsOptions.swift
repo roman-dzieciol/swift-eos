@@ -38,7 +38,12 @@ public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions: SwiftEOSObje
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST. 
+     * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be retrieved. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request. Dedicated servers should set this to null. 
+     */
     public init(
         ApiVersion: Int32 = EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

@@ -43,7 +43,13 @@ public struct SwiftEOS_RTCAudio_UpdateSendingOptions: SwiftEOSObject {
         self.AudioStatus = sdkObject.AudioStatus
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_UPDATESENDING_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
+     * - Parameter RoomName:  The room this settings should be applied on. 
+     * - Parameter AudioStatus:  Muted or unmuted audio track status 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_UPDATESENDING_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

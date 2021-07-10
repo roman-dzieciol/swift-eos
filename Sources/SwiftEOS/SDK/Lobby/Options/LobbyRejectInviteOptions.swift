@@ -38,7 +38,12 @@ public struct SwiftEOS_Lobby_RejectInviteOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_REJECTINVITE_API_LATEST. 
+     * - Parameter InviteId:  The ID of the lobby associated with the invitation 
+     * - Parameter LocalUserId:  The Product User ID of the local user who is rejecting the invitation 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_REJECTINVITE_API_LATEST,
         InviteId: String?,

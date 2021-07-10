@@ -77,7 +77,19 @@ public struct SwiftEOS_Auth_Credentials: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_CREDENTIALS_API_LATEST. 
+     * - Parameter Id:  ID of the user logging in, based on EOS_ELoginCredentialType 
+     * - Parameter Token:  Credentials or token related to the user logging in 
+     * - Parameter `Type`:  Type of login. Needed to identify the auth method to use 
+     * - Parameter SystemAuthCredentialsOptions:  
+     * This field is for system specific options, if any.
+     * If provided, the structure will be located in (System)/eos_(system).h.
+     * The structure will be named EOS_(System)_Auth_CredentialsOptions.
+     * - Parameter ExternalType:  Type of external login. Needed to identify the external auth method to use.
+     * Used when login type is set to EOS_LCT_ExternalAuth, ignored for other EOS_ELoginCredentialType methods.
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_CREDENTIALS_API_LATEST,
         Id: String?,

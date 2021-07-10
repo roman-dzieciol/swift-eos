@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatClient_UnregisterPeerOptions: SwiftEOSObject {
         self.PeerHandle = sdkObject.PeerHandle
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST. 
+     * - Parameter PeerHandle:  Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST,
         PeerHandle: EOS_AntiCheatCommon_ClientHandle

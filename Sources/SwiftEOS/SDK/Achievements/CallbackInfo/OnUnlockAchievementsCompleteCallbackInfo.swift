@@ -33,7 +33,12 @@ public struct SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter UserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter AchievementsCount:  The number of achievements that the operation unlocked. 
+     */
     public init(
         ResultCode: EOS_EResult,
         UserId: EOS_ProductUserId?,

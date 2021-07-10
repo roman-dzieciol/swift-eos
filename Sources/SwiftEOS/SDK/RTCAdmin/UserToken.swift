@@ -42,7 +42,12 @@ public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
         self.Token = String(cString: sdkObject.Token)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_USERTOKEN_API_LATEST. 
+     * - Parameter ProductUserId:  The Product User ID for the user who owns this user token. 
+     * - Parameter Token:  Access token to enable a user to join a room 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_USERTOKEN_API_LATEST,
         ProductUserId: EOS_ProductUserId?,

@@ -99,7 +99,29 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
         self.FlavorText = String(cString: sdkObject.FlavorText)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_PLAYERACHIEVEMENT_API_LATEST. 
+     * - Parameter AchievementId:  This achievement's unique identifier. 
+     * - Parameter Progress:  Progress towards completing this achievement (as a percentage). 
+     * - Parameter UnlockTime:  The POSIX timestamp when the achievement was unlocked. If the achievement has not been unlocked, this value will be EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED. 
+     * - Parameter StatInfoCount:  The number of player stat info entries associated with this achievement. 
+     * - array buffer: StatInfo
+     * - Parameter StatInfo:  Array of EOS_Achievements_PlayerStatInfo structures containing information about stat thresholds used to unlock the achievement and the player's current values for those stats. 
+     * - array num: StatInfoCount
+     * - Parameter DisplayName:  
+     * Localized display name for the achievement based on this specific player's current progress on the achievement. 
+     * 
+     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Parameter Description:  
+     * Localized description for the achievement based on this specific player's current progress on the achievement.
+     * 
+     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Parameter IconURL:  URL of an icon to display for the achievement based on this specific player's current progress on the achievement. This may be null if there is no data configured in the dev portal.
+     * 
+     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Parameter FlavorText:  Localized flavor text that can be used by the game in an arbitrary manner. This may be null if there is no data configured in the dev portal. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_PLAYERACHIEVEMENT_API_LATEST,
         AchievementId: String?,

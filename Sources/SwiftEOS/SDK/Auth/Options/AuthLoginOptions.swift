@@ -38,7 +38,12 @@ public struct SwiftEOS_Auth_LoginOptions: SwiftEOSObject {
         self.ScopeFlags = sdkObject.ScopeFlags
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_LOGIN_API_LATEST. 
+     * - Parameter Credentials:  Credentials specified for a given login method 
+     * - Parameter ScopeFlags:  Auth scope flags are permissions to request from the user while they are logging in. This is a bitwise-or union of EOS_EAuthScopeFlags flags defined above 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_LOGIN_API_LATEST,
         Credentials: SwiftEOS_Auth_Credentials?,

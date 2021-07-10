@@ -38,7 +38,12 @@ public struct SwiftEOS_Presence_GetJoinInfoOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_GETJOININFO_API_LATEST. 
+     * - Parameter LocalUserId:  The local user's Epic Online Services Account ID 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID to query for join info; this value must either be a logged-in local user, or a friend of that user 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_GETJOININFO_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

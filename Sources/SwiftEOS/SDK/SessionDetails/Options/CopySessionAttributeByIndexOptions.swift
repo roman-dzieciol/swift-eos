@@ -38,7 +38,14 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions: SwiftE
         self.AttrIndex = try safeNumericCast(exactly: sdkObject.AttrIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST. 
+     * - Parameter AttrIndex:  
+     * The index of the attribute to retrieve
+     * 
+     * @see EOS_SessionDetails_GetSessionAttributeCount
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST,
         AttrIndex: Int

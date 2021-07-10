@@ -43,7 +43,15 @@ public struct SwiftEOS_UI_AcknowledgeEventIdOptions: SwiftEOSObject {
         self.Result = sdkObject.Result
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST. 
+     * - Parameter UiEventId:  The ID being acknowledged. 
+     * - Parameter Result:  
+     * The result to use for the acknowledgment. 
+     * When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the 
+     * result code from the JoinSession call.
+     */
     public init(
         ApiVersion: Int32 = EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST,
         UiEventId: EOS_UI_EventId,

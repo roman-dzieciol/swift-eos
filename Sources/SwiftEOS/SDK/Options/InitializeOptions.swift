@@ -87,7 +87,31 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
         self.OverrideThreadAffinity = try SwiftEOS_Initialize_ThreadAffinity.init(sdkObject: sdkObject.OverrideThreadAffinity.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_INITIALIZE_API_LATEST. 
+     * - Parameter AllocateMemoryFunction:  A custom memory allocator, if desired. 
+     * - Parameter ReallocateMemoryFunction:  A corresponding memory reallocator. If the AllocateMemoryFunction is nulled, then this field must also be nulled. 
+     * - Parameter ReleaseMemoryFunction:  A corresponding memory releaser. If the AllocateMemoryFunction is nulled, then this field must also be nulled. 
+     * - Parameter ProductName:  The name of the product using the Epic Online Services SDK.
+     * The name string is required to be non-empty and at maximum of 64 characters long.
+     * The string buffer can consist of the following characters:
+     * A-Z, a-z, 0-9, dot, underscore, space, exclamation mark, question mark, and sign, hyphen, parenthesis, plus, minus, colon.
+     * - Parameter ProductVersion:  Product version of the running application.
+     * The name string has same requirements as the ProductName string.
+     * - Parameter Reserved:  A reserved field that should always be nulled. 
+     * - Parameter SystemInitializeOptions:  
+     * This field is for system specific initialization if any.
+     * If provided then the structure will be located in 
+     * <System
+     * >/eos_
+     * <system
+     * >.h.
+     * The structure will be named EOS_
+     * <System
+     * >_InitializeOptions.
+     * - Parameter OverrideThreadAffinity:  The thread affinity override values for each category of thread. 
+     */
     public init(
         ApiVersion: Int32 = EOS_INITIALIZE_API_LATEST,
         AllocateMemoryFunction: EOS_AllocateMemoryFunc?,

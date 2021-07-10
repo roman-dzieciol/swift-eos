@@ -38,7 +38,12 @@ public struct SwiftEOS_Friends_GetFriendAtIndexOptions: SwiftEOSObject {
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_FRIENDS_GETFRIENDATINDEX_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being queried 
+     * - Parameter Index:  Index into the friend list. This value must be between 0 and EOS_Friends_GetFriendsCount-1 inclusively. 
+     */
     public init(
         ApiVersion: Int32 = EOS_FRIENDS_GETFRIENDATINDEX_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

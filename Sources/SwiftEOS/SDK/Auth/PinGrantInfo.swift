@@ -35,7 +35,14 @@ public struct SwiftEOS_Auth_PinGrantInfo {
         self.VerificationURIComplete = String(cString: sdkObject.VerificationURIComplete)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_PINGRANTINFO_API_LATEST. 
+     * - Parameter UserCode:  Code the user must input on an external device to activate the login 
+     * - Parameter VerificationURI:  The end-user verification URI. Users can be asked to manually type this into their browser. 
+     * - Parameter ExpiresIn:  Time the user has, in seconds, to complete the process or else timeout 
+     * - Parameter VerificationURIComplete:  A verification URI that includes the user code. Useful for non-textual transmission. 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_PINGRANTINFO_API_LATEST,
         UserCode: String?,

@@ -40,7 +40,11 @@ public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_SOCKETID_API_LATEST. 
+     * - Parameter SocketName:  A name for the connection. Must be a NULL-terminated string of between 1-32 alpha-numeric characters (A-Z, a-z, 0-9) 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_SOCKETID_API_LATEST,
         SocketName: (CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar)

@@ -38,7 +38,12 @@ public struct SwiftEOS_Mods_UninstallModOptions: SwiftEOSObject {
         self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_MODS_UNINSTALLMOD_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be uninstalled 
+     * - Parameter Mod:  The mod to uninstall 
+     */
     public init(
         ApiVersion: Int32 = EOS_MODS_UNINSTALLMOD_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

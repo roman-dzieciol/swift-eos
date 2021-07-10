@@ -33,7 +33,11 @@ public struct SwiftEOS_Lobby_GetInviteCountOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_GETINVITECOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user whose cached lobby invitations you want to count 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_GETINVITECOUNT_API_LATEST,
         LocalUserId: EOS_ProductUserId?

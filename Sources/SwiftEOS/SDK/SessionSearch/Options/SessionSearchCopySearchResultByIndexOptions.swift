@@ -38,7 +38,14 @@ public struct SwiftEOS_SessionSearch_CopySearchResultByIndexOptions: SwiftEOSObj
         self.SessionIndex = try safeNumericCast(exactly: sdkObject.SessionIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. 
+     * - Parameter SessionIndex:  
+     * The index of the session to retrieve within the completed search query
+     * 
+     * @see EOS_SessionSearch_GetSearchResultCount
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,
         SessionIndex: Int

@@ -36,7 +36,11 @@ public struct SwiftEOS_Auth_VerifyUserAuthOptions: SwiftEOSObject {
         self.AuthToken = try SwiftEOS_Auth_Token.init(sdkObject: sdkObject.AuthToken.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_VERIFYUSERAUTH_API_LATEST. 
+     * - Parameter AuthToken:  Auth token to verify against the backend service 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_VERIFYUSERAUTH_API_LATEST,
         AuthToken: SwiftEOS_Auth_Token?

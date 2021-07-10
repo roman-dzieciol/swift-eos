@@ -68,7 +68,23 @@ public struct SwiftEOS_Metrics_BeginPlayerSessionOptions: SwiftEOSObject {
         self.GameSessionId = String(cString: sdkObject.GameSessionId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_METRICS_BEGINPLAYERSESSION_API_LATEST. 
+     * - Parameter AccountIdType:  Account ID type that is set in the union. 
+     * - Parameter DisplayName:  The in-game display name for the user as UTF-8 string. 
+     * - Parameter ControllerType:  The user's game controller type. 
+     * - Parameter ServerIp:  IP address of the game server hosting the game session. For a localhost session, set to NULL.
+     * 
+     * @details Must be in either one of the following IPv4 or IPv6 string formats:
+     * * "127.0.0.1".
+     * * "1200:0000:AB00:1234:0000:2552:7777:1313".
+     * If both IPv4 and IPv6 addresses are available, use the IPv6 address.
+     * - Parameter GameSessionId:  Optional, application-defined custom match session identifier. If the identifier is not used, set to NULL.
+     * 
+     * @details The game can tag each game session with a custom session match identifier,
+     * which will be shown in the Played Sessions listing at the user profile dashboard.
+     */
     public init(
         ApiVersion: Int32 = EOS_METRICS_BEGINPLAYERSESSION_API_LATEST,
         AccountIdType: EOS_EMetricsAccountIdType,

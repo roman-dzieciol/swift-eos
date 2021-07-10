@@ -38,7 +38,12 @@ public struct SwiftEOS_LobbySearch_RemoveParameterOptions: SwiftEOSObject {
         self.ComparisonOp = sdkObject.ComparisonOp
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYSEARCH_REMOVEPARAMETER_API_LATEST. 
+     * - Parameter Key:  Search parameter key to remove from the search 
+     * - Parameter ComparisonOp:  Search comparison operation associated with the key to remove 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_REMOVEPARAMETER_API_LATEST,
         Key: String?,

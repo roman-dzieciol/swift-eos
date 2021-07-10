@@ -56,7 +56,16 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_STATS_INGESTSTAT_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
+     * - Parameter Stats:  Stats to ingest. 
+     * - array num: StatsCount
+     * - Parameter StatsCount:  The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
+     * - array buffer: Stats
+     * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
+     */
     public init(
         ApiVersion: Int32 = EOS_STATS_INGESTSTAT_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

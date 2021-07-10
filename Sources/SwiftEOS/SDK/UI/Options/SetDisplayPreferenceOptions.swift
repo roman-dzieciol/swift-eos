@@ -33,7 +33,11 @@ public struct SwiftEOS_UI_SetDisplayPreferenceOptions: SwiftEOSObject {
         self.NotificationLocation = sdkObject.NotificationLocation
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_UI_SETDISPLAYPREFERENCE_API_LATEST. 
+     * - Parameter NotificationLocation:  Preference for notification pop-up locations. 
+     */
     public init(
         ApiVersion: Int32 = EOS_UI_SETDISPLAYPREFERENCE_API_LATEST,
         NotificationLocation: EOS_UI_ENotificationLocation

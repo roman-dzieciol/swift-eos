@@ -53,7 +53,15 @@ public struct SwiftEOS_TitleStorage_QueryFileListOptions: SwiftEOSObject {
         self.ListOfTagsCount = try safeNumericCast(exactly: sdkObject.ListOfTagsCount)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the local user who requested file metadata (optional) 
+     * - Parameter ListOfTags:  List of tags to use for lookup. 
+     * - array num: ListOfTagsCount
+     * - Parameter ListOfTagsCount:  Number of tags specified in ListOfTags 
+     * - array buffer: ListOfTags
+     */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

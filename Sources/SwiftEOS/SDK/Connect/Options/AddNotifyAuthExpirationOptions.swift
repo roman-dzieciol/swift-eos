@@ -26,7 +26,10 @@ public struct SwiftEOS_Connect_AddNotifyAuthExpirationOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST
     ) {

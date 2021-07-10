@@ -19,7 +19,9 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * EOS_LobbySearch_CopySearchResultByIndex is used to immediately retrieve a handle to the lobby information from a given search result.
      * If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsHandle, must be passed to EOS_LobbyDetails_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter LobbyIndex:  The index of the lobby to retrieve within the completed search query
+     * 
+     * @see EOS_LobbySearch_GetSearchResultCount
      * - Parameter OutLobbyDetailsHandle:  out parameter used to receive the lobby details handle
      * 
      * @return EOS_Success if the information is available and passed out in OutLobbyDetailsHandle
@@ -30,16 +32,16 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_Release
      */
     public func CopySearchResultByIndex(
-        Options: SwiftEOS_LobbySearch_CopySearchResultByIndexOptions
+        LobbyIndex: Int
     ) throws -> EOS_HLobbyDetails? {
-        try ____CopySearchResultByIndex(Options)
+        try ____CopySearchResultByIndex(.init(LobbyIndex: LobbyIndex))
     }
 
     /**
      * Find lobbies matching the search criteria setup via this lobby search handle.
      * When the operation completes, this handle will have the search results that can be parsed
      * 
-     * - Parameter Options:  Structure containing information about the search criteria to use
+     * - Parameter LocalUserId:  The Product User ID of the user making the search request 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  A callback that is fired when the search operation completes, either successfully or in error
      * 
@@ -48,11 +50,11 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func Find(
-        Options: SwiftEOS_LobbySearch_FindOptions,
+        LocalUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_LobbySearch_FindCallbackInfo) -> Void
     ) throws {
         try ____Find(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }
@@ -71,7 +73,8 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
     /**
      * Remove a parameter from the array of search criteria.
      * 
-     * - Parameter Options:  a search parameter key name to remove
+     * - Parameter Key:  Search parameter key to remove from the search 
+     * - Parameter ComparisonOp:  Search comparison operation associated with the key to remove 
      * 
      * @return EOS_Success if removing this search parameter was successful
      *         EOS_InvalidParameters if the search key is invalid or null
@@ -79,45 +82,50 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func RemoveParameter(
-        Options: SwiftEOS_LobbySearch_RemoveParameterOptions
+        Key: String?,
+        ComparisonOp: EOS_EComparisonOp
     ) throws {
-        try ____RemoveParameter(Options)
+        try ____RemoveParameter(.init(
+                Key: Key,
+                ComparisonOp: ComparisonOp
+            ))
     }
 
     /**
      * Set a lobby ID to find and will return at most one search result.  Setting TargetUserId or SearchParameters will result in EOS_LobbySearch_Find failing
      * 
-     * - Parameter Options:  A specific lobby ID for which to search
+     * - Parameter LobbyId:  The ID of the lobby to find 
      * 
      * @return EOS_Success if setting this lobby ID was successful
      *         EOS_InvalidParameters if the lobby ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func SetLobbyId(
-        Options: SwiftEOS_LobbySearch_SetLobbyIdOptions
+        LobbyId: String?
     ) throws {
-        try ____SetLobbyId(Options)
+        try ____SetLobbyId(.init(LobbyId: LobbyId))
     }
 
     /**
      * Set the maximum number of search results to return in the query, can't be more than EOS_LOBBY_MAX_SEARCH_RESULTS
      * 
-     * - Parameter Options:  maximum number of search results to return in the query
+     * - Parameter MaxResults:  Maximum number of search results to return from the query 
      * 
      * @return EOS_Success if setting the max results was successful
      *         EOS_InvalidParameters if the number of results requested is invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func SetMaxResults(
-        Options: SwiftEOS_LobbySearch_SetMaxResultsOptions
+        MaxResults: Int
     ) throws {
-        try ____SetMaxResults(Options)
+        try ____SetMaxResults(.init(MaxResults: MaxResults))
     }
 
     /**
      * Add a parameter to an array of search criteria combined via an implicit AND operator.  Setting LobbyId or TargetUserId will result in EOS_LobbySearch_Find failing
      * 
-     * - Parameter Options:  a search parameter and its comparison op
+     * - Parameter Parameter:  Search parameter describing a key and a value to compare 
+     * - Parameter ComparisonOp:  The type of comparison to make against the search parameter 
      * 
      * @return EOS_Success if setting this search parameter was successful
      *         EOS_InvalidParameters if the search criteria is invalid or null
@@ -127,9 +135,13 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * @see EOS_EComparisonOp
      */
     public func SetParameter(
-        Options: SwiftEOS_LobbySearch_SetParameterOptions
+        Parameter: SwiftEOS_Lobby_AttributeData?,
+        ComparisonOp: EOS_EComparisonOp
     ) throws {
-        try ____SetParameter(Options)
+        try ____SetParameter(.init(
+                Parameter: Parameter,
+                ComparisonOp: ComparisonOp
+            ))
     }
 
     /**
@@ -137,16 +149,16 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
      * 
      * @note a search result will only be found if this user is in a public lobby
      * 
-     * - Parameter Options:  a specific target user ID to find
+     * - Parameter TargetUserId:  Search lobbies for given user by Product User ID, returning any lobbies where this user is currently registered 
      * 
      * @return EOS_Success if setting this target user ID was successful
      *         EOS_InvalidParameters if the target user ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func SetTargetUserId(
-        Options: SwiftEOS_LobbySearch_SetTargetUserIdOptions
+        TargetUserId: EOS_ProductUserId?
     ) throws {
-        try ____SetTargetUserId(Options)
+        try ____SetTargetUserId(.init(TargetUserId: TargetUserId))
     }
 }
 

@@ -43,7 +43,12 @@ public struct SwiftEOS_Lobby_Attribute: SwiftEOSObject {
         self.Visibility = sdkObject.Visibility
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_ATTRIBUTE_API_LATEST. 
+     * - Parameter Data:  Key/Value pair describing the attribute 
+     * - Parameter Visibility:  Is this attribute public or private to the lobby and its members 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_ATTRIBUTE_API_LATEST,
         Data: SwiftEOS_Lobby_AttributeData?,

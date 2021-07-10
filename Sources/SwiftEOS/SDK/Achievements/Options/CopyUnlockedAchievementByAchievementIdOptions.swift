@@ -38,7 +38,12 @@ public struct SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOption
         self.AchievementId = String(cString: sdkObject.AchievementId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST. 
+     * - Parameter UserId:  The Product User ID for the user who is copying the unlocked achievement 
+     * - Parameter AchievementId:  AchievementId of the unlocked achievement to retrieve from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST,
         UserId: EOS_ProductUserId?,

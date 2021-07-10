@@ -33,7 +33,11 @@ public struct SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptions: SwiftEOSO
         self.EntitlementIndex = try safeNumericCast(exactly: sdkObject.EntitlementIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST. 
+     * - Parameter EntitlementIndex:  The index of the entitlement to get 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST,
         EntitlementIndex: Int

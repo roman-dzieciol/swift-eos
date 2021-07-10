@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbyModification_SetMaxMembersOptions: SwiftEOSObject {
         self.MaxMembers = try safeNumericCast(exactly: sdkObject.MaxMembers)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST. 
+     * - Parameter MaxMembers:  New maximum number of lobby members 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST,
         MaxMembers: Int

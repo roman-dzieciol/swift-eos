@@ -38,7 +38,12 @@ public struct SwiftEOS_Mods_EnumerateModsOptions: SwiftEOSObject {
         self.`Type` = sdkObject.`Type`
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_MODS_ENUMERATEMODS_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which the mod should be enumerated 
+     * - Parameter `Type`:  Type of the mods to enumerate 
+     */
     public init(
         ApiVersion: Int32 = EOS_MODS_ENUMERATEMODS_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

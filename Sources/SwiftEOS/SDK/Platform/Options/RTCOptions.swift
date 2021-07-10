@@ -43,7 +43,19 @@ public struct SwiftEOS_Platform_RTCOptions: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLATFORM_RTCOPTIONS_API_LATEST. 
+     * - Parameter PlatformSpecificOptions:  This field is for platform specific initialization if any.
+     * If provided then the structure will be located in 
+     * <System
+     * >/eos_
+     * <System
+     * >.h.
+     * The structure will be named EOS_
+     * <System
+     * >_RTCOptions.
+     */
     public init(
         ApiVersion: Int32 = EOS_PLATFORM_RTCOPTIONS_API_LATEST,
         PlatformSpecificOptions: UnsafeMutableRawPointer?

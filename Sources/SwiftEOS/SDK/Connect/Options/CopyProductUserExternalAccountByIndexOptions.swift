@@ -38,7 +38,12 @@ public struct SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions: Swi
         self.ExternalAccountInfoIndex = try safeNumericCast(exactly: sdkObject.ExternalAccountInfoIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
+     * - Parameter ExternalAccountInfoIndex:  Index of the external account info to retrieve from the cache. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

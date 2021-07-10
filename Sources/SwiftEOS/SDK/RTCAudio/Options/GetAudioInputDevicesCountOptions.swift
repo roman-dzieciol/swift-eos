@@ -26,7 +26,10 @@ public struct SwiftEOS_RTCAudio_GetAudioInputDevicesCountOptions: SwiftEOSObject
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_GETAUDIOINPUTDEVICESCOUNT_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_GETAUDIOINPUTDEVICESCOUNT_API_LATEST
     ) {

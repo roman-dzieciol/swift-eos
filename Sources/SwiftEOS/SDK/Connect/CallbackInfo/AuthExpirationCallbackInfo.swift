@@ -25,7 +25,10 @@ public struct SwiftEOS_Connect_AuthExpirationCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the local player whose status has changed. 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?
     ) {

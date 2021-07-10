@@ -42,7 +42,12 @@ public struct SwiftEOS_Sanctions_PlayerSanction: SwiftEOSObject {
         self.Action = String(cString: sdkObject.Action)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SANCTIONS_PLAYERSANCTION_API_LATEST. 
+     * - Parameter TimePlaced:  The POSIX timestamp when the sanction was placed 
+     * - Parameter Action:  The action associated with this sanction 
+     */
     public init(
         ApiVersion: Int32 = EOS_SANCTIONS_PLAYERSANCTION_API_LATEST,
         TimePlaced: Int,

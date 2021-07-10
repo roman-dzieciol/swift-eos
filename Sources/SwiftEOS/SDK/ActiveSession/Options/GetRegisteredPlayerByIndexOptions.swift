@@ -33,7 +33,11 @@ public struct SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexOptions: SwiftEOS
         self.PlayerIndex = try safeNumericCast(exactly: sdkObject.PlayerIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACTIVESESSION_GETREGISTEREDPLAYERBYINDEX_API_LATEST. 
+     * - Parameter PlayerIndex:  Index of the registered player to retrieve 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACTIVESESSION_GETREGISTEREDPLAYERBYINDEX_API_LATEST,
         PlayerIndex: Int

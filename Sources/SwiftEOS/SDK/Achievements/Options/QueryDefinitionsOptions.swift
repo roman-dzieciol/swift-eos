@@ -63,7 +63,19 @@ public struct SwiftEOS_Achievements_QueryDefinitionsOptions: SwiftEOSObject {
         self.HiddenAchievementsCount_DEPRECATED = try safeNumericCast(exactly: sdkObject.HiddenAchievementsCount_DEPRECATED)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID for user who is querying definitions.
+     * The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.
+     * The localized text returned can also be overridden using EOS_Platform_SetOverrideLocaleCode to override the locale.
+     * If the locale code is not overridden and LocalUserId is not valid, default text will be returned.
+     * - Parameter EpicUserId_DEPRECATED:  Deprecated 
+     * - Parameter HiddenAchievementIds_DEPRECATED:  Deprecated 
+     * - array num: HiddenAchievementsCount_DEPRECATED
+     * - Parameter HiddenAchievementsCount_DEPRECATED:  Deprecated 
+     * - array buffer: HiddenAchievementIds_DEPRECATED
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

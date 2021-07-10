@@ -26,7 +26,10 @@ public struct SwiftEOS_Ecom_Transaction_GetEntitlementsCountOptions: SwiftEOSObj
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_TRANSACTION_GETENTITLEMENTSCOUNT_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_TRANSACTION_GETENTITLEMENTSCOUNT_API_LATEST
     ) {

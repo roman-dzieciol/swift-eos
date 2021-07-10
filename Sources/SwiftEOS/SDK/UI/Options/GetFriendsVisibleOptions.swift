@@ -33,7 +33,11 @@ public struct SwiftEOS_UI_GetFriendsVisibleOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_UI_GETFRIENDSVISIBLE_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose overlay is being updated. 
+     */
     public init(
         ApiVersion: Int32 = EOS_UI_GETFRIENDSVISIBLE_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

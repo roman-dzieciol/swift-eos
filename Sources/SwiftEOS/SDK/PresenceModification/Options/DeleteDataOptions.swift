@@ -46,7 +46,14 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
             try SwiftEOS_PresenceModification_DataRecordId.init(sdkObject: $0.pointee) }
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST. 
+     * - Parameter RecordsCount:  The count of data keys to delete 
+     * - array buffer: Records
+     * - Parameter Records:  The pointer to start of a sequential array 
+     * - array num: RecordsCount
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST,
         RecordsCount: Int,

@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions: SwiftEOSObject {
         self.DespawnedPlayerHandle = sdkObject.DespawnedPlayerHandle
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERDESPAWN_API_LATEST. 
+     * - Parameter DespawnedPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERDESPAWN_API_LATEST,
         DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle

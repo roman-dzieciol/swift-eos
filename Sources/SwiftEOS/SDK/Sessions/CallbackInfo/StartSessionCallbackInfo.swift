@@ -23,7 +23,10 @@ public struct SwiftEOS_Sessions_StartSessionCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     */
     public init(
         ResultCode: EOS_EResult
     ) {

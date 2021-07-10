@@ -36,7 +36,12 @@ public struct SwiftEOS_AntiCheatServer_SetClientNetworkStateOptions: SwiftEOSObj
         self.bIsNetworkActive = try swiftBoolFromEosBool(sdkObject.bIsNetworkActive)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_SETCLIENTNETWORKSTATE_API_LATEST. 
+     * - Parameter ClientHandle:  Locally unique value describing the remote user (e.g. a player object pointer) 
+     * - Parameter bIsNetworkActive:  True if the network is functioning normally, false if temporarily interrupted 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_SETCLIENTNETWORKSTATE_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,

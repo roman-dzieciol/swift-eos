@@ -51,7 +51,15 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter PlayerPosition:  Player's current world position as a 3D vector 
+     * - Parameter PlayerViewRotation:  Player's view rotation as a quaternion 
+     * - Parameter bIsPlayerViewZoomed:  True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false 
+     * - Parameter bIsMeleeAttack:  Set to true if the player is using a melee attack, otherwise false 
+     * - Parameter WeaponName:  Name of the weapon used. Will be truncated to EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_WEAPONNAME_MAX_LENGTH bytes if longer. 
+     */
     public init(
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
         PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,

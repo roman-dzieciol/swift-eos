@@ -13,7 +13,12 @@ public struct SwiftEOS_Friends_DeleteFriendOptions {
     /** The Epic Online Services Account ID of the user to remove from the friends list.  */
     public let TargetUserId: EOS_EpicAccountId?
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_FRIENDS_DELETEFRIEND_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is deleting a friend. 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user to remove from the friends list. 
+     */
     public init(
         ApiVersion: Int32 = EOS_FRIENDS_DELETEFRIEND_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

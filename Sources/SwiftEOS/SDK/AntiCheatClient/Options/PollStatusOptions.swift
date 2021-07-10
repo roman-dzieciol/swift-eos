@@ -34,7 +34,12 @@ public struct SwiftEOS_AntiCheatClient_PollStatusOptions: SwiftEOSObject {
         self.OutMessageLength = try safeNumericCast(exactly: sdkObject.OutMessageLength)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST. 
+     * - Parameter OutMessageLength:  The size of OutMessage in bytes. Recommended size is 256 bytes. 
+     * - array buffer: OutMessage
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST,
         OutMessageLength: Int

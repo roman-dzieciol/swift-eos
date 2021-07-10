@@ -53,7 +53,15 @@ public struct SwiftEOS_PlayerDataStorage_WriteFileOptions: SwiftEOSObject {
         self.FileTransferProgressCallback = sdkObject.FileTransferProgressCallback
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who is writing the requested file to the cloud 
+     * - Parameter Filename:  The name of the file to write; if this file already exists, the contents will be replaced if the write request completes successfully 
+     * - Parameter ChunkLengthBytes:  Requested maximum amount of data (in bytes) that can be written to the file per tick 
+     * - Parameter WriteFileDataCallback:  Callback function that provides chunks of data to be written into the requested file 
+     * - Parameter FileTransferProgressCallback:  Optional callback function to inform the application of upload progress; will be called at least once if set 
+     */
     public init(
         ApiVersion: Int32 = EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

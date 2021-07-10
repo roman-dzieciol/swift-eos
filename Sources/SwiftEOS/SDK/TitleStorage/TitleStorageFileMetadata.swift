@@ -52,7 +52,14 @@ public struct SwiftEOS_TitleStorage_FileMetadata: SwiftEOSObject {
         self.UnencryptedDataSizeBytes = try safeNumericCast(exactly: sdkObject.UnencryptedDataSizeBytes)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_FILEMETADATA_API_LATEST. 
+     * - Parameter FileSizeBytes:  The total size of the file in bytes (Includes file header in addition to file contents). 
+     * - Parameter MD5Hash:  The MD5 Hash of the entire file (including additional file header), in hex digits 
+     * - Parameter Filename:  The file's name 
+     * - Parameter UnencryptedDataSizeBytes:  The size of data (payload) in file in unencrypted (original) form.  
+     */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_FILEMETADATA_API_LATEST,
         FileSizeBytes: Int,

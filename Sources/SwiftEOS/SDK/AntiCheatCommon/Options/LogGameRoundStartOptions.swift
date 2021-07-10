@@ -46,7 +46,14 @@ public struct SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions: SwiftEOSObject 
         self.RoundTimeSeconds = try safeNumericCast(exactly: sdkObject.RoundTimeSeconds)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGGAMEROUNDSTART_API_LATEST. 
+     * - Parameter SessionIdentifier:  Optional game session or match identifier useful for some backend API integrations 
+     * - Parameter LevelName:  Optional name of the map being played 
+     * - Parameter ModeName:  Optional name of the game mode being played 
+     * - Parameter RoundTimeSeconds:  Optional length of the game round to be played, in seconds. If none, use 0. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGGAMEROUNDSTART_API_LATEST,
         SessionIdentifier: String?,

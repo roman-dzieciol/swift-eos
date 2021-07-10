@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionModification_SetInvitesAllowedOptions: SwiftEOSObj
         self.bInvitesAllowed = try swiftBoolFromEosBool(sdkObject.bInvitesAllowed)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST. 
+     * - Parameter bInvitesAllowed:  If true then invites can currently be sent for the associated session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST,
         bInvitesAllowed: Bool

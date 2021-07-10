@@ -33,7 +33,11 @@ public struct SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions: SwiftEOSObje
         self.DeviceInfoIndex = try safeNumericCast(exactly: sdkObject.DeviceInfoIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICEBYINDEX_API_LATEST. 
+     * - Parameter DeviceInfoIndex:  Index of the device info to retrieve. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICEBYINDEX_API_LATEST,
         DeviceInfoIndex: Int

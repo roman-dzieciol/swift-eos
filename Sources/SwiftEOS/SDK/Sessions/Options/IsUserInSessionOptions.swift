@@ -38,7 +38,12 @@ public struct SwiftEOS_Sessions_IsUserInSessionOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_ISUSERINSESSION_API_LATEST. 
+     * - Parameter SessionName:  Active session name to search within 
+     * - Parameter TargetUserId:  Product User ID to search for in the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_ISUSERINSESSION_API_LATEST,
         SessionName: String?,

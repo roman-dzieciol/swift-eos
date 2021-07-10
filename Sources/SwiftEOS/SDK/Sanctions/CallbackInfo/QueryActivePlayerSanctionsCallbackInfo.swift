@@ -33,7 +33,12 @@ public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter TargetUserId:  Target Product User ID that was passed to EOS_Sanctions_QueryActivePlayerSanctions. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request, if applicable. 
+     */
     public init(
         ResultCode: EOS_EResult,
         TargetUserId: EOS_ProductUserId?,

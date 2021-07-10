@@ -77,7 +77,20 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
         self.Reliability = sdkObject.Reliability
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_SENDPACKET_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who is sending this packet 
+     * - Parameter RemoteUserId:  The Product User ID of the Peer you would like to send a packet to 
+     * - Parameter SocketId:  The socket ID for data you are sending in this packet 
+     * - Parameter Channel:  Channel associated with this data 
+     * - Parameter DataLengthBytes:  The size of the data to be sent to the RemoteUser 
+     * - array buffer: Data
+     * - Parameter Data:  The data to be sent to the RemoteUser 
+     * - array num: DataLengthBytes
+     * - Parameter bAllowDelayedDelivery:  If false and we do not already have an established connection to the peer, this data will be dropped 
+     * - Parameter Reliability:  Setting to control the delivery reliability of this packet 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_SENDPACKET_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

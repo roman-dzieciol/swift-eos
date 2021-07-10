@@ -46,7 +46,14 @@ public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
             try SwiftEOS_Presence_DataRecord.init(sdkObject: $0.pointee) }
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST. 
+     * - Parameter RecordsCount:  The count of records to set 
+     * - array buffer: Records
+     * - Parameter Records:  The pointer to start of a sequential array of Presence DataRecords 
+     * - array num: RecordsCount
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST,
         RecordsCount: Int,

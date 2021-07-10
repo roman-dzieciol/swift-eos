@@ -37,7 +37,13 @@ public struct SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions: SwiftEOSObject 
         self.AttrIndex = try safeNumericCast(exactly: sdkObject.AttrIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST. 
+     * - Parameter AttrIndex:  The index of the attribute to retrieve
+     * 
+     * @see EOS_LobbyDetails_GetAttributeCount
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST,
         AttrIndex: Int

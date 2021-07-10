@@ -33,7 +33,12 @@ public struct SwiftEOS_PlayerDataStorage_QueryFileListCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned for a successful request, other codes indicate an error 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request 
+     * - Parameter FileCount:  A count of files that were found, if successful 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

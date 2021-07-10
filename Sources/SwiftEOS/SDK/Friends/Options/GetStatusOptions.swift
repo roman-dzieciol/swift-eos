@@ -38,7 +38,12 @@ public struct SwiftEOS_Friends_GetStatusOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_FRIENDS_GETSTATUS_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged in user 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose friendship status with the local user is being queried 
+     */
     public init(
         ApiVersion: Int32 = EOS_FRIENDS_GETSTATUS_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions: Swift
         self.PathToBinFile = String(cString: sdkObject.PathToBinFile)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST. 
+     * - Parameter PathToBinFile:  UTF-8 path to the .bin catalog file to add 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST,
         PathToBinFile: String?

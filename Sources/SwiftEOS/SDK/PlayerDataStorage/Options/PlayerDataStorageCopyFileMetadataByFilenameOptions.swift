@@ -38,7 +38,12 @@ public struct SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameOptions: Swif
         self.Filename = String(cString: sdkObject.Filename)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLAYERDATASTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who is requesting file metadata 
+     * - Parameter Filename:  The file's name to get data for 
+     */
     public init(
         ApiVersion: Int32 = EOS_PLAYERDATASTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

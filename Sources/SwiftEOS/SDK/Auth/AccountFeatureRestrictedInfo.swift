@@ -22,7 +22,11 @@ public struct SwiftEOS_Auth_AccountFeatureRestrictedInfo {
         self.VerificationURI = String(cString: sdkObject.VerificationURI)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_ACCOUNTFEATURERESTRICTEDINFO_API_LATEST. 
+     * - Parameter VerificationURI:  The end-user verification URI. Users must be asked to open the page in a browser to address the restrictions 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_ACCOUNTFEATURERESTRICTEDINFO_API_LATEST,
         VerificationURI: String?

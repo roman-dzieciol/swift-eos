@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionSearch_SetMaxResultsOptions: SwiftEOSObject {
         self.MaxSearchResults = try safeNumericCast(exactly: sdkObject.MaxSearchResults)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST. 
+     * - Parameter MaxSearchResults:  Maximum number of search results returned with this query, may not exceed EOS_SESSIONS_MAX_SEARCH_RESULTS 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST,
         MaxSearchResults: Int

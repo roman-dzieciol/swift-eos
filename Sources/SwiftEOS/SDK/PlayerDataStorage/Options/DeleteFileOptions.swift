@@ -38,7 +38,12 @@ public struct SwiftEOS_PlayerDataStorage_DeleteFileOptions: SwiftEOSObject {
         self.Filename = String(cString: sdkObject.Filename)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who authorizes deletion of the file; must be the file's owner 
+     * - Parameter Filename:  The name of the file to delete 
+     */
     public init(
         ApiVersion: Int32 = EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

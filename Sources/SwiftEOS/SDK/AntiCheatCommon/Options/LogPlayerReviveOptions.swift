@@ -36,7 +36,12 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerReviveOptions: SwiftEOSObject {
         self.ReviverPlayerHandle = sdkObject.ReviverPlayerHandle
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERREVIVE_API_LATEST. 
+     * - Parameter RevivedPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter ReviverPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERREVIVE_API_LATEST,
         RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,

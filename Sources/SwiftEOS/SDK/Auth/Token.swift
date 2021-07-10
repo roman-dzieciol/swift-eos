@@ -87,7 +87,22 @@ public struct SwiftEOS_Auth_Token: SwiftEOSObject {
         self.RefreshExpiresAt = String(cString: sdkObject.RefreshExpiresAt)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_TOKEN_API_LATEST. 
+     * - Parameter App:  Name of the app related to the client ID involved with this token 
+     * - Parameter ClientId:  Client ID that requested this token 
+     * - Parameter AccountId:  The Epic Online Services Account ID associated with this auth token 
+     * - Parameter AccessToken:  Access token for the current user login session 
+     * - Parameter ExpiresIn:  Time before the access token expires, in seconds, relative to the call to EOS_Auth_CopyUserAuthToken 
+     * - Parameter ExpiresAt:  Absolute time in UTC before the access token expires, in ISO 8601 format 
+     * - Parameter AuthType:  Type of auth token 
+     * - Parameter RefreshToken:  Refresh token.
+     * 
+     * @see EOS_ELoginCredentialType::EOS_LCT_RefreshToken
+     * - Parameter RefreshExpiresIn:  Time before the access token expires, in seconds, relative to the call to EOS_Auth_CopyUserAuthToken 
+     * - Parameter RefreshExpiresAt:  Absolute time in UTC before the refresh token expires, in ISO 8601 format 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_TOKEN_API_LATEST,
         App: String?,

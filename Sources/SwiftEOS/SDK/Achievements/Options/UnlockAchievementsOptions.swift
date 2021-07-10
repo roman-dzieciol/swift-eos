@@ -53,7 +53,15 @@ public struct SwiftEOS_Achievements_UnlockAchievementsOptions: SwiftEOSObject {
         self.AchievementsCount = try safeNumericCast(exactly: sdkObject.AchievementsCount)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST. 
+     * - Parameter UserId:  The Product User ID for the user whose achievements we want to unlock. 
+     * - Parameter AchievementIds:  An array of Achievement IDs to unlock. 
+     * - array num: AchievementsCount
+     * - Parameter AchievementsCount:  The number of achievements to unlock. 
+     * - array buffer: AchievementIds
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST,
         UserId: EOS_ProductUserId?,

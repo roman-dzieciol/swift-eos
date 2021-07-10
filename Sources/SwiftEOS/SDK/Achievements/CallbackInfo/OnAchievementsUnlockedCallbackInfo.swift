@@ -42,7 +42,14 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter UserId:  The Product User ID for the user who received the unlocked achievements notification 
+     * - Parameter AchievementsCount:  The number of achievements. 
+     * - array buffer: AchievementIds
+     * - Parameter AchievementIds:  This member is not used and will always be set to NULL. 
+     * - array num: AchievementsCount
+     */
     public init(
         UserId: EOS_ProductUserId?,
         AchievementsCount: Int,

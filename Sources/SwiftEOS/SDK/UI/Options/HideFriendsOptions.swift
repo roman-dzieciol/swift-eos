@@ -33,7 +33,11 @@ public struct SwiftEOS_UI_HideFriendsOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_UI_HIDEFRIENDS_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
+     */
     public init(
         ApiVersion: Int32 = EOS_UI_HIDEFRIENDS_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

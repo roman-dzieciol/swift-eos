@@ -44,7 +44,12 @@ public struct SwiftEOS_Connect_Credentials: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_CREDENTIALS_API_LATEST. 
+     * - Parameter Token:  External token associated with the user logging in. 
+     * - Parameter `Type`:  Type of external login; identifies the auth method to use. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_CREDENTIALS_API_LATEST,
         Token: String?,

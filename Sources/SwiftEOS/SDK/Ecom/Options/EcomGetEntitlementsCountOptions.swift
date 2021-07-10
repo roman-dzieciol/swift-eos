@@ -33,7 +33,11 @@ public struct SwiftEOS_Ecom_GetEntitlementsCountOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user for which to retrieve the entitlement count 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_GETENTITLEMENTSCOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

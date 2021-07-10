@@ -33,7 +33,11 @@ public struct SwiftEOS_SessionModification_SetPermissionLevelOptions: SwiftEOSOb
         self.PermissionLevel = sdkObject.PermissionLevel
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONMODIFICATION_SETPERMISSIONLEVEL_API_LATEST. 
+     * - Parameter PermissionLevel:  Permission level to set on the sesion 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONMODIFICATION_SETPERMISSIONLEVEL_API_LATEST,
         PermissionLevel: EOS_EOnlineSessionPermissionLevel

@@ -42,7 +42,14 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions: SwiftEOSObject {
         self.QueryId = try safeNumericCast(exactly: sdkObject.QueryId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST. 
+     * - Parameter UserTokenIndex:  Index of the user token to retrieve from the cache. 
+     * - Parameter QueryId:  Query identifier received as part of a previous query.
+     * 
+     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST,
         UserTokenIndex: Int,

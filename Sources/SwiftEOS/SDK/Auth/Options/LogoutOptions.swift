@@ -33,7 +33,11 @@ public struct SwiftEOS_Auth_LogoutOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_LOGOUT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is being logged out 
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_LOGOUT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?

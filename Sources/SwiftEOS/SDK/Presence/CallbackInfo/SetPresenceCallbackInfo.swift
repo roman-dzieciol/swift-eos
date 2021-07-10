@@ -29,7 +29,11 @@ public struct SwiftEOS_Presence_SetPresenceCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned if presence was successfully set, other codes indicate an error 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user that had their presence set 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?

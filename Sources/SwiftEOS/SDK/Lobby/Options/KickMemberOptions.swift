@@ -43,7 +43,13 @@ public struct SwiftEOS_Lobby_KickMemberOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_KICKMEMBER_API_LATEST. 
+     * - Parameter LobbyId:  The ID of the lobby 
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting the removal; this user must be the lobby owner 
+     * - Parameter TargetUserId:  The Product User ID of the lobby member to remove 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_KICKMEMBER_API_LATEST,
         LobbyId: String?,

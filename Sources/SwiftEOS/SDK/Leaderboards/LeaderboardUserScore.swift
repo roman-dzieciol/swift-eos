@@ -42,7 +42,12 @@ public struct SwiftEOS_Leaderboards_LeaderboardUserScore: SwiftEOSObject {
         self.Score = try safeNumericCast(exactly: sdkObject.Score)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDUSERSCORE_API_LATEST. 
+     * - Parameter UserId:  The Product User ID of the user who got this score 
+     * - Parameter Score:  Leaderboard score 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_LEADERBOARDUSERSCORE_API_LATEST,
         UserId: EOS_ProductUserId?,

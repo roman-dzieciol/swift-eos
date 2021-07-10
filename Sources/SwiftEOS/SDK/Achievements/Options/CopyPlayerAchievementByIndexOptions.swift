@@ -43,7 +43,13 @@ public struct SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptions: SwiftEO
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYINDEX_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID for the user whose achievement is to be retrieved. 
+     * - Parameter AchievementIndex:  The index of the player achievement data to retrieve from the cache. 
+     * - Parameter LocalUserId:  The Product User ID for the user who is querying for a player achievement. For a Dedicated Server this should be null. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYINDEX_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

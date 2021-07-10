@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventParamDef: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ParamName:  Parameter name. Allowed characters are 0-9, A-Z, a-z, '_', '-', '.' 
+     * - Parameter ParamType:  Parameter type 
+     */
     public init(
         ParamName: String?,
         ParamType: EOS_EAntiCheatCommonEventParamType

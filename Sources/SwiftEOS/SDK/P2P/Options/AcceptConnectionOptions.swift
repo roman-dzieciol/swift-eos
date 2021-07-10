@@ -43,7 +43,13 @@ public struct SwiftEOS_P2P_AcceptConnectionOptions: SwiftEOSObject {
         self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_ACCEPTCONNECTION_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who is accepting any pending or future connections with RemoteUserId 
+     * - Parameter RemoteUserId:  The Product User ID of the remote user who has either sent a connection request or is expected to in the future 
+     * - Parameter SocketId:  The socket ID of the connection to accept on 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_ACCEPTCONNECTION_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

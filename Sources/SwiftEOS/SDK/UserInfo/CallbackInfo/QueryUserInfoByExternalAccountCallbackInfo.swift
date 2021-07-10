@@ -41,7 +41,14 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player who requested the information 
+     * - Parameter ExternalAccountId:  External account id of the user whose information has been retrieved 
+     * - Parameter AccountType:  Account type of the external account id 
+     * - Parameter TargetUserId:  Account ID of the player whose information has been retrieved 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

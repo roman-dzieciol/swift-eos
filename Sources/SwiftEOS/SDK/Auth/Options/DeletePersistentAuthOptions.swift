@@ -36,7 +36,12 @@ public struct SwiftEOS_Auth_DeletePersistentAuthOptions: SwiftEOSObject {
         self.RefreshToken = String(cString: sdkObject.RefreshToken)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST. 
+     * - Parameter RefreshToken:  A long-lived refresh token that is used with the EOS_LCT_PersistentAuth login type and is to be revoked from the authentication server. Only used on Console platforms.
+     * On Desktop and Mobile platforms, set this parameter to NULL.
+     */
     public init(
         ApiVersion: Int32 = EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST,
         RefreshToken: String?

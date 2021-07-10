@@ -59,7 +59,15 @@ public struct SwiftEOS_Leaderboards_Definition: SwiftEOSObject {
         self.EndTime = try safeNumericCast(exactly: sdkObject.EndTime)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_DEFINITION_API_LATEST. 
+     * - Parameter LeaderboardId:  Unique ID to identify leaderboard. 
+     * - Parameter StatName:  Name of stat used to rank leaderboard. 
+     * - Parameter Aggregation:  Aggregation used to sort leaderboard. 
+     * - Parameter StartTime:  The POSIX timestamp for the start time, or EOS_LEADERBOARDS_TIME_UNDEFINED. 
+     * - Parameter EndTime:  The POSIX timestamp for the end time, or EOS_LEADERBOARDS_TIME_UNDEFINED. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_DEFINITION_API_LATEST,
         LeaderboardId: String?,

@@ -33,7 +33,11 @@ public struct SwiftEOS_PresenceModification_SetStatusOptions: SwiftEOSObject {
         self.Status = sdkObject.Status
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST. 
+     * - Parameter Status:  The status of the user 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST,
         Status: EOS_Presence_EStatus

@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions: SwiftEOSObject {
         self.GameSessionId = String(cString: sdkObject.GameSessionId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST. 
+     * - Parameter GameSessionId:  Game session identifier 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST,
         GameSessionId: String?

@@ -43,7 +43,13 @@ public struct SwiftEOS_Sessions_SendInviteOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_SENDINVITE_API_LATEST. 
+     * - Parameter SessionName:  Name of the session associated with the invite 
+     * - Parameter LocalUserId:  The Product User ID of the local user sending the invitation 
+     * - Parameter TargetUserId:  The Product User of the remote user receiving the invitation 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_SENDINVITE_API_LATEST,
         SessionName: String?,

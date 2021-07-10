@@ -56,7 +56,16 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
         self.PlayerMovementState = sdkObject.PlayerMovementState
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST. 
+     * - Parameter PlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter PlayerPosition:  Player's current world position as a 3D vector 
+     * - Parameter PlayerViewRotation:  Player's view rotation as a quaternion 
+     * - Parameter bIsPlayerViewZoomed:  True if the player's view is zoomed (e.g. using a sniper rifle), otherwise false 
+     * - Parameter PlayerHealth:  Player's current health value 
+     * - Parameter PlayerMovementState:  Any movement state applicable 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST,
         PlayerHandle: EOS_AntiCheatCommon_ClientHandle,

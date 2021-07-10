@@ -38,7 +38,12 @@ public struct SwiftEOS_UserInfo_QueryUserInfoOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_QUERYUSERINFO_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_QUERYUSERINFO_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

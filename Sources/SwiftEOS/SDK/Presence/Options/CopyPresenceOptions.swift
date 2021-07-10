@@ -38,7 +38,12 @@ public struct SwiftEOS_Presence_CopyPresenceOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PRESENCE_COPYPRESENCE_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose cached presence data you want to copy from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_PRESENCE_COPYPRESENCE_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

@@ -45,7 +45,14 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions: SwiftEOS
             ))
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST. 
+     * - Parameter DataLengthBytes:  The size of the data received 
+     * - array buffer: Data
+     * - Parameter Data:  The data received 
+     * - array num: DataLengthBytes
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST,
         DataLengthBytes: Int,

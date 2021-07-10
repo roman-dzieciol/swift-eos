@@ -42,7 +42,12 @@ public struct SwiftEOS_SessionDetails_Attribute: SwiftEOSObject {
         self.AdvertisementType = sdkObject.AdvertisementType
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_ATTRIBUTE_API_LATEST. 
+     * - Parameter Data:  Key/Value pair describing the attribute 
+     * - Parameter AdvertisementType:  Is this attribution advertised with the backend or simply stored locally 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_ATTRIBUTE_API_LATEST,
         Data: SwiftEOS_Sessions_AttributeData?,

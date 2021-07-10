@@ -38,7 +38,12 @@ public struct SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdOptions:
         self.AccountId = String(cString: sdkObject.AccountId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTID_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
+     * - Parameter AccountId:  External auth service account ID to look for when copying external account info from the cache. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTID_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

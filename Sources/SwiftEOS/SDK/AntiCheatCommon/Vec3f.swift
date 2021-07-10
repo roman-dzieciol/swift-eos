@@ -38,7 +38,12 @@ public struct SwiftEOS_AntiCheatCommon_Vec3f: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter x:  X axis coordinate - forward direction 
+     * - Parameter y:  Y axis coordinate - right direction 
+     * - Parameter z:  Z axis coordinate - up direction 
+     */
     public init(
         x: Float,
         y: Float,

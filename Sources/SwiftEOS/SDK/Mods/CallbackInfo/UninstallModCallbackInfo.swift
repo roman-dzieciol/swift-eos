@@ -33,7 +33,12 @@ public struct SwiftEOS_Mods_UninstallModCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned if the uninstallation was successfull, otherwise one of the error codes is returned. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which mod uninstallation was requested 
+     * - Parameter Mod:  Mod for which uninstallation was requested 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

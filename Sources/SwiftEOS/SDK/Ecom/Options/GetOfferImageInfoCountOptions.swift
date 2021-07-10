@@ -38,7 +38,12 @@ public struct SwiftEOS_Ecom_GetOfferImageInfoCountOptions: SwiftEOSObject {
         self.OfferId = String(cString: sdkObject.OfferId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer image is being accessed. 
+     * - Parameter OfferId:  The ID of the offer to get the images for. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

@@ -41,7 +41,14 @@ public struct SwiftEOS_P2P_OnIncomingPacketQueueFullInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter PacketQueueMaxSizeBytes:  The maximum size in bytes the incoming packet queue is allowed to use 
+     * - Parameter PacketQueueCurrentSizeBytes:  The current size in bytes the incoming packet queue is currently using 
+     * - Parameter OverflowPacketLocalUserId:  The Product User ID of the local user who is receiving the packet that would overflow the queue 
+     * - Parameter OverflowPacketChannel:  The channel the incoming packet is for 
+     * - Parameter OverflowPacketSizeBytes:  The size in bytes of the incoming packet (and related metadata) that would overflow the queue 
+     */
     public init(
         PacketQueueMaxSizeBytes: UInt64,
         PacketQueueCurrentSizeBytes: UInt64,

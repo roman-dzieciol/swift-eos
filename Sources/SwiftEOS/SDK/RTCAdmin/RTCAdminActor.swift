@@ -17,7 +17,10 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     /**
      * Fetches a user token when called inside of the OnQueryJoinRoomTokenComplete callback.
      * 
-     * - Parameter Options:  Structure containing the index being accessed
+     * - Parameter UserTokenIndex:  Index of the user token to retrieve from the cache. 
+     * - Parameter QueryId:  Query identifier received as part of a previous query.
+     * 
+     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
      * - Parameter OutUserToken:  The user token for the given index, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
      * 
      * @note The order of the tokens doesn't necessarily match the order of the EOS_ProductUserId array specified in the EOS_RTCAdmin_QueryJoinRoomTokenOptions when
@@ -30,15 +33,22 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user token is not found
      */
     public func CopyUserTokenByIndex(
-        Options: SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions
+        UserTokenIndex: Int,
+        QueryId: Int
     ) throws -> SwiftEOS_RTCAdmin_UserToken? {
-        try ____CopyUserTokenByIndex(Options)
+        try ____CopyUserTokenByIndex(.init(
+                UserTokenIndex: UserTokenIndex,
+                QueryId: QueryId
+            ))
     }
 
     /**
      * Fetches a user token for a given user ID when called inside of the OnQueryJoinRoomTokenComplete callback.
      * 
-     * - Parameter Options:  Structure containing the user ID being accessed
+     * - Parameter TargetUserId:  The Product User ID for the user whose user token we're copying. 
+     * - Parameter QueryId:  Query identifier received as part of a previous query.
+     * 
+     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
      * - Parameter OutUserToken:  The user token for the given user ID, if it exists and is valid. Use EOS_RTCAdmin_UserToken_Release when finished
      * 
      * @see EOS_RTCAdmin_UserToken_Release
@@ -48,25 +58,34 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      *         EOS_NotFound if the user token is not found
      */
     public func CopyUserTokenByUserId(
-        Options: SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions
+        TargetUserId: EOS_ProductUserId?,
+        QueryId: Int
     ) throws -> SwiftEOS_RTCAdmin_UserToken? {
-        try ____CopyUserTokenByUserId(Options)
+        try ____CopyUserTokenByUserId(.init(
+                TargetUserId: TargetUserId,
+                QueryId: QueryId
+            ))
     }
 
     /**
      * Starts an asynchronous task that removes a participant from a room and revokes their token.
      * 
-     * - Parameter Options:  structure containing the room and user to revoke the token from.
+     * - Parameter RoomName:  Room name to kick the participant from 
+     * - Parameter TargetUserId:  Product User ID of the participant to kick from the room 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
      */
     public func Kick(
-        Options: SwiftEOS_RTCAdmin_KickOptions,
+        RoomName: String?,
+        TargetUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAdmin_KickCompleteCallbackInfo) -> Void
     ) throws {
         try ____Kick(
-            Options,
+            .init(
+                RoomName: RoomName,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }
@@ -77,7 +96,19 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * to retrieve the tokens from inside the callback.
      * This query id and query result itself are only valid for the duration of the callback.
      * 
-     * - Parameter Options:  Structure containing information about the application whose user tokens we're retrieving.
+     * - Parameter LocalUserId:  Product User ID for local user who is querying join room tokens. 
+     * - Parameter RoomName:  Room name to request a token for. 
+     * - Parameter TargetUserIds:  An array of Product User IDs indicating the users to retrieve a token for. 
+     * - array num: TargetUserIdsCount
+     * - Parameter TargetUserIdsCount:  The number of users included in the query. 
+     * - array buffer: TargetUserIds
+     * - array buffer: TargetUserIpAddresses
+     * - Parameter TargetUserIpAddresses:  Array of IP Addresses, one for each of the users we're querying tokens for.
+     * There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
+     * If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
+     * IPv4 format: "0.0.0.0"
+     * IPv6 format: "0:0:0:0:0:0:0:0"
+     * - array num: TargetUserIdsCount
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query join room token operation completes.
      * 
@@ -85,11 +116,21 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func QueryJoinRoomToken(
-        Options: SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions,
+        LocalUserId: EOS_ProductUserId?,
+        RoomName: String?,
+        TargetUserIds: [EOS_ProductUserId]?,
+        TargetUserIdsCount: Int,
+        TargetUserIpAddresses: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo) -> Void
     ) throws {
         try ____QueryJoinRoomToken(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                RoomName: RoomName,
+                TargetUserIds: TargetUserIds,
+                TargetUserIdsCount: TargetUserIdsCount,
+                TargetUserIpAddresses: TargetUserIpAddresses
+            ),
             CompletionDelegate
         )
     }
@@ -98,16 +139,24 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
      * Starts an asynchronous task remotely mutes/unmutes a room participant.
      * This remotely mutes the specified participant, so no audio is sent from that participant to any other participant in the room.
      * 
-     * - Parameter Options:  structure containing the room and user to mute.
+     * - Parameter RoomName:  Room to kick the participant from 
+     * - Parameter TargetUserId:  Product User ID of the participant to hard mute for every participant in the room. 
+     * - Parameter bMute:  Hard mute status (Mute on or off) 
      * - Parameter ClientData:  arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      */
     public func SetParticipantHardMute(
-        Options: SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions,
+        RoomName: String?,
+        TargetUserId: EOS_ProductUserId?,
+        bMute: Bool,
         CompletionDelegate: @escaping (SwiftEOS_RTCAdmin_SetParticipantHardMuteCompleteCallbackInfo) -> Void
     ) throws {
         try ____SetParticipantHardMute(
-            Options,
+            .init(
+                RoomName: RoomName,
+                TargetUserId: TargetUserId,
+                bMute: bMute
+            ),
             CompletionDelegate
         )
     }

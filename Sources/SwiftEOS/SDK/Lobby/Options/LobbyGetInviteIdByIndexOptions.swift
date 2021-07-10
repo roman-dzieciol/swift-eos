@@ -38,7 +38,12 @@ public struct SwiftEOS_Lobby_GetInviteIdByIndexOptions: SwiftEOSObject {
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_GETINVITEIDBYINDEX_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user who received the cached invitation 
+     * - Parameter Index:  The index of the invitation ID to retrieve 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_GETINVITEIDBYINDEX_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

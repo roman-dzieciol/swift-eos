@@ -33,7 +33,11 @@ public struct SwiftEOS_Lobby_UpdateLobbyOptions: SwiftEOSObject {
         self.LobbyModificationHandle = sdkObject.LobbyModificationHandle
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_UPDATELOBBY_API_LATEST. 
+     * - Parameter LobbyModificationHandle:  Builder handle 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBY_UPDATELOBBY_API_LATEST,
         LobbyModificationHandle: EOS_HLobbyModification?

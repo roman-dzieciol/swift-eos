@@ -33,7 +33,11 @@ public struct SwiftEOS_Connect_GetProductUserExternalAccountCountOptions: SwiftE
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID to look for when getting external account info count from the cache. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST,
         TargetUserId: EOS_ProductUserId?

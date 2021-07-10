@@ -41,7 +41,13 @@ public struct SwiftEOS_P2P_SetPortRangeOptions: SwiftEOSObject {
         self.MaxAdditionalPortsToTry = sdkObject.MaxAdditionalPortsToTry
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_SETPORTRANGE_API_LATEST. 
+     * - Parameter Port:  The ideal port to use for P2P traffic. The default value is 7777. If set to 0, the OS will choose a port. If set to 0, MaxAdditionalPortsToTry must be set to 0. 
+     * - Parameter MaxAdditionalPortsToTry:  The maximum amount of additional ports to try if Port is unavailable. Ports will be tried from Port to Port + MaxAdditionalPortsToTry
+     * inclusive, until one is available or we run out of ports. If no ports are available, P2P connections will fail. The default value is 99.
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_SETPORTRANGE_API_LATEST,
         Port: UInt16,

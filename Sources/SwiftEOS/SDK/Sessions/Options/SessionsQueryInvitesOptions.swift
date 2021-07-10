@@ -33,7 +33,11 @@ public struct SwiftEOS_Sessions_QueryInvitesOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_QUERYINVITES_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID to query for invitations 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_QUERYINVITES_API_LATEST,
         LocalUserId: EOS_ProductUserId?

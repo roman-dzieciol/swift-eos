@@ -24,7 +24,10 @@ public struct SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions: Swi
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTACTIONREQUIRED_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTACTIONREQUIRED_API_LATEST
     ) {

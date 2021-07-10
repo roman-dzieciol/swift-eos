@@ -58,7 +58,14 @@ public struct SwiftEOS_Ecom_KeyImageInfo: SwiftEOSObject {
         self.Height = try safeNumericCast(exactly: sdkObject.Height)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_KEYIMAGEINFO_API_LATEST. 
+     * - Parameter `Type`:  Describes the usage of the image (ex: home_thumbnail) 
+     * - Parameter Url:  The URL of the image 
+     * - Parameter Width:  The expected width in pixels of the image 
+     * - Parameter Height:  The expected height in pixels of the image 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_KEYIMAGEINFO_API_LATEST,
         `Type`: String?,

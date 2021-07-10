@@ -33,7 +33,11 @@ public struct SwiftEOS_RTCAudio_RegisterPlatformAudioUserOptions: SwiftEOSObject
         self.UserId = String(cString: sdkObject.UserId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_REGISTERPLATFORMAUDIOUSER_API_LATEST. 
+     * - Parameter UserId:  Platform dependent user id. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_REGISTERPLATFORMAUDIOUSER_API_LATEST,
         UserId: String?

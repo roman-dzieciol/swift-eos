@@ -33,7 +33,11 @@ public struct SwiftEOS_Connect_CopyProductUserInfoOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_CONNECT_COPYPRODUCTUSERINFO_API_LATEST. 
+     * - Parameter TargetUserId:  Product user ID to look for when copying external account info from the cache. 
+     */
     public init(
         ApiVersion: Int32 = EOS_CONNECT_COPYPRODUCTUSERINFO_API_LATEST,
         TargetUserId: EOS_ProductUserId?

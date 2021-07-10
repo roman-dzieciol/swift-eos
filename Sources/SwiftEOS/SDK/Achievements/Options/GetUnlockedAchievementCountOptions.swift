@@ -33,7 +33,11 @@ public struct SwiftEOS_Achievements_GetUnlockedAchievementCountOptions: SwiftEOS
         self.UserId = sdkObject.UserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST. 
+     * - Parameter UserId:  Product User ID for which to retrieve the unlocked achievement count 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST,
         UserId: EOS_ProductUserId?

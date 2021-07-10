@@ -33,7 +33,12 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter UserId:  The Product User ID for the user who received the unlocked achievements notification 
+     * - Parameter AchievementId:  The Achievement ID for the achievement that was unlocked. Pass this to EOS_Achievements_CopyPlayerAchievementByAchievementId to get the full achievement information. 
+     * - Parameter UnlockTime:  POSIX timestamp when the achievement was unlocked. 
+     */
     public init(
         UserId: EOS_ProductUserId?,
         AchievementId: String?,

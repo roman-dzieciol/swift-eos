@@ -29,7 +29,11 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who made the request. 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?

@@ -34,7 +34,14 @@ public struct SwiftEOS_Lobby_JoinLobbyAcceptedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the local user who is joining 
+     * - Parameter UiEventId:  
+     * The UI Event associated with this Join Game event.
+     * This should be used with EOS_Lobby_CopyLobbyDetailsHandleByUiEventId to get a handle to be used
+     * when calling EOS_Lobby_JoinLobby.
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         UiEventId: EOS_UI_EventId

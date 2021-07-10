@@ -38,7 +38,12 @@ public struct SwiftEOS_KWS_UpdateParentEmailOptions: SwiftEOSObject {
         self.ParentEmail = String(cString: sdkObject.ParentEmail)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_UPDATEPARENTEMAIL_API_LATEST. 
+     * - Parameter LocalUserId:  Local user updating parental information 
+     * - Parameter ParentEmail:  New parent email 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_UPDATEPARENTEMAIL_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

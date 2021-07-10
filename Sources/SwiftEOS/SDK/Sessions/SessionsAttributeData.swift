@@ -41,7 +41,12 @@ public struct SwiftEOS_Sessions_AttributeData: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_ATTRIBUTEDATA_API_LATEST. 
+     * - Parameter Key:  Name of the session attribute 
+     * - Parameter ValueType:  Type of value stored in the union 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_ATTRIBUTEDATA_API_LATEST,
         Key: String?,

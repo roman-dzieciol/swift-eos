@@ -33,7 +33,12 @@ public struct SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose ownership token was queried 
+     * - Parameter OwnershipToken:  Ownership token containing details about the catalog items queried 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

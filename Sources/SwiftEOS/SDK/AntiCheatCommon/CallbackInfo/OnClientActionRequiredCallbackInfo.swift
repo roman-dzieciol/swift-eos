@@ -37,7 +37,13 @@ public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientHandle:  The identifier of the client/peer that this action applies to. See the RegisterClient and RegisterPeer functions. 
+     * - Parameter ClientAction:  The action that must be applied to the specified client/peer 
+     * - Parameter ActionReasonCode:  Code indicating the reason for the action 
+     * - Parameter ActionReasonDetailsString:  String containing details about the action reason 
+     */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         ClientAction: EOS_EAntiCheatCommonClientAction,

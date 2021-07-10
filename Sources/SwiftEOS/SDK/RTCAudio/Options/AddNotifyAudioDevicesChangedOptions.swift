@@ -26,7 +26,10 @@ public struct SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions: SwiftEOSObj
         self.ApiVersion = sdkObject.ApiVersion
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST
     ) {

@@ -33,7 +33,11 @@ public struct SwiftEOS_TitleStorage_DeleteCacheOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_DELETECACHEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the local user who is deleting his cache (optional) 
+     */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_DELETECACHEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?

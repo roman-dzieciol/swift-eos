@@ -25,7 +25,10 @@ public struct SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  Recipient Local user id 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?
     ) {

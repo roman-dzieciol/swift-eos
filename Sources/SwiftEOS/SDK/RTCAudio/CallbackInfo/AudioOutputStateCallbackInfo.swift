@@ -33,7 +33,12 @@ public struct SwiftEOS_RTCAudio_AudioOutputStateCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room associated with this event. 
+     * - Parameter Status:  The status of the audio output. 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

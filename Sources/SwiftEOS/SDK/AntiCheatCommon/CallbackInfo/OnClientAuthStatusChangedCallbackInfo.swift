@@ -29,7 +29,11 @@ public struct SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientHandle:  The identifier of the client/peer that this status change applies to. See the RegisterClient and RegisterPeer functions. 
+     * - Parameter ClientAuthStatus:  The client/peer's new authentication status 
+     */
     public init(
         ClientHandle: EOS_AntiCheatCommon_ClientHandle,
         ClientAuthStatus: EOS_EAntiCheatCommonClientAuthStatus

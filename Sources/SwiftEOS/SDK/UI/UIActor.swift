@@ -22,11 +22,20 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * EOS_NotFound is returned if the UI event ID does not exist.
      * 
      * @see EOS_Presence_JoinGameAcceptedCallbackInfo
+     * - Parameter UiEventId:  The ID being acknowledged. 
+     * - Parameter Result:  
+     * The result to use for the acknowledgment. 
+     * When acknowledging EOS_Presence_JoinGameAcceptedCallbackInfo this should be the 
+     * result code from the JoinSession call.
      */
     public func AcknowledgeEventId(
-        Options: SwiftEOS_UI_AcknowledgeEventIdOptions
+        UiEventId: EOS_UI_EventId,
+        Result: EOS_EResult
     ) throws {
-        try ____AcknowledgeEventId(Options)
+        try ____AcknowledgeEventId(.init(
+                UiEventId: UiEventId,
+                Result: Result
+            ))
     }
 
     /**
@@ -50,14 +59,14 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     /**
      * Gets the friends overlay visibility.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID of the friends Social Overlay owner.
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose overlay is being updated. 
      * 
      * @return EOS_TRUE If the overlay is visible.
      */
     public func GetFriendsVisible(
-        Options: SwiftEOS_UI_GetFriendsVisibleOptions
+        LocalUserId: EOS_EpicAccountId?
     ) throws -> Bool {
-        try ____GetFriendsVisible(Options)
+        try ____GetFriendsVisible(.init(LocalUserId: LocalUserId))
     }
 
     /**
@@ -84,7 +93,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     /**
      * Hides the active Social Overlay.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID of the browser to close.
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to hide the friends list has been processed, or on an error.
      * 
@@ -94,11 +103,11 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      *         EOS_NoChange If the Social Overlay is already hidden.
      */
     public func HideFriends(
-        Options: SwiftEOS_UI_HideFriendsOptions,
+        LocalUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_UI_HideFriendsCallbackInfo) -> Void
     ) throws {
         try ____HideFriends(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }
@@ -120,16 +129,16 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     /**
      * Define any preferences for any display settings.
      * 
-     * - Parameter Options:  Structure containing any options that are needed to set
+     * - Parameter NotificationLocation:  Preference for notification pop-up locations. 
      * @return EOS_Success If the overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the overlay is not properly configured.
      *         EOS_NoChange If the preferences did not change.
      */
     public func SetDisplayPreference(
-        Options: SwiftEOS_UI_SetDisplayPreferenceOptions
+        NotificationLocation: EOS_UI_ENotificationLocation
     ) throws {
-        try ____SetDisplayPreference(Options)
+        try ____SetDisplayPreference(.init(NotificationLocation: NotificationLocation))
     }
 
     /**
@@ -138,7 +147,10 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * The provided key should satisfy EOS_UI_IsValidKeyCombination. The value EOS_UIK_None is specially handled
      * by resetting the key binding to the system default.
      * 
-     * - Parameter Options:  Structure containing the key combination to use.
+     * - Parameter KeyCombination:  
+     * The new key combination which will be used to toggle the friends overlay.
+     * The combination can be any set of modifiers and one key.
+     * A value of EOS_UIK_None will cause the key to revert to the default.
      * 
      * @return EOS_Success If the overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
@@ -148,15 +160,15 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * @see EOS_UI_IsValidKeyCombination
      */
     public func SetToggleFriendsKey(
-        Options: SwiftEOS_UI_SetToggleFriendsKeyOptions
+        KeyCombination: EOS_UI_EKeyCombination
     ) throws {
-        try ____SetToggleFriendsKey(Options)
+        try ____SetToggleFriendsKey(.init(KeyCombination: KeyCombination))
     }
 
     /**
      * Opens the Social Overlay with a request to show the friends list.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID of the friends list to show.
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to show the friends list has been sent to the Social Overlay, or on an error.
      * 
@@ -166,11 +178,11 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      *         EOS_NoChange If the Social Overlay is already visible.
      */
     public func ShowFriends(
-        Options: SwiftEOS_UI_ShowFriendsOptions,
+        LocalUserId: EOS_EpicAccountId?,
         CompletionDelegate: @escaping (SwiftEOS_UI_ShowFriendsCallbackInfo) -> Void
     ) throws {
         try ____ShowFriends(
-            Options,
+            .init(LocalUserId: LocalUserId),
             CompletionDelegate
         )
     }

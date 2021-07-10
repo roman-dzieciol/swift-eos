@@ -38,7 +38,12 @@ public struct SwiftEOS_PlayerDataStorage_QueryFileOptions: SwiftEOSObject {
         self.Filename = String(cString: sdkObject.Filename)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_PLAYERDATASTORAGE_QUERYFILEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting file metadata 
+     * - Parameter Filename:  The name of the file being queried 
+     */
     public init(
         ApiVersion: Int32 = EOS_PLAYERDATASTORAGE_QUERYFILEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

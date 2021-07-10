@@ -41,7 +41,14 @@ public struct SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room associated with this event. 
+     * - Parameter ParticipantId:  The participant updated. 
+     * - Parameter bSpeaking:  The participant speaking / non-speaking status. 
+     * - Parameter AudioStatus:  The participant audio status (enabled, disabled). 
+     */
     public init(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,

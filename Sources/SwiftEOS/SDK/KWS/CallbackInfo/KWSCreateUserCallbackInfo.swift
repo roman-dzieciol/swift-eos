@@ -37,7 +37,13 @@ public struct SwiftEOS_KWS_CreateUserCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter LocalUserId:  Local user that created a KWS entry 
+     * - Parameter KWSUserId:  KWS UserId created 
+     * - Parameter bIsMinor:  Is this user a minor 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

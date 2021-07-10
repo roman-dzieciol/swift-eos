@@ -38,7 +38,13 @@ public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
         callback.notify(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter MessageData:  The message data that must be sent to the server 
+     * - array num: MessageDataSizeBytes
+     * - Parameter MessageDataSizeBytes:  The size in bytes of MessageData 
+     * - array buffer: MessageData
+     */
     public init(
         MessageData: [UInt8]?,
         MessageDataSizeBytes: Int

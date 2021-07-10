@@ -19,7 +19,9 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * EOS_LobbyDetails_CopyAttributeByIndex is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter AttrIndex:  The index of the attribute to retrieve
+     * 
+     * @see EOS_LobbyDetails_GetAttributeCount
      * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
@@ -31,16 +33,16 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyAttributeByIndex(
-        Options: SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions
+        AttrIndex: Int
     ) throws -> SwiftEOS_Lobby_Attribute? {
-        try ____CopyAttributeByIndex(Options)
+        try ____CopyAttributeByIndex(.init(AttrIndex: AttrIndex))
     }
 
     /**
      * EOS_LobbyDetails_CopyAttributeByKey is used to immediately retrieve a copy of a lobby attribute from a given source such as a existing lobby or a search result.
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter AttrKey:  Name of the attribute 
      * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
@@ -52,9 +54,9 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyAttributeByKey(
-        Options: SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions
+        AttrKey: String?
     ) throws -> SwiftEOS_Lobby_Attribute? {
-        try ____CopyAttributeByKey(Options)
+        try ____CopyAttributeByKey(.init(AttrKey: AttrKey))
     }
 
     /**
@@ -80,7 +82,8 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * EOS_LobbyDetails_CopyMemberAttributeByIndex is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter TargetUserId:  The Product User ID of the lobby member 
+     * - Parameter AttrIndex:  The index of the attribute to copy 
      * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
@@ -92,16 +95,21 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyMemberAttributeByIndex(
-        Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions
+        TargetUserId: EOS_ProductUserId?,
+        AttrIndex: Int
     ) throws -> SwiftEOS_Lobby_Attribute? {
-        try ____CopyMemberAttributeByIndex(Options)
+        try ____CopyMemberAttributeByIndex(.init(
+                TargetUserId: TargetUserId,
+                AttrIndex: AttrIndex
+            ))
     }
 
     /**
      * EOS_LobbyDetails_CopyMemberAttributeByKey is used to immediately retrieve a copy of a lobby member attribute from an existing lobby.
      * If the call returns an EOS_Success result, the out parameter, OutAttribute, must be passed to EOS_Lobby_Attribute_Release to release the memory associated with it.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter TargetUserId:  The Product User ID of the lobby member 
+     * - Parameter AttrKey:  Name of the attribute to copy 
      * - Parameter OutAttribute:  Out parameter used to receive the EOS_Lobby_Attribute structure.
      * 
      * @return EOS_Success if the information is available and passed out in OutAttribute
@@ -113,9 +121,13 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_Lobby_Attribute_Release
      */
     public func CopyMemberAttributeByKey(
-        Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions
+        TargetUserId: EOS_ProductUserId?,
+        AttrKey: String?
     ) throws -> SwiftEOS_Lobby_Attribute? {
-        try ____CopyMemberAttributeByKey(Options)
+        try ____CopyMemberAttributeByKey(.init(
+                TargetUserId: TargetUserId,
+                AttrKey: AttrKey
+            ))
     }
 
     /**
@@ -143,7 +155,7 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     /**
      * EOS_LobbyDetails_GetMemberAttributeCount is used to immediately retrieve the attribute count for members in a lobby.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter TargetUserId:  The Product User ID of the lobby member 
      * 
      * @return the number of attributes associated with a given lobby member or 0 if that member is invalid
      * 
@@ -151,15 +163,15 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_GetMemberAttributeCountOptions
      */
     public func GetMemberAttributeCount(
-        Options: SwiftEOS_LobbyDetails_GetMemberAttributeCountOptions
+        TargetUserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetMemberAttributeCount(Options)
+        try ____GetMemberAttributeCount(.init(TargetUserId: TargetUserId))
     }
 
     /**
      * EOS_LobbyDetails_GetMemberByIndex is used to immediately retrieve individual members registered with a lobby.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter MemberIndex:  Index of the member to retrieve 
      * 
      * @return the product user ID for the registered member at a given index or null if that index is invalid
      * 
@@ -167,9 +179,9 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * @see EOS_LobbyDetails_GetMemberByIndexOptions
      */
     public func GetMemberByIndex(
-        Options: SwiftEOS_LobbyDetails_GetMemberByIndexOptions
+        MemberIndex: Int
     ) throws -> EOS_ProductUserId {
-        try ____GetMemberByIndex(Options)
+        try ____GetMemberByIndex(.init(MemberIndex: MemberIndex))
     }
 
     /**

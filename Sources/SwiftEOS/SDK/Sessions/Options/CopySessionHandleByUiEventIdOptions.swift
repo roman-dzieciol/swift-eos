@@ -33,7 +33,11 @@ public struct SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions: SwiftEOSObj
         self.UiEventId = sdkObject.UiEventId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST. 
+     * - Parameter UiEventId:  UI Event associated with the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST,
         UiEventId: EOS_UI_EventId

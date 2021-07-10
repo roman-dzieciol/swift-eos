@@ -53,7 +53,15 @@ public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_SETTINGS_API_LATEST. 
+     * - Parameter BucketId:  The main indexed parameter for this session, can be any string (ie "Region:GameMode") 
+     * - Parameter NumPublicConnections:  Number of total players allowed in the session 
+     * - Parameter bAllowJoinInProgress:  Are players allowed to join the session while it is in the "in progress" state 
+     * - Parameter PermissionLevel:  Permission level describing allowed access to the session when joining or searching for the session 
+     * - Parameter bInvitesAllowed:  Are players allowed to send invites for the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,
         BucketId: String?,

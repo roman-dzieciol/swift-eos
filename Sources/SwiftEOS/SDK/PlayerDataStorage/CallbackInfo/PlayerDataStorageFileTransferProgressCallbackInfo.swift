@@ -19,7 +19,14 @@ public struct SwiftEOS_PlayerDataStorage_FileTransferProgressCallbackInfo {
     /** The total size of the file being transferred (Includes file header in addition to file contents, can be slightly more than expected)  */
     public let TotalFileSizeBytes: Int
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ClientData:  Client-specified data passed into the file request 
+     * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request 
+     * - Parameter Filename:  The file name of the file being transferred 
+     * - Parameter BytesTransferred:  Amount of bytes transferred so far in this request, out of TotalFileSizeBytes 
+     * - Parameter TotalFileSizeBytes:  The total size of the file being transferred (Includes file header in addition to file contents, can be slightly more than expected) 
+     */
     public init(
         ClientData: UnsafeMutableRawPointer?,
         LocalUserId: EOS_ProductUserId?,

@@ -31,7 +31,11 @@ public struct SwiftEOS_AntiCheatServer_UnregisterClientOptions: SwiftEOSObject {
         self.ClientHandle = sdkObject.ClientHandle
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATSERVER_UNREGISTERCLIENT_API_LATEST. 
+     * - Parameter ClientHandle:  Locally unique value describing the remote user, as previously passed to RegisterClient 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_UNREGISTERCLIENT_API_LATEST,
         ClientHandle: EOS_AntiCheatCommon_ClientHandle

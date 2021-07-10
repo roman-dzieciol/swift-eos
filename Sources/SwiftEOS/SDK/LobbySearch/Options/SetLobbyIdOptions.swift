@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbySearch_SetLobbyIdOptions: SwiftEOSObject {
         self.LobbyId = String(cString: sdkObject.LobbyId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST. 
+     * - Parameter LobbyId:  The ID of the lobby to find 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST,
         LobbyId: String?

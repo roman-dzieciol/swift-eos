@@ -33,7 +33,11 @@ public struct SwiftEOS_LobbySearch_FindOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYSEARCH_FIND_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user making the search request 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_FIND_API_LATEST,
         LocalUserId: EOS_ProductUserId?

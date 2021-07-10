@@ -59,7 +59,18 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST. 
+     * - Parameter Frames:  Pointer to the data with the interleaved audio frames in signed 16 bits format. 
+     * - array num: FramesCount
+     * - Parameter FramesCount:  Number of frames available in the Frames buffer.
+     * 
+     * @note This is the number of frames in a channel, not the total number of frames in the buffer.
+     * - array buffer: Frames
+     * - Parameter SampleRate:  Sample rate for the samples in the Frames buffer. 
+     * - Parameter Channels:  Number of channels for the samples in the Frames buffer. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_AUDIOBUFFER_API_LATEST,
         Frames: [Int16]?,

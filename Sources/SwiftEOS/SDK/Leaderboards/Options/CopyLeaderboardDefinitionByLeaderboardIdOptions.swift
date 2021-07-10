@@ -33,7 +33,11 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdOpti
         self.LeaderboardId = String(cString: sdkObject.LeaderboardId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST. 
+     * - Parameter LeaderboardId:  The ID of the leaderboard whose definition you want to copy from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST,
         LeaderboardId: String?

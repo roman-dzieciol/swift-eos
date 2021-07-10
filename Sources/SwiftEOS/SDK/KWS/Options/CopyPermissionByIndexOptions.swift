@@ -38,7 +38,12 @@ public struct SwiftEOS_KWS_CopyPermissionByIndexOptions: SwiftEOSObject {
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
+     * - Parameter Index:  The index of the permission to get. 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

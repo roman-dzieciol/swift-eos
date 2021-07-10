@@ -37,7 +37,13 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions: SwiftEOS
         self.AttrKey = String(cString: sdkObject.AttrKey)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYKEY_API_LATEST. 
+     * - Parameter AttrKey:  The name of the key to get the session attribution for 
+     * 
+     * @see EOS_SessionModification_AddAttribute
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYKEY_API_LATEST,
         AttrKey: String?

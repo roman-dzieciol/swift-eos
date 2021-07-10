@@ -43,7 +43,13 @@ public struct SwiftEOS_KWS_CreateUserOptions: SwiftEOSObject {
         self.ParentEmail = String(cString: sdkObject.ParentEmail)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_CREATEUSER_API_LATEST. 
+     * - Parameter LocalUserId:  Local user creating a KWS entry 
+     * - Parameter DateOfBirth:  Date of birth in ISO8601 form (YYYY-MM-DD) 
+     * - Parameter ParentEmail:  Parent email 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_CREATEUSER_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

@@ -33,7 +33,11 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByIndexOptions: Swi
         self.LeaderboardIndex = try safeNumericCast(exactly: sdkObject.LeaderboardIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYINDEX_API_LATEST. 
+     * - Parameter LeaderboardIndex:  Index of the leaderboard definition to retrieve from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYINDEX_API_LATEST,
         LeaderboardIndex: Int

@@ -38,7 +38,12 @@ public struct SwiftEOS_Friends_SendInviteOptions: SwiftEOSObject {
         self.TargetUserId = sdkObject.TargetUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_FRIENDS_SENDINVITE_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user who is sending the friends list invitation 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the user who is receiving the friends list invitation 
+     */
     public init(
         ApiVersion: Int32 = EOS_FRIENDS_SENDINVITE_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

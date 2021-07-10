@@ -47,7 +47,12 @@ public struct SwiftEOS_Achievements_StatThresholds: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_STATTHRESHOLDS_API_LATEST. 
+     * - Parameter Name:  The name of the stat. 
+     * - Parameter Threshold:  The value that the stat must surpass to satisfy the requirement for unlocking an achievement. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_STATTHRESHOLDS_API_LATEST,
         Name: String?,

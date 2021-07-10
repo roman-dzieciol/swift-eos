@@ -33,7 +33,11 @@ public struct SwiftEOS_KWS_GetPermissionsCountOptions: SwiftEOSObject {
         self.LocalUserId = sdkObject.LocalUserId
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_KWS_GETPERMISSIONSCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
+     */
     public init(
         ApiVersion: Int32 = EOS_KWS_GETPERMISSIONSCOUNT_API_LATEST,
         LocalUserId: EOS_ProductUserId?

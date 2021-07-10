@@ -53,7 +53,15 @@ public struct SwiftEOS_TitleStorage_ReadFileOptions: SwiftEOSObject {
         self.FileTransferProgressCallback = sdkObject.FileTransferProgressCallback
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID of the local user who is reading the requested file (optional) 
+     * - Parameter Filename:  The file name to read; this file must already exist 
+     * - Parameter ReadChunkLengthBytes:  The maximum amount of data in bytes should be available to read in a single EOS_TitleStorage_OnReadFileDataCallback call 
+     * - Parameter ReadFileDataCallback:  Callback function to handle copying read data 
+     * - Parameter FileTransferProgressCallback:  Optional callback function to be informed of download progress, if the file is not already locally cached. If set, this will be called at least once before completion if the request is successfully started 
+     */
     public init(
         ApiVersion: Int32 = EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

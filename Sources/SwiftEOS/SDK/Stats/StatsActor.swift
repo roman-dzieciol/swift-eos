@@ -17,7 +17,8 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     /**
      * Fetches a stat from a given index. Use EOS_Stats_Stat_Release when finished with the data.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID and index being accessed
+     * - Parameter TargetUserId:  The Product User ID of the user who owns the stat 
+     * - Parameter StatIndex:  Index of the stat to retrieve from the cache 
      * - Parameter OutStat:  The stat data for the given index, if it exists and is valid
      * 
      * @see EOS_Stats_Stat_Release
@@ -27,15 +28,20 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      *         EOS_NotFound if the stat is not found
      */
     public func CopyStatByIndex(
-        Options: SwiftEOS_Stats_CopyStatByIndexOptions
+        TargetUserId: EOS_ProductUserId?,
+        StatIndex: Int
     ) throws -> SwiftEOS_Stats_Stat? {
-        try ____CopyStatByIndex(Options)
+        try ____CopyStatByIndex(.init(
+                TargetUserId: TargetUserId,
+                StatIndex: StatIndex
+            ))
     }
 
     /**
      * Fetches a stat from cached stats by name. Use EOS_Stats_Stat_Release when finished with the data.
      * 
-     * - Parameter Options:  Structure containing the Epic Online Services Account ID and name being accessed
+     * - Parameter TargetUserId:  The Product User ID of the user who owns the stat 
+     * - Parameter Name:  Name of the stat to retrieve from the cache 
      * - Parameter OutStat:  The stat data for the given name, if it exists and is valid
      * 
      * @see EOS_Stats_Stat_Release
@@ -45,24 +51,28 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      *         EOS_NotFound if the stat is not found
      */
     public func CopyStatByName(
-        Options: SwiftEOS_Stats_CopyStatByNameOptions
+        TargetUserId: EOS_ProductUserId?,
+        Name: String?
     ) throws -> SwiftEOS_Stats_Stat? {
-        try ____CopyStatByName(Options)
+        try ____CopyStatByName(.init(
+                TargetUserId: TargetUserId,
+                Name: Name
+            ))
     }
 
     /**
      * Fetch the number of stats that are cached locally.
      * 
-     * - Parameter Options:  The Options associated with retrieving the stat count
+     * - Parameter TargetUserId:  The Product User ID for the user whose stats are being counted 
      * 
      * @see EOS_Stats_CopyStatByIndex
      * 
      * @return Number of stats or 0 if there is an error
      */
     public func GetStatsCount(
-        Options: SwiftEOS_Stats_GetStatCountOptions
+        TargetUserId: EOS_ProductUserId?
     ) throws -> Int {
-        try ____GetStatsCount(Options)
+        try ____GetStatsCount(.init(TargetUserId: TargetUserId))
     }
 
     /**
@@ -70,7 +80,12 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      * When the operation is complete and the delegate is triggered the stat will be uploaded to the backend to be processed.
      * The stat may not be updated immediately and an achievement using the stat may take a while to be unlocked once the stat has been uploaded.
      * 
-     * - Parameter Options:  Structure containing information about the stat we're ingesting.
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting the ingest.  Set to null for dedicated server. 
+     * - Parameter Stats:  Stats to ingest. 
+     * - array num: StatsCount
+     * - Parameter StatsCount:  The number of stats to ingest, may not exceed EOS_STATS_MAX_INGEST_STATS. 
+     * - array buffer: Stats
+     * - Parameter TargetUserId:  The Product User ID for the user whose stat is being ingested. 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate.
      * - Parameter CompletionDelegate:  This function is called when the ingest stat operation completes.
      * 
@@ -79,11 +94,19 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      *         EOS_InvalidUser if target user ID is missing or incorrect
      */
     public func IngestStat(
-        Options: SwiftEOS_Stats_IngestStatOptions,
+        LocalUserId: EOS_ProductUserId?,
+        Stats: [SwiftEOS_Stats_IngestData]?,
+        StatsCount: Int,
+        TargetUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Stats_IngestStatCompleteCallbackInfo) -> Void
     ) throws {
         try ____IngestStat(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                Stats: Stats,
+                StatsCount: StatsCount,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }
@@ -91,7 +114,14 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     /**
      * Query for a list of stats for a specific player.
      * 
-     * - Parameter Options:  Structure containing information about the player whose stats we're retrieving.
+     * - Parameter LocalUserId:  The Product User ID of the local user requesting the stats. Set to null for dedicated server. 
+     * - Parameter StartTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for start time (Optional). 
+     * - Parameter EndTime:  If not EOS_STATS_TIME_UNDEFINED then this is the POSIX timestamp for end time (Optional). 
+     * - Parameter StatNames:  An array of stat names to query for (Optional). 
+     * - array num: StatNamesCount
+     * - Parameter StatNamesCount:  The number of stat names included in query (Optional), may not exceed EOS_STATS_MAX_QUERY_STATS. 
+     * - array buffer: StatNames
+     * - Parameter TargetUserId:  The Product User ID for the user whose stats are being retrieved 
      * - Parameter ClientData:  Arbitrary data that is passed back to you in the CompletionDelegate
      * - Parameter CompletionDelegate:  This function is called when the query player stats operation completes.
      * 
@@ -100,11 +130,23 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
      *         EOS_InvalidUser if target user ID is missing or incorrect
      */
     public func QueryStats(
-        Options: SwiftEOS_Stats_QueryStatsOptions,
+        LocalUserId: EOS_ProductUserId?,
+        StartTime: Int,
+        EndTime: Int,
+        StatNames: [String]?,
+        StatNamesCount: Int,
+        TargetUserId: EOS_ProductUserId?,
         CompletionDelegate: @escaping (SwiftEOS_Stats_OnQueryStatsCompleteCallbackInfo) -> Void
     ) throws {
         try ____QueryStats(
-            Options,
+            .init(
+                LocalUserId: LocalUserId,
+                StartTime: StartTime,
+                EndTime: EndTime,
+                StatNames: StatNames,
+                StatNamesCount: StatNamesCount,
+                TargetUserId: TargetUserId
+            ),
             CompletionDelegate
         )
     }

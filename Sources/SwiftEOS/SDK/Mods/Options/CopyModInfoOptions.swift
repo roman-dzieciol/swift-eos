@@ -38,7 +38,12 @@ public struct SwiftEOS_Mods_CopyModInfoOptions: SwiftEOSObject {
         self.`Type` = sdkObject.`Type`
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_MODS_COPYMODINFO_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which mods should be copied 
+     * - Parameter `Type`:  Type of the enumerated mod to copy 
+     */
     public init(
         ApiVersion: Int32 = EOS_MODS_COPYMODINFO_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

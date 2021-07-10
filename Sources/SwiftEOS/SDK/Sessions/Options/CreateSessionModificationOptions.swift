@@ -76,7 +76,30 @@ public struct SwiftEOS_Sessions_CreateSessionModificationOptions: SwiftEOSObject
         self.SessionId = String(cString: sdkObject.SessionId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_CREATESESSIONMODIFICATION_API_LATEST. 
+     * - Parameter SessionName:  Name of the session to create 
+     * - Parameter BucketId:  Bucket ID associated with the session 
+     * - Parameter MaxPlayers:  Maximum number of players allowed in the session 
+     * - Parameter LocalUserId:  The Product User ID of the local user associated with the session 
+     * - Parameter bPresenceEnabled:  
+     * If true, this session will be associated with presence. Only one session at a time can have this flag true.
+     * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
+     * 
+     * @note The Social Overlay can handle only one of the following three options at a time:
+     * * using the bPresenceEnabled flags within the Sessions interface
+     * * using the bPresenceEnabled flags within the Lobby interface
+     * * using EOS_PresenceModification_SetJoinInfo
+     * 
+     * @see EOS_PresenceModification_SetJoinInfoOptions
+     * @see EOS_Lobby_CreateLobbyOptions
+     * @see EOS_Lobby_JoinLobbyOptions
+     * @see EOS_Sessions_JoinSessionOptions
+     * - Parameter SessionId:  Optional session id - set to a globally unique value to override the backend assignment
+     * If not specified the backend service will assign one to the session.  Do not mix and match.
+     * This value can be of size [EOS_SESSIONMODIFICATION_MIN_SESSIONIDOVERRIDE_LENGTH, EOS_SESSIONMODIFICATION_MAX_SESSIONIDOVERRIDE_LENGTH]
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_CREATESESSIONMODIFICATION_API_LATEST,
         SessionName: String?,

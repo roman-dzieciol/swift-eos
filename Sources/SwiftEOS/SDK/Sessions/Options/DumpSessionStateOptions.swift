@@ -33,7 +33,11 @@ public struct SwiftEOS_Sessions_DumpSessionStateOptions: SwiftEOSObject {
         self.SessionName = String(cString: sdkObject.SessionName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST. 
+     * - Parameter SessionName:  Name of the session 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST,
         SessionName: String?

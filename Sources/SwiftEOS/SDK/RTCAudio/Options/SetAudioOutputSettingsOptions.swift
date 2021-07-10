@@ -46,7 +46,14 @@ public struct SwiftEOS_RTCAudio_SetAudioOutputSettingsOptions: SwiftEOSObject {
         self.Volume = sdkObject.Volume
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCAUDIO_SETAUDIOOUTPUTSETTINGS_API_LATEST. 
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter DeviceId:  The device Id to be used for this user. Pass NULL or empty string to use default output device. 
+     * - Parameter Volume:  The volume to be configured for this device (range 0.0 to 100.0). Volume 50 means that the audio volume is not modified
+     * and stays in its source value.
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_SETAUDIOOUTPUTSETTINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

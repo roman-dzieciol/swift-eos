@@ -74,7 +74,23 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
         )
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST. 
+     * - Parameter LocalUserId:  Product User ID for local user who is querying join room tokens. 
+     * - Parameter RoomName:  Room name to request a token for. 
+     * - Parameter TargetUserIds:  An array of Product User IDs indicating the users to retrieve a token for. 
+     * - array num: TargetUserIdsCount
+     * - Parameter TargetUserIdsCount:  The number of users included in the query. 
+     * - array buffer: TargetUserIds
+     * - array buffer: TargetUserIpAddresses
+     * - Parameter TargetUserIpAddresses:  Array of IP Addresses, one for each of the users we're querying tokens for.
+     * There should be TargetUserIdsCount Ip Addresses, you can set an entry to NULL if not known.
+     * If TargetUserIpAddresses is set to NULL IP Addresses will be ignored.
+     * IPv4 format: "0.0.0.0"
+     * IPv6 format: "0:0:0:0:0:0:0:0"
+     * - array num: TargetUserIdsCount
+     */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST,
         LocalUserId: EOS_ProductUserId?,

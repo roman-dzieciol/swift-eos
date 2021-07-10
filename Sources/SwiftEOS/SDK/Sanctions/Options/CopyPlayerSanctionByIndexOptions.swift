@@ -38,7 +38,12 @@ public struct SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions: SwiftEOSObjec
         self.SanctionIndex = try safeNumericCast(exactly: sdkObject.SanctionIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST. 
+     * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be copied 
+     * - Parameter SanctionIndex:  Index of the sanction to retrieve from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

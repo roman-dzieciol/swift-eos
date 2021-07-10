@@ -38,7 +38,15 @@ public struct SwiftEOS_RTC_LeaveRoomCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  This returns:
+     * EOS_Success if the channel was successfully left.
+     * EOS_AccessDenied if the room name belongs to the Lobby voice system.
+     * EOS_UnexpectedError otherwise.
+     * - Parameter LocalUserId:  The Product User ID of the user who initiated this request. 
+     * - Parameter RoomName:  The room the user was trying to leave. 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

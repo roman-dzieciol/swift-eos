@@ -41,7 +41,13 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions: SwiftEOSObject {
         self.CharacterId = try safeNumericCast(exactly: sdkObject.CharacterId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST. 
+     * - Parameter SpawnedPlayerHandle:  Locally unique value used in RegisterClient/RegisterPeer 
+     * - Parameter TeamId:  Optional identifier for the player's team. If none, use 0. 
+     * - Parameter CharacterId:  Optional identifier for the player's character. If none, use 0. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST,
         SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,

@@ -38,7 +38,12 @@ public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions: SwiftEOSO
         self.AttrIndex = try safeNumericCast(exactly: sdkObject.AttrIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST. 
+     * - Parameter TargetUserId:  The Product User ID of the lobby member 
+     * - Parameter AttrIndex:  The index of the attribute to copy 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST,
         TargetUserId: EOS_ProductUserId?,

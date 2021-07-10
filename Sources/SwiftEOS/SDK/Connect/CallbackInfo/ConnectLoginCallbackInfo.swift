@@ -38,7 +38,15 @@ public struct SwiftEOS_Connect_LoginCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  The EOS_EResult code for the operation. EOS_Success indicates that the operation succeeded; other codes indicate errors. 
+     * - Parameter LocalUserId:  If login was succesful, this is the Product User ID of the local player that logged in. 
+     * - Parameter ContinuanceToken:  
+     * If the user was not found with credentials passed into EOS_Connect_Login, 
+     * this continuance token can be passed to either EOS_Connect_CreateUser 
+     * or EOS_Connect_LinkAccount to continue the flow.
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_ProductUserId?,

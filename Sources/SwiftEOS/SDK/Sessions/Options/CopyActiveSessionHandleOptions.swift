@@ -10,7 +10,11 @@ public struct SwiftEOS_Sessions_CopyActiveSessionHandleOptions {
     /** Name of the session for which to retrieve a session handle  */
     public let SessionName: String?
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST. 
+     * - Parameter SessionName:  Name of the session for which to retrieve a session handle 
+     */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_COPYACTIVESESSIONHANDLE_API_LATEST,
         SessionName: String?

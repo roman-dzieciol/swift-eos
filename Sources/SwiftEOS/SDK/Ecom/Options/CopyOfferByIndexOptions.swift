@@ -38,7 +38,12 @@ public struct SwiftEOS_Ecom_CopyOfferByIndexOptions: SwiftEOSObject {
         self.OfferIndex = try safeNumericCast(exactly: sdkObject.OfferIndex)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_COPYOFFERBYINDEX_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer is being copied 
+     * - Parameter OfferIndex:  The index of the offer to get. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_COPYOFFERBYINDEX_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

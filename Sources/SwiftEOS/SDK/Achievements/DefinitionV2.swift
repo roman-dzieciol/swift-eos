@@ -95,7 +95,23 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
             try SwiftEOS_Achievements_StatThresholds.init(sdkObject: $0.pointee) }
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST. 
+     * - Parameter AchievementId:  Achievement ID that can be used to uniquely identify the achievement. 
+     * - Parameter UnlockedDisplayName:  Localized display name for the achievement when it has been unlocked. 
+     * - Parameter UnlockedDescription:  Localized description for the achievement when it has been unlocked. 
+     * - Parameter LockedDisplayName:  Localized display name for the achievement when it is locked or hidden. 
+     * - Parameter LockedDescription:  Localized description for the achievement when it is locked or hidden. 
+     * - Parameter FlavorText:  Localized flavor text that can be used by the game in an arbitrary manner. This may be null if there is no data configured in the dev portal. 
+     * - Parameter UnlockedIconURL:  URL of an icon to display for the achievement when it is unlocked. This may be null if there is no data configured in the dev portal. 
+     * - Parameter LockedIconURL:  URL of an icon to display for the achievement when it is locked or hidden. This may be null if there is no data configured in the dev portal. 
+     * - Parameter bIsHidden:  EOS_TRUE if the achievement is hidden; EOS_FALSE otherwise. 
+     * - Parameter StatThresholdsCount:  The number of stat thresholds used to monitor progress towards this achievement. 
+     * - array buffer: StatThresholds
+     * - Parameter StatThresholds:  Array of `EOS_Achievements_StatThresholds` that need to be satisfied to unlock this achievement. Consists of Name and Threshold Value. 
+     * - array num: StatThresholdsCount
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_DEFINITIONV2_API_LATEST,
         AchievementId: String?,

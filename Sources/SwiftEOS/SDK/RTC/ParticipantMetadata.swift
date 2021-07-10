@@ -23,7 +23,12 @@ public struct SwiftEOS_RTC_ParticipantMetadata {
         self.Value = String(cString: sdkObject.Value)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_RTC_PARTICIPANTMETADATA_API_LATEST. 
+     * - Parameter Key:  The unique key of this metadata item. The max size of the string is EOS_RTC_PARTICIPANTMETADATA_KEY_MAXCHARCOUNT. 
+     * - Parameter Value:  The value of this metadata item. The max size of the string is EOS_RTC_PARTICIPANTMETADATA_VALUE_MAXCHARCOUNT. 
+     */
     public init(
         ApiVersion: Int32 = EOS_RTC_PARTICIPANTMETADATA_API_LATEST,
         Key: String?,

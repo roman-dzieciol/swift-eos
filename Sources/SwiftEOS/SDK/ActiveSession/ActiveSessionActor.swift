@@ -37,7 +37,7 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
     /**
      * EOS_ActiveSession_GetRegisteredPlayerByIndex is used to immediately retrieve individual players registered with the active session.
      * 
-     * - Parameter Options:  Structure containing the input parameters
+     * - Parameter PlayerIndex:  Index of the registered player to retrieve 
      * 
      * @return the product user ID for the registered player at a given index or null if that index is invalid
      * 
@@ -45,9 +45,9 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * @see EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
      */
     public func GetRegisteredPlayerByIndex(
-        Options: SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexOptions
+        PlayerIndex: Int
     ) throws -> EOS_ProductUserId {
-        try ____GetRegisteredPlayerByIndex(Options)
+        try ____GetRegisteredPlayerByIndex(.init(PlayerIndex: PlayerIndex))
     }
 
     /**

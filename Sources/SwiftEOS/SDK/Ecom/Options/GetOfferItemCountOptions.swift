@@ -38,7 +38,12 @@ public struct SwiftEOS_Ecom_GetOfferItemCountOptions: SwiftEOSObject {
         self.OfferId = String(cString: sdkObject.OfferId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who made the initial request for the Catalog Offer through EOS_Ecom_QueryOffers 
+     * - Parameter OfferId:  An ID that corresponds to a cached Catalog Offer (retrieved by EOS_Ecom_CopyOfferByIndex) 
+     */
     public init(
         ApiVersion: Int32 = EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

@@ -38,7 +38,12 @@ public struct SwiftEOS_P2P_SetPacketQueueSizeOptions: SwiftEOSObject {
         self.OutgoingPacketQueueMaxSizeBytes = sdkObject.OutgoingPacketQueueMaxSizeBytes
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_P2P_SETPACKETQUEUESIZE_API_LATEST. 
+     * - Parameter IncomingPacketQueueMaxSizeBytes:  The ideal maximum amount of bytes the Incoming packet queue can consume 
+     * - Parameter OutgoingPacketQueueMaxSizeBytes:  The ideal maximum amount of bytes the Outgoing packet queue can consume 
+     */
     public init(
         ApiVersion: Int32 = EOS_P2P_SETPACKETQUEUESIZE_API_LATEST,
         IncomingPacketQueueMaxSizeBytes: UInt64,

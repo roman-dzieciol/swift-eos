@@ -33,7 +33,11 @@ public struct SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOpti
         self.AchievementId = String(cString: sdkObject.AchievementId)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_COPYDEFINITIONBYACHIEVEMENTID_API_LATEST. 
+     * - Parameter AchievementId:  Achievement ID to look for when copying definition from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_COPYDEFINITIONBYACHIEVEMENTID_API_LATEST,
         AchievementId: String?

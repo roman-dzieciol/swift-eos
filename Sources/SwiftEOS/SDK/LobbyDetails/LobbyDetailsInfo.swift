@@ -76,7 +76,19 @@ public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
         self.bRTCRoomEnabled = try swiftBoolFromEosBool(sdkObject.bRTCRoomEnabled)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYDETAILS_INFO_API_LATEST. 
+     * - Parameter LobbyId:  Lobby ID 
+     * - Parameter LobbyOwnerUserId:  The Product User ID of the current owner of the lobby 
+     * - Parameter PermissionLevel:  Permission level of the lobby 
+     * - Parameter AvailableSlots:  Current available space 
+     * - Parameter MaxMembers:  Max allowed members in the lobby 
+     * - Parameter bAllowInvites:  If true, users can invite others to this lobby 
+     * - Parameter BucketId:  The main indexed parameter for this lobby, can be any string (ie "Region:GameMode") 
+     * - Parameter bAllowHostMigration:  Is host migration allowed 
+     * - Parameter bRTCRoomEnabled:  Was a Real-Time Communication (RTC) room enabled at lobby creation? 
+     */
     public init(
         ApiVersion: Int32 = EOS_LOBBYDETAILS_INFO_API_LATEST,
         LobbyId: String?,

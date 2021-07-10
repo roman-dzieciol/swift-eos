@@ -52,7 +52,14 @@ public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
         self.UserDisplayName = String(cString: sdkObject.UserDisplayName)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST. 
+     * - Parameter UserId:  The Product User ID assoicated with this record 
+     * - Parameter Rank:  Sorted position on leaderboard 
+     * - Parameter Score:  Leaderboard score 
+     * - Parameter UserDisplayName:  The latest display name seen for the user since they last time logged in. This is empty if the user does not have a display name set. 
+     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_LEADERBOARDRECORD_API_LATEST,
         UserId: EOS_ProductUserId?,

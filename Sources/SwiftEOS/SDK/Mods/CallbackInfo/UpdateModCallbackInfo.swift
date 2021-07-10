@@ -33,7 +33,12 @@ public struct SwiftEOS_Mods_UpdateModCallbackInfo {
         callback.completion(callbackInfo)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ResultCode:  Result code for the operation. EOS_Success is returned if the request to update was successfull, otherwise one of the error codes is returned. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the user for which mod update was requested 
+     * - Parameter Mod:  Mod for which update was requested 
+     */
     public init(
         ResultCode: EOS_EResult,
         LocalUserId: EOS_EpicAccountId?,

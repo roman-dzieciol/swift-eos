@@ -43,7 +43,13 @@ public struct SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptions: SwiftEOSObje
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_USERINFO_COPYEXTERNALUSERINFOBYINDEX_API_LATEST. 
+     * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
+     * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
+     * - Parameter Index:  Index of the external user info to retrieve from the cache 
+     */
     public init(
         ApiVersion: Int32 = EOS_USERINFO_COPYEXTERNALUSERINFOBYINDEX_API_LATEST,
         LocalUserId: EOS_EpicAccountId?,

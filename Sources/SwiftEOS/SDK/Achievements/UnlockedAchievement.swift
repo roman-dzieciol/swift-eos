@@ -42,7 +42,12 @@ public struct SwiftEOS_Achievements_UnlockedAchievement: SwiftEOSObject {
         self.UnlockTime = try safeNumericCast(exactly: sdkObject.UnlockTime)
     }
 
-    /** Memberwise initializer */
+    /**
+     * Memberwise initializer
+     * - Parameter ApiVersion:  API Version: Set this to EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST. 
+     * - Parameter AchievementId:  Achievement ID that can be used to uniquely identify the unlocked achievement. 
+     * - Parameter UnlockTime:  If not EOS_ACHIEVEMENTS_ACHIEVEMENT_UNLOCKTIME_UNDEFINED then this is the POSIX timestamp that the achievement was unlocked. 
+     */
     public init(
         ApiVersion: Int32 = EOS_ACHIEVEMENTS_UNLOCKEDACHIEVEMENT_API_LATEST,
         AchievementId: String?,

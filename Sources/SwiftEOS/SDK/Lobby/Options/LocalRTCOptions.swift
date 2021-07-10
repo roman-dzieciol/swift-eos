@@ -9,7 +9,7 @@ public struct SwiftEOS_Lobby_LocalRTCOptions: SwiftEOSObject {
 
     /**
      * Flags for the local user in this room. The default is 0 if this struct is not specified. 
-     * @see EOS_RTC_JoinRoomOptions::Flags 
+     * - SeeAlso:  EOS_RTC_JoinRoomOptions::Flags 
      */
     public let Flags: Int
 
@@ -66,7 +66,7 @@ public struct SwiftEOS_Lobby_LocalRTCOptions: SwiftEOSObject {
      * Memberwise initializer
      * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBY_LOCALRTCOPTIONS_API_LATEST. 
      * - Parameter Flags:  Flags for the local user in this room. The default is 0 if this struct is not specified. 
-     * @see EOS_RTC_JoinRoomOptions::Flags 
+     * - SeeAlso:  EOS_RTC_JoinRoomOptions::Flags 
      * - Parameter bUseManualAudioInput:  Set to EOS_TRUE to enable Manual Audio Input. If manual audio input is enabled, audio recording is not started and the audio buffers
      * must be passed manually using EOS_RTCAudio_SendAudio. The default is EOS_FALSE if this struct is not specified.
      * - Parameter bUseManualAudioOutput:  Set to EOS_TRUE to enable Manual Audio Output. If manual audio output is enabled, audio rendering is not started and the audio buffers

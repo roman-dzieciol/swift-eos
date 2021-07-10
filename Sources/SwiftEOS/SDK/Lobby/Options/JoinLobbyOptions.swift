@@ -17,16 +17,16 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
      * If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_CreateLobbyOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_CreateSessionModificationOptions
-     * @see EOS_Sessions_JoinSessionOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
+     * - SeeAlso:  EOS_Sessions_JoinSessionOptions
      */
     public let bPresenceEnabled: Bool
 
@@ -74,16 +74,16 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
      * - Parameter bPresenceEnabled:  If true, this lobby will be associated with the user's presence information. A user can only associate one lobby at a time with their presence information.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_CreateLobbyOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_CreateSessionModificationOptions
-     * @see EOS_Sessions_JoinSessionOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
+     * - SeeAlso:  EOS_Sessions_JoinSessionOptions
      * - Parameter LocalRTCOptions:  (Optional) Set this value to override the default local options for the RTC Room, if it is enabled for this lobby. Set this to NULL if
      * your application does not use the Lobby RTC Rooms feature, or if you would like to use the default settings. This option is ignored if
      * the specified lobby does not have an RTC Room enabled and will not cause errors.

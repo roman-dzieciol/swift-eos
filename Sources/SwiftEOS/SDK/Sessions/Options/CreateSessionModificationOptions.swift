@@ -24,15 +24,15 @@ public struct SwiftEOS_Sessions_CreateSessionModificationOptions: SwiftEOSObject
      * If true, this session will be associated with presence. Only one session at a time can have this flag true.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_CreateLobbyOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_JoinSessionOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_JoinSessionOptions
      */
     public let bPresenceEnabled: Bool
 
@@ -87,15 +87,15 @@ public struct SwiftEOS_Sessions_CreateSessionModificationOptions: SwiftEOSObject
      * If true, this session will be associated with presence. Only one session at a time can have this flag true.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_CreateLobbyOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_JoinSessionOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_JoinSessionOptions
      * - Parameter SessionId:  Optional session id - set to a globally unique value to override the backend assignment
      * If not specified the backend service will assign one to the session.  Do not mix and match.
      * This value can be of size [EOS_SESSIONMODIFICATION_MIN_SESSIONIDOVERRIDE_LENGTH, EOS_SESSIONMODIFICATION_MAX_SESSIONIDOVERRIDE_LENGTH]

@@ -32,7 +32,7 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
      * 
      * Localized display name for the achievement based on this specific player's current progress on the achievement. 
      * 
-     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Note:  The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
      */
     public let DisplayName: String?
 
@@ -40,14 +40,14 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
      * 
      * Localized description for the achievement based on this specific player's current progress on the achievement.
      * 
-     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Note:  The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
      */
     public let Description: String?
 
     /**
      * URL of an icon to display for the achievement based on this specific player's current progress on the achievement. This may be null if there is no data configured in the dev portal.
      * 
-     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Note:  The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
      */
     public let IconURL: String?
 
@@ -107,14 +107,14 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
      * - Parameter DisplayName:  
      * Localized display name for the achievement based on this specific player's current progress on the achievement. 
      * 
-     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Note:  The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
      * - Parameter Description:  
      * Localized description for the achievement based on this specific player's current progress on the achievement.
      * 
-     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Note:  The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
      * - Parameter IconURL:  URL of an icon to display for the achievement based on this specific player's current progress on the achievement. This may be null if there is no data configured in the dev portal.
      * 
-     * @note The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
+     * - Note:  The current progress is updated when EOS_Achievements_QueryPlayerAchievements succeeds and when an achievement is unlocked.
      * - Parameter FlavorText:  Localized flavor text that can be used by the game in an arbitrary manner. This may be null if there is no data configured in the dev portal. 
      */
     public init(

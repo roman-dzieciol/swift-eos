@@ -13,7 +13,7 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
      * - Note: ``EOS/_tagEOS_RTCAudio_AudioBuffer/FramesCount``:
      * Number of frames available in the Frames buffer.
      * 
-     * @note This is the number of frames in a channel, not the total number of frames in the buffer.
+     * - Note:  This is the number of frames in a channel, not the total number of frames in the buffer.
      */
     public let Frames: [Int16]?
 
@@ -62,7 +62,7 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
      * - Note: ``EOS/_tagEOS_RTCAudio_AudioBuffer/FramesCount``:
      * Number of frames available in the Frames buffer.
      * 
-     * @note This is the number of frames in a channel, not the total number of frames in the buffer.
+     * - Note:  This is the number of frames in a channel, not the total number of frames in the buffer.
      * - Parameter SampleRate:  Sample rate for the samples in the Frames buffer. 
      * - Parameter Channels:  Number of channels for the samples in the Frames buffer. 
      */

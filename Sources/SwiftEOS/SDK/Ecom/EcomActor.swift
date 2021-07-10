@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * On success, a Transaction ID will be returned. The Transaction ID can be used to obtain an
      * EOS_Ecom_HTransaction handle. The handle can then be used to retrieve the entitlements rewarded by the purchase.
      * 
-     * @see EOS_Ecom_Transaction_Release
+     * - SeeAlso:  EOS_Ecom_Transaction_Release
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is making the purchase 
      * - Parameter OverrideCatalogNamespace:  The catalog namespace will be the current Sandbox ID (in EOS_Platform_Options) unless overridden by this field 
@@ -52,10 +52,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement is being copied 
      * - Parameter EntitlementId:  ID of the entitlement to retrieve from the cache 
      * 
-     * @see EOS_Ecom_CopyEntitlementByNameAndIndex
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_CopyEntitlementByNameAndIndex
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -76,9 +76,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose entitlement is being copied 
      * - Parameter EntitlementIndex:  Index of the entitlement to retrieve from the cache 
      * 
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -102,9 +102,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter EntitlementName:  Name of the entitlement to retrieve from the cache 
      * - Parameter Index:  Index of the entitlement within the named set to retrieve from the cache. 
      * 
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -127,11 +127,11 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item is being copied 
      * - Parameter ItemId:  The ID of the item to get. 
      * 
-     * @see EOS_Ecom_CatalogItem_Release
-     * @see EOS_Ecom_GetItemImageInfoCount
-     * @see EOS_Ecom_GetItemReleaseCount
+     * - SeeAlso:  EOS_Ecom_CatalogItem_Release
+     * - SeeAlso:  EOS_Ecom_GetItemImageInfoCount
+     * - SeeAlso:  EOS_Ecom_GetItemReleaseCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutItem
+     * - Returns:  EOS_Success if the information is available and passed out in OutItem
      *         EOS_Ecom_CatalogItemStale if the item information is stale and passed out in OutItem
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the offer is not found
@@ -153,9 +153,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter ItemId:  The ID of the item to get the images for. 
      * - Parameter ImageInfoIndex:  The index of the image to get. 
      * 
-     * @see EOS_Ecom_KeyImageInfo_Release
+     * - SeeAlso:  EOS_Ecom_KeyImageInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutImageInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutImageInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogItemStale if the associated item information is stale
      *         EOS_NotFound if the image is not found
@@ -179,9 +179,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter ItemId:  The ID of the item to get the releases for. 
      * - Parameter ReleaseIndex:  The index of the release to get. 
      * 
-     * @see EOS_Ecom_CatalogRelease_Release
+     * - SeeAlso:  EOS_Ecom_CatalogRelease_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutRelease
+     * - Returns:  EOS_Success if the information is available and passed out in OutRelease
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogItemStale if the associated item information is stale
      *         EOS_NotFound if the release is not found
@@ -204,10 +204,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer is being copied 
      * - Parameter OfferId:  The ID of the offer to get. 
      * 
-     * @see EOS_Ecom_CatalogOffer_Release
-     * @see EOS_Ecom_GetOfferItemCount
+     * - SeeAlso:  EOS_Ecom_CatalogOffer_Release
+     * - SeeAlso:  EOS_Ecom_GetOfferItemCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutOffer
+     * - Returns:  EOS_Success if the information is available and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -229,10 +229,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer is being copied 
      * - Parameter OfferIndex:  The index of the offer to get. 
      * 
-     * @see EOS_Ecom_CatalogOffer_Release
-     * @see EOS_Ecom_GetOfferItemCount
+     * - SeeAlso:  EOS_Ecom_CatalogOffer_Release
+     * - SeeAlso:  EOS_Ecom_GetOfferItemCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutOffer
+     * - Returns:  EOS_Success if the information is available and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -255,9 +255,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter OfferId:  The ID of the offer to get the images for. 
      * - Parameter ImageInfoIndex:  The index of the image to get. 
      * 
-     * @see EOS_Ecom_KeyImageInfo_Release
+     * - SeeAlso:  EOS_Ecom_KeyImageInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutImageInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutImageInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogOfferStale if the associated offer information is stale
      *         EOS_NotFound if the image is not found
@@ -281,11 +281,11 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter OfferId:  The ID of the offer to get the items for. 
      * - Parameter ItemIndex:  The index of the item to get. 
      * 
-     * @see EOS_Ecom_CatalogItem_Release
-     * @see EOS_Ecom_GetItemImageInfoCount
-     * @see EOS_Ecom_GetItemReleaseCount
+     * - SeeAlso:  EOS_Ecom_CatalogItem_Release
+     * - SeeAlso:  EOS_Ecom_GetItemImageInfoCount
+     * - SeeAlso:  EOS_Ecom_GetItemReleaseCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutItem
+     * - Returns:  EOS_Success if the information is available and passed out in OutItem
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogItemStale if the item information is stale
      *         EOS_NotFound if the item is not found
@@ -308,10 +308,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is associated with the transaction 
      * - Parameter TransactionId:  The ID of the transaction to get 
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_Transaction_Release
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_Transaction_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutTransaction
+     * - Returns:  EOS_Success if the information is available and passed out in OutTransaction
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the transaction is not found
      */
@@ -331,10 +331,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who is associated with the transaction 
      * - Parameter TransactionIndex:  The index of the transaction to get 
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_Transaction_Release
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_Transaction_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutTransaction
+     * - Returns:  EOS_Success if the information is available and passed out in OutTransaction
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the transaction is not found
      */
@@ -354,9 +354,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user for which to retrieve the entitlement count 
      * - Parameter EntitlementName:  Name of the entitlement to count in the cache 
      * 
-     * @see EOS_Ecom_CopyEntitlementByNameAndIndex
+     * - SeeAlso:  EOS_Ecom_CopyEntitlementByNameAndIndex
      * 
-     * @return the number of entitlements found.
+     * - Returns:  the number of entitlements found.
      */
     public func GetEntitlementsByNameCount(
         LocalUserId: EOS_EpicAccountId?,
@@ -373,9 +373,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user for which to retrieve the entitlement count 
      * 
-     * @see EOS_Ecom_CopyEntitlementByIndex
+     * - SeeAlso:  EOS_Ecom_CopyEntitlementByIndex
      * 
-     * @return the number of entitlements found.
+     * - Returns:  the number of entitlements found.
      */
     public func GetEntitlementsCount(
         LocalUserId: EOS_EpicAccountId?
@@ -386,7 +386,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     /**
      * Fetch the number of images that are associated with a given cached item for a local user.
      * 
-     * @return the number of images found.
+     * - Returns:  the number of images found.
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item image is being accessed 
      * - Parameter ItemId:  The ID of the item to get the images for. 
      */
@@ -403,7 +403,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     /**
      * Fetch the number of releases that are associated with a given cached item for a local user.
      * 
-     * @return the number of releases found.
+     * - Returns:  the number of releases found.
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose item release is being accessed 
      * - Parameter ItemId:  The ID of the item to get the releases for. 
      */
@@ -422,9 +422,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offers are being accessed 
      * 
-     * @see EOS_Ecom_CopyOfferByIndex
+     * - SeeAlso:  EOS_Ecom_CopyOfferByIndex
      * 
-     * @return the number of offers found.
+     * - Returns:  the number of offers found.
      */
     public func GetOfferCount(
         LocalUserId: EOS_EpicAccountId?
@@ -435,7 +435,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     /**
      * Fetch the number of images that are associated with a given cached offer for a local user.
      * 
-     * @return the number of images found.
+     * - Returns:  the number of images found.
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose offer image is being accessed. 
      * - Parameter OfferId:  The ID of the offer to get the images for. 
      */
@@ -452,7 +452,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     /**
      * Fetch the number of items that are associated with a given cached offer for a local user.
      * 
-     * @return the number of items found.
+     * - Returns:  the number of items found.
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user who made the initial request for the Catalog Offer through EOS_Ecom_QueryOffers 
      * - Parameter OfferId:  An ID that corresponds to a cached Catalog Offer (retrieved by EOS_Ecom_CopyOfferByIndex) 
      */
@@ -469,10 +469,10 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     /**
      * Fetch the number of transactions that are cached for a given local user.
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_CopyTransactionByIndex
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_CopyTransactionByIndex
      * 
-     * @return the number of transactions found.
+     * - Returns:  the number of transactions found.
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user whose transaction count to get 
      */
     public func GetTransactionCount(
@@ -620,9 +620,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * 
      * - Parameter EntitlementIndex:  The index of the entitlement to get 
      * 
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -637,9 +637,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * Fetch the number of entitlements that are part of this transaction.
      * 
      * 
-     * @see EOS_Ecom_Transaction_CopyEntitlementByIndex
+     * - SeeAlso:  EOS_Ecom_Transaction_CopyEntitlementByIndex
      * 
-     * @return the number of entitlements found.
+     * - Returns:  the number of entitlements found.
      */
     public func Transaction_GetEntitlementsCount() throws -> Int {
         try ____Transaction_GetEntitlementsCount()
@@ -653,9 +653,9 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
      * It is expected that after a transaction that EOS_Ecom_Transaction_Release is called.
      * When EOS_Platform_Release is called any remaining transactions will also be released.
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_GetTransactionCount
-     * @see EOS_Ecom_CopyTransactionByIndex
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_GetTransactionCount
+     * - SeeAlso:  EOS_Ecom_CopyTransactionByIndex
      */
     public func Transaction_GetTransactionId() throws -> String? {
         try ____Transaction_GetTransactionId()
@@ -670,7 +670,7 @@ extension SwiftEOS_Ecom_Actor {
      * On success, a Transaction ID will be returned. The Transaction ID can be used to obtain an
      * EOS_Ecom_HTransaction handle. The handle can then be used to retrieve the entitlements rewarded by the purchase.
      * 
-     * @see EOS_Ecom_Transaction_Release
+     * - SeeAlso:  EOS_Ecom_Transaction_Release
      * 
      * - Parameter Options:  structure containing filter criteria
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
@@ -696,10 +696,10 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and entitlement ID being accessed
      * 
-     * @see EOS_Ecom_CopyEntitlementByNameAndIndex
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_CopyEntitlementByNameAndIndex
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -727,9 +727,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
      * 
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -759,9 +759,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID, entitlement name, and index being accessed
      * 
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -789,11 +789,11 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the item ID being accessed
      * 
-     * @see EOS_Ecom_CatalogItem_Release
-     * @see EOS_Ecom_GetItemImageInfoCount
-     * @see EOS_Ecom_GetItemReleaseCount
+     * - SeeAlso:  EOS_Ecom_CatalogItem_Release
+     * - SeeAlso:  EOS_Ecom_GetItemImageInfoCount
+     * - SeeAlso:  EOS_Ecom_GetItemReleaseCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutItem
+     * - Returns:  EOS_Success if the information is available and passed out in OutItem
      *         EOS_Ecom_CatalogItemStale if the item information is stale and passed out in OutItem
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the offer is not found
@@ -821,9 +821,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the item ID and index being accessed
      * 
-     * @see EOS_Ecom_KeyImageInfo_Release
+     * - SeeAlso:  EOS_Ecom_KeyImageInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutImageInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutImageInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogItemStale if the associated item information is stale
      *         EOS_NotFound if the image is not found
@@ -851,9 +851,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the item ID and index being accessed
      * 
-     * @see EOS_Ecom_CatalogRelease_Release
+     * - SeeAlso:  EOS_Ecom_CatalogRelease_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutRelease
+     * - Returns:  EOS_Success if the information is available and passed out in OutRelease
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogItemStale if the associated item information is stale
      *         EOS_NotFound if the release is not found
@@ -881,10 +881,10 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and offer ID being accessed
      * 
-     * @see EOS_Ecom_CatalogOffer_Release
-     * @see EOS_Ecom_GetOfferItemCount
+     * - SeeAlso:  EOS_Ecom_CatalogOffer_Release
+     * - SeeAlso:  EOS_Ecom_GetOfferItemCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutOffer
+     * - Returns:  EOS_Success if the information is available and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -913,10 +913,10 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
      * 
-     * @see EOS_Ecom_CatalogOffer_Release
-     * @see EOS_Ecom_GetOfferItemCount
+     * - SeeAlso:  EOS_Ecom_CatalogOffer_Release
+     * - SeeAlso:  EOS_Ecom_GetOfferItemCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutOffer
+     * - Returns:  EOS_Success if the information is available and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferStale if the offer information is stale and passed out in OutOffer
      *         EOS_Ecom_CatalogOfferPriceInvalid if the offer information has an invalid price and passed out in OutOffer
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
@@ -945,9 +945,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the offer ID and index being accessed
      * 
-     * @see EOS_Ecom_KeyImageInfo_Release
+     * - SeeAlso:  EOS_Ecom_KeyImageInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutImageInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutImageInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogOfferStale if the associated offer information is stale
      *         EOS_NotFound if the image is not found
@@ -975,11 +975,11 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
      * 
-     * @see EOS_Ecom_CatalogItem_Release
-     * @see EOS_Ecom_GetItemImageInfoCount
-     * @see EOS_Ecom_GetItemReleaseCount
+     * - SeeAlso:  EOS_Ecom_CatalogItem_Release
+     * - SeeAlso:  EOS_Ecom_GetItemImageInfoCount
+     * - SeeAlso:  EOS_Ecom_GetItemReleaseCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutItem
+     * - Returns:  EOS_Success if the information is available and passed out in OutItem
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_Ecom_CatalogItemStale if the item information is stale
      *         EOS_NotFound if the item is not found
@@ -1007,10 +1007,10 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and transaction ID being accessed
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_Transaction_Release
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_Transaction_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutTransaction
+     * - Returns:  EOS_Success if the information is available and passed out in OutTransaction
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the transaction is not found
      */
@@ -1033,10 +1033,10 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and index being accessed
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_Transaction_Release
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_Transaction_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutTransaction
+     * - Returns:  EOS_Success if the information is available and passed out in OutTransaction
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the transaction is not found
      */
@@ -1059,9 +1059,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID and name being accessed
      * 
-     * @see EOS_Ecom_CopyEntitlementByNameAndIndex
+     * - SeeAlso:  EOS_Ecom_CopyEntitlementByNameAndIndex
      * 
-     * @return the number of entitlements found.
+     * - Returns:  the number of entitlements found.
      */
     private func ____GetEntitlementsByNameCount(
         _ Options: SwiftEOS_Ecom_GetEntitlementsByNameCountOptions
@@ -1084,9 +1084,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID being accessed
      * 
-     * @see EOS_Ecom_CopyEntitlementByIndex
+     * - SeeAlso:  EOS_Ecom_CopyEntitlementByIndex
      * 
-     * @return the number of entitlements found.
+     * - Returns:  the number of entitlements found.
      */
     private func ____GetEntitlementsCount(
         _ Options: SwiftEOS_Ecom_GetEntitlementsCountOptions
@@ -1107,7 +1107,7 @@ extension SwiftEOS_Ecom_Actor {
     /**
      * Fetch the number of images that are associated with a given cached item for a local user.
      * 
-     * @return the number of images found.
+     * - Returns:  the number of images found.
      */
     private func ____GetItemImageInfoCount(
         _ Options: SwiftEOS_Ecom_GetItemImageInfoCountOptions
@@ -1128,7 +1128,7 @@ extension SwiftEOS_Ecom_Actor {
     /**
      * Fetch the number of releases that are associated with a given cached item for a local user.
      * 
-     * @return the number of releases found.
+     * - Returns:  the number of releases found.
      */
     private func ____GetItemReleaseCount(
         _ Options: SwiftEOS_Ecom_GetItemReleaseCountOptions
@@ -1151,9 +1151,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the Epic Online Services Account ID being accessed
      * 
-     * @see EOS_Ecom_CopyOfferByIndex
+     * - SeeAlso:  EOS_Ecom_CopyOfferByIndex
      * 
-     * @return the number of offers found.
+     * - Returns:  the number of offers found.
      */
     private func ____GetOfferCount(
         _ Options: SwiftEOS_Ecom_GetOfferCountOptions
@@ -1174,7 +1174,7 @@ extension SwiftEOS_Ecom_Actor {
     /**
      * Fetch the number of images that are associated with a given cached offer for a local user.
      * 
-     * @return the number of images found.
+     * - Returns:  the number of images found.
      */
     private func ____GetOfferImageInfoCount(
         _ Options: SwiftEOS_Ecom_GetOfferImageInfoCountOptions
@@ -1195,7 +1195,7 @@ extension SwiftEOS_Ecom_Actor {
     /**
      * Fetch the number of items that are associated with a given cached offer for a local user.
      * 
-     * @return the number of items found.
+     * - Returns:  the number of items found.
      */
     private func ____GetOfferItemCount(
         _ Options: SwiftEOS_Ecom_GetOfferItemCountOptions
@@ -1216,10 +1216,10 @@ extension SwiftEOS_Ecom_Actor {
     /**
      * Fetch the number of transactions that are cached for a given local user.
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_CopyTransactionByIndex
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_CopyTransactionByIndex
      * 
-     * @return the number of transactions found.
+     * - Returns:  the number of transactions found.
      */
     private func ____GetTransactionCount(
         _ Options: SwiftEOS_Ecom_GetTransactionCountOptions
@@ -1360,9 +1360,9 @@ extension SwiftEOS_Ecom_Actor {
      * 
      * - Parameter Options:  structure containing the index being accessed
      * 
-     * @see EOS_Ecom_Entitlement_Release
+     * - SeeAlso:  EOS_Ecom_Entitlement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutEntitlement
+     * - Returns:  EOS_Success if the information is available and passed out in OutEntitlement
      *         EOS_Ecom_EntitlementStale if the entitlement information is stale and passed out in OutEntitlement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the entitlement is not found
@@ -1389,9 +1389,9 @@ extension SwiftEOS_Ecom_Actor {
      * Fetch the number of entitlements that are part of this transaction.
      * 
      * 
-     * @see EOS_Ecom_Transaction_CopyEntitlementByIndex
+     * - SeeAlso:  EOS_Ecom_Transaction_CopyEntitlementByIndex
      * 
-     * @return the number of entitlements found.
+     * - Returns:  the number of entitlements found.
      */
     private func ____Transaction_GetEntitlementsCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -1415,9 +1415,9 @@ extension SwiftEOS_Ecom_Actor {
      * It is expected that after a transaction that EOS_Ecom_Transaction_Release is called.
      * When EOS_Platform_Release is called any remaining transactions will also be released.
      * 
-     * @see EOS_Ecom_CheckoutCallbackInfo
-     * @see EOS_Ecom_GetTransactionCount
-     * @see EOS_Ecom_CopyTransactionByIndex
+     * - SeeAlso:  EOS_Ecom_CheckoutCallbackInfo
+     * - SeeAlso:  EOS_Ecom_GetTransactionCount
+     * - SeeAlso:  EOS_Ecom_CopyTransactionByIndex
      */
     private func ____Transaction_GetTransactionId() throws -> String? {
         try withPointerManager { pointerManager in

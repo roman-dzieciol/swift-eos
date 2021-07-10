@@ -4,8 +4,8 @@ import EOSSDK
 /**
  * All the known presence information for a specific user. This object must be released by calling EOS_Presence_Info_Release.
  * 
- * @see EOS_Presence_CopyPresence
- * @see EOS_Presence_Info_Release
+ * - SeeAlso:  EOS_Presence_CopyPresence
+ * - SeeAlso:  EOS_Presence_Info_Release
  * 
  * - see: release func: EOS_Presence_Info_Release
  */

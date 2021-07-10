@@ -17,11 +17,11 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     /**
      * Register to receive login status updates.
      * 
-     * @note must call RemoveNotifyLoginStatusChanged to remove the notification
+     * - Note:  must call RemoveNotifyLoginStatusChanged to remove the notification
      * 
      * - Parameter Notification:  a callback that is fired when the login status for a user changes
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     public func AddNotifyLoginStatusChanged(
         Notification: @escaping (SwiftEOS_Auth_LoginStatusChangedCallbackInfo) -> Void
@@ -34,9 +34,9 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user being queried
      * 
-     * @see EOS_Auth_Token_Release
+     * - SeeAlso:  EOS_Auth_Token_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutUserAuthToken
+     * - Returns:  EOS_Success if the information is available and passed out in OutUserAuthToken
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the auth token is not found or expired.
      * 
@@ -73,7 +73,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      * - Parameter Index:  An index into the list of logged in accounts. If the index is out of bounds, the returned Epic Online Services Account ID will be invalid.
      * 
-     * @return The Epic Online Services Account ID associated with the index passed
+     * - Returns:  The Epic Online Services Account ID associated with the index passed
      */
     public func GetLoggedInAccountByIndex(
         Index: Int
@@ -84,7 +84,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     /**
      * Fetch the number of accounts that are logged in.
      * 
-     * @return the number of accounts logged in.
+     * - Returns:  the number of accounts logged in.
      */
     public func GetLoggedInAccountsCount() throws -> Int {
         try ____GetLoggedInAccountsCount()
@@ -95,7 +95,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user being queried
      * 
-     * @return The enum value of a user's login status
+     * - Returns:  The enum value of a user's login status
      */
     public func GetLoginStatus(
         LocalUserId: EOS_EpicAccountId
@@ -201,11 +201,11 @@ extension SwiftEOS_Auth_Actor {
     /**
      * Register to receive login status updates.
      * 
-     * @note must call RemoveNotifyLoginStatusChanged to remove the notification
+     * - Note:  must call RemoveNotifyLoginStatusChanged to remove the notification
      * 
      * - Parameter Notification:  a callback that is fired when the login status for a user changes
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     private func ____AddNotifyLoginStatusChanged(
         _ Notification: @escaping (SwiftEOS_Auth_LoginStatusChangedCallbackInfo) -> Void
@@ -236,9 +236,9 @@ extension SwiftEOS_Auth_Actor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user being queried
      * 
-     * @see EOS_Auth_Token_Release
+     * - SeeAlso:  EOS_Auth_Token_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutUserAuthToken
+     * - Returns:  EOS_Success if the information is available and passed out in OutUserAuthToken
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the auth token is not found or expired.
      * 
@@ -293,7 +293,7 @@ extension SwiftEOS_Auth_Actor {
      * 
      * - Parameter Index:  An index into the list of logged in accounts. If the index is out of bounds, the returned Epic Online Services Account ID will be invalid.
      * 
-     * @return The Epic Online Services Account ID associated with the index passed
+     * - Returns:  The Epic Online Services Account ID associated with the index passed
      */
     private func ____GetLoggedInAccountByIndex(
         _ Index: Int
@@ -314,7 +314,7 @@ extension SwiftEOS_Auth_Actor {
     /**
      * Fetch the number of accounts that are logged in.
      * 
-     * @return the number of accounts logged in.
+     * - Returns:  the number of accounts logged in.
      */
     private func ____GetLoggedInAccountsCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -331,7 +331,7 @@ extension SwiftEOS_Auth_Actor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user being queried
      * 
-     * @return The enum value of a user's login status
+     * - Returns:  The enum value of a user's login status
      */
     private func ____GetLoginStatus(
         _ LocalUserId: EOS_EpicAccountId

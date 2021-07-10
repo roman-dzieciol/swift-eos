@@ -25,16 +25,16 @@ public class SwiftEOS_Metrics_Actor: SwiftEOSActor {
      * - Parameter ControllerType:  The user's game controller type. 
      * - Parameter ServerIp:  IP address of the game server hosting the game session. For a localhost session, set to NULL.
      * 
-     * @details Must be in either one of the following IPv4 or IPv6 string formats:
+     * - details:  Must be in either one of the following IPv4 or IPv6 string formats:
      * * "127.0.0.1".
      * * "1200:0000:AB00:1234:0000:2552:7777:1313".
      * If both IPv4 and IPv6 addresses are available, use the IPv6 address.
      * - Parameter GameSessionId:  Optional, application-defined custom match session identifier. If the identifier is not used, set to NULL.
      * 
-     * @details The game can tag each game session with a custom session match identifier,
+     * - details:  The game can tag each game session with a custom session match identifier,
      * which will be shown in the Played Sessions listing at the user profile dashboard.
      * 
-     * @return Returns EOS_Success on success, or an error code if the input parameters are invalid or an active session for the player already exists.
+     * - Returns:  Returns EOS_Success on success, or an error code if the input parameters are invalid or an active session for the player already exists.
      */
     public func BeginPlayerSession(
         AccountIdType: EOS_EMetricsAccountIdType,
@@ -62,7 +62,7 @@ public class SwiftEOS_Metrics_Actor: SwiftEOSActor {
      * - Parameter AccountIdType:  The Account ID type that is set in the union. 
      * - Parameter AccountId:  
      * 
-     * @return Returns EOS_Success on success, or an error code if the input parameters are invalid or there was no active session for the player.
+     * - Returns:  Returns EOS_Success on success, or an error code if the input parameters are invalid or there was no active session for the player.
      */
     public func EndPlayerSession(
         AccountIdType: EOS_EMetricsAccountIdType,
@@ -84,7 +84,7 @@ extension SwiftEOS_Metrics_Actor {
      * 
      * - Parameter Options:  Structure containing the local player's game account and the game session information.
      * 
-     * @return Returns EOS_Success on success, or an error code if the input parameters are invalid or an active session for the player already exists.
+     * - Returns:  Returns EOS_Success on success, or an error code if the input parameters are invalid or an active session for the player already exists.
      */
     private func ____BeginPlayerSession(
         _ Options: SwiftEOS_Metrics_BeginPlayerSessionOptions
@@ -105,7 +105,7 @@ extension SwiftEOS_Metrics_Actor {
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID of the player whose session to end.
      * 
-     * @return Returns EOS_Success on success, or an error code if the input parameters are invalid or there was no active session for the player.
+     * - Returns:  Returns EOS_Success on success, or an error code if the input parameters are invalid or there was no active session for the player.
      */
     private func ____EndPlayerSession(
         _ Options: SwiftEOS_Metrics_EndPlayerSessionOptions

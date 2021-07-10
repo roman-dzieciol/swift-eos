@@ -21,7 +21,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * 
      * - Parameter PathToBinFile:  UTF-8 path to the .bin catalog file to add 
      * 
-     * @return EOS_Success - If the integrity catalog was added successfully
+     * - Returns:  EOS_Success - If the integrity catalog was added successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     public func AddExternalIntegrityCatalog(
@@ -36,7 +36,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyMessageToPeer(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
@@ -50,7 +50,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_ClientServer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyMessageToServer(
         NotificationFn: @escaping (SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo) -> Void
@@ -64,7 +64,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyPeerActionRequired(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
@@ -78,7 +78,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     public func AddNotifyPeerAuthStatusChanged(
         NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
@@ -95,7 +95,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Logged in user identifier from earlier call to EOS_Connect_Login family of functions 
      * - Parameter Mode:  Operating mode 
      * 
-     * @return EOS_Success - If the session was started successfully
+     * - Returns:  EOS_Success - If the session was started successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -115,7 +115,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
      * 
      * 
-     * @return EOS_Success - If the session was ended normally
+     * - Returns:  EOS_Success - If the session was ended normally
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -131,7 +131,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * 
      * - Parameter DataLengthBytes:  Length in bytes of input 
      * 
-     * @return EOS_Success - If the output length was calculated successfully
+     * - Returns:  EOS_Success - If the output length was calculated successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -156,7 +156,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * - Parameter ViolationType:  On success, receives a code describing the violation that occurred.
      * - Parameter OutMessage:  On success, receives a string describing the violation which should be displayed to the user.
      * 
-     * @return EOS_Success - If violation information was returned successfully
+     * - Returns:  EOS_Success - If violation information was returned successfully
      * 		   EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.
      *         EOS_NotFound - If no violation has occurred since the last call
      */
@@ -184,7 +184,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * 
-     * @return EOS_Success - If the message was protected successfully
+     * - Returns:  EOS_Success - If the message was protected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -208,7 +208,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromPeerOptions/DataLengthBytes``:
      * The size of the data received 
      * 
-     * @return EOS_Success - If the message was processed successfully
+     * - Returns:  EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -231,7 +231,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * - Note: ``EOS/_tagEOS_AntiCheatClient_ReceiveMessageFromServerOptions/DataLengthBytes``:
      * The size of the data received 
      * 
-     * @return EOS_Success - If the message was processed successfully
+     * - Returns:  EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -260,7 +260,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * IPv4 format: "0.0.0.0"
      * IPv6 format: "0:0:0:0:0:0:0:0"
      * 
-     * @return EOS_Success - If the player was registered successfully
+     * - Returns:  EOS_Success - If the player was registered successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -292,7 +292,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * Length in bytes of input 
      * - Parameter OutBufferSizeBytes:  The size in bytes of OutBuffer 
      * 
-     * @return EOS_Success - If the message was unprotected successfully
+     * - Returns:  EOS_Success - If the message was unprotected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -313,7 +313,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
      * 
      * - Parameter PeerHandle:  Locally unique value describing the remote user, as previously passed to EOS_AntiCheatClient_RegisterPeer 
      * 
-     * @return EOS_Success - If the player was unregistered successfully
+     * - Returns:  EOS_Success - If the player was unregistered successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -333,7 +333,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the integrity catalog was added successfully
+     * - Returns:  EOS_Success - If the integrity catalog was added successfully
      *         EOS_InvalidParameters - If input data was invalid
      */
     private func ____AddExternalIntegrityCatalog(
@@ -354,7 +354,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     private func ____AddNotifyMessageToPeer(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo) -> Void
@@ -386,7 +386,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Mode: EOS_ACCM_ClientServer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     private func ____AddNotifyMessageToServer(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo) -> Void
@@ -418,7 +418,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     private func ____AddNotifyPeerActionRequired(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo) -> Void
@@ -450,7 +450,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Mode: EOS_ACCM_PeerToPeer.
      * 
      * - Parameter NotificationFn:  The callback to be fired
-     * @return A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
+     * - Returns:  A valid notification ID if successfully bound, or EOS_INVALID_NOTIFICATIONID otherwise
      */
     private func ____AddNotifyPeerAuthStatusChanged(
         _ NotificationFn: @escaping (SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo) -> Void
@@ -484,7 +484,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the session was started successfully
+     * - Returns:  EOS_Success - If the session was started successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -506,7 +506,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * Must be called when the multiplayer session ends, or when the local user leaves a session in progress.
      * 
      * 
-     * @return EOS_Success - If the session was ended normally
+     * - Returns:  EOS_Success - If the session was ended normally
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -528,7 +528,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the output length was calculated successfully
+     * - Returns:  EOS_Success - If the output length was calculated successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -561,7 +561,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * - Parameter ViolationType:  On success, receives a code describing the violation that occurred.
      * - Parameter OutMessage:  On success, receives a string describing the violation which should be displayed to the user.
      * 
-     * @return EOS_Success - If violation information was returned successfully
+     * - Returns:  EOS_Success - If violation information was returned successfully
      * 		   EOS_LimitExceeded - If OutMessage is too small to receive the message string. Call again with a larger OutMessage.
      *         EOS_NotFound - If no violation has occurred since the last call
      */
@@ -591,7 +591,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the message was protected successfully
+     * - Returns:  EOS_Success - If the message was protected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -616,7 +616,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the message was processed successfully
+     * - Returns:  EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -638,7 +638,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the message was processed successfully
+     * - Returns:  EOS_Success - If the message was processed successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -662,7 +662,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the player was registered successfully
+     * - Returns:  EOS_Success - If the player was registered successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -686,7 +686,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the message was unprotected successfully
+     * - Returns:  EOS_Success - If the message was unprotected successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */
@@ -712,7 +712,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
      * 
      * - Parameter Options:  Structure containing input data.
      * 
-     * @return EOS_Success - If the player was unregistered successfully
+     * - Returns: EOS_Success - If the player was unregistered successfully
      *         EOS_InvalidParameters - If input data was invalid
      *         EOS_AntiCheat_InvalidMode - If the current mode does not support this function
      */

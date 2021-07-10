@@ -36,7 +36,7 @@ public struct SwiftEOS_Auth_Token: SwiftEOSObject {
     /**
      * Refresh token.
      * 
-     * @see EOS_ELoginCredentialType::EOS_LCT_RefreshToken
+     * - SeeAlso:  EOS_ELoginCredentialType::EOS_LCT_RefreshToken
      */
     public let RefreshToken: String?
 
@@ -99,7 +99,7 @@ public struct SwiftEOS_Auth_Token: SwiftEOSObject {
      * - Parameter AuthType:  Type of auth token 
      * - Parameter RefreshToken:  Refresh token.
      * 
-     * @see EOS_ELoginCredentialType::EOS_LCT_RefreshToken
+     * - SeeAlso:  EOS_ELoginCredentialType::EOS_LCT_RefreshToken
      * - Parameter RefreshExpiresIn:  Time before the access token expires, in seconds, relative to the call to EOS_Auth_CopyUserAuthToken 
      * - Parameter RefreshExpiresAt:  Absolute time in UTC before the refresh token expires, in ISO 8601 format 
      */

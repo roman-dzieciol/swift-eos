@@ -20,13 +20,13 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
      * 
      * 
-     * @return EOS_Success if the information is available and passed out in OutActiveSessionInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutActiveSessionInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_ActiveSession_Info
-     * @see EOS_ActiveSession_CopyInfoOptions
-     * @see EOS_ActiveSession_Info_Release
+     * - SeeAlso:  EOS_ActiveSession_Info
+     * - SeeAlso:  EOS_ActiveSession_CopyInfoOptions
+     * - SeeAlso:  EOS_ActiveSession_Info_Release
      */
     public func CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
         try ____CopyInfo()
@@ -37,10 +37,10 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * 
      * - Parameter PlayerIndex:  Index of the registered player to retrieve 
      * 
-     * @return the product user ID for the registered player at a given index or null if that index is invalid
+     * - Returns:  the product user ID for the registered player at a given index or null if that index is invalid
      * 
-     * @see EOS_ActiveSession_GetRegisteredPlayerCount
-     * @see EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
+     * - SeeAlso:  EOS_ActiveSession_GetRegisteredPlayerCount
+     * - SeeAlso:  EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
      */
     public func GetRegisteredPlayerByIndex(
         PlayerIndex: Int
@@ -52,7 +52,7 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
      * Get the number of registered players associated with this active session
      * 
      * 
-     * @return number of registered players in the active session or 0 if there is an error
+     * - Returns:  number of registered players in the active session or 0 if there is an error
      */
     public func GetRegisteredPlayerCount() throws -> Int {
         try ____GetRegisteredPlayerCount()
@@ -66,13 +66,13 @@ extension SwiftEOS_ActiveSession_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutActiveSessionInfo, must be passed to EOS_ActiveSession_Info_Release to release the memory associated with it.
      * 
      * 
-     * @return EOS_Success if the information is available and passed out in OutActiveSessionInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutActiveSessionInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_ActiveSession_Info
-     * @see EOS_ActiveSession_CopyInfoOptions
-     * @see EOS_ActiveSession_Info_Release
+     * - SeeAlso:  EOS_ActiveSession_Info
+     * - SeeAlso:  EOS_ActiveSession_CopyInfoOptions
+     * - SeeAlso:  EOS_ActiveSession_Info_Release
      */
     private func ____CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
         try withPointerManager { pointerManager in
@@ -95,10 +95,10 @@ extension SwiftEOS_ActiveSession_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return the product user ID for the registered player at a given index or null if that index is invalid
+     * - Returns:  the product user ID for the registered player at a given index or null if that index is invalid
      * 
-     * @see EOS_ActiveSession_GetRegisteredPlayerCount
-     * @see EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
+     * - SeeAlso:  EOS_ActiveSession_GetRegisteredPlayerCount
+     * - SeeAlso:  EOS_ActiveSession_GetRegisteredPlayerByIndexOptions
      */
     private func ____GetRegisteredPlayerByIndex(
         _ Options: SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexOptions
@@ -115,7 +115,7 @@ extension SwiftEOS_ActiveSession_Actor {
      * Get the number of registered players associated with this active session
      * 
      * 
-     * @return number of registered players in the active session or 0 if there is an error
+     * - Returns:  number of registered players in the active session or 0 if there is an error
      */
     private func ____GetRegisteredPlayerCount() throws -> Int {
         try withPointerManager { pointerManager in

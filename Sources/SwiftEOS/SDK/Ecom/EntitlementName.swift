@@ -7,6 +7,6 @@ import EOSSDK
  * same entitlement name in order to define a logical grouping of entitlements.  This is used to
  * retrieve all entitlements granted to an account grouped in this way.
  * 
- * @see EOS_Ecom_QueryEntitlements
+ * - SeeAlso:  EOS_Ecom_QueryEntitlements
  */
 public typealias SwiftEOS_Ecom_EntitlementName = UnsafeMutablePointer<CChar>?

@@ -19,9 +19,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter LeaderboardIndex:  Index of the leaderboard definition to retrieve from the cache 
      * 
-     * @see EOS_Leaderboards_Definition_Release
+     * - SeeAlso:  EOS_Leaderboards_Definition_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutLeaderboardDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutLeaderboardDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard is not found
      */
@@ -36,9 +36,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter LeaderboardId:  The ID of the leaderboard whose definition you want to copy from the cache 
      * 
-     * @see EOS_Leaderboards_Definition_Release
+     * - SeeAlso:  EOS_Leaderboards_Definition_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutLeaderboardDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutLeaderboardDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard data is not found
      */
@@ -53,9 +53,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter LeaderboardRecordIndex:  Index of the leaderboard record to retrieve from the cache 
      * 
-     * @see EOS_Leaderboards_LeaderboardRecord_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardRecord_Release
      * 
-     * @return EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
+     * - Returns:  EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard is not found
      */
@@ -70,9 +70,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter UserId:  Leaderboard data will be copied from the cache if it relates to the user matching this Product User ID 
      * 
-     * @see EOS_Leaderboards_LeaderboardRecord_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardRecord_Release
      * 
-     * @return EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
+     * - Returns:  EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard data is not found
      */
@@ -88,9 +88,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * - Parameter LeaderboardUserScoreIndex:  Index of the sorted leaderboard user score to retrieve from the cache. 
      * - Parameter StatName:  Name of the stat used to rank the leaderboard. 
      * 
-     * @see EOS_Leaderboards_LeaderboardUserScore_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardUserScore_Release
      * 
-     * @return EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
+     * - Returns:  EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard user scores are not found
      */
@@ -110,9 +110,9 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * - Parameter UserId:  The Product User ID to look for when copying leaderboard score data from the cache 
      * - Parameter StatName:  The name of the stat that is used to rank this leaderboard 
      * 
-     * @see EOS_Leaderboards_LeaderboardUserScore_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardUserScore_Release
      * 
-     * @return EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
+     * - Returns:  EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard user scores are not found
      */
@@ -130,10 +130,10 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Fetch the number of leaderboards definitions that are cached locally.
      * 
      * 
-     * @see EOS_Leaderboards_CopyLeaderboardDefinitionByIndex
-     * @see EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardDefinitionByIndex
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId
      * 
-     * @return Number of leaderboards or 0 if there is an error
+     * - Returns:  Number of leaderboards or 0 if there is an error
      */
     public func GetLeaderboardDefinitionCount() throws -> Int {
         try ____GetLeaderboardDefinitionCount()
@@ -143,10 +143,10 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Fetch the number of leaderboard records that are cached locally.
      * 
      * 
-     * @see EOS_Leaderboards_CopyLeaderboardRecordByIndex
-     * @see EOS_Leaderboards_CopyLeaderboardRecordByUserId
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardRecordByIndex
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardRecordByUserId
      * 
-     * @return Number of leaderboard records or 0 if there is an error
+     * - Returns:  Number of leaderboard records or 0 if there is an error
      */
     public func GetLeaderboardRecordCount() throws -> Int {
         try ____GetLeaderboardRecordCount()
@@ -157,10 +157,10 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * 
      * - Parameter StatName:  Name of stat used to rank leaderboard. 
      * 
-     * @see EOS_Leaderboards_CopyLeaderboardUserScoreByIndex
-     * @see EOS_Leaderboards_CopyLeaderboardUserScoreByUserId
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardUserScoreByIndex
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardUserScoreByUserId
      * 
-     * @return Number of leaderboard records or 0 if there is an error
+     * - Returns:  Number of leaderboard records or 0 if there is an error
      */
     public func GetLeaderboardUserScoreCount(
         StatName: String?
@@ -178,7 +178,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Not used for Dedicated Server where no user is available.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func QueryLeaderboardDefinitions(
@@ -206,7 +206,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Not used for Dedicated Server where no user is available.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func QueryLeaderboardRanks(
@@ -241,7 +241,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
      * Not used for Dedicated Server where no user is available.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func QueryLeaderboardUserScores(
@@ -272,9 +272,9 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  Structure containing the index being accessed.
      * 
-     * @see EOS_Leaderboards_Definition_Release
+     * - SeeAlso:  EOS_Leaderboards_Definition_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutLeaderboardDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutLeaderboardDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard is not found
      */
@@ -301,9 +301,9 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  Structure containing the leaderboard ID being accessed.
      * 
-     * @see EOS_Leaderboards_Definition_Release
+     * - SeeAlso:  EOS_Leaderboards_Definition_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutLeaderboardDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutLeaderboardDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard data is not found
      */
@@ -330,9 +330,9 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  Structure containing the index being accessed.
      * 
-     * @see EOS_Leaderboards_LeaderboardRecord_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardRecord_Release
      * 
-     * @return EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
+     * - Returns:  EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard is not found
      */
@@ -359,9 +359,9 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  Structure containing the user ID being accessed.
      * 
-     * @see EOS_Leaderboards_LeaderboardRecord_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardRecord_Release
      * 
-     * @return EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
+     * - Returns:  EOS_Success if the leaderboard record is available and passed out in OutLeaderboardRecord
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard data is not found
      */
@@ -388,9 +388,9 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  Structure containing the index being accessed.
      * 
-     * @see EOS_Leaderboards_LeaderboardUserScore_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardUserScore_Release
      * 
-     * @return EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
+     * - Returns:  EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard user scores are not found
      */
@@ -417,9 +417,9 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  Structure containing the user ID being accessed.
      * 
-     * @see EOS_Leaderboards_LeaderboardUserScore_Release
+     * - SeeAlso:  EOS_Leaderboards_LeaderboardUserScore_Release
      * 
-     * @return EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
+     * - Returns:  EOS_Success if the leaderboard scores are available and passed out in OutLeaderboardUserScore
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the leaderboard user scores are not found
      */
@@ -445,10 +445,10 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetch the number of leaderboards definitions that are cached locally.
      * 
      * 
-     * @see EOS_Leaderboards_CopyLeaderboardDefinitionByIndex
-     * @see EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardDefinitionByIndex
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId
      * 
-     * @return Number of leaderboards or 0 if there is an error
+     * - Returns:  Number of leaderboards or 0 if there is an error
      */
     private func ____GetLeaderboardDefinitionCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -468,10 +468,10 @@ extension SwiftEOS_Leaderboards_Actor {
      * Fetch the number of leaderboard records that are cached locally.
      * 
      * 
-     * @see EOS_Leaderboards_CopyLeaderboardRecordByIndex
-     * @see EOS_Leaderboards_CopyLeaderboardRecordByUserId
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardRecordByIndex
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardRecordByUserId
      * 
-     * @return Number of leaderboard records or 0 if there is an error
+     * - Returns:  Number of leaderboard records or 0 if there is an error
      */
     private func ____GetLeaderboardRecordCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -492,10 +492,10 @@ extension SwiftEOS_Leaderboards_Actor {
      * 
      * - Parameter Options:  The Options associated with retrieving the leaderboard user scores count.
      * 
-     * @see EOS_Leaderboards_CopyLeaderboardUserScoreByIndex
-     * @see EOS_Leaderboards_CopyLeaderboardUserScoreByUserId
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardUserScoreByIndex
+     * - SeeAlso:  EOS_Leaderboards_CopyLeaderboardUserScoreByUserId
      * 
-     * @return Number of leaderboard records or 0 if there is an error
+     * - Returns:  Number of leaderboard records or 0 if there is an error
      */
     private func ____GetLeaderboardUserScoreCount(
         _ Options: SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions
@@ -519,7 +519,7 @@ extension SwiftEOS_Leaderboards_Actor {
      * - Parameter Options:  Structure containing information about the application whose leaderboard definitions we're retrieving.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     private func ____QueryLeaderboardDefinitions(
@@ -544,7 +544,7 @@ extension SwiftEOS_Leaderboards_Actor {
      * - Parameter Options:  Structure containing information about the leaderboard records we're retrieving.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     private func ____QueryLeaderboardRanks(
@@ -569,7 +569,7 @@ extension SwiftEOS_Leaderboards_Actor {
      * - Parameter Options:  Structure containing information about the users whose scores we're retrieving.
      * - Parameter CompletionDelegate:  This function is called when the query operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     private func ____QueryLeaderboardUserScores(

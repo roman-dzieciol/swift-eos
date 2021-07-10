@@ -13,7 +13,7 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions: SwiftEOSObject {
     /**
      * Query identifier received as part of a previous query.
      * 
-     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+     * - SeeAlso:  EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
      */
     public let QueryId: Int
 
@@ -48,7 +48,7 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions: SwiftEOSObject {
      * - Parameter UserTokenIndex:  Index of the user token to retrieve from the cache. 
      * - Parameter QueryId:  Query identifier received as part of a previous query.
      * 
-     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+     * - SeeAlso:  EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
      */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST,

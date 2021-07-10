@@ -20,15 +20,15 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
      * If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_CreateSessionModificationOptions
-     * @see EOS_Sessions_JoinSessionOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
+     * - SeeAlso:  EOS_Sessions_JoinSessionOptions
      */
     public let bPresenceEnabled: Bool
 
@@ -51,8 +51,8 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
      * While the joining and leaving of the RTC room is automatic, applications will still need to use the EOS RTC interfaces to handle all
      * other functionality for the room.
      * 
-     * @see EOS_Lobby_GetRTCRoomName
-     * @see EOS_Lobby_AddNotifyRTCRoomConnectionChanged
+     * - SeeAlso:  EOS_Lobby_GetRTCRoomName
+     * - SeeAlso:  EOS_Lobby_AddNotifyRTCRoomConnectionChanged
      */
     public let bEnableRTCRoom: Bool
 
@@ -119,15 +119,15 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
      * - Parameter bPresenceEnabled:  If true, this lobby will be associated with presence information. A user's presence can only be associated with one lobby at a time.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_CreateSessionModificationOptions
-     * @see EOS_Sessions_JoinSessionOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
+     * - SeeAlso:  EOS_Sessions_JoinSessionOptions
      * - Parameter bAllowInvites:  Are members of the lobby allowed to invite others 
      * - Parameter BucketId:  Bucket ID associated with the lobby 
      * - Parameter bDisableHostMigration:  
@@ -138,8 +138,8 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
      * While the joining and leaving of the RTC room is automatic, applications will still need to use the EOS RTC interfaces to handle all
      * other functionality for the room.
      * 
-     * @see EOS_Lobby_GetRTCRoomName
-     * @see EOS_Lobby_AddNotifyRTCRoomConnectionChanged
+     * - SeeAlso:  EOS_Lobby_GetRTCRoomName
+     * - SeeAlso:  EOS_Lobby_AddNotifyRTCRoomConnectionChanged
      * - Parameter LocalRTCOptions:  (Optional) Allows the local application to set local audio options for the RTC Room if it is enabled. Set this to NULL if the RTC
      * RTC room is disabled or you would like to use the defaults.
      * - Parameter LobbyId:  (Optional) Set to a globally unique value to override the backend assignment

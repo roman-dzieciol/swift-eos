@@ -18,11 +18,11 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * This interface is not available for general access at this time.
      * Register to receive notifications about KWS permissions changes for any logged in local users
      * 
-     * @note must call EOS_KWS_RemoveNotifyPermissionsUpdateReceived to remove the notification
+     * - Note:  must call EOS_KWS_RemoveNotifyPermissionsUpdateReceived to remove the notification
      * 
      * - Parameter NotificationFn:  A callback that is fired when a notification is received.
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     public func AddNotifyPermissionsUpdateReceived(
         NotificationFn: @escaping (SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo) -> Void
@@ -37,12 +37,12 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
      * - Parameter Index:  The index of the permission to get. 
      * 
-     * @see EOS_KWS_CreateUser
-     * @see EOS_KWS_QueryPermissions
-     * @see EOS_KWS_RequestPermissions
-     * @see EOS_KWS_PermissionStatus_Release
+     * - SeeAlso:  EOS_KWS_CreateUser
+     * - SeeAlso:  EOS_KWS_QueryPermissions
+     * - SeeAlso:  EOS_KWS_RequestPermissions
+     * - SeeAlso:  EOS_KWS_PermissionStatus_Release
      * 
-     * @return EOS_Success if the permission state is known for the given user and index
+     * - Returns:  EOS_Success if the permission state is known for the given user and index
      *         EOS_NotFound if the user is not found or the index is invalid
      */
     public func CopyPermissionByIndex(
@@ -64,7 +64,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * - Parameter ParentEmail:  Parent email 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if account creation completes successfully
+     * - Returns:  EOS_Success if account creation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
@@ -91,11 +91,11 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the local user getting permissions 
      * - Parameter Key:  Permission name to query 
      * 
-     * @see EOS_KWS_CreateUser
-     * @see EOS_KWS_QueryPermissions
-     * @see EOS_KWS_RequestPermissions
+     * - SeeAlso:  EOS_KWS_CreateUser
+     * - SeeAlso:  EOS_KWS_QueryPermissions
+     * - SeeAlso:  EOS_KWS_RequestPermissions
      * 
-     * @return EOS_Success if the permission state is known for the given user and key
+     * - Returns:  EOS_Success if the permission state is known for the given user and key
      *         EOS_NotFound if the user or the permission is not found
      */
     public func GetPermissionByKey(
@@ -114,7 +114,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Product User ID of the local user whose permissions are being accessed 
      * 
-     * @return the number of permissions associated with the given user
+     * - Returns:  the number of permissions associated with the given user
      */
     public func GetPermissionsCount(
         LocalUserId: EOS_ProductUserId?
@@ -128,7 +128,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if the query completes successfully
+     * - Returns:  EOS_Success if the query completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed queries is exceeded
      */
@@ -145,7 +145,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Local user querying their permisssions 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if the account query completes successfully
+     * - Returns:  EOS_Success if the account query completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
@@ -170,7 +170,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * The number of permissions to request, may not exceed EOS_KWS_MAX_PERMISSIONS. Only new permissions need be included. 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if contact information update completes successfully
+     * - Returns:  EOS_Success if contact information update completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      *         EOS_KWS_ParentEmailMissing if the account requesting permissions has no parent email associated with it
@@ -198,7 +198,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
      * - Parameter ParentEmail:  New parent email 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if contact information update completes successfully
+     * - Returns:  EOS_Success if contact information update completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
@@ -223,11 +223,11 @@ extension SwiftEOS_KWS_Actor {
      * This interface is not available for general access at this time.
      * Register to receive notifications about KWS permissions changes for any logged in local users
      * 
-     * @note must call EOS_KWS_RemoveNotifyPermissionsUpdateReceived to remove the notification
+     * - Note:  must call EOS_KWS_RemoveNotifyPermissionsUpdateReceived to remove the notification
      * 
      * - Parameter NotificationFn:  A callback that is fired when a notification is received.
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     private func ____AddNotifyPermissionsUpdateReceived(
         _ NotificationFn: @escaping (SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo) -> Void
@@ -259,12 +259,12 @@ extension SwiftEOS_KWS_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @see EOS_KWS_CreateUser
-     * @see EOS_KWS_QueryPermissions
-     * @see EOS_KWS_RequestPermissions
-     * @see EOS_KWS_PermissionStatus_Release
+     * - SeeAlso:  EOS_KWS_CreateUser
+     * - SeeAlso:  EOS_KWS_QueryPermissions
+     * - SeeAlso:  EOS_KWS_RequestPermissions
+     * - SeeAlso:  EOS_KWS_PermissionStatus_Release
      * 
-     * @return EOS_Success if the permission state is known for the given user and index
+     * - Returns:  EOS_Success if the permission state is known for the given user and index
      *         EOS_NotFound if the user is not found or the index is invalid
      */
     private func ____CopyPermissionByIndex(
@@ -292,7 +292,7 @@ extension SwiftEOS_KWS_Actor {
      * - Parameter Options:  options required for creating an account such as the local users Product User ID, their data of birth, and parental contact information
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if account creation completes successfully
+     * - Returns:  EOS_Success if account creation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
@@ -318,11 +318,11 @@ extension SwiftEOS_KWS_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @see EOS_KWS_CreateUser
-     * @see EOS_KWS_QueryPermissions
-     * @see EOS_KWS_RequestPermissions
+     * - SeeAlso:  EOS_KWS_CreateUser
+     * - SeeAlso:  EOS_KWS_QueryPermissions
+     * - SeeAlso:  EOS_KWS_RequestPermissions
      * 
-     * @return EOS_Success if the permission state is known for the given user and key
+     * - Returns:  EOS_Success if the permission state is known for the given user and key
      *         EOS_NotFound if the user or the permission is not found
      */
     private func ____GetPermissionByKey(
@@ -345,7 +345,7 @@ extension SwiftEOS_KWS_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return the number of permissions associated with the given user
+     * - Returns:  the number of permissions associated with the given user
      */
     private func ____GetPermissionsCount(
         _ Options: SwiftEOS_KWS_GetPermissionsCountOptions
@@ -369,7 +369,7 @@ extension SwiftEOS_KWS_Actor {
      * 
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if the query completes successfully
+     * - Returns:  EOS_Success if the query completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed queries is exceeded
      */
@@ -395,7 +395,7 @@ extension SwiftEOS_KWS_Actor {
      * - Parameter Options:  options required for querying permissions such as the local users Product User ID
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if the account query completes successfully
+     * - Returns:  EOS_Success if the account query completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */
@@ -422,7 +422,7 @@ extension SwiftEOS_KWS_Actor {
      * - Parameter Options:  options required for updating permissions such as the new list of permissions
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if contact information update completes successfully
+     * - Returns:  EOS_Success if contact information update completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      *         EOS_KWS_ParentEmailMissing if the account requesting permissions has no parent email associated with it
@@ -451,7 +451,7 @@ extension SwiftEOS_KWS_Actor {
      * - Parameter Options:  options required for updating the contact information such as the new email address
      * - Parameter CompletionDelegate:  A callback that is fired when the operation completes, either successfully or in error
      * 
-     * @return EOS_Success if contact information update completes successfully
+     * - Returns:  EOS_Success if contact information update completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      *         EOS_TooManyRequests if the number of allowed requests is exceeded
      */

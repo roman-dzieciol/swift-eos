@@ -6,7 +6,7 @@ import EOSSDK
  * NOTE: There is no validation on the string format, this should only be used with values serialized from legitimate sources such as EOS_ProductUserId_ToString
  * 
  * - Parameter ProductUserIdString:  The stringified product user ID for which to retrieve the Epic Online Services Product User ID
- * @return The EOS_ProductUserId that corresponds to the ProductUserIdString
+ * - Returns:  The EOS_ProductUserId that corresponds to the ProductUserIdString
  */
 public func SwiftEOS_ProductUserId_FromString(
     ProductUserIdString: String?

@@ -17,8 +17,8 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
      * If the query completed successfully, this contains an identifier that should be used to retrieve the tokens.
      * This identifier is only valid for the duration of the callback. 
      * 
-     * @see EOS_RTCAdmin_CopyUserTokenByIndex
-     * @see EOS_RTCAdmin_CopyUserTokenByUserId
+     * - SeeAlso:  EOS_RTCAdmin_CopyUserTokenByIndex
+     * - SeeAlso:  EOS_RTCAdmin_CopyUserTokenByUserId
      */
     public let QueryId: Int
 
@@ -55,8 +55,8 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
      * - Parameter QueryId:  If the query completed successfully, this contains an identifier that should be used to retrieve the tokens.
      * This identifier is only valid for the duration of the callback. 
      * 
-     * @see EOS_RTCAdmin_CopyUserTokenByIndex
-     * @see EOS_RTCAdmin_CopyUserTokenByUserId
+     * - SeeAlso:  EOS_RTCAdmin_CopyUserTokenByIndex
+     * - SeeAlso:  EOS_RTCAdmin_CopyUserTokenByUserId
      * - Parameter TokenCount:  How many token received as result of the query 
      */
     public init(

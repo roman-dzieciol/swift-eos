@@ -14,9 +14,9 @@ import EOSSDK
  * EOS_LCT_AccountPortal - SystemAuthCredentialsOptions may be required if targeting mobile platforms. Otherwise N/A.
  * EOS_LCT_ExternalAuth - Token is the external auth token specified by ExternalType.
  * 
- * @see EOS_ELoginCredentialType
- * @see EOS_Auth_Login
- * @see EOS_Auth_DeletePersistentAuthOptions
+ * - SeeAlso:  EOS_ELoginCredentialType
+ * - SeeAlso:  EOS_Auth_Login
+ * - SeeAlso:  EOS_Auth_DeletePersistentAuthOptions
  */
 public struct SwiftEOS_Auth_Credentials: SwiftEOSObject {
 

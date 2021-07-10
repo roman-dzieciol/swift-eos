@@ -18,13 +18,13 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * DEPRECATED! Use EOS_Achievements_AddNotifyAchievementsUnlockedV2 instead.
      * Register to receive achievement unlocked notifications.
      * 
-     * @note must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
+     * - Note:  must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
      * 
-     * @see EOS_Achievements_RemoveNotifyAchievementsUnlocked
+     * - SeeAlso:  EOS_Achievements_RemoveNotifyAchievementsUnlocked
      * 
      * - Parameter NotificationFn:  A callback that is fired when an achievement unlocked notification for a user has been received
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     public func AddNotifyAchievementsUnlocked(
         NotificationFn: @escaping (SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo) -> Void
@@ -35,13 +35,13 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     /**
      * Register to receive achievement unlocked notifications.
      * 
-     * @note must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
+     * - Note:  must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
      * 
-     * @see EOS_Achievements_RemoveNotifyAchievementsUnlocked
+     * - SeeAlso:  EOS_Achievements_RemoveNotifyAchievementsUnlocked
      * 
      * - Parameter NotificationFn:  A callback that is fired when an achievement unlocked notification for a user has been received
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     public func AddNotifyAchievementsUnlockedV2(
         NotificationFn: @escaping (SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info) -> Void
@@ -55,10 +55,10 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter AchievementId:  Achievement ID to look for when copying definition from the cache 
      * 
-     * @see EOS_Achievements_Definition_Release
-     * @see EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId
+     * - SeeAlso:  EOS_Achievements_Definition_Release
+     * - SeeAlso:  EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      */
@@ -74,10 +74,10 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter AchievementIndex:  Index of the achievement definition to retrieve from the cache 
      * 
-     * @see EOS_Achievements_CopyAchievementDefinitionV2ByIndex
-     * @see EOS_Achievements_Definition_Release
+     * - SeeAlso:  EOS_Achievements_CopyAchievementDefinitionV2ByIndex
+     * - SeeAlso:  EOS_Achievements_Definition_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      */
@@ -92,9 +92,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter AchievementId:  Achievement ID to look for when copying the definition from the cache. 
      * 
-     * @see EOS_Achievements_DefinitionV2_Release
+     * - SeeAlso:  EOS_Achievements_DefinitionV2_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
@@ -110,9 +110,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter AchievementIndex:  Index of the achievement definition to retrieve from the cache. 
      * 
-     * @see EOS_Achievements_DefinitionV2_Release
+     * - SeeAlso:  EOS_Achievements_DefinitionV2_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
@@ -130,9 +130,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * - Parameter AchievementId:  Achievement ID to search for when retrieving player achievement data from the cache. 
      * - Parameter LocalUserId:  The Product User ID for the user who is querying for a player achievement. For a Dedicated Server this should be null. 
      * 
-     * @see EOS_Achievements_PlayerAchievement_Release
+     * - SeeAlso:  EOS_Achievements_PlayerAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the player achievement is not found
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
@@ -156,9 +156,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * - Parameter AchievementIndex:  The index of the player achievement data to retrieve from the cache. 
      * - Parameter LocalUserId:  The Product User ID for the user who is querying for a player achievement. For a Dedicated Server this should be null. 
      * 
-     * @see EOS_Achievements_PlayerAchievement_Release
+     * - SeeAlso:  EOS_Achievements_PlayerAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the player achievement is not found
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
@@ -182,9 +182,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * - Parameter UserId:  The Product User ID for the user who is copying the unlocked achievement 
      * - Parameter AchievementId:  AchievementId of the unlocked achievement to retrieve from the cache 
      * 
-     * @see EOS_Achievements_UnlockedAchievement_Release
+     * - SeeAlso:  EOS_Achievements_UnlockedAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the unlocked achievement is not found
      */
@@ -205,9 +205,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * - Parameter UserId:  The Product User ID for the user who is copying the unlocked achievement 
      * - Parameter AchievementIndex:  Index of the unlocked achievement to retrieve from the cache 
      * 
-     * @see EOS_Achievements_UnlockedAchievement_Release
+     * - SeeAlso:  EOS_Achievements_UnlockedAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the unlocked achievement is not found
      */
@@ -225,9 +225,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * Fetch the number of achievement definitions that are cached locally.
      * 
      * 
-     * @see EOS_Achievements_CopyAchievementDefinitionByIndex
+     * - SeeAlso:  EOS_Achievements_CopyAchievementDefinitionByIndex
      * 
-     * @return Number of achievement definitions or 0 if there is an error
+     * - Returns:  Number of achievement definitions or 0 if there is an error
      */
     public func GetAchievementDefinitionCount() throws -> Int {
         try ____GetAchievementDefinitionCount()
@@ -238,9 +238,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter UserId:  The Product User ID for the user whose achievement count is being retrieved. 
      * 
-     * @see EOS_Achievements_CopyPlayerAchievementByIndex
+     * - SeeAlso:  EOS_Achievements_CopyPlayerAchievementByIndex
      * 
-     * @return Number of player achievements or 0 if there is an error
+     * - Returns:  Number of player achievements or 0 if there is an error
      */
     public func GetPlayerAchievementCount(
         UserId: EOS_ProductUserId?
@@ -254,9 +254,9 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * 
      * - Parameter UserId:  Product User ID for which to retrieve the unlocked achievement count 
      * 
-     * @see EOS_Achievements_CopyUnlockedAchievementByIndex
+     * - SeeAlso:  EOS_Achievements_CopyUnlockedAchievementByIndex
      * 
-     * @return Number of unlocked achievements or 0 if there is an error
+     * - Returns:  Number of unlocked achievements or 0 if there is an error
      */
     public func GetUnlockedAchievementCount(
         UserId: EOS_ProductUserId?
@@ -267,7 +267,7 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     /**
      * Query for a list of definitions for all existing achievements, including localized text, icon IDs and whether an achievement is hidden.
      * 
-     * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
+     * - Note:  When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
      * - Parameter LocalUserId:  Product User ID for user who is querying definitions.
      * The localized text returned will be based on the locale code of the given user if they have a linked Epic Online Services Account ID.
@@ -280,7 +280,7 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * Deprecated 
      * - Parameter CompletionDelegate:  This function is called when the query definitions operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func QueryDefinitions(
@@ -302,13 +302,13 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
     /**
      * Query for a list of achievements for a specific player, including progress towards completion for each achievement.
      * 
-     * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
+     * - Note:  When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
      * - Parameter TargetUserId:  The Product User ID for the user whose achievements are to be retrieved. 
      * - Parameter LocalUserId:  The Product User ID for the user who is querying for player achievements. For a Dedicated Server this should be null. 
      * - Parameter CompletionDelegate:  This function is called when the query player achievements operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
      *         EOS_InvalidParameters if any of the other options are incorrect
      */
@@ -336,7 +336,7 @@ public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
      * The number of achievements to unlock. 
      * - Parameter CompletionDelegate:  This function is called when the unlock achievements operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     public func UnlockAchievements(
@@ -360,13 +360,13 @@ extension SwiftEOS_Achievements_Actor {
      * DEPRECATED! Use EOS_Achievements_AddNotifyAchievementsUnlockedV2 instead.
      * Register to receive achievement unlocked notifications.
      * 
-     * @note must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
+     * - Note:  must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
      * 
-     * @see EOS_Achievements_RemoveNotifyAchievementsUnlocked
+     * - SeeAlso:  EOS_Achievements_RemoveNotifyAchievementsUnlocked
      * 
      * - Parameter NotificationFn:  A callback that is fired when an achievement unlocked notification for a user has been received
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     private func ____AddNotifyAchievementsUnlocked(
         _ NotificationFn: @escaping (SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo) -> Void
@@ -395,13 +395,13 @@ extension SwiftEOS_Achievements_Actor {
     /**
      * Register to receive achievement unlocked notifications.
      * 
-     * @note must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
+     * - Note:  must call EOS_Achievements_RemoveNotifyAchievementsUnlocked to remove the notification
      * 
-     * @see EOS_Achievements_RemoveNotifyAchievementsUnlocked
+     * - SeeAlso:  EOS_Achievements_RemoveNotifyAchievementsUnlocked
      * 
      * - Parameter NotificationFn:  A callback that is fired when an achievement unlocked notification for a user has been received
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     private func ____AddNotifyAchievementsUnlockedV2(
         _ NotificationFn: @escaping (SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info) -> Void
@@ -433,10 +433,10 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the achievement ID being accessed
      * 
-     * @see EOS_Achievements_Definition_Release
-     * @see EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId
+     * - SeeAlso:  EOS_Achievements_Definition_Release
+     * - SeeAlso:  EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      */
@@ -464,10 +464,10 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the index being accessed
      * 
-     * @see EOS_Achievements_CopyAchievementDefinitionV2ByIndex
-     * @see EOS_Achievements_Definition_Release
+     * - SeeAlso:  EOS_Achievements_CopyAchievementDefinitionV2ByIndex
+     * - SeeAlso:  EOS_Achievements_Definition_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      */
@@ -494,9 +494,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the achievement ID being accessed
      * 
-     * @see EOS_Achievements_DefinitionV2_Release
+     * - SeeAlso:  EOS_Achievements_DefinitionV2_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
@@ -524,9 +524,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the index being accessed
      * 
-     * @see EOS_Achievements_DefinitionV2_Release
+     * - SeeAlso:  EOS_Achievements_DefinitionV2_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutDefinition
+     * - Returns:  EOS_Success if the information is available and passed out in OutDefinition
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the achievement definition is not found
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
@@ -554,9 +554,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID and achievement ID being accessed
      * 
-     * @see EOS_Achievements_PlayerAchievement_Release
+     * - SeeAlso:  EOS_Achievements_PlayerAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the player achievement is not found
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
@@ -584,9 +584,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID and index being accessed
      * 
-     * @see EOS_Achievements_PlayerAchievement_Release
+     * - SeeAlso:  EOS_Achievements_PlayerAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the player achievement is not found
      *         EOS_Invalid_ProductUserID if you pass an invalid user ID
@@ -615,9 +615,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID and achievement ID being accessed
      * 
-     * @see EOS_Achievements_UnlockedAchievement_Release
+     * - SeeAlso:  EOS_Achievements_UnlockedAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the unlocked achievement is not found
      */
@@ -645,9 +645,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID and index being accessed
      * 
-     * @see EOS_Achievements_UnlockedAchievement_Release
+     * - SeeAlso:  EOS_Achievements_UnlockedAchievement_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutAchievement
+     * - Returns:  EOS_Success if the information is available and passed out in OutAchievement
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the unlocked achievement is not found
      */
@@ -673,9 +673,9 @@ extension SwiftEOS_Achievements_Actor {
      * Fetch the number of achievement definitions that are cached locally.
      * 
      * 
-     * @see EOS_Achievements_CopyAchievementDefinitionByIndex
+     * - SeeAlso:  EOS_Achievements_CopyAchievementDefinitionByIndex
      * 
-     * @return Number of achievement definitions or 0 if there is an error
+     * - Returns:  Number of achievement definitions or 0 if there is an error
      */
     private func ____GetAchievementDefinitionCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -696,9 +696,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  The Options associated with retrieving the player achievement count
      * 
-     * @see EOS_Achievements_CopyPlayerAchievementByIndex
+     * - SeeAlso:  EOS_Achievements_CopyPlayerAchievementByIndex
      * 
-     * @return Number of player achievements or 0 if there is an error
+     * - Returns:  Number of player achievements or 0 if there is an error
      */
     private func ____GetPlayerAchievementCount(
         _ Options: SwiftEOS_Achievements_GetPlayerAchievementCountOptions
@@ -722,9 +722,9 @@ extension SwiftEOS_Achievements_Actor {
      * 
      * - Parameter Options:  The Options associated with retrieving the unlocked achievement count
      * 
-     * @see EOS_Achievements_CopyUnlockedAchievementByIndex
+     * - SeeAlso:  EOS_Achievements_CopyUnlockedAchievementByIndex
      * 
-     * @return Number of unlocked achievements or 0 if there is an error
+     * - Returns:  Number of unlocked achievements or 0 if there is an error
      */
     private func ____GetUnlockedAchievementCount(
         _ Options: SwiftEOS_Achievements_GetUnlockedAchievementCountOptions
@@ -745,12 +745,12 @@ extension SwiftEOS_Achievements_Actor {
     /**
      * Query for a list of definitions for all existing achievements, including localized text, icon IDs and whether an achievement is hidden.
      * 
-     * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
+     * - Note:  When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
      * - Parameter Options:  Structure containing information about the application whose achievement definitions we're retrieving.
      * - Parameter CompletionDelegate:  This function is called when the query definitions operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     private func ____QueryDefinitions(
@@ -772,12 +772,12 @@ extension SwiftEOS_Achievements_Actor {
     /**
      * Query for a list of achievements for a specific player, including progress towards completion for each achievement.
      * 
-     * @note When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
+     * - Note:  When the Social Overlay is enabled then this will be called automatically.  The Social Overlay is enabled by default (see EOS_PF_DISABLE_SOCIAL_OVERLAY).
      * 
      * - Parameter Options:  Structure containing information about the player whose achievements we're retrieving.
      * - Parameter CompletionDelegate:  This function is called when the query player achievements operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_Invalid_ProductUserID if any of the userid options are incorrect
      *         EOS_InvalidParameters if any of the other options are incorrect
      */
@@ -803,7 +803,7 @@ extension SwiftEOS_Achievements_Actor {
      * - Parameter Options:  Structure containing information about the achievements and the player whose achievements we're unlocking.
      * - Parameter CompletionDelegate:  This function is called when the unlock achievements operation completes.
      * 
-     * @return EOS_Success if the operation completes successfully
+     * - Returns:  EOS_Success if the operation completes successfully
      *         EOS_InvalidParameters if any of the options are incorrect
      */
     private func ____UnlockAchievements(

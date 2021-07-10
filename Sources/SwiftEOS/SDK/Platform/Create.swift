@@ -6,7 +6,7 @@ import EOSSDK
  * The platform instance is used to gain access to the various Epic Online Services.
  * This function returns an opaque handle to the platform instance, and that handle must be passed to EOS_Platform_Release to release the instance.
  * 
- * @return An opaque handle to the platform instance.
+ * - Returns:  An opaque handle to the platform instance.
  */
 public func SwiftEOS_Platform_Create(
     Options: SwiftEOS_Platform_Options

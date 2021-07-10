@@ -22,10 +22,10 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  Product User ID of the user whose active sanctions are to be copied 
      * - Parameter SanctionIndex:  Index of the sanction to retrieve from the cache 
      * 
-     * @see EOS_Sanctions_QueryActivePlayerSanctions
-     * @see EOS_Sanctions_PlayerSanction_Release
+     * - SeeAlso:  EOS_Sanctions_QueryActivePlayerSanctions
+     * - SeeAlso:  EOS_Sanctions_PlayerSanction_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutSanction
+     * - Returns:  EOS_Success if the information is available and passed out in OutSanction
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the player achievement is not found
      */
@@ -45,10 +45,10 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  Product User ID of the user whose sanction count should be returned 
      * 
-     * @see EOS_Sanctions_QueryActivePlayerSanctions
-     * @see EOS_Sanctions_CopyPlayerSanctionByIndex
+     * - SeeAlso:  EOS_Sanctions_QueryActivePlayerSanctions
+     * - SeeAlso:  EOS_Sanctions_CopyPlayerSanctionByIndex
      * 
-     * @return Number of available sanctions for this player.
+     * - Returns:  Number of available sanctions for this player.
      */
     public func GetPlayerSanctionCount(
         TargetUserId: EOS_ProductUserId?
@@ -64,8 +64,8 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the local user who initiated this request. Dedicated servers should set this to null. 
      * - Parameter CompletionDelegate:  A callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_Sanctions_GetPlayerSanctionCount
-     * @see EOS_Sanctions_CopyPlayerSanctionByIndex
+     * - SeeAlso:  EOS_Sanctions_GetPlayerSanctionCount
+     * - SeeAlso:  EOS_Sanctions_CopyPlayerSanctionByIndex
      */
     public func QueryActivePlayerSanctions(
         TargetUserId: EOS_ProductUserId?,
@@ -91,10 +91,10 @@ extension SwiftEOS_Sanctions_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @see EOS_Sanctions_QueryActivePlayerSanctions
-     * @see EOS_Sanctions_PlayerSanction_Release
+     * - SeeAlso:  EOS_Sanctions_QueryActivePlayerSanctions
+     * - SeeAlso:  EOS_Sanctions_PlayerSanction_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutSanction
+     * - Returns:  EOS_Success if the information is available and passed out in OutSanction
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the player achievement is not found
      */
@@ -122,10 +122,10 @@ extension SwiftEOS_Sanctions_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @see EOS_Sanctions_QueryActivePlayerSanctions
-     * @see EOS_Sanctions_CopyPlayerSanctionByIndex
+     * - SeeAlso:  EOS_Sanctions_QueryActivePlayerSanctions
+     * - SeeAlso:  EOS_Sanctions_CopyPlayerSanctionByIndex
      * 
-     * @return Number of available sanctions for this player.
+     * - Returns:  Number of available sanctions for this player.
      */
     private func ____GetPlayerSanctionCount(
         _ Options: SwiftEOS_Sanctions_GetPlayerSanctionCountOptions
@@ -150,8 +150,8 @@ extension SwiftEOS_Sanctions_Actor {
      * - Parameter Options:  Structure containing the input parameters
      * - Parameter CompletionDelegate:  A callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_Sanctions_GetPlayerSanctionCount
-     * @see EOS_Sanctions_CopyPlayerSanctionByIndex
+     * - SeeAlso:  EOS_Sanctions_GetPlayerSanctionCount
+     * - SeeAlso:  EOS_Sanctions_CopyPlayerSanctionByIndex
      */
     private func ____QueryActivePlayerSanctions(
         _ Options: SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions,

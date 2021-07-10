@@ -5,8 +5,8 @@ import EOSSDK
  * A structure that contains external login credentials.
  * This is part of the input structure EOS_Connect_LoginOptions.
  * 
- * @see EOS_EExternalCredentialType
- * @see EOS_Connect_Login
+ * - SeeAlso:  EOS_EExternalCredentialType
+ * - SeeAlso:  EOS_Connect_Login
  */
 public struct SwiftEOS_Connect_Credentials: SwiftEOSObject {
 

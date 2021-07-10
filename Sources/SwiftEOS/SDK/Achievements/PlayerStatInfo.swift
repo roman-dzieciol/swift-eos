@@ -4,7 +4,7 @@ import EOSSDK
 /**
  * Contains information about a collection of stat info data.
  * 
- * @see EOS_Achievements_PlayerAchievement
+ * - SeeAlso:  EOS_Achievements_PlayerAchievement
  */
 public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
 

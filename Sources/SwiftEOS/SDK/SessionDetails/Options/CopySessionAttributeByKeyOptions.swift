@@ -10,7 +10,7 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions: SwiftEOS
     /**
      * The name of the key to get the session attribution for 
      * 
-     * @see EOS_SessionModification_AddAttribute
+     * - SeeAlso:  EOS_SessionModification_AddAttribute
      */
     public let AttrKey: String?
 
@@ -42,7 +42,7 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions: SwiftEOS
      * - Parameter ApiVersion:  API Version: Set this to EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYKEY_API_LATEST. 
      * - Parameter AttrKey:  The name of the key to get the session attribution for 
      * 
-     * @see EOS_SessionModification_AddAttribute
+     * - SeeAlso:  EOS_SessionModification_AddAttribute
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYKEY_API_LATEST,

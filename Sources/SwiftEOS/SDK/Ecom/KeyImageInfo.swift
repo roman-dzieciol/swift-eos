@@ -7,8 +7,8 @@ import EOSSDK
  * A Key Image is defined within Dev Portal and is associated with a Catalog Item.  A Key Image is
  * intended to be used to provide imagery for an in-game store.
  * 
- * @see EOS_Ecom_CopyItemImageInfoByIndex
- * @see EOS_Ecom_KeyImageInfo_Release
+ * - SeeAlso:  EOS_Ecom_CopyItemImageInfoByIndex
+ * - SeeAlso:  EOS_Ecom_KeyImageInfo_Release
  * 
  * - see: release func: EOS_Ecom_KeyImageInfo_Release
  */

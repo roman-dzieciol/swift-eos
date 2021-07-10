@@ -11,7 +11,7 @@ public struct SwiftEOS_SessionSearch_CopySearchResultByIndexOptions: SwiftEOSObj
      * 
      * The index of the session to retrieve within the completed search query
      * 
-     * @see EOS_SessionSearch_GetSearchResultCount
+     * - SeeAlso:  EOS_SessionSearch_GetSearchResultCount
      */
     public let SessionIndex: Int
 
@@ -44,7 +44,7 @@ public struct SwiftEOS_SessionSearch_CopySearchResultByIndexOptions: SwiftEOSObj
      * - Parameter SessionIndex:  
      * The index of the session to retrieve within the completed search query
      * 
-     * @see EOS_SessionSearch_GetSearchResultCount
+     * - SeeAlso:  EOS_SessionSearch_GetSearchResultCount
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_SETTINGS_API_LATEST,

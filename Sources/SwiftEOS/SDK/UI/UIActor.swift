@@ -17,11 +17,11 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     /**
      * Lets the SDK know that the given UI event ID has been acknowledged and should be released.
      * 
-     * @return An EOS_EResult is returned to indicate success or an error.
+     * - Returns:  An EOS_EResult is returned to indicate success or an error.
      * EOS_Success is returned if the UI event ID has been acknowledged.
      * EOS_NotFound is returned if the UI event ID does not exist.
      * 
-     * @see EOS_Presence_JoinGameAcceptedCallbackInfo
+     * - SeeAlso:  EOS_Presence_JoinGameAcceptedCallbackInfo
      * - Parameter UiEventId:  The ID being acknowledged. 
      * - Parameter Result:  
      * The result to use for the acknowledgment. 
@@ -42,11 +42,11 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * Register to receive notifications when the overlay display settings are updated.
      * Newly registered handlers will always be called the next tick with the current state.
      * 
-     * @note must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
+     * - Note:  must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
      * 
      * - Parameter NotificationFn:  A callback that is fired when the overlay display settings are updated.
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     public func AddNotifyDisplaySettingsUpdated(
         NotificationFn: @escaping (SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo) -> Void
@@ -59,7 +59,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose overlay is being updated. 
      * 
-     * @return EOS_TRUE If the overlay is visible.
+     * - Returns:  EOS_TRUE If the overlay is visible.
      */
     public func GetFriendsVisible(
         LocalUserId: EOS_EpicAccountId?
@@ -70,7 +70,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
     /**
      * Returns the current notification location display preference.
      * 
-     * @return The current notification location display preference.
+     * - Returns:  The current notification location display preference.
      */
     public func GetNotificationLocationPreference() -> EOS_UI_ENotificationLocation {
         ____GetNotificationLocationPreference()
@@ -80,7 +80,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends
      * overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
      * 
-     * @return A valid key combination which represent a single key with zero or more modifier keys.
+     * - Returns:  A valid key combination which represent a single key with zero or more modifier keys.
      *         EOS_UIK_None will be returned if any error occurs.
      */
     public func GetToggleFriendsKey() throws -> EOS_UI_EKeyCombination {
@@ -93,7 +93,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
      * - Parameter CompletionDelegate:  A callback that is fired when the request to hide the friends list has been processed, or on an error.
      * 
-     * @return EOS_Success If the Social Overlay has been notified about the request.
+     * - Returns:  EOS_Success If the Social Overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the Social Overlay is not properly configured.
      *         EOS_NoChange If the Social Overlay is already hidden.
@@ -114,7 +114,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * The modifier key must be one or more of the following: Shift, Control, or Alt.
      * 
      * - Parameter KeyCombination:  The key to test.
-     * @return  EOS_TRUE if the provided key combination is valid.
+     * - Returns:   EOS_TRUE if the provided key combination is valid.
      */
     public func IsValidKeyCombination(
         KeyCombination: EOS_UI_EKeyCombination
@@ -126,7 +126,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * Define any preferences for any display settings.
      * 
      * - Parameter NotificationLocation:  Preference for notification pop-up locations. 
-     * @return EOS_Success If the overlay has been notified about the request.
+     * - Returns:  EOS_Success If the overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the overlay is not properly configured.
      *         EOS_NoChange If the preferences did not change.
@@ -148,12 +148,12 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * The combination can be any set of modifiers and one key.
      * A value of EOS_UIK_None will cause the key to revert to the default.
      * 
-     * @return EOS_Success If the overlay has been notified about the request.
+     * - Returns:  EOS_Success If the overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the overlay is not properly configured.
      *         EOS_NoChange If the key combination did not change.
      * 
-     * @see EOS_UI_IsValidKeyCombination
+     * - SeeAlso:  EOS_UI_IsValidKeyCombination
      */
     public func SetToggleFriendsKey(
         KeyCombination: EOS_UI_EKeyCombination
@@ -167,7 +167,7 @@ public class SwiftEOS_UI_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the user whose friend list is being shown. 
      * - Parameter CompletionDelegate:  A callback that is fired when the request to show the friends list has been sent to the Social Overlay, or on an error.
      * 
-     * @return EOS_Success If the Social Overlay has been notified about the request.
+     * - Returns:  EOS_Success If the Social Overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the Social Overlay is not properly configured.
      *         EOS_NoChange If the Social Overlay is already visible.
@@ -188,11 +188,11 @@ extension SwiftEOS_UI_Actor {
     /**
      * Lets the SDK know that the given UI event ID has been acknowledged and should be released.
      * 
-     * @return An EOS_EResult is returned to indicate success or an error.
+     * - Returns:  An EOS_EResult is returned to indicate success or an error.
      * EOS_Success is returned if the UI event ID has been acknowledged.
      * EOS_NotFound is returned if the UI event ID does not exist.
      * 
-     * @see EOS_Presence_JoinGameAcceptedCallbackInfo
+     * - SeeAlso:  EOS_Presence_JoinGameAcceptedCallbackInfo
      */
     private func ____AcknowledgeEventId(
         _ Options: SwiftEOS_UI_AcknowledgeEventIdOptions
@@ -210,11 +210,11 @@ extension SwiftEOS_UI_Actor {
      * Register to receive notifications when the overlay display settings are updated.
      * Newly registered handlers will always be called the next tick with the current state.
      * 
-     * @note must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
+     * - Note:  must call RemoveNotifyDisplaySettingsUpdated to remove the notification.
      * 
      * - Parameter NotificationFn:  A callback that is fired when the overlay display settings are updated.
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     private func ____AddNotifyDisplaySettingsUpdated(
         _ NotificationFn: @escaping (SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo) -> Void
@@ -245,7 +245,7 @@ extension SwiftEOS_UI_Actor {
      * 
      * - Parameter Options:  Structure containing the Epic Online Services Account ID of the friends Social Overlay owner.
      * 
-     * @return EOS_TRUE If the overlay is visible.
+     * - Returns:  EOS_TRUE If the overlay is visible.
      */
     private func ____GetFriendsVisible(
         _ Options: SwiftEOS_UI_GetFriendsVisibleOptions
@@ -266,7 +266,7 @@ extension SwiftEOS_UI_Actor {
     /**
      * Returns the current notification location display preference.
      * 
-     * @return The current notification location display preference.
+     * - Returns:  The current notification location display preference.
      */
     private func ____GetNotificationLocationPreference() -> EOS_UI_ENotificationLocation {
         withPointerManager { pointerManager in
@@ -277,7 +277,7 @@ extension SwiftEOS_UI_Actor {
      * Returns the current Toggle Friends Key.  This key can be used by the user to toggle the friends
      * overlay when available. The default value represents `Shift + F3` as `((int32_t)EOS_UIK_Shift | (int32_t)EOS_UIK_F3)`.
      * 
-     * @return A valid key combination which represent a single key with zero or more modifier keys.
+     * - Returns:  A valid key combination which represent a single key with zero or more modifier keys.
      *         EOS_UIK_None will be returned if any error occurs.
      */
     private func ____GetToggleFriendsKey() throws -> EOS_UI_EKeyCombination {
@@ -295,7 +295,7 @@ extension SwiftEOS_UI_Actor {
      * - Parameter Options:  Structure containing the Epic Online Services Account ID of the browser to close.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to hide the friends list has been processed, or on an error.
      * 
-     * @return EOS_Success If the Social Overlay has been notified about the request.
+     * - Returns:  EOS_Success If the Social Overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the Social Overlay is not properly configured.
      *         EOS_NoChange If the Social Overlay is already hidden.
@@ -322,7 +322,7 @@ extension SwiftEOS_UI_Actor {
      * The modifier key must be one or more of the following: Shift, Control, or Alt.
      * 
      * - Parameter KeyCombination:  The key to test.
-     * @return  EOS_TRUE if the provided key combination is valid.
+     * - Returns:   EOS_TRUE if the provided key combination is valid.
      */
     private func ____IsValidKeyCombination(
         _ KeyCombination: EOS_UI_EKeyCombination
@@ -343,7 +343,7 @@ extension SwiftEOS_UI_Actor {
      * Define any preferences for any display settings.
      * 
      * - Parameter Options:  Structure containing any options that are needed to set
-     * @return EOS_Success If the overlay has been notified about the request.
+     * - Returns:  EOS_Success If the overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the overlay is not properly configured.
      *         EOS_NoChange If the preferences did not change.
@@ -368,12 +368,12 @@ extension SwiftEOS_UI_Actor {
      * 
      * - Parameter Options:  Structure containing the key combination to use.
      * 
-     * @return EOS_Success If the overlay has been notified about the request.
+     * - Returns:  EOS_Success If the overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the overlay is not properly configured.
      *         EOS_NoChange If the key combination did not change.
      * 
-     * @see EOS_UI_IsValidKeyCombination
+     * - SeeAlso:  EOS_UI_IsValidKeyCombination
      */
     private func ____SetToggleFriendsKey(
         _ Options: SwiftEOS_UI_SetToggleFriendsKeyOptions
@@ -393,7 +393,7 @@ extension SwiftEOS_UI_Actor {
      * - Parameter Options:  Structure containing the Epic Online Services Account ID of the friends list to show.
      * - Parameter CompletionDelegate:  A callback that is fired when the request to show the friends list has been sent to the Social Overlay, or on an error.
      * 
-     * @return EOS_Success If the Social Overlay has been notified about the request.
+     * - Returns:  EOS_Success If the Social Overlay has been notified about the request.
      *         EOS_InvalidParameters If any of the options are incorrect.
      *         EOS_NotConfigured If the Social Overlay is not properly configured.
      *         EOS_NoChange If the Social Overlay is already visible.

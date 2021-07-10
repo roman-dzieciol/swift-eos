@@ -4,7 +4,7 @@ import EOSSDK
 /**
  * An individual presence data record that belongs to a EOS_Presence_Info object. This object is released when its parent EOS_Presence_Info object is released.
  * 
- * @see EOS_Presence_Info
+ * - SeeAlso:  EOS_Presence_Info
  */
 public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
 

@@ -4,7 +4,7 @@ import EOSSDK
 /**
  * Input parameters for the EOS_Leaderboards_QueryLeaderboardRanks function.
  * 
- * @see EOS_Leaderboards_Definition
+ * - SeeAlso:  EOS_Leaderboards_Definition
  */
 public struct SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions: SwiftEOSObject {
 

@@ -21,15 +21,15 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
      * If true, this session will be associated with presence. Only one session at a time can have this flag true.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_CreateLobbyOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_CreateSessionModificationOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
      */
     public let bPresenceEnabled: Bool
 
@@ -72,15 +72,15 @@ public struct SwiftEOS_Sessions_JoinSessionOptions: SwiftEOSObject {
      * If true, this session will be associated with presence. Only one session at a time can have this flag true.
      * This affects the ability of the Social Overlay to show game related actions to take in the user's social graph.
      * 
-     * @note The Social Overlay can handle only one of the following three options at a time:
+     * - Note:  The Social Overlay can handle only one of the following three options at a time:
      * * using the bPresenceEnabled flags within the Sessions interface
      * * using the bPresenceEnabled flags within the Lobby interface
      * * using EOS_PresenceModification_SetJoinInfo
      * 
-     * @see EOS_PresenceModification_SetJoinInfoOptions
-     * @see EOS_Lobby_CreateLobbyOptions
-     * @see EOS_Lobby_JoinLobbyOptions
-     * @see EOS_Sessions_CreateSessionModificationOptions
+     * - SeeAlso:  EOS_PresenceModification_SetJoinInfoOptions
+     * - SeeAlso:  EOS_Lobby_CreateLobbyOptions
+     * - SeeAlso:  EOS_Lobby_JoinLobbyOptions
+     * - SeeAlso:  EOS_Sessions_CreateSessionModificationOptions
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_JOINSESSION_API_LATEST,

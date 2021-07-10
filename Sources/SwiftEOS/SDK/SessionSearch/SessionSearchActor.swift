@@ -22,14 +22,14 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * - Parameter SessionIndex:  
      * The index of the session to retrieve within the completed search query
      * 
-     * @see EOS_SessionSearch_GetSearchResultCount
+     * - SeeAlso:  EOS_SessionSearch_GetSearchResultCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutSessionHandle
+     * - Returns:  EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid index or a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_SessionSearch_CopySearchResultByIndexOptions
-     * @see EOS_SessionDetails_Release
+     * - SeeAlso:  EOS_SessionSearch_CopySearchResultByIndexOptions
+     * - SeeAlso:  EOS_SessionDetails_Release
      */
     public func CopySearchResultByIndex(
         SessionIndex: Int
@@ -44,7 +44,7 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Product User ID of the local user who is searching 
      * - Parameter CompletionDelegate:  A callback that is fired when the search operation completes, either successfully or in error
      * 
-     * @return EOS_Success if the find operation completes successfully
+     * - Returns:  EOS_Success if the find operation completes successfully
      *         EOS_NotFound if searching for an individual session by sessionid or targetuserid returns no results
      *         EOS_InvalidParameters if any of the options are incorrect
      */
@@ -62,7 +62,7 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * Get the number of search results found by the search parameters in this search
      * 
      * 
-     * @return return the number of search results found by the query or 0 if search is not complete
+     * - Returns:  return the number of search results found by the query or 0 if search is not complete
      */
     public func GetSearchResultCount() throws -> Int {
         try ____GetSearchResultCount()
@@ -74,7 +74,7 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * - Parameter Key:  Search parameter key to remove from the search 
      * - Parameter ComparisonOp:  Search comparison operation associated with the key to remove 
      * 
-     * @return EOS_Success if removing this search parameter was successful
+     * - Returns:  EOS_Success if removing this search parameter was successful
      *         EOS_InvalidParameters if the search key is invalid or null
      * 		   EOS_NotFound if the parameter was not a part of the search criteria
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -94,7 +94,7 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * 
      * - Parameter MaxSearchResults:  Maximum number of search results returned with this query, may not exceed EOS_SESSIONS_MAX_SEARCH_RESULTS 
      * 
-     * @return EOS_Success if setting the max results was successful
+     * - Returns:  EOS_Success if setting the max results was successful
      *         EOS_InvalidParameters if the number of results requested is invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -110,12 +110,12 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * - Parameter Parameter:  Search parameter describing a key and a value to compare 
      * - Parameter ComparisonOp:  The type of comparison to make against the search parameter 
      * 
-     * @return EOS_Success if setting this search parameter was successful
+     * - Returns:  EOS_Success if setting this search parameter was successful
      *         EOS_InvalidParameters if the search criteria is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Sessions_AttributeData
-     * @see EOS_EComparisonOp
+     * - SeeAlso:  EOS_Sessions_AttributeData
+     * - SeeAlso:  EOS_EComparisonOp
      */
     public func SetParameter(
         Parameter: SwiftEOS_Sessions_AttributeData?,
@@ -132,7 +132,7 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
      * 
      * - Parameter SessionId:  Search sessions for a specific session ID, returning at most one session 
      * 
-     * @return EOS_Success if setting this session ID was successful
+     * - Returns:  EOS_Success if setting this session ID was successful
      *         EOS_InvalidParameters if the session ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -145,11 +145,11 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
     /**
      * Set a target user ID to find and will return at most one search result.  Setting SessionId or SearchParameters will result in EOS_SessionSearch_Find failing
      * 
-     * @note a search result will only be found if this user is in a public session
+     * - Note:  a search result will only be found if this user is in a public session
      * 
      * - Parameter TargetUserId:  The Product User ID to find; return any sessions where the user matching this ID is currently registered 
      * 
-     * @return EOS_Success if setting this target user ID was successful
+     * - Returns:  EOS_Success if setting this target user ID was successful
      *         EOS_InvalidParameters if the target user ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -168,12 +168,12 @@ extension SwiftEOS_SessionSearch_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return EOS_Success if the information is available and passed out in OutSessionHandle
+     * - Returns:  EOS_Success if the information is available and passed out in OutSessionHandle
      *         EOS_InvalidParameters if you pass an invalid index or a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_SessionSearch_CopySearchResultByIndexOptions
-     * @see EOS_SessionDetails_Release
+     * - SeeAlso:  EOS_SessionSearch_CopySearchResultByIndexOptions
+     * - SeeAlso:  EOS_SessionDetails_Release
      */
     private func ____CopySearchResultByIndex(
         _ Options: SwiftEOS_SessionSearch_CopySearchResultByIndexOptions
@@ -196,7 +196,7 @@ extension SwiftEOS_SessionSearch_Actor {
      * - Parameter Options:  Structure containing information about the search criteria to use
      * - Parameter CompletionDelegate:  A callback that is fired when the search operation completes, either successfully or in error
      * 
-     * @return EOS_Success if the find operation completes successfully
+     * - Returns:  EOS_Success if the find operation completes successfully
      *         EOS_NotFound if searching for an individual session by sessionid or targetuserid returns no results
      *         EOS_InvalidParameters if any of the options are incorrect
      */
@@ -220,7 +220,7 @@ extension SwiftEOS_SessionSearch_Actor {
      * Get the number of search results found by the search parameters in this search
      * 
      * 
-     * @return return the number of search results found by the query or 0 if search is not complete
+     * - Returns:  return the number of search results found by the query or 0 if search is not complete
      */
     private func ____GetSearchResultCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -241,7 +241,7 @@ extension SwiftEOS_SessionSearch_Actor {
      * 
      * - Parameter Options:  a search parameter key name to remove
      * 
-     * @return EOS_Success if removing this search parameter was successful
+     * - Returns:  EOS_Success if removing this search parameter was successful
      *         EOS_InvalidParameters if the search key is invalid or null
      * 		   EOS_NotFound if the parameter was not a part of the search criteria
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
@@ -263,7 +263,7 @@ extension SwiftEOS_SessionSearch_Actor {
      * 
      * - Parameter Options:  maximum number of search results to return in the query
      * 
-     * @return EOS_Success if setting the max results was successful
+     * - Returns:  EOS_Success if setting the max results was successful
      *         EOS_InvalidParameters if the number of results requested is invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -284,12 +284,12 @@ extension SwiftEOS_SessionSearch_Actor {
      * 
      * - Parameter Options:  a search parameter and its comparison op
      * 
-     * @return EOS_Success if setting this search parameter was successful
+     * - Returns:  EOS_Success if setting this search parameter was successful
      *         EOS_InvalidParameters if the search criteria is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Sessions_AttributeData
-     * @see EOS_EComparisonOp
+     * - SeeAlso:  EOS_Sessions_AttributeData
+     * - SeeAlso:  EOS_EComparisonOp
      */
     private func ____SetParameter(
         _ Options: SwiftEOS_SessionSearch_SetParameterOptions
@@ -308,7 +308,7 @@ extension SwiftEOS_SessionSearch_Actor {
      * 
      * - Parameter Options:  A specific session ID for which to search
      * 
-     * @return EOS_Success if setting this session ID was successful
+     * - Returns:  EOS_Success if setting this session ID was successful
      *         EOS_InvalidParameters if the session ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -327,11 +327,11 @@ extension SwiftEOS_SessionSearch_Actor {
     /**
      * Set a target user ID to find and will return at most one search result.  Setting SessionId or SearchParameters will result in EOS_SessionSearch_Find failing
      * 
-     * @note a search result will only be found if this user is in a public session
+     * - Note:  a search result will only be found if this user is in a public session
      * 
      * - Parameter Options:  a specific target user ID to find
      * 
-     * @return EOS_Success if setting this target user ID was successful
+     * - Returns:  EOS_Success if setting this target user ID was successful
      *         EOS_InvalidParameters if the target user ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */

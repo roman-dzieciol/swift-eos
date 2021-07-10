@@ -13,7 +13,7 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
     /**
      * Query identifier received as part of a previous query.
      * 
-     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+     * - SeeAlso:  EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
      */
     public let QueryId: Int
 
@@ -48,7 +48,7 @@ public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
      * - Parameter TargetUserId:  The Product User ID for the user whose user token we're copying. 
      * - Parameter QueryId:  Query identifier received as part of a previous query.
      * 
-     * @see EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
+     * - SeeAlso:  EOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo
      */
     public init(
         ApiVersion: Int32 = EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST,

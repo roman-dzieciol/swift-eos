@@ -10,7 +10,7 @@ public struct SwiftEOS_LobbySearch_CopySearchResultByIndexOptions: SwiftEOSObjec
     /**
      * The index of the lobby to retrieve within the completed search query
      * 
-     * @see EOS_LobbySearch_GetSearchResultCount
+     * - SeeAlso:  EOS_LobbySearch_GetSearchResultCount
      */
     public let LobbyIndex: Int
 
@@ -42,7 +42,7 @@ public struct SwiftEOS_LobbySearch_CopySearchResultByIndexOptions: SwiftEOSObjec
      * - Parameter ApiVersion:  API Version: Set this to EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST. 
      * - Parameter LobbyIndex:  The index of the lobby to retrieve within the completed search query
      * 
-     * @see EOS_LobbySearch_GetSearchResultCount
+     * - SeeAlso:  EOS_LobbySearch_GetSearchResultCount
      */
     public init(
         ApiVersion: Int32 = EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST,

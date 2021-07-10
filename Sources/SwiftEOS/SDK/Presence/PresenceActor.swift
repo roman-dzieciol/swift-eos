@@ -17,11 +17,11 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     /**
      * Register to receive notifications when a user accepts a join game option via the social overlay.
      * 
-     * @note must call RemoveNotifyJoinGameAccepted to remove the notification
+     * - Note:  must call RemoveNotifyJoinGameAccepted to remove the notification
      * 
      * - Parameter NotificationFn:  A callback that is fired when a a notification is received.
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     public func AddNotifyJoinGameAccepted(
         NotificationFn: @escaping (SwiftEOS_Presence_JoinGameAcceptedCallbackInfo) -> Void
@@ -34,10 +34,10 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * have your NotificationHandler called
      * 
      * - Parameter NotificationHandler:  The callback to be fired when a presence change occurs
-     * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
+     * - Returns:  Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
-     * @see EOS_INVALID_NOTIFICATIONID
-     * @see EOS_Presence_RemoveNotifyOnPresenceChanged
+     * - SeeAlso:  EOS_INVALID_NOTIFICATIONID
+     * - SeeAlso:  EOS_Presence_RemoveNotifyOnPresenceChanged
      */
     public func AddNotifyOnPresenceChanged(
         NotificationHandler: @escaping (SwiftEOS_Presence_PresenceChangedCallbackInfo) -> Void
@@ -50,9 +50,9 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose cached presence data you want to copy from the cache 
-     * @return Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
+     * - Returns:  Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
      * 
-     * @see EOS_Presence_Info_Release
+     * - SeeAlso:  EOS_Presence_Info_Release
      */
     public func CopyPresence(
         LocalUserId: EOS_EpicAccountId?,
@@ -69,14 +69,14 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local user's Epic Online Services Account ID 
-     * @return Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
+     * - Returns:  Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
      * 
-     * @see EOS_PresenceModification_Release
-     * @see EOS_Presence_SetPresence
-     * @see EOS_PresenceModification_SetStatus
-     * @see EOS_PresenceModification_SetRawRichText
-     * @see EOS_PresenceModification_SetData
-     * @see EOS_PresenceModification_DeleteData
+     * - SeeAlso:  EOS_PresenceModification_Release
+     * - SeeAlso:  EOS_Presence_SetPresence
+     * - SeeAlso:  EOS_PresenceModification_SetStatus
+     * - SeeAlso:  EOS_PresenceModification_SetRawRichText
+     * - SeeAlso:  EOS_PresenceModification_SetData
+     * - SeeAlso:  EOS_PresenceModification_DeleteData
      */
     public func CreatePresenceModification(
         LocalUserId: EOS_EpicAccountId?
@@ -92,13 +92,13 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The local user's Epic Online Services Account ID 
      * - Parameter TargetUserId:  The Epic Online Services Account ID to query for join info; this value must either be a logged-in local user, or a friend of that user 
      * 
-     * @return An EOS_EResult that indicates whether the location string was copied into the OutBuffer.
+     * - Returns:  An EOS_EResult that indicates whether the location string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if there is user or the location string was not found.
      *         EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
      * 
-     * @see EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
+     * - SeeAlso:  EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
      */
     public func GetJoinInfo(
         LocalUserId: EOS_EpicAccountId?,
@@ -115,7 +115,7 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local, logged-in user making the request 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the user whose cached presence data you want to locate 
-     * @return EOS_TRUE if we have presence for the requested user, or EOS_FALSE if the request was invalid or we do not have cached data
+     * - Returns:  EOS_TRUE if we have presence for the requested user, or EOS_FALSE if the request was invalid or we do not have cached data
      */
     public func HasPresence(
         LocalUserId: EOS_EpicAccountId?,
@@ -156,8 +156,8 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
      * - Parameter PresenceModificationHandle:  The handle to the presence update 
      * - Parameter CompletionDelegate:  Pointer to a function that handles receiving the completion information
      * 
-     * @see EOS_Presence_CreatePresenceModification
-     * @see EOS_PresenceModification_Release
+     * - SeeAlso:  EOS_Presence_CreatePresenceModification
+     * - SeeAlso:  EOS_PresenceModification_Release
      */
     public func SetPresence(
         LocalUserId: EOS_EpicAccountId?,
@@ -179,11 +179,11 @@ extension SwiftEOS_Presence_Actor {
     /**
      * Register to receive notifications when a user accepts a join game option via the social overlay.
      * 
-     * @note must call RemoveNotifyJoinGameAccepted to remove the notification
+     * - Note:  must call RemoveNotifyJoinGameAccepted to remove the notification
      * 
      * - Parameter NotificationFn:  A callback that is fired when a a notification is received.
      * 
-     * @return handle representing the registered callback
+     * - Returns:  handle representing the registered callback
      */
     private func ____AddNotifyJoinGameAccepted(
         _ NotificationFn: @escaping (SwiftEOS_Presence_JoinGameAcceptedCallbackInfo) -> Void
@@ -214,10 +214,10 @@ extension SwiftEOS_Presence_Actor {
      * have your NotificationHandler called
      * 
      * - Parameter NotificationHandler:  The callback to be fired when a presence change occurs
-     * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
+     * - Returns:  Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
-     * @see EOS_INVALID_NOTIFICATIONID
-     * @see EOS_Presence_RemoveNotifyOnPresenceChanged
+     * - SeeAlso:  EOS_INVALID_NOTIFICATIONID
+     * - SeeAlso:  EOS_Presence_RemoveNotifyOnPresenceChanged
      */
     private func ____AddNotifyOnPresenceChanged(
         _ NotificationHandler: @escaping (SwiftEOS_Presence_PresenceChangedCallbackInfo) -> Void
@@ -247,9 +247,9 @@ extension SwiftEOS_Presence_Actor {
      * Get a user's cached presence object. If successful, this data must be released by calling EOS_Presence_Info_Release
      * 
      * - Parameter Options:  Object containing properties related to who is requesting presence and for what user
-     * @return Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
+     * - Returns:  Success if we have cached data, or an error result if the request was invalid or we do not have cached data.
      * 
-     * @see EOS_Presence_Info_Release
+     * - SeeAlso:  EOS_Presence_Info_Release
      */
     private func ____CopyPresence(
         _ Options: SwiftEOS_Presence_CopyPresenceOptions
@@ -274,14 +274,14 @@ extension SwiftEOS_Presence_Actor {
      * The resulting handle must be released by calling EOS_PresenceModification_Release once it has been passed to EOS_Presence_SetPresence.
      * 
      * - Parameter Options:  Object containing properties related to the user modifying their presence
-     * @return Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
+     * - Returns:  Success if we successfully created the Presence Modification Handle pointed at in OutPresenceModificationHandle, or an error result if the input data was invalid
      * 
-     * @see EOS_PresenceModification_Release
-     * @see EOS_Presence_SetPresence
-     * @see EOS_PresenceModification_SetStatus
-     * @see EOS_PresenceModification_SetRawRichText
-     * @see EOS_PresenceModification_SetData
-     * @see EOS_PresenceModification_DeleteData
+     * - SeeAlso:  EOS_PresenceModification_Release
+     * - SeeAlso:  EOS_Presence_SetPresence
+     * - SeeAlso:  EOS_PresenceModification_SetStatus
+     * - SeeAlso:  EOS_PresenceModification_SetRawRichText
+     * - SeeAlso:  EOS_PresenceModification_SetData
+     * - SeeAlso:  EOS_PresenceModification_DeleteData
      */
     private func ____CreatePresenceModification(
         _ Options: SwiftEOS_Presence_CreatePresenceModificationOptions
@@ -304,13 +304,13 @@ extension SwiftEOS_Presence_Actor {
      * 
      * - Parameter Options:  Object containing an associated user
      * 
-     * @return An EOS_EResult that indicates whether the location string was copied into the OutBuffer.
+     * - Returns:  An EOS_EResult that indicates whether the location string was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutBuffer
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if there is user or the location string was not found.
      *         EOS_LimitExceeded - The OutBuffer is not large enough to receive the location string. InOutBufferLength contains the required minimum length to perform the operation successfully.
      * 
-     * @see EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
+     * - SeeAlso:  EOS_PRESENCEMODIFICATION_JOININFO_MAX_LENGTH
      */
     private func ____GetJoinInfo(
         _ Options: SwiftEOS_Presence_GetJoinInfoOptions
@@ -331,7 +331,7 @@ extension SwiftEOS_Presence_Actor {
      * Check if we already have presence for a user
      * 
      * - Parameter Options:  Object containing properties related to who is requesting presence and for what user
-     * @return EOS_TRUE if we have presence for the requested user, or EOS_FALSE if the request was invalid or we do not have cached data
+     * - Returns:  EOS_TRUE if we have presence for the requested user, or EOS_FALSE if the request was invalid or we do not have cached data
      */
     private func ____HasPresence(
         _ Options: SwiftEOS_Presence_HasPresenceOptions
@@ -378,8 +378,8 @@ extension SwiftEOS_Presence_Actor {
      * - Parameter Options:  Object containing a PresenceModificationHandle and associated user data
      * - Parameter CompletionDelegate:  Pointer to a function that handles receiving the completion information
      * 
-     * @see EOS_Presence_CreatePresenceModification
-     * @see EOS_PresenceModification_Release
+     * - SeeAlso:  EOS_Presence_CreatePresenceModification
+     * - SeeAlso:  EOS_PresenceModification_Release
      */
     private func ____SetPresence(
         _ Options: SwiftEOS_Presence_SetPresenceOptions,

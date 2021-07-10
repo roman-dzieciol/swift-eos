@@ -21,10 +21,10 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
      * 
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
-     * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
+     * - Returns:  Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
-     * @see EOS_INVALID_NOTIFICATIONID
-     * @see EOS_RTC_RemoveNotifyDisconnected
+     * - SeeAlso:  EOS_INVALID_NOTIFICATIONID
+     * - SeeAlso:  EOS_RTC_RemoveNotifyDisconnected
      * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
      * - Parameter RoomName:  The room this event is registered on. 
      */
@@ -52,12 +52,12 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * already-existing room participants.
      * 
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
-     * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
+     * - Returns:  Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
-     * @note This notification is also raised when the local user joins the room, but NOT when the local user leaves the room.
+     * - Note:  This notification is also raised when the local user joins the room, but NOT when the local user leaves the room.
      * 
-     * @see EOS_INVALID_NOTIFICATIONID
-     * @see EOS_RTC_RemoveNotifyParticipantStatusChanged
+     * - SeeAlso:  EOS_INVALID_NOTIFICATIONID
+     * - SeeAlso:  EOS_RTC_RemoveNotifyParticipantStatusChanged
      * - Parameter LocalUserId:  The Product User ID of the user trying to request this operation. 
      * - Parameter RoomName:  The room this event is registered on. 
      */
@@ -84,7 +84,7 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * - Parameter ParticipantId:  Product User ID of the participant to block 
      * - Parameter bBlocked:  Block or unblock the participant 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * @return EOS_Success if the operation succeeded
+     * - Returns:  EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
      *         EOS_NotFound if either the local user or specified participant are not in the specified room
      */
@@ -109,10 +109,10 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     /**
      * Get a handle to the Audio interface
      * 
-     * @return EOS_HRTCAudio handle
+     * - Returns:  EOS_HRTCAudio handle
      * 
-     * @see eos_rtc_audio.h
-     * @see eos_rtc_audio_types.h
+     * - SeeAlso:  eos_rtc_audio.h
+     * - SeeAlso:  eos_rtc_audio_types.h
      */
     public func GetAudioInterface() -> EOS_HRTCAudio {
         ____GetAudioInterface()
@@ -170,7 +170,7 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  Product User ID of the user requesting to leave the room 
      * - Parameter RoomName:  The room to leave. 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * @return EOS_Success if the operation succeeded
+     * - Returns:  EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
      *         EOS_NotFound if not in the specified room
      */
@@ -198,10 +198,10 @@ extension SwiftEOS_RTC_Actor {
      * status of a Lobby-managed RTC room, use the EOS_Lobby_AddNotifyRTCRoomConnectionChanged function instead.
      * 
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
-     * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
+     * - Returns:  Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
-     * @see EOS_INVALID_NOTIFICATIONID
-     * @see EOS_RTC_RemoveNotifyDisconnected
+     * - SeeAlso:  EOS_INVALID_NOTIFICATIONID
+     * - SeeAlso:  EOS_RTC_RemoveNotifyDisconnected
      */
     private func ____AddNotifyDisconnected(
         _ Options: SwiftEOS_RTC_AddNotifyDisconnectedOptions,
@@ -238,12 +238,12 @@ extension SwiftEOS_RTC_Actor {
      * already-existing room participants.
      * 
      * - Parameter CompletionDelegate:  The callback to be fired when a presence change occurs
-     * @return Notification ID representing the registered callback if successful, an invalid NotificationId if not
+     * - Returns:  Notification ID representing the registered callback if successful, an invalid NotificationId if not
      * 
-     * @note This notification is also raised when the local user joins the room, but NOT when the local user leaves the room.
+     * - Note:  This notification is also raised when the local user joins the room, but NOT when the local user leaves the room.
      * 
-     * @see EOS_INVALID_NOTIFICATIONID
-     * @see EOS_RTC_RemoveNotifyParticipantStatusChanged
+     * - SeeAlso:  EOS_INVALID_NOTIFICATIONID
+     * - SeeAlso:  EOS_RTC_RemoveNotifyParticipantStatusChanged
      */
     private func ____AddNotifyParticipantStatusChanged(
         _ Options: SwiftEOS_RTC_AddNotifyParticipantStatusChangedOptions,
@@ -276,7 +276,7 @@ extension SwiftEOS_RTC_Actor {
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * @return EOS_Success if the operation succeeded
+     * - Returns:  EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
      *         EOS_NotFound if either the local user or specified participant are not in the specified room
      */
@@ -299,10 +299,10 @@ extension SwiftEOS_RTC_Actor {
     /**
      * Get a handle to the Audio interface
      * 
-     * @return EOS_HRTCAudio handle
+     * - Returns:  EOS_HRTCAudio handle
      * 
-     * @see eos_rtc_audio.h
-     * @see eos_rtc_audio_types.h
+     * - SeeAlso:  eos_rtc_audio.h
+     * - SeeAlso:  eos_rtc_audio_types.h
      */
     private func ____GetAudioInterface() -> EOS_HRTCAudio {
         withPointerManager { pointerManager in
@@ -341,7 +341,7 @@ extension SwiftEOS_RTC_Actor {
      * 
      * - Parameter Options:  structure containing the parameters for the operation.
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
-     * @return EOS_Success if the operation succeeded
+     * - Returns:  EOS_Success if the operation succeeded
      *         EOS_InvalidParameters if any of the parameters are incorrect
      *         EOS_NotFound if not in the specified room
      */

@@ -4,8 +4,8 @@ import EOSSDK
 /**
  * Data for the EOS_Mods_CopyModInfo function.
  * 
- * @see EOS_Mods_CopyModInfo
- * @see EOS_Mods_ModInfo_Release
+ * - SeeAlso:  EOS_Mods_CopyModInfo
+ * - SeeAlso:  EOS_Mods_ModInfo_Release
  * 
  * - see: release func: EOS_Mods_ModInfo_Release
  */

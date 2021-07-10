@@ -7,7 +7,7 @@ import EOSSDK
  * 
  * - Parameter AccountId:  The Product User ID for which to retrieve the stringified version.
  * 
- * @return An EOS_EResult that indicates whether the Product User ID string was copied into the OutBuffer.
+ * - Returns:  An EOS_EResult that indicates whether the Product User ID string was copied into the OutBuffer.
  *         EOS_Success - The OutBuffer was filled, and InOutBufferLength contains the number of characters copied into OutBuffer including the null terminator.
  *         EOS_InvalidParameters - Either OutBuffer or InOutBufferLength were passed as NULL parameters.
  *         EOS_InvalidUser - The AccountId is invalid and cannot be stringified.

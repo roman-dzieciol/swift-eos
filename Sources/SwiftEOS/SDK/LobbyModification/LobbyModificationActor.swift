@@ -23,7 +23,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * - Parameter Attribute:  Key/Value pair describing the attribute to add to the lobby 
      * - Parameter Visibility:  Is this attribute public or private to the lobby and its members 
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -44,7 +44,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * - Parameter Attribute:  Key/Value pair describing the attribute to add to the lobby member 
      * - Parameter Visibility:  Is this attribute public or private to the rest of the lobby members 
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -63,7 +63,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 
      * - Parameter Key:  Name of the key 
      * 
-     * @return EOS_Success if removing this parameter was successful
+     * - Returns:  EOS_Success if removing this parameter was successful
      * 		   EOS_InvalidParameters if the key is null or empty
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -78,7 +78,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 
      * - Parameter Key:  Name of the key 
      * 
-     * @return EOS_Success if removing this parameter was successful
+     * - Returns:  EOS_Success if removing this parameter was successful
      * 		   EOS_InvalidParameters if the key is null or empty
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -95,7 +95,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 
      * - Parameter BucketId:  The new bucket id associated with the lobby 
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_InvalidParameters if the bucket ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -111,7 +111,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 
      * - Parameter bInvitesAllowed:  If true then invites can currently be sent for the associated lobby 
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func SetInvitesAllowed(
@@ -126,7 +126,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 
      * - Parameter MaxMembers:  New maximum number of lobby members 
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func SetMaxMembers(
@@ -141,7 +141,7 @@ public class SwiftEOS_LobbyModification_Actor: SwiftEOSActor {
      * 
      * - Parameter PermissionLevel:  Permission level of the lobby 
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     public func SetPermissionLevel(
@@ -160,7 +160,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Options to set the attribute and its visibility state
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -182,7 +182,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Options to set the attribute and its visibility state
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      * 		   EOS_InvalidParameters if the attribute is missing information or otherwise invalid
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -203,7 +203,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Specify the key of the attribute to remove
      * 
-     * @return EOS_Success if removing this parameter was successful
+     * - Returns:  EOS_Success if removing this parameter was successful
      * 		   EOS_InvalidParameters if the key is null or empty
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -224,7 +224,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Specify the key of the member attribute to remove
      * 
-     * @return EOS_Success if removing this parameter was successful
+     * - Returns:  EOS_Success if removing this parameter was successful
      * 		   EOS_InvalidParameters if the key is null or empty
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -247,7 +247,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Options associated with the bucket ID of the lobby
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_InvalidParameters if the bucket ID is invalid or null
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
@@ -269,7 +269,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Options associated with invites allowed flag for this lobby.
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     private func ____SetInvitesAllowed(
@@ -290,7 +290,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Options associated with max number of members in this lobby
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     private func ____SetMaxMembers(
@@ -311,7 +311,7 @@ extension SwiftEOS_LobbyModification_Actor {
      * 
      * - Parameter Options:  Options associated with the permission level of the lobby
      * 
-     * @return EOS_Success if setting this parameter was successful
+     * - Returns:  EOS_Success if setting this parameter was successful
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      */
     private func ____SetPermissionLevel(

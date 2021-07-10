@@ -16,7 +16,7 @@ public struct SwiftEOS_RTCAudio_SendAudioOptions: SwiftEOSObject {
     /**
      * Audio buffer, which must have a duration of 10 ms.
      * 
-     * @note The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
+     * - Note:  The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
      */
     public let Buffer: SwiftEOS_RTCAudio_AudioBuffer?
 
@@ -54,7 +54,7 @@ public struct SwiftEOS_RTCAudio_SendAudioOptions: SwiftEOSObject {
      * - Parameter RoomName:  The  room this event is registered on. 
      * - Parameter Buffer:  Audio buffer, which must have a duration of 10 ms.
      * 
-     * @note The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
+     * - Note:  The SDK makes a copy of buffer. There is no need to keep the buffer around after calling EOS_RTCAudio_SendAudio
      */
     public init(
         ApiVersion: Int32 = EOS_RTCAUDIO_SENDAUDIO_API_LATEST,

@@ -21,9 +21,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter AccountId:  The external account ID associated with the (external) user info to retrieve from the cache; cannot be null 
      * 
-     * @see EOS_UserInfo_ExternalUserInfo_Release
+     * - SeeAlso:  EOS_UserInfo_ExternalUserInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutExternalUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutExternalUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the external user info is not found
      */
@@ -46,9 +46,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter AccountType:  Account type of the external user info to retrieve from the cache 
      * 
-     * @see EOS_UserInfo_ExternalUserInfo_Release
+     * - SeeAlso:  EOS_UserInfo_ExternalUserInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutExternalUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutExternalUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the external user info is not found
      */
@@ -71,9 +71,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter Index:  Index of the external user info to retrieve from the cache 
      * 
-     * @see EOS_UserInfo_ExternalUserInfo_Release
+     * - SeeAlso:  EOS_UserInfo_ExternalUserInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutExternalUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutExternalUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the external user info is not found
      */
@@ -96,14 +96,14 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * 
-     * @return EOS_Success if the information is available and passed out in OutUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      *         EOS_NotFound if the user info is not locally cached. The information must have been previously cached by a call to EOS_UserInfo_QueryUserInfo
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_CopyUserInfoOptions
-     * @see EOS_UserInfo_Release
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_CopyUserInfoOptions
+     * - SeeAlso:  EOS_UserInfo_Release
      */
     public func CopyUserInfo(
         LocalUserId: EOS_EpicAccountId?,
@@ -121,9 +121,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter LocalUserId:  The Epic Online Services Account ID of the local player requesting the information 
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * 
-     * @see EOS_UserInfo_CopyExternalUserInfoByIndex
+     * - SeeAlso:  EOS_UserInfo_CopyExternalUserInfoByIndex
      * 
-     * @return The number of external user infos, or 0 if there is an error
+     * - Returns:  The number of external user infos, or 0 if there is an error
      */
     public func GetExternalUserInfoCount(
         LocalUserId: EOS_EpicAccountId?,
@@ -143,10 +143,10 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Epic Online Services Account ID of the player whose information is being retrieved 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_CopyUserInfo
-     * @see EOS_UserInfo_QueryUserInfoOptions
-     * @see EOS_UserInfo_OnQueryUserInfoCallback
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_CopyUserInfo
+     * - SeeAlso:  EOS_UserInfo_QueryUserInfoOptions
+     * - SeeAlso:  EOS_UserInfo_OnQueryUserInfoCallback
      */
     public func QueryUserInfo(
         LocalUserId: EOS_EpicAccountId?,
@@ -170,10 +170,10 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter DisplayName:  Display name of the player being queried 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_CopyUserInfo
-     * @see EOS_UserInfo_QueryUserInfoByDisplayNameOptions
-     * @see EOS_UserInfo_OnQueryUserInfoByDisplayNameCallback
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_CopyUserInfo
+     * - SeeAlso:  EOS_UserInfo_QueryUserInfoByDisplayNameOptions
+     * - SeeAlso:  EOS_UserInfo_OnQueryUserInfoByDisplayNameCallback
      */
     public func QueryUserInfoByDisplayName(
         LocalUserId: EOS_EpicAccountId?,
@@ -199,9 +199,9 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
      * - Parameter AccountType:  Account type of the external user info to query 
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_QueryUserInfoByExternalAccountOptions
-     * @see EOS_UserInfo_OnQueryUserInfoByExternalAccountCallback
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_QueryUserInfoByExternalAccountOptions
+     * - SeeAlso:  EOS_UserInfo_OnQueryUserInfoByExternalAccountCallback
      */
     public func QueryUserInfoByExternalAccount(
         LocalUserId: EOS_EpicAccountId?,
@@ -227,9 +227,9 @@ extension SwiftEOS_UserInfo_Actor {
      * 
      * - Parameter Options:  Structure containing the account ID being accessed
      * 
-     * @see EOS_UserInfo_ExternalUserInfo_Release
+     * - SeeAlso:  EOS_UserInfo_ExternalUserInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutExternalUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutExternalUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the external user info is not found
      */
@@ -256,9 +256,9 @@ extension SwiftEOS_UserInfo_Actor {
      * 
      * - Parameter Options:  Structure containing the account type being accessed
      * 
-     * @see EOS_UserInfo_ExternalUserInfo_Release
+     * - SeeAlso:  EOS_UserInfo_ExternalUserInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutExternalUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutExternalUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the external user info is not found
      */
@@ -285,9 +285,9 @@ extension SwiftEOS_UserInfo_Actor {
      * 
      * - Parameter Options:  Structure containing the index being accessed
      * 
-     * @see EOS_UserInfo_ExternalUserInfo_Release
+     * - SeeAlso:  EOS_UserInfo_ExternalUserInfo_Release
      * 
-     * @return EOS_Success if the information is available and passed out in OutExternalUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutExternalUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_NotFound if the external user info is not found
      */
@@ -315,14 +315,14 @@ extension SwiftEOS_UserInfo_Actor {
      * 
      * - Parameter Options:  structure containing the input parameters
      * 
-     * @return EOS_Success if the information is available and passed out in OutUserInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutUserInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      *         EOS_NotFound if the user info is not locally cached. The information must have been previously cached by a call to EOS_UserInfo_QueryUserInfo
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_CopyUserInfoOptions
-     * @see EOS_UserInfo_Release
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_CopyUserInfoOptions
+     * - SeeAlso:  EOS_UserInfo_Release
      */
     private func ____CopyUserInfo(
         _ Options: SwiftEOS_UserInfo_CopyUserInfoOptions
@@ -347,9 +347,9 @@ extension SwiftEOS_UserInfo_Actor {
      * 
      * - Parameter Options:  The options associated with retrieving the external user info count
      * 
-     * @see EOS_UserInfo_CopyExternalUserInfoByIndex
+     * - SeeAlso:  EOS_UserInfo_CopyExternalUserInfoByIndex
      * 
-     * @return The number of external user infos, or 0 if there is an error
+     * - Returns:  The number of external user infos, or 0 if there is an error
      */
     private func ____GetExternalUserInfoCount(
         _ Options: SwiftEOS_UserInfo_GetExternalUserInfoCountOptions
@@ -374,10 +374,10 @@ extension SwiftEOS_UserInfo_Actor {
      * - Parameter Options:  structure containing the input parameters
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_CopyUserInfo
-     * @see EOS_UserInfo_QueryUserInfoOptions
-     * @see EOS_UserInfo_OnQueryUserInfoCallback
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_CopyUserInfo
+     * - SeeAlso:  EOS_UserInfo_QueryUserInfoOptions
+     * - SeeAlso:  EOS_UserInfo_OnQueryUserInfoCallback
      */
     private func ____QueryUserInfo(
         _ Options: SwiftEOS_UserInfo_QueryUserInfoOptions,
@@ -402,10 +402,10 @@ extension SwiftEOS_UserInfo_Actor {
      * - Parameter Options:  structure containing the input parameters
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_CopyUserInfo
-     * @see EOS_UserInfo_QueryUserInfoByDisplayNameOptions
-     * @see EOS_UserInfo_OnQueryUserInfoByDisplayNameCallback
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_CopyUserInfo
+     * - SeeAlso:  EOS_UserInfo_QueryUserInfoByDisplayNameOptions
+     * - SeeAlso:  EOS_UserInfo_OnQueryUserInfoByDisplayNameCallback
      */
     private func ____QueryUserInfoByDisplayName(
         _ Options: SwiftEOS_UserInfo_QueryUserInfoByDisplayNameOptions,
@@ -431,9 +431,9 @@ extension SwiftEOS_UserInfo_Actor {
      * - Parameter Options:  structure containing the input parameters
      * - Parameter CompletionDelegate:  a callback that is fired when the async operation completes, either successfully or in error
      * 
-     * @see EOS_UserInfo
-     * @see EOS_UserInfo_QueryUserInfoByExternalAccountOptions
-     * @see EOS_UserInfo_OnQueryUserInfoByExternalAccountCallback
+     * - SeeAlso:  EOS_UserInfo
+     * - SeeAlso:  EOS_UserInfo_QueryUserInfoByExternalAccountOptions
+     * - SeeAlso:  EOS_UserInfo_OnQueryUserInfoByExternalAccountCallback
      */
     private func ____QueryUserInfoByExternalAccount(
         _ Options: SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions,

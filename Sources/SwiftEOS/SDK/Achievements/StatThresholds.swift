@@ -9,7 +9,7 @@ import EOSSDK
  *   MIN (Tracks the minimum value)
  *   SUM (Generates a rolling sum of the value)
  * 
- * @see EOS_Achievements_Definition
+ * - SeeAlso:  EOS_Achievements_Definition
  */
 public struct SwiftEOS_Achievements_StatThresholds: SwiftEOSObject {
 

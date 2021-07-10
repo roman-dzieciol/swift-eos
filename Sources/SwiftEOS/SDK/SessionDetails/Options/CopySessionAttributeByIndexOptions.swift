@@ -11,7 +11,7 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions: SwiftE
      * 
      * The index of the attribute to retrieve
      * 
-     * @see EOS_SessionDetails_GetSessionAttributeCount
+     * - SeeAlso:  EOS_SessionDetails_GetSessionAttributeCount
      */
     public let AttrIndex: Int
 
@@ -44,7 +44,7 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions: SwiftE
      * - Parameter AttrIndex:  
      * The index of the attribute to retrieve
      * 
-     * @see EOS_SessionDetails_GetSessionAttributeCount
+     * - SeeAlso:  EOS_SessionDetails_GetSessionAttributeCount
      */
     public init(
         ApiVersion: Int32 = EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST,

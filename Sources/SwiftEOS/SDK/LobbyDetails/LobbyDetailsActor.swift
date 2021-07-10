@@ -21,15 +21,15 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * - Parameter AttrIndex:  The index of the attribute to retrieve
      * 
-     * @see EOS_LobbyDetails_GetAttributeCount
+     * - SeeAlso:  EOS_LobbyDetails_GetAttributeCount
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyAttributeByIndexOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyAttributeByIndexOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     public func CopyAttributeByIndex(
         AttrIndex: Int
@@ -43,13 +43,13 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * - Parameter AttrKey:  Name of the attribute 
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyAttributeByKeyOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyAttributeByKeyOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     public func CopyAttributeByKey(
         AttrKey: String?
@@ -62,13 +62,13 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
      * 
      * 
-     * @return EOS_Success if the information is available and passed out in OutLobbyDetailsInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutLobbyDetailsInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_LobbyDetails_Info
-     * @see EOS_LobbyDetails_CopyInfoOptions
-     * @see EOS_LobbyDetails_Info_Release
+     * - SeeAlso:  EOS_LobbyDetails_Info
+     * - SeeAlso:  EOS_LobbyDetails_CopyInfoOptions
+     * - SeeAlso:  EOS_LobbyDetails_Info_Release
      */
     public func CopyInfo() throws -> SwiftEOS_LobbyDetails_Info? {
         try ____CopyInfo()
@@ -81,13 +81,13 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Product User ID of the lobby member 
      * - Parameter AttrIndex:  The index of the attribute to copy 
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyMemberAttributeByIndexOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyMemberAttributeByIndexOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     public func CopyMemberAttributeByIndex(
         TargetUserId: EOS_ProductUserId?,
@@ -106,13 +106,13 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Product User ID of the lobby member 
      * - Parameter AttrKey:  Name of the attribute to copy 
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyMemberAttributeByKeyOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyMemberAttributeByKeyOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     public func CopyMemberAttributeByKey(
         TargetUserId: EOS_ProductUserId?,
@@ -128,7 +128,7 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * Get the number of attributes associated with this lobby
      * 
      * 
-     * @return number of attributes on the lobby or 0 if there is an error
+     * - Returns:  number of attributes on the lobby or 0 if there is an error
      */
     public func GetAttributeCount() throws -> Int {
         try ____GetAttributeCount()
@@ -138,7 +138,7 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * Get the product user ID of the current owner for a given lobby
      * 
      * 
-     * @return the product user ID for the lobby owner or null if the input parameters are invalid
+     * - Returns:  the product user ID for the lobby owner or null if the input parameters are invalid
      */
     public func GetLobbyOwner() throws -> EOS_ProductUserId {
         try ____GetLobbyOwner()
@@ -149,10 +149,10 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID of the lobby member 
      * 
-     * @return the number of attributes associated with a given lobby member or 0 if that member is invalid
+     * - Returns:  the number of attributes associated with a given lobby member or 0 if that member is invalid
      * 
-     * @see EOS_LobbyDetails_GetMemberCount
-     * @see EOS_LobbyDetails_GetMemberAttributeCountOptions
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberCount
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberAttributeCountOptions
      */
     public func GetMemberAttributeCount(
         TargetUserId: EOS_ProductUserId?
@@ -165,10 +165,10 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * 
      * - Parameter MemberIndex:  Index of the member to retrieve 
      * 
-     * @return the product user ID for the registered member at a given index or null if that index is invalid
+     * - Returns:  the product user ID for the registered member at a given index or null if that index is invalid
      * 
-     * @see EOS_LobbyDetails_GetMemberCount
-     * @see EOS_LobbyDetails_GetMemberByIndexOptions
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberCount
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberByIndexOptions
      */
     public func GetMemberByIndex(
         MemberIndex: Int
@@ -180,7 +180,7 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
      * Get the number of members associated with this lobby
      * 
      * 
-     * @return number of members in the existing lobby or 0 if there is an error
+     * - Returns:  number of members in the existing lobby or 0 if there is an error
      */
     public func GetMemberCount() throws -> Int {
         try ____GetMemberCount()
@@ -195,13 +195,13 @@ extension SwiftEOS_LobbyDetails_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyAttributeByIndexOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyAttributeByIndexOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     private func ____CopyAttributeByIndex(
         _ Options: SwiftEOS_LobbyDetails_CopyAttributeByIndexOptions
@@ -227,13 +227,13 @@ extension SwiftEOS_LobbyDetails_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyAttributeByKeyOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyAttributeByKeyOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     private func ____CopyAttributeByKey(
         _ Options: SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions
@@ -258,13 +258,13 @@ extension SwiftEOS_LobbyDetails_Actor {
      * If the call returns an EOS_Success result, the out parameter, OutLobbyDetailsInfo, must be passed to EOS_LobbyDetails_Info_Release to release the memory associated with it.
      * 
      * 
-     * @return EOS_Success if the information is available and passed out in OutLobbyDetailsInfo
+     * - Returns:  EOS_Success if the information is available and passed out in OutLobbyDetailsInfo
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_LobbyDetails_Info
-     * @see EOS_LobbyDetails_CopyInfoOptions
-     * @see EOS_LobbyDetails_Info_Release
+     * - SeeAlso:  EOS_LobbyDetails_Info
+     * - SeeAlso:  EOS_LobbyDetails_CopyInfoOptions
+     * - SeeAlso:  EOS_LobbyDetails_Info_Release
      */
     private func ____CopyInfo() throws -> SwiftEOS_LobbyDetails_Info? {
         try withPointerManager { pointerManager in
@@ -288,13 +288,13 @@ extension SwiftEOS_LobbyDetails_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyMemberAttributeByIndexOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyMemberAttributeByIndexOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     private func ____CopyMemberAttributeByIndex(
         _ Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions
@@ -320,13 +320,13 @@ extension SwiftEOS_LobbyDetails_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return EOS_Success if the information is available and passed out in OutAttribute
+     * - Returns:  EOS_Success if the information is available and passed out in OutAttribute
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter
      *         EOS_IncompatibleVersion if the API version passed in is incorrect
      * 
-     * @see EOS_Lobby_Attribute
-     * @see EOS_LobbyDetails_CopyMemberAttributeByKeyOptions
-     * @see EOS_Lobby_Attribute_Release
+     * - SeeAlso:  EOS_Lobby_Attribute
+     * - SeeAlso:  EOS_LobbyDetails_CopyMemberAttributeByKeyOptions
+     * - SeeAlso:  EOS_Lobby_Attribute_Release
      */
     private func ____CopyMemberAttributeByKey(
         _ Options: SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions
@@ -350,7 +350,7 @@ extension SwiftEOS_LobbyDetails_Actor {
      * Get the number of attributes associated with this lobby
      * 
      * 
-     * @return number of attributes on the lobby or 0 if there is an error
+     * - Returns:  number of attributes on the lobby or 0 if there is an error
      */
     private func ____GetAttributeCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -370,7 +370,7 @@ extension SwiftEOS_LobbyDetails_Actor {
      * Get the product user ID of the current owner for a given lobby
      * 
      * 
-     * @return the product user ID for the lobby owner or null if the input parameters are invalid
+     * - Returns:  the product user ID for the lobby owner or null if the input parameters are invalid
      */
     private func ____GetLobbyOwner() throws -> EOS_ProductUserId {
         try withPointerManager { pointerManager in
@@ -386,10 +386,10 @@ extension SwiftEOS_LobbyDetails_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return the number of attributes associated with a given lobby member or 0 if that member is invalid
+     * - Returns:  the number of attributes associated with a given lobby member or 0 if that member is invalid
      * 
-     * @see EOS_LobbyDetails_GetMemberCount
-     * @see EOS_LobbyDetails_GetMemberAttributeCountOptions
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberCount
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberAttributeCountOptions
      */
     private func ____GetMemberAttributeCount(
         _ Options: SwiftEOS_LobbyDetails_GetMemberAttributeCountOptions
@@ -412,10 +412,10 @@ extension SwiftEOS_LobbyDetails_Actor {
      * 
      * - Parameter Options:  Structure containing the input parameters
      * 
-     * @return the product user ID for the registered member at a given index or null if that index is invalid
+     * - Returns:  the product user ID for the registered member at a given index or null if that index is invalid
      * 
-     * @see EOS_LobbyDetails_GetMemberCount
-     * @see EOS_LobbyDetails_GetMemberByIndexOptions
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberCount
+     * - SeeAlso:  EOS_LobbyDetails_GetMemberByIndexOptions
      */
     private func ____GetMemberByIndex(
         _ Options: SwiftEOS_LobbyDetails_GetMemberByIndexOptions
@@ -432,7 +432,7 @@ extension SwiftEOS_LobbyDetails_Actor {
      * Get the number of members associated with this lobby
      * 
      * 
-     * @return number of members in the existing lobby or 0 if there is an error
+     * - Returns:  number of members in the existing lobby or 0 if there is an error
      */
     private func ____GetMemberCount() throws -> Int {
         try withPointerManager { pointerManager in

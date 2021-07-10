@@ -19,11 +19,11 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * Notification is approximately 10 minutes prior to expiration.
      * Call EOS_Connect_Login again with valid third party credentials to refresh access.
      * 
-     * @note must call RemoveNotifyAuthExpiration to remove the notification.
+     * - Note:  must call RemoveNotifyAuthExpiration to remove the notification.
      * 
      * - Parameter Notification:  a callback that is fired when the authentication is about to expire.
      * 
-     * @return handle representing the registered callback.
+     * - Returns:  handle representing the registered callback.
      */
     public func AddNotifyAuthExpiration(
         Notification: @escaping (SwiftEOS_Connect_AuthExpirationCallbackInfo) -> Void
@@ -34,11 +34,11 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
      * Register to receive user login status updates.
      * 
-     * @note must call RemoveNotifyLoginStatusChanged to remove the notification.
+     * - Note:  must call RemoveNotifyLoginStatusChanged to remove the notification.
      * 
      * - Parameter Notification:  a callback that is fired when the login status for a user changes.
      * 
-     * @return handle representing the registered callback.
+     * - Returns:  handle representing the registered callback.
      */
     public func AddNotifyLoginStatusChanged(
         Notification: @escaping (SwiftEOS_Connect_LoginStatusChangedCallbackInfo) -> Void
@@ -53,9 +53,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
      * - Parameter AccountId:  External auth service account ID to look for when copying external account info from the cache. 
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -77,9 +77,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
      * - Parameter AccountIdType:  External auth service account type to look for when copying external account info from the cache. 
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -101,9 +101,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter TargetUserId:  The Product User ID to look for when copying external account info from the cache. 
      * - Parameter ExternalAccountInfoIndex:  Index of the external account info to retrieve from the cache. 
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -124,9 +124,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  Product user ID to look for when copying external account info from the cache. 
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -211,7 +211,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter AccountIdType:  External auth service supplying the account IDs in string form. 
      * - Parameter TargetExternalUserId:  Target user to retrieve the mapping for, as an external account ID. 
      * 
-     * @return The Product User ID, previously retrieved from the backend service, for the given target external account.
+     * - Returns:  The Product User ID, previously retrieved from the backend service, for the given target external account.
      */
     public func GetExternalAccountMapping(
         LocalUserId: EOS_ProductUserId?,
@@ -230,7 +230,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter Index:  an index into the list of logged in users. If the index is out of bounds, the returned Product User ID will be invalid.
      * 
-     * @return the Product User ID associated with the index passed.
+     * - Returns:  the Product User ID associated with the index passed.
      */
     public func GetLoggedInUserByIndex(
         Index: Int
@@ -241,7 +241,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     /**
      * Fetch the number of product users that are logged in.
      * 
-     * @return the number of product users logged in.
+     * - Returns:  the number of product users logged in.
      */
     public func GetLoggedInUsersCount() throws -> Int {
         try ____GetLoggedInUsersCount()
@@ -252,7 +252,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter LocalUserId:  the Product User ID of the user being queried.
      * 
-     * @return the enum value of a user's login status.
+     * - Returns:  the enum value of a user's login status.
      */
     public func GetLoginStatus(
         LocalUserId: EOS_ProductUserId
@@ -265,9 +265,9 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * 
      * - Parameter TargetUserId:  The Product User ID to look for when getting external account info count from the cache. 
      * 
-     * @see EOS_Connect_CopyProductUserExternalAccountByIndex
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByIndex
      * 
-     * @return Number of external accounts or 0 otherwise.
+     * - Returns:  Number of external accounts or 0 otherwise.
      */
     public func GetProductUserExternalAccountCount(
         TargetUserId: EOS_ProductUserId?
@@ -282,7 +282,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * - Parameter AccountIdType:  External auth service mapping to retrieve. 
      * - Parameter TargetProductUserId:  The Product User ID of the user whose information is being requested. 
      * 
-     * @return An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
+     * - Returns:  An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutUserInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
@@ -378,13 +378,13 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * The values will be cached and retrievable via EOS_Connect_GetProductUserIdMapping, EOS_Connect_CopyProductUserExternalAccountByIndex,
      * EOS_Connect_CopyProductUserExternalAccountByAccountType or EOS_Connect_CopyProductUserExternalAccountByAccountId.
      * 
-     * @see EOS_Connect_ExternalAccountInfo
-     * @see EOS_Connect_GetProductUserExternalAccountCount
-     * @see EOS_Connect_GetProductUserIdMapping
-     * @see EOS_Connect_CopyProductUserExternalAccountByIndex
-     * @see EOS_Connect_CopyProductUserExternalAccountByAccountType
-     * @see EOS_Connect_CopyProductUserExternalAccountByAccountId
-     * @see EOS_Connect_CopyProductUserInfo
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo
+     * - SeeAlso:  EOS_Connect_GetProductUserExternalAccountCount
+     * - SeeAlso:  EOS_Connect_GetProductUserIdMapping
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByIndex
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByAccountType
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByAccountId
+     * - SeeAlso:  EOS_Connect_CopyProductUserInfo
      * 
      * - Parameter LocalUserId:  The Product User ID of the existing, logged-in user who is querying account mappings. 
      * - Parameter AccountIdType_DEPRECATED:  Deprecated - all external mappings are included in this call, it is no longer necessary to specify this value. 
@@ -461,8 +461,8 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
      * recovered, so it is very important that the user is guided to make the right choice to avoid
      * accidental loss of all game progression.
      * 
-     * @see EOS_Connect_Login
-     * @see EOS_Connect_CreateDeviceId
+     * - SeeAlso:  EOS_Connect_Login
+     * - SeeAlso:  EOS_Connect_CreateDeviceId
      * 
      * - Parameter PrimaryLocalUserId:  The primary product user id, currently logged in, that is already associated with a real external user account (such as Epic Games, PlayStation(TM)Network, Xbox Live and other).
      * The account linking keychain that owns this product user will be preserved and receive
@@ -534,11 +534,11 @@ extension SwiftEOS_Connect_Actor {
      * Notification is approximately 10 minutes prior to expiration.
      * Call EOS_Connect_Login again with valid third party credentials to refresh access.
      * 
-     * @note must call RemoveNotifyAuthExpiration to remove the notification.
+     * - Note:  must call RemoveNotifyAuthExpiration to remove the notification.
      * 
      * - Parameter Notification:  a callback that is fired when the authentication is about to expire.
      * 
-     * @return handle representing the registered callback.
+     * - Returns:  handle representing the registered callback.
      */
     private func ____AddNotifyAuthExpiration(
         _ Notification: @escaping (SwiftEOS_Connect_AuthExpirationCallbackInfo) -> Void
@@ -567,11 +567,11 @@ extension SwiftEOS_Connect_Actor {
     /**
      * Register to receive user login status updates.
      * 
-     * @note must call RemoveNotifyLoginStatusChanged to remove the notification.
+     * - Note:  must call RemoveNotifyLoginStatusChanged to remove the notification.
      * 
      * - Parameter Notification:  a callback that is fired when the login status for a user changes.
      * 
-     * @return handle representing the registered callback.
+     * - Returns:  handle representing the registered callback.
      */
     private func ____AddNotifyLoginStatusChanged(
         _ Notification: @escaping (SwiftEOS_Connect_LoginStatusChangedCallbackInfo) -> Void
@@ -603,9 +603,9 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  Structure containing the target external account ID.
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -634,9 +634,9 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  Structure containing the target external account type.
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -665,9 +665,9 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  Structure containing the target index.
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -696,9 +696,9 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  Structure containing the target external account ID.
      * 
-     * @see EOS_Connect_ExternalAccountInfo_Release
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo_Release
      * 
-     * @return An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
+     * - Returns:  An EOS_EResult that indicates the external account data was copied into the OutExternalAccountInfo.
      *         EOS_Success if the information is available and passed out in OutExternalAccountInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the account data doesn't exist or hasn't been queried yet.
@@ -808,7 +808,7 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  structure containing the local user and target external account ID.
      * 
-     * @return The Product User ID, previously retrieved from the backend service, for the given target external account.
+     * - Returns:  The Product User ID, previously retrieved from the backend service, for the given target external account.
      */
     private func ____GetExternalAccountMapping(
         _ Options: SwiftEOS_Connect_GetExternalAccountMappingsOptions
@@ -826,7 +826,7 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Index:  an index into the list of logged in users. If the index is out of bounds, the returned Product User ID will be invalid.
      * 
-     * @return the Product User ID associated with the index passed.
+     * - Returns:  the Product User ID associated with the index passed.
      */
     private func ____GetLoggedInUserByIndex(
         _ Index: Int
@@ -847,7 +847,7 @@ extension SwiftEOS_Connect_Actor {
     /**
      * Fetch the number of product users that are logged in.
      * 
-     * @return the number of product users logged in.
+     * - Returns:  the number of product users logged in.
      */
     private func ____GetLoggedInUsersCount() throws -> Int {
         try withPointerManager { pointerManager in
@@ -864,7 +864,7 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter LocalUserId:  the Product User ID of the user being queried.
      * 
-     * @return the enum value of a user's login status.
+     * - Returns:  the enum value of a user's login status.
      */
     private func ____GetLoginStatus(
         _ LocalUserId: EOS_ProductUserId
@@ -881,9 +881,9 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  The Options associated with retrieving the external account info count.
      * 
-     * @see EOS_Connect_CopyProductUserExternalAccountByIndex
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByIndex
      * 
-     * @return Number of external accounts or 0 otherwise.
+     * - Returns:  Number of external accounts or 0 otherwise.
      */
     private func ____GetProductUserExternalAccountCount(
         _ Options: SwiftEOS_Connect_GetProductUserExternalAccountCountOptions
@@ -906,7 +906,7 @@ extension SwiftEOS_Connect_Actor {
      * 
      * - Parameter Options:  structure containing the local user and target Product User ID.
      * 
-     * @return An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
+     * - Returns:  An EOS_EResult that indicates the external account ID was copied into the OutBuffer.
      *         EOS_Success if the information is available and passed out in OutUserInfo.
      *         EOS_InvalidParameters if you pass a null pointer for the out parameter.
      *         EOS_NotFound if the mapping doesn't exist or hasn't been queried yet.
@@ -1000,13 +1000,13 @@ extension SwiftEOS_Connect_Actor {
      * The values will be cached and retrievable via EOS_Connect_GetProductUserIdMapping, EOS_Connect_CopyProductUserExternalAccountByIndex,
      * EOS_Connect_CopyProductUserExternalAccountByAccountType or EOS_Connect_CopyProductUserExternalAccountByAccountId.
      * 
-     * @see EOS_Connect_ExternalAccountInfo
-     * @see EOS_Connect_GetProductUserExternalAccountCount
-     * @see EOS_Connect_GetProductUserIdMapping
-     * @see EOS_Connect_CopyProductUserExternalAccountByIndex
-     * @see EOS_Connect_CopyProductUserExternalAccountByAccountType
-     * @see EOS_Connect_CopyProductUserExternalAccountByAccountId
-     * @see EOS_Connect_CopyProductUserInfo
+     * - SeeAlso:  EOS_Connect_ExternalAccountInfo
+     * - SeeAlso:  EOS_Connect_GetProductUserExternalAccountCount
+     * - SeeAlso:  EOS_Connect_GetProductUserIdMapping
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByIndex
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByAccountType
+     * - SeeAlso:  EOS_Connect_CopyProductUserExternalAccountByAccountId
+     * - SeeAlso:  EOS_Connect_CopyProductUserInfo
      * 
      * - Parameter Options:  structure containing a list of Product User IDs to query for the external account representation.
      * - Parameter CompletionDelegate:  a callback that is fired when the query operation completes, either successfully or in error.
@@ -1078,8 +1078,8 @@ extension SwiftEOS_Connect_Actor {
      * recovered, so it is very important that the user is guided to make the right choice to avoid
      * accidental loss of all game progression.
      * 
-     * @see EOS_Connect_Login
-     * @see EOS_Connect_CreateDeviceId
+     * - SeeAlso:  EOS_Connect_Login
+     * - SeeAlso:  EOS_Connect_CreateDeviceId
      * 
      * - Parameter Options:  structure containing the logged in product users and specifying which one will be preserved.
      * - Parameter CompletionDelegate:  a callback that is fired when the transfer operation completes, either successfully or in error.

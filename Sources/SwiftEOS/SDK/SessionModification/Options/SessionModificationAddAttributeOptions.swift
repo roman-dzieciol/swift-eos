@@ -34,7 +34,7 @@ public struct SwiftEOS_SessionModification_AddAttributeOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionAttribute = try SwiftEOS_Sessions_AttributeData.init(sdkObject: sdkObject.SessionAttribute.pointee)
+        self.SessionAttribute = try SwiftEOS_Sessions_AttributeData.init(sdkObject: sdkObject.SessionAttribute?.pointee)
         self.AdvertisementType = sdkObject.AdvertisementType
     }
 

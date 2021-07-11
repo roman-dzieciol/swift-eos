@@ -45,7 +45,7 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.ClientHandle = sdkObject.ClientHandle
         self.EventId = try safeNumericCast(exactly: sdkObject.EventId)
-        self.Params = try sdkObject.Params.array(safeNumericCast(exactly: sdkObject.ParamsCount)).compactMap { 
+        self.Params = try sdkObject.Params?.array(safeNumericCast(exactly: sdkObject.ParamsCount)).compactMap { 
             try SwiftEOS_AntiCheatCommon_LogEventParamPair.init(sdkObject: $0.pointee) }
     }
 

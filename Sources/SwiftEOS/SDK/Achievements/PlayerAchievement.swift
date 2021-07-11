@@ -84,7 +84,7 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
         self.AchievementId = String(cString: sdkObject.AchievementId)
         self.Progress = sdkObject.Progress
         self.UnlockTime = try safeNumericCast(exactly: sdkObject.UnlockTime)
-        self.StatInfo = try sdkObject.StatInfo.array(safeNumericCast(exactly: sdkObject.StatInfoCount)).compactMap { 
+        self.StatInfo = try sdkObject.StatInfo?.array(safeNumericCast(exactly: sdkObject.StatInfoCount)).compactMap { 
             try SwiftEOS_Achievements_PlayerStatInfo.init(sdkObject: $0.pointee) }
         self.DisplayName = String(cString: sdkObject.DisplayName)
         self.Description = String(cString: sdkObject.Description)

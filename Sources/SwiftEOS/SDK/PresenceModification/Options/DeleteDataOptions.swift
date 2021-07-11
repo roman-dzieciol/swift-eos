@@ -37,7 +37,7 @@ public struct SwiftEOS_PresenceModification_DeleteDataOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Records = try sdkObject.Records.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
+        self.Records = try sdkObject.Records?.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
             try SwiftEOS_PresenceModification_DataRecordId.init(sdkObject: $0.pointee) }
     }
 

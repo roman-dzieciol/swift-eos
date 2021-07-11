@@ -94,7 +94,7 @@ public struct SwiftEOS_Platform_Options: SwiftEOSObject {
         self.Flags = sdkObject.Flags
         self.CacheDirectory = String(cString: sdkObject.CacheDirectory)
         self.TickBudgetInMilliseconds = try safeNumericCast(exactly: sdkObject.TickBudgetInMilliseconds)
-        self.RTCOptions = try SwiftEOS_Platform_RTCOptions.init(sdkObject: sdkObject.RTCOptions.pointee)
+        self.RTCOptions = try SwiftEOS_Platform_RTCOptions.init(sdkObject: sdkObject.RTCOptions?.pointee)
     }
 
     /**

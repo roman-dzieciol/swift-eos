@@ -62,7 +62,7 @@ public struct SwiftEOS_Lobby_JoinLobbyOptions: SwiftEOSObject {
         self.LobbyDetailsHandle = sdkObject.LobbyDetailsHandle
         self.LocalUserId = sdkObject.LocalUserId
         self.bPresenceEnabled = try swiftBoolFromEosBool(sdkObject.bPresenceEnabled)
-        self.LocalRTCOptions = try SwiftEOS_Lobby_LocalRTCOptions.init(sdkObject: sdkObject.LocalRTCOptions.pointee)
+        self.LocalRTCOptions = try SwiftEOS_Lobby_LocalRTCOptions.init(sdkObject: sdkObject.LocalRTCOptions?.pointee)
     }
 
     /**

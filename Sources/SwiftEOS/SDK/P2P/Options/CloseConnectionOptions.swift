@@ -40,7 +40,7 @@ public struct SwiftEOS_P2P_CloseConnectionOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.RemoteUserId = sdkObject.RemoteUserId
-        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
+        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId?.pointee)
     }
 
     /**

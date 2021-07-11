@@ -20,7 +20,7 @@ public struct SwiftEOS_Mods_InstallModCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod.pointee)
+        self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod?.pointee)
     }
 
     /** Send completion using the pointer to C callback info provided */

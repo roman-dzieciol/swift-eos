@@ -35,7 +35,7 @@ public struct SwiftEOS_P2P_GetNextReceivedPacketSizeOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.RequestedChannel = sdkObject.RequestedChannel.pointee
+        self.RequestedChannel = sdkObject.RequestedChannel?.pointee
     }
 
     /**

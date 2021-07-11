@@ -39,8 +39,8 @@ public struct SwiftEOS_Connect_LoginOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Credentials = try SwiftEOS_Connect_Credentials.init(sdkObject: sdkObject.Credentials.pointee)
-        self.UserLoginInfo = try SwiftEOS_Connect_UserLoginInfo.init(sdkObject: sdkObject.UserLoginInfo.pointee)
+        self.Credentials = try SwiftEOS_Connect_Credentials.init(sdkObject: sdkObject.Credentials?.pointee)
+        self.UserLoginInfo = try SwiftEOS_Connect_UserLoginInfo.init(sdkObject: sdkObject.UserLoginInfo?.pointee)
     }
 
     /**

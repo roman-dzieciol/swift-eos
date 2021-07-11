@@ -49,8 +49,8 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.PlayerHandle = sdkObject.PlayerHandle
-        self.PlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.PlayerPosition.pointee)
-        self.PlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.PlayerViewRotation.pointee)
+        self.PlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.PlayerPosition?.pointee)
+        self.PlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.PlayerViewRotation?.pointee)
         self.bIsPlayerViewZoomed = try swiftBoolFromEosBool(sdkObject.bIsPlayerViewZoomed)
         self.PlayerHealth = sdkObject.PlayerHealth
         self.PlayerMovementState = sdkObject.PlayerMovementState

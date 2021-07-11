@@ -35,7 +35,7 @@ public struct SwiftEOS_P2P_AddNotifyPeerConnectionClosedOptions: SwiftEOSObject 
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
+        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId?.pointee)
     }
 
     /**

@@ -23,7 +23,7 @@ public struct SwiftEOS_P2P_OnRemoteConnectionClosedInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.LocalUserId = sdkObject.LocalUserId
         self.RemoteUserId = sdkObject.RemoteUserId
-        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
+        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId?.pointee)
         self.Reason = sdkObject.Reason
     }
 

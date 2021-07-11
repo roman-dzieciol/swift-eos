@@ -102,11 +102,11 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.VictimPlayerHandle = sdkObject.VictimPlayerHandle
-        self.VictimPlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.VictimPlayerPosition.pointee)
-        self.VictimPlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.VictimPlayerViewRotation.pointee)
+        self.VictimPlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.VictimPlayerPosition?.pointee)
+        self.VictimPlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.VictimPlayerViewRotation?.pointee)
         self.AttackerPlayerHandle = sdkObject.AttackerPlayerHandle
-        self.AttackerPlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.AttackerPlayerPosition.pointee)
-        self.AttackerPlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.AttackerPlayerViewRotation.pointee)
+        self.AttackerPlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.AttackerPlayerPosition?.pointee)
+        self.AttackerPlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.AttackerPlayerViewRotation?.pointee)
         self.bIsHitscanAttack = try swiftBoolFromEosBool(sdkObject.bIsHitscanAttack)
         self.bHasLineOfSight = try swiftBoolFromEosBool(sdkObject.bHasLineOfSight)
         self.bIsCriticalHit = try swiftBoolFromEosBool(sdkObject.bIsCriticalHit)
@@ -116,7 +116,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
         self.DamageSource = sdkObject.DamageSource
         self.DamageType = sdkObject.DamageType
         self.DamageResult = sdkObject.DamageResult
-        self.PlayerUseWeaponData = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData.init(sdkObject: sdkObject.PlayerUseWeaponData.pointee)
+        self.PlayerUseWeaponData = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData.init(sdkObject: sdkObject.PlayerUseWeaponData?.pointee)
         self.TimeSincePlayerUseWeaponMs = try safeNumericCast(exactly: sdkObject.TimeSincePlayerUseWeaponMs)
     }
 

@@ -25,7 +25,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.ItemOwnership = try sdkObject.ItemOwnership.array(safeNumericCast(exactly: sdkObject.ItemOwnershipCount)).compactMap { 
+        self.ItemOwnership = try sdkObject.ItemOwnership?.array(safeNumericCast(exactly: sdkObject.ItemOwnershipCount)).compactMap { 
             try SwiftEOS_Ecom_ItemOwnership.init(sdkObject: $0.pointee) }
     }
 

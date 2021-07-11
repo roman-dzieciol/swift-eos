@@ -77,7 +77,7 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
         self.ProductVersion = String(cString: sdkObject.ProductVersion)
         self.Platform = String(cString: sdkObject.Platform)
         self.RichText = String(cString: sdkObject.RichText)
-        self.Records = try sdkObject.Records.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
+        self.Records = try sdkObject.Records?.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
             try SwiftEOS_Presence_DataRecord.init(sdkObject: $0.pointee) }
         self.ProductName = String(cString: sdkObject.ProductName)
     }

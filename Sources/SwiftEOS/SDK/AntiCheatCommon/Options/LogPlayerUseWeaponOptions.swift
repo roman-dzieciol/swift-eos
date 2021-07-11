@@ -28,7 +28,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions: SwiftEOSObject
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.UseWeaponData = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData.init(sdkObject: sdkObject.UseWeaponData.pointee)
+        self.UseWeaponData = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData.init(sdkObject: sdkObject.UseWeaponData?.pointee)
     }
 
     /**

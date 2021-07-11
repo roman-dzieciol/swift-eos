@@ -47,7 +47,7 @@ public struct SwiftEOS_Mods_ModInfo: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Mods = try sdkObject.Mods.array(safeNumericCast(exactly: sdkObject.ModsCount)).compactMap { 
+        self.Mods = try sdkObject.Mods?.array(safeNumericCast(exactly: sdkObject.ModsCount)).compactMap { 
             try SwiftEOS_Mod_Identifier.init(sdkObject: $0.pointee) }
         self.`Type` = sdkObject.`Type`
     }

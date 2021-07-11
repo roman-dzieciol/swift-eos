@@ -49,7 +49,7 @@ public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
         self.SessionName = String(cString: sdkObject.SessionName)
         self.LocalUserId = sdkObject.LocalUserId
         self.State = sdkObject.State
-        self.SessionDetails = try SwiftEOS_SessionDetails_Info.init(sdkObject: sdkObject.SessionDetails.pointee)
+        self.SessionDetails = try SwiftEOS_SessionDetails_Info.init(sdkObject: sdkObject.SessionDetails?.pointee)
     }
 
     /**

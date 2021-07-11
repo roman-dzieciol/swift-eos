@@ -26,8 +26,8 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.PlayerHandle = sdkObject.PlayerHandle
-        self.PlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.PlayerPosition.pointee)
-        self.PlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.PlayerViewRotation.pointee)
+        self.PlayerPosition = try SwiftEOS_AntiCheatCommon_Vec3f.init(sdkObject: sdkObject.PlayerPosition?.pointee)
+        self.PlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.PlayerViewRotation?.pointee)
         self.bIsPlayerViewZoomed = try swiftBoolFromEosBool(sdkObject.bIsPlayerViewZoomed)
         self.bIsMeleeAttack = try swiftBoolFromEosBool(sdkObject.bIsMeleeAttack)
         self.WeaponName = String(cString: sdkObject.WeaponName)

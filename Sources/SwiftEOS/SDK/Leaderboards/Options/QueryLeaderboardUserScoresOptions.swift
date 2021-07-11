@@ -67,7 +67,7 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
             start: sdkObject.UserIds,
             count: sdkObject.UserIdsCount
         )
-        self.StatInfo = try sdkObject.StatInfo.array(safeNumericCast(exactly: sdkObject.StatInfoCount)).compactMap { 
+        self.StatInfo = try sdkObject.StatInfo?.array(safeNumericCast(exactly: sdkObject.StatInfoCount)).compactMap { 
             try SwiftEOS_Leaderboards_UserScoresQueryStatInfo.init(sdkObject: $0.pointee) }
         self.StartTime = try safeNumericCast(exactly: sdkObject.StartTime)
         self.EndTime = try safeNumericCast(exactly: sdkObject.EndTime)

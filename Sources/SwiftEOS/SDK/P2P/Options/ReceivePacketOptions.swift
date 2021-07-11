@@ -40,7 +40,7 @@ public struct SwiftEOS_P2P_ReceivePacketOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.MaxDataSizeBytes = try safeNumericCast(exactly: sdkObject.MaxDataSizeBytes)
-        self.RequestedChannel = sdkObject.RequestedChannel.pointee
+        self.RequestedChannel = sdkObject.RequestedChannel?.pointee
     }
 
     /**

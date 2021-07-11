@@ -35,7 +35,7 @@ public struct SwiftEOS_Mods_UpdateModOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod.pointee)
+        self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod?.pointee)
     }
 
     /**

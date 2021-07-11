@@ -52,7 +52,7 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventOptions: SwiftEOSObject {
         self.EventId = try safeNumericCast(exactly: sdkObject.EventId)
         self.EventName = String(cString: sdkObject.EventName)
         self.EventType = sdkObject.EventType
-        self.ParamDefs = try sdkObject.ParamDefs.array(safeNumericCast(exactly: sdkObject.ParamDefsCount)).compactMap { 
+        self.ParamDefs = try sdkObject.ParamDefs?.array(safeNumericCast(exactly: sdkObject.ParamDefsCount)).compactMap { 
             try SwiftEOS_AntiCheatCommon_RegisterEventParamDef.init(sdkObject: $0.pointee) }
     }
 

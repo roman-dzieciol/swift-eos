@@ -104,7 +104,7 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
         self.BucketId = String(cString: sdkObject.BucketId)
         self.bDisableHostMigration = try swiftBoolFromEosBool(sdkObject.bDisableHostMigration)
         self.bEnableRTCRoom = try swiftBoolFromEosBool(sdkObject.bEnableRTCRoom)
-        self.LocalRTCOptions = try SwiftEOS_Lobby_LocalRTCOptions.init(sdkObject: sdkObject.LocalRTCOptions.pointee)
+        self.LocalRTCOptions = try SwiftEOS_Lobby_LocalRTCOptions.init(sdkObject: sdkObject.LocalRTCOptions?.pointee)
         self.LobbyId = String(cString: sdkObject.LobbyId)
     }
 

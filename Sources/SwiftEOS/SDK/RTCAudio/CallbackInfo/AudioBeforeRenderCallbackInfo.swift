@@ -30,7 +30,7 @@ public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.LocalUserId = sdkObject.LocalUserId
         self.RoomName = String(cString: sdkObject.RoomName)
-        self.Buffer = try SwiftEOS_RTCAudio_AudioBuffer.init(sdkObject: sdkObject.Buffer.pointee)
+        self.Buffer = try SwiftEOS_RTCAudio_AudioBuffer.init(sdkObject: sdkObject.Buffer?.pointee)
         self.ParticipantId = sdkObject.ParticipantId
     }
 

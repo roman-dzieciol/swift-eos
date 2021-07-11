@@ -46,7 +46,7 @@ public struct SwiftEOS_Stats_IngestStatOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Stats = try sdkObject.Stats.array(safeNumericCast(exactly: sdkObject.StatsCount)).compactMap { 
+        self.Stats = try sdkObject.Stats?.array(safeNumericCast(exactly: sdkObject.StatsCount)).compactMap { 
             try SwiftEOS_Stats_IngestData.init(sdkObject: $0.pointee) }
         self.TargetUserId = sdkObject.TargetUserId
     }

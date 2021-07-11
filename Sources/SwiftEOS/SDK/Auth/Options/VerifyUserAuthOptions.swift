@@ -33,7 +33,7 @@ public struct SwiftEOS_Auth_VerifyUserAuthOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AuthToken = try SwiftEOS_Auth_Token.init(sdkObject: sdkObject.AuthToken.pointee)
+        self.AuthToken = try SwiftEOS_Auth_Token.init(sdkObject: sdkObject.AuthToken?.pointee)
     }
 
     /**

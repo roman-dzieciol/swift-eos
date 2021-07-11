@@ -34,7 +34,7 @@ public struct SwiftEOS_LobbyModification_AddAttributeOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Attribute = try SwiftEOS_Lobby_AttributeData.init(sdkObject: sdkObject.Attribute.pointee)
+        self.Attribute = try SwiftEOS_Lobby_AttributeData.init(sdkObject: sdkObject.Attribute?.pointee)
         self.Visibility = sdkObject.Visibility
     }
 

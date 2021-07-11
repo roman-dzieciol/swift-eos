@@ -25,7 +25,7 @@ public struct SwiftEOS_Auth_LinkAccountCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.PinGrantInfo = try SwiftEOS_Auth_PinGrantInfo.init(sdkObject: sdkObject.PinGrantInfo.pointee)
+        self.PinGrantInfo = try SwiftEOS_Auth_PinGrantInfo.init(sdkObject: sdkObject.PinGrantInfo?.pointee)
     }
 
     /** Send completion using the pointer to C callback info provided */

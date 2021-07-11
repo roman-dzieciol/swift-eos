@@ -34,7 +34,7 @@ public struct SwiftEOS_LobbySearch_SetParameterOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Parameter = try SwiftEOS_Lobby_AttributeData.init(sdkObject: sdkObject.Parameter.pointee)
+        self.Parameter = try SwiftEOS_Lobby_AttributeData.init(sdkObject: sdkObject.Parameter?.pointee)
         self.ComparisonOp = sdkObject.ComparisonOp
     }
 

@@ -86,7 +86,7 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
         self.UnlockedIconURL = String(cString: sdkObject.UnlockedIconURL)
         self.LockedIconURL = String(cString: sdkObject.LockedIconURL)
         self.bIsHidden = try swiftBoolFromEosBool(sdkObject.bIsHidden)
-        self.StatThresholds = try sdkObject.StatThresholds.array(safeNumericCast(exactly: sdkObject.StatThresholdsCount)).compactMap { 
+        self.StatThresholds = try sdkObject.StatThresholds?.array(safeNumericCast(exactly: sdkObject.StatThresholdsCount)).compactMap { 
             try SwiftEOS_Achievements_StatThresholds.init(sdkObject: $0.pointee) }
     }
 

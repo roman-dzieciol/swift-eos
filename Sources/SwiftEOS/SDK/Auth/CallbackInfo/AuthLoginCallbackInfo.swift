@@ -26,9 +26,9 @@ public struct SwiftEOS_Auth_LoginCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.PinGrantInfo = try SwiftEOS_Auth_PinGrantInfo.init(sdkObject: sdkObject.PinGrantInfo.pointee)
+        self.PinGrantInfo = try SwiftEOS_Auth_PinGrantInfo.init(sdkObject: sdkObject.PinGrantInfo?.pointee)
         self.ContinuanceToken = sdkObject.ContinuanceToken
-        self.AccountFeatureRestrictedInfo = try SwiftEOS_Auth_AccountFeatureRestrictedInfo.init(sdkObject: sdkObject.AccountFeatureRestrictedInfo.pointee)
+        self.AccountFeatureRestrictedInfo = try SwiftEOS_Auth_AccountFeatureRestrictedInfo.init(sdkObject: sdkObject.AccountFeatureRestrictedInfo?.pointee)
     }
 
     /** Send completion using the pointer to C callback info provided */

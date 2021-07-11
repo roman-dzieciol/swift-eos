@@ -86,7 +86,7 @@ public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
         self.ProductVersion = String(cString: sdkObject.ProductVersion)
         self.Reserved = sdkObject.Reserved
         self.SystemInitializeOptions = sdkObject.SystemInitializeOptions
-        self.OverrideThreadAffinity = try SwiftEOS_Initialize_ThreadAffinity.init(sdkObject: sdkObject.OverrideThreadAffinity.pointee)
+        self.OverrideThreadAffinity = try SwiftEOS_Initialize_ThreadAffinity.init(sdkObject: sdkObject.OverrideThreadAffinity?.pointee)
     }
 
     /**

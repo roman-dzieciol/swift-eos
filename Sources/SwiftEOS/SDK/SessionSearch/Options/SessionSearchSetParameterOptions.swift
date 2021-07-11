@@ -40,7 +40,7 @@ public struct SwiftEOS_SessionSearch_SetParameterOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Parameter = try SwiftEOS_Sessions_AttributeData.init(sdkObject: sdkObject.Parameter.pointee)
+        self.Parameter = try SwiftEOS_Sessions_AttributeData.init(sdkObject: sdkObject.Parameter?.pointee)
         self.ComparisonOp = sdkObject.ComparisonOp
     }
 

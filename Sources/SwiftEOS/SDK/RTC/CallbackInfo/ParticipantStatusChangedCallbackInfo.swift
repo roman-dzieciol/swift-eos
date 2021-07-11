@@ -35,7 +35,7 @@ public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
         self.RoomName = String(cString: sdkObject.RoomName)
         self.ParticipantId = sdkObject.ParticipantId
         self.ParticipantStatus = sdkObject.ParticipantStatus
-        self.ParticipantMetadata = try sdkObject.ParticipantMetadata.array(safeNumericCast(exactly: sdkObject.ParticipantMetadataCount)).compactMap { 
+        self.ParticipantMetadata = try sdkObject.ParticipantMetadata?.array(safeNumericCast(exactly: sdkObject.ParticipantMetadataCount)).compactMap { 
             try SwiftEOS_RTC_ParticipantMetadata.init(sdkObject: $0.pointee) }
     }
 

@@ -32,7 +32,7 @@ public struct SwiftEOS_SessionDetails_Info: SwiftEOSObject {
         self.SessionId = String(cString: sdkObject.SessionId)
         self.HostAddress = String(cString: sdkObject.HostAddress)
         self.NumOpenPublicConnections = try safeNumericCast(exactly: sdkObject.NumOpenPublicConnections)
-        self.Settings = try SwiftEOS_SessionDetails_Settings.init(sdkObject: sdkObject.Settings.pointee)
+        self.Settings = try SwiftEOS_SessionDetails_Settings.init(sdkObject: sdkObject.Settings?.pointee)
     }
 
     /**

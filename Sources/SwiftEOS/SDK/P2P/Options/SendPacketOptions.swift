@@ -62,7 +62,7 @@ public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.RemoteUserId = sdkObject.RemoteUserId
-        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
+        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId?.pointee)
         self.Channel = sdkObject.Channel
         self.Data = try Array(try UnsafeRawBufferPointer(
                 start: sdkObject.Data,

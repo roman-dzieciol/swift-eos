@@ -44,7 +44,7 @@ public struct SwiftEOS_RTCAudio_SendAudioOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.RoomName = String(cString: sdkObject.RoomName)
-        self.Buffer = try SwiftEOS_RTCAudio_AudioBuffer.init(sdkObject: sdkObject.Buffer.pointee)
+        self.Buffer = try SwiftEOS_RTCAudio_AudioBuffer.init(sdkObject: sdkObject.Buffer?.pointee)
     }
 
     /**

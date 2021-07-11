@@ -633,7 +633,7 @@ extension SwiftEOS_RTCAudio_Actor {
                             Options
                         ) } },
                 transformedResult: { 
-                    try SwiftEOS_RTCAudio_AudioInputDeviceInfo.init(sdkObject: $0.pointee) }
+                    try SwiftEOS_RTCAudio_AudioInputDeviceInfo.init(sdkObject: $0?.pointee) }
             ) }
     }
 
@@ -683,7 +683,7 @@ extension SwiftEOS_RTCAudio_Actor {
                             Options
                         ) } },
                 transformedResult: { 
-                    try SwiftEOS_RTCAudio_AudioOutputDeviceInfo.init(sdkObject: $0.pointee) }
+                    try SwiftEOS_RTCAudio_AudioOutputDeviceInfo.init(sdkObject: $0?.pointee) }
             ) }
     }
 

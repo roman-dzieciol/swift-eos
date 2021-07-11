@@ -39,7 +39,7 @@ public struct SwiftEOS_Mods_InstallModOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod.pointee)
+        self.Mod = try SwiftEOS_Mod_Identifier.init(sdkObject: sdkObject.Mod?.pointee)
         self.bRemoveAfterExit = try swiftBoolFromEosBool(sdkObject.bRemoveAfterExit)
     }
 

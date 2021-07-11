@@ -20,7 +20,7 @@ public struct SwiftEOS_P2P_OnIncomingConnectionRequestInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.LocalUserId = sdkObject.LocalUserId
         self.RemoteUserId = sdkObject.RemoteUserId
-        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId.pointee)
+        self.SocketId = try SwiftEOS_P2P_SocketId.init(sdkObject: sdkObject.SocketId?.pointee)
     }
 
     /** Send notification using the pointer to C callback info provided */

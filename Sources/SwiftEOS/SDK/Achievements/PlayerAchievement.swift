@@ -81,15 +81,15 @@ public struct SwiftEOS_Achievements_PlayerAchievement: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AchievementId = String(cString: sdkObject.AchievementId)
+        self.AchievementId = stringFromOptionalCStringPointer(sdkObject.AchievementId)
         self.Progress = sdkObject.Progress
         self.UnlockTime = try safeNumericCast(exactly: sdkObject.UnlockTime)
         self.StatInfo = try sdkObject.StatInfo?.array(safeNumericCast(exactly: sdkObject.StatInfoCount)).compactMap { 
             try SwiftEOS_Achievements_PlayerStatInfo.init(sdkObject: $0.pointee) }
-        self.DisplayName = String(cString: sdkObject.DisplayName)
-        self.Description = String(cString: sdkObject.Description)
-        self.IconURL = String(cString: sdkObject.IconURL)
-        self.FlavorText = String(cString: sdkObject.FlavorText)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
+        self.Description = stringFromOptionalCStringPointer(sdkObject.Description)
+        self.IconURL = stringFromOptionalCStringPointer(sdkObject.IconURL)
+        self.FlavorText = stringFromOptionalCStringPointer(sdkObject.FlavorText)
     }
 
     /**

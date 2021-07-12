@@ -46,7 +46,7 @@ public struct SwiftEOS_Stats_Stat: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Name = String(cString: sdkObject.Name)
+        self.Name = stringFromOptionalCStringPointer(sdkObject.Name)
         self.StartTime = try safeNumericCast(exactly: sdkObject.StartTime)
         self.EndTime = try safeNumericCast(exactly: sdkObject.EndTime)
         self.Value = try safeNumericCast(exactly: sdkObject.Value)

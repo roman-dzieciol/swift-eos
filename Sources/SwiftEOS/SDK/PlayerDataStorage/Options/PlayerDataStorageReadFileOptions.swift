@@ -47,7 +47,7 @@ public struct SwiftEOS_PlayerDataStorage_ReadFileOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Filename = String(cString: sdkObject.Filename)
+        self.Filename = stringFromOptionalCStringPointer(sdkObject.Filename)
         self.ReadChunkLengthBytes = try safeNumericCast(exactly: sdkObject.ReadChunkLengthBytes)
         self.ReadFileDataCallback = sdkObject.ReadFileDataCallback
         self.FileTransferProgressCallback = sdkObject.FileTransferProgressCallback

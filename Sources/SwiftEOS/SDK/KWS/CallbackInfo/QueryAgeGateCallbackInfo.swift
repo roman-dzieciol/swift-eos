@@ -19,7 +19,7 @@ public struct SwiftEOS_KWS_QueryAgeGateCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
-        self.CountryCode = String(cString: sdkObject.CountryCode)
+        self.CountryCode = stringFromOptionalCStringPointer(sdkObject.CountryCode)
         self.AgeOfConsent = try safeNumericCast(exactly: sdkObject.AgeOfConsent)
     }
 

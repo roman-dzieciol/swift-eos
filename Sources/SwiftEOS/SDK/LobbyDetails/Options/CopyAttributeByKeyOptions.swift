@@ -30,7 +30,7 @@ public struct SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AttrKey = String(cString: sdkObject.AttrKey)
+        self.AttrKey = stringFromOptionalCStringPointer(sdkObject.AttrKey)
     }
 
     /**

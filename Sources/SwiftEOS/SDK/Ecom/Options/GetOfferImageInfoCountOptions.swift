@@ -35,7 +35,7 @@ public struct SwiftEOS_Ecom_GetOfferImageInfoCountOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.OfferId = String(cString: sdkObject.OfferId)
+        self.OfferId = stringFromOptionalCStringPointer(sdkObject.OfferId)
     }
 
     /**

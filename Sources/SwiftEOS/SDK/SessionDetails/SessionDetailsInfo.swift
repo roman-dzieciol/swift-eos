@@ -29,8 +29,8 @@ public struct SwiftEOS_SessionDetails_Info: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionId = String(cString: sdkObject.SessionId)
-        self.HostAddress = String(cString: sdkObject.HostAddress)
+        self.SessionId = stringFromOptionalCStringPointer(sdkObject.SessionId)
+        self.HostAddress = stringFromOptionalCStringPointer(sdkObject.HostAddress)
         self.NumOpenPublicConnections = try safeNumericCast(exactly: sdkObject.NumOpenPublicConnections)
         self.Settings = try SwiftEOS_SessionDetails_Settings.init(sdkObject: sdkObject.Settings?.pointee)
     }

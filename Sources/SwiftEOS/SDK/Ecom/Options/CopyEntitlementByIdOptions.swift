@@ -35,7 +35,7 @@ public struct SwiftEOS_Ecom_CopyEntitlementByIdOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.EntitlementId = String(cString: sdkObject.EntitlementId)
+        self.EntitlementId = stringFromOptionalCStringPointer(sdkObject.EntitlementId)
     }
 
     /**

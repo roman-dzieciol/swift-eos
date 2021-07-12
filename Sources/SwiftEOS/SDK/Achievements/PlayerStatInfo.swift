@@ -26,7 +26,7 @@ public struct SwiftEOS_Achievements_PlayerStatInfo: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Name = String(cString: sdkObject.Name)
+        self.Name = stringFromOptionalCStringPointer(sdkObject.Name)
         self.CurrentValue = try safeNumericCast(exactly: sdkObject.CurrentValue)
         self.ThresholdValue = try safeNumericCast(exactly: sdkObject.ThresholdValue)
     }

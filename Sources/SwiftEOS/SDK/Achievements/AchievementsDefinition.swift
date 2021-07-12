@@ -81,15 +81,15 @@ public struct SwiftEOS_Achievements_Definition: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AchievementId = String(cString: sdkObject.AchievementId)
-        self.DisplayName = String(cString: sdkObject.DisplayName)
-        self.Description = String(cString: sdkObject.Description)
-        self.LockedDisplayName = String(cString: sdkObject.LockedDisplayName)
-        self.LockedDescription = String(cString: sdkObject.LockedDescription)
-        self.HiddenDescription = String(cString: sdkObject.HiddenDescription)
-        self.CompletionDescription = String(cString: sdkObject.CompletionDescription)
-        self.UnlockedIconId = String(cString: sdkObject.UnlockedIconId)
-        self.LockedIconId = String(cString: sdkObject.LockedIconId)
+        self.AchievementId = stringFromOptionalCStringPointer(sdkObject.AchievementId)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
+        self.Description = stringFromOptionalCStringPointer(sdkObject.Description)
+        self.LockedDisplayName = stringFromOptionalCStringPointer(sdkObject.LockedDisplayName)
+        self.LockedDescription = stringFromOptionalCStringPointer(sdkObject.LockedDescription)
+        self.HiddenDescription = stringFromOptionalCStringPointer(sdkObject.HiddenDescription)
+        self.CompletionDescription = stringFromOptionalCStringPointer(sdkObject.CompletionDescription)
+        self.UnlockedIconId = stringFromOptionalCStringPointer(sdkObject.UnlockedIconId)
+        self.LockedIconId = stringFromOptionalCStringPointer(sdkObject.LockedIconId)
         self.bIsHidden = try swiftBoolFromEosBool(sdkObject.bIsHidden)
         self.StatThresholds = try sdkObject.StatThresholds?.array(safeNumericCast(exactly: sdkObject.StatThresholdsCount)).compactMap { 
             try SwiftEOS_Achievements_StatThresholds.init(sdkObject: $0.pointee) }

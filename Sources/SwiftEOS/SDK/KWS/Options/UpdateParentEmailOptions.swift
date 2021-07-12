@@ -35,7 +35,7 @@ public struct SwiftEOS_KWS_UpdateParentEmailOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.ParentEmail = String(cString: sdkObject.ParentEmail)
+        self.ParentEmail = stringFromOptionalCStringPointer(sdkObject.ParentEmail)
     }
 
     /**

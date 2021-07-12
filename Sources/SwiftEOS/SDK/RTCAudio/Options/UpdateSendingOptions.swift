@@ -39,7 +39,7 @@ public struct SwiftEOS_RTCAudio_UpdateSendingOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.RoomName = String(cString: sdkObject.RoomName)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
         self.AudioStatus = sdkObject.AudioStatus
     }
 

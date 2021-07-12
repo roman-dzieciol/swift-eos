@@ -39,7 +39,7 @@ public struct SwiftEOS_RTCAdmin_UserToken: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.ProductUserId = sdkObject.ProductUserId
-        self.Token = String(cString: sdkObject.Token)
+        self.Token = stringFromOptionalCStringPointer(sdkObject.Token)
     }
 
     /**

@@ -44,7 +44,7 @@ public struct SwiftEOS_PresenceModification_SetJoinInfoOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.JoinInfo = String(cString: sdkObject.JoinInfo)
+        self.JoinInfo = stringFromOptionalCStringPointer(sdkObject.JoinInfo)
     }
 
     /**

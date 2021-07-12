@@ -35,7 +35,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions: Swif
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LeaderboardUserScoreIndex = try safeNumericCast(exactly: sdkObject.LeaderboardUserScoreIndex)
-        self.StatName = String(cString: sdkObject.StatName)
+        self.StatName = stringFromOptionalCStringPointer(sdkObject.StatName)
     }
 
     /**

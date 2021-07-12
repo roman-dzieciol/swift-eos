@@ -42,7 +42,7 @@ public struct SwiftEOS_RTCAudio_SetAudioOutputSettingsOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.DeviceId = String(cString: sdkObject.DeviceId)
+        self.DeviceId = stringFromOptionalCStringPointer(sdkObject.DeviceId)
         self.Volume = sdkObject.Volume
     }
 

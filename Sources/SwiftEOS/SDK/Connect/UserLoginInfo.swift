@@ -25,7 +25,7 @@ public struct SwiftEOS_Connect_UserLoginInfo: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.DisplayName = String(cString: sdkObject.DisplayName)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
     }
 
     /**

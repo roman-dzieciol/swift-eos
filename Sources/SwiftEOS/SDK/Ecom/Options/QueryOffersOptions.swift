@@ -35,7 +35,7 @@ public struct SwiftEOS_Ecom_QueryOffersOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.OverrideCatalogNamespace = String(cString: sdkObject.OverrideCatalogNamespace)
+        self.OverrideCatalogNamespace = stringFromOptionalCStringPointer(sdkObject.OverrideCatalogNamespace)
     }
 
     /**

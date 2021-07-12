@@ -35,7 +35,7 @@ public struct SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdOptions:
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.TargetUserId = sdkObject.TargetUserId
-        self.AccountId = String(cString: sdkObject.AccountId)
+        self.AccountId = stringFromOptionalCStringPointer(sdkObject.AccountId)
     }
 
     /**

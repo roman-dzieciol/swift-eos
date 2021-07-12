@@ -77,14 +77,14 @@ public struct SwiftEOS_Achievements_DefinitionV2: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AchievementId = String(cString: sdkObject.AchievementId)
-        self.UnlockedDisplayName = String(cString: sdkObject.UnlockedDisplayName)
-        self.UnlockedDescription = String(cString: sdkObject.UnlockedDescription)
-        self.LockedDisplayName = String(cString: sdkObject.LockedDisplayName)
-        self.LockedDescription = String(cString: sdkObject.LockedDescription)
-        self.FlavorText = String(cString: sdkObject.FlavorText)
-        self.UnlockedIconURL = String(cString: sdkObject.UnlockedIconURL)
-        self.LockedIconURL = String(cString: sdkObject.LockedIconURL)
+        self.AchievementId = stringFromOptionalCStringPointer(sdkObject.AchievementId)
+        self.UnlockedDisplayName = stringFromOptionalCStringPointer(sdkObject.UnlockedDisplayName)
+        self.UnlockedDescription = stringFromOptionalCStringPointer(sdkObject.UnlockedDescription)
+        self.LockedDisplayName = stringFromOptionalCStringPointer(sdkObject.LockedDisplayName)
+        self.LockedDescription = stringFromOptionalCStringPointer(sdkObject.LockedDescription)
+        self.FlavorText = stringFromOptionalCStringPointer(sdkObject.FlavorText)
+        self.UnlockedIconURL = stringFromOptionalCStringPointer(sdkObject.UnlockedIconURL)
+        self.LockedIconURL = stringFromOptionalCStringPointer(sdkObject.LockedIconURL)
         self.bIsHidden = try swiftBoolFromEosBool(sdkObject.bIsHidden)
         self.StatThresholds = try sdkObject.StatThresholds?.array(safeNumericCast(exactly: sdkObject.StatThresholdsCount)).compactMap { 
             try SwiftEOS_Achievements_StatThresholds.init(sdkObject: $0.pointee) }

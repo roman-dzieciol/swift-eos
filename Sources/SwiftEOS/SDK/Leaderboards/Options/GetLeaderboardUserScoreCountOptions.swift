@@ -30,7 +30,7 @@ public struct SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions: SwiftEO
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.StatName = String(cString: sdkObject.StatName)
+        self.StatName = stringFromOptionalCStringPointer(sdkObject.StatName)
     }
 
     /**

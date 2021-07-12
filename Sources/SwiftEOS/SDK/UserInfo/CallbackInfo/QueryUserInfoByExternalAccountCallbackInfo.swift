@@ -26,7 +26,7 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.ExternalAccountId = String(cString: sdkObject.ExternalAccountId)
+        self.ExternalAccountId = stringFromOptionalCStringPointer(sdkObject.ExternalAccountId)
         self.AccountType = sdkObject.AccountType
         self.TargetUserId = sdkObject.TargetUserId
     }

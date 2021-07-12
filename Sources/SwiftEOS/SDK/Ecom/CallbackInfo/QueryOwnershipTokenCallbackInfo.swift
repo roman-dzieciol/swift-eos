@@ -20,7 +20,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.OwnershipToken = String(cString: sdkObject.OwnershipToken)
+        self.OwnershipToken = stringFromOptionalCStringPointer(sdkObject.OwnershipToken)
     }
 
     /** Send completion using the pointer to C callback info provided */

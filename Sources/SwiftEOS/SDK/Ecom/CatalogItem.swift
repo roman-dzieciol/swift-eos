@@ -71,14 +71,14 @@ public struct SwiftEOS_Ecom_CatalogItem: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.CatalogNamespace = String(cString: sdkObject.CatalogNamespace)
-        self.Id = String(cString: sdkObject.Id)
-        self.EntitlementName = String(cString: sdkObject.EntitlementName)
-        self.TitleText = String(cString: sdkObject.TitleText)
-        self.DescriptionText = String(cString: sdkObject.DescriptionText)
-        self.LongDescriptionText = String(cString: sdkObject.LongDescriptionText)
-        self.TechnicalDetailsText = String(cString: sdkObject.TechnicalDetailsText)
-        self.DeveloperText = String(cString: sdkObject.DeveloperText)
+        self.CatalogNamespace = stringFromOptionalCStringPointer(sdkObject.CatalogNamespace)
+        self.Id = stringFromOptionalCStringPointer(sdkObject.Id)
+        self.EntitlementName = stringFromOptionalCStringPointer(sdkObject.EntitlementName)
+        self.TitleText = stringFromOptionalCStringPointer(sdkObject.TitleText)
+        self.DescriptionText = stringFromOptionalCStringPointer(sdkObject.DescriptionText)
+        self.LongDescriptionText = stringFromOptionalCStringPointer(sdkObject.LongDescriptionText)
+        self.TechnicalDetailsText = stringFromOptionalCStringPointer(sdkObject.TechnicalDetailsText)
+        self.DeveloperText = stringFromOptionalCStringPointer(sdkObject.DeveloperText)
         self.ItemType = sdkObject.ItemType
         self.EntitlementEndTimestamp = try safeNumericCast(exactly: sdkObject.EntitlementEndTimestamp)
     }

@@ -30,7 +30,7 @@ public struct SwiftEOS_SessionModification_SetBucketIdOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.BucketId = String(cString: sdkObject.BucketId)
+        self.BucketId = stringFromOptionalCStringPointer(sdkObject.BucketId)
     }
 
     /**

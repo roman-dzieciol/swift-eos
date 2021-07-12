@@ -66,12 +66,12 @@ public struct SwiftEOS_Sessions_CreateSessionModificationOptions: SwiftEOSObject
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionName = String(cString: sdkObject.SessionName)
-        self.BucketId = String(cString: sdkObject.BucketId)
+        self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
+        self.BucketId = stringFromOptionalCStringPointer(sdkObject.BucketId)
         self.MaxPlayers = try safeNumericCast(exactly: sdkObject.MaxPlayers)
         self.LocalUserId = sdkObject.LocalUserId
         self.bPresenceEnabled = try swiftBoolFromEosBool(sdkObject.bPresenceEnabled)
-        self.SessionId = String(cString: sdkObject.SessionId)
+        self.SessionId = stringFromOptionalCStringPointer(sdkObject.SessionId)
     }
 
     /**

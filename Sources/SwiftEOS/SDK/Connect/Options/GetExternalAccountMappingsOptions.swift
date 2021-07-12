@@ -40,7 +40,7 @@ public struct SwiftEOS_Connect_GetExternalAccountMappingsOptions: SwiftEOSObject
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.AccountIdType = sdkObject.AccountIdType
-        self.TargetExternalUserId = String(cString: sdkObject.TargetExternalUserId)
+        self.TargetExternalUserId = stringFromOptionalCStringPointer(sdkObject.TargetExternalUserId)
     }
 
     /**

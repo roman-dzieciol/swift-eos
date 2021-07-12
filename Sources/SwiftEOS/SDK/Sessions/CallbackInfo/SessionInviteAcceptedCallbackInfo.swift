@@ -21,10 +21,10 @@ public struct SwiftEOS_Sessions_SessionInviteAcceptedCallbackInfo {
         sdkObject: _tagEOS_Sessions_SessionInviteAcceptedCallbackInfo?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.SessionId = String(cString: sdkObject.SessionId)
+        self.SessionId = stringFromOptionalCStringPointer(sdkObject.SessionId)
         self.LocalUserId = sdkObject.LocalUserId
         self.TargetUserId = sdkObject.TargetUserId
-        self.InviteId = String(cString: sdkObject.InviteId)
+        self.InviteId = stringFromOptionalCStringPointer(sdkObject.InviteId)
     }
 
     /** Send notification using the pointer to C callback info provided */

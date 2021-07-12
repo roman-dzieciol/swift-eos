@@ -75,16 +75,16 @@ public struct SwiftEOS_Auth_Token: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.App = String(cString: sdkObject.App)
-        self.ClientId = String(cString: sdkObject.ClientId)
+        self.App = stringFromOptionalCStringPointer(sdkObject.App)
+        self.ClientId = stringFromOptionalCStringPointer(sdkObject.ClientId)
         self.AccountId = sdkObject.AccountId
-        self.AccessToken = String(cString: sdkObject.AccessToken)
+        self.AccessToken = stringFromOptionalCStringPointer(sdkObject.AccessToken)
         self.ExpiresIn = sdkObject.ExpiresIn
-        self.ExpiresAt = String(cString: sdkObject.ExpiresAt)
+        self.ExpiresAt = stringFromOptionalCStringPointer(sdkObject.ExpiresAt)
         self.AuthType = sdkObject.AuthType
-        self.RefreshToken = String(cString: sdkObject.RefreshToken)
+        self.RefreshToken = stringFromOptionalCStringPointer(sdkObject.RefreshToken)
         self.RefreshExpiresIn = sdkObject.RefreshExpiresIn
-        self.RefreshExpiresAt = String(cString: sdkObject.RefreshExpiresAt)
+        self.RefreshExpiresAt = stringFromOptionalCStringPointer(sdkObject.RefreshExpiresAt)
     }
 
     /**

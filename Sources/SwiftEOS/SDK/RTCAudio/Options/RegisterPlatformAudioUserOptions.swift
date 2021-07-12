@@ -30,7 +30,7 @@ public struct SwiftEOS_RTCAudio_RegisterPlatformAudioUserOptions: SwiftEOSObject
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.UserId = String(cString: sdkObject.UserId)
+        self.UserId = stringFromOptionalCStringPointer(sdkObject.UserId)
     }
 
     /**

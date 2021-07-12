@@ -31,8 +31,8 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
-        self.RoomName = String(cString: sdkObject.RoomName)
-        self.ClientBaseUrl = String(cString: sdkObject.ClientBaseUrl)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
+        self.ClientBaseUrl = stringFromOptionalCStringPointer(sdkObject.ClientBaseUrl)
         self.QueryId = try safeNumericCast(exactly: sdkObject.QueryId)
         self.TokenCount = try safeNumericCast(exactly: sdkObject.TokenCount)
     }

@@ -60,13 +60,13 @@ public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
         self.LobbyOwnerUserId = sdkObject.LobbyOwnerUserId
         self.PermissionLevel = sdkObject.PermissionLevel
         self.AvailableSlots = try safeNumericCast(exactly: sdkObject.AvailableSlots)
         self.MaxMembers = try safeNumericCast(exactly: sdkObject.MaxMembers)
         self.bAllowInvites = try swiftBoolFromEosBool(sdkObject.bAllowInvites)
-        self.BucketId = String(cString: sdkObject.BucketId)
+        self.BucketId = stringFromOptionalCStringPointer(sdkObject.BucketId)
         self.bAllowHostMigration = try swiftBoolFromEosBool(sdkObject.bAllowHostMigration)
         self.bRTCRoomEnabled = try swiftBoolFromEosBool(sdkObject.bRTCRoomEnabled)
     }

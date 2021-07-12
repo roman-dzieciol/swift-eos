@@ -30,7 +30,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdOpti
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.LeaderboardId = String(cString: sdkObject.LeaderboardId)
+        self.LeaderboardId = stringFromOptionalCStringPointer(sdkObject.LeaderboardId)
     }
 
     /**

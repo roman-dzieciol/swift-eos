@@ -35,7 +35,7 @@ public struct SwiftEOS_Ecom_CopyItemByIdOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.ItemId = String(cString: sdkObject.ItemId)
+        self.ItemId = stringFromOptionalCStringPointer(sdkObject.ItemId)
     }
 
     /**

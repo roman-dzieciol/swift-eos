@@ -22,7 +22,7 @@ public struct SwiftEOS_Ecom_ItemOwnership {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Id = String(cString: sdkObject.Id)
+        self.Id = stringFromOptionalCStringPointer(sdkObject.Id)
         self.OwnershipStatus = sdkObject.OwnershipStatus
     }
 

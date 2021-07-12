@@ -73,13 +73,13 @@ public struct SwiftEOS_Presence_Info: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.Status = sdkObject.Status
         self.UserId = sdkObject.UserId
-        self.ProductId = String(cString: sdkObject.ProductId)
-        self.ProductVersion = String(cString: sdkObject.ProductVersion)
-        self.Platform = String(cString: sdkObject.Platform)
-        self.RichText = String(cString: sdkObject.RichText)
+        self.ProductId = stringFromOptionalCStringPointer(sdkObject.ProductId)
+        self.ProductVersion = stringFromOptionalCStringPointer(sdkObject.ProductVersion)
+        self.Platform = stringFromOptionalCStringPointer(sdkObject.Platform)
+        self.RichText = stringFromOptionalCStringPointer(sdkObject.RichText)
         self.Records = try sdkObject.Records?.array(safeNumericCast(exactly: sdkObject.RecordsCount)).compactMap { 
             try SwiftEOS_Presence_DataRecord.init(sdkObject: $0.pointee) }
-        self.ProductName = String(cString: sdkObject.ProductName)
+        self.ProductName = stringFromOptionalCStringPointer(sdkObject.ProductName)
     }
 
     /**

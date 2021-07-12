@@ -83,16 +83,16 @@ public struct SwiftEOS_Platform_Options: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.Reserved = sdkObject.Reserved
-        self.ProductId = String(cString: sdkObject.ProductId)
-        self.SandboxId = String(cString: sdkObject.SandboxId)
+        self.ProductId = stringFromOptionalCStringPointer(sdkObject.ProductId)
+        self.SandboxId = stringFromOptionalCStringPointer(sdkObject.SandboxId)
         self.ClientCredentials = try SwiftEOS_Platform_ClientCredentials(sdkObject: sdkObject.ClientCredentials)!
         self.bIsServer = try swiftBoolFromEosBool(sdkObject.bIsServer)
-        self.EncryptionKey = String(cString: sdkObject.EncryptionKey)
-        self.OverrideCountryCode = String(cString: sdkObject.OverrideCountryCode)
-        self.OverrideLocaleCode = String(cString: sdkObject.OverrideLocaleCode)
-        self.DeploymentId = String(cString: sdkObject.DeploymentId)
+        self.EncryptionKey = stringFromOptionalCStringPointer(sdkObject.EncryptionKey)
+        self.OverrideCountryCode = stringFromOptionalCStringPointer(sdkObject.OverrideCountryCode)
+        self.OverrideLocaleCode = stringFromOptionalCStringPointer(sdkObject.OverrideLocaleCode)
+        self.DeploymentId = stringFromOptionalCStringPointer(sdkObject.DeploymentId)
         self.Flags = sdkObject.Flags
-        self.CacheDirectory = String(cString: sdkObject.CacheDirectory)
+        self.CacheDirectory = stringFromOptionalCStringPointer(sdkObject.CacheDirectory)
         self.TickBudgetInMilliseconds = try safeNumericCast(exactly: sdkObject.TickBudgetInMilliseconds)
         self.RTCOptions = try SwiftEOS_Platform_RTCOptions.init(sdkObject: sdkObject.RTCOptions?.pointee)
     }

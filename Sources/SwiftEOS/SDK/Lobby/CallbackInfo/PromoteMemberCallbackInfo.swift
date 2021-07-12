@@ -16,7 +16,7 @@ public struct SwiftEOS_Lobby_PromoteMemberCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
     }
 
     /** Send completion using the pointer to C callback info provided */

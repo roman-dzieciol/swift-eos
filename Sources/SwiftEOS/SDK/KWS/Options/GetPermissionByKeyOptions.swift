@@ -35,7 +35,7 @@ public struct SwiftEOS_KWS_GetPermissionByKeyOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Key = String(cString: sdkObject.Key)
+        self.Key = stringFromOptionalCStringPointer(sdkObject.Key)
     }
 
     /**

@@ -33,7 +33,7 @@ public struct SwiftEOS_Auth_DeletePersistentAuthOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.RefreshToken = String(cString: sdkObject.RefreshToken)
+        self.RefreshToken = stringFromOptionalCStringPointer(sdkObject.RefreshToken)
     }
 
     /**

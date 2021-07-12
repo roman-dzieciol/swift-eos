@@ -65,9 +65,9 @@ public struct SwiftEOS_RTC_JoinRoomOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.RoomName = String(cString: sdkObject.RoomName)
-        self.ClientBaseUrl = String(cString: sdkObject.ClientBaseUrl)
-        self.ParticipantToken = String(cString: sdkObject.ParticipantToken)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
+        self.ClientBaseUrl = stringFromOptionalCStringPointer(sdkObject.ClientBaseUrl)
+        self.ParticipantToken = stringFromOptionalCStringPointer(sdkObject.ParticipantToken)
         self.ParticipantId = sdkObject.ParticipantId
         self.Flags = try safeNumericCast(exactly: sdkObject.Flags)
         self.bManualAudioInputEnabled = try swiftBoolFromEosBool(sdkObject.bManualAudioInputEnabled)

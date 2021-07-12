@@ -28,7 +28,7 @@ public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
         sdkObject: _tagEOS_Presence_JoinGameAcceptedCallbackInfo?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.JoinInfo = String(cString: sdkObject.JoinInfo)
+        self.JoinInfo = stringFromOptionalCStringPointer(sdkObject.JoinInfo)
         self.LocalUserId = sdkObject.LocalUserId
         self.TargetUserId = sdkObject.TargetUserId
         self.UiEventId = sdkObject.UiEventId

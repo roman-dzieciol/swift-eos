@@ -28,7 +28,7 @@ public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.BucketId = String(cString: sdkObject.BucketId)
+        self.BucketId = stringFromOptionalCStringPointer(sdkObject.BucketId)
         self.NumPublicConnections = try safeNumericCast(exactly: sdkObject.NumPublicConnections)
         self.bAllowJoinInProgress = try swiftBoolFromEosBool(sdkObject.bAllowJoinInProgress)
         self.PermissionLevel = sdkObject.PermissionLevel

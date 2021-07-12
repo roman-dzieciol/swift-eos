@@ -62,10 +62,10 @@ public struct SwiftEOS_Metrics_BeginPlayerSessionOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.AccountIdType = sdkObject.AccountIdType
         self.AccountId = sdkObject.AccountId
-        self.DisplayName = String(cString: sdkObject.DisplayName)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
         self.ControllerType = sdkObject.ControllerType
-        self.ServerIp = String(cString: sdkObject.ServerIp)
-        self.GameSessionId = String(cString: sdkObject.GameSessionId)
+        self.ServerIp = stringFromOptionalCStringPointer(sdkObject.ServerIp)
+        self.GameSessionId = stringFromOptionalCStringPointer(sdkObject.GameSessionId)
     }
 
     /**

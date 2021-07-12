@@ -30,7 +30,7 @@ public struct SwiftEOS_Sessions_DestroySessionOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionName = String(cString: sdkObject.SessionName)
+        self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
     }
 
     /**

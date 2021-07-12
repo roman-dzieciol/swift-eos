@@ -30,7 +30,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
         self.PlayerViewRotation = try SwiftEOS_AntiCheatCommon_Quat.init(sdkObject: sdkObject.PlayerViewRotation?.pointee)
         self.bIsPlayerViewZoomed = try swiftBoolFromEosBool(sdkObject.bIsPlayerViewZoomed)
         self.bIsMeleeAttack = try swiftBoolFromEosBool(sdkObject.bIsMeleeAttack)
-        self.WeaponName = String(cString: sdkObject.WeaponName)
+        self.WeaponName = stringFromOptionalCStringPointer(sdkObject.WeaponName)
     }
 
     /**

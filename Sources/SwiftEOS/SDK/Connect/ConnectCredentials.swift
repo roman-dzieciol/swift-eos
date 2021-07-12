@@ -26,7 +26,7 @@ public struct SwiftEOS_Connect_Credentials: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Token = String(cString: sdkObject.Token)
+        self.Token = stringFromOptionalCStringPointer(sdkObject.Token)
         self.`Type` = sdkObject.`Type`
     }
 

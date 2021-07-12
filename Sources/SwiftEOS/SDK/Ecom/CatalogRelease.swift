@@ -65,7 +65,7 @@ public struct SwiftEOS_Ecom_CatalogRelease: SwiftEOSObject {
             pointer: sdkObject.CompatiblePlatforms,
             count: sdkObject.CompatiblePlatformCount
         )
-        self.ReleaseNote = String(cString: sdkObject.ReleaseNote)
+        self.ReleaseNote = stringFromOptionalCStringPointer(sdkObject.ReleaseNote)
     }
 
     /**

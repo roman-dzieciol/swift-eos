@@ -38,7 +38,7 @@ public struct SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.RoomName = String(cString: sdkObject.RoomName)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
         self.TargetUserId = sdkObject.TargetUserId
         self.bMute = try swiftBoolFromEosBool(sdkObject.bMute)
     }

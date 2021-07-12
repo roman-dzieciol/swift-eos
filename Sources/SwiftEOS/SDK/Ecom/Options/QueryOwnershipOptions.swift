@@ -50,7 +50,7 @@ public struct SwiftEOS_Ecom_QueryOwnershipOptions: SwiftEOSObject {
             pointer: sdkObject.CatalogItemIds,
             count: sdkObject.CatalogItemIdCount
         )
-        self.CatalogNamespace = String(cString: sdkObject.CatalogNamespace)
+        self.CatalogNamespace = stringFromOptionalCStringPointer(sdkObject.CatalogNamespace)
     }
 
     /**

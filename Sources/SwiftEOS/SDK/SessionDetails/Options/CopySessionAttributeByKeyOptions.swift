@@ -34,7 +34,7 @@ public struct SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions: SwiftEOS
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AttrKey = String(cString: sdkObject.AttrKey)
+        self.AttrKey = stringFromOptionalCStringPointer(sdkObject.AttrKey)
     }
 
     /**

@@ -32,7 +32,7 @@ public struct SwiftEOS_Lobby_IsRTCRoomConnectedOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
         self.LocalUserId = sdkObject.LocalUserId
     }
 

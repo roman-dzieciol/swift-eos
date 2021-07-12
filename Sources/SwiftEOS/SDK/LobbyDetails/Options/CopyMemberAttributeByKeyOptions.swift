@@ -35,7 +35,7 @@ public struct SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions: SwiftEOSObj
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.TargetUserId = sdkObject.TargetUserId
-        self.AttrKey = String(cString: sdkObject.AttrKey)
+        self.AttrKey = stringFromOptionalCStringPointer(sdkObject.AttrKey)
     }
 
     /**

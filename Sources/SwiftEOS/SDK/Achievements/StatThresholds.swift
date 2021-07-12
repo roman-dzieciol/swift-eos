@@ -29,7 +29,7 @@ public struct SwiftEOS_Achievements_StatThresholds: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Name = String(cString: sdkObject.Name)
+        self.Name = stringFromOptionalCStringPointer(sdkObject.Name)
         self.Threshold = try safeNumericCast(exactly: sdkObject.Threshold)
     }
 

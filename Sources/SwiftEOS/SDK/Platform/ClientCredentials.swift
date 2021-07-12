@@ -15,8 +15,8 @@ public struct SwiftEOS_Platform_ClientCredentials: SwiftEOSObject {
         sdkObject: _tagEOS_Platform_ClientCredentials?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.ClientId = String(cString: sdkObject.ClientId)
-        self.ClientSecret = String(cString: sdkObject.ClientSecret)
+        self.ClientId = stringFromOptionalCStringPointer(sdkObject.ClientId)
+        self.ClientSecret = stringFromOptionalCStringPointer(sdkObject.ClientSecret)
     }
 
     /**

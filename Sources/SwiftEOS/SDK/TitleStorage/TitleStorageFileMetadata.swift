@@ -47,8 +47,8 @@ public struct SwiftEOS_TitleStorage_FileMetadata: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.FileSizeBytes = try safeNumericCast(exactly: sdkObject.FileSizeBytes)
-        self.MD5Hash = String(cString: sdkObject.MD5Hash)
-        self.Filename = String(cString: sdkObject.Filename)
+        self.MD5Hash = stringFromOptionalCStringPointer(sdkObject.MD5Hash)
+        self.Filename = stringFromOptionalCStringPointer(sdkObject.Filename)
         self.UnencryptedDataSizeBytes = try safeNumericCast(exactly: sdkObject.UnencryptedDataSizeBytes)
     }
 

@@ -19,7 +19,7 @@ public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackV2Info {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.UserId = sdkObject.UserId
-        self.AchievementId = String(cString: sdkObject.AchievementId)
+        self.AchievementId = stringFromOptionalCStringPointer(sdkObject.AchievementId)
         self.UnlockTime = try safeNumericCast(exactly: sdkObject.UnlockTime)
     }
 

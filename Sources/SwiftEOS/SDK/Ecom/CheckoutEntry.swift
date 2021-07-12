@@ -19,7 +19,7 @@ public struct SwiftEOS_Ecom_CheckoutEntry: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.OfferId = String(cString: sdkObject.OfferId)
+        self.OfferId = stringFromOptionalCStringPointer(sdkObject.OfferId)
     }
 
     /**

@@ -23,7 +23,7 @@ public struct SwiftEOS_KWS_CreateUserCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.KWSUserId = String(cString: sdkObject.KWSUserId)
+        self.KWSUserId = stringFromOptionalCStringPointer(sdkObject.KWSUserId)
         self.bIsMinor = try swiftBoolFromEosBool(sdkObject.bIsMinor)
     }
 

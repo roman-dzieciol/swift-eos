@@ -32,7 +32,7 @@ public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Name = String(cString: sdkObject.Name)
+        self.Name = stringFromOptionalCStringPointer(sdkObject.Name)
         self.Status = sdkObject.Status
     }
 

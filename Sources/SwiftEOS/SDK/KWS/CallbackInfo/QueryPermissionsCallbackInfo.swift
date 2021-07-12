@@ -26,8 +26,8 @@ public struct SwiftEOS_KWS_QueryPermissionsCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.KWSUserId = String(cString: sdkObject.KWSUserId)
-        self.DateOfBirth = String(cString: sdkObject.DateOfBirth)
+        self.KWSUserId = stringFromOptionalCStringPointer(sdkObject.KWSUserId)
+        self.DateOfBirth = stringFromOptionalCStringPointer(sdkObject.DateOfBirth)
         self.bIsMinor = try swiftBoolFromEosBool(sdkObject.bIsMinor)
     }
 

@@ -39,7 +39,7 @@ public struct SwiftEOS_Ecom_CopyOfferItemByIndexOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.OfferId = String(cString: sdkObject.OfferId)
+        self.OfferId = stringFromOptionalCStringPointer(sdkObject.OfferId)
         self.ItemIndex = try safeNumericCast(exactly: sdkObject.ItemIndex)
     }
 

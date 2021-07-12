@@ -23,8 +23,8 @@ public struct SwiftEOS_Presence_DataRecord: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Key = String(cString: sdkObject.Key)
-        self.Value = String(cString: sdkObject.Value)
+        self.Key = stringFromOptionalCStringPointer(sdkObject.Key)
+        self.Value = stringFromOptionalCStringPointer(sdkObject.Value)
     }
 
     /**

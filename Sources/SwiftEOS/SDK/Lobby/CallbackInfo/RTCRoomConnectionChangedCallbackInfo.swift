@@ -27,7 +27,7 @@ public struct SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfo {
         sdkObject: _tagEOS_Lobby_RTCRoomConnectionChangedCallbackInfo?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
         self.LocalUserId = sdkObject.LocalUserId
         self.bIsConnected = try swiftBoolFromEosBool(sdkObject.bIsConnected)
         self.DisconnectReason = sdkObject.DisconnectReason

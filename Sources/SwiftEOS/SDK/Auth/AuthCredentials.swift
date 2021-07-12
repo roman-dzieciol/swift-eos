@@ -54,8 +54,8 @@ public struct SwiftEOS_Auth_Credentials: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Id = String(cString: sdkObject.Id)
-        self.Token = String(cString: sdkObject.Token)
+        self.Id = stringFromOptionalCStringPointer(sdkObject.Id)
+        self.Token = stringFromOptionalCStringPointer(sdkObject.Token)
         self.`Type` = sdkObject.`Type`
         self.SystemAuthCredentialsOptions = sdkObject.SystemAuthCredentialsOptions
         self.ExternalType = sdkObject.ExternalType

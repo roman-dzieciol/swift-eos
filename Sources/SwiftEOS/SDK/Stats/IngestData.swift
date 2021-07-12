@@ -19,7 +19,7 @@ public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.StatName = String(cString: sdkObject.StatName)
+        self.StatName = stringFromOptionalCStringPointer(sdkObject.StatName)
         self.IngestAmount = try safeNumericCast(exactly: sdkObject.IngestAmount)
     }
 

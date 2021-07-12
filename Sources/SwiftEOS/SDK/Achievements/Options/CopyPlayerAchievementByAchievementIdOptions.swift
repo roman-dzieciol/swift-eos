@@ -39,7 +39,7 @@ public struct SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions:
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.TargetUserId = sdkObject.TargetUserId
-        self.AchievementId = String(cString: sdkObject.AchievementId)
+        self.AchievementId = stringFromOptionalCStringPointer(sdkObject.AchievementId)
         self.LocalUserId = sdkObject.LocalUserId
     }
 

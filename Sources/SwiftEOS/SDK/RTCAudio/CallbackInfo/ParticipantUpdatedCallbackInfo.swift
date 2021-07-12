@@ -25,7 +25,7 @@ public struct SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.LocalUserId = sdkObject.LocalUserId
-        self.RoomName = String(cString: sdkObject.RoomName)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
         self.ParticipantId = sdkObject.ParticipantId
         self.bSpeaking = try swiftBoolFromEosBool(sdkObject.bSpeaking)
         self.AudioStatus = sdkObject.AudioStatus

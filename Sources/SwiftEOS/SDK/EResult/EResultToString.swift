@@ -16,6 +16,6 @@ public func SwiftEOS_EResult_ToString(
             nested: { 
                 EOS_EResult_ToString(Result) },
             transformedResult: { 
-                String(cString: $0) }
+                stringFromOptionalCStringPointer($0) }
         ) }
 }

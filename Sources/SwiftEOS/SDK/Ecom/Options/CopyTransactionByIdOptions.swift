@@ -35,7 +35,7 @@ public struct SwiftEOS_Ecom_CopyTransactionByIdOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.TransactionId = String(cString: sdkObject.TransactionId)
+        self.TransactionId = stringFromOptionalCStringPointer(sdkObject.TransactionId)
     }
 
     /**

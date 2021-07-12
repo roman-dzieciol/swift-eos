@@ -40,7 +40,7 @@ public struct SwiftEOS_Connect_CreateDeviceIdOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.DeviceModel = String(cString: sdkObject.DeviceModel)
+        self.DeviceModel = stringFromOptionalCStringPointer(sdkObject.DeviceModel)
     }
 
     /**

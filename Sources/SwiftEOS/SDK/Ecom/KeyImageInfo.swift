@@ -51,8 +51,8 @@ public struct SwiftEOS_Ecom_KeyImageInfo: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.`Type` = String(cString: sdkObject.`Type`)
-        self.Url = String(cString: sdkObject.Url)
+        self.`Type` = stringFromOptionalCStringPointer(sdkObject.`Type`)
+        self.Url = stringFromOptionalCStringPointer(sdkObject.Url)
         self.Width = try safeNumericCast(exactly: sdkObject.Width)
         self.Height = try safeNumericCast(exactly: sdkObject.Height)
     }

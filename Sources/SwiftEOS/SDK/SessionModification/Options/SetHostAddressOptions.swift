@@ -30,7 +30,7 @@ public struct SwiftEOS_SessionModification_SetHostAddressOptions: SwiftEOSObject
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.HostAddress = String(cString: sdkObject.HostAddress)
+        self.HostAddress = stringFromOptionalCStringPointer(sdkObject.HostAddress)
     }
 
     /**

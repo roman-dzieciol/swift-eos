@@ -30,7 +30,7 @@ public struct SwiftEOS_PresenceModification_SetRawRichTextOptions: SwiftEOSObjec
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.RichText = String(cString: sdkObject.RichText)
+        self.RichText = stringFromOptionalCStringPointer(sdkObject.RichText)
     }
 
     /**

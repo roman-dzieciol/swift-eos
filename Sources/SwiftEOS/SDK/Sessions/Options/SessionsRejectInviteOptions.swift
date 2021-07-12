@@ -35,7 +35,7 @@ public struct SwiftEOS_Sessions_RejectInviteOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.InviteId = String(cString: sdkObject.InviteId)
+        self.InviteId = stringFromOptionalCStringPointer(sdkObject.InviteId)
     }
 
     /**

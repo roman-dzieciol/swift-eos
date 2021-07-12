@@ -40,7 +40,7 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionName = String(cString: sdkObject.SessionName)
+        self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
         self.PlayersToUnregister = try trivialOptionalArrayFromTrivialOptionalPointer(
             start: sdkObject.PlayersToUnregister,
             count: sdkObject.PlayersToUnregisterCount

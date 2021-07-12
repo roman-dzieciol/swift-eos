@@ -49,7 +49,7 @@ public struct SwiftEOS_Leaderboards_LeaderboardRecord: SwiftEOSObject {
         self.UserId = sdkObject.UserId
         self.Rank = try safeNumericCast(exactly: sdkObject.Rank)
         self.Score = try safeNumericCast(exactly: sdkObject.Score)
-        self.UserDisplayName = String(cString: sdkObject.UserDisplayName)
+        self.UserDisplayName = stringFromOptionalCStringPointer(sdkObject.UserDisplayName)
     }
 
     /**

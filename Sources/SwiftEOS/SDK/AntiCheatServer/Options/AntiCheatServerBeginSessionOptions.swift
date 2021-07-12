@@ -47,7 +47,7 @@ public struct SwiftEOS_AntiCheatServer_BeginSessionOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.RegisterTimeoutSeconds = try safeNumericCast(exactly: sdkObject.RegisterTimeoutSeconds)
-        self.ServerName = String(cString: sdkObject.ServerName)
+        self.ServerName = stringFromOptionalCStringPointer(sdkObject.ServerName)
         self.bEnableGameplayData = try swiftBoolFromEosBool(sdkObject.bEnableGameplayData)
         self.LocalUserId = sdkObject.LocalUserId
     }

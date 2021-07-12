@@ -20,7 +20,7 @@ public struct SwiftEOS_Ecom_CheckoutCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.TransactionId = String(cString: sdkObject.TransactionId)
+        self.TransactionId = stringFromOptionalCStringPointer(sdkObject.TransactionId)
     }
 
     /** Send completion using the pointer to C callback info provided */

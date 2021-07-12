@@ -30,7 +30,7 @@ public struct SwiftEOS_Achievements_CopyAchievementDefinitionByAchievementIdOpti
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.AchievementId = String(cString: sdkObject.AchievementId)
+        self.AchievementId = stringFromOptionalCStringPointer(sdkObject.AchievementId)
     }
 
     /**

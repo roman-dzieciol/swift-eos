@@ -60,8 +60,8 @@ public struct SwiftEOS_Reports_SendPlayerBehaviorReportOptions: SwiftEOSObject {
         self.ReporterUserId = sdkObject.ReporterUserId
         self.ReportedUserId = sdkObject.ReportedUserId
         self.Category = sdkObject.Category
-        self.Message = String(cString: sdkObject.Message)
-        self.Context = String(cString: sdkObject.Context)
+        self.Message = stringFromOptionalCStringPointer(sdkObject.Message)
+        self.Context = stringFromOptionalCStringPointer(sdkObject.Context)
     }
 
     /**

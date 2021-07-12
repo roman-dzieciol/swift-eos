@@ -35,7 +35,7 @@ public struct SwiftEOS_PlayerDataStorage_QueryFileOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Filename = String(cString: sdkObject.Filename)
+        self.Filename = stringFromOptionalCStringPointer(sdkObject.Filename)
     }
 
     /**

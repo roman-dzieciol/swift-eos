@@ -47,7 +47,7 @@ public struct SwiftEOS_PlayerDataStorage_WriteFileOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.Filename = String(cString: sdkObject.Filename)
+        self.Filename = stringFromOptionalCStringPointer(sdkObject.Filename)
         self.ChunkLengthBytes = try safeNumericCast(exactly: sdkObject.ChunkLengthBytes)
         self.WriteFileDataCallback = sdkObject.WriteFileDataCallback
         self.FileTransferProgressCallback = sdkObject.FileTransferProgressCallback

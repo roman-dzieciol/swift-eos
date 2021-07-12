@@ -8,6 +8,6 @@ public func SwiftEOS_GetVersion() -> String? {
             nested: { 
                 EOS_GetVersion() },
             transformedResult: { 
-                String(cString: $0) }
+                stringFromOptionalCStringPointer($0) }
         ) }
 }

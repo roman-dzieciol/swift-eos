@@ -43,8 +43,8 @@ public struct SwiftEOS_UserInfo_ExternalUserInfo: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.AccountType = sdkObject.AccountType
-        self.AccountId = String(cString: sdkObject.AccountId)
-        self.DisplayName = String(cString: sdkObject.DisplayName)
+        self.AccountId = stringFromOptionalCStringPointer(sdkObject.AccountId)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
     }
 
     /**

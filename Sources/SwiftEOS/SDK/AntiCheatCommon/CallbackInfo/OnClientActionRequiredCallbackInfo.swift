@@ -24,7 +24,7 @@ public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
         self.ClientHandle = sdkObject.ClientHandle
         self.ClientAction = sdkObject.ClientAction
         self.ActionReasonCode = sdkObject.ActionReasonCode
-        self.ActionReasonDetailsString = String(cString: sdkObject.ActionReasonDetailsString)
+        self.ActionReasonDetailsString = stringFromOptionalCStringPointer(sdkObject.ActionReasonDetailsString)
     }
 
     /** Send notification using the pointer to C callback info provided */

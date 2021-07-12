@@ -56,8 +56,8 @@ public struct SwiftEOS_AntiCheatServer_RegisterClientOptions: SwiftEOSObject {
         self.ClientHandle = sdkObject.ClientHandle
         self.ClientType = sdkObject.ClientType
         self.ClientPlatform = sdkObject.ClientPlatform
-        self.AccountId = String(cString: sdkObject.AccountId)
-        self.IpAddress = String(cString: sdkObject.IpAddress)
+        self.AccountId = stringFromOptionalCStringPointer(sdkObject.AccountId)
+        self.IpAddress = stringFromOptionalCStringPointer(sdkObject.IpAddress)
     }
 
     /**

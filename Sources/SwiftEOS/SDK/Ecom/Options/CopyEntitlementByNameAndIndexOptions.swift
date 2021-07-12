@@ -39,7 +39,7 @@ public struct SwiftEOS_Ecom_CopyEntitlementByNameAndIndexOptions: SwiftEOSObject
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.EntitlementName = String(cString: sdkObject.EntitlementName)
+        self.EntitlementName = stringFromOptionalCStringPointer(sdkObject.EntitlementName)
         self.Index = try safeNumericCast(exactly: sdkObject.Index)
     }
 

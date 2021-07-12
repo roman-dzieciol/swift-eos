@@ -19,7 +19,7 @@ public struct SwiftEOS_Auth_AccountFeatureRestrictedInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.VerificationURI = String(cString: sdkObject.VerificationURI)
+        self.VerificationURI = stringFromOptionalCStringPointer(sdkObject.VerificationURI)
     }
 
     /**

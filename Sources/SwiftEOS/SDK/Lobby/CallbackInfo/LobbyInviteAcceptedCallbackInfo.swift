@@ -21,10 +21,10 @@ public struct SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo {
         sdkObject: _tagEOS_Lobby_LobbyInviteAcceptedCallbackInfo?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.InviteId = String(cString: sdkObject.InviteId)
+        self.InviteId = stringFromOptionalCStringPointer(sdkObject.InviteId)
         self.LocalUserId = sdkObject.LocalUserId
         self.TargetUserId = sdkObject.TargetUserId
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
     }
 
     /** Send notification using the pointer to C callback info provided */

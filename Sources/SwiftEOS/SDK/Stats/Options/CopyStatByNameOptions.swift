@@ -35,7 +35,7 @@ public struct SwiftEOS_Stats_CopyStatByNameOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.TargetUserId = sdkObject.TargetUserId
-        self.Name = String(cString: sdkObject.Name)
+        self.Name = stringFromOptionalCStringPointer(sdkObject.Name)
     }
 
     /**

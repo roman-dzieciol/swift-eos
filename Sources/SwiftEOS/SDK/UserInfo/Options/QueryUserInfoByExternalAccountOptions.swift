@@ -39,7 +39,7 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions: SwiftEOSO
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.ExternalAccountId = String(cString: sdkObject.ExternalAccountId)
+        self.ExternalAccountId = stringFromOptionalCStringPointer(sdkObject.ExternalAccountId)
         self.AccountType = sdkObject.AccountType
     }
 

@@ -12,7 +12,7 @@ public struct SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfo {
         sdkObject: _tagEOS_Lobby_LobbyUpdateReceivedCallbackInfo?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
     }
 
     /** Send notification using the pointer to C callback info provided */

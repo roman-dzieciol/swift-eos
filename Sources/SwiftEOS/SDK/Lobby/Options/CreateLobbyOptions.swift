@@ -101,11 +101,11 @@ public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
         self.PermissionLevel = sdkObject.PermissionLevel
         self.bPresenceEnabled = try swiftBoolFromEosBool(sdkObject.bPresenceEnabled)
         self.bAllowInvites = try swiftBoolFromEosBool(sdkObject.bAllowInvites)
-        self.BucketId = String(cString: sdkObject.BucketId)
+        self.BucketId = stringFromOptionalCStringPointer(sdkObject.BucketId)
         self.bDisableHostMigration = try swiftBoolFromEosBool(sdkObject.bDisableHostMigration)
         self.bEnableRTCRoom = try swiftBoolFromEosBool(sdkObject.bEnableRTCRoom)
         self.LocalRTCOptions = try SwiftEOS_Lobby_LocalRTCOptions.init(sdkObject: sdkObject.LocalRTCOptions?.pointee)
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
     }
 
     /**

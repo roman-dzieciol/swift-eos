@@ -27,7 +27,7 @@ public struct SwiftEOS_RTCAudio_UpdateSendingCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.RoomName = String(cString: sdkObject.RoomName)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
         self.AudioStatus = sdkObject.AudioStatus
     }
 

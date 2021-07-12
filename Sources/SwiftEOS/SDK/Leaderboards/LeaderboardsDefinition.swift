@@ -51,8 +51,8 @@ public struct SwiftEOS_Leaderboards_Definition: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.LeaderboardId = String(cString: sdkObject.LeaderboardId)
-        self.StatName = String(cString: sdkObject.StatName)
+        self.LeaderboardId = stringFromOptionalCStringPointer(sdkObject.LeaderboardId)
+        self.StatName = stringFromOptionalCStringPointer(sdkObject.StatName)
         self.Aggregation = sdkObject.Aggregation
         self.StartTime = try safeNumericCast(exactly: sdkObject.StartTime)
         self.EndTime = try safeNumericCast(exactly: sdkObject.EndTime)

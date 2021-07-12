@@ -19,7 +19,7 @@ public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.StatName = String(cString: sdkObject.StatName)
+        self.StatName = stringFromOptionalCStringPointer(sdkObject.StatName)
         self.Aggregation = sdkObject.Aggregation
     }
 

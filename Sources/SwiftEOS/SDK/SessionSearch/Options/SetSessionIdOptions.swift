@@ -30,7 +30,7 @@ public struct SwiftEOS_SessionSearch_SetSessionIdOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionId = String(cString: sdkObject.SessionId)
+        self.SessionId = stringFromOptionalCStringPointer(sdkObject.SessionId)
     }
 
     /**

@@ -16,7 +16,7 @@ public struct SwiftEOS_Lobby_RejectInviteCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
-        self.InviteId = String(cString: sdkObject.InviteId)
+        self.InviteId = stringFromOptionalCStringPointer(sdkObject.InviteId)
     }
 
     /** Send completion using the pointer to C callback info provided */

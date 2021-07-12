@@ -39,7 +39,7 @@ public struct SwiftEOS_Sanctions_PlayerSanction: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.TimePlaced = try safeNumericCast(exactly: sdkObject.TimePlaced)
-        self.Action = String(cString: sdkObject.Action)
+        self.Action = stringFromOptionalCStringPointer(sdkObject.Action)
     }
 
     /**

@@ -39,8 +39,8 @@ public struct SwiftEOS_PlayerDataStorage_DuplicateFileOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.SourceFilename = String(cString: sdkObject.SourceFilename)
-        self.DestinationFilename = String(cString: sdkObject.DestinationFilename)
+        self.SourceFilename = stringFromOptionalCStringPointer(sdkObject.SourceFilename)
+        self.DestinationFilename = stringFromOptionalCStringPointer(sdkObject.DestinationFilename)
     }
 
     /**

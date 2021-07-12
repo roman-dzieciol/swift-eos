@@ -30,7 +30,7 @@ public struct SwiftEOS_SessionModification_RemoveAttributeOptions: SwiftEOSObjec
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Key = String(cString: sdkObject.Key)
+        self.Key = stringFromOptionalCStringPointer(sdkObject.Key)
     }
 
     /**

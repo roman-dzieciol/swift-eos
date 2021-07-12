@@ -42,7 +42,7 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions: SwiftEOSObject
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.LeaderboardId = String(cString: sdkObject.LeaderboardId)
+        self.LeaderboardId = stringFromOptionalCStringPointer(sdkObject.LeaderboardId)
         self.LocalUserId = sdkObject.LocalUserId
     }
 

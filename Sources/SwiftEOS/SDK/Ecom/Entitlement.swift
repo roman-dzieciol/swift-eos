@@ -59,9 +59,9 @@ public struct SwiftEOS_Ecom_Entitlement: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.EntitlementName = String(cString: sdkObject.EntitlementName)
-        self.EntitlementId = String(cString: sdkObject.EntitlementId)
-        self.CatalogItemId = String(cString: sdkObject.CatalogItemId)
+        self.EntitlementName = stringFromOptionalCStringPointer(sdkObject.EntitlementName)
+        self.EntitlementId = stringFromOptionalCStringPointer(sdkObject.EntitlementId)
+        self.CatalogItemId = stringFromOptionalCStringPointer(sdkObject.CatalogItemId)
         self.ServerIndex = try safeNumericCast(exactly: sdkObject.ServerIndex)
         self.bRedeemed = try swiftBoolFromEosBool(sdkObject.bRedeemed)
         self.EndTimestamp = try safeNumericCast(exactly: sdkObject.EndTimestamp)

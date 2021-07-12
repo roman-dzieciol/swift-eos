@@ -51,8 +51,8 @@ public struct SwiftEOS_Connect_ExternalAccountInfo: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.ProductUserId = sdkObject.ProductUserId
-        self.DisplayName = String(cString: sdkObject.DisplayName)
-        self.AccountId = String(cString: sdkObject.AccountId)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
+        self.AccountId = stringFromOptionalCStringPointer(sdkObject.AccountId)
         self.AccountIdType = sdkObject.AccountIdType
         self.LastLoginTime = try safeNumericCast(exactly: sdkObject.LastLoginTime)
     }

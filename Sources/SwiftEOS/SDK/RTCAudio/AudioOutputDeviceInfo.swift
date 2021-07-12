@@ -23,8 +23,8 @@ public struct SwiftEOS_RTCAudio_AudioOutputDeviceInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.bDefaultDevice = try swiftBoolFromEosBool(sdkObject.bDefaultDevice)
-        self.DeviceId = String(cString: sdkObject.DeviceId)
-        self.DeviceName = String(cString: sdkObject.DeviceName)
+        self.DeviceId = stringFromOptionalCStringPointer(sdkObject.DeviceId)
+        self.DeviceName = stringFromOptionalCStringPointer(sdkObject.DeviceName)
     }
 
     /**

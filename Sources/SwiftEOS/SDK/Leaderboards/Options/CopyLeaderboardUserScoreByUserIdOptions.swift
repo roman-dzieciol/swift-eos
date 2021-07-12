@@ -35,7 +35,7 @@ public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions: Swi
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.UserId = sdkObject.UserId
-        self.StatName = String(cString: sdkObject.StatName)
+        self.StatName = stringFromOptionalCStringPointer(sdkObject.StatName)
     }
 
     /**

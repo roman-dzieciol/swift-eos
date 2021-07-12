@@ -30,7 +30,7 @@ public struct SwiftEOS_RTC_BlockParticipantCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.RoomName = String(cString: sdkObject.RoomName)
+        self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
         self.ParticipantId = sdkObject.ParticipantId
         self.bBlocked = try swiftBoolFromEosBool(sdkObject.bBlocked)
     }

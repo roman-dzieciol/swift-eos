@@ -26,11 +26,11 @@ public struct SwiftEOS_Mod_Identifier: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.NamespaceId = String(cString: sdkObject.NamespaceId)
-        self.ItemId = String(cString: sdkObject.ItemId)
-        self.ArtifactId = String(cString: sdkObject.ArtifactId)
-        self.Title = String(cString: sdkObject.Title)
-        self.Version = String(cString: sdkObject.Version)
+        self.NamespaceId = stringFromOptionalCStringPointer(sdkObject.NamespaceId)
+        self.ItemId = stringFromOptionalCStringPointer(sdkObject.ItemId)
+        self.ArtifactId = stringFromOptionalCStringPointer(sdkObject.ArtifactId)
+        self.Title = stringFromOptionalCStringPointer(sdkObject.Title)
+        self.Version = stringFromOptionalCStringPointer(sdkObject.Version)
     }
 
     /**

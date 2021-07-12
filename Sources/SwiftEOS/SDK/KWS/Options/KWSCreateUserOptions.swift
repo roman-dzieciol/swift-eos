@@ -39,8 +39,8 @@ public struct SwiftEOS_KWS_CreateUserOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.DateOfBirth = String(cString: sdkObject.DateOfBirth)
-        self.ParentEmail = String(cString: sdkObject.ParentEmail)
+        self.DateOfBirth = stringFromOptionalCStringPointer(sdkObject.DateOfBirth)
+        self.ParentEmail = stringFromOptionalCStringPointer(sdkObject.ParentEmail)
     }
 
     /**

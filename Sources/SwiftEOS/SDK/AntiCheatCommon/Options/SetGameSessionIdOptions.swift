@@ -28,7 +28,7 @@ public struct SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.GameSessionId = String(cString: sdkObject.GameSessionId)
+        self.GameSessionId = stringFromOptionalCStringPointer(sdkObject.GameSessionId)
     }
 
     /**

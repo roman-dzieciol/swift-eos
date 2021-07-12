@@ -40,9 +40,9 @@ public struct SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions: SwiftEOSObject 
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionIdentifier = String(cString: sdkObject.SessionIdentifier)
-        self.LevelName = String(cString: sdkObject.LevelName)
-        self.ModeName = String(cString: sdkObject.ModeName)
+        self.SessionIdentifier = stringFromOptionalCStringPointer(sdkObject.SessionIdentifier)
+        self.LevelName = stringFromOptionalCStringPointer(sdkObject.LevelName)
+        self.ModeName = stringFromOptionalCStringPointer(sdkObject.ModeName)
         self.RoundTimeSeconds = try safeNumericCast(exactly: sdkObject.RoundTimeSeconds)
     }
 

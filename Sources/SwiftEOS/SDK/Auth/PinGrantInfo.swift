@@ -29,10 +29,10 @@ public struct SwiftEOS_Auth_PinGrantInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.UserCode = String(cString: sdkObject.UserCode)
-        self.VerificationURI = String(cString: sdkObject.VerificationURI)
+        self.UserCode = stringFromOptionalCStringPointer(sdkObject.UserCode)
+        self.VerificationURI = stringFromOptionalCStringPointer(sdkObject.VerificationURI)
         self.ExpiresIn = try safeNumericCast(exactly: sdkObject.ExpiresIn)
-        self.VerificationURIComplete = String(cString: sdkObject.VerificationURIComplete)
+        self.VerificationURIComplete = stringFromOptionalCStringPointer(sdkObject.VerificationURIComplete)
     }
 
     /**

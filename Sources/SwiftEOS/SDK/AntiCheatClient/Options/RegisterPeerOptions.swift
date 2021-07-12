@@ -56,8 +56,8 @@ public struct SwiftEOS_AntiCheatClient_RegisterPeerOptions: SwiftEOSObject {
         self.PeerHandle = sdkObject.PeerHandle
         self.ClientType = sdkObject.ClientType
         self.ClientPlatform = sdkObject.ClientPlatform
-        self.AccountId = String(cString: sdkObject.AccountId)
-        self.IpAddress = String(cString: sdkObject.IpAddress)
+        self.AccountId = stringFromOptionalCStringPointer(sdkObject.AccountId)
+        self.IpAddress = stringFromOptionalCStringPointer(sdkObject.IpAddress)
     }
 
     /**

@@ -51,10 +51,10 @@ public struct SwiftEOS_UserInfo: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.UserId = sdkObject.UserId
-        self.Country = String(cString: sdkObject.Country)
-        self.DisplayName = String(cString: sdkObject.DisplayName)
-        self.PreferredLanguage = String(cString: sdkObject.PreferredLanguage)
-        self.Nickname = String(cString: sdkObject.Nickname)
+        self.Country = stringFromOptionalCStringPointer(sdkObject.Country)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
+        self.PreferredLanguage = stringFromOptionalCStringPointer(sdkObject.PreferredLanguage)
+        self.Nickname = stringFromOptionalCStringPointer(sdkObject.Nickname)
     }
 
     /**

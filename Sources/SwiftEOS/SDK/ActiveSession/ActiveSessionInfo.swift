@@ -46,7 +46,7 @@ public struct SwiftEOS_ActiveSession_Info: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionName = String(cString: sdkObject.SessionName)
+        self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
         self.LocalUserId = sdkObject.LocalUserId
         self.State = sdkObject.State
         self.SessionDetails = try SwiftEOS_SessionDetails_Info.init(sdkObject: sdkObject.SessionDetails?.pointee)

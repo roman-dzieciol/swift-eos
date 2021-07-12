@@ -28,7 +28,7 @@ public struct SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions: Swift
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.PathToBinFile = String(cString: sdkObject.PathToBinFile)
+        self.PathToBinFile = stringFromOptionalCStringPointer(sdkObject.PathToBinFile)
     }
 
     /**

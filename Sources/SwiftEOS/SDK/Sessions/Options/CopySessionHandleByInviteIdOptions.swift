@@ -30,7 +30,7 @@ public struct SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions: SwiftEOSObje
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.InviteId = String(cString: sdkObject.InviteId)
+        self.InviteId = stringFromOptionalCStringPointer(sdkObject.InviteId)
     }
 
     /**

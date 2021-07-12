@@ -24,7 +24,7 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo {
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
         self.TargetUserId = sdkObject.TargetUserId
-        self.DisplayName = String(cString: sdkObject.DisplayName)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
     }
 
     /** Send completion using the pointer to C callback info provided */

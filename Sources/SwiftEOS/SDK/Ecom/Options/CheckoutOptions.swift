@@ -43,7 +43,7 @@ public struct SwiftEOS_Ecom_CheckoutOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.OverrideCatalogNamespace = String(cString: sdkObject.OverrideCatalogNamespace)
+        self.OverrideCatalogNamespace = stringFromOptionalCStringPointer(sdkObject.OverrideCatalogNamespace)
         self.EntryCount = try safeNumericCast(exactly: sdkObject.EntryCount)
         self.Entries = try SwiftEOS_Ecom_CheckoutEntry.init(sdkObject: sdkObject.Entries?.pointee)
     }

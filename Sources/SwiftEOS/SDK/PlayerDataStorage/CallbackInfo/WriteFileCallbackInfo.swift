@@ -20,7 +20,7 @@ public struct SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
         self.LocalUserId = sdkObject.LocalUserId
-        self.Filename = String(cString: sdkObject.Filename)
+        self.Filename = stringFromOptionalCStringPointer(sdkObject.Filename)
     }
 
     /** Send completion using the pointer to C callback info provided */

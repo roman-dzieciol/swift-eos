@@ -35,7 +35,7 @@ public struct SwiftEOS_UserInfo_QueryUserInfoByDisplayNameOptions: SwiftEOSObjec
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
-        self.DisplayName = String(cString: sdkObject.DisplayName)
+        self.DisplayName = stringFromOptionalCStringPointer(sdkObject.DisplayName)
     }
 
     /**

@@ -38,7 +38,7 @@ public struct SwiftEOS_Sessions_SendInviteOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SessionName = String(cString: sdkObject.SessionName)
+        self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
         self.LocalUserId = sdkObject.LocalUserId
         self.TargetUserId = sdkObject.TargetUserId
     }

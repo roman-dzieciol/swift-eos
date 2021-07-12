@@ -40,7 +40,7 @@ public struct SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions: SwiftEOS
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.TargetUserId = sdkObject.TargetUserId
-        self.AccountId = String(cString: sdkObject.AccountId)
+        self.AccountId = stringFromOptionalCStringPointer(sdkObject.AccountId)
     }
 
     /**

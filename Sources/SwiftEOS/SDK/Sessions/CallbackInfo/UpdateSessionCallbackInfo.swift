@@ -19,8 +19,8 @@ public struct SwiftEOS_Sessions_UpdateSessionCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ResultCode = sdkObject.ResultCode
-        self.SessionName = String(cString: sdkObject.SessionName)
-        self.SessionId = String(cString: sdkObject.SessionId)
+        self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
+        self.SessionId = stringFromOptionalCStringPointer(sdkObject.SessionId)
     }
 
     /** Send completion using the pointer to C callback info provided */

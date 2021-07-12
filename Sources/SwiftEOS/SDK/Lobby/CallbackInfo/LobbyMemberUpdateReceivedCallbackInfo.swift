@@ -15,7 +15,7 @@ public struct SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo {
         sdkObject: _tagEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.LobbyId = String(cString: sdkObject.LobbyId)
+        self.LobbyId = stringFromOptionalCStringPointer(sdkObject.LobbyId)
         self.TargetUserId = sdkObject.TargetUserId
     }
 

@@ -13,7 +13,7 @@ public struct SwiftEOS_AntiCheatCommon_RegisterEventParamDef: SwiftEOSObject {
         sdkObject: _tagEOS_AntiCheatCommon_RegisterEventParamDef?
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
-        self.ParamName = String(cString: sdkObject.ParamName)
+        self.ParamName = stringFromOptionalCStringPointer(sdkObject.ParamName)
         self.ParamType = sdkObject.ParamType
     }
 

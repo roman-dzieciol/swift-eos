@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Auth_DeletePersistentAuth` function. */
 public struct SwiftEOS_Auth_DeletePersistentAuthOptions: SwiftEOSObject {
 

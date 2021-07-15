@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data for the `EOS_Presence_AddNotifyOnPresenceChanged` function. */
 public struct SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions: SwiftEOSObject {
 

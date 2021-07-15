@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Sanctions_GetPlayerSanctionCount` function. */
 public struct SwiftEOS_Sanctions_GetPlayerSanctionCountOptions: SwiftEOSObject {
 

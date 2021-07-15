@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatClient_UnprotectMessageOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATCLIENT_UNPROTECTMESSAGE_API_LATEST`. */

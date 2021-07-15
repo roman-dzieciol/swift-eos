@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about new packet queue size settings. */
 public struct SwiftEOS_P2P_SetPacketQueueSizeOptions: SwiftEOSObject {
 

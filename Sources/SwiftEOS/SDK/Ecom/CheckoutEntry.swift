@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Contains information about a request to purchase a single offer.  This structure is set as part
 of the `EOS_Ecom_CheckoutOptions` structure.

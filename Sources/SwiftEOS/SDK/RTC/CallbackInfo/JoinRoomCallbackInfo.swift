@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is passed in with a call to `EOS_RTC_OnJoinRoomCallback`. */
 public struct SwiftEOS_RTC_JoinRoomCallbackInfo {
 

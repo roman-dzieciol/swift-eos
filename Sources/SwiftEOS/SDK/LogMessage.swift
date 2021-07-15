@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** A structure representing a log message */
 public struct SwiftEOS_LogMessage {
 

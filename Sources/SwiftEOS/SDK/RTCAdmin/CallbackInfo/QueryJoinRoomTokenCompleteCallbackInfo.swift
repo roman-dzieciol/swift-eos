@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for a query join room token request. */
 public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Platform options for `EOS_Platform_Create`. */
 public struct SwiftEOS_Platform_Options: SwiftEOSObject {
 

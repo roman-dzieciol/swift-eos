@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public class SwiftEOS_UI_Actor: SwiftEOSActor {
     public let Handle: EOS_HUI
 

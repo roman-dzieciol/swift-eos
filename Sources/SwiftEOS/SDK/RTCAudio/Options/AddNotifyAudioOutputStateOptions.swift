@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to call `EOS_RTCAudio_AddNotifyAudioOutputState`. */
 public struct SwiftEOS_RTCAudio_AddNotifyAudioOutputStateOptions: SwiftEOSObject {
 

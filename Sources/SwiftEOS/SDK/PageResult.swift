@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** A page result is part of query callback info. It is used to provide pagination details of query results. */
 public struct SwiftEOS_PageResult {
 

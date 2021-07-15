@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Ecom_GetTransactionCount` function. */
 public struct SwiftEOS_Ecom_GetTransactionCountOptions: SwiftEOSObject {
 

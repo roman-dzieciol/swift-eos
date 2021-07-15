@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for a query leaderboard definitions request. */
 public struct SwiftEOS_Leaderboards_OnQueryLeaderboardDefinitionsCompleteCallbackInfo {
 

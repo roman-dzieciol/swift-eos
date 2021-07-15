@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Contains information about a single entitlement associated with an account. Instances of this structure are
 created by `EOS_Ecom_CopyEntitlementByIndex`, `EOS_Ecom_CopyEntitlementByNameAndIndex`, or `EOS_Ecom_CopyEntitlementById`.

@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST`. */

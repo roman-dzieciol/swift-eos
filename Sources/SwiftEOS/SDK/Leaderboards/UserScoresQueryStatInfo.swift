@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Contains information about a single stat to query with user scores. */
 public struct SwiftEOS_Leaderboards_UserScoresQueryStatInfo: SwiftEOSObject {
 

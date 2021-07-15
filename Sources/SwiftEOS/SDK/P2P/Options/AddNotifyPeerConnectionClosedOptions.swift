@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about who would like notifications about closed connections, and for which socket. */
 public struct SwiftEOS_P2P_AddNotifyPeerConnectionClosedOptions: SwiftEOSObject {
 

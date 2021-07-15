@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Sessions_OnJoinSessionAcceptedCallback` function. */
 public struct SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Friends_SendInvite` function. */
 public struct SwiftEOS_Friends_SendInviteOptions: SwiftEOSObject {
 

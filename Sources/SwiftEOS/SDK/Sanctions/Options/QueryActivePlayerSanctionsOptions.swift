@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Sanctions_QueryActivePlayerSanctions` API. */
 public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions: SwiftEOSObject {
 

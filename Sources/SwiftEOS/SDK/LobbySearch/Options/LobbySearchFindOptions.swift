@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_LobbySearch_Find` function. */
 public struct SwiftEOS_LobbySearch_FindOptions: SwiftEOSObject {
 

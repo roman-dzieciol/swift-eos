@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing data for a chunk of a file being read */
 public struct SwiftEOS_TitleStorage_ReadFileDataCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_UserInfo_CopyExternalUserInfoByAccountType` function. */
 public struct SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Platform RTC options. */
 public struct SwiftEOS_Platform_RTCOptions: SwiftEOSObject {
 

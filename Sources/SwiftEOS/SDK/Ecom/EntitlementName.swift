@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 An identifier which is defined on a catalog item and stored with the backend catalog service.
 The entitlement name may not be unique.  A catalog may be configured with multiple items with the

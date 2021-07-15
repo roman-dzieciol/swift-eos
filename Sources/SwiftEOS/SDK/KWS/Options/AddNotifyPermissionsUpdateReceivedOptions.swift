@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST`. */

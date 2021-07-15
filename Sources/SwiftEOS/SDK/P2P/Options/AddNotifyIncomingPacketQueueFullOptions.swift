@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about what version of the `EOS_P2P_AddNotifyIncomingPacketQueueFull` function is supported. */
 public struct SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions: SwiftEOSObject {
 

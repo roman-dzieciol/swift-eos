@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_RTCAdmin_SetParticipantHardMute` function. */
 public struct SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions: SwiftEOSObject {
 

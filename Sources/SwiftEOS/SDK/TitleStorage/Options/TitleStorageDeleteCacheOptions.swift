@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input data for the `EOS_TitleStorage_DeleteCache` function */
 public struct SwiftEOS_TitleStorage_DeleteCacheOptions: SwiftEOSObject {
 

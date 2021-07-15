@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Client credentials. */
 public struct SwiftEOS_Platform_ClientCredentials: SwiftEOSObject {
 

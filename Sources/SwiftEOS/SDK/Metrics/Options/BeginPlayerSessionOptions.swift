@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** BeginPlayerSession. */
 public struct SwiftEOS_Metrics_BeginPlayerSessionOptions: SwiftEOSObject {
 

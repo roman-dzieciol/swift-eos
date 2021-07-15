@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_SessionSearch_Find` function. */
 public struct SwiftEOS_SessionSearch_FindOptions: SwiftEOSObject {
 

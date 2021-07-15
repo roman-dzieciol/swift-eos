@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing the result of a delete cache operation */
 public struct SwiftEOS_PlayerDataStorage_DeleteCacheCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information needed to get perviously queried NAT-types */
 public struct SwiftEOS_P2P_GetNATTypeOptions: SwiftEOSObject {
 

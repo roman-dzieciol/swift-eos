@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Lobby_UpdateLobbyModification` function. */
 public struct SwiftEOS_Lobby_UpdateLobbyModificationOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Sanctions_QueryActivePlayerSanctions` function. */
 public struct SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo {
 

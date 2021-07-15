@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** The result meta-data from setting a user's presence. */
 public struct SwiftEOS_Presence_SetPresenceCallbackInfo {
 

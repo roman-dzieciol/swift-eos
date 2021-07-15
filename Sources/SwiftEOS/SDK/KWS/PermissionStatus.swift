@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_KWS_PermissionStatus: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_KWS_PERMISSIONSTATUS_API_LATEST`. */

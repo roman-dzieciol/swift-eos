@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for querying a player's achievements request. */
 public struct SwiftEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo {
 

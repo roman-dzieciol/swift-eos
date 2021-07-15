@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatServer_RegisterClientOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATSERVER_REGISTERCLIENT_API_LATEST`. */

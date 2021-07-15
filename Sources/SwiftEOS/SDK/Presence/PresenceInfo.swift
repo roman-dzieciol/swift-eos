@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 All the known presence information for a specific user. This object must be released by calling `EOS_Presence_Info_Release`.
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Options for initializing the Epic Online Services SDK. */
 public struct SwiftEOS_InitializeOptions: SwiftEOSObject {
 

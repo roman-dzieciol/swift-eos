@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_LobbySearch_Find` function. */
 public struct SwiftEOS_LobbySearch_FindCallbackInfo {
 

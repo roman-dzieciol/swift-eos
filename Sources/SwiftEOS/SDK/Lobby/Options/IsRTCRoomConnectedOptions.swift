@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_Lobby_IsRTCRoomConnectedOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST` */

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Create a single Epic Online Services Platform Instance.
 

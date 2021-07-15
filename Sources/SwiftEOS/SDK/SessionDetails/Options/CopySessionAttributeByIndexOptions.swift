@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_SessionDetails_CopySessionAttributeByIndex` function. */
 public struct SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions: SwiftEOSObject {
 

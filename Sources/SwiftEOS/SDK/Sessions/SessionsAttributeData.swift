@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Contains information about both session and search parameter attribution */
 public struct SwiftEOS_Sessions_AttributeData: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Options for initializing login for IOS. */
 public struct SwiftEOS_IOS_Auth_CredentialsOptions {
 

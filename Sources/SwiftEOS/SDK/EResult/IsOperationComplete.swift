@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Returns whether a result is to be considered the final result, or false if the callback that returned this result
 will be called again either after some time or from another action.

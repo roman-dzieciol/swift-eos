@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Achievements_OnAchievementsUnlockedCallback` Function. */
 public struct SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo {
 

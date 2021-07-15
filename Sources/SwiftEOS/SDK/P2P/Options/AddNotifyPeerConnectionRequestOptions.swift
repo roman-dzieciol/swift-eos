@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about who would like connection notifications, and about which socket. */
 public struct SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions: SwiftEOSObject {
 

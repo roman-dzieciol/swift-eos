@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result of a read file request */
 public struct SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo {
 

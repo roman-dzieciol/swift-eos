@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     public let Handle: EOS_HFriends
 

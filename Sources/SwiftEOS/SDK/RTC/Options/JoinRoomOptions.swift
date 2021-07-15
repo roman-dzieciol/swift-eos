@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to call `EOS_RTC_JoinRoom`. */
 public struct SwiftEOS_RTC_JoinRoomOptions: SwiftEOSObject {
 

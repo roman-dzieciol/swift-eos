@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing details about a client/peer authentication status change */
 public struct SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo {
 

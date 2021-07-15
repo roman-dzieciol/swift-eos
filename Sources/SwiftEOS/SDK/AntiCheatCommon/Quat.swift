@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Quaternion using left-handed coordinate system (as in Unreal Engine) */
 public struct SwiftEOS_AntiCheatCommon_Quat: SwiftEOSObject {
 

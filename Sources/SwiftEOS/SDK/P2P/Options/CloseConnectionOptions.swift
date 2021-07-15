@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about who would like to close a connection, and which connection. */
 public struct SwiftEOS_P2P_CloseConnectionOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** `EOS_Mod_Identifier` is used to identify a mod. */
 public struct SwiftEOS_Mod_Identifier: SwiftEOSObject {
 

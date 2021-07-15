@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Retrieve an `EOS_ProductUserId` from a raw string representing an Epic Online Services Product User ID. The input string must be null-terminated.
 NOTE: There is no validation on the string format, this should only be used with values serialized from legitimate sources such as `EOS_ProductUserId_ToString`

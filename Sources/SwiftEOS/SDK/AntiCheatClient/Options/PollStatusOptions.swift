@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatClient_PollStatusOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST`. */

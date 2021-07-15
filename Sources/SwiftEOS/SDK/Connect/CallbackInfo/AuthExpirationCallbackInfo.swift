@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Connect_OnAuthExpirationCallback` function. */
 public struct SwiftEOS_Connect_AuthExpirationCallbackInfo {
 

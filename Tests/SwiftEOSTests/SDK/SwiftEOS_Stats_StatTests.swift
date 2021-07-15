@@ -1,0 +1,15 @@
+import XCTest
+import EOSSDK
+@testable import SwiftEOS
+
+public class SwiftEOS_Stats_StatTests: XCTestCase {
+    public func testItZeroInitializesFrom_tagEOS_Stats_Stat() throws {
+        try withZeroInitializedCStruct(type: _tagEOS_Stats_Stat.self) { cstruct in
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertNil(cstruct.Name)
+            XCTAssertEqual(cstruct.StartTime, .zero)
+            XCTAssertEqual(cstruct.EndTime, .zero)
+            XCTAssertEqual(cstruct.Value, .zero)
+            let swiftObject = try SwiftEOS_Stats_Stat(sdkObject: cstruct) }
+    }
+}

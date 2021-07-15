@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is passed in with a call to `EOS_RTC_AddNotifyParticipantStatusChanged` registered event. */
 public struct SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo {
 

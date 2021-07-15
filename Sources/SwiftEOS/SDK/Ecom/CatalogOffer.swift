@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Contains information about a single offer within the catalog. Instances of this structure are
 created by `EOS_Ecom_CopyOfferByIndex`. They must be passed to `EOS_Ecom_CatalogOffer_Release`.

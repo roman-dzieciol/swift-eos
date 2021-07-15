@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 A unique identifier for a catalog offer defined and stored with the backend catalog service.
 A catalog offer is a purchasable collection of 1 or more items, associated with a price (which

@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatCommon_LogEventParamPair: SwiftEOSObject {
 
     /** Parameter type */

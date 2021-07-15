@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTACTIONREQUIRED_API_LATEST`. */

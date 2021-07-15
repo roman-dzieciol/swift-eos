@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to remove a user from the audio system. */
 public struct SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions: SwiftEOSObject {
 

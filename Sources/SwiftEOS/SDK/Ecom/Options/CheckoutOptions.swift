@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Ecom_Checkout` function. */
 public struct SwiftEOS_Ecom_CheckoutOptions: SwiftEOSObject {
 

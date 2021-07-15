@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Sessions_CopySessionHandleByUiEventId` function. */
 public struct SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions: SwiftEOSObject {
 

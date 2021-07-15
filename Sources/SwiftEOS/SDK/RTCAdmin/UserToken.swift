@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Contains information about a collection of user tokens for joining a room.
 

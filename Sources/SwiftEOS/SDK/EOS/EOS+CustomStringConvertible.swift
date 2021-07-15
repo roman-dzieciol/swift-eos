@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 extension EOS_EAntiCheatClientMode: CustomStringConvertible {
     public var description: String {
         switch self {

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 A structure that contains login credentials. What is required is dependent on the type of login being initiated.
 

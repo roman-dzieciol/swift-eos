@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Presence_OnJoinGameAcceptedCallback` Function. */
 public struct SwiftEOS_Presence_JoinGameAcceptedCallbackInfo {
 

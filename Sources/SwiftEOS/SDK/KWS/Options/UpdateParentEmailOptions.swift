@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_KWS_UpdateParentEmail` function. */
 public struct SwiftEOS_KWS_UpdateParentEmailOptions: SwiftEOSObject {
 

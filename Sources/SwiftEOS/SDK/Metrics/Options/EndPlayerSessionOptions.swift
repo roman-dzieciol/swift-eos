@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** EndPlayerSession. */
 public struct SwiftEOS_Metrics_EndPlayerSessionOptions: SwiftEOSObject {
 

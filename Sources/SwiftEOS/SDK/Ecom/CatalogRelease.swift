@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Contains information about a single release within the catalog. Instances of this structure are
 created by `EOS_Ecom_CopyItemReleaseByIndex`. They must be passed to `EOS_Ecom_CatalogRelease_Release`.

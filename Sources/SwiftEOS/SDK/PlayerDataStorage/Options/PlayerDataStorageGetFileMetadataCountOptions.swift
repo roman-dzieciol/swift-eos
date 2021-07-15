@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input data for the `EOS_PlayerDataStorage_GetFileMetadataCount` function */
 public struct SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions: SwiftEOSObject {
 

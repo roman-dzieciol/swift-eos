@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data for the `EOS_Mods_CopyModInfo` function. */
 public struct SwiftEOS_Mods_CopyModInfoOptions: SwiftEOSObject {
 

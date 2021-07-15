@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for a kick participant request. */
 public struct SwiftEOS_RTCAdmin_KickCompleteCallbackInfo {
 

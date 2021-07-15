@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Set the logging level for the specified logging category. By default all log categories will callback for Warnings, Errors, and Fatals.
 

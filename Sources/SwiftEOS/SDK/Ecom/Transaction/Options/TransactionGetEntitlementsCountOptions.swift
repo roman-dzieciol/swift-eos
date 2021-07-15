@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Ecom_Transaction_GetEntitlementsCount` function. */
 public struct SwiftEOS_Ecom_Transaction_GetEntitlementsCountOptions: SwiftEOSObject {
 

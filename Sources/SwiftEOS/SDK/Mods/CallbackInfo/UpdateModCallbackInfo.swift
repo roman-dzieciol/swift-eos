@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Mods_UpdateMod` Function. These parameters are received through the callback provided to `EOS_Mods_UpdateMod` */
 public struct SwiftEOS_Mods_UpdateModCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Connect_CopyProductUserExternalAccountByAccountType` function. */
 public struct SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions: SwiftEOSObject {
 

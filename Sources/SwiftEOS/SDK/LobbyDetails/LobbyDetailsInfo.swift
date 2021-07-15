@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_LobbyDetails_Info: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_LOBBYDETAILS_INFO_API_LATEST`. */

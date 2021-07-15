@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_UI_AddNotifyDisplaySettingsUpdated` function. */
 public struct SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions: SwiftEOSObject {
 

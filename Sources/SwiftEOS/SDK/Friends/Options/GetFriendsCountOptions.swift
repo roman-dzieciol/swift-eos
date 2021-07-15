@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Friends_GetFriendsCount` function. */
 public struct SwiftEOS_Friends_GetFriendsCountOptions: SwiftEOSObject {
 

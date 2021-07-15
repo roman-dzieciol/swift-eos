@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST`. */

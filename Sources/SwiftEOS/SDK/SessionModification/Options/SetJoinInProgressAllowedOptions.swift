@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_SessionModification_SetJoinInProgressAllowed` function. */
 public struct SwiftEOS_SessionModification_SetJoinInProgressAllowedOptions: SwiftEOSObject {
 

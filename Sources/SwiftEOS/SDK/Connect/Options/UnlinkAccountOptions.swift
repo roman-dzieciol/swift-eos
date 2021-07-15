@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Connect_UnlinkAccount` Function. */
 public struct SwiftEOS_Connect_UnlinkAccountOptions: SwiftEOSObject {
 

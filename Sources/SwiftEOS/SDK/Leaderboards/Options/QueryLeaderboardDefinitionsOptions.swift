@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Input parameters for the `EOS_Leaderboards_QueryLeaderboardDefinitions` function.
 StartTime and EndTime are optional parameters, they can be used to limit the list of definitions

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Encode a byte array into hex encoded string
 

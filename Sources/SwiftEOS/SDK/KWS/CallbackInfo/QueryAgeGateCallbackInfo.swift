@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_KWS_QueryAgeGate` Function. These parameters are received through the callback provided to `EOS_KWS_QueryAgeGate` */
 public struct SwiftEOS_KWS_QueryAgeGateCallbackInfo {
 

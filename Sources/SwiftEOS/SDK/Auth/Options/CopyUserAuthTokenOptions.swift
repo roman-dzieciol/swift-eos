@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Auth_CopyUserAuthToken` function. */
 public struct SwiftEOS_Auth_CopyUserAuthTokenOptions: SwiftEOSObject {
 

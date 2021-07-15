@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_SessionDetails_GetSessionAttributeCount` function. */
 public struct SwiftEOS_SessionDetails_GetSessionAttributeCountOptions: SwiftEOSObject {
 

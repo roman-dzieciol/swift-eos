@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Achievements_CopyPlayerAchievementByAchievementId` function. */
 public struct SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions: SwiftEOSObject {
 

@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTAUTHSTATUSCHANGED_API_LATEST`. */

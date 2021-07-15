@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to get information about a specific participant metadata item. */
 public struct SwiftEOS_RTC_ParticipantMetadata {
 

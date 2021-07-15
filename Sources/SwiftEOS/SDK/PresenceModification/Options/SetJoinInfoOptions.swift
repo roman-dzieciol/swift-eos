@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data for the `EOS_PresenceModification_SetJoinInfo` function. */
 public struct SwiftEOS_PresenceModification_SetJoinInfoOptions: SwiftEOSObject {
 

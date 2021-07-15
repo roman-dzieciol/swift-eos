@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Lobby_SendInvite` function. */
 public struct SwiftEOS_Lobby_SendInviteCallbackInfo {
 

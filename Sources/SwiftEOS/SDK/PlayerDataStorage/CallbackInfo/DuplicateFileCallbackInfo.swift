@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for a duplicate file request */
 public struct SwiftEOS_PlayerDataStorage_DuplicateFileCallbackInfo {
 

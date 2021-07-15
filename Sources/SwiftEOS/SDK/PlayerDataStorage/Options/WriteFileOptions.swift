@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input data for the `EOS_PlayerDataStorage_WriteFile` function */
 public struct SwiftEOS_PlayerDataStorage_WriteFileOptions: SwiftEOSObject {
 

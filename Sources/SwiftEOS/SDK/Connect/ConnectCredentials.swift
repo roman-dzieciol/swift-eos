@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 A structure that contains external login credentials.
 

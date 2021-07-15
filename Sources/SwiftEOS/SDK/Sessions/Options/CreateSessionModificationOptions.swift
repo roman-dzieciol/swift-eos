@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Sessions_CreateSessionModification` function. */
 public struct SwiftEOS_Sessions_CreateSessionModificationOptions: SwiftEOSObject {
 

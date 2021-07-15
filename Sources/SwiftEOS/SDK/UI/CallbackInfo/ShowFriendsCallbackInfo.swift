@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_UI_ShowFriends` function. */
 public struct SwiftEOS_UI_ShowFriendsCallbackInfo {
 

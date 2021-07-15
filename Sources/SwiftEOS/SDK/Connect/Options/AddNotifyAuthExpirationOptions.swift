@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information for the auth expiration notification callback. */
 public struct SwiftEOS_Connect_AddNotifyAuthExpirationOptions: SwiftEOSObject {
 

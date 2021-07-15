@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters to use with Lobby RTC Rooms. */
 public struct SwiftEOS_Lobby_LocalRTCOptions: SwiftEOSObject {
 

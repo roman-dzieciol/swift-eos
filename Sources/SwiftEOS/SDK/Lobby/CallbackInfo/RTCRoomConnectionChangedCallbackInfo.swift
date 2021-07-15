@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfo {
 
     /** The ID of the lobby which had a RTC Room connection state change */

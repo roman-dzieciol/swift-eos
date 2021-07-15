@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Metadata information for a specific file
 

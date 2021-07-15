@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo {
 
     /** True when any portion of the overlay is visible. */

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Ecom_CopyEntitlementById` function. */
 public struct SwiftEOS_Ecom_CopyEntitlementByIdOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** The result meta-data for a presence query. */
 public struct SwiftEOS_Presence_QueryPresenceCallbackInfo {
 

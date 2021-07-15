@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_LobbySearch_RemoveParameter` function. */
 public struct SwiftEOS_LobbySearch_RemoveParameterOptions: SwiftEOSObject {
 

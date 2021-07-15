@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_Presence_AddNotifyJoinGameAcceptedOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_PRESENCE_ADDNOTIFYJOINGAMEACCEPTED_API_LATEST`. */

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_KWS_GetPermissionByKey` function. */
 public struct SwiftEOS_KWS_GetPermissionByKeyOptions: SwiftEOSObject {
 

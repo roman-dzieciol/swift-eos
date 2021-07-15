@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about the data being sent and to which player */
 public struct SwiftEOS_P2P_SendPacketOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Leaderboards_QueryLeaderboardUserScores` function. */
 public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSObject {
 

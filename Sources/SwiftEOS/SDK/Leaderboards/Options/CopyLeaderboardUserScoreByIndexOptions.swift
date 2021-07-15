@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Leaderboards_CopyLeaderboardUserScoreByIndex` function. */
 public struct SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions: SwiftEOSObject {
 

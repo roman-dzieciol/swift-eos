@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing data for a chunk of a file being written */
 public struct SwiftEOS_PlayerDataStorage_WriteFileDataCallbackInfo {
 

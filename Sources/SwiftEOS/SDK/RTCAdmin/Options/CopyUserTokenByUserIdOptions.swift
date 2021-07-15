@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_RTCAdmin_CopyUserTokenByUserId` function. */
 public struct SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions: SwiftEOSObject {
 

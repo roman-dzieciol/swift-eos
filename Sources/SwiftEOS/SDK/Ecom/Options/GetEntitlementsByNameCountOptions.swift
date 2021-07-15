@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Ecom_GetEntitlementsByNameCount` function. */
 public struct SwiftEOS_Ecom_GetEntitlementsByNameCountOptions: SwiftEOSObject {
 

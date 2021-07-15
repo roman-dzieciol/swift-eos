@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_LobbyModification_SetBucketId` function. */
 public struct SwiftEOS_LobbyModification_SetBucketIdOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Auth_AddNotifyLoginStatusChanged` Function. */
 public struct SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions: SwiftEOSObject {
 

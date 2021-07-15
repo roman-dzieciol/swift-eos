@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Friends_GetStatus` function. */
 public struct SwiftEOS_Friends_GetStatusOptions: SwiftEOSObject {
 

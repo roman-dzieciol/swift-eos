@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about a friend status update. */
 public struct SwiftEOS_Friends_OnFriendsUpdateInfo {
 

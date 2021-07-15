@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to call `EOS_RTC_AddNotifyDisconnected`. */
 public struct SwiftEOS_RTC_AddNotifyDisconnectedOptions: SwiftEOSObject {
 

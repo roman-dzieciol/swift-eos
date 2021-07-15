@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Sanctions_CopyPlayerSanctionByIndex` function */
 public struct SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Input parameters for the `EOS_Auth_VerifyUserAuth` function.
 This operation is destructive, the pointer will remain the same but the data pointers inside will update

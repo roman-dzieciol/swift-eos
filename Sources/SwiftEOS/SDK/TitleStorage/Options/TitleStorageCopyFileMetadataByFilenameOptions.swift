@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input data for the CopyFileMetadataByFilename function */
 public struct SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about an incoming connection request. */
 public struct SwiftEOS_P2P_OnIncomingConnectionRequestInfo {
 

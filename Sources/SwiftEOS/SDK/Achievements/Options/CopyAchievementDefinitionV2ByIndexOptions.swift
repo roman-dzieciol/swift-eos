@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Achievements_CopyAchievementDefinitionByIndex` function. */
 public struct SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexOptions: SwiftEOSObject {
 

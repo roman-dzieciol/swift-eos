@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Contains information about lobby and lobby member data */
 public struct SwiftEOS_Lobby_AttributeData: SwiftEOSObject {
 

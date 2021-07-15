@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGGAMEROUNDSTART_API_LATEST`. */

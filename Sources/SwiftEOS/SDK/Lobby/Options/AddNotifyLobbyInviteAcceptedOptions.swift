@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST`. */

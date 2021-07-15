@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_UserInfo_QueryUserInfo` Function. */
 public struct SwiftEOS_UserInfo_QueryUserInfoCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing details about a new message that must be dispatched to the game server. */
 public struct SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo {
 

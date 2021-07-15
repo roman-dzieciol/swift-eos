@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing details about a required client/peer action */
 public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about getting the relay control setting. */
 public struct SwiftEOS_P2P_GetRelayControlOptions: SwiftEOSObject {
 

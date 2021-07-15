@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information or the connect user login status change callback. */
 public struct SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions: SwiftEOSObject {
 

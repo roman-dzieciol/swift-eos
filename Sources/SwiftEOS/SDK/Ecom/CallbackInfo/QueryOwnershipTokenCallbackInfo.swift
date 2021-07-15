@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Ecom_QueryOwnershipToken` Function. */
 public struct SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo {
 

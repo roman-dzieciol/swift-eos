@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 An attribution value and its advertisement setting stored with a session.
 

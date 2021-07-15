@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Sessions_QueryInvites` function. */
 public struct SwiftEOS_Sessions_QueryInvitesCallbackInfo {
 

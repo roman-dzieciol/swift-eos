@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Retrieve a null-terminated stringified continuance token from an `EOS_ContinuanceToken`.
 

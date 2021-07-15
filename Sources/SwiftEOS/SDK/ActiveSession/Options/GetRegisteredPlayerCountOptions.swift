@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_ActiveSession_GetRegisteredPlayerCount` function. */
 public struct SwiftEOS_ActiveSession_GetRegisteredPlayerCountOptions: SwiftEOSObject {
 

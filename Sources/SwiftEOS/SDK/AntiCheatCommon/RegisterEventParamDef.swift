@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatCommon_RegisterEventParamDef: SwiftEOSObject {
 
     /** Parameter name. Allowed characters are 0-9, A-Z, a-z, '_', '-', '.' */

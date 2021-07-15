@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about an connection request that is being closed. */
 public struct SwiftEOS_P2P_OnRemoteConnectionClosedInfo {
 

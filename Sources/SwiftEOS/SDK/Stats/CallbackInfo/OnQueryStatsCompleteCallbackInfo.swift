@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for querying a player's stats request. */
 public struct SwiftEOS_Stats_OnQueryStatsCompleteCallbackInfo {
 

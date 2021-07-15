@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Reports_SendPlayerBehaviorReport` function. */
 public struct SwiftEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo {
 

@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST`. */

@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public struct SwiftEOS_Sessions_UpdateSessionOptions: SwiftEOSObject {
 
     /** API Version: Set this to `EOS_SESSIONS_UPDATESESSION_API_LATEST`. */

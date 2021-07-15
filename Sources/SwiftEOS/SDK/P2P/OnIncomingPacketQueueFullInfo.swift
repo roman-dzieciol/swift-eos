@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about the packet queue's state and the incoming packet that would overflow the queue */
 public struct SwiftEOS_P2P_OnIncomingPacketQueueFullInfo {
 

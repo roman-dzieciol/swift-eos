@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_SessionSearch_SetSessionId` function. */
 public struct SwiftEOS_SessionSearch_SetSessionIdOptions: SwiftEOSObject {
 

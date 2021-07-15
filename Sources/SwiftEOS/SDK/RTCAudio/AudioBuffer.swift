@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to represent an audio buffer received in callbacks from `EOS_RTCAudio_AddNotifyAudioBeforeSend` and `EOS_RTCAudio_AddNotifyAudioBeforeRender`. */
 public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
 

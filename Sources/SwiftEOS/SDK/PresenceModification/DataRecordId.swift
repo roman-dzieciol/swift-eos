@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data for identifying which data records should be deleted. */
 public struct SwiftEOS_PresenceModification_DataRecordId: SwiftEOSObject {
 

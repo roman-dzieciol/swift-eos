@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Returns a string representation of an `EOS_EResult`.
 The return value is never null.

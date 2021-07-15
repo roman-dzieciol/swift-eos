@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about getting the configured port range settings. */
 public struct SwiftEOS_P2P_GetPortRangeOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Connect_GetProductUserIdMapping` function. */
 public struct SwiftEOS_Connect_GetProductUserIdMappingOptions: SwiftEOSObject {
 

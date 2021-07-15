@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_LobbyDetails_CopyInfo` function. */
 public struct SwiftEOS_LobbyDetails_CopyInfoOptions: SwiftEOSObject {
 

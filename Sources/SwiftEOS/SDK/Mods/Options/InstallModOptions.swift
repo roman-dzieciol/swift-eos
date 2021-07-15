@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Mods_InstallMod` Function. */
 public struct SwiftEOS_Mods_InstallModOptions: SwiftEOSObject {
 

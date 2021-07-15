@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Friends_QueryFriends` Function. These parameters are received through the callback provided to `EOS_Friends_QueryFriends` */
 public struct SwiftEOS_Friends_QueryFriendsCallbackInfo {
 

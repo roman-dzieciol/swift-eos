@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Set the callback function to use for SDK log messages. Any previously set callback will no longer be called.
 

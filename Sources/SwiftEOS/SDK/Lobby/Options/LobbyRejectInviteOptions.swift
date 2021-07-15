@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Lobby_RejectInvite` function. */
 public struct SwiftEOS_Lobby_RejectInviteOptions: SwiftEOSObject {
 

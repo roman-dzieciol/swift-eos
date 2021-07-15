@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** A page query is part of query options. It is used to allow pagination of query results. */
 public struct SwiftEOS_PageQuery {
 

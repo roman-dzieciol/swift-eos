@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Common settings associated with a single session */
 public struct SwiftEOS_SessionDetails_Settings: SwiftEOSObject {
 

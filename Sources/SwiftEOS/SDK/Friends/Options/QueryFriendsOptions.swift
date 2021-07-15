@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Friends_QueryFriends` function. */
 public struct SwiftEOS_Friends_QueryFriendsOptions: SwiftEOSObject {
 

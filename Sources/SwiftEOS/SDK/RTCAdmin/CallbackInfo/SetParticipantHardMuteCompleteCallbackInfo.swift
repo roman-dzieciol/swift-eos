@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for a hard mute request. */
 public struct SwiftEOS_RTCAdmin_SetParticipantHardMuteCompleteCallbackInfo {
 

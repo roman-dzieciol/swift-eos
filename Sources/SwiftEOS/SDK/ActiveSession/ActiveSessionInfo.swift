@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Top level details about an active session
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing information about a query file list request */
 public struct SwiftEOS_PlayerDataStorage_QueryFileListCallbackInfo {
 

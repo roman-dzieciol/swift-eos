@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is passed in with a call to `EOS_RTCAudio_AddNotifyAudioBeforeRender` registered event. */
 public struct SwiftEOS_RTCAudio_AudioBeforeRenderCallbackInfo {
 

@@ -1,5 +1,6 @@
 import Foundation
 import EOSSDK
+
 public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     public let Handle: EOS_HP2P
 

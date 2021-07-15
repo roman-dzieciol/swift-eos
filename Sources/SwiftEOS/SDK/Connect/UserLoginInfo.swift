@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Additional information about the local user.
 

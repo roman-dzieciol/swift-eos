@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data for the `EOS_PresenceModification_SetData` function. */
 public struct SwiftEOS_PresenceModification_SetDataOptions: SwiftEOSObject {
 

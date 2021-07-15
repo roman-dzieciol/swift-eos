@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to get information about a specific input device. */
 public struct SwiftEOS_RTCAudio_AudioOutputDeviceInfo {
 

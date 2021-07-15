@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing which users presence has changed */
 public struct SwiftEOS_Presence_PresenceChangedCallbackInfo {
 

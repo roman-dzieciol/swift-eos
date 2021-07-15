@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_UI_HideFriends` function. */
 public struct SwiftEOS_UI_HideFriendsCallbackInfo {
 

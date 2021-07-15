@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 An attribute and its visibility setting stored with a lobby.
 Used to store both lobby and lobby member data

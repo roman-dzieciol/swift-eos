@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Options for initializing defining thread affinity for use by Epic Online Services SDK.
 Set the affinity to 0 to allow EOS SDK to use a platform specific default value.

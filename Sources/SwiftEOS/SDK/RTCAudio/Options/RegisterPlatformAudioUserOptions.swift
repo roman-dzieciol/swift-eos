@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to inform the audio system of a user. */
 public struct SwiftEOS_RTCAudio_RegisterPlatformAudioUserOptions: SwiftEOSObject {
 

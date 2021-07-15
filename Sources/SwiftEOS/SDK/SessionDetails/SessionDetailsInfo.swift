@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /**
 Internal details about a session, found on both active sessions and within search results
 

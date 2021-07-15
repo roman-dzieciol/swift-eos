@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Lobby_GetInviteIdByIndex` function. */
 public struct SwiftEOS_Lobby_GetInviteIdByIndexOptions: SwiftEOSObject {
 

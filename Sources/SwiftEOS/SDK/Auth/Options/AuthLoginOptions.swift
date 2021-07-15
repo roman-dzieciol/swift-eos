@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Auth_Login` function. */
 public struct SwiftEOS_Auth_LoginOptions: SwiftEOSObject {
 

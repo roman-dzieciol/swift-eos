@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_RTCAudio_GetAudioOutputDeviceByIndex` function. */
 public struct SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions: SwiftEOSObject {
 

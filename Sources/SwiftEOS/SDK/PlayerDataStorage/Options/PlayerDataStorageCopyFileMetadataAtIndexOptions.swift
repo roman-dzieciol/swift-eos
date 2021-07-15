@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input data for the CopyFileMetadataAtIndex function */
 public struct SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Friends_AcceptInvite` Function. */
 public struct SwiftEOS_Friends_AcceptInviteCallbackInfo {
 

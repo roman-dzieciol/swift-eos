@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_Connect_QueryExternalAccountMappings` function. */
 public struct SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo {
 

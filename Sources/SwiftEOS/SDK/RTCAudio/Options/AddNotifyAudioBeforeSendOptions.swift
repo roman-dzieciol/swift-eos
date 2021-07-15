@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** This struct is used to call `EOS_RTCAudio_AddNotifyAudioBeforeSend`. */
 public struct SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendOptions: SwiftEOSObject {
 

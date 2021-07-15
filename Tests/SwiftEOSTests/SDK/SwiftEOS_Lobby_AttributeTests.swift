@@ -1,0 +1,13 @@
+import XCTest
+import EOSSDK
+@testable import SwiftEOS
+
+public class SwiftEOS_Lobby_AttributeTests: XCTestCase {
+    public func testItZeroInitializesFrom_tagEOS_Lobby_Attribute() throws {
+        try withZeroInitializedCStruct(type: _tagEOS_Lobby_Attribute.self) { cstruct in
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertNil(cstruct.Data)
+            XCTAssertEqual(cstruct.Visibility, .init(rawValue: .zero)!)
+            let swiftObject = try SwiftEOS_Lobby_Attribute(sdkObject: cstruct) }
+    }
+}

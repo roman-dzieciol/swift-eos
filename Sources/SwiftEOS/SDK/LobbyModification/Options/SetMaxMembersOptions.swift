@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_LobbyModification_SetMaxMembers` function. */
 public struct SwiftEOS_LobbyModification_SetMaxMembersOptions: SwiftEOSObject {
 

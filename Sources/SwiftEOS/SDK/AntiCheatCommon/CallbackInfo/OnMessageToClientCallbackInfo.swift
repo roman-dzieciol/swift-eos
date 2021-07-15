@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing details about a new message that must be dispatched to a connected client/peer. */
 public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Output parameters for the `EOS_RTCAudio_GetAudioOutputDevicesCount` function. */
 public struct SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the information about a file transfer in progress (or one that has completed) */
 public struct SwiftEOS_PlayerDataStorage_FileTransferProgressCallbackInfo {
 

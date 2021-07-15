@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for unlocking achievements request. */
 public struct SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo {
 

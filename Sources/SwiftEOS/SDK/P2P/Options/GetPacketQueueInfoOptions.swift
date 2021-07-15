@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information needed to get the current packet queue information. */
 public struct SwiftEOS_P2P_GetPacketQueueInfoOptions: SwiftEOSObject {
 

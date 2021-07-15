@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Contains information about a single stat to ingest. */
 public struct SwiftEOS_Stats_IngestData: SwiftEOSObject {
 

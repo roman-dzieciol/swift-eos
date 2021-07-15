@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Data containing the result information for an ingest stat request. */
 public struct SwiftEOS_Stats_IngestStatCompleteCallbackInfo {
 

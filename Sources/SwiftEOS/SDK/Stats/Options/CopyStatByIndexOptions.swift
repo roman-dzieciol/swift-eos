@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Stats_CopyStatByIndex` function. */
 public struct SwiftEOS_Stats_CopyStatByIndexOptions: SwiftEOSObject {
 

@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Structure containing information about who would like to receive a packet. */
 public struct SwiftEOS_P2P_GetNextReceivedPacketSizeOptions: SwiftEOSObject {
 

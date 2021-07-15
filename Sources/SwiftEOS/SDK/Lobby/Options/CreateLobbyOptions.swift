@@ -1,6 +1,7 @@
 import Foundation
 import EOSSDK
 
+
 /** Input parameters for the `EOS_Lobby_CreateLobby` function. */
 public struct SwiftEOS_Lobby_CreateLobbyOptions: SwiftEOSObject {
 

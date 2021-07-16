@@ -9,6 +9,9 @@ public class SwiftEOS_AntiCheatClient_ProtectMessageOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.DataLengthBytes, .zero)
             XCTAssertNil(cstruct.Data)
             XCTAssertEqual(cstruct.OutBufferSizeBytes, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatClient_ProtectMessageOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_ProtectMessageOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Data)
+            XCTAssertEqual(swiftObject.OutBufferSizeBytes, .zero) }
     }
 }

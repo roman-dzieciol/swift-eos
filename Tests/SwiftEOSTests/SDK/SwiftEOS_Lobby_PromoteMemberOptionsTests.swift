@@ -9,6 +9,10 @@ public class SwiftEOS_Lobby_PromoteMemberOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LobbyId)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Lobby_PromoteMemberOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_PromoteMemberOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LobbyId)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

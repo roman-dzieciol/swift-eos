@@ -11,6 +11,11 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.TargetUserIds)
             XCTAssertEqual(cstruct.TargetUserIdsCount, .zero)
             XCTAssertNil(cstruct.TargetUserIpAddresses)
-            let swiftObject = try SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.TargetUserIds)
+            XCTAssertNil(swiftObject.TargetUserIpAddresses) }
     }
 }

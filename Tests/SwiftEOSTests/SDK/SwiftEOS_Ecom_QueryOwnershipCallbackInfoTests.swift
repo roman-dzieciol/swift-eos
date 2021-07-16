@@ -10,6 +10,9 @@ public class SwiftEOS_Ecom_QueryOwnershipCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ItemOwnership)
             XCTAssertEqual(cstruct.ItemOwnershipCount, .zero)
-            let swiftObject = try SwiftEOS_Ecom_QueryOwnershipCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_QueryOwnershipCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ItemOwnership) }
     }
 }

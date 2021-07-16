@@ -8,6 +8,8 @@ public class SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfoTests: XCTestCa
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LobbyId)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_LobbyMemberUpdateReceivedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LobbyId)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

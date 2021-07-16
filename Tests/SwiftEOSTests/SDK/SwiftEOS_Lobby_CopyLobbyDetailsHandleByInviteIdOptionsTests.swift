@@ -7,6 +7,8 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptionsTests: XCTest
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.InviteId)
-            let swiftObject = try SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.InviteId) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Sessions_DestroySessionOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_DestroySessionOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.SessionName)
-            let swiftObject = try SwiftEOS_Sessions_DestroySessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_DestroySessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName) }
     }
 }

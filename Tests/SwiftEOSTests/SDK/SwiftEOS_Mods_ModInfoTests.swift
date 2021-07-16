@@ -9,6 +9,9 @@ public class SwiftEOS_Mods_ModInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.ModsCount, .zero)
             XCTAssertNil(cstruct.Mods)
             XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Mods_ModInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_ModInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Mods)
+            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Lobby_QueryInvitesOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_QueryInvitesOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Lobby_QueryInvitesOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_QueryInvitesOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

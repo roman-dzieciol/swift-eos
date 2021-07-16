@@ -9,6 +9,9 @@ public class SwiftEOS_Ecom_CheckoutCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TransactionId)
-            let swiftObject = try SwiftEOS_Ecom_CheckoutCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CheckoutCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TransactionId) }
     }
 }

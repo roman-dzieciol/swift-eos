@@ -7,6 +7,8 @@ public class SwiftEOS_Achievements_GetPlayerAchievementCountOptionsTests: XCTest
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_GetPlayerAchievementCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UserId)
-            let swiftObject = try SwiftEOS_Achievements_GetPlayerAchievementCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_GetPlayerAchievementCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId) }
     }
 }

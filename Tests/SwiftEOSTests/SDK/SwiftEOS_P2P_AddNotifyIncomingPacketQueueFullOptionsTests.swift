@@ -6,6 +6,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptionsTests: XCTestCa
     public func testItZeroInitializesFrom_tagEOS_P2P_AddNotifyIncomingPacketQueueFullOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_P2P_AddNotifyIncomingPacketQueueFullOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

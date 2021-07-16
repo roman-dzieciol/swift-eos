@@ -11,6 +11,12 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ClientPlatform, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.AccountId)
             XCTAssertNil(cstruct.IpAddress)
-            let swiftObject = try SwiftEOS_AntiCheatClient_RegisterPeerOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_RegisterPeerOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.PeerHandle)
+            XCTAssertEqual(swiftObject.ClientType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.ClientPlatform, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.AccountId)
+            XCTAssertNil(swiftObject.IpAddress) }
     }
 }

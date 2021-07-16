@@ -16,6 +16,17 @@ public class SwiftEOS_Lobby_CreateLobbyOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.bEnableRTCRoom, .zero)
             XCTAssertNil(cstruct.LocalRTCOptions)
             XCTAssertNil(cstruct.LobbyId)
-            let swiftObject = try SwiftEOS_Lobby_CreateLobbyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_CreateLobbyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.MaxLobbyMembers, .zero)
+            XCTAssertEqual(swiftObject.PermissionLevel, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.bPresenceEnabled, false)
+            XCTAssertEqual(swiftObject.bAllowInvites, false)
+            XCTAssertNil(swiftObject.BucketId)
+            XCTAssertEqual(swiftObject.bDisableHostMigration, false)
+            XCTAssertEqual(swiftObject.bEnableRTCRoom, false)
+            XCTAssertNil(swiftObject.LocalRTCOptions)
+            XCTAssertNil(swiftObject.LobbyId) }
     }
 }

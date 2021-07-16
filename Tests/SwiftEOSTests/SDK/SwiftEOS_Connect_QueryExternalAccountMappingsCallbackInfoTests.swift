@@ -8,6 +8,8 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfoTests: XCT
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_QueryExternalAccountMappingsCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

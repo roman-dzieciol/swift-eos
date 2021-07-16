@@ -8,6 +8,9 @@ public class SwiftEOS_Presence_DataRecordTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
             XCTAssertNil(cstruct.Value)
-            let swiftObject = try SwiftEOS_Presence_DataRecord(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_DataRecord(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Key)
+            XCTAssertNil(swiftObject.Value) }
     }
 }

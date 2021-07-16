@@ -11,6 +11,12 @@ public class SwiftEOS_PlayerDataStorage_WriteFileOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ChunkLengthBytes, .zero)
             XCTAssertNil(cstruct.WriteFileDataCallback)
             XCTAssertNil(cstruct.FileTransferProgressCallback)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_WriteFileOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_WriteFileOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Filename)
+            XCTAssertEqual(swiftObject.ChunkLengthBytes, .zero)
+            XCTAssertNil(swiftObject.WriteFileDataCallback)
+            XCTAssertNil(swiftObject.FileTransferProgressCallback) }
     }
 }

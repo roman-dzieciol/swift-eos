@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatClient_UnregisterPeerOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatClient_UnregisterPeerOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.PeerHandle)
-            let swiftObject = try SwiftEOS_AntiCheatClient_UnregisterPeerOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_UnregisterPeerOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.PeerHandle) }
     }
 }

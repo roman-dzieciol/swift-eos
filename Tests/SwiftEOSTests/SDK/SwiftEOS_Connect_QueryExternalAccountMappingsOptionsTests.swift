@@ -10,6 +10,10 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsOptionsTests: XCTestCa
             XCTAssertEqual(cstruct.AccountIdType, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ExternalAccountIds)
             XCTAssertEqual(cstruct.ExternalAccountIdCount, .zero)
-            let swiftObject = try SwiftEOS_Connect_QueryExternalAccountMappingsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_QueryExternalAccountMappingsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.ExternalAccountIds) }
     }
 }

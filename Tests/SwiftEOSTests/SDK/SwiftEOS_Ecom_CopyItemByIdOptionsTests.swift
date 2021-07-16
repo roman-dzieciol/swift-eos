@@ -8,6 +8,9 @@ public class SwiftEOS_Ecom_CopyItemByIdOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ItemId)
-            let swiftObject = try SwiftEOS_Ecom_CopyItemByIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CopyItemByIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ItemId) }
     }
 }

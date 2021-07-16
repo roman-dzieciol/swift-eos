@@ -8,6 +8,9 @@ public class SwiftEOS_Connect_CredentialsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Token)
             XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Connect_Credentials(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_Credentials(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Token)
+            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!) }
     }
 }

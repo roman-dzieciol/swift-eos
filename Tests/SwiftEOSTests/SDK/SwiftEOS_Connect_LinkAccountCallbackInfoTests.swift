@@ -8,6 +8,8 @@ public class SwiftEOS_Connect_LinkAccountCallbackInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Connect_LinkAccountCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_LinkAccountCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

@@ -7,6 +7,7 @@ public class SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfoTests: XCTestCase
         try withZeroInitializedCStruct(type: _tagEOS_KWS_PermissionsUpdateReceivedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

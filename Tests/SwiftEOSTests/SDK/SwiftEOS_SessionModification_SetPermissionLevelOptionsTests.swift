@@ -7,6 +7,8 @@ public class SwiftEOS_SessionModification_SetPermissionLevelOptionsTests: XCTest
         try withZeroInitializedCStruct(type: _tagEOS_SessionModification_SetPermissionLevelOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.PermissionLevel, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_SessionModification_SetPermissionLevelOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionModification_SetPermissionLevelOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.PermissionLevel, .init(rawValue: .zero)!) }
     }
 }

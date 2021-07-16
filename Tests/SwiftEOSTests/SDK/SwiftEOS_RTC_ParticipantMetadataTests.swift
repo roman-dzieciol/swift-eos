@@ -8,6 +8,9 @@ public class SwiftEOS_RTC_ParticipantMetadataTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
             XCTAssertNil(cstruct.Value)
-            let swiftObject = try SwiftEOS_RTC_ParticipantMetadata(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTC_ParticipantMetadata(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Key)
+            XCTAssertNil(swiftObject.Value) }
     }
 }

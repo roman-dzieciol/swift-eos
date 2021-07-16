@@ -8,6 +8,9 @@ public class SwiftEOS_Friends_SendInviteOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Friends_SendInviteOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Friends_SendInviteOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

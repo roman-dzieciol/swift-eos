@@ -11,6 +11,11 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfoTests: 
             XCTAssertNil(cstruct.ExternalAccountId)
             XCTAssertEqual(cstruct.AccountType, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ExternalAccountId)
+            XCTAssertEqual(swiftObject.AccountType, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

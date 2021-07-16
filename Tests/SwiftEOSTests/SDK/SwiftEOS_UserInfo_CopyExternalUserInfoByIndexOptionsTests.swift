@@ -9,6 +9,10 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptionsTests: XCTestCa
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.Index, .zero)
-            let swiftObject = try SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.Index, .zero) }
     }
 }

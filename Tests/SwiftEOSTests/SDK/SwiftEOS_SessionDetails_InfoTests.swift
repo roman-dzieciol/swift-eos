@@ -10,6 +10,11 @@ public class SwiftEOS_SessionDetails_InfoTests: XCTestCase {
             XCTAssertNil(cstruct.HostAddress)
             XCTAssertEqual(cstruct.NumOpenPublicConnections, .zero)
             XCTAssertNil(cstruct.Settings)
-            let swiftObject = try SwiftEOS_SessionDetails_Info(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_Info(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionId)
+            XCTAssertNil(swiftObject.HostAddress)
+            XCTAssertEqual(swiftObject.NumOpenPublicConnections, .zero)
+            XCTAssertNil(swiftObject.Settings) }
     }
 }

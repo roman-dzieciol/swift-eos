@@ -8,6 +8,9 @@ public class SwiftEOS_Lobby_GetRTCRoomNameOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LobbyId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Lobby_GetRTCRoomNameOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_GetRTCRoomNameOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LobbyId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

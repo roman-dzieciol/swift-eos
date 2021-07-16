@@ -8,6 +8,9 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksOptionsTests: XCTestCase
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LeaderboardId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_QueryLeaderboardRanksOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LeaderboardId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

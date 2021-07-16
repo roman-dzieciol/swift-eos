@@ -10,6 +10,11 @@ public class SwiftEOS_Sessions_JoinSessionOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.SessionHandle)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.bPresenceEnabled, .zero)
-            let swiftObject = try SwiftEOS_Sessions_JoinSessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_JoinSessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.SessionHandle)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.bPresenceEnabled, false) }
     }
 }

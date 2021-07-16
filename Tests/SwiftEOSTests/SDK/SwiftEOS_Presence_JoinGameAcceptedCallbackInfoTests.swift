@@ -10,6 +10,10 @@ public class SwiftEOS_Presence_JoinGameAcceptedCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.UiEventId, .zero)
-            let swiftObject = try SwiftEOS_Presence_JoinGameAcceptedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_JoinGameAcceptedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.JoinInfo)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.UiEventId, .zero) }
     }
 }

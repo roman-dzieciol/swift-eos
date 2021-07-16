@@ -12,6 +12,13 @@ public class SwiftEOS_Metrics_BeginPlayerSessionOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ControllerType, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ServerIp)
             XCTAssertNil(cstruct.GameSessionId)
-            let swiftObject = try SwiftEOS_Metrics_BeginPlayerSessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Metrics_BeginPlayerSessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
+            XCTFail("TODO: swiftObject.AccountId")
+            XCTAssertNil(swiftObject.DisplayName)
+            XCTAssertEqual(swiftObject.ControllerType, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.ServerIp)
+            XCTAssertNil(swiftObject.GameSessionId) }
     }
 }

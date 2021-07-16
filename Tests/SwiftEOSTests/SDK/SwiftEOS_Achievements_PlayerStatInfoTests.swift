@@ -9,6 +9,10 @@ public class SwiftEOS_Achievements_PlayerStatInfoTests: XCTestCase {
             XCTAssertNil(cstruct.Name)
             XCTAssertEqual(cstruct.CurrentValue, .zero)
             XCTAssertEqual(cstruct.ThresholdValue, .zero)
-            let swiftObject = try SwiftEOS_Achievements_PlayerStatInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_PlayerStatInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Name)
+            XCTAssertEqual(swiftObject.CurrentValue, .zero)
+            XCTAssertEqual(swiftObject.ThresholdValue, .zero) }
     }
 }

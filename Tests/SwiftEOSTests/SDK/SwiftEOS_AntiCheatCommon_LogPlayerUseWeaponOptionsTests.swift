@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptionsTests: XCTestCase
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogPlayerUseWeaponOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UseWeaponData)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UseWeaponData) }
     }
 }

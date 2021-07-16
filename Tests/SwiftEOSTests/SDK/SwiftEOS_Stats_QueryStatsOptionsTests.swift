@@ -12,6 +12,12 @@ public class SwiftEOS_Stats_QueryStatsOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.StatNames)
             XCTAssertEqual(cstruct.StatNamesCount, .zero)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Stats_QueryStatsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_QueryStatsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.StartTime, .zero)
+            XCTAssertEqual(swiftObject.EndTime, .zero)
+            XCTAssertNil(swiftObject.StatNames)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

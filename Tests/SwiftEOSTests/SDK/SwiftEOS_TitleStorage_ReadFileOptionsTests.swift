@@ -11,6 +11,12 @@ public class SwiftEOS_TitleStorage_ReadFileOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ReadChunkLengthBytes, .zero)
             XCTAssertNil(cstruct.ReadFileDataCallback)
             XCTAssertNil(cstruct.FileTransferProgressCallback)
-            let swiftObject = try SwiftEOS_TitleStorage_ReadFileOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_ReadFileOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Filename)
+            XCTAssertEqual(swiftObject.ReadChunkLengthBytes, .zero)
+            XCTAssertNil(swiftObject.ReadFileDataCallback)
+            XCTAssertNil(swiftObject.FileTransferProgressCallback) }
     }
 }

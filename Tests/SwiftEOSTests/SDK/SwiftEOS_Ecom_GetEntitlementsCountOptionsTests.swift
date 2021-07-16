@@ -7,6 +7,8 @@ public class SwiftEOS_Ecom_GetEntitlementsCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_GetEntitlementsCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Ecom_GetEntitlementsCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_GetEntitlementsCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

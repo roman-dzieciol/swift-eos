@@ -8,6 +8,9 @@ public class SwiftEOS_Lobby_AttributeTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Data)
             XCTAssertEqual(cstruct.Visibility, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Lobby_Attribute(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_Attribute(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Data)
+            XCTAssertEqual(swiftObject.Visibility, .init(rawValue: .zero)!) }
     }
 }

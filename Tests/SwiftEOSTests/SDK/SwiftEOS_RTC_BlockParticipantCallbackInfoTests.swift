@@ -11,6 +11,11 @@ public class SwiftEOS_RTC_BlockParticipantCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.ParticipantId)
             XCTAssertEqual(cstruct.bBlocked, .zero)
-            let swiftObject = try SwiftEOS_RTC_BlockParticipantCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTC_BlockParticipantCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.ParticipantId)
+            XCTAssertEqual(swiftObject.bBlocked, false) }
     }
 }

@@ -8,6 +8,9 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptionsTests:
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.ExternalAccountInfoIndex, .zero)
-            let swiftObject = try SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_CopyProductUserExternalAccountByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.ExternalAccountInfoIndex, .zero) }
     }
 }

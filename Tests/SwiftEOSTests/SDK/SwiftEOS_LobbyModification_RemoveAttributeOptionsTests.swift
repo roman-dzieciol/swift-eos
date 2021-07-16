@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyModification_RemoveAttributeOptionsTests: XCTestCase 
         try withZeroInitializedCStruct(type: _tagEOS_LobbyModification_RemoveAttributeOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
-            let swiftObject = try SwiftEOS_LobbyModification_RemoveAttributeOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyModification_RemoveAttributeOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Key) }
     }
 }

@@ -7,6 +7,7 @@ public class SwiftEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfoTests: 
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

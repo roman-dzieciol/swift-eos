@@ -8,6 +8,9 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.AccountIdType, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!) }
     }
 }

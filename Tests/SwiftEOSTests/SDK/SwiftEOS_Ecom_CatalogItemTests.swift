@@ -16,6 +16,17 @@ public class SwiftEOS_Ecom_CatalogItemTests: XCTestCase {
             XCTAssertNil(cstruct.DeveloperText)
             XCTAssertEqual(cstruct.ItemType, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.EntitlementEndTimestamp, .zero)
-            let swiftObject = try SwiftEOS_Ecom_CatalogItem(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CatalogItem(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.CatalogNamespace)
+            XCTAssertNil(swiftObject.Id)
+            XCTAssertNil(swiftObject.EntitlementName)
+            XCTAssertNil(swiftObject.TitleText)
+            XCTAssertNil(swiftObject.DescriptionText)
+            XCTAssertNil(swiftObject.LongDescriptionText)
+            XCTAssertNil(swiftObject.TechnicalDetailsText)
+            XCTAssertNil(swiftObject.DeveloperText)
+            XCTAssertEqual(swiftObject.ItemType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.EntitlementEndTimestamp, .zero) }
     }
 }

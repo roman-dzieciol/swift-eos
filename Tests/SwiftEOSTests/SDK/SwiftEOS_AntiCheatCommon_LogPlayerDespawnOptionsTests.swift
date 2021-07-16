@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogPlayerDespawnOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.DespawnedPlayerHandle)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.DespawnedPlayerHandle) }
     }
 }

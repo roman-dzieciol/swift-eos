@@ -8,6 +8,9 @@ public class SwiftEOS_Stats_CopyStatByNameOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.Name)
-            let swiftObject = try SwiftEOS_Stats_CopyStatByNameOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_CopyStatByNameOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.Name) }
     }
 }

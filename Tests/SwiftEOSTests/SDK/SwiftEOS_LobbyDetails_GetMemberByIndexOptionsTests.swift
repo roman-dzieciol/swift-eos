@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyDetails_GetMemberByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.MemberIndex, .zero)
-            let swiftObject = try SwiftEOS_LobbyDetails_GetMemberByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyDetails_GetMemberByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.MemberIndex, .zero) }
     }
 }

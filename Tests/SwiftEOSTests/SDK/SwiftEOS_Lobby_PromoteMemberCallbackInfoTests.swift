@@ -8,6 +8,8 @@ public class SwiftEOS_Lobby_PromoteMemberCallbackInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LobbyId)
-            let swiftObject = try SwiftEOS_Lobby_PromoteMemberCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_PromoteMemberCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LobbyId) }
     }
 }

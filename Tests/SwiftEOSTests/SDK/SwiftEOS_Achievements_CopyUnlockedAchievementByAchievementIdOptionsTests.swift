@@ -8,6 +8,9 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UserId)
             XCTAssertNil(cstruct.AchievementId)
-            let swiftObject = try SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId)
+            XCTAssertNil(swiftObject.AchievementId) }
     }
 }

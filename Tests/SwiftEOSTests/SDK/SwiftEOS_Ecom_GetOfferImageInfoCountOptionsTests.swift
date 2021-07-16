@@ -8,6 +8,9 @@ public class SwiftEOS_Ecom_GetOfferImageInfoCountOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.OfferId)
-            let swiftObject = try SwiftEOS_Ecom_GetOfferImageInfoCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_GetOfferImageInfoCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.OfferId) }
     }
 }

@@ -8,6 +8,9 @@ public class SwiftEOS_Presence_SetPresenceOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.PresenceModificationHandle)
-            let swiftObject = try SwiftEOS_Presence_SetPresenceOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_SetPresenceOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.PresenceModificationHandle) }
     }
 }

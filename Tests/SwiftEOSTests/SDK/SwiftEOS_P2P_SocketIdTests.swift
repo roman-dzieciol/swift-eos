@@ -7,6 +7,8 @@ public class SwiftEOS_P2P_SocketIdTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_P2P_SocketId.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTFail("TODO: cstruct.SocketName")
-            let swiftObject = try SwiftEOS_P2P_SocketId(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_SocketId(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTFail("TODO: swiftObject.SocketName") }
     }
 }

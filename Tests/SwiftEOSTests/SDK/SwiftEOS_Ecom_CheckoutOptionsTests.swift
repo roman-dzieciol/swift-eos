@@ -10,6 +10,11 @@ public class SwiftEOS_Ecom_CheckoutOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.OverrideCatalogNamespace)
             XCTAssertEqual(cstruct.EntryCount, .zero)
             XCTAssertNil(cstruct.Entries)
-            let swiftObject = try SwiftEOS_Ecom_CheckoutOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CheckoutOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.OverrideCatalogNamespace)
+            XCTAssertEqual(swiftObject.EntryCount, .zero)
+            XCTAssertNil(swiftObject.Entries) }
     }
 }

@@ -9,6 +9,9 @@ public class SwiftEOS_RTCAudio_AudioInputStateCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertEqual(cstruct.Status, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_RTCAudio_AudioInputStateCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_AudioInputStateCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertEqual(swiftObject.Status, .init(rawValue: .zero)!) }
     }
 }

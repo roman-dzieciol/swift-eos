@@ -11,6 +11,12 @@ public class SwiftEOS_Connect_ExternalAccountInfoTests: XCTestCase {
             XCTAssertNil(cstruct.AccountId)
             XCTAssertEqual(cstruct.AccountIdType, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.LastLoginTime, .zero)
-            let swiftObject = try SwiftEOS_Connect_ExternalAccountInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_ExternalAccountInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ProductUserId)
+            XCTAssertNil(swiftObject.DisplayName)
+            XCTAssertNil(swiftObject.AccountId)
+            XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.LastLoginTime, .zero) }
     }
 }

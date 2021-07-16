@@ -9,6 +9,9 @@ public class SwiftEOS_Sessions_RegisterPlayersOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.SessionName)
             XCTAssertNil(cstruct.PlayersToRegister)
             XCTAssertEqual(cstruct.PlayersToRegisterCount, .zero)
-            let swiftObject = try SwiftEOS_Sessions_RegisterPlayersOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_RegisterPlayersOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.PlayersToRegister) }
     }
 }

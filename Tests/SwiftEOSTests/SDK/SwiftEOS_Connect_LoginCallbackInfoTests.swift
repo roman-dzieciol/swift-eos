@@ -9,6 +9,9 @@ public class SwiftEOS_Connect_LoginCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ContinuanceToken)
-            let swiftObject = try SwiftEOS_Connect_LoginCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_LoginCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ContinuanceToken) }
     }
 }

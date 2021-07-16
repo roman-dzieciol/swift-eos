@@ -7,6 +7,8 @@ public class SwiftEOS_KWS_GetPermissionsCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_KWS_GetPermissionsCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_KWS_GetPermissionsCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_GetPermissionsCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

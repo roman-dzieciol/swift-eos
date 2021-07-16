@@ -9,6 +9,9 @@ public class SwiftEOS_Stats_IngestStatCompleteCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Stats_IngestStatCompleteCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_IngestStatCompleteCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

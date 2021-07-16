@@ -9,6 +9,9 @@ public class SwiftEOS_Mods_EnumerateModsCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Mods_EnumerateModsCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_EnumerateModsCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!) }
     }
 }

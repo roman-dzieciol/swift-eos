@@ -8,6 +8,9 @@ public class SwiftEOS_Sessions_IsUserInSessionOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.SessionName)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Sessions_IsUserInSessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_IsUserInSessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

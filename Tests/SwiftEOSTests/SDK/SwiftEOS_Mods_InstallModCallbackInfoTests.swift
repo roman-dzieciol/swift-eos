@@ -9,6 +9,9 @@ public class SwiftEOS_Mods_InstallModCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.Mod)
-            let swiftObject = try SwiftEOS_Mods_InstallModCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_InstallModCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Mod) }
     }
 }

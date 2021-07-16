@@ -9,6 +9,10 @@ public class SwiftEOS_AntiCheatCommon_QuatTests: XCTestCase {
             XCTAssertEqual(cstruct.x, .zero)
             XCTAssertEqual(cstruct.y, .zero)
             XCTAssertEqual(cstruct.z, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_Quat(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_Quat(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.w, .zero)
+            XCTAssertEqual(swiftObject.x, .zero)
+            XCTAssertEqual(swiftObject.y, .zero)
+            XCTAssertEqual(swiftObject.z, .zero) }
     }
 }

@@ -9,6 +9,9 @@ public class SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfoTests: XCTestCa
             XCTAssertNil(cstruct.LobbyId)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.CurrentStatus, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LobbyId)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.CurrentStatus, .init(rawValue: .zero)!) }
     }
 }

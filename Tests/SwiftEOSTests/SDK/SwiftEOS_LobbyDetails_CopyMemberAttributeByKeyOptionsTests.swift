@@ -8,6 +8,9 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptionsTests: XCTestC
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.AttrKey)
-            let swiftObject = try SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.AttrKey) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Auth_LogoutOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Auth_LogoutOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Auth_LogoutOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LogoutOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

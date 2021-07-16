@@ -9,6 +9,10 @@ public class SwiftEOS_Connect_TransferDeviceIdAccountOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.PrimaryLocalUserId)
             XCTAssertNil(cstruct.LocalDeviceUserId)
             XCTAssertNil(cstruct.ProductUserIdToPreserve)
-            let swiftObject = try SwiftEOS_Connect_TransferDeviceIdAccountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_TransferDeviceIdAccountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.PrimaryLocalUserId)
+            XCTAssertNil(swiftObject.LocalDeviceUserId)
+            XCTAssertNil(swiftObject.ProductUserIdToPreserve) }
     }
 }

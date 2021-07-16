@@ -8,6 +8,8 @@ public class SwiftEOS_TitleStorage_QueryFileCallbackInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_TitleStorage_QueryFileCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_QueryFileCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

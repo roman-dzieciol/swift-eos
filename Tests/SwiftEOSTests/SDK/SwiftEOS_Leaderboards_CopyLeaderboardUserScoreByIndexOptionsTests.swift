@@ -8,6 +8,9 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptionsTests: 
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.LeaderboardUserScoreIndex, .zero)
             XCTAssertNil(cstruct.StatName)
-            let swiftObject = try SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.LeaderboardUserScoreIndex, .zero)
+            XCTAssertNil(swiftObject.StatName) }
     }
 }

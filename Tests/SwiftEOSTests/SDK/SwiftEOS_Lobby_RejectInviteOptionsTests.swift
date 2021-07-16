@@ -8,6 +8,9 @@ public class SwiftEOS_Lobby_RejectInviteOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.InviteId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Lobby_RejectInviteOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_RejectInviteOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.InviteId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

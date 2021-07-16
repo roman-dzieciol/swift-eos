@@ -16,6 +16,17 @@ public class SwiftEOS_Auth_TokenTests: XCTestCase {
             XCTAssertNil(cstruct.RefreshToken)
             XCTAssertEqual(cstruct.RefreshExpiresIn, .zero)
             XCTAssertNil(cstruct.RefreshExpiresAt)
-            let swiftObject = try SwiftEOS_Auth_Token(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_Token(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.App)
+            XCTAssertNil(swiftObject.ClientId)
+            XCTAssertNil(swiftObject.AccountId)
+            XCTAssertNil(swiftObject.AccessToken)
+            XCTAssertEqual(swiftObject.ExpiresIn, .zero)
+            XCTAssertNil(swiftObject.ExpiresAt)
+            XCTAssertEqual(swiftObject.AuthType, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.RefreshToken)
+            XCTAssertEqual(swiftObject.RefreshExpiresIn, .zero)
+            XCTAssertNil(swiftObject.RefreshExpiresAt) }
     }
 }

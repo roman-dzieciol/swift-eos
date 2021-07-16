@@ -8,6 +8,9 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataAtIndexOptionsTests: XCTestCa
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.Index, .zero)
-            let swiftObject = try SwiftEOS_TitleStorage_CopyFileMetadataAtIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_CopyFileMetadataAtIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.Index, .zero) }
     }
 }

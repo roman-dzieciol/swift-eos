@@ -8,6 +8,8 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfoTests: XCTes
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

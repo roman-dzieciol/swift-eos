@@ -9,6 +9,10 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.OfferId)
             XCTAssertEqual(cstruct.ItemIndex, .zero)
-            let swiftObject = try SwiftEOS_Ecom_CopyOfferItemByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CopyOfferItemByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.OfferId)
+            XCTAssertEqual(swiftObject.ItemIndex, .zero) }
     }
 }

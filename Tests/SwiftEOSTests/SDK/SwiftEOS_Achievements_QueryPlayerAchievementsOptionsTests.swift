@@ -8,6 +8,9 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsOptionsTests: XCTestCa
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Achievements_QueryPlayerAchievementsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_QueryPlayerAchievementsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

@@ -9,6 +9,9 @@ public class SwiftEOS_PlayerDataStorage_QueryFileListCallbackInfoTests: XCTestCa
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.FileCount, .zero)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_QueryFileListCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_QueryFileListCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.FileCount, .zero) }
     }
 }

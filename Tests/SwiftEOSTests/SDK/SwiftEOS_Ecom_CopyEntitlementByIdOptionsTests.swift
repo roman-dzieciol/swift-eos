@@ -8,6 +8,9 @@ public class SwiftEOS_Ecom_CopyEntitlementByIdOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.EntitlementId)
-            let swiftObject = try SwiftEOS_Ecom_CopyEntitlementByIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CopyEntitlementByIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.EntitlementId) }
     }
 }

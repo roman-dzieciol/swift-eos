@@ -11,6 +11,12 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponDataTests: XCTestCase {
             XCTAssertEqual(cstruct.bIsPlayerViewZoomed, .zero)
             XCTAssertEqual(cstruct.bIsMeleeAttack, .zero)
             XCTAssertNil(cstruct.WeaponName)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.PlayerHandle)
+            XCTAssertNil(swiftObject.PlayerPosition)
+            XCTAssertNil(swiftObject.PlayerViewRotation)
+            XCTAssertEqual(swiftObject.bIsPlayerViewZoomed, false)
+            XCTAssertEqual(swiftObject.bIsMeleeAttack, false)
+            XCTAssertNil(swiftObject.WeaponName) }
     }
 }

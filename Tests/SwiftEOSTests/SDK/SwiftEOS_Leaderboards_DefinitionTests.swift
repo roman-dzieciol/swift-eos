@@ -11,6 +11,12 @@ public class SwiftEOS_Leaderboards_DefinitionTests: XCTestCase {
             XCTAssertEqual(cstruct.Aggregation, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.StartTime, .zero)
             XCTAssertEqual(cstruct.EndTime, .zero)
-            let swiftObject = try SwiftEOS_Leaderboards_Definition(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_Definition(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LeaderboardId)
+            XCTAssertNil(swiftObject.StatName)
+            XCTAssertEqual(swiftObject.Aggregation, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.StartTime, .zero)
+            XCTAssertEqual(swiftObject.EndTime, .zero) }
     }
 }

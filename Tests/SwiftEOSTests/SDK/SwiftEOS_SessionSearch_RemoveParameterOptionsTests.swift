@@ -8,6 +8,9 @@ public class SwiftEOS_SessionSearch_RemoveParameterOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
             XCTAssertEqual(cstruct.ComparisonOp, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_SessionSearch_RemoveParameterOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionSearch_RemoveParameterOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Key)
+            XCTAssertEqual(swiftObject.ComparisonOp, .init(rawValue: .zero)!) }
     }
 }

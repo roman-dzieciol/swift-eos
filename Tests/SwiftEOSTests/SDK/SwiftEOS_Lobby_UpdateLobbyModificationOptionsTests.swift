@@ -8,6 +8,9 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.LobbyId)
-            let swiftObject = try SwiftEOS_Lobby_UpdateLobbyModificationOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_UpdateLobbyModificationOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.LobbyId) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_SessionSearch_FindOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_SessionSearch_FindOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_SessionSearch_FindOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionSearch_FindOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

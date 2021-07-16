@@ -9,6 +9,10 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.DeviceId)
             XCTAssertEqual(cstruct.Volume, .zero)
-            let swiftObject = try SwiftEOS_RTCAudio_SetAudioOutputSettingsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_SetAudioOutputSettingsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.DeviceId)
+            XCTAssertEqual(swiftObject.Volume, .zero) }
     }
 }

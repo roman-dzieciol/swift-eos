@@ -8,6 +8,9 @@ public class SwiftEOS_Ecom_CopyTransactionByIdOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TransactionId)
-            let swiftObject = try SwiftEOS_Ecom_CopyTransactionByIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CopyTransactionByIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TransactionId) }
     }
 }

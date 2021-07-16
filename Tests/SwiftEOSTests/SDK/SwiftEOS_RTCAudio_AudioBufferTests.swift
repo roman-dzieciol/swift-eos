@@ -10,6 +10,10 @@ public class SwiftEOS_RTCAudio_AudioBufferTests: XCTestCase {
             XCTAssertEqual(cstruct.FramesCount, .zero)
             XCTAssertEqual(cstruct.SampleRate, .zero)
             XCTAssertEqual(cstruct.Channels, .zero)
-            let swiftObject = try SwiftEOS_RTCAudio_AudioBuffer(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_AudioBuffer(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Frames)
+            XCTAssertEqual(swiftObject.SampleRate, .zero)
+            XCTAssertEqual(swiftObject.Channels, .zero) }
     }
 }

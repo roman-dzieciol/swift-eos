@@ -9,6 +9,9 @@ public class SwiftEOS_Mods_UninstallModCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.Mod)
-            let swiftObject = try SwiftEOS_Mods_UninstallModCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_UninstallModCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Mod) }
     }
 }

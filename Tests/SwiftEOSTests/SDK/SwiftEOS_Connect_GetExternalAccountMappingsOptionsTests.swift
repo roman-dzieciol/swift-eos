@@ -9,6 +9,10 @@ public class SwiftEOS_Connect_GetExternalAccountMappingsOptionsTests: XCTestCase
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.AccountIdType, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.TargetExternalUserId)
-            let swiftObject = try SwiftEOS_Connect_GetExternalAccountMappingsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_GetExternalAccountMappingsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.TargetExternalUserId) }
     }
 }

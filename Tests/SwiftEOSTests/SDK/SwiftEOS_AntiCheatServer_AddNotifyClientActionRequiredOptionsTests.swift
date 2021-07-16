@@ -6,6 +6,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptionsTests:
     public func testItZeroInitializesFrom_tagEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

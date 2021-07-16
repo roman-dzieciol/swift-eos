@@ -7,6 +7,8 @@ public class SwiftEOS_Ecom_CheckoutEntryTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_CheckoutEntry.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.OfferId)
-            let swiftObject = try SwiftEOS_Ecom_CheckoutEntry(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CheckoutEntry(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.OfferId) }
     }
 }

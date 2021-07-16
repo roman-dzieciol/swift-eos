@@ -10,6 +10,10 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfoTests: XCTe
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.DisplayName)
-            let swiftObject = try SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.DisplayName) }
     }
 }

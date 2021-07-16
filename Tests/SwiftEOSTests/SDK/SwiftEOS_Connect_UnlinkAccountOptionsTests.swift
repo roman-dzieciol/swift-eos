@@ -7,6 +7,8 @@ public class SwiftEOS_Connect_UnlinkAccountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_UnlinkAccountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Connect_UnlinkAccountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_UnlinkAccountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

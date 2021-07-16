@@ -7,6 +7,7 @@ public class SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfoTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_LobbyUpdateReceivedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LobbyId)
-            let swiftObject = try SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_LobbyUpdateReceivedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LobbyId) }
     }
 }

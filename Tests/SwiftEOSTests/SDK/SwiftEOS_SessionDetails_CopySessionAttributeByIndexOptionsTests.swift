@@ -7,6 +7,8 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptionsTests: XC
         try withZeroInitializedCStruct(type: _tagEOS_SessionDetails_CopySessionAttributeByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.AttrIndex, .zero)
-            let swiftObject = try SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.AttrIndex, .zero) }
     }
 }

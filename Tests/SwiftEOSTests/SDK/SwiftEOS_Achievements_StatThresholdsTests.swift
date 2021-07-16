@@ -8,6 +8,9 @@ public class SwiftEOS_Achievements_StatThresholdsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Name)
             XCTAssertEqual(cstruct.Threshold, .zero)
-            let swiftObject = try SwiftEOS_Achievements_StatThresholds(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_StatThresholds(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Name)
+            XCTAssertEqual(swiftObject.Threshold, .zero) }
     }
 }

@@ -12,6 +12,11 @@ public class SwiftEOS_RTC_ParticipantStatusChangedCallbackInfoTests: XCTestCase 
             XCTAssertEqual(cstruct.ParticipantStatus, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.ParticipantMetadataCount, .zero)
             XCTAssertNil(cstruct.ParticipantMetadata)
-            let swiftObject = try SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.ParticipantId)
+            XCTAssertEqual(swiftObject.ParticipantStatus, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.ParticipantMetadata) }
     }
 }

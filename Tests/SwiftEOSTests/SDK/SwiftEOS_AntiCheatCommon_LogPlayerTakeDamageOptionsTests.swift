@@ -23,6 +23,24 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptionsTests: XCTestCas
             XCTAssertEqual(cstruct.DamageResult, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.PlayerUseWeaponData)
             XCTAssertEqual(cstruct.TimeSincePlayerUseWeaponMs, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.VictimPlayerHandle)
+            XCTAssertNil(swiftObject.VictimPlayerPosition)
+            XCTAssertNil(swiftObject.VictimPlayerViewRotation)
+            XCTAssertNil(swiftObject.AttackerPlayerHandle)
+            XCTAssertNil(swiftObject.AttackerPlayerPosition)
+            XCTAssertNil(swiftObject.AttackerPlayerViewRotation)
+            XCTAssertEqual(swiftObject.bIsHitscanAttack, false)
+            XCTAssertEqual(swiftObject.bHasLineOfSight, false)
+            XCTAssertEqual(swiftObject.bIsCriticalHit, false)
+            XCTAssertEqual(swiftObject.HitBoneId, .zero)
+            XCTAssertEqual(swiftObject.DamageTaken, .zero)
+            XCTAssertEqual(swiftObject.HealthRemaining, .zero)
+            XCTAssertEqual(swiftObject.DamageSource, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.DamageType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.DamageResult, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.PlayerUseWeaponData)
+            XCTAssertEqual(swiftObject.TimeSincePlayerUseWeaponMs, .zero) }
     }
 }

@@ -11,6 +11,12 @@ public class SwiftEOS_UserInfoTests: XCTestCase {
             XCTAssertNil(cstruct.DisplayName)
             XCTAssertNil(cstruct.PreferredLanguage)
             XCTAssertNil(cstruct.Nickname)
-            let swiftObject = try SwiftEOS_UserInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId)
+            XCTAssertNil(swiftObject.Country)
+            XCTAssertNil(swiftObject.DisplayName)
+            XCTAssertNil(swiftObject.PreferredLanguage)
+            XCTAssertNil(swiftObject.Nickname) }
     }
 }

@@ -8,6 +8,9 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.UserTokenIndex, .zero)
             XCTAssertEqual(cstruct.QueryId, .zero)
-            let swiftObject = try SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.UserTokenIndex, .zero)
+            XCTAssertEqual(swiftObject.QueryId, .zero) }
     }
 }

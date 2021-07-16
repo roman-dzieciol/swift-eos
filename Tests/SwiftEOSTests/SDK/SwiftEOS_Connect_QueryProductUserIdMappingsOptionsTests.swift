@@ -10,6 +10,10 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsOptionsTests: XCTestCase
             XCTAssertEqual(cstruct.AccountIdType_DEPRECATED, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ProductUserIds)
             XCTAssertEqual(cstruct.ProductUserIdCount, .zero)
-            let swiftObject = try SwiftEOS_Connect_QueryProductUserIdMappingsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_QueryProductUserIdMappingsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.AccountIdType_DEPRECATED, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.ProductUserIds) }
     }
 }

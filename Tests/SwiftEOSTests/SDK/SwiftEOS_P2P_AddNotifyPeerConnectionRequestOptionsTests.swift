@@ -8,6 +8,9 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptionsTests: XCTestCase
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.SocketId)
-            let swiftObject = try SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_AddNotifyPeerConnectionRequestOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.SocketId) }
     }
 }

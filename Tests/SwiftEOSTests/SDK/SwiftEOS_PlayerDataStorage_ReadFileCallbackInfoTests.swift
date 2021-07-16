@@ -9,6 +9,9 @@ public class SwiftEOS_PlayerDataStorage_ReadFileCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.Filename)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Filename) }
     }
 }

@@ -10,6 +10,11 @@ public class SwiftEOS_Stats_StatTests: XCTestCase {
             XCTAssertEqual(cstruct.StartTime, .zero)
             XCTAssertEqual(cstruct.EndTime, .zero)
             XCTAssertEqual(cstruct.Value, .zero)
-            let swiftObject = try SwiftEOS_Stats_Stat(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_Stat(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Name)
+            XCTAssertEqual(swiftObject.StartTime, .zero)
+            XCTAssertEqual(swiftObject.EndTime, .zero)
+            XCTAssertEqual(swiftObject.Value, .zero) }
     }
 }

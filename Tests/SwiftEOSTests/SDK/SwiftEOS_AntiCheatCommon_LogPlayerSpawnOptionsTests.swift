@@ -9,6 +9,10 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.SpawnedPlayerHandle)
             XCTAssertEqual(cstruct.TeamId, .zero)
             XCTAssertEqual(cstruct.CharacterId, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SpawnedPlayerHandle)
+            XCTAssertEqual(swiftObject.TeamId, .zero)
+            XCTAssertEqual(swiftObject.CharacterId, .zero) }
     }
 }

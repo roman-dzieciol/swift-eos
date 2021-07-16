@@ -7,6 +7,8 @@ public class SwiftEOS_Ecom_GetOfferCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_GetOfferCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Ecom_GetOfferCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_GetOfferCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptionsTests: XCT
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_GetLeaderboardUserScoreCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.StatName)
-            let swiftObject = try SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.StatName) }
     }
 }

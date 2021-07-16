@@ -8,6 +8,9 @@ public class SwiftEOS_RTCAdmin_UserTokenTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.ProductUserId)
             XCTAssertNil(cstruct.Token)
-            let swiftObject = try SwiftEOS_RTCAdmin_UserToken(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_UserToken(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ProductUserId)
+            XCTAssertNil(swiftObject.Token) }
     }
 }

@@ -8,6 +8,8 @@ public class SwiftEOS_Presence_PresenceChangedCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.PresenceUserId)
-            let swiftObject = try SwiftEOS_Presence_PresenceChangedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_PresenceChangedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.PresenceUserId) }
     }
 }

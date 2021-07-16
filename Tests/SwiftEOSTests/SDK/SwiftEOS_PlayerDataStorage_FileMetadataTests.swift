@@ -11,6 +11,12 @@ public class SwiftEOS_PlayerDataStorage_FileMetadataTests: XCTestCase {
             XCTAssertNil(cstruct.Filename)
             XCTAssertEqual(cstruct.LastModifiedTime, .zero)
             XCTAssertEqual(cstruct.UnencryptedDataSizeBytes, .zero)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_FileMetadata(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_FileMetadata(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.FileSizeBytes, .zero)
+            XCTAssertNil(swiftObject.MD5Hash)
+            XCTAssertNil(swiftObject.Filename)
+            XCTAssertEqual(swiftObject.LastModifiedTime, .zero)
+            XCTAssertEqual(swiftObject.UnencryptedDataSizeBytes, .zero) }
     }
 }

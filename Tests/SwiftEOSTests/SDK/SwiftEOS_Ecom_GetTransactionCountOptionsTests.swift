@@ -7,6 +7,8 @@ public class SwiftEOS_Ecom_GetTransactionCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_GetTransactionCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Ecom_GetTransactionCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_GetTransactionCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

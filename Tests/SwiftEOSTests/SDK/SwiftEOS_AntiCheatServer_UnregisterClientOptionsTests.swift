@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatServer_UnregisterClientOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatServer_UnregisterClientOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.ClientHandle)
-            let swiftObject = try SwiftEOS_AntiCheatServer_UnregisterClientOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_UnregisterClientOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ClientHandle) }
     }
 }

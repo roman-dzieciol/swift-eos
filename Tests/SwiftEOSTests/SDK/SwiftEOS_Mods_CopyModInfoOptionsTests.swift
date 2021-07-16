@@ -8,6 +8,9 @@ public class SwiftEOS_Mods_CopyModInfoOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Mods_CopyModInfoOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_CopyModInfoOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!) }
     }
 }

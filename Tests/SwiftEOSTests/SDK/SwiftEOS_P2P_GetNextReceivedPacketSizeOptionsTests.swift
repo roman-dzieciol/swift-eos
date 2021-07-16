@@ -8,6 +8,9 @@ public class SwiftEOS_P2P_GetNextReceivedPacketSizeOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RequestedChannel)
-            let swiftObject = try SwiftEOS_P2P_GetNextReceivedPacketSizeOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_GetNextReceivedPacketSizeOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RequestedChannel) }
     }
 }

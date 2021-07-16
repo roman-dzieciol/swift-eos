@@ -10,6 +10,11 @@ public class SwiftEOS_Lobby_JoinLobbyOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.bPresenceEnabled, .zero)
             XCTAssertNil(cstruct.LocalRTCOptions)
-            let swiftObject = try SwiftEOS_Lobby_JoinLobbyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_JoinLobbyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LobbyDetailsHandle)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.bPresenceEnabled, false)
+            XCTAssertNil(swiftObject.LocalRTCOptions) }
     }
 }

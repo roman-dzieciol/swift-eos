@@ -10,6 +10,11 @@ public class SwiftEOS_Auth_PinGrantInfoTests: XCTestCase {
             XCTAssertNil(cstruct.VerificationURI)
             XCTAssertEqual(cstruct.ExpiresIn, .zero)
             XCTAssertNil(cstruct.VerificationURIComplete)
-            let swiftObject = try SwiftEOS_Auth_PinGrantInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_PinGrantInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserCode)
+            XCTAssertNil(swiftObject.VerificationURI)
+            XCTAssertEqual(swiftObject.ExpiresIn, .zero)
+            XCTAssertNil(swiftObject.VerificationURIComplete) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_UI_GetFriendsVisibleOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_UI_GetFriendsVisibleOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_UI_GetFriendsVisibleOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UI_GetFriendsVisibleOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

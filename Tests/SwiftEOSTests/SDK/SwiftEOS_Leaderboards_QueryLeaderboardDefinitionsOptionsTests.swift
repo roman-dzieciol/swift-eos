@@ -9,6 +9,10 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsOptionsTests: XCTe
             XCTAssertEqual(cstruct.StartTime, .zero)
             XCTAssertEqual(cstruct.EndTime, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.StartTime, .zero)
+            XCTAssertEqual(swiftObject.EndTime, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

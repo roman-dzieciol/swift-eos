@@ -8,6 +8,8 @@ public class SwiftEOS_PresenceModification_SetDataOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.RecordsCount, .zero)
             XCTAssertNil(cstruct.Records)
-            let swiftObject = try SwiftEOS_PresenceModification_SetDataOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PresenceModification_SetDataOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Records) }
     }
 }

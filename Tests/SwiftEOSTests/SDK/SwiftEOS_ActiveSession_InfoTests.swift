@@ -10,6 +10,11 @@ public class SwiftEOS_ActiveSession_InfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.State, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.SessionDetails)
-            let swiftObject = try SwiftEOS_ActiveSession_Info(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_ActiveSession_Info(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.State, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.SessionDetails) }
     }
 }

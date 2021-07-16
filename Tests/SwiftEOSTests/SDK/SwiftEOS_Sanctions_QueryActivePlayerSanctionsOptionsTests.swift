@@ -8,6 +8,9 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptionsTests: XCTestCa
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sanctions_QueryActivePlayerSanctionsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

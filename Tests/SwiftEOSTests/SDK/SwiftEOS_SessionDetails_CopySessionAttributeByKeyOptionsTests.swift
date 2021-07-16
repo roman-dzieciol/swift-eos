@@ -7,6 +7,8 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptionsTests: XCTe
         try withZeroInitializedCStruct(type: _tagEOS_SessionDetails_CopySessionAttributeByKeyOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.AttrKey)
-            let swiftObject = try SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_CopySessionAttributeByKeyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.AttrKey) }
     }
 }

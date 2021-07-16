@@ -7,6 +7,8 @@ public class SwiftEOS_PresenceModification_DataRecordIdTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_PresenceModification_DataRecordId.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
-            let swiftObject = try SwiftEOS_PresenceModification_DataRecordId(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PresenceModification_DataRecordId(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Key) }
     }
 }

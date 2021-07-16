@@ -9,6 +9,9 @@ public class SwiftEOS_Achievements_UnlockAchievementsOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.UserId)
             XCTAssertNil(cstruct.AchievementIds)
             XCTAssertEqual(cstruct.AchievementsCount, .zero)
-            let swiftObject = try SwiftEOS_Achievements_UnlockAchievementsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_UnlockAchievementsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId)
+            XCTAssertNil(swiftObject.AchievementIds) }
     }
 }

@@ -10,6 +10,11 @@ public class SwiftEOS_AntiCheatCommon_LogGameRoundStartOptionsTests: XCTestCase 
             XCTAssertNil(cstruct.LevelName)
             XCTAssertNil(cstruct.ModeName)
             XCTAssertEqual(cstruct.RoundTimeSeconds, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogGameRoundStartOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionIdentifier)
+            XCTAssertNil(swiftObject.LevelName)
+            XCTAssertNil(swiftObject.ModeName)
+            XCTAssertEqual(swiftObject.RoundTimeSeconds, .zero) }
     }
 }

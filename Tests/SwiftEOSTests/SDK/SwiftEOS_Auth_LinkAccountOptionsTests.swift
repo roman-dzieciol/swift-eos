@@ -9,6 +9,10 @@ public class SwiftEOS_Auth_LinkAccountOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.LinkAccountFlags, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ContinuanceToken)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Auth_LinkAccountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LinkAccountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.LinkAccountFlags, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.ContinuanceToken)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

@@ -8,6 +8,9 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptionsTests: XCTes
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.Filename)
-            let swiftObject = try SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Filename) }
     }
 }

@@ -11,6 +11,12 @@ public class SwiftEOS_SessionDetails_SettingsTests: XCTestCase {
             XCTAssertEqual(cstruct.bAllowJoinInProgress, .zero)
             XCTAssertEqual(cstruct.PermissionLevel, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.bInvitesAllowed, .zero)
-            let swiftObject = try SwiftEOS_SessionDetails_Settings(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_Settings(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.BucketId)
+            XCTAssertEqual(swiftObject.NumPublicConnections, .zero)
+            XCTAssertEqual(swiftObject.bAllowJoinInProgress, false)
+            XCTAssertEqual(swiftObject.PermissionLevel, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.bInvitesAllowed, false) }
     }
 }

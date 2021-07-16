@@ -8,6 +8,9 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.QueryId, .zero)
-            let swiftObject = try SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.QueryId, .zero) }
     }
 }

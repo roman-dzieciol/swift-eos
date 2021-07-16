@@ -9,6 +9,9 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfoTests: XCT
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

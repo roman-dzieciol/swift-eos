@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyModification_SetInvitesAllowedOptionsTests: XCTestCas
         try withZeroInitializedCStruct(type: _tagEOS_LobbyModification_SetInvitesAllowedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.bInvitesAllowed, .zero)
-            let swiftObject = try SwiftEOS_LobbyModification_SetInvitesAllowedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyModification_SetInvitesAllowedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.bInvitesAllowed, false) }
     }
 }

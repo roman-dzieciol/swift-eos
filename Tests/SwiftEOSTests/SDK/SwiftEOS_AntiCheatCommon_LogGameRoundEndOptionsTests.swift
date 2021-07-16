@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatCommon_LogGameRoundEndOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogGameRoundEndOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.WinningTeamId, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogGameRoundEndOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogGameRoundEndOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.WinningTeamId, .zero) }
     }
 }

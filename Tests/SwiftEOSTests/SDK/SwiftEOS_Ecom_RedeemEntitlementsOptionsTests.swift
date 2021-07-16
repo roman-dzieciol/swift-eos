@@ -9,6 +9,9 @@ public class SwiftEOS_Ecom_RedeemEntitlementsOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.EntitlementIdCount, .zero)
             XCTAssertNil(cstruct.EntitlementIds)
-            let swiftObject = try SwiftEOS_Ecom_RedeemEntitlementsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_RedeemEntitlementsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.EntitlementIds) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByKeyOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyDetails_CopyAttributeByKeyOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.AttrKey)
-            let swiftObject = try SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyDetails_CopyAttributeByKeyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.AttrKey) }
     }
 }

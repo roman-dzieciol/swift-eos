@@ -9,6 +9,9 @@ public class SwiftEOS_PlayerDataStorage_WriteFileCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.Filename)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Filename) }
     }
 }

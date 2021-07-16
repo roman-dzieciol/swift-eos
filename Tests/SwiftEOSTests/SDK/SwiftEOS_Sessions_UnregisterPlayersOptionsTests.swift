@@ -9,6 +9,9 @@ public class SwiftEOS_Sessions_UnregisterPlayersOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.SessionName)
             XCTAssertNil(cstruct.PlayersToUnregister)
             XCTAssertEqual(cstruct.PlayersToUnregisterCount, .zero)
-            let swiftObject = try SwiftEOS_Sessions_UnregisterPlayersOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_UnregisterPlayersOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.PlayersToUnregister) }
     }
 }

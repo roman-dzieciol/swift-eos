@@ -9,6 +9,9 @@ public class SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptionsTests: XCTe
             XCTAssertNil(cstruct.ClientHandle)
             XCTAssertEqual(cstruct.DataLengthBytes, .zero)
             XCTAssertNil(cstruct.Data)
-            let swiftObject = try SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ClientHandle)
+            XCTAssertNil(swiftObject.Data) }
     }
 }

@@ -9,6 +9,10 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptionsTests: XCTestCas
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertEqual(cstruct.bUnmixedAudio, .zero)
-            let swiftObject = try SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertEqual(swiftObject.bUnmixedAudio, false) }
     }
 }

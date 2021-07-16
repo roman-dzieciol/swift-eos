@@ -12,6 +12,13 @@ public class SwiftEOS_Ecom_EntitlementTests: XCTestCase {
             XCTAssertEqual(cstruct.ServerIndex, .zero)
             XCTAssertEqual(cstruct.bRedeemed, .zero)
             XCTAssertEqual(cstruct.EndTimestamp, .zero)
-            let swiftObject = try SwiftEOS_Ecom_Entitlement(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_Entitlement(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.EntitlementName)
+            XCTAssertNil(swiftObject.EntitlementId)
+            XCTAssertNil(swiftObject.CatalogItemId)
+            XCTAssertEqual(swiftObject.ServerIndex, .zero)
+            XCTAssertEqual(swiftObject.bRedeemed, false)
+            XCTAssertEqual(swiftObject.EndTimestamp, .zero) }
     }
 }

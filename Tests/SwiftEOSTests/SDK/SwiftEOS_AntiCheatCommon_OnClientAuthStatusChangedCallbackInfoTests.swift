@@ -8,6 +8,8 @@ public class SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfoTests
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.ClientHandle)
             XCTAssertEqual(cstruct.ClientAuthStatus, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.ClientHandle)
+            XCTAssertEqual(swiftObject.ClientAuthStatus, .init(rawValue: .zero)!) }
     }
 }

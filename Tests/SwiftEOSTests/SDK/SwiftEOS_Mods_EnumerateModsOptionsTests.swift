@@ -8,6 +8,9 @@ public class SwiftEOS_Mods_EnumerateModsOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Mods_EnumerateModsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_EnumerateModsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!) }
     }
 }

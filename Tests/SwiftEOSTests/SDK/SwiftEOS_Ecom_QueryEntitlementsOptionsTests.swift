@@ -10,6 +10,10 @@ public class SwiftEOS_Ecom_QueryEntitlementsOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.EntitlementNames)
             XCTAssertEqual(cstruct.EntitlementNameCount, .zero)
             XCTAssertEqual(cstruct.bIncludeRedeemed, .zero)
-            let swiftObject = try SwiftEOS_Ecom_QueryEntitlementsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_QueryEntitlementsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.EntitlementNames)
+            XCTAssertEqual(swiftObject.bIncludeRedeemed, false) }
     }
 }

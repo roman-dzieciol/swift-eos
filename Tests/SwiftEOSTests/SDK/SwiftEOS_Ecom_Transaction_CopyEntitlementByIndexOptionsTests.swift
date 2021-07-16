@@ -7,6 +7,8 @@ public class SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptionsTests: XCTes
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_Transaction_CopyEntitlementByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.EntitlementIndex, .zero)
-            let swiftObject = try SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.EntitlementIndex, .zero) }
     }
 }

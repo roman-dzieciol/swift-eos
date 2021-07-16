@@ -7,6 +7,8 @@ public class SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptionsTests: XCTestCa
         try withZeroInitializedCStruct(type: _tagEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.DeviceInfoIndex, .zero)
-            let swiftObject = try SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_GetAudioOutputDeviceByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.DeviceInfoIndex, .zero) }
     }
 }

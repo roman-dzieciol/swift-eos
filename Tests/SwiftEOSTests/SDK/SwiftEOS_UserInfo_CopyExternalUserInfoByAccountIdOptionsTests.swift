@@ -9,6 +9,10 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptionsTests: XCTe
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.AccountId)
-            let swiftObject = try SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.AccountId) }
     }
 }

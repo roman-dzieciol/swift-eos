@@ -9,6 +9,10 @@ public class SwiftEOS_RTCAudio_UpdateSendingOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertEqual(cstruct.AudioStatus, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_RTCAudio_UpdateSendingOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_UpdateSendingOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertEqual(swiftObject.AudioStatus, .init(rawValue: .zero)!) }
     }
 }

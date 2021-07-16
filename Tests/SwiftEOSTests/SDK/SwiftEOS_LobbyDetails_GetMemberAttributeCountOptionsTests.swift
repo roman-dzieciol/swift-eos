@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyDetails_GetMemberAttributeCountOptionsTests: XCTestCa
         try withZeroInitializedCStruct(type: _tagEOS_LobbyDetails_GetMemberAttributeCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_LobbyDetails_GetMemberAttributeCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyDetails_GetMemberAttributeCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Connect_CreateDeviceIdOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_CreateDeviceIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.DeviceModel)
-            let swiftObject = try SwiftEOS_Connect_CreateDeviceIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_CreateDeviceIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.DeviceModel) }
     }
 }

@@ -8,6 +8,8 @@ public class SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertEqual(cstruct.bIsVisible, .zero)
             XCTAssertEqual(cstruct.bIsExclusiveInput, .zero)
-            let swiftObject = try SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.bIsVisible, false)
+            XCTAssertEqual(swiftObject.bIsExclusiveInput, false) }
     }
 }

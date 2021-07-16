@@ -10,6 +10,11 @@ public class SwiftEOS_Ecom_KeyImageInfoTests: XCTestCase {
             XCTAssertNil(cstruct.Url)
             XCTAssertEqual(cstruct.Width, .zero)
             XCTAssertEqual(cstruct.Height, .zero)
-            let swiftObject = try SwiftEOS_Ecom_KeyImageInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_KeyImageInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Type)
+            XCTAssertNil(swiftObject.Url)
+            XCTAssertEqual(swiftObject.Width, .zero)
+            XCTAssertEqual(swiftObject.Height, .zero) }
     }
 }

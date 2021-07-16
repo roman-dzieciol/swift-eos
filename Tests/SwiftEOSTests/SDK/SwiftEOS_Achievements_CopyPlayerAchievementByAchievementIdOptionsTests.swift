@@ -9,6 +9,10 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptionsTe
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.AchievementId)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.AchievementId)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

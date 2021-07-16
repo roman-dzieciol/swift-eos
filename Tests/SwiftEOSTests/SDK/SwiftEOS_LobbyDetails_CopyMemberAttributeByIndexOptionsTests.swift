@@ -8,6 +8,9 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptionsTests: XCTes
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.AttrIndex, .zero)
-            let swiftObject = try SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.AttrIndex, .zero) }
     }
 }

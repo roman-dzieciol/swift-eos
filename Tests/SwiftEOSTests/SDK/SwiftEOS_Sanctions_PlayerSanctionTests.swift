@@ -8,6 +8,9 @@ public class SwiftEOS_Sanctions_PlayerSanctionTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.TimePlaced, .zero)
             XCTAssertNil(cstruct.Action)
-            let swiftObject = try SwiftEOS_Sanctions_PlayerSanction(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sanctions_PlayerSanction(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.TimePlaced, .zero)
+            XCTAssertNil(swiftObject.Action) }
     }
 }

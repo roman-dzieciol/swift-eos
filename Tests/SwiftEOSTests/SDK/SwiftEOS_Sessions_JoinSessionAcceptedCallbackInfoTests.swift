@@ -8,6 +8,8 @@ public class SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfoTests: XCTestCase 
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.UiEventId, .zero)
-            let swiftObject = try SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_JoinSessionAcceptedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.UiEventId, .zero) }
     }
 }

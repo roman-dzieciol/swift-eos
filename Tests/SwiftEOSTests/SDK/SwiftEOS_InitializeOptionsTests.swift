@@ -14,6 +14,15 @@ public class SwiftEOS_InitializeOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.Reserved)
             XCTAssertNil(cstruct.SystemInitializeOptions)
             XCTAssertNil(cstruct.OverrideThreadAffinity)
-            let swiftObject = try SwiftEOS_InitializeOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_InitializeOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.AllocateMemoryFunction)
+            XCTAssertNil(swiftObject.ReallocateMemoryFunction)
+            XCTAssertNil(swiftObject.ReleaseMemoryFunction)
+            XCTAssertNil(swiftObject.ProductName)
+            XCTAssertNil(swiftObject.ProductVersion)
+            XCTAssertNil(swiftObject.Reserved)
+            XCTAssertNil(swiftObject.SystemInitializeOptions)
+            XCTAssertNil(swiftObject.OverrideThreadAffinity) }
     }
 }

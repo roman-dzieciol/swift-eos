@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatCommon_RegisterEventParamDefTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_RegisterEventParamDef.self) { cstruct in
             XCTAssertNil(cstruct.ParamName)
             XCTAssertEqual(cstruct.ParamType, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_RegisterEventParamDef(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_RegisterEventParamDef(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.ParamName)
+            XCTAssertEqual(swiftObject.ParamType, .init(rawValue: .zero)!) }
     }
 }

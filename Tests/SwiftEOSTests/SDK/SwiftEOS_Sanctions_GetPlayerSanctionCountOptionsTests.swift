@@ -7,6 +7,8 @@ public class SwiftEOS_Sanctions_GetPlayerSanctionCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Sanctions_GetPlayerSanctionCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Sanctions_GetPlayerSanctionCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sanctions_GetPlayerSanctionCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

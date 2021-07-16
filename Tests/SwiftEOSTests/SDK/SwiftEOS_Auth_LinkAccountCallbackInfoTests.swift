@@ -9,6 +9,9 @@ public class SwiftEOS_Auth_LinkAccountCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.PinGrantInfo)
-            let swiftObject = try SwiftEOS_Auth_LinkAccountCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LinkAccountCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.PinGrantInfo) }
     }
 }

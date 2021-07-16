@@ -9,6 +9,10 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptionsTests: XCT
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.AchievementIndex, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_CopyPlayerAchievementByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.AchievementIndex, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

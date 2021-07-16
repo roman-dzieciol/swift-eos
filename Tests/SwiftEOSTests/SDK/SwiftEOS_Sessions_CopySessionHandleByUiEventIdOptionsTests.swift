@@ -7,6 +7,8 @@ public class SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptionsTests: XCTestC
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_CopySessionHandleByUiEventIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.UiEventId, .zero)
-            let swiftObject = try SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.UiEventId, .zero) }
     }
 }

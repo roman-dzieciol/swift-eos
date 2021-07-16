@@ -7,6 +7,7 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfoTests:
         try withZeroInitializedCStruct(type: _tagEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptionsTests: XCTes
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.UiEventId, .zero)
-            let swiftObject = try SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.UiEventId, .zero) }
     }
 }

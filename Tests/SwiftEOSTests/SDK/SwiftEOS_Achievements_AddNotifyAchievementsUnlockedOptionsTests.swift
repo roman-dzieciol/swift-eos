@@ -6,6 +6,7 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptionsTests: XC
     public func testItZeroInitializesFrom_tagEOS_Achievements_AddNotifyAchievementsUnlockedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_AddNotifyAchievementsUnlockedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

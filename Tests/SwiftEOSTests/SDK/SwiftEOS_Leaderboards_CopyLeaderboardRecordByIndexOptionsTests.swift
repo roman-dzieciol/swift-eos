@@ -7,6 +7,8 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexOptionsTests: XCT
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_CopyLeaderboardRecordByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.LeaderboardRecordIndex, .zero)
-            let swiftObject = try SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.LeaderboardRecordIndex, .zero) }
     }
 }

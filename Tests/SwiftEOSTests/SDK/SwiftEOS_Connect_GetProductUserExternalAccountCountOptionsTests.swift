@@ -7,6 +7,8 @@ public class SwiftEOS_Connect_GetProductUserExternalAccountCountOptionsTests: XC
         try withZeroInitializedCStruct(type: _tagEOS_Connect_GetProductUserExternalAccountCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Connect_GetProductUserExternalAccountCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_GetProductUserExternalAccountCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

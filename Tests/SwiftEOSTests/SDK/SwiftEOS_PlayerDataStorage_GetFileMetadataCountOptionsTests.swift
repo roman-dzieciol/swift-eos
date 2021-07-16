@@ -7,6 +7,8 @@ public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptionsTests: XCTest
         try withZeroInitializedCStruct(type: _tagEOS_PlayerDataStorage_GetFileMetadataCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

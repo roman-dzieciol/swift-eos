@@ -10,6 +10,11 @@ public class SwiftEOS_TitleStorage_FileMetadataTests: XCTestCase {
             XCTAssertNil(cstruct.MD5Hash)
             XCTAssertNil(cstruct.Filename)
             XCTAssertEqual(cstruct.UnencryptedDataSizeBytes, .zero)
-            let swiftObject = try SwiftEOS_TitleStorage_FileMetadata(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_FileMetadata(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.FileSizeBytes, .zero)
+            XCTAssertNil(swiftObject.MD5Hash)
+            XCTAssertNil(swiftObject.Filename)
+            XCTAssertEqual(swiftObject.UnencryptedDataSizeBytes, .zero) }
     }
 }

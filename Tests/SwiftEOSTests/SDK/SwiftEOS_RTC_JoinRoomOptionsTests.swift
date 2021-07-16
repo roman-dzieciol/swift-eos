@@ -14,6 +14,15 @@ public class SwiftEOS_RTC_JoinRoomOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.Flags, .zero)
             XCTAssertEqual(cstruct.bManualAudioInputEnabled, .zero)
             XCTAssertEqual(cstruct.bManualAudioOutputEnabled, .zero)
-            let swiftObject = try SwiftEOS_RTC_JoinRoomOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTC_JoinRoomOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.ClientBaseUrl)
+            XCTAssertNil(swiftObject.ParticipantToken)
+            XCTAssertNil(swiftObject.ParticipantId)
+            XCTAssertEqual(swiftObject.Flags, .zero)
+            XCTAssertEqual(swiftObject.bManualAudioInputEnabled, false)
+            XCTAssertEqual(swiftObject.bManualAudioOutputEnabled, false) }
     }
 }

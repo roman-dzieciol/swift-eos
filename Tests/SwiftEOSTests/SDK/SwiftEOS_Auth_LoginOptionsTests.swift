@@ -8,6 +8,9 @@ public class SwiftEOS_Auth_LoginOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Credentials)
             XCTAssertEqual(cstruct.ScopeFlags, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Auth_LoginOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LoginOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Credentials)
+            XCTAssertEqual(swiftObject.ScopeFlags, .init(rawValue: .zero)!) }
     }
 }

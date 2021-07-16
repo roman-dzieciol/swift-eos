@@ -8,6 +8,9 @@ public class SwiftEOS_SessionDetails_AttributeTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Data)
             XCTAssertEqual(cstruct.AdvertisementType, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_SessionDetails_Attribute(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_Attribute(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Data)
+            XCTAssertEqual(swiftObject.AdvertisementType, .init(rawValue: .zero)!) }
     }
 }

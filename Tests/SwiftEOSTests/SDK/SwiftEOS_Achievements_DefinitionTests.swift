@@ -18,6 +18,18 @@ public class SwiftEOS_Achievements_DefinitionTests: XCTestCase {
             XCTAssertEqual(cstruct.bIsHidden, .zero)
             XCTAssertEqual(cstruct.StatThresholdsCount, .zero)
             XCTAssertNil(cstruct.StatThresholds)
-            let swiftObject = try SwiftEOS_Achievements_Definition(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_Definition(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.AchievementId)
+            XCTAssertNil(swiftObject.DisplayName)
+            XCTAssertNil(swiftObject.Description)
+            XCTAssertNil(swiftObject.LockedDisplayName)
+            XCTAssertNil(swiftObject.LockedDescription)
+            XCTAssertNil(swiftObject.HiddenDescription)
+            XCTAssertNil(swiftObject.CompletionDescription)
+            XCTAssertNil(swiftObject.UnlockedIconId)
+            XCTAssertNil(swiftObject.LockedIconId)
+            XCTAssertEqual(swiftObject.bIsHidden, false)
+            XCTAssertNil(swiftObject.StatThresholds) }
     }
 }

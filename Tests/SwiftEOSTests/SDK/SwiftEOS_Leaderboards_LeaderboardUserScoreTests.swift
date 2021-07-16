@@ -8,6 +8,9 @@ public class SwiftEOS_Leaderboards_LeaderboardUserScoreTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UserId)
             XCTAssertEqual(cstruct.Score, .zero)
-            let swiftObject = try SwiftEOS_Leaderboards_LeaderboardUserScore(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_LeaderboardUserScore(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId)
+            XCTAssertEqual(swiftObject.Score, .zero) }
     }
 }

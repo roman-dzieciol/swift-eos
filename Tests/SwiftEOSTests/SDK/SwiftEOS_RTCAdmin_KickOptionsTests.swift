@@ -8,6 +8,9 @@ public class SwiftEOS_RTCAdmin_KickOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_RTCAdmin_KickOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_KickOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

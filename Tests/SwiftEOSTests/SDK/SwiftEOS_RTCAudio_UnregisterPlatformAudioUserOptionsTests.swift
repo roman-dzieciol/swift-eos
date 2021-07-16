@@ -7,6 +7,8 @@ public class SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptionsTests: XCTestCa
         try withZeroInitializedCStruct(type: _tagEOS_RTCAudio_UnregisterPlatformAudioUserOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UserId)
-            let swiftObject = try SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId) }
     }
 }

@@ -10,6 +10,10 @@ public class SwiftEOS_AntiCheatCommon_LogEventOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.EventId, .zero)
             XCTAssertEqual(cstruct.ParamsCount, .zero)
             XCTAssertNil(cstruct.Params)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogEventOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogEventOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ClientHandle)
+            XCTAssertEqual(swiftObject.EventId, .zero)
+            XCTAssertNil(swiftObject.Params) }
     }
 }

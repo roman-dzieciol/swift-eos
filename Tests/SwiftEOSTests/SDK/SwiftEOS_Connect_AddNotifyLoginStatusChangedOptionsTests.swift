@@ -6,6 +6,7 @@ public class SwiftEOS_Connect_AddNotifyLoginStatusChangedOptionsTests: XCTestCas
     public func testItZeroInitializesFrom_tagEOS_Connect_AddNotifyLoginStatusChangedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_AddNotifyLoginStatusChangedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

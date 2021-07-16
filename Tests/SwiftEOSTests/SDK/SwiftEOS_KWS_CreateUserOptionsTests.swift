@@ -9,6 +9,10 @@ public class SwiftEOS_KWS_CreateUserOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.DateOfBirth)
             XCTAssertNil(cstruct.ParentEmail)
-            let swiftObject = try SwiftEOS_KWS_CreateUserOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_CreateUserOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.DateOfBirth)
+            XCTAssertNil(swiftObject.ParentEmail) }
     }
 }

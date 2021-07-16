@@ -8,6 +8,7 @@ public class SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfoTests: XCTest
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.MessageData)
             XCTAssertEqual(cstruct.MessageDataSizeBytes, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_OnMessageToServerCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.MessageData) }
     }
 }

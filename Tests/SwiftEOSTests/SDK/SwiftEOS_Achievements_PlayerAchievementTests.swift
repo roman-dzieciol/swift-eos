@@ -15,6 +15,15 @@ public class SwiftEOS_Achievements_PlayerAchievementTests: XCTestCase {
             XCTAssertNil(cstruct.Description)
             XCTAssertNil(cstruct.IconURL)
             XCTAssertNil(cstruct.FlavorText)
-            let swiftObject = try SwiftEOS_Achievements_PlayerAchievement(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_PlayerAchievement(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.AchievementId)
+            XCTAssertEqual(swiftObject.Progress, .zero)
+            XCTAssertEqual(swiftObject.UnlockTime, .zero)
+            XCTAssertNil(swiftObject.StatInfo)
+            XCTAssertNil(swiftObject.DisplayName)
+            XCTAssertNil(swiftObject.Description)
+            XCTAssertNil(swiftObject.IconURL)
+            XCTAssertNil(swiftObject.FlavorText) }
     }
 }

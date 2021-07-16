@@ -8,6 +8,9 @@ public class SwiftEOS_P2P_SetPortRangeOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.Port, .zero)
             XCTAssertEqual(cstruct.MaxAdditionalPortsToTry, .zero)
-            let swiftObject = try SwiftEOS_P2P_SetPortRangeOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_SetPortRangeOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.Port, .zero)
+            XCTAssertEqual(swiftObject.MaxAdditionalPortsToTry, .zero) }
     }
 }

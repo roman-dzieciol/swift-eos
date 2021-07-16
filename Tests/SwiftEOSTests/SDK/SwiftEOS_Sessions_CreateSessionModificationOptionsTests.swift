@@ -12,6 +12,13 @@ public class SwiftEOS_Sessions_CreateSessionModificationOptionsTests: XCTestCase
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.bPresenceEnabled, .zero)
             XCTAssertNil(cstruct.SessionId)
-            let swiftObject = try SwiftEOS_Sessions_CreateSessionModificationOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_CreateSessionModificationOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.BucketId)
+            XCTAssertEqual(swiftObject.MaxPlayers, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.bPresenceEnabled, false)
+            XCTAssertNil(swiftObject.SessionId) }
     }
 }

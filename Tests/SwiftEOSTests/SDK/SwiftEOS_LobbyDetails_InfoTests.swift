@@ -15,6 +15,16 @@ public class SwiftEOS_LobbyDetails_InfoTests: XCTestCase {
             XCTAssertNil(cstruct.BucketId)
             XCTAssertEqual(cstruct.bAllowHostMigration, .zero)
             XCTAssertEqual(cstruct.bRTCRoomEnabled, .zero)
-            let swiftObject = try SwiftEOS_LobbyDetails_Info(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyDetails_Info(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LobbyId)
+            XCTAssertNil(swiftObject.LobbyOwnerUserId)
+            XCTAssertEqual(swiftObject.PermissionLevel, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.AvailableSlots, .zero)
+            XCTAssertEqual(swiftObject.MaxMembers, .zero)
+            XCTAssertEqual(swiftObject.bAllowInvites, false)
+            XCTAssertNil(swiftObject.BucketId)
+            XCTAssertEqual(swiftObject.bAllowHostMigration, false)
+            XCTAssertEqual(swiftObject.bRTCRoomEnabled, false) }
     }
 }

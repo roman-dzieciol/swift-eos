@@ -8,6 +8,9 @@ public class SwiftEOS_LobbyModification_AddMemberAttributeOptionsTests: XCTestCa
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Attribute)
             XCTAssertEqual(cstruct.Visibility, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_LobbyModification_AddMemberAttributeOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyModification_AddMemberAttributeOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Attribute)
+            XCTAssertEqual(swiftObject.Visibility, .init(rawValue: .zero)!) }
     }
 }

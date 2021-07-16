@@ -13,6 +13,12 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptionsTests: XCTes
             XCTAssertEqual(cstruct.StartTime, .zero)
             XCTAssertEqual(cstruct.EndTime, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserIds)
+            XCTAssertNil(swiftObject.StatInfo)
+            XCTAssertEqual(swiftObject.StartTime, .zero)
+            XCTAssertEqual(swiftObject.EndTime, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

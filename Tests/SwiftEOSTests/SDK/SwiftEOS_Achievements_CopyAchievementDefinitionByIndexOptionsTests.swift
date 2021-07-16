@@ -7,6 +7,8 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptionsTests:
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_CopyAchievementDefinitionByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.AchievementIndex, .zero)
-            let swiftObject = try SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_CopyAchievementDefinitionByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.AchievementIndex, .zero) }
     }
 }

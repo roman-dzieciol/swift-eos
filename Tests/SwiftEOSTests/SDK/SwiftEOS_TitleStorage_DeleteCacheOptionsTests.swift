@@ -7,6 +7,8 @@ public class SwiftEOS_TitleStorage_DeleteCacheOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_TitleStorage_DeleteCacheOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_TitleStorage_DeleteCacheOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_DeleteCacheOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

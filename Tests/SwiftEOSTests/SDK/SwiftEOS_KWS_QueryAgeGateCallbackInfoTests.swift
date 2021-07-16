@@ -9,6 +9,9 @@ public class SwiftEOS_KWS_QueryAgeGateCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.CountryCode)
             XCTAssertEqual(cstruct.AgeOfConsent, .zero)
-            let swiftObject = try SwiftEOS_KWS_QueryAgeGateCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_QueryAgeGateCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.CountryCode)
+            XCTAssertEqual(swiftObject.AgeOfConsent, .zero) }
     }
 }

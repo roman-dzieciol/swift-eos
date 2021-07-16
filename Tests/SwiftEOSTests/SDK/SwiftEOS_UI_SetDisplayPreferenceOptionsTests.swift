@@ -7,6 +7,8 @@ public class SwiftEOS_UI_SetDisplayPreferenceOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_UI_SetDisplayPreferenceOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.NotificationLocation, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_UI_SetDisplayPreferenceOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UI_SetDisplayPreferenceOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.NotificationLocation, .init(rawValue: .zero)!) }
     }
 }

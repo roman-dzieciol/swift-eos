@@ -9,6 +9,9 @@ public class SwiftEOS_Auth_LoginStatusChangedCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.PrevStatus, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.CurrentStatus, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Auth_LoginStatusChangedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LoginStatusChangedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.PrevStatus, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.CurrentStatus, .init(rawValue: .zero)!) }
     }
 }

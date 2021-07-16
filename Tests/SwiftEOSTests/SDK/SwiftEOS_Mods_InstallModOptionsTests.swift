@@ -9,6 +9,10 @@ public class SwiftEOS_Mods_InstallModOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.Mod)
             XCTAssertEqual(cstruct.bRemoveAfterExit, .zero)
-            let swiftObject = try SwiftEOS_Mods_InstallModOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mods_InstallModOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Mod)
+            XCTAssertEqual(swiftObject.bRemoveAfterExit, false) }
     }
 }

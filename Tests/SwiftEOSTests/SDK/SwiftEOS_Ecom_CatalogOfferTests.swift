@@ -24,6 +24,25 @@ public class SwiftEOS_Ecom_CatalogOfferTests: XCTestCase {
             XCTAssertEqual(cstruct.bAvailableForPurchase, .zero)
             XCTAssertEqual(cstruct.OriginalPrice64, .zero)
             XCTAssertEqual(cstruct.CurrentPrice64, .zero)
-            let swiftObject = try SwiftEOS_Ecom_CatalogOffer(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CatalogOffer(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ServerIndex, .zero)
+            XCTAssertNil(swiftObject.CatalogNamespace)
+            XCTAssertNil(swiftObject.Id)
+            XCTAssertNil(swiftObject.TitleText)
+            XCTAssertNil(swiftObject.DescriptionText)
+            XCTAssertNil(swiftObject.LongDescriptionText)
+            XCTAssertNil(swiftObject.TechnicalDetailsText_DEPRECATED)
+            XCTAssertNil(swiftObject.CurrencyCode)
+            XCTAssertEqual(swiftObject.PriceResult, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.OriginalPrice_DEPRECATED, .zero)
+            XCTAssertEqual(swiftObject.CurrentPrice_DEPRECATED, .zero)
+            XCTAssertEqual(swiftObject.DiscountPercentage, .zero)
+            XCTAssertEqual(swiftObject.ExpirationTimestamp, .zero)
+            XCTAssertEqual(swiftObject.PurchasedCount, .zero)
+            XCTAssertEqual(swiftObject.PurchaseLimit, .zero)
+            XCTAssertEqual(swiftObject.bAvailableForPurchase, false)
+            XCTAssertEqual(swiftObject.OriginalPrice64, .zero)
+            XCTAssertEqual(swiftObject.CurrentPrice64, .zero) }
     }
 }

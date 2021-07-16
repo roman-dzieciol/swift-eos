@@ -9,6 +9,10 @@ public class SwiftEOS_PlayerDataStorage_DuplicateFileOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.SourceFilename)
             XCTAssertNil(cstruct.DestinationFilename)
-            let swiftObject = try SwiftEOS_PlayerDataStorage_DuplicateFileOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PlayerDataStorage_DuplicateFileOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.SourceFilename)
+            XCTAssertNil(swiftObject.DestinationFilename) }
     }
 }

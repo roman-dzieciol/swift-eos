@@ -9,6 +9,10 @@ public class SwiftEOS_Ecom_CopyItemReleaseByIndexOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ItemId)
             XCTAssertEqual(cstruct.ReleaseIndex, .zero)
-            let swiftObject = try SwiftEOS_Ecom_CopyItemReleaseByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CopyItemReleaseByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ItemId)
+            XCTAssertEqual(swiftObject.ReleaseIndex, .zero) }
     }
 }

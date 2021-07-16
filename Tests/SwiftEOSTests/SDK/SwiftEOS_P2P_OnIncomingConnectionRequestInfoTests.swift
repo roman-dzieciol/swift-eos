@@ -9,6 +9,9 @@ public class SwiftEOS_P2P_OnIncomingConnectionRequestInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RemoteUserId)
             XCTAssertNil(cstruct.SocketId)
-            let swiftObject = try SwiftEOS_P2P_OnIncomingConnectionRequestInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_OnIncomingConnectionRequestInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RemoteUserId)
+            XCTAssertNil(swiftObject.SocketId) }
     }
 }

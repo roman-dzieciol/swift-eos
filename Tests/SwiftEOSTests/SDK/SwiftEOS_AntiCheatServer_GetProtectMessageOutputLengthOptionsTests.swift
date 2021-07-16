@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptionsTests:
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.DataLengthBytes, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_GetProtectMessageOutputLengthOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.DataLengthBytes, .zero) }
     }
 }

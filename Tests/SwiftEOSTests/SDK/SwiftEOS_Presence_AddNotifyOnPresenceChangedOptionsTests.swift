@@ -6,6 +6,7 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedOptionsTests: XCTestCas
     public func testItZeroInitializesFrom_tagEOS_Presence_AddNotifyOnPresenceChangedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Presence_AddNotifyOnPresenceChangedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_AddNotifyOnPresenceChangedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

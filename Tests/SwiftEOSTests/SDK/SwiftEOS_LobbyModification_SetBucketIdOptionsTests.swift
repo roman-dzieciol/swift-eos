@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyModification_SetBucketIdOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyModification_SetBucketIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.BucketId)
-            let swiftObject = try SwiftEOS_LobbyModification_SetBucketIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyModification_SetBucketIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.BucketId) }
     }
 }

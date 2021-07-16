@@ -11,6 +11,12 @@ public class SwiftEOS_Mod_IdentifierTests: XCTestCase {
             XCTAssertNil(cstruct.ArtifactId)
             XCTAssertNil(cstruct.Title)
             XCTAssertNil(cstruct.Version)
-            let swiftObject = try SwiftEOS_Mod_Identifier(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Mod_Identifier(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.NamespaceId)
+            XCTAssertNil(swiftObject.ItemId)
+            XCTAssertNil(swiftObject.ArtifactId)
+            XCTAssertNil(swiftObject.Title)
+            XCTAssertNil(swiftObject.Version) }
     }
 }

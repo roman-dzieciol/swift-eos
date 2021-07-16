@@ -8,6 +8,9 @@ public class SwiftEOS_SessionSearch_SetParameterOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Parameter)
             XCTAssertEqual(cstruct.ComparisonOp, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_SessionSearch_SetParameterOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionSearch_SetParameterOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Parameter)
+            XCTAssertEqual(swiftObject.ComparisonOp, .init(rawValue: .zero)!) }
     }
 }

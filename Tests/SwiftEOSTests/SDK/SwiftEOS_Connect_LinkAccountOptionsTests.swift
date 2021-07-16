@@ -8,6 +8,9 @@ public class SwiftEOS_Connect_LinkAccountOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ContinuanceToken)
-            let swiftObject = try SwiftEOS_Connect_LinkAccountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_LinkAccountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ContinuanceToken) }
     }
 }

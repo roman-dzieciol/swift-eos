@@ -7,6 +7,8 @@ public class SwiftEOS_Sessions_UpdateSessionOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_UpdateSessionOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.SessionModificationHandle)
-            let swiftObject = try SwiftEOS_Sessions_UpdateSessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_UpdateSessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.SessionModificationHandle) }
     }
 }

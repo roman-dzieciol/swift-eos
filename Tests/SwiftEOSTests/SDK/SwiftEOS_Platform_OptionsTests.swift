@@ -19,6 +19,20 @@ public class SwiftEOS_Platform_OptionsTests: XCTestCase {
             XCTAssertNil(cstruct.CacheDirectory)
             XCTAssertEqual(cstruct.TickBudgetInMilliseconds, .zero)
             XCTAssertNil(cstruct.RTCOptions)
-            let swiftObject = try SwiftEOS_Platform_Options(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Platform_Options(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.Reserved)
+            XCTAssertNil(swiftObject.ProductId)
+            XCTAssertNil(swiftObject.SandboxId)
+            XCTFail("TODO: swiftObject.ClientCredentials")
+            XCTAssertEqual(swiftObject.bIsServer, false)
+            XCTAssertNil(swiftObject.EncryptionKey)
+            XCTAssertNil(swiftObject.OverrideCountryCode)
+            XCTAssertNil(swiftObject.OverrideLocaleCode)
+            XCTAssertNil(swiftObject.DeploymentId)
+            XCTAssertEqual(swiftObject.Flags, .zero)
+            XCTAssertNil(swiftObject.CacheDirectory)
+            XCTAssertEqual(swiftObject.TickBudgetInMilliseconds, .zero)
+            XCTAssertNil(swiftObject.RTCOptions) }
     }
 }

@@ -9,6 +9,10 @@ public class SwiftEOS_P2P_AcceptConnectionOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RemoteUserId)
             XCTAssertNil(cstruct.SocketId)
-            let swiftObject = try SwiftEOS_P2P_AcceptConnectionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_AcceptConnectionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RemoteUserId)
+            XCTAssertNil(swiftObject.SocketId) }
     }
 }

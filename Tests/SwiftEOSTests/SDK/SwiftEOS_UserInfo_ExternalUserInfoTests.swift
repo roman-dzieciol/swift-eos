@@ -9,6 +9,10 @@ public class SwiftEOS_UserInfo_ExternalUserInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.AccountType, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.AccountId)
             XCTAssertNil(cstruct.DisplayName)
-            let swiftObject = try SwiftEOS_UserInfo_ExternalUserInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_ExternalUserInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.AccountType, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.AccountId)
+            XCTAssertNil(swiftObject.DisplayName) }
     }
 }

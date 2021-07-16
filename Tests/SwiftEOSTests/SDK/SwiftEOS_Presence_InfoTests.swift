@@ -15,6 +15,15 @@ public class SwiftEOS_Presence_InfoTests: XCTestCase {
             XCTAssertEqual(cstruct.RecordsCount, .zero)
             XCTAssertNil(cstruct.Records)
             XCTAssertNil(cstruct.ProductName)
-            let swiftObject = try SwiftEOS_Presence_Info(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_Info(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.Status, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.UserId)
+            XCTAssertNil(swiftObject.ProductId)
+            XCTAssertNil(swiftObject.ProductVersion)
+            XCTAssertNil(swiftObject.Platform)
+            XCTAssertNil(swiftObject.RichText)
+            XCTAssertNil(swiftObject.Records)
+            XCTAssertNil(swiftObject.ProductName) }
     }
 }

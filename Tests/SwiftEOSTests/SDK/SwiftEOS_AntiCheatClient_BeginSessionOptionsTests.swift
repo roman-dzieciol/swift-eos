@@ -8,6 +8,9 @@ public class SwiftEOS_AntiCheatClient_BeginSessionOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.Mode, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_AntiCheatClient_BeginSessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_BeginSessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.Mode, .init(rawValue: .zero)!) }
     }
 }

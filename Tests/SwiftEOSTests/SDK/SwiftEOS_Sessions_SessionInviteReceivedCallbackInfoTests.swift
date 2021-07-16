@@ -9,6 +9,9 @@ public class SwiftEOS_Sessions_SessionInviteReceivedCallbackInfoTests: XCTestCas
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertNil(cstruct.InviteId)
-            let swiftObject = try SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertNil(swiftObject.InviteId) }
     }
 }

@@ -7,6 +7,7 @@ public class SwiftEOS_Leaderboards_OnQueryLeaderboardUserScoresCompleteCallbackI
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_OnQueryLeaderboardUserScoresCompleteCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_Leaderboards_OnQueryLeaderboardUserScoresCompleteCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_OnQueryLeaderboardUserScoresCompleteCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

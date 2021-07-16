@@ -7,6 +7,8 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptionsTests: XC
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UserId)
-            let swiftObject = try SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId) }
     }
 }

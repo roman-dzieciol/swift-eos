@@ -9,6 +9,10 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.bMute, .zero)
-            let swiftObject = try SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.bMute, false) }
     }
 }

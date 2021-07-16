@@ -7,6 +7,8 @@ public class SwiftEOS_Sessions_CopySessionHandleByInviteIdOptionsTests: XCTestCa
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_CopySessionHandleByInviteIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.InviteId)
-            let swiftObject = try SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.InviteId) }
     }
 }

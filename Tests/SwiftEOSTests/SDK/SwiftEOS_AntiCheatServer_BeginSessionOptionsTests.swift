@@ -10,6 +10,11 @@ public class SwiftEOS_AntiCheatServer_BeginSessionOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.ServerName)
             XCTAssertEqual(cstruct.bEnableGameplayData, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_AntiCheatServer_BeginSessionOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_BeginSessionOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.RegisterTimeoutSeconds, .zero)
+            XCTAssertNil(swiftObject.ServerName)
+            XCTAssertEqual(swiftObject.bEnableGameplayData, false)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

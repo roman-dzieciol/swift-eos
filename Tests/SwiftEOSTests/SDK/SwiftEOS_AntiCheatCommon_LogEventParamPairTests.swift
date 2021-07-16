@@ -7,6 +7,8 @@ public class SwiftEOS_AntiCheatCommon_LogEventParamPairTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogEventParamPair.self) { cstruct in
             XCTAssertEqual(cstruct.ParamValueType, .init(rawValue: .zero)!)
             XCTFail("TODO: cstruct.ParamValue")
-            let swiftObject = try SwiftEOS_AntiCheatCommon_LogEventParamPair(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogEventParamPair(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ParamValueType, .init(rawValue: .zero)!)
+            XCTFail("TODO: swiftObject.ParamValue") }
     }
 }

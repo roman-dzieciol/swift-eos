@@ -11,6 +11,12 @@ public class SwiftEOS_AntiCheatServer_RegisterClientOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ClientPlatform, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.AccountId)
             XCTAssertNil(cstruct.IpAddress)
-            let swiftObject = try SwiftEOS_AntiCheatServer_RegisterClientOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_RegisterClientOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ClientHandle)
+            XCTAssertEqual(swiftObject.ClientType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.ClientPlatform, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.AccountId)
+            XCTAssertNil(swiftObject.IpAddress) }
     }
 }

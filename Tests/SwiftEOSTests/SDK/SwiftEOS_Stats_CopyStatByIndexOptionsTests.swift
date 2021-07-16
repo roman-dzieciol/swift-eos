@@ -8,6 +8,9 @@ public class SwiftEOS_Stats_CopyStatByIndexOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.StatIndex, .zero)
-            let swiftObject = try SwiftEOS_Stats_CopyStatByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_CopyStatByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId)
+            XCTAssertEqual(swiftObject.StatIndex, .zero) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_UI_SetToggleFriendsKeyOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_UI_SetToggleFriendsKeyOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.KeyCombination, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_UI_SetToggleFriendsKeyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UI_SetToggleFriendsKeyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.KeyCombination, .init(rawValue: .zero)!) }
     }
 }

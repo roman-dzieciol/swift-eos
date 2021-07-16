@@ -7,6 +7,7 @@ public class SwiftEOS_Sessions_DestroySessionCallbackInfoTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_DestroySessionCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_Sessions_DestroySessionCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_DestroySessionCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

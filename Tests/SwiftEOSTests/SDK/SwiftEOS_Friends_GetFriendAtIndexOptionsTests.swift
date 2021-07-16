@@ -8,6 +8,9 @@ public class SwiftEOS_Friends_GetFriendAtIndexOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.Index, .zero)
-            let swiftObject = try SwiftEOS_Friends_GetFriendAtIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Friends_GetFriendAtIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.Index, .zero) }
     }
 }

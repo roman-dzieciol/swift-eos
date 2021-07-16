@@ -7,6 +7,8 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexOptionsTests: XCTestC
         try withZeroInitializedCStruct(type: _tagEOS_SessionSearch_CopySearchResultByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.SessionIndex, .zero)
-            let swiftObject = try SwiftEOS_SessionSearch_CopySearchResultByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionSearch_CopySearchResultByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.SessionIndex, .zero) }
     }
 }

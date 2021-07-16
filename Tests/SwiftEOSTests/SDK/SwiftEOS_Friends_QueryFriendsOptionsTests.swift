@@ -7,6 +7,8 @@ public class SwiftEOS_Friends_QueryFriendsOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Friends_QueryFriendsOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Friends_QueryFriendsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Friends_QueryFriendsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_Friends_GetFriendsCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Friends_GetFriendsCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Friends_GetFriendsCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Friends_GetFriendsCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

@@ -10,6 +10,11 @@ public class SwiftEOS_Lobby_LocalRTCOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.bUseManualAudioInput, .zero)
             XCTAssertEqual(cstruct.bUseManualAudioOutput, .zero)
             XCTAssertEqual(cstruct.bAudioOutputStartsMuted, .zero)
-            let swiftObject = try SwiftEOS_Lobby_LocalRTCOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_LocalRTCOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.Flags, .zero)
+            XCTAssertEqual(swiftObject.bUseManualAudioInput, false)
+            XCTAssertEqual(swiftObject.bUseManualAudioOutput, false)
+            XCTAssertEqual(swiftObject.bAudioOutputStartsMuted, false) }
     }
 }

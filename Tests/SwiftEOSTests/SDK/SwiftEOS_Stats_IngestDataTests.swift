@@ -8,6 +8,9 @@ public class SwiftEOS_Stats_IngestDataTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.StatName)
             XCTAssertEqual(cstruct.IngestAmount, .zero)
-            let swiftObject = try SwiftEOS_Stats_IngestData(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_IngestData(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.StatName)
+            XCTAssertEqual(swiftObject.IngestAmount, .zero) }
     }
 }

@@ -10,6 +10,11 @@ public class SwiftEOS_RTC_BlockParticipantOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.ParticipantId)
             XCTAssertEqual(cstruct.bBlocked, .zero)
-            let swiftObject = try SwiftEOS_RTC_BlockParticipantOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTC_BlockParticipantOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.ParticipantId)
+            XCTAssertEqual(swiftObject.bBlocked, false) }
     }
 }

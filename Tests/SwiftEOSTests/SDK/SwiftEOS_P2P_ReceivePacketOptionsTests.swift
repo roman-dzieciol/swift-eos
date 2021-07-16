@@ -9,6 +9,10 @@ public class SwiftEOS_P2P_ReceivePacketOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.MaxDataSizeBytes, .zero)
             XCTAssertNil(cstruct.RequestedChannel)
-            let swiftObject = try SwiftEOS_P2P_ReceivePacketOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_ReceivePacketOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.MaxDataSizeBytes, .zero)
+            XCTAssertNil(swiftObject.RequestedChannel) }
     }
 }

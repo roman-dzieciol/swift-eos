@@ -11,6 +11,11 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfoTests: XCTe
             XCTAssertNil(cstruct.ClientBaseUrl)
             XCTAssertEqual(cstruct.QueryId, .zero)
             XCTAssertEqual(cstruct.TokenCount, .zero)
-            let swiftObject = try SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.RoomName)
+            XCTAssertNil(swiftObject.ClientBaseUrl)
+            XCTAssertEqual(swiftObject.QueryId, .zero)
+            XCTAssertEqual(swiftObject.TokenCount, .zero) }
     }
 }

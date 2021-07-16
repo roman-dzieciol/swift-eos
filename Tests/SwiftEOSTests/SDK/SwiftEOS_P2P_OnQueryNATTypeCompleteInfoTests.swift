@@ -8,6 +8,8 @@ public class SwiftEOS_P2P_OnQueryNATTypeCompleteInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
             XCTAssertEqual(cstruct.NATType, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_P2P_OnQueryNATTypeCompleteInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_OnQueryNATTypeCompleteInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.NATType, .init(rawValue: .zero)!) }
     }
 }

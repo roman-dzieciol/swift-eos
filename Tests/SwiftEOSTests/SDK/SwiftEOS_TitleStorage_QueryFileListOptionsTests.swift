@@ -9,6 +9,9 @@ public class SwiftEOS_TitleStorage_QueryFileListOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ListOfTags)
             XCTAssertEqual(cstruct.ListOfTagsCount, .zero)
-            let swiftObject = try SwiftEOS_TitleStorage_QueryFileListOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_TitleStorage_QueryFileListOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.ListOfTags) }
     }
 }

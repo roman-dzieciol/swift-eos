@@ -7,6 +7,8 @@ public class SwiftEOS_Achievements_GetUnlockedAchievementCountOptionsTests: XCTe
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_GetUnlockedAchievementCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.UserId)
-            let swiftObject = try SwiftEOS_Achievements_GetUnlockedAchievementCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_GetUnlockedAchievementCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.UserId) }
     }
 }

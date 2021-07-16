@@ -8,6 +8,9 @@ public class SwiftEOS_KWS_GetPermissionByKeyOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.Key)
-            let swiftObject = try SwiftEOS_KWS_GetPermissionByKeyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_GetPermissionByKeyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.Key) }
     }
 }

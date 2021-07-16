@@ -10,6 +10,10 @@ public class SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfoTests: XCTestCas
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.bIsConnected, .zero)
             XCTAssertEqual(cstruct.DisconnectReason, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.LobbyId)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertEqual(swiftObject.bIsConnected, false)
+            XCTAssertEqual(swiftObject.DisconnectReason, .init(rawValue: .zero)!) }
     }
 }

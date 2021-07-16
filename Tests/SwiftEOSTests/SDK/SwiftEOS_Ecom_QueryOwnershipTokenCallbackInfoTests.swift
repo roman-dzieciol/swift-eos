@@ -9,6 +9,9 @@ public class SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.OwnershipToken)
-            let swiftObject = try SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_QueryOwnershipTokenCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.OwnershipToken) }
     }
 }

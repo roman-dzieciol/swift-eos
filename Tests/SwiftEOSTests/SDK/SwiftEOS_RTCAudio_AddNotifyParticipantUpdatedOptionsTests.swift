@@ -8,6 +8,9 @@ public class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedOptionsTests: XCTestCa
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
-            let swiftObject = try SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.RoomName) }
     }
 }

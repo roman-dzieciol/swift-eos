@@ -9,6 +9,9 @@ public class SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfoTests
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.UserId)
             XCTAssertEqual(cstruct.AchievementsCount, .zero)
-            let swiftObject = try SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.UserId)
+            XCTAssertEqual(swiftObject.AchievementsCount, .zero) }
     }
 }

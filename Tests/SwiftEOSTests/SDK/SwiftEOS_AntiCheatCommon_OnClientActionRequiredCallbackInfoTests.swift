@@ -10,6 +10,10 @@ public class SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfoTests: X
             XCTAssertEqual(cstruct.ClientAction, .init(rawValue: .zero)!)
             XCTAssertEqual(cstruct.ActionReasonCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ActionReasonDetailsString)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.ClientHandle)
+            XCTAssertEqual(swiftObject.ClientAction, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.ActionReasonCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.ActionReasonDetailsString) }
     }
 }

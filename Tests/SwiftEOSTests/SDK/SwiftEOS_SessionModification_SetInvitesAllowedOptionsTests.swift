@@ -7,6 +7,8 @@ public class SwiftEOS_SessionModification_SetInvitesAllowedOptionsTests: XCTestC
         try withZeroInitializedCStruct(type: _tagEOS_SessionModification_SetInvitesAllowedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.bInvitesAllowed, .zero)
-            let swiftObject = try SwiftEOS_SessionModification_SetInvitesAllowedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionModification_SetInvitesAllowedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.bInvitesAllowed, false) }
     }
 }

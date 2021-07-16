@@ -9,6 +9,9 @@ public class SwiftEOS_Sessions_UpdateSessionCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.SessionName)
             XCTAssertNil(cstruct.SessionId)
-            let swiftObject = try SwiftEOS_Sessions_UpdateSessionCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_UpdateSessionCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.SessionName)
+            XCTAssertNil(swiftObject.SessionId) }
     }
 }

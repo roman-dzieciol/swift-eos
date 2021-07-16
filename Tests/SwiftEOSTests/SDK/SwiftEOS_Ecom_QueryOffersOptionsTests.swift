@@ -8,6 +8,9 @@ public class SwiftEOS_Ecom_QueryOffersOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.OverrideCatalogNamespace)
-            let swiftObject = try SwiftEOS_Ecom_QueryOffersOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_QueryOffersOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.OverrideCatalogNamespace) }
     }
 }

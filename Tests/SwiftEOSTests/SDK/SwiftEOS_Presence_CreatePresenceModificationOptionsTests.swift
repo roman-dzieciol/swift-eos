@@ -7,6 +7,8 @@ public class SwiftEOS_Presence_CreatePresenceModificationOptionsTests: XCTestCas
         try withZeroInitializedCStruct(type: _tagEOS_Presence_CreatePresenceModificationOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            let swiftObject = try SwiftEOS_Presence_CreatePresenceModificationOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_CreatePresenceModificationOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

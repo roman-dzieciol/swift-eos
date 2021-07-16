@@ -11,6 +11,12 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.Category, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.Message)
             XCTAssertNil(cstruct.Context)
-            let swiftObject = try SwiftEOS_Reports_SendPlayerBehaviorReportOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Reports_SendPlayerBehaviorReportOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.ReporterUserId)
+            XCTAssertNil(swiftObject.ReportedUserId)
+            XCTAssertEqual(swiftObject.Category, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.Message)
+            XCTAssertNil(swiftObject.Context) }
     }
 }

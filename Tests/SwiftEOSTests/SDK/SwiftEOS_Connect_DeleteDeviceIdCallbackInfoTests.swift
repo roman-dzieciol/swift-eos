@@ -7,6 +7,7 @@ public class SwiftEOS_Connect_DeleteDeviceIdCallbackInfoTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_DeleteDeviceIdCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_Connect_DeleteDeviceIdCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_DeleteDeviceIdCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

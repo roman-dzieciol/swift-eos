@@ -8,6 +8,9 @@ public class SwiftEOS_AntiCheatCommon_Vec3fTests: XCTestCase {
             XCTAssertEqual(cstruct.x, .zero)
             XCTAssertEqual(cstruct.y, .zero)
             XCTAssertEqual(cstruct.z, .zero)
-            let swiftObject = try SwiftEOS_AntiCheatCommon_Vec3f(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_Vec3f(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.x, .zero)
+            XCTAssertEqual(swiftObject.y, .zero)
+            XCTAssertEqual(swiftObject.z, .zero) }
     }
 }

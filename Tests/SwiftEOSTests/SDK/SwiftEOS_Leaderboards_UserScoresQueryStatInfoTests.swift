@@ -8,6 +8,9 @@ public class SwiftEOS_Leaderboards_UserScoresQueryStatInfoTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.StatName)
             XCTAssertEqual(cstruct.Aggregation, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_Leaderboards_UserScoresQueryStatInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_UserScoresQueryStatInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.StatName)
+            XCTAssertEqual(swiftObject.Aggregation, .init(rawValue: .zero)!) }
     }
 }

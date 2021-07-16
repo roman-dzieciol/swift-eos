@@ -11,6 +11,11 @@ public class SwiftEOS_KWS_QueryPermissionsCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.KWSUserId)
             XCTAssertNil(cstruct.DateOfBirth)
             XCTAssertEqual(cstruct.bIsMinor, .zero)
-            let swiftObject = try SwiftEOS_KWS_QueryPermissionsCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_QueryPermissionsCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.KWSUserId)
+            XCTAssertNil(swiftObject.DateOfBirth)
+            XCTAssertEqual(swiftObject.bIsMinor, false) }
     }
 }

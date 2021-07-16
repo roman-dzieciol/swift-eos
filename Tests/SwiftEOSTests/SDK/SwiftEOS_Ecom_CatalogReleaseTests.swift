@@ -11,6 +11,10 @@ public class SwiftEOS_Ecom_CatalogReleaseTests: XCTestCase {
             XCTAssertEqual(cstruct.CompatiblePlatformCount, .zero)
             XCTAssertNil(cstruct.CompatiblePlatforms)
             XCTAssertNil(cstruct.ReleaseNote)
-            let swiftObject = try SwiftEOS_Ecom_CatalogRelease(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CatalogRelease(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.CompatibleAppIds)
+            XCTAssertNil(swiftObject.CompatiblePlatforms)
+            XCTAssertNil(swiftObject.ReleaseNote) }
     }
 }

@@ -7,6 +7,8 @@ public class SwiftEOS_LobbyModification_SetMaxMembersOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyModification_SetMaxMembersOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.MaxMembers, .zero)
-            let swiftObject = try SwiftEOS_LobbyModification_SetMaxMembersOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyModification_SetMaxMembersOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.MaxMembers, .zero) }
     }
 }

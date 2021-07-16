@@ -6,6 +6,7 @@ public class SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptionsTests: XCTe
     public func testItZeroInitializesFrom_tagEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

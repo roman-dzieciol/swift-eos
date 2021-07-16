@@ -7,6 +7,8 @@ public class SwiftEOS_PresenceModification_SetRawRichTextOptionsTests: XCTestCas
         try withZeroInitializedCStruct(type: _tagEOS_PresenceModification_SetRawRichTextOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.RichText)
-            let swiftObject = try SwiftEOS_PresenceModification_SetRawRichTextOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_PresenceModification_SetRawRichTextOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.RichText) }
     }
 }

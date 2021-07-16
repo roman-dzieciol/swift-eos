@@ -7,6 +7,7 @@ public class SwiftEOS_SessionSearch_FindCallbackInfoTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_SessionSearch_FindCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_SessionSearch_FindCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionSearch_FindCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

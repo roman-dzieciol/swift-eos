@@ -7,6 +7,8 @@ public class SwiftEOS_Lobby_UpdateLobbyOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_UpdateLobbyOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LobbyModificationHandle)
-            let swiftObject = try SwiftEOS_Lobby_UpdateLobbyOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_UpdateLobbyOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LobbyModificationHandle) }
     }
 }

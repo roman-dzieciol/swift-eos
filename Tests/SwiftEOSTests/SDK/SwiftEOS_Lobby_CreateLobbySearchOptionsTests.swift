@@ -7,6 +7,8 @@ public class SwiftEOS_Lobby_CreateLobbySearchOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_CreateLobbySearchOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.MaxResults, .zero)
-            let swiftObject = try SwiftEOS_Lobby_CreateLobbySearchOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_CreateLobbySearchOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.MaxResults, .zero) }
     }
 }

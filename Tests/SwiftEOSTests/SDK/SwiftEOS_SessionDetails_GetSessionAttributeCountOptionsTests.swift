@@ -6,6 +6,7 @@ public class SwiftEOS_SessionDetails_GetSessionAttributeCountOptionsTests: XCTes
     public func testItZeroInitializesFrom_tagEOS_SessionDetails_GetSessionAttributeCountOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_SessionDetails_GetSessionAttributeCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_SessionDetails_GetSessionAttributeCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_GetSessionAttributeCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

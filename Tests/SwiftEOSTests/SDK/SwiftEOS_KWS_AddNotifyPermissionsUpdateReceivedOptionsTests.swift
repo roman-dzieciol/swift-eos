@@ -6,6 +6,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptionsTests: XCTest
     public func testItZeroInitializesFrom_tagEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            let swiftObject = try SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

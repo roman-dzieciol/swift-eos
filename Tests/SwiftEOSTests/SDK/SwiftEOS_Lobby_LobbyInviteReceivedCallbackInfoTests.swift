@@ -9,6 +9,9 @@ public class SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.InviteId)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo(sdkObject: cstruct))
+            XCTAssertNil(swiftObject.InviteId)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

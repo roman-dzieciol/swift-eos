@@ -7,6 +7,8 @@ public class SwiftEOS_Stats_GetStatCountOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Stats_GetStatCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.TargetUserId)
-            let swiftObject = try SwiftEOS_Stats_GetStatCountOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Stats_GetStatCountOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.TargetUserId) }
     }
 }

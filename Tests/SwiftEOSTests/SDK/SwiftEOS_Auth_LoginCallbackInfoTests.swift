@@ -11,6 +11,11 @@ public class SwiftEOS_Auth_LoginCallbackInfoTests: XCTestCase {
             XCTAssertNil(cstruct.PinGrantInfo)
             XCTAssertNil(cstruct.ContinuanceToken)
             XCTAssertNil(cstruct.AccountFeatureRestrictedInfo)
-            let swiftObject = try SwiftEOS_Auth_LoginCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LoginCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.PinGrantInfo)
+            XCTAssertNil(swiftObject.ContinuanceToken)
+            XCTAssertNil(swiftObject.AccountFeatureRestrictedInfo) }
     }
 }

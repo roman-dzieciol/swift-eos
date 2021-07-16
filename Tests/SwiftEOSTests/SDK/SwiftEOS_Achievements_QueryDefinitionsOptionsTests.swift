@@ -10,6 +10,10 @@ public class SwiftEOS_Achievements_QueryDefinitionsOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.EpicUserId_DEPRECATED)
             XCTAssertNil(cstruct.HiddenAchievementIds_DEPRECATED)
             XCTAssertEqual(cstruct.HiddenAchievementsCount_DEPRECATED, .zero)
-            let swiftObject = try SwiftEOS_Achievements_QueryDefinitionsOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_QueryDefinitionsOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.EpicUserId_DEPRECATED)
+            XCTAssertNil(swiftObject.HiddenAchievementIds_DEPRECATED) }
     }
 }

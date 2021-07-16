@@ -9,6 +9,10 @@ public class SwiftEOS_Ecom_CopyOfferImageInfoByIndexOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.OfferId)
             XCTAssertEqual(cstruct.ImageInfoIndex, .zero)
-            let swiftObject = try SwiftEOS_Ecom_CopyOfferImageInfoByIndexOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CopyOfferImageInfoByIndexOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertNil(swiftObject.LocalUserId)
+            XCTAssertNil(swiftObject.OfferId)
+            XCTAssertEqual(swiftObject.ImageInfoIndex, .zero) }
     }
 }

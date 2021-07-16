@@ -7,6 +7,7 @@ public class SwiftEOS_Sessions_EndSessionCallbackInfoTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_EndSessionCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .init(rawValue: .zero)!)
             XCTAssertNil(cstruct.ClientData)
-            let swiftObject = try SwiftEOS_Sessions_EndSessionCallbackInfo(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_EndSessionCallbackInfo(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ResultCode, .init(rawValue: .zero)!) }
     }
 }

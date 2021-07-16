@@ -8,6 +8,9 @@ public class SwiftEOS_UI_AcknowledgeEventIdOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.UiEventId, .zero)
             XCTAssertEqual(cstruct.Result, .init(rawValue: .zero)!)
-            let swiftObject = try SwiftEOS_UI_AcknowledgeEventIdOptions(sdkObject: cstruct) }
+            let swiftObject = try XCTUnwrap(try SwiftEOS_UI_AcknowledgeEventIdOptions(sdkObject: cstruct))
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.UiEventId, .zero)
+            XCTAssertEqual(swiftObject.Result, .init(rawValue: .zero)!) }
     }
 }

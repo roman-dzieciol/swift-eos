@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_SetClientDetailsOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** General flags associated with this client, if any */
     public let ClientFlags: EOS_EAntiCheatCommonClientFlags
@@ -52,7 +52,7 @@ public struct SwiftEOS_AntiCheatCommon_SetClientDetailsOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         ClientFlags: EOS_EAntiCheatCommonClientFlags,
         ClientInputMethod: EOS_EAntiCheatCommonClientInput
     ) {

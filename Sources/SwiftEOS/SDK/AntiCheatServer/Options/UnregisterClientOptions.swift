@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatServer_UnregisterClientOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user, as previously passed to RegisterClient */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     Returns SDK Object initialized with values from this object
@@ -40,7 +40,7 @@ public struct SwiftEOS_AntiCheatServer_UnregisterClientOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_UNREGISTERCLIENT_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?
     ) {
         self.ApiVersion = ApiVersion
         self.ClientHandle = ClientHandle

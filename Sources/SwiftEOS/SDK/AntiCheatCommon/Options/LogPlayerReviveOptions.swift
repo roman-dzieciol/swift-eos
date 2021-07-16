@@ -7,10 +7,10 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerReviveOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     Returns SDK Object initialized with values from this object
@@ -46,8 +46,8 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerReviveOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERREVIVE_API_LATEST,
-        RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
-        ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+        RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
+        ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
     ) {
         self.ApiVersion = ApiVersion
         self.RevivedPlayerHandle = RevivedPlayerHandle

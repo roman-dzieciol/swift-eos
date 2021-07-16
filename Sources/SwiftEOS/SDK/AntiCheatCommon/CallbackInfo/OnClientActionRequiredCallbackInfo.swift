@@ -6,7 +6,7 @@ import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
 
     /** The identifier of the client/peer that this action applies to. See the RegisterClient and RegisterPeer functions. */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** The action that must be applied to the specified client/peer */
     public let ClientAction: EOS_EAntiCheatCommonClientAction
@@ -47,7 +47,7 @@ public struct SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo {
     - Parameter ActionReasonDetailsString: String containing details about the action reason
     */
     public init(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         ClientAction: EOS_EAntiCheatCommonClientAction,
         ActionReasonCode: EOS_EAntiCheatCommonClientActionReason,
         ActionReasonDetailsString: String?

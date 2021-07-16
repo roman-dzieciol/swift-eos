@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Victim player's current world position as a 3D vector */
     public let VictimPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
@@ -16,7 +16,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
     public let VictimPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Attacker player's current world position as a 3D vector */
     public let AttackerPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
@@ -150,10 +150,10 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions: SwiftEOSObjec
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST,
-        VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         VictimPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         VictimPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
-        AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         AttackerPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         AttackerPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
         bIsHitscanAttack: Bool,

@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatServer_SetClientNetworkStateOptions: SwiftEOSObj
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user (e.g. a player object pointer) */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** True if the network is functioning normally, false if temporarily interrupted */
     public let bIsNetworkActive: Bool
@@ -46,7 +46,7 @@ public struct SwiftEOS_AntiCheatServer_SetClientNetworkStateOptions: SwiftEOSObj
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_SETCLIENTNETWORKSTATE_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         bIsNetworkActive: Bool
     ) {
         self.ApiVersion = ApiVersion

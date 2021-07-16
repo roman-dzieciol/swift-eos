@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Optional client who this event is primarily associated with. If not applicable, use 0. */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Unique event identifier previously configured in RegisterEvent */
     public let EventId: Int
@@ -62,7 +62,7 @@ public struct SwiftEOS_AntiCheatCommon_LogEventOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         EventId: Int,
         Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
     ) {

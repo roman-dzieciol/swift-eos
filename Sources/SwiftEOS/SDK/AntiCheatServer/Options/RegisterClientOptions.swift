@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatServer_RegisterClientOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user (e.g. a player object pointer) */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Type of remote user being registered */
     public let ClientType: EOS_EAntiCheatCommonClientType
@@ -78,7 +78,7 @@ public struct SwiftEOS_AntiCheatServer_RegisterClientOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_REGISTERCLIENT_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         ClientType: EOS_EAntiCheatCommonClientType,
         ClientPlatform: EOS_EAntiCheatCommonClientPlatform,
         AccountId: String?,

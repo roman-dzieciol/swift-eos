@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatServer_ProtectMessageOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value describing the remote user to whom the message will be sent */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     The data to encrypt
@@ -63,7 +63,7 @@ public struct SwiftEOS_AntiCheatServer_ProtectMessageOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_PROTECTMESSAGE_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) {

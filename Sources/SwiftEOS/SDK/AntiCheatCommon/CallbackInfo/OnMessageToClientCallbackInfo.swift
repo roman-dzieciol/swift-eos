@@ -6,7 +6,7 @@ import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
 
     /** The identifier of the client/peer that this message must be delivered to. See the RegisterClient and RegisterPeer functions. */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     The message data that must be sent to the client
@@ -47,7 +47,7 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
     The size in bytes of MessageData
     */
     public init(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         MessageData: [UInt8]?
     ) {
         self.ClientHandle = ClientHandle

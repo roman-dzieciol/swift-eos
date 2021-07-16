@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     Returns SDK Object initialized with values from this object
@@ -40,7 +40,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerDespawnOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERDESPAWN_API_LATEST,
-        DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+        DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
     ) {
         self.ApiVersion = ApiVersion
         self.DespawnedPlayerHandle = DespawnedPlayerHandle

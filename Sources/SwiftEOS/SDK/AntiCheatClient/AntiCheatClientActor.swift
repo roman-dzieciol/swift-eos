@@ -203,7 +203,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
               `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
     */
     public func ReceiveMessageFromPeer(
-        PeerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PeerHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?
     ) throws {
         try ____ReceiveMessageFromPeer(.init(
@@ -249,7 +249,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
               `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
     */
     public func RegisterPeer(
-        PeerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PeerHandle: EOS_AntiCheatCommon_ClientHandle?,
         ClientType: EOS_EAntiCheatCommonClientType,
         ClientPlatform: EOS_EAntiCheatCommonClientPlatform,
         AccountId: String?,
@@ -300,7 +300,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
               `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
     */
     public func UnregisterPeer(
-        PeerHandle: EOS_AntiCheatCommon_ClientHandle
+        PeerHandle: EOS_AntiCheatCommon_ClientHandle?
     ) throws {
         try ____UnregisterPeer(.init(PeerHandle: PeerHandle))
     }

@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
     public let ApiVersion: Int32
 
     /** The handle describing the sender of this message */
-    public let PeerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let PeerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     The data received
@@ -57,7 +57,7 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST,
-        PeerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PeerHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?
     ) {
         self.ApiVersion = ApiVersion

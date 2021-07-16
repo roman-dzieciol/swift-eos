@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
     public let ApiVersion: Int32
 
     /** Optional value, if non-null then only messages addressed to this specific client will be returned */
-    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle
+    public let ClientHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /**
     The data received
@@ -57,7 +57,7 @@ public struct SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions: SwiftEOS
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST,
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?
     ) {
         self.ApiVersion = ApiVersion

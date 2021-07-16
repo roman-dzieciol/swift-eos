@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Optional identifier for the player's team. If none, use 0. */
     public let TeamId: Int
@@ -52,7 +52,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerSpawnOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST,
-        SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         TeamId: Int,
         CharacterId: Int
     ) {

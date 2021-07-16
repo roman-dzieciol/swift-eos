@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Player's current world position as a 3D vector */
     public let PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
@@ -70,7 +70,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerTickOptions: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST,
-        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         PlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
         bIsPlayerViewZoomed: Bool,

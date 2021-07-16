@@ -119,7 +119,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogEvent(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         EventId: Int,
         Params: [SwiftEOS_AntiCheatCommon_LogEventParamPair]?
     ) throws {
@@ -185,7 +185,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerDespawn(
-        DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+        DespawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
     ) throws {
         try ____LogPlayerDespawn(.init(DespawnedPlayerHandle: DespawnedPlayerHandle))
     }
@@ -202,8 +202,8 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerRevive(
-        RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
-        ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle
+        RevivedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
+        ReviverPlayerHandle: EOS_AntiCheatCommon_ClientHandle?
     ) throws {
         try ____LogPlayerRevive(.init(
                 RevivedPlayerHandle: RevivedPlayerHandle,
@@ -224,7 +224,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerSpawn(
-        SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        SpawnedPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         TeamId: Int,
         CharacterId: Int
     ) throws {
@@ -267,10 +267,10 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerTakeDamage(
-        VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        VictimPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         VictimPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         VictimPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
-        AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        AttackerPlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         AttackerPlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         AttackerPlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
         bIsHitscanAttack: Bool,
@@ -322,7 +322,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerTick(
-        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         PlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
         bIsPlayerViewZoomed: Bool,
@@ -354,7 +354,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func LogPlayerUseAbility(
-        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         AbilityId: Int,
         AbilityDurationMs: Int,
         AbilityCooldownMs: Int
@@ -399,7 +399,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func ProtectMessage(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
@@ -423,7 +423,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func ReceiveMessageFromClient(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?
     ) throws {
         try ____ReceiveMessageFromClient(.init(
@@ -451,7 +451,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func RegisterClient(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         ClientType: EOS_EAntiCheatCommonClientType,
         ClientPlatform: EOS_EAntiCheatCommonClientPlatform,
         AccountId: String?,
@@ -509,7 +509,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func SetClientDetails(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         ClientFlags: EOS_EAntiCheatCommonClientFlags,
         ClientInputMethod: EOS_EAntiCheatCommonClientInput
     ) throws {
@@ -535,7 +535,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func SetClientNetworkState(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         bIsNetworkActive: Bool
     ) throws {
         try ____SetClientNetworkState(.init(
@@ -575,7 +575,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Returns: On success, buffer where encrypted message data will be written.
     */
     public func UnprotectMessage(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle,
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?,
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
     ) throws -> [UInt8]? {
@@ -596,7 +596,7 @@ public class SwiftEOS_AntiCheatServer_Actor: SwiftEOSActor {
     - Throws: `EOS_InvalidParameters` - If input data was invalid
     */
     public func UnregisterClient(
-        ClientHandle: EOS_AntiCheatCommon_ClientHandle
+        ClientHandle: EOS_AntiCheatCommon_ClientHandle?
     ) throws {
         try ____UnregisterClient(.init(ClientHandle: ClientHandle))
     }

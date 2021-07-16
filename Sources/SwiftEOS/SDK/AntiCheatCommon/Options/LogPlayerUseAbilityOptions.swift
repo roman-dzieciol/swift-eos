@@ -7,7 +7,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObjec
     public let ApiVersion: Int32
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Game defined unique identifier for the ability being used */
     public let AbilityId: Int
@@ -58,7 +58,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptions: SwiftEOSObjec
     */
     public init(
         ApiVersion: Int32 = EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST,
-        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         AbilityId: Int,
         AbilityDurationMs: Int,
         AbilityCooldownMs: Int

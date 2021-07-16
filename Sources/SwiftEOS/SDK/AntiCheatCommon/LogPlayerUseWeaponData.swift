@@ -4,7 +4,7 @@ import EOSSDK
 public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
 
     /** Locally unique value used in RegisterClient/RegisterPeer */
-    public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle
+    public let PlayerHandle: EOS_AntiCheatCommon_ClientHandle?
 
     /** Player's current world position as a 3D vector */
     public let PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?
@@ -63,7 +63,7 @@ public struct SwiftEOS_AntiCheatCommon_LogPlayerUseWeaponData: SwiftEOSObject {
     - Parameter WeaponName: Name of the weapon used. Will be truncated to `EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_WEAPONNAME_MAX_LENGTH` bytes if longer.
     */
     public init(
-        PlayerHandle: EOS_AntiCheatCommon_ClientHandle,
+        PlayerHandle: EOS_AntiCheatCommon_ClientHandle?,
         PlayerPosition: SwiftEOS_AntiCheatCommon_Vec3f?,
         PlayerViewRotation: SwiftEOS_AntiCheatCommon_Quat?,
         bIsPlayerViewZoomed: Bool,

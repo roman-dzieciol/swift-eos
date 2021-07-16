@@ -30,7 +30,7 @@ public struct SwiftEOS_RTCAudio_AudioBuffer: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Frames = try trivialArrayFromTrivialPointer(
+        self.Frames = try trivialOptionalArrayFromTrivialOptionalPointer(
             start: sdkObject.Frames,
             count: sdkObject.FramesCount
         )

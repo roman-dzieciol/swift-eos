@@ -58,7 +58,7 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.RoomName = stringFromOptionalCStringPointer(sdkObject.RoomName)
-        self.TargetUserIds = try trivialOptionalArrayFromTrivialOptionalPointer(
+        self.TargetUserIds = try trivialOptionalArrayFromOptionalTrivialOptionalPointer(
             start: sdkObject.TargetUserIds,
             count: sdkObject.TargetUserIdsCount
         )

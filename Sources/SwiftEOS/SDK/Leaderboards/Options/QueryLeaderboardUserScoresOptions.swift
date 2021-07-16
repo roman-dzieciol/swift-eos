@@ -64,7 +64,7 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.UserIds = try trivialOptionalArrayFromTrivialOptionalPointer(
+        self.UserIds = try trivialOptionalArrayFromOptionalTrivialOptionalPointer(
             start: sdkObject.UserIds,
             count: sdkObject.UserIdsCount
         )

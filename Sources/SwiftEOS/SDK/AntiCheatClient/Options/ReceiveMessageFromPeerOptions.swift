@@ -40,7 +40,7 @@ public struct SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions: SwiftEOSOb
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.PeerHandle = sdkObject.PeerHandle
-        self.Data = try Array(try UnsafeRawBufferPointer(
+        self.Data = try byteArray(from: try UnsafeRawBufferPointer(
                 start: sdkObject.Data,
                 count: try safeNumericCast(exactly: sdkObject.DataLengthBytes)
             ))

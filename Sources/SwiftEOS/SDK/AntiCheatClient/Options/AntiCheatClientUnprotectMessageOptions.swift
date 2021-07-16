@@ -39,7 +39,7 @@ public struct SwiftEOS_AntiCheatClient_UnprotectMessageOptions: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.Data = try Array(try UnsafeRawBufferPointer(
+        self.Data = try byteArray(from: try UnsafeRawBufferPointer(
                 start: sdkObject.Data,
                 count: try safeNumericCast(exactly: sdkObject.DataLengthBytes)
             ))

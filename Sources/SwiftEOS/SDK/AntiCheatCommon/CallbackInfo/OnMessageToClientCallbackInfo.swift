@@ -22,7 +22,7 @@ public struct SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfo {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ClientHandle = sdkObject.ClientHandle
-        self.MessageData = try Array(try UnsafeRawBufferPointer(
+        self.MessageData = try byteArray(from: try UnsafeRawBufferPointer(
                 start: sdkObject.MessageData,
                 count: try safeNumericCast(exactly: sdkObject.MessageDataSizeBytes)
             ))

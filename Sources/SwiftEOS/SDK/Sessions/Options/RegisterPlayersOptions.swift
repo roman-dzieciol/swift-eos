@@ -42,7 +42,7 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
         self.SessionName = stringFromOptionalCStringPointer(sdkObject.SessionName)
-        self.PlayersToRegister = try trivialOptionalArrayFromTrivialOptionalPointer(
+        self.PlayersToRegister = try trivialOptionalArrayFromOptionalTrivialOptionalPointer(
             start: sdkObject.PlayersToRegister,
             count: sdkObject.PlayersToRegisterCount
         )

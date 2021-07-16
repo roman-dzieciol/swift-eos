@@ -47,7 +47,7 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
         self.ApiVersion = sdkObject.ApiVersion
         self.LocalUserId = sdkObject.LocalUserId
         self.AccountIdType_DEPRECATED = sdkObject.AccountIdType_DEPRECATED
-        self.ProductUserIds = try trivialOptionalArrayFromTrivialOptionalPointer(
+        self.ProductUserIds = try trivialOptionalArrayFromOptionalTrivialOptionalPointer(
             start: sdkObject.ProductUserIds,
             count: sdkObject.ProductUserIdCount
         )

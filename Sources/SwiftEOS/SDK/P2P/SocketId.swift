@@ -18,7 +18,7 @@ public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
     public let ApiVersion: Int32
 
     /** A name for the connection. Must be a NULL-terminated string of between 1-32 alpha-numeric characters (A-Z, a-z, 0-9) */
-    public let SocketName: (CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar)
+    public let SocketName: String_33
 
     /** Initialize from SDK object */
     public init?(
@@ -26,7 +26,7 @@ public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
     ) throws {
         guard let sdkObject = sdkObject else { return nil }
         self.ApiVersion = sdkObject.ApiVersion
-        self.SocketName = sdkObject.SocketName
+        self.SocketName = String_33(tuple: sdkObject.SocketName)
     }
 
     /**
@@ -39,7 +39,7 @@ public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
     ) throws -> _tagEOS_P2P_SocketId {
         _tagEOS_P2P_SocketId(
             ApiVersion: ApiVersion,
-            SocketName: SocketName
+            SocketName: SocketName.tuple()
         )
     }
 
@@ -51,7 +51,7 @@ public struct SwiftEOS_P2P_SocketId: SwiftEOSObject {
     */
     public init(
         ApiVersion: Int32 = EOS_P2P_SOCKETID_API_LATEST,
-        SocketName: (CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar)
+        SocketName: String_33
     ) {
         self.ApiVersion = ApiVersion
         self.SocketName = SocketName

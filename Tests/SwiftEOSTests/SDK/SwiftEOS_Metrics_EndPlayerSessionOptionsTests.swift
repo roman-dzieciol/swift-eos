@@ -7,10 +7,12 @@ public class SwiftEOS_Metrics_EndPlayerSessionOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Metrics_EndPlayerSessionOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.AccountIdType, .init(rawValue: .zero)!)
-            XCTFail("TODO: cstruct.AccountId")
+            XCTAssertNil(cstruct.AccountId.Epic)
+            XCTAssertNil(cstruct.AccountId.External)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Metrics_EndPlayerSessionOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
-            XCTFail("TODO: swiftObject.AccountId") }
+            XCTAssertNil(swiftObject.AccountId.AccountId.Epic)
+            XCTAssertNil(swiftObject.AccountId.AccountId.External) }
     }
 }

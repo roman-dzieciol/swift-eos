@@ -7,12 +7,18 @@ public class SwiftEOS_Lobby_AttributeDataTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_AttributeData.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
-            XCTFail("TODO: cstruct.Value")
+            XCTAssertEqual(cstruct.Value.AsInt64, .zero)
+            XCTAssertEqual(cstruct.Value.AsDouble, .zero)
+            XCTAssertEqual(cstruct.Value.AsBool, .zero)
+            XCTAssertNil(cstruct.Value.AsUtf8)
             XCTAssertEqual(cstruct.ValueType, .init(rawValue: .zero)!)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_AttributeData(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Key)
-            XCTFail("TODO: swiftObject.Value")
+            XCTAssertEqual(swiftObject.Value.Value.AsInt64, .zero)
+            XCTAssertEqual(swiftObject.Value.Value.AsDouble, .zero)
+            XCTAssertEqual(swiftObject.Value.Value.AsBool, .zero)
+            XCTAssertNil(swiftObject.Value.Value.AsUtf8)
             XCTAssertEqual(swiftObject.ValueType, .init(rawValue: .zero)!) }
     }
 }

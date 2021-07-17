@@ -12,7 +12,7 @@ public class SwiftEOS_Metrics_EndPlayerSessionOptionsTests: XCTestCase {
             let swiftObject = try XCTUnwrap(try SwiftEOS_Metrics_EndPlayerSessionOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
-            XCTAssertNil(swiftObject.AccountId.AccountId.Epic)
-            XCTAssertNil(swiftObject.AccountId.AccountId.External) }
+            XCTAssertNil(swiftObject.AccountId.Epic)
+            XCTAssertNil(swiftObject.AccountId.External) }
     }
 }

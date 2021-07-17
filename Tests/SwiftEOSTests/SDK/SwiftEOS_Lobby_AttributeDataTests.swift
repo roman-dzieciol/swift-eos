@@ -15,10 +15,10 @@ public class SwiftEOS_Lobby_AttributeDataTests: XCTestCase {
             let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_AttributeData(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Key)
-            XCTAssertEqual(swiftObject.Value.Value.AsInt64, .zero)
-            XCTAssertEqual(swiftObject.Value.Value.AsDouble, .zero)
-            XCTAssertEqual(swiftObject.Value.Value.AsBool, .zero)
-            XCTAssertNil(swiftObject.Value.Value.AsUtf8)
+            XCTAssertEqual(swiftObject.Value.AsInt64, .zero)
+            XCTAssertEqual(swiftObject.Value.AsDouble, .zero)
+            XCTAssertEqual(swiftObject.Value.AsBool, .zero)
+            XCTAssertNil(swiftObject.Value.AsUtf8)
             XCTAssertEqual(swiftObject.ValueType, .init(rawValue: .zero)!) }
     }
 }

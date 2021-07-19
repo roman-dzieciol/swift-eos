@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatCommon_LogEventParamPairTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_LogEventParamPair() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogEventParamPair.self) { cstruct in
-            XCTAssertEqual(cstruct.ParamValueType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ParamValueType, .zero)
             XCTAssertNil(cstruct.ParamValue.ClientHandle)
             XCTAssertNil(cstruct.ParamValue.String)
             XCTAssertEqual(cstruct.ParamValue.UInt32, .zero)
@@ -20,7 +20,7 @@ public class SwiftEOS_AntiCheatCommon_LogEventParamPairTests: XCTestCase {
             XCTAssertEqual(cstruct.ParamValue.Quat.y, .zero)
             XCTAssertEqual(cstruct.ParamValue.Quat.z, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogEventParamPair(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ParamValueType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.ParamValueType, .zero)
             XCTAssertNil(swiftObject.ParamValue.ClientHandle)
             XCTAssertNil(swiftObject.ParamValue.String)
             XCTAssertEqual(swiftObject.ParamValue.UInt32, .zero)

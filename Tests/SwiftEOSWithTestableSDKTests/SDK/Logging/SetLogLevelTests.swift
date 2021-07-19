@@ -4,17 +4,26 @@ import EOSSDK
 
 public class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
     public func testEOS_Logging_SetLogLevel_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Logging_SetLogLevel = { LogCategory, LogLevel in
-            XCTAssertEqual(LogCategory, .init(rawValue: .zero)!)
-            XCTAssertEqual(LogLevel, .init(rawValue: .zero)!)
-            TestGlobals.sdkReceived.append("EOS_Logging_SetLogLevel")
-            return .init(rawValue: .zero)! }
-        try SwiftEOS_Logging_SetLogLevel(
-            LogCategory: .init(rawValue: .zero)!,
-            LogLevel: .init(rawValue: .zero)!
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Logging_SetLogLevel"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Logging_SetLogLevel = { LogCategory, LogLevel in
+                XCTAssertEqual(LogCategory, .zero)
+                XCTAssertEqual(LogLevel, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_Logging_SetLogLevel")
+                return .zero
+            }
+            defer { __on_EOS_Logging_SetLogLevel = nil }
+            
+            // When SDK function is called
+            try SwiftEOS_Logging_SetLogLevel(
+                LogCategory: .zero,
+                LogLevel: .zero
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
+        }
     }
 }

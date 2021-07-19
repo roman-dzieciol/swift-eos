@@ -4,28 +4,49 @@ import EOSSDK
 
 public class SwiftEOS_Auth_LoginTests: XCTestCase {
     public func testEOS_Auth_Login_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Auth_Login = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.Credentials)
-            XCTAssertEqual(Options!.pointee.ScopeFlags, .init(rawValue: .zero)!)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Auth_Login") }
-        let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.Login(
-            Credentials: nil,
-            ScopeFlags: .init(rawValue: .zero)!,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.PinGrantInfo)
-                XCTAssertNil(arg0.ContinuanceToken)
-                XCTAssertNil(arg0.AccountFeatureRestrictedInfo)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Auth_Login"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Auth_Login = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.Credentials)
+                XCTAssertEqual(Options!.pointee.ScopeFlags, .zero)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Auth_LoginCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer,
+                            PinGrantInfo: nil,
+                            ContinuanceToken: .nonZeroPointer,
+                            AccountFeatureRestrictedInfo: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Auth_Login")
+            }
+            defer { __on_EOS_Auth_Login = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.Login(
+                Credentials: nil,
+                ScopeFlags: .zero,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.PinGrantInfo)
+                    XCTAssertNil(arg0.ContinuanceToken)
+                    XCTAssertNil(arg0.AccountFeatureRestrictedInfo)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_Login"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

@@ -4,32 +4,53 @@ import EOSSDK
 
 public class SwiftEOS_RTCAudio_UpdateReceivingTests: XCTestCase {
     public func testEOS_RTCAudio_UpdateReceiving_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_RTCAudio_UpdateReceiving = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.RoomName)
-            XCTAssertNil(Options!.pointee.ParticipantId)
-            XCTAssertEqual(Options!.pointee.bAudioEnabled, .zero)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_RTCAudio_UpdateReceiving") }
-        let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.UpdateReceiving(
-            LocalUserId: nil,
-            RoomName: nil,
-            ParticipantId: nil,
-            bAudioEnabled: false,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.RoomName)
-                XCTAssertNil(arg0.ParticipantId)
-                XCTAssertEqual(arg0.bAudioEnabled, false)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_RTCAudio_UpdateReceiving"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_RTCAudio_UpdateReceiving = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.RoomName)
+                XCTAssertNil(Options!.pointee.ParticipantId)
+                XCTAssertEqual(Options!.pointee.bAudioEnabled, .zero)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_UpdateReceivingCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer,
+                            RoomName: nil,
+                            ParticipantId: .nonZeroPointer,
+                            bAudioEnabled: .zero
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_UpdateReceiving")
+            }
+            defer { __on_EOS_RTCAudio_UpdateReceiving = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.UpdateReceiving(
+                LocalUserId: nil,
+                RoomName: nil,
+                ParticipantId: nil,
+                bAudioEnabled: false,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.RoomName)
+                    XCTAssertNil(arg0.ParticipantId)
+                    XCTAssertEqual(arg0.bAudioEnabled, false)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UpdateReceiving"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

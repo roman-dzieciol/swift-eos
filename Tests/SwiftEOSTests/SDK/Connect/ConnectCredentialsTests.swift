@@ -7,10 +7,10 @@ public class SwiftEOS_Connect_CredentialsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_Credentials.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Token)
-            XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.Type, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_Credentials(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Token)
-            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.Type, .zero) }
     }
 }

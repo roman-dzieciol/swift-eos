@@ -4,25 +4,43 @@ import EOSSDK
 
 public class SwiftEOS_Lobby_RejectInviteTests: XCTestCase {
     public func testEOS_Lobby_RejectInvite_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Lobby_RejectInvite = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.InviteId)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Lobby_RejectInvite") }
-        let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.RejectInvite(
-            InviteId: nil,
-            LocalUserId: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.InviteId)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Lobby_RejectInvite"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Lobby_RejectInvite = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.InviteId)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_RejectInviteCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            InviteId: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Lobby_RejectInvite")
+            }
+            defer { __on_EOS_Lobby_RejectInvite = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.RejectInvite(
+                InviteId: nil,
+                LocalUserId: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.InviteId)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_RejectInvite"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

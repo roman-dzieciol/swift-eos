@@ -4,16 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_ActiveSession_GetRegisteredPlayerCountTests: XCTestCase {
     public func testEOS_ActiveSession_GetRegisteredPlayerCount_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_ActiveSession_GetRegisteredPlayerCount = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            TestGlobals.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
-            return .zero }
-        let object: SwiftEOS_ActiveSession_Actor = SwiftEOS_ActiveSession_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: Int = try object.GetRegisteredPlayerCount()
-        XCTAssertEqual(result, .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_ActiveSession_Release = { ActiveSessionHandle in
+                XCTAssertNil(ActiveSessionHandle)
+                TestGlobals.current.sdkReceived.append("EOS_ActiveSession_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_ActiveSession_GetRegisteredPlayerCount = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
+                return .zero
+            }
+            defer { __on_EOS_ActiveSession_GetRegisteredPlayerCount = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_ActiveSession_Actor = SwiftEOS_ActiveSession_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: Int = try object.GetRegisteredPlayerCount()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount", "EOS_ActiveSession_Release"])
+            XCTAssertEqual(result, .zero)
+        }
+        
+        // Then
+        __on_EOS_ActiveSession_Release = nil
     }
 }

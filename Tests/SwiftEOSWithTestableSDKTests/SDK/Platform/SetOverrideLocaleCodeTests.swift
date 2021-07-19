@@ -4,15 +4,35 @@ import EOSSDK
 
 public class SwiftEOS_Platform_SetOverrideLocaleCodeTests: XCTestCase {
     public func testEOS_Platform_SetOverrideLocaleCode_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Platform_SetOverrideLocaleCode = { Handle, NewLocaleCode in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertNil(NewLocaleCode)
-            TestGlobals.sdkReceived.append("EOS_Platform_SetOverrideLocaleCode")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetOverrideLocaleCode(NewLocaleCode: nil)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Platform_SetOverrideLocaleCode"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_Platform_Release = { Handle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_Platform_SetOverrideLocaleCode = { Handle, NewLocaleCode in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(NewLocaleCode)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_SetOverrideLocaleCode")
+                return .zero
+            }
+            defer { __on_EOS_Platform_SetOverrideLocaleCode = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetOverrideLocaleCode(NewLocaleCode: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_SetOverrideLocaleCode", "EOS_Platform_Release"])
+        }
+        
+        // Then
+        __on_EOS_Platform_Release = nil
     }
 }

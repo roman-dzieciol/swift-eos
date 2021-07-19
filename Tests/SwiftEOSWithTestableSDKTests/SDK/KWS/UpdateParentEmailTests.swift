@@ -4,25 +4,43 @@ import EOSSDK
 
 public class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
     public func testEOS_KWS_UpdateParentEmail_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_KWS_UpdateParentEmail = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.ParentEmail)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_KWS_UpdateParentEmail") }
-        let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.UpdateParentEmail(
-            LocalUserId: nil,
-            ParentEmail: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_KWS_UpdateParentEmail"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_KWS_UpdateParentEmail = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.ParentEmail)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_UpdateParentEmailCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_KWS_UpdateParentEmail")
+            }
+            defer { __on_EOS_KWS_UpdateParentEmail = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.UpdateParentEmail(
+                LocalUserId: nil,
+                ParentEmail: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_UpdateParentEmail"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

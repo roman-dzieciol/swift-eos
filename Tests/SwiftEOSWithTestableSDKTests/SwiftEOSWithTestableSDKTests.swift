@@ -4,25 +4,52 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-class TestGlobals {
-    static var sdkReceived: [String] = []
-    static var swiftReceived: [String] = []
-
-    static func reset() {
-        sdkReceived.removeAll()
-        swiftReceived.removeAll()
-    }
+extension OpaquePointer {
+    public static var nonZeroPointer: OpaquePointer { OpaquePointer(bitPattern: Int(1))! }
+}
+extension UnsafeRawPointer {
+    public static var nonZeroPointer: UnsafeRawPointer { UnsafeRawPointer(bitPattern: Int(1))! }
+}
+extension UnsafeMutableRawPointer {
+    public static var nonZeroPointer: UnsafeMutableRawPointer { UnsafeMutableRawPointer(bitPattern: Int(1))! }
 }
 
-class Globals {
+extension RawRepresentable where RawValue: BinaryInteger {
+    public static var zero: Self { .init(rawValue: .zero)! }
+}
 
-    static let shared = Globals()
+extension String {
+    public static var empty: String { "" }
+}
+
+class TestGlobals {
+
+    static let current = TestGlobals()
+
+    var sdkReceived: [String] = []
+    var swiftReceived: [String] = []
 
     var strings: [String: UnsafeMutableBufferPointer<CChar>] = [:]
+    var deallocs: [() -> Void] = []
 
     init() {}
 
-    func pointer(to string: String) -> UnsafePointer<CChar>? {
+    func reset() {
+        sdkReceived.removeAll()
+        swiftReceived.removeAll()
+
+        strings.forEach {
+            $0.value.deallocate()
+        }
+        strings.removeAll()
+
+        deallocs.forEach {
+            $0()
+        }
+        deallocs.removeAll()
+    }
+
+    func pointer(string: String) -> UnsafePointer<CChar>? {
         if let pointer = strings[string] {
             return UnsafePointer(pointer.baseAddress!)
         }
@@ -34,11 +61,14 @@ class Globals {
         return UnsafePointer(pointer.baseAddress!)
     }
 
-    func deallocate() {
-        strings.forEach {
-            $0.value.deallocate()
-        }
-        strings.removeAll()
+    func pointer<Object>(object: Object) -> UnsafeMutablePointer<Object> {
+        let pointer = UnsafeMutablePointer<Object>.allocate(capacity: 1)
+        pointer.initialize(to: object)
+        deallocs += [{
+            pointer.deinitialize(count: 1)
+            pointer.deallocate()
+        }]
+        return pointer
     }
 }
 
@@ -47,7 +77,7 @@ final class SwiftEOSWithTestableSDKTests: XCTestCase {
 
         __on_EOS_EResult_ToString = { result in
             XCTAssertEqual(result, .EOS_Success)
-            return Globals.shared.pointer(to: "123")
+            return TestGlobals.current.pointer(string: "123")
         }
 
         XCTAssertEqual(SwiftEOS_EResult_ToString(Result: .EOS_Success), "123")

@@ -4,16 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_SessionModification_SetInvitesAllowedTests: XCTestCase {
     public func testEOS_SessionModification_SetInvitesAllowed_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_SessionModification_SetInvitesAllowed = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
-            TestGlobals.sdkReceived.append("EOS_SessionModification_SetInvitesAllowed")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetInvitesAllowed(bInvitesAllowed: false)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_SessionModification_SetInvitesAllowed"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_SessionModification_Release = { SessionModificationHandle in
+                XCTAssertNil(SessionModificationHandle)
+                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_SessionModification_SetInvitesAllowed = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetInvitesAllowed")
+                return .zero
+            }
+            defer { __on_EOS_SessionModification_SetInvitesAllowed = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetInvitesAllowed(bInvitesAllowed: false)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetInvitesAllowed", "EOS_SessionModification_Release"])
+        }
+        
+        // Then
+        __on_EOS_SessionModification_Release = nil
     }
 }

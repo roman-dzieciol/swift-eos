@@ -7,10 +7,10 @@ public class SwiftEOS_SessionDetails_AttributeTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_SessionDetails_Attribute.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Data)
-            XCTAssertEqual(cstruct.AdvertisementType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.AdvertisementType, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_SessionDetails_Attribute(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Data)
-            XCTAssertEqual(swiftObject.AdvertisementType, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.AdvertisementType, .zero) }
     }
 }

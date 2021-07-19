@@ -12,7 +12,7 @@ public class SwiftEOS_Auth_TokenTests: XCTestCase {
             XCTAssertNil(cstruct.AccessToken)
             XCTAssertEqual(cstruct.ExpiresIn, .zero)
             XCTAssertNil(cstruct.ExpiresAt)
-            XCTAssertEqual(cstruct.AuthType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.AuthType, .zero)
             XCTAssertNil(cstruct.RefreshToken)
             XCTAssertEqual(cstruct.RefreshExpiresIn, .zero)
             XCTAssertNil(cstruct.RefreshExpiresAt)
@@ -24,7 +24,7 @@ public class SwiftEOS_Auth_TokenTests: XCTestCase {
             XCTAssertNil(swiftObject.AccessToken)
             XCTAssertEqual(swiftObject.ExpiresIn, .zero)
             XCTAssertNil(swiftObject.ExpiresAt)
-            XCTAssertEqual(swiftObject.AuthType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.AuthType, .zero)
             XCTAssertNil(swiftObject.RefreshToken)
             XCTAssertEqual(swiftObject.RefreshExpiresIn, .zero)
             XCTAssertNil(swiftObject.RefreshExpiresAt) }

@@ -8,14 +8,14 @@ public class SwiftEOS_AntiCheatCommon_RegisterEventOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.EventId, .zero)
             XCTAssertNil(cstruct.EventName)
-            XCTAssertEqual(cstruct.EventType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.EventType, .zero)
             XCTAssertEqual(cstruct.ParamDefsCount, .zero)
             XCTAssertNil(cstruct.ParamDefs)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_RegisterEventOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertEqual(swiftObject.EventId, .zero)
             XCTAssertNil(swiftObject.EventName)
-            XCTAssertEqual(swiftObject.EventType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.EventType, .zero)
             XCTAssertNil(swiftObject.ParamDefs) }
     }
 }

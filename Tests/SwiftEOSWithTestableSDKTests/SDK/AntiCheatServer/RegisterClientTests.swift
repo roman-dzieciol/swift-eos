@@ -4,26 +4,37 @@ import EOSSDK
 
 public class SwiftEOS_AntiCheatServer_RegisterClientTests: XCTestCase {
     public func testEOS_AntiCheatServer_RegisterClient_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_AntiCheatServer_RegisterClient = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.ClientHandle)
-            XCTAssertEqual(Options!.pointee.ClientType, .init(rawValue: .zero)!)
-            XCTAssertEqual(Options!.pointee.ClientPlatform, .init(rawValue: .zero)!)
-            XCTAssertNil(Options!.pointee.AccountId)
-            XCTAssertNil(Options!.pointee.IpAddress)
-            TestGlobals.sdkReceived.append("EOS_AntiCheatServer_RegisterClient")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.RegisterClient(
-            ClientHandle: nil,
-            ClientType: .init(rawValue: .zero)!,
-            ClientPlatform: .init(rawValue: .zero)!,
-            AccountId: nil,
-            IpAddress: nil
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_AntiCheatServer_RegisterClient"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_AntiCheatServer_RegisterClient = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.ClientHandle)
+                XCTAssertEqual(Options!.pointee.ClientType, .zero)
+                XCTAssertEqual(Options!.pointee.ClientPlatform, .zero)
+                XCTAssertNil(Options!.pointee.AccountId)
+                XCTAssertNil(Options!.pointee.IpAddress)
+                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_RegisterClient")
+                return .zero
+            }
+            defer { __on_EOS_AntiCheatServer_RegisterClient = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.RegisterClient(
+                ClientHandle: nil,
+                ClientType: .zero,
+                ClientPlatform: .zero,
+                AccountId: nil,
+                IpAddress: nil
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_RegisterClient"])
+        }
     }
 }

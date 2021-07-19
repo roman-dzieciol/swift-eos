@@ -4,19 +4,37 @@ import EOSSDK
 
 public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
     public func testEOS_P2P_QueryNATType_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_P2P_QueryNATType = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_P2P_QueryNATType") }
-        let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.QueryNATType(CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertEqual(arg0.NATType, .init(rawValue: .zero)!)
-                TestGlobals.swiftReceived.append("CompletionDelegate") })
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_P2P_QueryNATType"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_P2P_QueryNATType = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnQueryNATTypeCompleteInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            NATType: .zero
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_P2P_QueryNATType")
+            }
+            defer { __on_EOS_P2P_QueryNATType = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.QueryNATType(CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertEqual(arg0.NATType, .zero)
+                    waitForCompletionDelegate.fulfill()
+                })
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_QueryNATType"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

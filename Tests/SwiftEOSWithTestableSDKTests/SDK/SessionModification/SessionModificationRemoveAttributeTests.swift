@@ -4,16 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_SessionModification_RemoveAttributeTests: XCTestCase {
     public func testEOS_SessionModification_RemoveAttribute_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_SessionModification_RemoveAttribute = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.Key)
-            TestGlobals.sdkReceived.append("EOS_SessionModification_RemoveAttribute")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.RemoveAttribute(Key: nil)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_SessionModification_RemoveAttribute"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_SessionModification_Release = { SessionModificationHandle in
+                XCTAssertNil(SessionModificationHandle)
+                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_SessionModification_RemoveAttribute = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.Key)
+                TestGlobals.current.sdkReceived.append("EOS_SessionModification_RemoveAttribute")
+                return .zero
+            }
+            defer { __on_EOS_SessionModification_RemoveAttribute = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.RemoveAttribute(Key: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_RemoveAttribute", "EOS_SessionModification_Release"])
+        }
+        
+        // Then
+        __on_EOS_SessionModification_Release = nil
     }
 }

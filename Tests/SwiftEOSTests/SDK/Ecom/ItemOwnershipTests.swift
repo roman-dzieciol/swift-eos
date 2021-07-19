@@ -7,10 +7,10 @@ public class SwiftEOS_Ecom_ItemOwnershipTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_ItemOwnership.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Id)
-            XCTAssertEqual(cstruct.OwnershipStatus, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.OwnershipStatus, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_ItemOwnership(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Id)
-            XCTAssertEqual(swiftObject.OwnershipStatus, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.OwnershipStatus, .zero) }
     }
 }

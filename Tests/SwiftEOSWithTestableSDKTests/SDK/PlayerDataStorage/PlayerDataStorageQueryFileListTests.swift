@@ -4,24 +4,43 @@ import EOSSDK
 
 public class SwiftEOS_PlayerDataStorage_QueryFileListTests: XCTestCase {
     public func testEOS_PlayerDataStorage_QueryFileList_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_PlayerDataStorage_QueryFileList = { Handle, QueryFileListOptions, ClientData, CompletionCallback in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(QueryFileListOptions!.pointee.ApiVersion, .zero)
-            XCTAssertNil(QueryFileListOptions!.pointee.LocalUserId)
-            XCTAssertNil(ClientData)
-            CompletionCallback?(nil)
-            TestGlobals.sdkReceived.append("EOS_PlayerDataStorage_QueryFileList") }
-        let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.QueryFileList(
-            LocalUserId: nil,
-            CompletionCallback: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertEqual(arg0.FileCount, .zero)
-                TestGlobals.swiftReceived.append("CompletionCallback") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_PlayerDataStorage_QueryFileList"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionCallback"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
+            
+            // Given implementation for SDK function
+            __on_EOS_PlayerDataStorage_QueryFileList = { Handle, QueryFileListOptions, ClientData, CompletionCallback in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(QueryFileListOptions!.pointee.ApiVersion, .zero)
+                XCTAssertNil(QueryFileListOptions!.pointee.LocalUserId)
+                XCTAssertNotNil(ClientData)
+                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_QueryFileListCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer,
+                            FileCount: .zero
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_QueryFileList")
+            }
+            defer { __on_EOS_PlayerDataStorage_QueryFileList = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.QueryFileList(
+                LocalUserId: nil,
+                CompletionCallback: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertEqual(arg0.FileCount, .zero)
+                    waitForCompletionCallback.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_QueryFileList"])
+            wait(for: [waitForCompletionCallback], timeout: 0.5)
+        }
     }
 }

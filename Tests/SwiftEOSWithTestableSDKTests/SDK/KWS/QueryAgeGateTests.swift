@@ -4,20 +4,39 @@ import EOSSDK
 
 public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
     public func testEOS_KWS_QueryAgeGate_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_KWS_QueryAgeGate = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_KWS_QueryAgeGate") }
-        let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.QueryAgeGate(CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.CountryCode)
-                XCTAssertEqual(arg0.AgeOfConsent, .zero)
-                TestGlobals.swiftReceived.append("CompletionDelegate") })
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_KWS_QueryAgeGate"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_KWS_QueryAgeGate = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_QueryAgeGateCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            CountryCode: nil,
+                            AgeOfConsent: .zero
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_KWS_QueryAgeGate")
+            }
+            defer { __on_EOS_KWS_QueryAgeGate = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.QueryAgeGate(CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.CountryCode)
+                    XCTAssertEqual(arg0.AgeOfConsent, .zero)
+                    waitForCompletionDelegate.fulfill()
+                })
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

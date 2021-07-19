@@ -6,7 +6,7 @@ public class SwiftEOS_Presence_InfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Presence_Info() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Presence_Info.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
-            XCTAssertEqual(cstruct.Status, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.Status, .zero)
             XCTAssertNil(cstruct.UserId)
             XCTAssertNil(cstruct.ProductId)
             XCTAssertNil(cstruct.ProductVersion)
@@ -17,7 +17,7 @@ public class SwiftEOS_Presence_InfoTests: XCTestCase {
             XCTAssertNil(cstruct.ProductName)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_Info(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
-            XCTAssertEqual(swiftObject.Status, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.Status, .zero)
             XCTAssertNil(swiftObject.UserId)
             XCTAssertNil(swiftObject.ProductId)
             XCTAssertNil(swiftObject.ProductVersion)

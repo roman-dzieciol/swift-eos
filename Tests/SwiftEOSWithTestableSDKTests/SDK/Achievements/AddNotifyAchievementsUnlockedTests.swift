@@ -4,21 +4,52 @@ import EOSSDK
 
 public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedTests: XCTestCase {
     public func testEOS_Achievements_AddNotifyAchievementsUnlocked_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Achievements_AddNotifyAchievementsUnlocked = { Handle, Options, ClientData, NotificationFn in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            NotificationFn?(nil)
-            TestGlobals.sdkReceived.append("EOS_Achievements_AddNotifyAchievementsUnlocked")
-            return .zero }
-        let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Notification<SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo> = try object.AddNotifyAchievementsUnlocked(NotificationFn: { arg0 in
-                XCTAssertNil(arg0.UserId)
-                XCTAssertNil(arg0.AchievementIds)
-                TestGlobals.swiftReceived.append("NotificationFn") })
-        XCTFail(" TODO: result SwiftGenericType(, SwiftBuiltinType(, SwiftEOS_Notification)<SwiftDeclRefType(, SwiftStruct(SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo sdk: _tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo))>)")
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlocked"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["NotificationFn"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForNotificationFn = expectation(description: "waitForNotificationFn")
+            
+            // Given implementation for SDK function
+            __on_EOS_Achievements_AddNotifyAchievementsUnlocked = { Handle, Options, ClientData, NotificationFn in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo(
+                            ClientData: ClientData,
+                            UserId: .nonZeroPointer,
+                            AchievementsCount: .zero,
+                            AchievementIds: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Achievements_AddNotifyAchievementsUnlocked")
+                return .zero
+            }
+            defer { __on_EOS_Achievements_AddNotifyAchievementsUnlocked = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Notification<SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo> = try object.AddNotifyAchievementsUnlocked(NotificationFn: { arg0 in
+                    XCTAssertNil(arg0.UserId)
+                    XCTAssertNil(arg0.AchievementIds)
+                    waitForNotificationFn.fulfill()
+                })
+            
+            // Then
+            withExtendedLifetime(result) { result in
+                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlocked"])
+                wait(for: [waitForNotificationFn], timeout: 0.5)
+                
+                // Given implementation for SDK remove notify function
+                __on_EOS_Achievements_RemoveNotifyAchievementsUnlocked = { Handle, InId in
+                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertEqual(InId, .zero)
+                    TestGlobals.current.sdkReceived.append("EOS_Achievements_RemoveNotifyAchievementsUnlocked")
+                }
+            }
+        }
+        
+        // Then
+        __on_EOS_Achievements_RemoveNotifyAchievementsUnlocked = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlocked", "EOS_Achievements_RemoveNotifyAchievementsUnlocked"])
     }
 }

@@ -4,18 +4,29 @@ import EOSSDK
 
 public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTests: XCTestCase {
     public func testEOS_Achievements_CopyAchievementDefinitionV2ByAchievementId_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = { Handle, Options, OutDefinition in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.AchievementId)
-            XCTAssertNil(OutDefinition)
-            TestGlobals.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Achievements_DefinitionV2? = try object.CopyAchievementDefinitionV2ByAchievementId(AchievementId: nil)
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = { Handle, Options, OutDefinition in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.AchievementId)
+                XCTAssertNil(OutDefinition)
+                TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")
+                return .zero
+            }
+            defer { __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Achievements_DefinitionV2? = try object.CopyAchievementDefinitionV2ByAchievementId(AchievementId: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
+            XCTAssertNil(result)
+        }
     }
 }

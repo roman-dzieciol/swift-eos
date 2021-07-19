@@ -4,18 +4,35 @@ import EOSSDK
 
 public class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
     public func testEOS_Connect_DeleteDeviceId_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Connect_DeleteDeviceId = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Connect_DeleteDeviceId") }
-        let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.DeleteDeviceId(CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                TestGlobals.swiftReceived.append("CompletionDelegate") })
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Connect_DeleteDeviceId"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Connect_DeleteDeviceId = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_DeleteDeviceIdCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Connect_DeleteDeviceId")
+            }
+            defer { __on_EOS_Connect_DeleteDeviceId = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.DeleteDeviceId(CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    waitForCompletionDelegate.fulfill()
+                })
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_DeleteDeviceId"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

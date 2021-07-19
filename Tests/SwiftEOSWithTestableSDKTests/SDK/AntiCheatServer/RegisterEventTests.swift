@@ -4,25 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
     public func testEOS_AntiCheatServer_RegisterEvent_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_AntiCheatServer_RegisterEvent = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.EventId, .zero)
-            XCTAssertNil(Options!.pointee.EventName)
-            XCTAssertEqual(Options!.pointee.EventType, .init(rawValue: .zero)!)
-            XCTAssertEqual(Options!.pointee.ParamDefsCount, .zero)
-            XCTAssertNil(Options!.pointee.ParamDefs)
-            TestGlobals.sdkReceived.append("EOS_AntiCheatServer_RegisterEvent")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.RegisterEvent(
-            EventId: .zero,
-            EventName: nil,
-            EventType: .init(rawValue: .zero)!,
-            ParamDefs: nil
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_AntiCheatServer_RegisterEvent"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_AntiCheatServer_RegisterEvent = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.EventId, .zero)
+                XCTAssertNil(Options!.pointee.EventName)
+                XCTAssertEqual(Options!.pointee.EventType, .zero)
+                XCTAssertEqual(Options!.pointee.ParamDefsCount, .zero)
+                XCTAssertNil(Options!.pointee.ParamDefs)
+                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_RegisterEvent")
+                return .zero
+            }
+            defer { __on_EOS_AntiCheatServer_RegisterEvent = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.RegisterEvent(
+                EventId: .zero,
+                EventName: nil,
+                EventType: .zero,
+                ParamDefs: nil
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_RegisterEvent"])
+        }
     }
 }

@@ -4,16 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_LobbyDetails_GetAttributeCountTests: XCTestCase {
     public func testEOS_LobbyDetails_GetAttributeCount_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_LobbyDetails_GetAttributeCount = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            TestGlobals.sdkReceived.append("EOS_LobbyDetails_GetAttributeCount")
-            return .zero }
-        let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: Int = try object.GetAttributeCount()
-        XCTAssertEqual(result, .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_LobbyDetails_GetAttributeCount"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_LobbyDetails_Release = { LobbyHandle in
+                XCTAssertNil(LobbyHandle)
+                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_LobbyDetails_GetAttributeCount = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetAttributeCount")
+                return .zero
+            }
+            defer { __on_EOS_LobbyDetails_GetAttributeCount = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: Int = try object.GetAttributeCount()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetAttributeCount", "EOS_LobbyDetails_Release"])
+            XCTAssertEqual(result, .zero)
+        }
+        
+        // Then
+        __on_EOS_LobbyDetails_Release = nil
     }
 }

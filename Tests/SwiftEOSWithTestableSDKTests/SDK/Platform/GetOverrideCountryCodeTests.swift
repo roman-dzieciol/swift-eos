@@ -4,17 +4,37 @@ import EOSSDK
 
 public class SwiftEOS_Platform_GetOverrideCountryCodeTests: XCTestCase {
     public func testEOS_Platform_GetOverrideCountryCode_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Platform_GetOverrideCountryCode = { Handle, OutBuffer, InOutBufferLength in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertNil(OutBuffer)
-            XCTAssertNil(InOutBufferLength)
-            TestGlobals.sdkReceived.append("EOS_Platform_GetOverrideCountryCode")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: String? = try object.GetOverrideCountryCode()
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Platform_GetOverrideCountryCode"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_Platform_Release = { Handle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_Platform_GetOverrideCountryCode = { Handle, OutBuffer, InOutBufferLength in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(OutBuffer)
+                XCTAssertNil(InOutBufferLength)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_GetOverrideCountryCode")
+                return .zero
+            }
+            defer { __on_EOS_Platform_GetOverrideCountryCode = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: String? = try object.GetOverrideCountryCode()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetOverrideCountryCode", "EOS_Platform_Release"])
+            XCTAssertNil(result)
+        }
+        
+        // Then
+        __on_EOS_Platform_Release = nil
     }
 }

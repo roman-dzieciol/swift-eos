@@ -4,22 +4,53 @@ import EOSSDK
 
 public class SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedTests: XCTestCase {
     public func testEOS_Lobby_AddNotifyLobbyInviteReceived_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Lobby_AddNotifyLobbyInviteReceived = { Handle, Options, ClientData, NotificationFn in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            NotificationFn?(nil)
-            TestGlobals.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteReceived")
-            return .zero }
-        let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Notification<SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo> = try object.AddNotifyLobbyInviteReceived(NotificationFn: { arg0 in
-                XCTAssertNil(arg0.InviteId)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.TargetUserId)
-                TestGlobals.swiftReceived.append("NotificationFn") })
-        XCTFail(" TODO: result SwiftGenericType(, SwiftBuiltinType(, SwiftEOS_Notification)<SwiftDeclRefType(, SwiftStruct(SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo sdk: _tagEOS_Lobby_LobbyInviteReceivedCallbackInfo))>)")
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["NotificationFn"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForNotificationFn = expectation(description: "waitForNotificationFn")
+            
+            // Given implementation for SDK function
+            __on_EOS_Lobby_AddNotifyLobbyInviteReceived = { Handle, Options, ClientData, NotificationFn in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_LobbyInviteReceivedCallbackInfo(
+                            ClientData: ClientData,
+                            InviteId: nil,
+                            LocalUserId: .nonZeroPointer,
+                            TargetUserId: .nonZeroPointer
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteReceived")
+                return .zero
+            }
+            defer { __on_EOS_Lobby_AddNotifyLobbyInviteReceived = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Notification<SwiftEOS_Lobby_LobbyInviteReceivedCallbackInfo> = try object.AddNotifyLobbyInviteReceived(NotificationFn: { arg0 in
+                    XCTAssertNil(arg0.InviteId)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.TargetUserId)
+                    waitForNotificationFn.fulfill()
+                })
+            
+            // Then
+            withExtendedLifetime(result) { result in
+                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived"])
+                wait(for: [waitForNotificationFn], timeout: 0.5)
+                
+                // Given implementation for SDK remove notify function
+                __on_EOS_Lobby_RemoveNotifyLobbyInviteReceived = { Handle, InId in
+                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertEqual(InId, .zero)
+                    TestGlobals.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyInviteReceived")
+                }
+            }
+        }
+        
+        // Then
+        __on_EOS_Lobby_RemoveNotifyLobbyInviteReceived = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived", "EOS_Lobby_RemoveNotifyLobbyInviteReceived"])
     }
 }

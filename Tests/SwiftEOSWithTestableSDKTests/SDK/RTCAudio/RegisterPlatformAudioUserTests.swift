@@ -4,16 +4,27 @@ import EOSSDK
 
 public class SwiftEOS_RTCAudio_RegisterPlatformAudioUserTests: XCTestCase {
     public func testEOS_RTCAudio_RegisterPlatformAudioUser_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_RTCAudio_RegisterPlatformAudioUser = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.UserId)
-            TestGlobals.sdkReceived.append("EOS_RTCAudio_RegisterPlatformAudioUser")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.RegisterPlatformAudioUser(UserId: nil)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_RTCAudio_RegisterPlatformAudioUser"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_RTCAudio_RegisterPlatformAudioUser = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.UserId)
+                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RegisterPlatformAudioUser")
+                return .zero
+            }
+            defer { __on_EOS_RTCAudio_RegisterPlatformAudioUser = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.RegisterPlatformAudioUser(UserId: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_RegisterPlatformAudioUser"])
+        }
     }
 }

@@ -4,26 +4,44 @@ import EOSSDK
 
 public class SwiftEOS_Ecom_RedeemEntitlementsTests: XCTestCase {
     public func testEOS_Ecom_RedeemEntitlements_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Ecom_RedeemEntitlements = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertEqual(Options!.pointee.EntitlementIdCount, .zero)
-            XCTAssertNil(Options!.pointee.EntitlementIds)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Ecom_RedeemEntitlements") }
-        let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.RedeemEntitlements(
-            LocalUserId: nil,
-            EntitlementIds: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Ecom_RedeemEntitlements"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Ecom_RedeemEntitlements = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertEqual(Options!.pointee.EntitlementIdCount, .zero)
+                XCTAssertNil(Options!.pointee.EntitlementIds)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_RedeemEntitlementsCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Ecom_RedeemEntitlements")
+            }
+            defer { __on_EOS_Ecom_RedeemEntitlements = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.RedeemEntitlements(
+                LocalUserId: nil,
+                EntitlementIds: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_RedeemEntitlements"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

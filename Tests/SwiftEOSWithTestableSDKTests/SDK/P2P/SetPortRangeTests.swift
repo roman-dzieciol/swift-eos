@@ -4,20 +4,31 @@ import EOSSDK
 
 public class SwiftEOS_P2P_SetPortRangeTests: XCTestCase {
     public func testEOS_P2P_SetPortRange_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_P2P_SetPortRange = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.Port, .zero)
-            XCTAssertEqual(Options!.pointee.MaxAdditionalPortsToTry, .zero)
-            TestGlobals.sdkReceived.append("EOS_P2P_SetPortRange")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetPortRange(
-            Port: .zero,
-            MaxAdditionalPortsToTry: .zero
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_P2P_SetPortRange"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_P2P_SetPortRange = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.Port, .zero)
+                XCTAssertEqual(Options!.pointee.MaxAdditionalPortsToTry, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_P2P_SetPortRange")
+                return .zero
+            }
+            defer { __on_EOS_P2P_SetPortRange = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetPortRange(
+                Port: .zero,
+                MaxAdditionalPortsToTry: .zero
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SetPortRange"])
+        }
     }
 }

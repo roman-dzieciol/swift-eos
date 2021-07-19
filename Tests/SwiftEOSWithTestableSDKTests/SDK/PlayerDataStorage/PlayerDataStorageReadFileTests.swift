@@ -4,34 +4,57 @@ import EOSSDK
 
 public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
     public func testEOS_PlayerDataStorage_ReadFile_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_PlayerDataStorage_ReadFile = { Handle, ReadOptions, ClientData, CompletionCallback in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(ReadOptions!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ReadOptions!.pointee.LocalUserId)
-            XCTAssertNil(ReadOptions!.pointee.Filename)
-            XCTAssertEqual(ReadOptions!.pointee.ReadChunkLengthBytes, .zero)
-            XCTAssertNil(ReadOptions!.pointee.ReadFileDataCallback)
-            XCTAssertNil(ReadOptions!.pointee.FileTransferProgressCallback)
-            XCTAssertNil(ClientData)
-            CompletionCallback?(nil)
-            TestGlobals.sdkReceived.append("EOS_PlayerDataStorage_ReadFile")
-            return OpaquePointer(bitPattern: Int(1))! }
-        let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: EOS_HPlayerDataStorageFileTransferRequest = try object.ReadFile(
-            LocalUserId: nil,
-            Filename: nil,
-            ReadChunkLengthBytes: .zero,
-            ReadFileDataCallback: nil,
-            FileTransferProgressCallback: nil,
-            CompletionCallback: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.Filename)
-                TestGlobals.swiftReceived.append("CompletionCallback") }
-        )
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["ReadFileDataCallback", "FileTransferProgressCallback", "CompletionCallback"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForReadFileDataCallback = expectation(description: "waitForReadFileDataCallback")
+            let waitForFileTransferProgressCallback = expectation(description: "waitForFileTransferProgressCallback")
+            let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
+            
+            // Given implementation for SDK function
+            __on_EOS_PlayerDataStorage_ReadFile = { Handle, ReadOptions, ClientData, CompletionCallback in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(ReadOptions!.pointee.ApiVersion, .zero)
+                XCTAssertNil(ReadOptions!.pointee.LocalUserId)
+                XCTAssertNil(ReadOptions!.pointee.Filename)
+                XCTAssertEqual(ReadOptions!.pointee.ReadChunkLengthBytes, .zero)
+                XCTAssertNil(ReadOptions!.pointee.ReadFileDataCallback)
+                XCTAssertNil(ReadOptions!.pointee.FileTransferProgressCallback)
+                XCTAssertNotNil(ClientData)
+                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_ReadFileCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer,
+                            Filename: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_ReadFile")
+                return .nonZeroPointer
+            }
+            defer { __on_EOS_PlayerDataStorage_ReadFile = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: EOS_HPlayerDataStorageFileTransferRequest = try object.ReadFile(
+                LocalUserId: nil,
+                Filename: nil,
+                ReadChunkLengthBytes: .zero,
+                ReadFileDataCallback: nil,
+                FileTransferProgressCallback: nil,
+                CompletionCallback: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.Filename)
+                    waitForCompletionCallback.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
+            wait(for: [waitForReadFileDataCallback], timeout: 0.5)
+            wait(for: [waitForFileTransferProgressCallback], timeout: 0.5)
+            wait(for: [waitForCompletionCallback], timeout: 0.5)
+            XCTAssertNil(result)
+        }
     }
 }

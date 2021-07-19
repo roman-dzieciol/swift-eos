@@ -4,27 +4,45 @@ import EOSSDK
 
 public class SwiftEOS_Lobby_KickMemberTests: XCTestCase {
     public func testEOS_Lobby_KickMember_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Lobby_KickMember = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LobbyId)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.TargetUserId)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Lobby_KickMember") }
-        let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.KickMember(
-            LobbyId: nil,
-            LocalUserId: nil,
-            TargetUserId: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LobbyId)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Lobby_KickMember"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Lobby_KickMember = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LobbyId)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.TargetUserId)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_KickMemberCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LobbyId: TestGlobals.current.pointer(string: .empty)
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Lobby_KickMember")
+            }
+            defer { __on_EOS_Lobby_KickMember = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.KickMember(
+                LobbyId: nil,
+                LocalUserId: nil,
+                TargetUserId: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LobbyId)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_KickMember"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

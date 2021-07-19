@@ -8,11 +8,11 @@ public class SwiftEOS_RTCAudio_UpdateSendingOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
-            XCTAssertEqual(cstruct.AudioStatus, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.AudioStatus, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAudio_UpdateSendingOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.RoomName)
-            XCTAssertEqual(swiftObject.AudioStatus, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.AudioStatus, .zero) }
     }
 }

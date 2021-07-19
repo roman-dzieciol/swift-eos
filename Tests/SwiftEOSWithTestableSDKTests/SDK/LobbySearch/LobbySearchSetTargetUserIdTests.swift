@@ -4,16 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_LobbySearch_SetTargetUserIdTests: XCTestCase {
     public func testEOS_LobbySearch_SetTargetUserId_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_LobbySearch_SetTargetUserId = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.TargetUserId)
-            TestGlobals.sdkReceived.append("EOS_LobbySearch_SetTargetUserId")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetTargetUserId(TargetUserId: nil)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_LobbySearch_SetTargetUserId"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_LobbySearch_Release = { LobbySearchHandle in
+                XCTAssertNil(LobbySearchHandle)
+                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_LobbySearch_SetTargetUserId = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.TargetUserId)
+                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_SetTargetUserId")
+                return .zero
+            }
+            defer { __on_EOS_LobbySearch_SetTargetUserId = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetTargetUserId(TargetUserId: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetTargetUserId", "EOS_LobbySearch_Release"])
+        }
+        
+        // Then
+        __on_EOS_LobbySearch_Release = nil
     }
 }

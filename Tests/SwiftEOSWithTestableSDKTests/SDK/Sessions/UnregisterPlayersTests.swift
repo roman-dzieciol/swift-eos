@@ -4,25 +4,42 @@ import EOSSDK
 
 public class SwiftEOS_Sessions_UnregisterPlayersTests: XCTestCase {
     public func testEOS_Sessions_UnregisterPlayers_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Sessions_UnregisterPlayers = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.SessionName)
-            XCTAssertNil(Options!.pointee.PlayersToUnregister)
-            XCTAssertEqual(Options!.pointee.PlayersToUnregisterCount, .zero)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Sessions_UnregisterPlayers") }
-        let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.UnregisterPlayers(
-            SessionName: nil,
-            PlayersToUnregister: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Sessions_UnregisterPlayers"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Sessions_UnregisterPlayers = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.SessionName)
+                XCTAssertNil(Options!.pointee.PlayersToUnregister)
+                XCTAssertEqual(Options!.pointee.PlayersToUnregisterCount, .zero)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_UnregisterPlayersCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Sessions_UnregisterPlayers")
+            }
+            defer { __on_EOS_Sessions_UnregisterPlayers = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.UnregisterPlayers(
+                SessionName: nil,
+                PlayersToUnregister: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_UnregisterPlayers"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

@@ -4,14 +4,34 @@ import EOSSDK
 
 public class SwiftEOS_PlayerDataStorageFileTransferRequest_CancelRequestTests: XCTestCase {
     public func testEOS_PlayerDataStorageFileTransferRequest_CancelRequest_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = { Handle in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            TestGlobals.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_CancelRequest")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.CancelRequest()
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_PlayerDataStorageFileTransferRequest_Release = { PlayerDataStorageFileTransferHandle in
+                XCTAssertNil(PlayerDataStorageFileTransferHandle)
+                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = { Handle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_CancelRequest")
+                return .zero
+            }
+            defer { __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.CancelRequest()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest", "EOS_PlayerDataStorageFileTransferRequest_Release"])
+        }
+        
+        // Then
+        __on_EOS_PlayerDataStorageFileTransferRequest_Release = nil
     }
 }

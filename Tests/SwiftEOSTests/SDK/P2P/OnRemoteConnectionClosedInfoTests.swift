@@ -9,11 +9,11 @@ public class SwiftEOS_P2P_OnRemoteConnectionClosedInfoTests: XCTestCase {
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RemoteUserId)
             XCTAssertNil(cstruct.SocketId)
-            XCTAssertEqual(cstruct.Reason, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.Reason, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_OnRemoteConnectionClosedInfo(sdkObject: cstruct))
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.RemoteUserId)
             XCTAssertNil(swiftObject.SocketId)
-            XCTAssertEqual(swiftObject.Reason, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.Reason, .zero) }
     }
 }

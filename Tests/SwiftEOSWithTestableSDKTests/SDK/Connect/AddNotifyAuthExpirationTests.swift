@@ -4,20 +4,49 @@ import EOSSDK
 
 public class SwiftEOS_Connect_AddNotifyAuthExpirationTests: XCTestCase {
     public func testEOS_Connect_AddNotifyAuthExpiration_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Connect_AddNotifyAuthExpiration = { Handle, Options, ClientData, Notification in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            Notification?(nil)
-            TestGlobals.sdkReceived.append("EOS_Connect_AddNotifyAuthExpiration")
-            return .zero }
-        let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Notification<SwiftEOS_Connect_AuthExpirationCallbackInfo> = try object.AddNotifyAuthExpiration(Notification: { arg0 in
-                XCTAssertNil(arg0.LocalUserId)
-                TestGlobals.swiftReceived.append("Notification") })
-        XCTFail(" TODO: result SwiftGenericType(, SwiftBuiltinType(, SwiftEOS_Notification)<SwiftDeclRefType(, SwiftStruct(SwiftEOS_Connect_AuthExpirationCallbackInfo sdk: _tagEOS_Connect_AuthExpirationCallbackInfo))>)")
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Connect_AddNotifyAuthExpiration"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["Notification"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForNotification = expectation(description: "waitForNotification")
+            
+            // Given implementation for SDK function
+            __on_EOS_Connect_AddNotifyAuthExpiration = { Handle, Options, ClientData, Notification in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                Notification?(TestGlobals.current.pointer(object: _tagEOS_Connect_AuthExpirationCallbackInfo(
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Connect_AddNotifyAuthExpiration")
+                return .zero
+            }
+            defer { __on_EOS_Connect_AddNotifyAuthExpiration = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Notification<SwiftEOS_Connect_AuthExpirationCallbackInfo> = try object.AddNotifyAuthExpiration(Notification: { arg0 in
+                    XCTAssertNil(arg0.LocalUserId)
+                    waitForNotification.fulfill()
+                })
+            
+            // Then
+            withExtendedLifetime(result) { result in
+                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_AddNotifyAuthExpiration"])
+                wait(for: [waitForNotification], timeout: 0.5)
+                
+                // Given implementation for SDK remove notify function
+                __on_EOS_Connect_RemoveNotifyAuthExpiration = { Handle, InId in
+                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertEqual(InId, .zero)
+                    TestGlobals.current.sdkReceived.append("EOS_Connect_RemoveNotifyAuthExpiration")
+                }
+            }
+        }
+        
+        // Then
+        __on_EOS_Connect_RemoveNotifyAuthExpiration = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_AddNotifyAuthExpiration", "EOS_Connect_RemoveNotifyAuthExpiration"])
     }
 }

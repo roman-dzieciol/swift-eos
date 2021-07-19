@@ -7,10 +7,10 @@ public class SwiftEOS_SessionSearch_SetParameterOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_SessionSearch_SetParameterOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Parameter)
-            XCTAssertEqual(cstruct.ComparisonOp, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ComparisonOp, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_SessionSearch_SetParameterOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Parameter)
-            XCTAssertEqual(swiftObject.ComparisonOp, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.ComparisonOp, .zero) }
     }
 }

@@ -4,22 +4,33 @@ import EOSSDK
 
 public class SwiftEOS_KWS_CopyPermissionByIndexTests: XCTestCase {
     public func testEOS_KWS_CopyPermissionByIndex_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_KWS_CopyPermissionByIndex = { Handle, Options, OutPermission in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertEqual(Options!.pointee.Index, .zero)
-            XCTAssertNil(OutPermission)
-            TestGlobals.sdkReceived.append("EOS_KWS_CopyPermissionByIndex")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_KWS_PermissionStatus? = try object.CopyPermissionByIndex(
-            LocalUserId: nil,
-            Index: .zero
-        )
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_KWS_CopyPermissionByIndex"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_KWS_CopyPermissionByIndex = { Handle, Options, OutPermission in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertEqual(Options!.pointee.Index, .zero)
+                XCTAssertNil(OutPermission)
+                TestGlobals.current.sdkReceived.append("EOS_KWS_CopyPermissionByIndex")
+                return .zero
+            }
+            defer { __on_EOS_KWS_CopyPermissionByIndex = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_KWS_PermissionStatus? = try object.CopyPermissionByIndex(
+                LocalUserId: nil,
+                Index: .zero
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_CopyPermissionByIndex"])
+            XCTAssertNil(result)
+        }
     }
 }

@@ -7,13 +7,13 @@ public class SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfoTests: X
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.ClientHandle)
-            XCTAssertEqual(cstruct.ClientAction, .init(rawValue: .zero)!)
-            XCTAssertEqual(cstruct.ActionReasonCode, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ClientAction, .zero)
+            XCTAssertEqual(cstruct.ActionReasonCode, .zero)
             XCTAssertNil(cstruct.ActionReasonDetailsString)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo(sdkObject: cstruct))
             XCTAssertNil(swiftObject.ClientHandle)
-            XCTAssertEqual(swiftObject.ClientAction, .init(rawValue: .zero)!)
-            XCTAssertEqual(swiftObject.ActionReasonCode, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.ClientAction, .zero)
+            XCTAssertEqual(swiftObject.ActionReasonCode, .zero)
             XCTAssertNil(swiftObject.ActionReasonDetailsString) }
     }
 }

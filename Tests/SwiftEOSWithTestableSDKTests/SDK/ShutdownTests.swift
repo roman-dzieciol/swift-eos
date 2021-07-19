@@ -4,12 +4,21 @@ import EOSSDK
 
 public class SwiftEOS_ShutdownTests: XCTestCase {
     public func testEOS_Shutdown_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Shutdown = { 
-            TestGlobals.sdkReceived.append("EOS_Shutdown")
-            return .init(rawValue: .zero)! }
-        try SwiftEOS_Shutdown()
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Shutdown"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Shutdown = { 
+                TestGlobals.current.sdkReceived.append("EOS_Shutdown")
+                return .zero
+            }
+            defer { __on_EOS_Shutdown = nil }
+            
+            // When SDK function is called
+            try SwiftEOS_Shutdown()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Shutdown"])
+        }
     }
 }

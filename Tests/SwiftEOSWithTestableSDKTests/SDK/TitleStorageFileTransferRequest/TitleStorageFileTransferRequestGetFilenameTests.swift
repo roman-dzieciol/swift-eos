@@ -4,18 +4,38 @@ import EOSSDK
 
 public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCase {
     public func testEOS_TitleStorageFileTransferRequest_GetFilename_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_TitleStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
-            XCTAssertNil(OutStringBuffer)
-            XCTAssertNil(OutStringLength)
-            TestGlobals.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_TitleStorageFileTransferRequest_Actor = SwiftEOS_TitleStorageFileTransferRequest_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: String? = try object.GetFilename(FilenameStringBufferSizeBytes: .zero)
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_TitleStorageFileTransferRequest_GetFilename"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_TitleStorageFileTransferRequest_Release = { TitleStorageFileTransferHandle in
+                XCTAssertNil(TitleStorageFileTransferHandle)
+                TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_TitleStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
+                XCTAssertNil(OutStringBuffer)
+                XCTAssertNil(OutStringLength)
+                TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
+                return .zero
+            }
+            defer { __on_EOS_TitleStorageFileTransferRequest_GetFilename = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_TitleStorageFileTransferRequest_Actor = SwiftEOS_TitleStorageFileTransferRequest_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: String? = try object.GetFilename(FilenameStringBufferSizeBytes: .zero)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_GetFilename", "EOS_TitleStorageFileTransferRequest_Release"])
+            XCTAssertNil(result)
+        }
+        
+        // Then
+        __on_EOS_TitleStorageFileTransferRequest_Release = nil
     }
 }

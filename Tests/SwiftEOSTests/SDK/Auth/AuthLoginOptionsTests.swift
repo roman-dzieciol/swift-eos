@@ -7,10 +7,10 @@ public class SwiftEOS_Auth_LoginOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Auth_LoginOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Credentials)
-            XCTAssertEqual(cstruct.ScopeFlags, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ScopeFlags, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_LoginOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Credentials)
-            XCTAssertEqual(swiftObject.ScopeFlags, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.ScopeFlags, .zero) }
     }
 }

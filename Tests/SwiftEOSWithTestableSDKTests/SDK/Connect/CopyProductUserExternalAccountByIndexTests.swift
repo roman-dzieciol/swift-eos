@@ -4,22 +4,33 @@ import EOSSDK
 
 public class SwiftEOS_Connect_CopyProductUserExternalAccountByIndexTests: XCTestCase {
     public func testEOS_Connect_CopyProductUserExternalAccountByIndex_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Connect_CopyProductUserExternalAccountByIndex = { Handle, Options, OutExternalAccountInfo in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.TargetUserId)
-            XCTAssertEqual(Options!.pointee.ExternalAccountInfoIndex, .zero)
-            XCTAssertNil(OutExternalAccountInfo)
-            TestGlobals.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByIndex")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Connect_ExternalAccountInfo? = try object.CopyProductUserExternalAccountByIndex(
-            TargetUserId: nil,
-            ExternalAccountInfoIndex: .zero
-        )
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByIndex"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Connect_CopyProductUserExternalAccountByIndex = { Handle, Options, OutExternalAccountInfo in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.TargetUserId)
+                XCTAssertEqual(Options!.pointee.ExternalAccountInfoIndex, .zero)
+                XCTAssertNil(OutExternalAccountInfo)
+                TestGlobals.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByIndex")
+                return .zero
+            }
+            defer { __on_EOS_Connect_CopyProductUserExternalAccountByIndex = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Connect_ExternalAccountInfo? = try object.CopyProductUserExternalAccountByIndex(
+                TargetUserId: nil,
+                ExternalAccountInfoIndex: .zero
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByIndex"])
+            XCTAssertNil(result)
+        }
     }
 }

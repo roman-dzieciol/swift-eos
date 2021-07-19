@@ -8,15 +8,15 @@ public class SwiftEOS_Auth_CredentialsTests: XCTestCase {
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Id)
             XCTAssertNil(cstruct.Token)
-            XCTAssertEqual(cstruct.Type, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.Type, .zero)
             XCTAssertNil(cstruct.SystemAuthCredentialsOptions)
-            XCTAssertEqual(cstruct.ExternalType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ExternalType, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Auth_Credentials(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Id)
             XCTAssertNil(swiftObject.Token)
-            XCTAssertEqual(swiftObject.Type, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.Type, .zero)
             XCTAssertNil(swiftObject.SystemAuthCredentialsOptions)
-            XCTAssertEqual(swiftObject.ExternalType, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.ExternalType, .zero) }
     }
 }

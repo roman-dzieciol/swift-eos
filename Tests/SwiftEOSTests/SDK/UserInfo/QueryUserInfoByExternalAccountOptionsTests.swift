@@ -8,11 +8,11 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptionsTests: XCTes
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ExternalAccountId)
-            XCTAssertEqual(cstruct.AccountType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.AccountType, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.ExternalAccountId)
-            XCTAssertEqual(swiftObject.AccountType, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.AccountType, .zero) }
     }
 }

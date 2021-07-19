@@ -4,23 +4,41 @@ import EOSSDK
 
 public class SwiftEOS_Lobby_UpdateLobbyTests: XCTestCase {
     public func testEOS_Lobby_UpdateLobby_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Lobby_UpdateLobby = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LobbyModificationHandle)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Lobby_UpdateLobby") }
-        let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.UpdateLobby(
-            LobbyModificationHandle: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LobbyId)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Lobby_UpdateLobby"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Lobby_UpdateLobby = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LobbyModificationHandle)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_UpdateLobbyCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LobbyId: TestGlobals.current.pointer(string: .empty)
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Lobby_UpdateLobby")
+            }
+            defer { __on_EOS_Lobby_UpdateLobby = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.UpdateLobby(
+                LobbyModificationHandle: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LobbyId)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_UpdateLobby"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

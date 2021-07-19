@@ -4,20 +4,31 @@ import EOSSDK
 
 public class SwiftEOS_P2P_SetPacketQueueSizeTests: XCTestCase {
     public func testEOS_P2P_SetPacketQueueSize_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_P2P_SetPacketQueueSize = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.IncomingPacketQueueMaxSizeBytes, .zero)
-            XCTAssertEqual(Options!.pointee.OutgoingPacketQueueMaxSizeBytes, .zero)
-            TestGlobals.sdkReceived.append("EOS_P2P_SetPacketQueueSize")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetPacketQueueSize(
-            IncomingPacketQueueMaxSizeBytes: .zero,
-            OutgoingPacketQueueMaxSizeBytes: .zero
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_P2P_SetPacketQueueSize"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_P2P_SetPacketQueueSize = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.IncomingPacketQueueMaxSizeBytes, .zero)
+                XCTAssertEqual(Options!.pointee.OutgoingPacketQueueMaxSizeBytes, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_P2P_SetPacketQueueSize")
+                return .zero
+            }
+            defer { __on_EOS_P2P_SetPacketQueueSize = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetPacketQueueSize(
+                IncomingPacketQueueMaxSizeBytes: .zero,
+                OutgoingPacketQueueMaxSizeBytes: .zero
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SetPacketQueueSize"])
+        }
     }
 }

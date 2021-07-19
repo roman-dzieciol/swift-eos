@@ -8,12 +8,12 @@ public class SwiftEOS_Friends_OnFriendsUpdateInfoTests: XCTestCase {
             XCTAssertNil(cstruct.ClientData)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
-            XCTAssertEqual(cstruct.PreviousStatus, .init(rawValue: .zero)!)
-            XCTAssertEqual(cstruct.CurrentStatus, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.PreviousStatus, .zero)
+            XCTAssertEqual(cstruct.CurrentStatus, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Friends_OnFriendsUpdateInfo(sdkObject: cstruct))
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.TargetUserId)
-            XCTAssertEqual(swiftObject.PreviousStatus, .init(rawValue: .zero)!)
-            XCTAssertEqual(swiftObject.CurrentStatus, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.PreviousStatus, .zero)
+            XCTAssertEqual(swiftObject.CurrentStatus, .zero) }
     }
 }

@@ -4,16 +4,27 @@ import EOSSDK
 
 public class SwiftEOS_AntiCheatServer_LogGameRoundEndTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogGameRoundEnd_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_AntiCheatServer_LogGameRoundEnd = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.WinningTeamId, .zero)
-            TestGlobals.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundEnd")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.LogGameRoundEnd(WinningTeamId: .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundEnd"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_AntiCheatServer_LogGameRoundEnd = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.WinningTeamId, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundEnd")
+                return .zero
+            }
+            defer { __on_EOS_AntiCheatServer_LogGameRoundEnd = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.LogGameRoundEnd(WinningTeamId: .zero)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundEnd"])
+        }
     }
 }

@@ -13,7 +13,7 @@ public class SwiftEOS_P2P_SendPacketOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.DataLengthBytes, .zero)
             XCTAssertNil(cstruct.Data)
             XCTAssertEqual(cstruct.bAllowDelayedDelivery, .zero)
-            XCTAssertEqual(cstruct.Reliability, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.Reliability, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_SendPacketOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId)
@@ -22,6 +22,6 @@ public class SwiftEOS_P2P_SendPacketOptionsTests: XCTestCase {
             XCTAssertEqual(swiftObject.Channel, .zero)
             XCTAssertNil(swiftObject.Data)
             XCTAssertEqual(swiftObject.bAllowDelayedDelivery, false)
-            XCTAssertEqual(swiftObject.Reliability, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.Reliability, .zero) }
     }
 }

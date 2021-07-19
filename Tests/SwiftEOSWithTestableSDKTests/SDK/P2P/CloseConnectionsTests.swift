@@ -4,20 +4,31 @@ import EOSSDK
 
 public class SwiftEOS_P2P_CloseConnectionsTests: XCTestCase {
     public func testEOS_P2P_CloseConnections_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_P2P_CloseConnections = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.SocketId)
-            TestGlobals.sdkReceived.append("EOS_P2P_CloseConnections")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.CloseConnections(
-            LocalUserId: nil,
-            SocketId: nil
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_P2P_CloseConnections"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_P2P_CloseConnections = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.SocketId)
+                TestGlobals.current.sdkReceived.append("EOS_P2P_CloseConnections")
+                return .zero
+            }
+            defer { __on_EOS_P2P_CloseConnections = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.CloseConnections(
+                LocalUserId: nil,
+                SocketId: nil
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_CloseConnections"])
+        }
     }
 }

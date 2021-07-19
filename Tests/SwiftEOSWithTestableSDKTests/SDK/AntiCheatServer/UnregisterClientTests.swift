@@ -4,16 +4,27 @@ import EOSSDK
 
 public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
     public func testEOS_AntiCheatServer_UnregisterClient_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_AntiCheatServer_UnregisterClient = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.ClientHandle)
-            TestGlobals.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.UnregisterClient(ClientHandle: nil)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_AntiCheatServer_UnregisterClient = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.ClientHandle)
+                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
+                return .zero
+            }
+            defer { __on_EOS_AntiCheatServer_UnregisterClient = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.UnregisterClient(ClientHandle: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
+        }
     }
 }

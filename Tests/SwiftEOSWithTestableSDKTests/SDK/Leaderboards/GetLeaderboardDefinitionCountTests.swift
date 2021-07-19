@@ -4,16 +4,27 @@ import EOSSDK
 
 public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCase {
     public func testEOS_Leaderboards_GetLeaderboardDefinitionCount_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            TestGlobals.sdkReceived.append("EOS_Leaderboards_GetLeaderboardDefinitionCount")
-            return .zero }
-        let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: Int = try object.GetLeaderboardDefinitionCount()
-        XCTAssertEqual(result, .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_GetLeaderboardDefinitionCount")
+                return .zero
+            }
+            defer { __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: Int = try object.GetLeaderboardDefinitionCount()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
+            XCTAssertEqual(result, .zero)
+        }
     }
 }

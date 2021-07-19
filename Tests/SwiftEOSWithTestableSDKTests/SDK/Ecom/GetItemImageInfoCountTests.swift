@@ -4,21 +4,32 @@ import EOSSDK
 
 public class SwiftEOS_Ecom_GetItemImageInfoCountTests: XCTestCase {
     public func testEOS_Ecom_GetItemImageInfoCount_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Ecom_GetItemImageInfoCount = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.ItemId)
-            TestGlobals.sdkReceived.append("EOS_Ecom_GetItemImageInfoCount")
-            return .zero }
-        let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: Int = try object.GetItemImageInfoCount(
-            LocalUserId: nil,
-            ItemId: nil
-        )
-        XCTAssertEqual(result, .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Ecom_GetItemImageInfoCount"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Ecom_GetItemImageInfoCount = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.ItemId)
+                TestGlobals.current.sdkReceived.append("EOS_Ecom_GetItemImageInfoCount")
+                return .zero
+            }
+            defer { __on_EOS_Ecom_GetItemImageInfoCount = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: Int = try object.GetItemImageInfoCount(
+                LocalUserId: nil,
+                ItemId: nil
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemImageInfoCount"])
+            XCTAssertEqual(result, .zero)
+        }
     }
 }

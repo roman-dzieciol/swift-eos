@@ -4,30 +4,47 @@ import EOSSDK
 
 public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
     public func testEOS_Reports_SendPlayerBehaviorReport_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Reports_SendPlayerBehaviorReport = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.ReporterUserId)
-            XCTAssertNil(Options!.pointee.ReportedUserId)
-            XCTAssertEqual(Options!.pointee.Category, .init(rawValue: .zero)!)
-            XCTAssertNil(Options!.pointee.Message)
-            XCTAssertNil(Options!.pointee.Context)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Reports_SendPlayerBehaviorReport") }
-        let object: SwiftEOS_Reports_Actor = SwiftEOS_Reports_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SendPlayerBehaviorReport(
-            ReporterUserId: nil,
-            ReportedUserId: nil,
-            Category: .init(rawValue: .zero)!,
-            Message: nil,
-            Context: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Reports_SendPlayerBehaviorReport = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.ReporterUserId)
+                XCTAssertNil(Options!.pointee.ReportedUserId)
+                XCTAssertEqual(Options!.pointee.Category, .zero)
+                XCTAssertNil(Options!.pointee.Message)
+                XCTAssertNil(Options!.pointee.Context)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Reports_SendPlayerBehaviorReport")
+            }
+            defer { __on_EOS_Reports_SendPlayerBehaviorReport = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Reports_Actor = SwiftEOS_Reports_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SendPlayerBehaviorReport(
+                ReporterUserId: nil,
+                ReportedUserId: nil,
+                Category: .zero,
+                Message: nil,
+                Context: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

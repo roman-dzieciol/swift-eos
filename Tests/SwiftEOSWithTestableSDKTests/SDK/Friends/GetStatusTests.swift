@@ -4,21 +4,32 @@ import EOSSDK
 
 public class SwiftEOS_Friends_GetStatusTests: XCTestCase {
     public func testEOS_Friends_GetStatus_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Friends_GetStatus = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.TargetUserId)
-            TestGlobals.sdkReceived.append("EOS_Friends_GetStatus")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: EOS_EFriendsStatus = try object.GetStatus(
-            LocalUserId: nil,
-            TargetUserId: nil
-        )
-        XCTAssertEqual(result, .init(rawValue: .zero)!)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Friends_GetStatus"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Friends_GetStatus = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.TargetUserId)
+                TestGlobals.current.sdkReceived.append("EOS_Friends_GetStatus")
+                return .zero
+            }
+            defer { __on_EOS_Friends_GetStatus = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: EOS_EFriendsStatus = try object.GetStatus(
+                LocalUserId: nil,
+                TargetUserId: nil
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_GetStatus"])
+            XCTAssertEqual(result, .zero)
+        }
     }
 }

@@ -7,15 +7,15 @@ public class SwiftEOS_AntiCheatServer_RegisterClientOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatServer_RegisterClientOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.ClientHandle)
-            XCTAssertEqual(cstruct.ClientType, .init(rawValue: .zero)!)
-            XCTAssertEqual(cstruct.ClientPlatform, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ClientType, .zero)
+            XCTAssertEqual(cstruct.ClientPlatform, .zero)
             XCTAssertNil(cstruct.AccountId)
             XCTAssertNil(cstruct.IpAddress)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_RegisterClientOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.ClientHandle)
-            XCTAssertEqual(swiftObject.ClientType, .init(rawValue: .zero)!)
-            XCTAssertEqual(swiftObject.ClientPlatform, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.ClientType, .zero)
+            XCTAssertEqual(swiftObject.ClientPlatform, .zero)
             XCTAssertNil(swiftObject.AccountId)
             XCTAssertNil(swiftObject.IpAddress) }
     }

@@ -4,22 +4,33 @@ import EOSSDK
 
 public class SwiftEOS_AntiCheatServer_LogPlayerSpawnTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerSpawn_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_AntiCheatServer_LogPlayerSpawn = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.SpawnedPlayerHandle)
-            XCTAssertEqual(Options!.pointee.TeamId, .zero)
-            XCTAssertEqual(Options!.pointee.CharacterId, .zero)
-            TestGlobals.sdkReceived.append("EOS_AntiCheatServer_LogPlayerSpawn")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.LogPlayerSpawn(
-            SpawnedPlayerHandle: nil,
-            TeamId: .zero,
-            CharacterId: .zero
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_AntiCheatServer_LogPlayerSpawn"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_AntiCheatServer_LogPlayerSpawn = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.SpawnedPlayerHandle)
+                XCTAssertEqual(Options!.pointee.TeamId, .zero)
+                XCTAssertEqual(Options!.pointee.CharacterId, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerSpawn")
+                return .zero
+            }
+            defer { __on_EOS_AntiCheatServer_LogPlayerSpawn = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.LogPlayerSpawn(
+                SpawnedPlayerHandle: nil,
+                TeamId: .zero,
+                CharacterId: .zero
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerSpawn"])
+        }
     }
 }

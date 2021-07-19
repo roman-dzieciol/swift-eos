@@ -4,15 +4,35 @@ import EOSSDK
 
 public class SwiftEOS_Platform_GetUserInfoInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetUserInfoInterface_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Platform_GetUserInfoInterface = { Handle in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            TestGlobals.sdkReceived.append("EOS_Platform_GetUserInfoInterface")
-            return OpaquePointer(bitPattern: Int(1))! }
-        let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_UserInfo_Actor? = object.GetUserInfoInterface()
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Platform_GetUserInfoInterface"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_Platform_Release = { Handle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_Platform_GetUserInfoInterface = { Handle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_GetUserInfoInterface")
+                return .nonZeroPointer
+            }
+            defer { __on_EOS_Platform_GetUserInfoInterface = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_UserInfo_Actor? = object.GetUserInfoInterface()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetUserInfoInterface", "EOS_Platform_Release"])
+            XCTAssertNil(result)
+        }
+        
+        // Then
+        __on_EOS_Platform_Release = nil
     }
 }

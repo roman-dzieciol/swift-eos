@@ -7,12 +7,12 @@ public class SwiftEOS_Connect_GetProductUserIdMappingOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_GetProductUserIdMappingOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
-            XCTAssertEqual(cstruct.AccountIdType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.AccountIdType, .zero)
             XCTAssertNil(cstruct.TargetProductUserId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Connect_GetProductUserIdMappingOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId)
-            XCTAssertEqual(swiftObject.AccountIdType, .init(rawValue: .zero)!)
+            XCTAssertEqual(swiftObject.AccountIdType, .zero)
             XCTAssertNil(swiftObject.TargetProductUserId) }
     }
 }

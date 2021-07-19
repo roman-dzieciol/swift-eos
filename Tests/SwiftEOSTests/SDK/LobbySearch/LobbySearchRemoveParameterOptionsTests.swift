@@ -7,10 +7,10 @@ public class SwiftEOS_LobbySearch_RemoveParameterOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_LobbySearch_RemoveParameterOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Key)
-            XCTAssertEqual(cstruct.ComparisonOp, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ComparisonOp, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_LobbySearch_RemoveParameterOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Key)
-            XCTAssertEqual(swiftObject.ComparisonOp, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.ComparisonOp, .zero) }
     }
 }

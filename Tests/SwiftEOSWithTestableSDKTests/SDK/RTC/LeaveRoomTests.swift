@@ -4,26 +4,45 @@ import EOSSDK
 
 public class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
     public func testEOS_RTC_LeaveRoom_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_RTC_LeaveRoom = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.RoomName)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_RTC_LeaveRoom") }
-        let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.LeaveRoom(
-            LocalUserId: nil,
-            RoomName: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.RoomName)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_RTC_LeaveRoom"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_RTC_LeaveRoom = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.RoomName)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_LeaveRoomCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer,
+                            RoomName: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_RTC_LeaveRoom")
+            }
+            defer { __on_EOS_RTC_LeaveRoom = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.LeaveRoom(
+                LocalUserId: nil,
+                RoomName: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.RoomName)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_LeaveRoom"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

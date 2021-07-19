@@ -4,16 +4,27 @@ import EOSSDK
 
 public class SwiftEOS_Connect_GetLoginStatusTests: XCTestCase {
     public func testEOS_Connect_GetLoginStatus_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Connect_GetLoginStatus = { Handle, LocalUserId in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertNil(LocalUserId)
-            TestGlobals.sdkReceived.append("EOS_Connect_GetLoginStatus")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: OpaquePointer(bitPattern: Int(1))!)
-        XCTAssertEqual(result, .init(rawValue: .zero)!)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Connect_GetLoginStatus"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Connect_GetLoginStatus = { Handle, LocalUserId in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(LocalUserId)
+                TestGlobals.current.sdkReceived.append("EOS_Connect_GetLoginStatus")
+                return .zero
+            }
+            defer { __on_EOS_Connect_GetLoginStatus = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: .nonZeroPointer)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
+            XCTAssertEqual(result, .zero)
+        }
     }
 }

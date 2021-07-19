@@ -4,22 +4,33 @@ import EOSSDK
 
 public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
     public func testEOS_RTCAudio_SendAudio_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_RTCAudio_SendAudio = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.RoomName)
-            XCTAssertNil(Options!.pointee.Buffer)
-            TestGlobals.sdkReceived.append("EOS_RTCAudio_SendAudio")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SendAudio(
-            LocalUserId: nil,
-            RoomName: nil,
-            Buffer: nil
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_RTCAudio_SendAudio"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_RTCAudio_SendAudio = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.RoomName)
+                XCTAssertNil(Options!.pointee.Buffer)
+                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_SendAudio")
+                return .zero
+            }
+            defer { __on_EOS_RTCAudio_SendAudio = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SendAudio(
+                LocalUserId: nil,
+                RoomName: nil,
+                Buffer: nil
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
+        }
     }
 }

@@ -4,14 +4,23 @@ import EOSSDK
 
 public class SwiftEOS_ProductUserId_IsValidTests: XCTestCase {
     public func testEOS_ProductUserId_IsValid_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_ProductUserId_IsValid = { AccountId in
-            XCTAssertNil(AccountId)
-            TestGlobals.sdkReceived.append("EOS_ProductUserId_IsValid")
-            return .zero }
-        let result: Bool = try SwiftEOS_ProductUserId_IsValid(AccountId: OpaquePointer(bitPattern: Int(1))!)
-        XCTAssertEqual(result, false)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_ProductUserId_IsValid"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_ProductUserId_IsValid = { AccountId in
+                XCTAssertNil(AccountId)
+                TestGlobals.current.sdkReceived.append("EOS_ProductUserId_IsValid")
+                return .zero
+            }
+            defer { __on_EOS_ProductUserId_IsValid = nil }
+            
+            // When SDK function is called
+            let result: Bool = try SwiftEOS_ProductUserId_IsValid(AccountId: .nonZeroPointer)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_IsValid"])
+            XCTAssertEqual(result, false)
+        }
     }
 }

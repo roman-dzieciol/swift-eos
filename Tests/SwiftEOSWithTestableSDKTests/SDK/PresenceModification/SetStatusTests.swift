@@ -4,16 +4,36 @@ import EOSSDK
 
 public class SwiftEOS_PresenceModification_SetStatusTests: XCTestCase {
     public func testEOS_PresenceModification_SetStatus_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_PresenceModification_SetStatus = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.Status, .init(rawValue: .zero)!)
-            TestGlobals.sdkReceived.append("EOS_PresenceModification_SetStatus")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetStatus(Status: .init(rawValue: .zero)!)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_PresenceModification_SetStatus"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
+                XCTAssertNil(PresenceModificationHandle)
+                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_PresenceModification_SetStatus = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.Status, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetStatus")
+                return .zero
+            }
+            defer { __on_EOS_PresenceModification_SetStatus = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetStatus(Status: .zero)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetStatus", "EOS_PresenceModification_Release"])
+        }
+        
+        // Then
+        __on_EOS_PresenceModification_Release = nil
     }
 }

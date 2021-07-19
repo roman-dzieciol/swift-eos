@@ -4,26 +4,45 @@ import EOSSDK
 
 public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
     public func testEOS_Sanctions_QueryActivePlayerSanctions_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Sanctions_QueryActivePlayerSanctions = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.TargetUserId)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions") }
-        let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.QueryActivePlayerSanctions(
-            TargetUserId: nil,
-            LocalUserId: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.TargetUserId)
-                XCTAssertNil(arg0.LocalUserId)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Sanctions_QueryActivePlayerSanctions = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.TargetUserId)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo(
+                            ResultCode: .zero,
+                            ClientData: ClientData,
+                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: .nonZeroPointer
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions")
+            }
+            defer { __on_EOS_Sanctions_QueryActivePlayerSanctions = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.QueryActivePlayerSanctions(
+                TargetUserId: nil,
+                LocalUserId: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.TargetUserId)
+                    XCTAssertNil(arg0.LocalUserId)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

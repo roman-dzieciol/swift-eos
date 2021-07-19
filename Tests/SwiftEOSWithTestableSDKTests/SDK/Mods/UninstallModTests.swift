@@ -4,26 +4,45 @@ import EOSSDK
 
 public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
     public func testEOS_Mods_UninstallMod_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Mods_UninstallMod = { Handle, Options, ClientData, CompletionDelegate in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(Options!.pointee.Mod)
-            XCTAssertNil(ClientData)
-            CompletionDelegate?(nil)
-            TestGlobals.sdkReceived.append("EOS_Mods_UninstallMod") }
-        let object: SwiftEOS_Mods_Actor = SwiftEOS_Mods_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.UninstallMod(
-            LocalUserId: nil,
-            Mod: nil,
-            CompletionDelegate: { arg0 in
-                XCTAssertEqual(arg0.ResultCode, .init(rawValue: .zero)!)
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.Mod)
-                TestGlobals.swiftReceived.append("CompletionDelegate") }
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Mods_UninstallMod"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["CompletionDelegate"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
+            
+            // Given implementation for SDK function
+            __on_EOS_Mods_UninstallMod = { Handle, Options, ClientData, CompletionDelegate in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(Options!.pointee.Mod)
+                XCTAssertNotNil(ClientData)
+                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Mods_UninstallModCallbackInfo(
+                            ResultCode: .zero,
+                            LocalUserId: .nonZeroPointer,
+                            ClientData: ClientData,
+                            Mod: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Mods_UninstallMod")
+            }
+            defer { __on_EOS_Mods_UninstallMod = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Mods_Actor = SwiftEOS_Mods_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.UninstallMod(
+                LocalUserId: nil,
+                Mod: nil,
+                CompletionDelegate: { arg0 in
+                    XCTAssertEqual(arg0.ResultCode, .zero)
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.Mod)
+                    waitForCompletionDelegate.fulfill()
+                }
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_UninstallMod"])
+            wait(for: [waitForCompletionDelegate], timeout: 0.5)
+        }
     }
 }

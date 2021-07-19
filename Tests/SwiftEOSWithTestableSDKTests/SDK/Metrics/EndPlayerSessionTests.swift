@@ -4,21 +4,32 @@ import EOSSDK
 
 public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
     public func testEOS_Metrics_EndPlayerSession_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Metrics_EndPlayerSession = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertEqual(Options!.pointee.AccountIdType, .init(rawValue: .zero)!)
-            XCTAssertNil(Options!.pointee.AccountId.Epic)
-            XCTAssertNil(Options!.pointee.AccountId.External)
-            TestGlobals.sdkReceived.append("EOS_Metrics_EndPlayerSession")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Metrics_Actor = SwiftEOS_Metrics_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.EndPlayerSession(
-            AccountIdType: .init(rawValue: .zero)!,
-            AccountId: .init()
-        )
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Metrics_EndPlayerSession = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
+                XCTAssertNil(Options!.pointee.AccountId.Epic)
+                XCTAssertNil(Options!.pointee.AccountId.External)
+                TestGlobals.current.sdkReceived.append("EOS_Metrics_EndPlayerSession")
+                return .zero
+            }
+            defer { __on_EOS_Metrics_EndPlayerSession = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Metrics_Actor = SwiftEOS_Metrics_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.EndPlayerSession(
+                AccountIdType: .zero,
+                AccountId: .init()
+            )
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
+        }
     }
 }

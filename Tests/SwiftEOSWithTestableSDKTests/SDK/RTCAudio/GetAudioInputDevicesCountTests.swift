@@ -4,16 +4,27 @@ import EOSSDK
 
 public class SwiftEOS_RTCAudio_GetAudioInputDevicesCountTests: XCTestCase {
     public func testEOS_RTCAudio_GetAudioInputDevicesCount_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_RTCAudio_GetAudioInputDevicesCount = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            TestGlobals.sdkReceived.append("EOS_RTCAudio_GetAudioInputDevicesCount")
-            return .zero }
-        let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: Int = try object.GetAudioInputDevicesCount()
-        XCTAssertEqual(result, .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_RTCAudio_GetAudioInputDevicesCount"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_RTCAudio_GetAudioInputDevicesCount = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_GetAudioInputDevicesCount")
+                return .zero
+            }
+            defer { __on_EOS_RTCAudio_GetAudioInputDevicesCount = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: Int = try object.GetAudioInputDevicesCount()
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_GetAudioInputDevicesCount"])
+            XCTAssertEqual(result, .zero)
+        }
     }
 }

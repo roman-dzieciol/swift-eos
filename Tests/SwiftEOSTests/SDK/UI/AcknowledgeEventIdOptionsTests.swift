@@ -7,10 +7,10 @@ public class SwiftEOS_UI_AcknowledgeEventIdOptionsTests: XCTestCase {
         try withZeroInitializedCStruct(type: _tagEOS_UI_AcknowledgeEventIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertEqual(cstruct.UiEventId, .zero)
-            XCTAssertEqual(cstruct.Result, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.Result, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_UI_AcknowledgeEventIdOptions(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertEqual(swiftObject.UiEventId, .zero)
-            XCTAssertEqual(swiftObject.Result, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.Result, .zero) }
     }
 }

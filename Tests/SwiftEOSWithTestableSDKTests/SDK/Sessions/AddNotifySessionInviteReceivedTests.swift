@@ -4,22 +4,53 @@ import EOSSDK
 
 public class SwiftEOS_Sessions_AddNotifySessionInviteReceivedTests: XCTestCase {
     public func testEOS_Sessions_AddNotifySessionInviteReceived_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Sessions_AddNotifySessionInviteReceived = { Handle, Options, ClientData, NotificationFn in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(ClientData)
-            NotificationFn?(nil)
-            TestGlobals.sdkReceived.append("EOS_Sessions_AddNotifySessionInviteReceived")
-            return .zero }
-        let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Notification<SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo> = try object.AddNotifySessionInviteReceived(NotificationFn: { arg0 in
-                XCTAssertNil(arg0.LocalUserId)
-                XCTAssertNil(arg0.TargetUserId)
-                XCTAssertNil(arg0.InviteId)
-                TestGlobals.swiftReceived.append("NotificationFn") })
-        XCTFail(" TODO: result SwiftGenericType(, SwiftBuiltinType(, SwiftEOS_Notification)<SwiftDeclRefType(, SwiftStruct(SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo sdk: _tagEOS_Sessions_SessionInviteReceivedCallbackInfo))>)")
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Sessions_AddNotifySessionInviteReceived"])
-        XCTAssertEqual(TestGlobals.swiftReceived, ["NotificationFn"])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            let waitForNotificationFn = expectation(description: "waitForNotificationFn")
+            
+            // Given implementation for SDK function
+            __on_EOS_Sessions_AddNotifySessionInviteReceived = { Handle, Options, ClientData, NotificationFn in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNotNil(ClientData)
+                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Sessions_SessionInviteReceivedCallbackInfo(
+                            ClientData: ClientData,
+                            LocalUserId: .nonZeroPointer,
+                            TargetUserId: .nonZeroPointer,
+                            InviteId: nil
+                        )))
+                TestGlobals.current.sdkReceived.append("EOS_Sessions_AddNotifySessionInviteReceived")
+                return .zero
+            }
+            defer { __on_EOS_Sessions_AddNotifySessionInviteReceived = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Notification<SwiftEOS_Sessions_SessionInviteReceivedCallbackInfo> = try object.AddNotifySessionInviteReceived(NotificationFn: { arg0 in
+                    XCTAssertNil(arg0.LocalUserId)
+                    XCTAssertNil(arg0.TargetUserId)
+                    XCTAssertNil(arg0.InviteId)
+                    waitForNotificationFn.fulfill()
+                })
+            
+            // Then
+            withExtendedLifetime(result) { result in
+                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_AddNotifySessionInviteReceived"])
+                wait(for: [waitForNotificationFn], timeout: 0.5)
+                
+                // Given implementation for SDK remove notify function
+                __on_EOS_Sessions_RemoveNotifySessionInviteReceived = { Handle, InId in
+                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertEqual(InId, .zero)
+                    TestGlobals.current.sdkReceived.append("EOS_Sessions_RemoveNotifySessionInviteReceived")
+                }
+            }
+        }
+        
+        // Then
+        __on_EOS_Sessions_RemoveNotifySessionInviteReceived = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_AddNotifySessionInviteReceived", "EOS_Sessions_RemoveNotifySessionInviteReceived"])
     }
 }

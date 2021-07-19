@@ -4,15 +4,35 @@ import EOSSDK
 
 public class SwiftEOS_Platform_SetOverrideCountryCodeTests: XCTestCase {
     public func testEOS_Platform_SetOverrideCountryCode_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Platform_SetOverrideCountryCode = { Handle, NewCountryCode in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertNil(NewCountryCode)
-            TestGlobals.sdkReceived.append("EOS_Platform_SetOverrideCountryCode")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        try object.SetOverrideCountryCode(NewCountryCode: nil)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Platform_SetOverrideCountryCode"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_Platform_Release = { Handle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_Platform_SetOverrideCountryCode = { Handle, NewCountryCode in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(NewCountryCode)
+                TestGlobals.current.sdkReceived.append("EOS_Platform_SetOverrideCountryCode")
+                return .zero
+            }
+            defer { __on_EOS_Platform_SetOverrideCountryCode = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            try object.SetOverrideCountryCode(NewCountryCode: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_SetOverrideCountryCode", "EOS_Platform_Release"])
+        }
+        
+        // Then
+        __on_EOS_Platform_Release = nil
     }
 }

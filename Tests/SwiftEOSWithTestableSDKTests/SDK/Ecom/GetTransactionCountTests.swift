@@ -4,17 +4,28 @@ import EOSSDK
 
 public class SwiftEOS_Ecom_GetTransactionCountTests: XCTestCase {
     public func testEOS_Ecom_GetTransactionCount_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Ecom_GetTransactionCount = { Handle, Options in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            TestGlobals.sdkReceived.append("EOS_Ecom_GetTransactionCount")
-            return .zero }
-        let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: Int = try object.GetTransactionCount(LocalUserId: nil)
-        XCTAssertEqual(result, .zero)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Ecom_GetTransactionCount"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Ecom_GetTransactionCount = { Handle, Options in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                TestGlobals.current.sdkReceived.append("EOS_Ecom_GetTransactionCount")
+                return .zero
+            }
+            defer { __on_EOS_Ecom_GetTransactionCount = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: Int = try object.GetTransactionCount(LocalUserId: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetTransactionCount"])
+            XCTAssertEqual(result, .zero)
+        }
     }
 }

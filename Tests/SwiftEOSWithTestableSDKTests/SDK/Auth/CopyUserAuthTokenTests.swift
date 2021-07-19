@@ -4,18 +4,29 @@ import EOSSDK
 
 public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
     public func testEOS_Auth_CopyUserAuthToken_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Auth_CopyUserAuthToken = { Handle, Options, LocalUserId, OutUserAuthToken in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(LocalUserId)
-            XCTAssertNil(OutUserAuthToken)
-            TestGlobals.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Auth_Token? = try object.CopyUserAuthToken(LocalUserId: OpaquePointer(bitPattern: Int(1))!)
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Auth_CopyUserAuthToken = { Handle, Options, LocalUserId, OutUserAuthToken in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(LocalUserId)
+                XCTAssertNil(OutUserAuthToken)
+                TestGlobals.current.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
+                return .zero
+            }
+            defer { __on_EOS_Auth_CopyUserAuthToken = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Auth_Token? = try object.CopyUserAuthToken(LocalUserId: .nonZeroPointer)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
+            XCTAssertNil(result)
+        }
     }
 }

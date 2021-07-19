@@ -11,7 +11,7 @@ public class SwiftEOS_Sessions_AttributeDataTests: XCTestCase {
             XCTAssertEqual(cstruct.Value.AsDouble, .zero)
             XCTAssertEqual(cstruct.Value.AsBool, .zero)
             XCTAssertNil(cstruct.Value.AsUtf8)
-            XCTAssertEqual(cstruct.ValueType, .init(rawValue: .zero)!)
+            XCTAssertEqual(cstruct.ValueType, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Sessions_AttributeData(sdkObject: cstruct))
             XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Key)
@@ -19,6 +19,6 @@ public class SwiftEOS_Sessions_AttributeDataTests: XCTestCase {
             XCTAssertEqual(swiftObject.Value.AsDouble, .zero)
             XCTAssertEqual(swiftObject.Value.AsBool, .zero)
             XCTAssertNil(swiftObject.Value.AsUtf8)
-            XCTAssertEqual(swiftObject.ValueType, .init(rawValue: .zero)!) }
+            XCTAssertEqual(swiftObject.ValueType, .zero) }
     }
 }

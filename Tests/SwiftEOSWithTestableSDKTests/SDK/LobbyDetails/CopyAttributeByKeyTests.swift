@@ -4,18 +4,38 @@ import EOSSDK
 
 public class SwiftEOS_LobbyDetails_CopyAttributeByKeyTests: XCTestCase {
     public func testEOS_LobbyDetails_CopyAttributeByKey_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_LobbyDetails_CopyAttributeByKey = { Handle, Options, OutAttribute in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.AttrKey)
-            XCTAssertNil(OutAttribute)
-            TestGlobals.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByKey")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: SwiftEOS_Lobby_Attribute? = try object.CopyAttributeByKey(AttrKey: nil)
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByKey"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK release function
+            __on_EOS_LobbyDetails_Release = { LobbyHandle in
+                XCTAssertNil(LobbyHandle)
+                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+            }
+            
+            // Given implementation for SDK function
+            __on_EOS_LobbyDetails_CopyAttributeByKey = { Handle, Options, OutAttribute in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.AttrKey)
+                XCTAssertNil(OutAttribute)
+                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByKey")
+                return .zero
+            }
+            defer { __on_EOS_LobbyDetails_CopyAttributeByKey = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: SwiftEOS_Lobby_Attribute? = try object.CopyAttributeByKey(AttrKey: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByKey", "EOS_LobbyDetails_Release"])
+            XCTAssertNil(result)
+        }
+        
+        // Then
+        __on_EOS_LobbyDetails_Release = nil
     }
 }

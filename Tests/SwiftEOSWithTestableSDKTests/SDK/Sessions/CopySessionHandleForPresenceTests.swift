@@ -4,18 +4,29 @@ import EOSSDK
 
 public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
     public func testEOS_Sessions_CopySessionHandleForPresence_Null() throws {
-        TestGlobals.reset()
-        __on_EOS_Sessions_CopySessionHandleForPresence = { Handle, Options, OutSessionHandle in
-            XCTAssertEqual(Handle, OpaquePointer(bitPattern: Int(1))!)
-            XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
-            XCTAssertNil(Options!.pointee.LocalUserId)
-            XCTAssertNil(OutSessionHandle)
-            TestGlobals.sdkReceived.append("EOS_Sessions_CopySessionHandleForPresence")
-            return .init(rawValue: .zero)! }
-        let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: OpaquePointer(bitPattern: Int(1))!)
-        let result: EOS_HSessionDetails? = try object.CopySessionHandleForPresence(LocalUserId: nil)
-        XCTAssertNil(result)
-        XCTAssertEqual(TestGlobals.sdkReceived, ["EOS_Sessions_CopySessionHandleForPresence"])
-        XCTAssertEqual(TestGlobals.swiftReceived, [])
+        try autoreleasepool { 
+            TestGlobals.current.reset()
+            
+            // Given implementation for SDK function
+            __on_EOS_Sessions_CopySessionHandleForPresence = { Handle, Options, OutSessionHandle in
+                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertNil(Options!.pointee.LocalUserId)
+                XCTAssertNil(OutSessionHandle)
+                TestGlobals.current.sdkReceived.append("EOS_Sessions_CopySessionHandleForPresence")
+                return .zero
+            }
+            defer { __on_EOS_Sessions_CopySessionHandleForPresence = nil }
+            
+            // Given Actor
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            
+            // When SDK function is called
+            let result: EOS_HSessionDetails? = try object.CopySessionHandleForPresence(LocalUserId: nil)
+            
+            // Then
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CopySessionHandleForPresence"])
+            XCTAssertNil(result)
+        }
     }
 }

@@ -574,7 +574,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_ProtectMessageOptions
     ) throws -> [UInt8]? {
         try withPointerManager { pointerManager in
-            try withElementPointerPointersReturnedAsArray { OutBuffer,OutBufferLengthBytes in
+            try withElementPointerPointersReturnedAsArray { OutBuffer, OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatClient_ProtectMessage(
@@ -664,7 +664,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_UnprotectMessageOptions
     ) throws -> [UInt8]? {
         try withPointerManager { pointerManager in
-            try withElementPointerPointersReturnedAsArray { OutBuffer,OutBufferLengthBytes in
+            try withElementPointerPointersReturnedAsArray { OutBuffer, OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_AntiCheatClient_UnprotectMessage(

@@ -1005,7 +1005,7 @@ extension SwiftEOS_Lobby_Actor {
         _ Options: SwiftEOS_Lobby_GetInviteIdByIndexOptions
     ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_GetInviteIdByIndex(
@@ -1036,7 +1036,7 @@ extension SwiftEOS_Lobby_Actor {
         _ Options: SwiftEOS_Lobby_GetRTCRoomNameOptions
     ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_GetRTCRoomName(

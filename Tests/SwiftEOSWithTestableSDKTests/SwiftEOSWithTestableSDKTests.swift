@@ -4,6 +4,15 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
+class TestGlobals {
+    static var sdkReceived: [String] = []
+    static var swiftReceived: [String] = []
+
+    static func reset() {
+        sdkReceived.removeAll()
+        swiftReceived.removeAll()
+    }
+}
 
 class Globals {
 

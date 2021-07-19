@@ -824,7 +824,7 @@ extension SwiftEOS_Sessions_Actor {
         _ Options: SwiftEOS_Sessions_GetInviteIdByIndexOptions
     ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Sessions_GetInviteIdByIndex(

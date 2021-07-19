@@ -1348,7 +1348,7 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____Transaction_GetTransactionId() throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
                 try throwingSdkResult { 
                     EOS_Ecom_Transaction_GetTransactionId(
                         Handle,

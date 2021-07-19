@@ -629,7 +629,7 @@ extension SwiftEOS_P2P_Actor {
         _ OutData: inout [UInt8]?
     ) throws {
         try withPointerManager { pointerManager in
-            try withPointersToInOutArray(inoutArray: &OutData) { OutData,OutBytesWritten in
+            try withPointersToInOutArray(inoutArray: &OutData) { OutData, OutBytesWritten in
                 try withIntPointerFromInOutOptionalInt(&OutChannel) { OutChannel in
                     try withSdkObjectPointerFromInOutSwiftObject(&OutSocketId, managedBy: pointerManager) { OutSocketId in
                         try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutPeerId, managedBy: pointerManager) { OutPeerId in

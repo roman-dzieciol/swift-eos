@@ -15,8 +15,8 @@ public func SwiftEOS_ByteArray_ToString(
     ByteArray: [UInt8]?
 ) throws -> String? {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
-            try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray,Length in
+        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+            try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray, Length in
                 try throwingSdkResult { 
                     EOS_ByteArray_ToString(
                         ByteArray,

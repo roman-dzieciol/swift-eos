@@ -83,7 +83,7 @@ extension SwiftEOS_PlayerDataStorageFileTransferRequest_Actor {
         _ FilenameStringBufferSizeBytes: Int
     ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutStringBuffer,OutStringLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutStringBuffer, OutStringLength in
                 try withTransformed(
                     value: FilenameStringBufferSizeBytes,
                     transform: { FilenameStringBufferSizeBytes in

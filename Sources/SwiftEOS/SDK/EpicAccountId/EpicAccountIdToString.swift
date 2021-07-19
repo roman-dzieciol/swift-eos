@@ -18,7 +18,7 @@ public func SwiftEOS_EpicAccountId_ToString(
     AccountId: EOS_EpicAccountId
 ) throws -> String? {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
             try throwingSdkResult { 
                 EOS_EpicAccountId_ToString(
                     AccountId,

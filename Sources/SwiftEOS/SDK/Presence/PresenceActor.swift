@@ -310,7 +310,7 @@ extension SwiftEOS_Presence_Actor {
         _ Options: SwiftEOS_Presence_GetJoinInfoOptions
     ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Presence_GetJoinInfo(

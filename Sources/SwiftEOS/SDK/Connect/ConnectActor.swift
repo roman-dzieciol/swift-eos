@@ -909,7 +909,7 @@ extension SwiftEOS_Connect_Actor {
         _ Options: SwiftEOS_Connect_GetProductUserIdMappingOptions
     ) throws -> String? {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer,InOutBufferLength in
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Connect_GetProductUserIdMapping(

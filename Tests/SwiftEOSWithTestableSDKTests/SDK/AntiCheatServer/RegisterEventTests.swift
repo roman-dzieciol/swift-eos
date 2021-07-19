@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_RegisterEvent = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_REGISTEREVENT_API_LATEST)
                 XCTAssertEqual(Options!.pointee.EventId, .zero)
                 XCTAssertNil(Options!.pointee.EventName)
                 XCTAssertEqual(Options!.pointee.EventType, .zero)

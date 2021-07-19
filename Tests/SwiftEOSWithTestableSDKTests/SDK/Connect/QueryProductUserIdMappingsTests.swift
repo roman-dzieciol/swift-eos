@@ -11,7 +11,7 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Connect_QueryProductUserIdMappings = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType_DEPRECATED, .zero)
                 XCTAssertNil(Options!.pointee.ProductUserIds)

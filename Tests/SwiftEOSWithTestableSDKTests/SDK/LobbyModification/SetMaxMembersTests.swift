@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyModification_SetMaxMembersTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyModification_SetMaxMembers = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxMembers, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetMaxMembers")
                 return .zero

@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundEndTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogGameRoundEnd = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGGAMEROUNDEND_API_LATEST)
                 XCTAssertEqual(Options!.pointee.WinningTeamId, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundEnd")
                 return .zero

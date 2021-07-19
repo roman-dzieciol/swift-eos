@@ -16,7 +16,7 @@ public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PresenceModification_SetRawRichText = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETRAWRICHTEXT_API_LATEST)
                 XCTAssertNil(Options!.pointee.RichText)
                 TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetRawRichText")
                 return .zero

@@ -11,7 +11,7 @@ public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Stats_IngestStat = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_INGESTSTAT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Stats)
                 XCTAssertEqual(Options!.pointee.StatsCount, .zero)

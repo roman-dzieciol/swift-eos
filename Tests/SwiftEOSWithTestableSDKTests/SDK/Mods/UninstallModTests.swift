@@ -11,7 +11,7 @@ public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Mods_UninstallMod = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_UNINSTALLMOD_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Mod)
                 XCTAssertNotNil(ClientData)

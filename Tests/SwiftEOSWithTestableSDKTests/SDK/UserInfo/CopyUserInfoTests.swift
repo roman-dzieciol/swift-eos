@@ -10,7 +10,7 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyUserInfo = { Handle, Options, OutUserInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_COPYUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(OutUserInfo)

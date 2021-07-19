@@ -10,7 +10,7 @@ public class SwiftEOS_Ecom_CopyTransactionByIdTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyTransactionById = { Handle, Options, OutTransaction in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYTRANSACTIONBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TransactionId)
                 XCTAssertNil(OutTransaction)

@@ -11,7 +11,7 @@ public class SwiftEOS_Friends_SendInviteTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Friends_SendInvite = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_SENDINVITE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)

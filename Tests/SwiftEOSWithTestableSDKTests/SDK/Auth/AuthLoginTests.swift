@@ -11,7 +11,7 @@ public class SwiftEOS_Auth_LoginTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Auth_Login = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_LOGIN_API_LATEST)
                 XCTAssertNil(Options!.pointee.Credentials)
                 XCTAssertEqual(Options!.pointee.ScopeFlags, .zero)
                 XCTAssertNotNil(ClientData)

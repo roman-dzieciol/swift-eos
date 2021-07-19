@@ -11,7 +11,7 @@ public class SwiftEOS_PlayerDataStorage_QueryFileTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_QueryFile = { Handle, QueryFileOptions, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(QueryFileOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(QueryFileOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_QUERYFILEOPTIONS_API_LATEST)
                 XCTAssertNil(QueryFileOptions!.pointee.LocalUserId)
                 XCTAssertNil(QueryFileOptions!.pointee.Filename)
                 XCTAssertNotNil(ClientData)

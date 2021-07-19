@@ -11,7 +11,7 @@ public class SwiftEOS_Lobby_QueryInvitesTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Lobby_QueryInvites = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_QUERYINVITES_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_QueryInvitesCallbackInfo(

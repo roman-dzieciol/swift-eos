@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_SendPacketOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_P2P_SendPacketOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_P2P_SendPacketOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_P2P_SENDPACKET_API_LATEST)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RemoteUserId)
             XCTAssertNil(cstruct.SocketId)
@@ -15,7 +15,7 @@ public class SwiftEOS_P2P_SendPacketOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.bAllowDelayedDelivery, .zero)
             XCTAssertEqual(cstruct.Reliability, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_SendPacketOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_P2P_SENDPACKET_API_LATEST)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.RemoteUserId)
             XCTAssertNil(swiftObject.SocketId)

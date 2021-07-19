@@ -10,7 +10,7 @@ public class SwiftEOS_Sessions_CopySessionHandleByUiEventIdTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_CopySessionHandleByUiEventId = { Handle, Options, OutSessionHandle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertNil(OutSessionHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_CopySessionHandleByUiEventId")

@@ -11,7 +11,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardRanks = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LeaderboardId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)

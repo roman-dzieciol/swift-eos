@@ -11,7 +11,7 @@ public class SwiftEOS_Lobby_AddNotifyJoinLobbyAcceptedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Lobby_AddNotifyJoinLobbyAccepted = { Handle, Options, ClientData, NotificationFn in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ADDNOTIFYJOINLOBBYACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_JoinLobbyAcceptedCallbackInfo(
                             ClientData: ClientData,

@@ -5,8 +5,8 @@ import EOSSDK
 public class SwiftEOS_P2P_GetPortRangeOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_P2P_GetPortRangeOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_P2P_GetPortRangeOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_P2P_GETPORTRANGE_API_LATEST)
             let swiftObject = try XCTUnwrap(try SwiftEOS_P2P_GetPortRangeOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_P2P_GETPORTRANGE_API_LATEST) }
     }
 }

@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_GetProtectMessageOutputLength = { Handle, Options, OutBufferLengthBytes in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNil(OutBufferLengthBytes)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_GetProtectMessageOutputLength")

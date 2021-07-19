@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAudio_GetAudioInputDevicesCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAudio_GetAudioInputDevicesCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_GETAUDIOINPUTDEVICESCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_RTCAudio_GetAudioInputDevicesCount")
                 return .zero
             }

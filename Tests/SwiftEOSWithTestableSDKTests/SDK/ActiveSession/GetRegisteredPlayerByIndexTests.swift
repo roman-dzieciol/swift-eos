@@ -16,7 +16,7 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexTests: XCTestCase 
             // Given implementation for SDK function
             __on_EOS_ActiveSession_GetRegisteredPlayerByIndex = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_GETREGISTEREDPLAYERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PlayerIndex, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerByIndex")
                 return .nonZeroPointer

@@ -5,11 +5,11 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST)
             XCTAssertNil(cstruct.UserId)
             XCTAssertNil(cstruct.StatName)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST)
             XCTAssertNil(swiftObject.UserId)
             XCTAssertNil(swiftObject.StatName) }
     }

@@ -16,7 +16,7 @@ public class SwiftEOS_LobbySearch_RemoveParameterTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbySearch_RemoveParameter = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_REMOVEPARAMETER_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_RemoveParameter")

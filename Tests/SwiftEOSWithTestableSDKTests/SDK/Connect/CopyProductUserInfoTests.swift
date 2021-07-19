@@ -10,7 +10,7 @@ public class SwiftEOS_Connect_CopyProductUserInfoTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Connect_CopyProductUserInfo = { Handle, Options, OutExternalAccountInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_COPYPRODUCTUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(OutExternalAccountInfo)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_CopyProductUserInfo")

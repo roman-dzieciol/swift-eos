@@ -11,7 +11,7 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Auth_AddNotifyLoginStatusChanged = { Handle, Options, ClientData, Notification in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 Notification?(TestGlobals.current.pointer(object: _tagEOS_Auth_LoginStatusChangedCallbackInfo(
                             ClientData: ClientData,

@@ -10,7 +10,7 @@ public class SwiftEOS_Sessions_CreateSessionSearchTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_CreateSessionSearch = { Handle, Options, OutSessionSearchHandle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_CREATESESSIONSEARCH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxSearchResults, .zero)
                 XCTAssertNil(OutSessionSearchHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_CreateSessionSearch")

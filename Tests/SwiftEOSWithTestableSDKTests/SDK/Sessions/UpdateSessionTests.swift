@@ -11,7 +11,7 @@ public class SwiftEOS_Sessions_UpdateSessionTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_UpdateSession = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_UPDATESESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionModificationHandle)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_UpdateSessionCallbackInfo(

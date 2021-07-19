@@ -10,7 +10,7 @@ public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCas
             // Given implementation for SDK function
             __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_Leaderboards_GetLeaderboardDefinitionCount")
                 return .zero
             }

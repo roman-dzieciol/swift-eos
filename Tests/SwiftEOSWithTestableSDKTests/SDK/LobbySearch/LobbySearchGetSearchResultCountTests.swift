@@ -16,7 +16,7 @@ public class SwiftEOS_LobbySearch_GetSearchResultCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbySearch_GetSearchResultCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_GetSearchResultCount")
                 return .zero
             }

@@ -16,7 +16,7 @@ public class SwiftEOS_LobbySearch_SetLobbyIdTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbySearch_SetLobbyId = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_SetLobbyId")
                 return .zero

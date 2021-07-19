@@ -11,7 +11,7 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTC_AddNotifyDisconnected = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_ADDNOTIFYDISCONNECTED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNotNil(ClientData)

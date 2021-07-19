@@ -11,7 +11,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_KWS_AddNotifyPermissionsUpdateReceived = { Handle, Options, ClientData, NotificationFn in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_KWS_PermissionsUpdateReceivedCallbackInfo(
                             ClientData: ClientData,

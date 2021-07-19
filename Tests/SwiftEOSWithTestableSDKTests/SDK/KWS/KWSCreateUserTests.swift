@@ -11,7 +11,7 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_KWS_CreateUser = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_CREATEUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.DateOfBirth)
                 XCTAssertNil(Options!.pointee.ParentEmail)

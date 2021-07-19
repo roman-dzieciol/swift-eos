@@ -13,7 +13,7 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_ReadFile = { Handle, ReadOptions, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(ReadOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(ReadOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_READFILEOPTIONS_API_LATEST)
                 XCTAssertNil(ReadOptions!.pointee.LocalUserId)
                 XCTAssertNil(ReadOptions!.pointee.Filename)
                 XCTAssertEqual(ReadOptions!.pointee.ReadChunkLengthBytes, .zero)

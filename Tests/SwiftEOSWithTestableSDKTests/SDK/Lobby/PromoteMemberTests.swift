@@ -11,7 +11,7 @@ public class SwiftEOS_Lobby_PromoteMemberTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Lobby_PromoteMember = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_PROMOTEMEMBER_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)

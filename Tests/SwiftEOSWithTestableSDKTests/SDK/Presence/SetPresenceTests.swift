@@ -11,7 +11,7 @@ public class SwiftEOS_Presence_SetPresenceTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Presence_SetPresence = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_SETPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.PresenceModificationHandle)
                 XCTAssertNotNil(ClientData)

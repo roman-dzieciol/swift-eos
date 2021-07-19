@@ -10,7 +10,7 @@ public class SwiftEOS_Sessions_DumpSessionStateTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_DumpSessionState = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_DumpSessionState")
                 return .zero

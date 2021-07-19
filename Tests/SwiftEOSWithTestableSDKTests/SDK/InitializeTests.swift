@@ -9,7 +9,7 @@ public class SwiftEOS_InitializeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Initialize = { Options in
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_INITIALIZE_API_LATEST)
                 XCTAssertNil(Options!.pointee.AllocateMemoryFunction)
                 XCTAssertNil(Options!.pointee.ReallocateMemoryFunction)
                 XCTAssertNil(Options!.pointee.ReleaseMemoryFunction)

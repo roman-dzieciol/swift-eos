@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_UnregisterPeerOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatClient_UnregisterPeerOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatClient_UnregisterPeerOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST)
             XCTAssertNil(cstruct.PeerHandle)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_UnregisterPeerOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST)
             XCTAssertNil(swiftObject.PeerHandle) }
     }
 }

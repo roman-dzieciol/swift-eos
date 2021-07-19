@@ -11,7 +11,7 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Reports_SendPlayerBehaviorReport = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_REPORTS_SENDPLAYERBEHAVIORREPORT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ReporterUserId)
                 XCTAssertNil(Options!.pointee.ReportedUserId)
                 XCTAssertEqual(Options!.pointee.Category, .zero)

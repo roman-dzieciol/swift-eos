@@ -10,7 +10,7 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sanctions_CopyPlayerSanctionByIndex = { Handle, Options, OutSanction in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.SanctionIndex, .zero)
                 XCTAssertNil(OutSanction)

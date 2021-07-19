@@ -11,7 +11,7 @@ public class SwiftEOS_Sessions_AddNotifySessionInviteAcceptedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_AddNotifySessionInviteAccepted = { Handle, Options, ClientData, NotificationFn in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ADDNOTIFYSESSIONINVITEACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Sessions_SessionInviteAcceptedCallbackInfo(
                             ClientData: ClientData,

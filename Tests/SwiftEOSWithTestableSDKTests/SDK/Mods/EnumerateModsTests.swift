@@ -11,7 +11,7 @@ public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Mods_EnumerateMods = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_ENUMERATEMODS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Type, .zero)
                 XCTAssertNotNil(ClientData)

@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_GetNATType = { Handle, Options, OutNATType in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETNATTYPE_API_LATEST)
                 XCTAssertNil(OutNATType)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_GetNATType")
                 return .zero

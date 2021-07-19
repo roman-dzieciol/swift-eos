@@ -13,7 +13,7 @@ public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_WriteFile = { Handle, WriteOptions, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(WriteOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(WriteOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_WRITEFILEOPTIONS_API_LATEST)
                 XCTAssertNil(WriteOptions!.pointee.LocalUserId)
                 XCTAssertNil(WriteOptions!.pointee.Filename)
                 XCTAssertEqual(WriteOptions!.pointee.ChunkLengthBytes, .zero)

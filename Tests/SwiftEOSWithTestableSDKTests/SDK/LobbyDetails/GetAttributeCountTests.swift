@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyDetails_GetAttributeCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_GetAttributeCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETATTRIBUTECOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetAttributeCount")
                 return .zero
             }

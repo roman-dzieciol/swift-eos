@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyModification_SetInvitesAllowedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyModification_SetInvitesAllowed = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetInvitesAllowed")
                 return .zero

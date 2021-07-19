@@ -11,7 +11,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteCacheTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_DeleteCache = { Handle, Options, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_DELETECACHEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_DeleteCacheCallbackInfo(

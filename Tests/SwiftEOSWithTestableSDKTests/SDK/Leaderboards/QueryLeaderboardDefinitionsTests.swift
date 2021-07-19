@@ -11,7 +11,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardDefinitions = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.StartTime, .zero)
                 XCTAssertEqual(Options!.pointee.EndTime, .zero)
                 XCTAssertNil(Options!.pointee.LocalUserId)

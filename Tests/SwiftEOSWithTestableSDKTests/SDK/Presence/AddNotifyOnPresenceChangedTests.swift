@@ -11,7 +11,7 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Presence_AddNotifyOnPresenceChanged = { Handle, Options, ClientData, NotificationHandler in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationHandler?(TestGlobals.current.pointer(object: _tagEOS_Presence_PresenceChangedCallbackInfo(
                             ClientData: ClientData,

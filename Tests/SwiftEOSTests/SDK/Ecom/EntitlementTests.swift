@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_EntitlementTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Ecom_Entitlement() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_Entitlement.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_ECOM_ENTITLEMENT_API_LATEST)
             XCTAssertNil(cstruct.EntitlementName)
             XCTAssertNil(cstruct.EntitlementId)
             XCTAssertNil(cstruct.CatalogItemId)
@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_EntitlementTests: XCTestCase {
             XCTAssertEqual(cstruct.bRedeemed, .zero)
             XCTAssertEqual(cstruct.EndTimestamp, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_Entitlement(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_ECOM_ENTITLEMENT_API_LATEST)
             XCTAssertNil(swiftObject.EntitlementName)
             XCTAssertNil(swiftObject.EntitlementId)
             XCTAssertNil(swiftObject.CatalogItemId)

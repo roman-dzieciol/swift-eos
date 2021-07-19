@@ -11,7 +11,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyAudioDevicesChanged = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_AudioDevicesChangedCallbackInfo(ClientData: ClientData)))
                 TestGlobals.current.sdkReceived.append("EOS_RTCAudio_AddNotifyAudioDevicesChanged")

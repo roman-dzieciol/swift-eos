@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatClient_UnregisterPeerTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_UnregisterPeer = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST)
                 XCTAssertNil(Options!.pointee.PeerHandle)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_UnregisterPeer")
                 return .zero

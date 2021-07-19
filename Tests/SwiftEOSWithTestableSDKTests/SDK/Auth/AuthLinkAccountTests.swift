@@ -11,7 +11,7 @@ public class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Auth_LinkAccount = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_LINKACCOUNT_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LinkAccountFlags, .zero)
                 XCTAssertNil(Options!.pointee.ContinuanceToken)
                 XCTAssertNil(Options!.pointee.LocalUserId)

@@ -14,7 +14,7 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_ReceivePacket = { Handle, Options, OutPeerId, OutSocketId, OutChannel, OutData, OutBytesWritten in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_RECEIVEPACKET_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.MaxDataSizeBytes, .zero)
                 XCTAssertNil(Options!.pointee.RequestedChannel)

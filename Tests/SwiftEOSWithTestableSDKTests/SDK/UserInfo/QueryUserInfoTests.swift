@@ -11,7 +11,7 @@ public class SwiftEOS_UserInfo_QueryUserInfoTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_UserInfo_QueryUserInfo = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_QUERYUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)

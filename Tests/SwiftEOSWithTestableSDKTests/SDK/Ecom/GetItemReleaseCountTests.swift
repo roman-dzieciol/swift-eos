@@ -10,7 +10,7 @@ public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_GetItemReleaseCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETITEMRELEASECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_GetItemReleaseCount")

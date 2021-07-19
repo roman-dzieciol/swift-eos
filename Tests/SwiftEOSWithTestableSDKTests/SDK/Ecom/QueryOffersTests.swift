@@ -11,7 +11,7 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_QueryOffers = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_QUERYOFFERS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OverrideCatalogNamespace)
                 XCTAssertNotNil(ClientData)

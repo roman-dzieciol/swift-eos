@@ -10,7 +10,7 @@ public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_GetFileMetadataCount = { Handle, GetFileMetadataCountOptions, OutFileMetadataCount in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(GetFileMetadataCountOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(GetFileMetadataCountOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST)
                 XCTAssertNil(GetFileMetadataCountOptions!.pointee.LocalUserId)
                 XCTAssertNil(OutFileMetadataCount)
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_GetFileMetadataCount")

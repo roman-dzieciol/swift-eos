@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseWeaponTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerUseWeapon = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST)
                 XCTAssertNil(Options!.pointee.UseWeaponData)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerUseWeapon")
                 return .zero

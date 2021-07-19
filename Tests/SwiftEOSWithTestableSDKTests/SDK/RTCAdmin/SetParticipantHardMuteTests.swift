@@ -11,7 +11,7 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_SetParticipantHardMute = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.bMute, .zero)

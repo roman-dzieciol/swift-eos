@@ -11,7 +11,7 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAudio_UpdateSending = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_UPDATESENDING_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertEqual(Options!.pointee.AudioStatus, .zero)

@@ -10,7 +10,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = { Handle, Options, OutLeaderboardUserScore in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardUserScoreIndex, .zero)
                 XCTAssertNil(Options!.pointee.StatName)
                 XCTAssertNil(OutLeaderboardUserScore)

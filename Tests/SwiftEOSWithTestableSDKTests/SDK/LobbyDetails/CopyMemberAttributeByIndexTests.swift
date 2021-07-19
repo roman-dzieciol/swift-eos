@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_CopyMemberAttributeByIndex = { Handle, Options, OutAttribute in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNil(OutAttribute)

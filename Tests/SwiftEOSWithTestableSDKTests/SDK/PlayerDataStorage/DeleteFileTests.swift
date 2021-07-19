@@ -11,7 +11,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_DeleteFile = { Handle, DeleteOptions, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(DeleteOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(DeleteOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST)
                 XCTAssertNil(DeleteOptions!.pointee.LocalUserId)
                 XCTAssertNil(DeleteOptions!.pointee.Filename)
                 XCTAssertNotNil(ClientData)

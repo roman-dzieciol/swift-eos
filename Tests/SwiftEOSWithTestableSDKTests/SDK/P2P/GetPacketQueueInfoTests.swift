@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_GetPacketQueueInfoTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_GetPacketQueueInfo = { Handle, Options, OutPacketQueueInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETPACKETQUEUEINFO_API_LATEST)
                 XCTAssertNil(OutPacketQueueInfo)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_GetPacketQueueInfo")
                 return .zero

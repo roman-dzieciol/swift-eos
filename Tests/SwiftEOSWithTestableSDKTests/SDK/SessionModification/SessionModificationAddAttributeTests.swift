@@ -16,7 +16,7 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_SessionModification_AddAttribute = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionAttribute)
                 XCTAssertEqual(Options!.pointee.AdvertisementType, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_SessionModification_AddAttribute")

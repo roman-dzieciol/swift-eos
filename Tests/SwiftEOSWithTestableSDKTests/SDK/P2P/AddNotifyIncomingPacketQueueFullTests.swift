@@ -11,7 +11,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_AddNotifyIncomingPacketQueueFull = { Handle, Options, ClientData, IncomingPacketQueueFullHandler in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 IncomingPacketQueueFullHandler?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnIncomingPacketQueueFullInfo(
                             ClientData: ClientData,

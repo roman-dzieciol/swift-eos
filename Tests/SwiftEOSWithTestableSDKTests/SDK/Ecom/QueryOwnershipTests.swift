@@ -11,7 +11,7 @@ public class SwiftEOS_Ecom_QueryOwnershipTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_QueryOwnership = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_QUERYOWNERSHIP_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.CatalogItemIds)
                 XCTAssertEqual(Options!.pointee.CatalogItemIdCount, .zero)

@@ -11,7 +11,7 @@ public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_TitleStorage_QueryFileList = { Handle, Options, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ListOfTags)
                 XCTAssertEqual(Options!.pointee.ListOfTagsCount, .zero)

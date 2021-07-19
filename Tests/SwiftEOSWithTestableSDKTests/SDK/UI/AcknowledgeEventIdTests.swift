@@ -10,7 +10,7 @@ public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_UI_AcknowledgeEventId = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertEqual(Options!.pointee.Result, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_UI_AcknowledgeEventId")

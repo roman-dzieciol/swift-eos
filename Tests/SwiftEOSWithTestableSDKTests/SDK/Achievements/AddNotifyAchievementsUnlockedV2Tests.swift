@@ -11,7 +11,7 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Tests: XCTestC
             // Given implementation for SDK function
             __on_EOS_Achievements_AddNotifyAchievementsUnlockedV2 = { Handle, Options, ClientData, NotificationFn in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKEDV2_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnAchievementsUnlockedCallbackV2Info(
                             ClientData: ClientData,

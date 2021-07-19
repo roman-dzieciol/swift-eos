@@ -10,7 +10,7 @@ public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Metrics_EndPlayerSession = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_METRICS_ENDPLAYERSESSION_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.AccountId.Epic)
                 XCTAssertNil(Options!.pointee.AccountId.External)

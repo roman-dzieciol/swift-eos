@@ -10,7 +10,7 @@ public class SwiftEOS_UI_GetFriendsVisibleTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_UI_GetFriendsVisible = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_GETFRIENDSVISIBLE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 TestGlobals.current.sdkReceived.append("EOS_UI_GetFriendsVisible")
                 return .zero

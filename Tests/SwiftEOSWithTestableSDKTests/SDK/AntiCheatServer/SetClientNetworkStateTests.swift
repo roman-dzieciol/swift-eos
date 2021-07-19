@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_SetClientNetworkStateTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_SetClientNetworkState = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_SETCLIENTNETWORKSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.bIsNetworkActive, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_SetClientNetworkState")

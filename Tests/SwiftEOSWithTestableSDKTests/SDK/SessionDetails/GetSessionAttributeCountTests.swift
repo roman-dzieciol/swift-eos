@@ -16,7 +16,7 @@ public class SwiftEOS_SessionDetails_GetSessionAttributeCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_SessionDetails_GetSessionAttributeCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_GETSESSIONATTRIBUTECOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_SessionDetails_GetSessionAttributeCount")
                 return .zero
             }

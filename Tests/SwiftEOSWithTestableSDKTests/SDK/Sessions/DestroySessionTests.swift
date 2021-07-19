@@ -11,7 +11,7 @@ public class SwiftEOS_Sessions_DestroySessionTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_DestroySession = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_DESTROYSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_DestroySessionCallbackInfo(

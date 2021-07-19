@@ -16,7 +16,7 @@ public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PresenceModification_SetJoinInfo = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.JoinInfo)
                 TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetJoinInfo")
                 return .zero

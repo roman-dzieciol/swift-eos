@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Metrics_BeginPlayerSessionOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Metrics_BeginPlayerSessionOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Metrics_BeginPlayerSessionOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_METRICS_BEGINPLAYERSESSION_API_LATEST)
             XCTAssertEqual(cstruct.AccountIdType, .zero)
             XCTAssertNil(cstruct.AccountId.Epic)
             XCTAssertNil(cstruct.AccountId.External)
@@ -14,7 +14,7 @@ public class SwiftEOS_Metrics_BeginPlayerSessionOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.ServerIp)
             XCTAssertNil(cstruct.GameSessionId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Metrics_BeginPlayerSessionOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_METRICS_BEGINPLAYERSESSION_API_LATEST)
             XCTAssertEqual(swiftObject.AccountIdType, .zero)
             XCTAssertNil(swiftObject.AccountId.Epic)
             XCTAssertNil(swiftObject.AccountId.External)

@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyModification_RemoveMemberAttributeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyModification_RemoveMemberAttribute = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_REMOVEMEMBERATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_RemoveMemberAttribute")
                 return .zero

@@ -5,11 +5,11 @@ import EOSSDK
 public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTCAdmin_CopyUserTokenByUserIdOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTCAdmin_CopyUserTokenByUserIdOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.QueryId, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST)
             XCTAssertNil(swiftObject.TargetUserId)
             XCTAssertEqual(swiftObject.QueryId, .zero) }
     }

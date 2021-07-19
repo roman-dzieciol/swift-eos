@@ -10,7 +10,7 @@ public class SwiftEOS_Stats_CopyStatByNameTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Stats_CopyStatByName = { Handle, Options, OutStat in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_COPYSTATBYNAME_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.Name)
                 XCTAssertNil(OutStat)

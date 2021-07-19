@@ -11,7 +11,7 @@ public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_KWS_QueryAgeGate = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_QUERYAGEGATE_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_QueryAgeGateCallbackInfo(
                             ResultCode: .zero,

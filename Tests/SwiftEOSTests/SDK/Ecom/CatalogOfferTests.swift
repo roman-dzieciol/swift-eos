@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CatalogOfferTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Ecom_CatalogOffer() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_CatalogOffer.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_ECOM_CATALOGOFFER_API_LATEST)
             XCTAssertEqual(cstruct.ServerIndex, .zero)
             XCTAssertNil(cstruct.CatalogNamespace)
             XCTAssertNil(cstruct.Id)
@@ -25,7 +25,7 @@ public class SwiftEOS_Ecom_CatalogOfferTests: XCTestCase {
             XCTAssertEqual(cstruct.OriginalPrice64, .zero)
             XCTAssertEqual(cstruct.CurrentPrice64, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CatalogOffer(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_ECOM_CATALOGOFFER_API_LATEST)
             XCTAssertEqual(swiftObject.ServerIndex, .zero)
             XCTAssertNil(swiftObject.CatalogNamespace)
             XCTAssertNil(swiftObject.Id)

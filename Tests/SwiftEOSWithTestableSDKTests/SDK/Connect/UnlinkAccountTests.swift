@@ -11,7 +11,7 @@ public class SwiftEOS_Connect_UnlinkAccountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Connect_UnlinkAccount = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_UNLINKACCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_UnlinkAccountCallbackInfo(

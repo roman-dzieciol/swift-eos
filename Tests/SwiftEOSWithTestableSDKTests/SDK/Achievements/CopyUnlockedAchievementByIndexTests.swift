@@ -10,7 +10,7 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyUnlockedAchievementByIndex = { Handle, Options, OutAchievement in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNil(OutAchievement)

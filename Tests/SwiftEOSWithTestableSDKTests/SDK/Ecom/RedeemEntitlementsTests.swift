@@ -11,7 +11,7 @@ public class SwiftEOS_Ecom_RedeemEntitlementsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_RedeemEntitlements = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.EntitlementIdCount, .zero)
                 XCTAssertNil(Options!.pointee.EntitlementIds)

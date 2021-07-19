@@ -10,7 +10,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = { Handle, Options, OutDefinition in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.AchievementId)
                 XCTAssertNil(OutDefinition)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")

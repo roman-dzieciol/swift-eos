@@ -11,7 +11,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioOutputStateTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyAudioOutputState = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYAUDIOOUTPUTSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNotNil(ClientData)

@@ -11,7 +11,7 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_UI_AddNotifyDisplaySettingsUpdated = { Handle, Options, ClientData, NotificationFn in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_UI_OnDisplaySettingsUpdatedCallbackInfo(
                             ClientData: ClientData,

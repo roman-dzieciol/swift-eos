@@ -11,7 +11,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardUserScores = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserIds)
                 XCTAssertEqual(Options!.pointee.UserIdsCount, .zero)
                 XCTAssertNil(Options!.pointee.StatInfo)

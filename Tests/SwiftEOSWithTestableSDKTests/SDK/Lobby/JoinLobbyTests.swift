@@ -11,7 +11,7 @@ public class SwiftEOS_Lobby_JoinLobbyTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Lobby_JoinLobby = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_JOINLOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyDetailsHandle)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.bPresenceEnabled, .zero)

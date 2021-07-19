@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatClient_BeginSessionTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_BeginSession = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Mode, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_BeginSession")

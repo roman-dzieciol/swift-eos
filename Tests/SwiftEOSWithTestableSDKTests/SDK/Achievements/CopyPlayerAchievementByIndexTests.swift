@@ -10,7 +10,7 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByIndexTests: XCTestCase
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyPlayerAchievementByIndex = { Handle, Options, OutAchievement in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNil(Options!.pointee.LocalUserId)

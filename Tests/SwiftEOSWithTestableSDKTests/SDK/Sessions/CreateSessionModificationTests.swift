@@ -10,7 +10,7 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_CreateSessionModification = { Handle, Options, OutSessionModificationHandle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_CREATESESSIONMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.BucketId)
                 XCTAssertEqual(Options!.pointee.MaxPlayers, .zero)

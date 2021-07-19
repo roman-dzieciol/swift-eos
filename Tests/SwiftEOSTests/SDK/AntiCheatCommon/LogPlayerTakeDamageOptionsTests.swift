@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_LogPlayerTakeDamageOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogPlayerTakeDamageOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST)
             XCTAssertNil(cstruct.VictimPlayerHandle)
             XCTAssertNil(cstruct.VictimPlayerPosition)
             XCTAssertNil(cstruct.VictimPlayerViewRotation)
@@ -24,7 +24,7 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptionsTests: XCTestCas
             XCTAssertNil(cstruct.PlayerUseWeaponData)
             XCTAssertEqual(cstruct.TimeSincePlayerUseWeaponMs, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerTakeDamageOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST)
             XCTAssertNil(swiftObject.VictimPlayerHandle)
             XCTAssertNil(swiftObject.VictimPlayerPosition)
             XCTAssertNil(swiftObject.VictimPlayerViewRotation)

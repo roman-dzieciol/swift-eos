@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_RTCAdmin_SetParticipantHardMuteOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTCAdmin_SetParticipantHardMuteOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTCAdmin_SetParticipantHardMuteOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.TargetUserId)
             XCTAssertEqual(cstruct.bMute, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_SetParticipantHardMuteOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST)
             XCTAssertNil(swiftObject.RoomName)
             XCTAssertNil(swiftObject.TargetUserId)
             XCTAssertEqual(swiftObject.bMute, false) }

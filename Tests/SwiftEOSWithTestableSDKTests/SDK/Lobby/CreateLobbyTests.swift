@@ -11,7 +11,7 @@ public class SwiftEOS_Lobby_CreateLobbyTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Lobby_CreateLobby = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_CREATELOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.MaxLobbyMembers, .zero)
                 XCTAssertEqual(Options!.pointee.PermissionLevel, .zero)

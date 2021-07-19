@@ -16,7 +16,7 @@ public class SwiftEOS_ActiveSession_CopyInfoTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_ActiveSession_CopyInfo = { Handle, Options, OutActiveSessionInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_COPYINFO_API_LATEST)
                 XCTAssertNil(OutActiveSessionInfo)
                 TestGlobals.current.sdkReceived.append("EOS_ActiveSession_CopyInfo")
                 return .zero

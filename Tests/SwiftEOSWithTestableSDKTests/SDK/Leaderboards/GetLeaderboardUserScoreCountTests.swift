@@ -10,7 +10,7 @@ public class SwiftEOS_Leaderboards_GetLeaderboardUserScoreCountTests: XCTestCase
             // Given implementation for SDK function
             __on_EOS_Leaderboards_GetLeaderboardUserScoreCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_GETLEADERBOARDUSERSCORECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.StatName)
                 TestGlobals.current.sdkReceived.append("EOS_Leaderboards_GetLeaderboardUserScoreCount")
                 return .zero

@@ -13,7 +13,7 @@ public class SwiftEOS_TitleStorage_ReadFileTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_TitleStorage_ReadFile = { Handle, Options, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_READFILEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Filename)
                 XCTAssertEqual(Options!.pointee.ReadChunkLengthBytes, .zero)

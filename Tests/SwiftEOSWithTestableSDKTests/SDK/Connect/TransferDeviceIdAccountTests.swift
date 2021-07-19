@@ -11,7 +11,7 @@ public class SwiftEOS_Connect_TransferDeviceIdAccountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Connect_TransferDeviceIdAccount = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_TRANSFERDEVICEIDACCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.PrimaryLocalUserId)
                 XCTAssertNil(Options!.pointee.LocalDeviceUserId)
                 XCTAssertNil(Options!.pointee.ProductUserIdToPreserve)

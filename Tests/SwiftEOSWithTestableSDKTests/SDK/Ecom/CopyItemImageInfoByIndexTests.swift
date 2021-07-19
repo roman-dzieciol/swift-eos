@@ -10,7 +10,7 @@ public class SwiftEOS_Ecom_CopyItemImageInfoByIndexTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyItemImageInfoByIndex = { Handle, Options, OutImageInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYITEMIMAGEINFOBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
                 XCTAssertEqual(Options!.pointee.ImageInfoIndex, .zero)

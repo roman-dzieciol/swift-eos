@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatServer_ReceiveMessageFromClientOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST)
             XCTAssertNil(cstruct.ClientHandle)
             XCTAssertEqual(cstruct.DataLengthBytes, .zero)
             XCTAssertNil(cstruct.Data)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatServer_ReceiveMessageFromClientOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_ANTICHEATSERVER_RECEIVEMESSAGEFROMCLIENT_API_LATEST)
             XCTAssertNil(swiftObject.ClientHandle)
             XCTAssertNil(swiftObject.Data) }
     }

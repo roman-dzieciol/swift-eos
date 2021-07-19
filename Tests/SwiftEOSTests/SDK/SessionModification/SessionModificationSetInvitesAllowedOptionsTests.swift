@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_SessionModification_SetInvitesAllowedOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_SessionModification_SetInvitesAllowedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_SessionModification_SetInvitesAllowedOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST)
             XCTAssertEqual(cstruct.bInvitesAllowed, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_SessionModification_SetInvitesAllowedOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST)
             XCTAssertEqual(swiftObject.bInvitesAllowed, false) }
     }
 }

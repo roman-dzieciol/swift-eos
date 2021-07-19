@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST)
             XCTAssertNil(cstruct.UserId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST)
             XCTAssertNil(swiftObject.UserId) }
     }
 }

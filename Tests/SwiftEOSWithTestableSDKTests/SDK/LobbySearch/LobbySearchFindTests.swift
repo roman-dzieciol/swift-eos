@@ -17,7 +17,7 @@ public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbySearch_Find = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_FIND_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_LobbySearch_FindCallbackInfo(

@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerReviveTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerRevive = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERREVIVE_API_LATEST)
                 XCTAssertNil(Options!.pointee.RevivedPlayerHandle)
                 XCTAssertNil(Options!.pointee.ReviverPlayerHandle)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerRevive")

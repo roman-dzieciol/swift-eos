@@ -12,7 +12,7 @@ public class SwiftEOS_P2P_GetPortRangeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_GetPortRange = { Handle, Options, OutPort, OutNumAdditionalPortsToTry in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETPORTRANGE_API_LATEST)
                 XCTAssertNil(OutPort)
                 XCTAssertNil(OutNumAdditionalPortsToTry)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_GetPortRange")

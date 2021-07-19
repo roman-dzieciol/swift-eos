@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_PresenceModification_SetStatusOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_PresenceModification_SetStatusOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_PresenceModification_SetStatusOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST)
             XCTAssertEqual(cstruct.Status, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_PresenceModification_SetStatusOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST)
             XCTAssertEqual(swiftObject.Status, .zero) }
     }
 }

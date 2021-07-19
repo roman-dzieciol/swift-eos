@@ -11,7 +11,7 @@ public class SwiftEOS_Lobby_LeaveLobbyTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Lobby_LeaveLobby = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_LEAVELOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNotNil(ClientData)

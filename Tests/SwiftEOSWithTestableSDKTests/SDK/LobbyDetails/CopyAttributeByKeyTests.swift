@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByKeyTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_CopyAttributeByKey = { Handle, Options, OutAttribute in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.AttrKey)
                 XCTAssertNil(OutAttribute)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByKey")

@@ -10,7 +10,7 @@ public class SwiftEOS_Achievements_GetAchievementDefinitionCountTests: XCTestCas
             // Given implementation for SDK function
             __on_EOS_Achievements_GetAchievementDefinitionCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_GETACHIEVEMENTDEFINITIONCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_GetAchievementDefinitionCount")
                 return .zero
             }

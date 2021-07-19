@@ -16,7 +16,7 @@ public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PresenceModification_DeleteData = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST)
                 XCTAssertEqual(Options!.pointee.RecordsCount, .zero)
                 XCTAssertNil(Options!.pointee.Records)
                 TestGlobals.current.sdkReceived.append("EOS_PresenceModification_DeleteData")

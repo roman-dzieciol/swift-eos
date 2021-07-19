@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTick = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST)
                 XCTAssertNil(Options!.pointee.PlayerHandle)
                 XCTAssertNil(Options!.pointee.PlayerPosition)
                 XCTAssertNil(Options!.pointee.PlayerViewRotation)

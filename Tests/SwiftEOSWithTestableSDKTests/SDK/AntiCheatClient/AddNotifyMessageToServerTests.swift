@@ -11,7 +11,7 @@ public class SwiftEOS_AntiCheatClient_AddNotifyMessageToServerTests: XCTestCase 
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_AddNotifyMessageToServer = { Handle, Options, ClientData, NotificationFn in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_ADDNOTIFYMESSAGETOSERVER_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo(
                             ClientData: ClientData,

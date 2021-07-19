@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_GetNextReceivedPacketSizeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_GetNextReceivedPacketSize = { Handle, Options, OutPacketSizeBytes in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETNEXTRECEIVEDPACKETSIZE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RequestedChannel)
                 XCTAssertNil(OutPacketSizeBytes)

@@ -11,7 +11,7 @@ public class SwiftEOS_Achievements_QueryDefinitionsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Achievements_QueryDefinitions = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_QUERYDEFINITIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.EpicUserId_DEPRECATED)
                 XCTAssertNil(Options!.pointee.HiddenAchievementIds_DEPRECATED)

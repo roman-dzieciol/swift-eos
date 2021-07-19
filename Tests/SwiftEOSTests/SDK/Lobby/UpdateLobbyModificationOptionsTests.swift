@@ -5,11 +5,11 @@ import EOSSDK
 public class SwiftEOS_Lobby_UpdateLobbyModificationOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Lobby_UpdateLobbyModificationOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_UpdateLobbyModificationOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.LobbyId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_UpdateLobbyModificationOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.LobbyId) }
     }

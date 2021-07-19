@@ -11,7 +11,7 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Friends_AddNotifyFriendsUpdate = { Handle, Options, ClientData, FriendsUpdateHandler in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_ADDNOTIFYFRIENDSUPDATE_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 FriendsUpdateHandler?(TestGlobals.current.pointer(object: _tagEOS_Friends_OnFriendsUpdateInfo(
                             ClientData: ClientData,

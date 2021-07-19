@@ -11,7 +11,7 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_QueryJoinRoomToken = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNil(Options!.pointee.TargetUserIds)

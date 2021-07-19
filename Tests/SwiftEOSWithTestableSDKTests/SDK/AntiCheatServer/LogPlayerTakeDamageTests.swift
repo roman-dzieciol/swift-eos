@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTakeDamageTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTakeDamage = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST)
                 XCTAssertNil(Options!.pointee.VictimPlayerHandle)
                 XCTAssertNil(Options!.pointee.VictimPlayerPosition)
                 XCTAssertNil(Options!.pointee.VictimPlayerViewRotation)

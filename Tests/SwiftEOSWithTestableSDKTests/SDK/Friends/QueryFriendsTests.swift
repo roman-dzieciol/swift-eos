@@ -11,7 +11,7 @@ public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Friends_QueryFriends = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_QUERYFRIENDS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Friends_QueryFriendsCallbackInfo(

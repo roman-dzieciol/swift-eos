@@ -11,7 +11,7 @@ public class SwiftEOS_Connect_AddNotifyAuthExpirationTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Connect_AddNotifyAuthExpiration = { Handle, Options, ClientData, Notification in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 Notification?(TestGlobals.current.pointer(object: _tagEOS_Connect_AuthExpirationCallbackInfo(
                             ClientData: ClientData,

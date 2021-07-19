@@ -10,7 +10,7 @@ public class SwiftEOS_UI_GetToggleFriendsKeyTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_UI_GetToggleFriendsKey = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_GETTOGGLEFRIENDSKEY_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_UI_GetToggleFriendsKey")
                 return .zero
             }

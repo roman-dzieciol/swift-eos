@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTCAdmin_QueryJoinRoomTokenOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.TargetUserIds)
             XCTAssertEqual(cstruct.TargetUserIdsCount, .zero)
             XCTAssertNil(cstruct.TargetUserIpAddresses)
             let swiftObject = try XCTUnwrap(try SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.RoomName)
             XCTAssertNil(swiftObject.TargetUserIds)

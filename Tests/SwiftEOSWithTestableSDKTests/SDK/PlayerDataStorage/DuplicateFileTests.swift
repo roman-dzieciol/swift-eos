@@ -11,7 +11,7 @@ public class SwiftEOS_PlayerDataStorage_DuplicateFileTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_DuplicateFile = { Handle, DuplicateOptions, ClientData, CompletionCallback in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(DuplicateOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(DuplicateOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST)
                 XCTAssertNil(DuplicateOptions!.pointee.LocalUserId)
                 XCTAssertNil(DuplicateOptions!.pointee.SourceFilename)
                 XCTAssertNil(DuplicateOptions!.pointee.DestinationFilename)

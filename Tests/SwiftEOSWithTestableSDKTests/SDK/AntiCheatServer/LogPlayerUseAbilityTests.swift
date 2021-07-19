@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerUseAbility = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST)
                 XCTAssertNil(Options!.pointee.PlayerHandle)
                 XCTAssertEqual(Options!.pointee.AbilityId, .zero)
                 XCTAssertEqual(Options!.pointee.AbilityDurationMs, .zero)

@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_AcceptConnection = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ACCEPTCONNECTION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RemoteUserId)
                 XCTAssertNil(Options!.pointee.SocketId)

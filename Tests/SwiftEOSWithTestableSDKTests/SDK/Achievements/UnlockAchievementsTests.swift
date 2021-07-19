@@ -11,7 +11,7 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Achievements_UnlockAchievements = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.AchievementIds)
                 XCTAssertEqual(Options!.pointee.AchievementsCount, .zero)

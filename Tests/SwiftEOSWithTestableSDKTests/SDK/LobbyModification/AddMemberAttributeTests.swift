@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyModification_AddMemberAttributeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyModification_AddMemberAttribute = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Attribute)
                 XCTAssertEqual(Options!.pointee.Visibility, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_AddMemberAttribute")

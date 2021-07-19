@@ -16,7 +16,7 @@ public class SwiftEOS_SessionSearch_SetParameterTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_SessionSearch_SetParameter = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.Parameter)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_SessionSearch_SetParameter")

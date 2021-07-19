@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatClient_EndSessionTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_EndSession = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_ENDSESSION_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_EndSession")
                 return .zero
             }

@@ -11,7 +11,7 @@ public class SwiftEOS_Sessions_UnregisterPlayersTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Sessions_UnregisterPlayers = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.PlayersToUnregister)
                 XCTAssertEqual(Options!.pointee.PlayersToUnregisterCount, .zero)

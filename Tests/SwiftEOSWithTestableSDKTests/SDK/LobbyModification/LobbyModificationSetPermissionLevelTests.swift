@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyModification_SetPermissionLevelTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyModification_SetPermissionLevel = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PermissionLevel, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetPermissionLevel")
                 return .zero

@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_LobbyModification_RemoveMemberAttributeOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_LobbyModification_RemoveMemberAttributeOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyModification_RemoveMemberAttributeOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_LOBBYMODIFICATION_REMOVEMEMBERATTRIBUTE_API_LATEST)
             XCTAssertNil(cstruct.Key)
             let swiftObject = try XCTUnwrap(try SwiftEOS_LobbyModification_RemoveMemberAttributeOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_LOBBYMODIFICATION_REMOVEMEMBERATTRIBUTE_API_LATEST)
             XCTAssertNil(swiftObject.Key) }
     }
 }

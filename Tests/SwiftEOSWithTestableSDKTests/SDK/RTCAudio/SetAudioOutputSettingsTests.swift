@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAudio_SetAudioOutputSettings = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_SETAUDIOOUTPUTSETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.DeviceId)
                 XCTAssertEqual(Options!.pointee.Volume, .zero)

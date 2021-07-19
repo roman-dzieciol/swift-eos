@@ -17,7 +17,7 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_SessionSearch_Find = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_SessionSearch_FindCallbackInfo(

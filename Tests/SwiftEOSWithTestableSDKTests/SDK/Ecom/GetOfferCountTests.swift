@@ -10,7 +10,7 @@ public class SwiftEOS_Ecom_GetOfferCountTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Ecom_GetOfferCount = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETOFFERCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_GetOfferCount")
                 return .zero

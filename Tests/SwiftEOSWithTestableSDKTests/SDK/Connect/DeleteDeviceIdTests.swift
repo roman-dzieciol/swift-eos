@@ -11,7 +11,7 @@ public class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Connect_DeleteDeviceId = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_DELETEDEVICEID_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_DeleteDeviceIdCallbackInfo(
                             ResultCode: .zero,

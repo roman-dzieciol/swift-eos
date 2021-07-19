@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogGameRoundStart = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGGAMEROUNDSTART_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionIdentifier)
                 XCTAssertNil(Options!.pointee.LevelName)
                 XCTAssertNil(Options!.pointee.ModeName)

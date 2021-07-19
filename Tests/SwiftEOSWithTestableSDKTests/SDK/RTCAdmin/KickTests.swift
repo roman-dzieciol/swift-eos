@@ -11,7 +11,7 @@ public class SwiftEOS_RTCAdmin_KickTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_Kick = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_KICK_API_LATEST)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)

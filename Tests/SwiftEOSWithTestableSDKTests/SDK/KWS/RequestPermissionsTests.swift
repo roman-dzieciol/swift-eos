@@ -11,7 +11,7 @@ public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_KWS_RequestPermissions = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_REQUESTPERMISSIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.PermissionKeyCount, .zero)
                 XCTAssertNil(Options!.pointee.PermissionKeys)

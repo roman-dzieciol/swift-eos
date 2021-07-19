@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_RegisterPeer = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST)
                 XCTAssertNil(Options!.pointee.PeerHandle)
                 XCTAssertEqual(Options!.pointee.ClientType, .zero)
                 XCTAssertEqual(Options!.pointee.ClientPlatform, .zero)

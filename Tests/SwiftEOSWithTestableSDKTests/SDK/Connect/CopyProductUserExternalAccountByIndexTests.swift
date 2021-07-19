@@ -10,7 +10,7 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByIndexTests: XCTest
             // Given implementation for SDK function
             __on_EOS_Connect_CopyProductUserExternalAccountByIndex = { Handle, Options, OutExternalAccountInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.ExternalAccountInfoIndex, .zero)
                 XCTAssertNil(OutExternalAccountInfo)

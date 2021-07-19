@@ -5,11 +5,11 @@ import EOSSDK
 public class SwiftEOS_Presence_GetJoinInfoOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Presence_GetJoinInfoOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Presence_GetJoinInfoOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_PRESENCE_GETJOININFO_API_LATEST)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.TargetUserId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Presence_GetJoinInfoOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_PRESENCE_GETJOININFO_API_LATEST)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.TargetUserId) }
     }

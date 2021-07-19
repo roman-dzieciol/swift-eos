@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_UserInfo_QueryUserInfoByExternalAccountOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_UserInfo_QueryUserInfoByExternalAccountOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.ExternalAccountId)
             XCTAssertEqual(cstruct.AccountType, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_UserInfo_QueryUserInfoByExternalAccountOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.ExternalAccountId)
             XCTAssertEqual(swiftObject.AccountType, .zero) }

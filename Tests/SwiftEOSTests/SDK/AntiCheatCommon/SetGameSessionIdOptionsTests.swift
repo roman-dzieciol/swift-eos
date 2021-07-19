@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_AntiCheatCommon_SetGameSessionIdOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_SetGameSessionIdOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_SetGameSessionIdOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, .zero)
+            XCTAssertEqual(cstruct.ApiVersion, EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST)
             XCTAssertNil(cstruct.GameSessionId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_SetGameSessionIdOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, .zero)
+            XCTAssertEqual(swiftObject.ApiVersion, EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST)
             XCTAssertNil(swiftObject.GameSessionId) }
     }
 }

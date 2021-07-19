@@ -16,7 +16,7 @@ public class SwiftEOS_SessionSearch_SetMaxResultsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_SessionSearch_SetMaxResults = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxSearchResults, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_SessionSearch_SetMaxResults")
                 return .zero

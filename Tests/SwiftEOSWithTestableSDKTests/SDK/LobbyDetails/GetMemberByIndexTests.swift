@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_GetMemberByIndex = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MemberIndex, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetMemberByIndex")
                 return .nonZeroPointer

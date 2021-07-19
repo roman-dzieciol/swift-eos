@@ -9,7 +9,7 @@ public class SwiftEOS_Platform_CreateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Platform_Create = { Options in
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PLATFORM_OPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.Reserved)
                 XCTAssertNil(Options!.pointee.ProductId)
                 XCTAssertNil(Options!.pointee.SandboxId)

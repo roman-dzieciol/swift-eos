@@ -16,7 +16,7 @@ public class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestC
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetJoinInProgressAllowed = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bAllowJoinInProgress, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetJoinInProgressAllowed")
                 return .zero

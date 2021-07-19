@@ -16,7 +16,7 @@ public class SwiftEOS_LobbyModification_SetBucketIdTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_LobbyModification_SetBucketId = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETBUCKETID_API_LATEST)
                 XCTAssertNil(Options!.pointee.BucketId)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetBucketId")
                 return .zero

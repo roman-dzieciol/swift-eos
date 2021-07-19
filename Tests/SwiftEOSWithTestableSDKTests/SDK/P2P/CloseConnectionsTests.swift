@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_CloseConnectionsTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_CloseConnections = { Handle, Options in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_CLOSECONNECTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.SocketId)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_CloseConnections")

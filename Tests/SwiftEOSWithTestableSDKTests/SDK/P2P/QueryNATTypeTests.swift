@@ -11,7 +11,7 @@ public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_P2P_QueryNATType = { Handle, Options, ClientData, CompletionDelegate in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_QUERYNATTYPE_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnQueryNATTypeCompleteInfo(
                             ResultCode: .zero,

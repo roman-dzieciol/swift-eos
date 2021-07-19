@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatClient_ProtectMessageTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_ProtectMessage = { Handle, Options, OutBuffer, OutBufferLengthBytes in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_PROTECTMESSAGE_API_LATEST)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNil(Options!.pointee.Data)
                 XCTAssertEqual(Options!.pointee.OutBufferSizeBytes, .zero)

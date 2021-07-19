@@ -10,7 +10,7 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexTests: XCTestCase
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_CopyFileMetadataAtIndex = { Handle, CopyFileMetadataOptions, OutMetadata in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(CopyFileMetadataOptions!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(CopyFileMetadataOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.LocalUserId)
                 XCTAssertEqual(CopyFileMetadataOptions!.pointee.Index, .zero)
                 XCTAssertNil(OutMetadata)

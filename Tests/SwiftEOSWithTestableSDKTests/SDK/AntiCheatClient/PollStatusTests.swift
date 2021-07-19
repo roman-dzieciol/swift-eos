@@ -12,7 +12,7 @@ public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_PollStatus = { Handle, Options, ViolationType, OutMessage in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertEqual(Options!.pointee.ApiVersion, .zero)
+                XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.OutMessageLength, .zero)
                 XCTAssertNil(ViolationType)
                 XCTAssertNil(OutMessage)

@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_RTCAudio_Actor: SwiftEOSActor {
-    public let Handle: EOS_HRTCAudio
+    public let Handle: EOS_HRTCAudio?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HRTCAudio
+        Handle: EOS_HRTCAudio?
     ) {
         self.Handle = Handle
     }

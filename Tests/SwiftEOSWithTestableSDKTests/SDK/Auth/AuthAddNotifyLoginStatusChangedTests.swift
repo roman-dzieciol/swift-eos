@@ -15,7 +15,7 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 Notification?(TestGlobals.current.pointer(object: _tagEOS_Auth_LoginStatusChangedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             PrevStatus: .zero,
                             CurrentStatus: .zero
                         )))

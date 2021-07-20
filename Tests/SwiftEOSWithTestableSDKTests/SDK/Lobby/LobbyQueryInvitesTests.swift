@@ -17,7 +17,7 @@ public class SwiftEOS_Lobby_QueryInvitesTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_QueryInvitesCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_QueryInvites")
             }

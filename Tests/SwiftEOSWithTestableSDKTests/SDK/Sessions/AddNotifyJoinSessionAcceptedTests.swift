@@ -15,7 +15,7 @@ public class SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Sessions_JoinSessionAcceptedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             UiEventId: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_AddNotifyJoinSessionAccepted")

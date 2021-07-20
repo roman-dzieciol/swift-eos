@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
-    public let Handle: EOS_HLobbyDetails
+    public let Handle: EOS_HLobbyDetails?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HLobbyDetails
+        Handle: EOS_HLobbyDetails?
     ) {
         self.Handle = Handle
     }
@@ -128,7 +128,7 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
 
     - Returns: the product user ID for the lobby owner or null if the input parameters are invalid
     */
-    public func GetLobbyOwner() throws -> EOS_ProductUserId {
+    public func GetLobbyOwner() throws -> EOS_ProductUserId? {
         try ____GetLobbyOwner()
     }
 
@@ -156,7 +156,7 @@ public class SwiftEOS_LobbyDetails_Actor: SwiftEOSActor {
     */
     public func GetMemberByIndex(
         MemberIndex: Int
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try ____GetMemberByIndex(.init(MemberIndex: MemberIndex))
     }
 
@@ -343,7 +343,7 @@ extension SwiftEOS_LobbyDetails_Actor {
 
     - Returns: the product user ID for the lobby owner or null if the input parameters are invalid
     */
-    private func ____GetLobbyOwner() throws -> EOS_ProductUserId {
+    private func ____GetLobbyOwner() throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
             try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetLobbyOwnerOptions(), managedBy: pointerManager) { Options in
                 EOS_LobbyDetails_GetLobbyOwner(
@@ -386,7 +386,7 @@ extension SwiftEOS_LobbyDetails_Actor {
     */
     private func ____GetMemberByIndex(
         _ Options: SwiftEOS_LobbyDetails_GetMemberByIndexOptions
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_LobbyDetails_GetMemberByIndex(

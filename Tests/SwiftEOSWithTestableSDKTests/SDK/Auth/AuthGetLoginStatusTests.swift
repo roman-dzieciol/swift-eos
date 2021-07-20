@@ -20,7 +20,7 @@ public class SwiftEOS_Auth_GetLoginStatusTests: XCTestCase {
             let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: .nonZeroPointer)
+            let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoginStatus"])

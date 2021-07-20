@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_PresenceModification_Actor: SwiftEOSActor {
-    public let Handle: EOS_HPresenceModification
+    public let Handle: EOS_HPresenceModification?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HPresenceModification
+        Handle: EOS_HPresenceModification?
     ) {
         self.Handle = Handle
     }

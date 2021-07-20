@@ -15,7 +15,7 @@ public class SwiftEOS_Connect_GetExternalAccountMappingTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.TargetExternalUserId)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_GetExternalAccountMapping")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Connect_GetExternalAccountMapping = nil }
             
@@ -23,7 +23,7 @@ public class SwiftEOS_Connect_GetExternalAccountMappingTests: XCTestCase {
             let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_ProductUserId = try object.GetExternalAccountMapping(
+            let result: EOS_ProductUserId? = try object.GetExternalAccountMapping(
                 LocalUserId: nil,
                 AccountIdType: .zero,
                 TargetExternalUserId: nil

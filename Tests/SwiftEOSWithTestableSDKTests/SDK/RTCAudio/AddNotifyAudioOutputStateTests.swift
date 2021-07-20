@@ -17,7 +17,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioOutputStateTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_AudioOutputStateCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
                             Status: .zero
                         )))

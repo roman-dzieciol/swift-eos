@@ -15,7 +15,7 @@ public class SwiftEOS_Lobby_AddNotifyJoinLobbyAcceptedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_JoinLobbyAcceptedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             UiEventId: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyJoinLobbyAccepted")

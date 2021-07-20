@@ -15,7 +15,7 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedTests: XCTestCas
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo(
                             ClientData: ClientData,
-                            UserId: .nonZeroPointer,
+                            UserId: nil,
                             AchievementsCount: .zero,
                             AchievementIds: nil
                         )))

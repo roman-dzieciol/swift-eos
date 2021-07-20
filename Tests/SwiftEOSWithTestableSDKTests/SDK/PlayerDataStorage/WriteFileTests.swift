@@ -23,11 +23,11 @@ public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_WriteFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             Filename: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_WriteFile")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_PlayerDataStorage_WriteFile = nil }
             
@@ -35,7 +35,7 @@ public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
             let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_HPlayerDataStorageFileTransferRequest = try object.WriteFile(
+            let result: EOS_HPlayerDataStorageFileTransferRequest? = try object.WriteFile(
                 LocalUserId: nil,
                 Filename: nil,
                 ChunkLengthBytes: .zero,

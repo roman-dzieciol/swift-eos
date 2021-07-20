@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetPlayerDataStorageInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetPlayerDataStorageInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetPlayerDataStorageInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetPlayerDataStorageInterface = nil }
             

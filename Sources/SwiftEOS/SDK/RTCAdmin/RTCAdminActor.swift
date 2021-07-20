@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
-    public let Handle: EOS_HRTCAdmin
+    public let Handle: EOS_HRTCAdmin?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HRTCAdmin
+        Handle: EOS_HRTCAdmin?
     ) {
         self.Handle = Handle
     }
@@ -105,7 +105,7 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     public func QueryJoinRoomToken(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,
-        TargetUserIds: [EOS_ProductUserId]?,
+        TargetUserIds: [EOS_ProductUserId?]?,
         TargetUserIpAddresses: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo) -> Void
     ) throws {

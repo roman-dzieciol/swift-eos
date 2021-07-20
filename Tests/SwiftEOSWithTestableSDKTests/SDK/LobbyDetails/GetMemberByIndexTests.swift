@@ -19,7 +19,7 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MemberIndex, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetMemberByIndex")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_LobbyDetails_GetMemberByIndex = nil }
             
@@ -27,7 +27,7 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
             let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_ProductUserId = try object.GetMemberByIndex(MemberIndex: .zero)
+            let result: EOS_ProductUserId? = try object.GetMemberByIndex(MemberIndex: .zero)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetMemberByIndex", "EOS_LobbyDetails_Release"])

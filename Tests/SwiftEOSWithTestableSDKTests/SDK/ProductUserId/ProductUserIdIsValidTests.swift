@@ -16,7 +16,7 @@ public class SwiftEOS_ProductUserId_IsValidTests: XCTestCase {
             defer { __on_EOS_ProductUserId_IsValid = nil }
             
             // When SDK function is called
-            let result: Bool = try SwiftEOS_ProductUserId_IsValid(AccountId: .nonZeroPointer)
+            let result: Bool = try SwiftEOS_ProductUserId_IsValid(AccountId: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_IsValid"])

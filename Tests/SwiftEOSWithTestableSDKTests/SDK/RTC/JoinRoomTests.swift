@@ -24,7 +24,7 @@ public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_JoinRoomCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_RTC_JoinRoom")

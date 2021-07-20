@@ -28,7 +28,7 @@ public class SwiftEOS_Platform_GetActiveLocaleCodeTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: String? = try object.GetActiveLocaleCode(LocalUserId: .nonZeroPointer)
+            let result: String? = try object.GetActiveLocaleCode(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetActiveLocaleCode", "EOS_Platform_Release"])

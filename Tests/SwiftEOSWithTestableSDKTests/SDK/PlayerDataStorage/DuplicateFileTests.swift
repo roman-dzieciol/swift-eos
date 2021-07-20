@@ -19,7 +19,7 @@ public class SwiftEOS_PlayerDataStorage_DuplicateFileTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_DuplicateFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_DuplicateFile")
             }

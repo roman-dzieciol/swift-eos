@@ -18,7 +18,7 @@ public class SwiftEOS_EpicAccountId_ToStringTests: XCTestCase {
             defer { __on_EOS_EpicAccountId_ToString = nil }
             
             // When SDK function is called
-            let result: String? = try SwiftEOS_EpicAccountId_ToString(AccountId: .nonZeroPointer)
+            let result: String? = try SwiftEOS_EpicAccountId_ToString(AccountId: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_ToString"])

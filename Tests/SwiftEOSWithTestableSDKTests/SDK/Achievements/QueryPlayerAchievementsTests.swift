@@ -18,7 +18,7 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            UserId: .nonZeroPointer
+                            UserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_QueryPlayerAchievements")
             }

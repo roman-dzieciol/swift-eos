@@ -18,10 +18,10 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeRenderTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_AudioBeforeRenderCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
                             Buffer: nil,
-                            ParticipantId: .nonZeroPointer
+                            ParticipantId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_RTCAudio_AddNotifyAudioBeforeRender")
                 return .zero

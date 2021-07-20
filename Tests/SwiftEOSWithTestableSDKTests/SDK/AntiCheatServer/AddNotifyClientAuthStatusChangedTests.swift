@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo(
                             ClientData: ClientData,
-                            ClientHandle: .nonZeroPointer,
+                            ClientHandle: nil,
                             ClientAuthStatus: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged")

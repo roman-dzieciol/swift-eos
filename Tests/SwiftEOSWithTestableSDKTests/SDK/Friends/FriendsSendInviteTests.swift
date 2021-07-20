@@ -18,8 +18,8 @@ public class SwiftEOS_Friends_SendInviteTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Friends_SendInviteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer
+                            LocalUserId: nil,
+                            TargetUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Friends_SendInvite")
             }

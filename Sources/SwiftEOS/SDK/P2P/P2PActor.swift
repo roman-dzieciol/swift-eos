@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_P2P_Actor: SwiftEOSActor {
-    public let Handle: EOS_HP2P
+    public let Handle: EOS_HP2P?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HP2P
+        Handle: EOS_HP2P?
     ) {
         self.Handle = Handle
     }

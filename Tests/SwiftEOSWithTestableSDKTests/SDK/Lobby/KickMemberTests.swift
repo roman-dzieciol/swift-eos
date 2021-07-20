@@ -19,7 +19,7 @@ public class SwiftEOS_Lobby_KickMemberTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_KickMemberCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LobbyId: TestGlobals.current.pointer(string: .empty)
+                            LobbyId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_KickMember")
             }

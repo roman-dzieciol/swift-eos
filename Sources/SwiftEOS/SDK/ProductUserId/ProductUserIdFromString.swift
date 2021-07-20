@@ -11,7 +11,7 @@ NOTE: There is no validation on the string format, this should only be used with
 */
 public func SwiftEOS_ProductUserId_FromString(
     ProductUserIdString: String?
-) -> EOS_ProductUserId {
+) -> EOS_ProductUserId? {
     withPointerManager { pointerManager in
         withTransformed(
             value: ProductUserIdString,

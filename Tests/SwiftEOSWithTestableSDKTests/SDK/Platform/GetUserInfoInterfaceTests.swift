@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetUserInfoInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetUserInfoInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetUserInfoInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetUserInfoInterface = nil }
             

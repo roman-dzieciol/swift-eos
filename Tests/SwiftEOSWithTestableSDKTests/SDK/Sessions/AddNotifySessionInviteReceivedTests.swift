@@ -15,8 +15,8 @@ public class SwiftEOS_Sessions_AddNotifySessionInviteReceivedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Sessions_SessionInviteReceivedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            TargetUserId: nil,
                             InviteId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_AddNotifySessionInviteReceived")

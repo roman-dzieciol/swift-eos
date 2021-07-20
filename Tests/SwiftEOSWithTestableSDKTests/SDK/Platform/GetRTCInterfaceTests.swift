@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetRTCInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetRTCInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetRTCInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetRTCInterface = nil }
             

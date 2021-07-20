@@ -14,7 +14,7 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
     - Note: ``EOS/_tagEOS_Leaderboards_QueryLeaderboardUserScoresOptions/UserIdsCount``:
     The number of users included in query
     */
-    public let UserIds: [EOS_ProductUserId]?
+    public let UserIds: [EOS_ProductUserId?]?
 
     /**
     The stats to be collected, along with the sorting method to use when determining rank order for each stat
@@ -93,7 +93,7 @@ public struct SwiftEOS_Leaderboards_QueryLeaderboardUserScoresOptions: SwiftEOSO
     */
     public init(
         ApiVersion: Int32 = EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST,
-        UserIds: [EOS_ProductUserId]?,
+        UserIds: [EOS_ProductUserId?]?,
         StatInfo: [SwiftEOS_Leaderboards_UserScoresQueryStatInfo]?,
         StartTime: Int,
         EndTime: Int,

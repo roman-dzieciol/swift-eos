@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetAntiCheatClientInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetAntiCheatClientInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetAntiCheatClientInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetAntiCheatClientInterface = nil }
             

@@ -15,8 +15,8 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 FriendsUpdateHandler?(TestGlobals.current.pointer(object: _tagEOS_Friends_OnFriendsUpdateInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            TargetUserId: nil,
                             PreviousStatus: .zero,
                             CurrentStatus: .zero
                         )))

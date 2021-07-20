@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
-    public let Handle: EOS_HUserInfo
+    public let Handle: EOS_HUserInfo?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HUserInfo
+        Handle: EOS_HUserInfo?
     ) {
         self.Handle = Handle
     }

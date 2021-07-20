@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_KWS_Actor: SwiftEOSActor {
-    public let Handle: EOS_HKWS
+    public let Handle: EOS_HKWS?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HKWS
+        Handle: EOS_HKWS?
     ) {
         self.Handle = Handle
     }

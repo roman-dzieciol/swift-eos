@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
-    public let Handle: EOS_HLobby
+    public let Handle: EOS_HLobby?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HLobby
+        Handle: EOS_HLobby?
     ) {
         self.Handle = Handle
     }

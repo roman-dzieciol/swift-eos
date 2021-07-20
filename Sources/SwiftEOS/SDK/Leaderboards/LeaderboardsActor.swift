@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
-    public let Handle: EOS_HLeaderboards
+    public let Handle: EOS_HLeaderboards?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HLeaderboards
+        Handle: EOS_HLeaderboards?
     ) {
         self.Handle = Handle
     }
@@ -223,7 +223,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
                `EOS_InvalidParameters` if any of the options are incorrect
     */
     public func QueryLeaderboardUserScores(
-        UserIds: [EOS_ProductUserId]?,
+        UserIds: [EOS_ProductUserId?]?,
         StatInfo: [SwiftEOS_Leaderboards_UserScoresQueryStatInfo]?,
         StartTime: Int,
         EndTime: Int,

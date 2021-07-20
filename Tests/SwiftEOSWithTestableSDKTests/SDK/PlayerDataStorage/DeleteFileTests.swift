@@ -18,7 +18,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_DeleteFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_DeleteFile")
             }

@@ -26,7 +26,7 @@ public class SwiftEOS_Lobby_CreateLobbyTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_CreateLobbyCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LobbyId: TestGlobals.current.pointer(string: .empty)
+                            LobbyId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_CreateLobby")
             }

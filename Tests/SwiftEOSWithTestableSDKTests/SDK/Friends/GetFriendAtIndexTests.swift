@@ -14,7 +14,7 @@ public class SwiftEOS_Friends_GetFriendAtIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_Friends_GetFriendAtIndex")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Friends_GetFriendAtIndex = nil }
             
@@ -22,7 +22,7 @@ public class SwiftEOS_Friends_GetFriendAtIndexTests: XCTestCase {
             let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_EpicAccountId = try object.GetFriendAtIndex(
+            let result: EOS_EpicAccountId? = try object.GetFriendAtIndex(
                 LocalUserId: nil,
                 Index: .zero
             )

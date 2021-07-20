@@ -15,7 +15,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_KWS_PermissionsUpdateReceivedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_KWS_AddNotifyPermissionsUpdateReceived")
                 return .zero

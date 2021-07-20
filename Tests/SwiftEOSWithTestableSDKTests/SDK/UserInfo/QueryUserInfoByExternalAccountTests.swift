@@ -19,10 +19,10 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             ExternalAccountId: nil,
                             AccountType: .zero,
-                            TargetUserId: .nonZeroPointer
+                            TargetUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByExternalAccount")
             }

@@ -11,12 +11,12 @@ public class SwiftEOS_EpicAccountId_FromStringTests: XCTestCase {
             __on_EOS_EpicAccountId_FromString = { AccountIdString in
                 XCTAssertNil(AccountIdString)
                 TestGlobals.current.sdkReceived.append("EOS_EpicAccountId_FromString")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_EpicAccountId_FromString = nil }
             
             // When SDK function is called
-            let result: EOS_EpicAccountId = SwiftEOS_EpicAccountId_FromString(AccountIdString: nil)
+            let result: EOS_EpicAccountId? = SwiftEOS_EpicAccountId_FromString(AccountIdString: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_FromString"])

@@ -23,11 +23,11 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_ReadFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             Filename: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_ReadFile")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_PlayerDataStorage_ReadFile = nil }
             
@@ -35,7 +35,7 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
             let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_HPlayerDataStorageFileTransferRequest = try object.ReadFile(
+            let result: EOS_HPlayerDataStorageFileTransferRequest? = try object.ReadFile(
                 LocalUserId: nil,
                 Filename: nil,
                 ReadChunkLengthBytes: .zero,

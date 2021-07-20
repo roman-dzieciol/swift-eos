@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetLobbyInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetLobbyInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetLobbyInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetLobbyInterface = nil }
             

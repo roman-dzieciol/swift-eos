@@ -18,8 +18,8 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            TargetUserId: nil,
                             DisplayName: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByDisplayName")

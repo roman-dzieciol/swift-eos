@@ -18,7 +18,7 @@ public class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_UpdateParentEmailCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_KWS_UpdateParentEmail")
             }

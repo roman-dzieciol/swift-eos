@@ -15,7 +15,7 @@ public class SwiftEOS_Lobby_AddNotifyLobbyUpdateReceivedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_LobbyUpdateReceivedCallbackInfo(
                             ClientData: ClientData,
-                            LobbyId: TestGlobals.current.pointer(string: .empty)
+                            LobbyId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyUpdateReceived")
                 return .zero

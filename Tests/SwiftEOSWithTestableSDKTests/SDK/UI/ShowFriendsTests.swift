@@ -17,7 +17,7 @@ public class SwiftEOS_UI_ShowFriendsTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_UI_ShowFriendsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_UI_ShowFriends")
             }

@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
-    public let Handle: EOS_HSessionSearch
+    public let Handle: EOS_HSessionSearch?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HSessionSearch
+        Handle: EOS_HSessionSearch?
     ) {
         self.Handle = Handle
     }

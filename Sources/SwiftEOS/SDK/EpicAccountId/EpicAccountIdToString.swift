@@ -15,7 +15,7 @@ This string will be no larger than `EOS_EPICACCOUNTID_MAX_LENGTH` + 1 and will o
 - Returns: The buffer into which the character data should be written
 */
 public func SwiftEOS_EpicAccountId_ToString(
-    AccountId: EOS_EpicAccountId
+    AccountId: EOS_EpicAccountId?
 ) throws -> String? {
     try withPointerManager { pointerManager in
         try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in

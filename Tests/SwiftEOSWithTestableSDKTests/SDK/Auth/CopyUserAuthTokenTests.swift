@@ -22,7 +22,7 @@ public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
             let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: SwiftEOS_Auth_Token? = try object.CopyUserAuthToken(LocalUserId: .nonZeroPointer)
+            let result: SwiftEOS_Auth_Token? = try object.CopyUserAuthToken(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])

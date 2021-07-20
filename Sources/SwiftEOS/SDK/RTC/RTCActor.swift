@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_RTC_Actor: SwiftEOSActor {
-    public let Handle: EOS_HRTC
+    public let Handle: EOS_HRTC?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HRTC
+        Handle: EOS_HRTC?
     ) {
         self.Handle = Handle
     }
@@ -114,7 +114,7 @@ public class SwiftEOS_RTC_Actor: SwiftEOSActor {
     - SeeAlso: `eos_rtc_audio`.h
     - SeeAlso: `eos_rtc_audio_types`.h
     */
-    public func GetAudioInterface() -> EOS_HRTCAudio {
+    public func GetAudioInterface() -> EOS_HRTCAudio? {
         ____GetAudioInterface()
     }
 
@@ -305,7 +305,7 @@ extension SwiftEOS_RTC_Actor {
     - SeeAlso: `eos_rtc_audio`.h
     - SeeAlso: `eos_rtc_audio_types`.h
     */
-    private func ____GetAudioInterface() -> EOS_HRTCAudio {
+    private func ____GetAudioInterface() -> EOS_HRTCAudio? {
         withPointerManager { pointerManager in
             EOS_RTC_GetAudioInterface(Handle) }
     }

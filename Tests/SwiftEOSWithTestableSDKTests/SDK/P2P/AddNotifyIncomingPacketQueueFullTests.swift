@@ -17,7 +17,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
                             ClientData: ClientData,
                             PacketQueueMaxSizeBytes: .zero,
                             PacketQueueCurrentSizeBytes: .zero,
-                            OverflowPacketLocalUserId: .nonZeroPointer,
+                            OverflowPacketLocalUserId: nil,
                             OverflowPacketChannel: .zero,
                             OverflowPacketSizeBytes: .zero
                         )))

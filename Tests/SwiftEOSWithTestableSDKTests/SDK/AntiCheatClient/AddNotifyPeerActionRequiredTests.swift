@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredTests: XCTestCa
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo(
                             ClientData: ClientData,
-                            ClientHandle: .nonZeroPointer,
+                            ClientHandle: nil,
                             ClientAction: .zero,
                             ActionReasonCode: .zero,
                             ActionReasonDetailsString: nil

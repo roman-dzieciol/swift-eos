@@ -11,7 +11,7 @@ NOTE: There is no validation on the string format, this should only be used with
 */
 public func SwiftEOS_EpicAccountId_FromString(
     AccountIdString: String?
-) -> EOS_EpicAccountId {
+) -> EOS_EpicAccountId? {
     withPointerManager { pointerManager in
         withTransformed(
             value: AccountIdString,

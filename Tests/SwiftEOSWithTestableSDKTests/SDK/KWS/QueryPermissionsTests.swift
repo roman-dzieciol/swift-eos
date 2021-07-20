@@ -17,7 +17,7 @@ public class SwiftEOS_KWS_QueryPermissionsTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_QueryPermissionsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             KWSUserId: nil,
                             DateOfBirth: nil,
                             bIsMinor: .zero

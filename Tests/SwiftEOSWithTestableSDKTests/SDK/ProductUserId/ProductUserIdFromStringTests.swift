@@ -11,12 +11,12 @@ public class SwiftEOS_ProductUserId_FromStringTests: XCTestCase {
             __on_EOS_ProductUserId_FromString = { ProductUserIdString in
                 XCTAssertNil(ProductUserIdString)
                 TestGlobals.current.sdkReceived.append("EOS_ProductUserId_FromString")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_ProductUserId_FromString = nil }
             
             // When SDK function is called
-            let result: EOS_ProductUserId = SwiftEOS_ProductUserId_FromString(ProductUserIdString: nil)
+            let result: EOS_ProductUserId? = SwiftEOS_ProductUserId_FromString(ProductUserIdString: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_FromString"])

@@ -18,9 +18,9 @@ public class SwiftEOS_Auth_LoginTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Auth_LoginCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             PinGrantInfo: nil,
-                            ContinuanceToken: .nonZeroPointer,
+                            ContinuanceToken: nil,
                             AccountFeatureRestrictedInfo: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Auth_Login")

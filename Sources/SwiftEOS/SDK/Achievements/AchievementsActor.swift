@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Achievements_Actor: SwiftEOSActor {
-    public let Handle: EOS_HAchievements
+    public let Handle: EOS_HAchievements?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HAchievements
+        Handle: EOS_HAchievements?
     ) {
         self.Handle = Handle
     }

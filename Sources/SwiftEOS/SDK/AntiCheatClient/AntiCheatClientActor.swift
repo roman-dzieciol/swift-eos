@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
-    public let Handle: EOS_HAntiCheatClient
+    public let Handle: EOS_HAntiCheatClient?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HAntiCheatClient
+        Handle: EOS_HAntiCheatClient?
     ) {
         self.Handle = Handle
     }

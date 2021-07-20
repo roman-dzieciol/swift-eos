@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetConnectInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetConnectInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetConnectInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetConnectInterface = nil }
             

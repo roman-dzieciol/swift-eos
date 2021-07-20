@@ -10,7 +10,7 @@ NOTE: This will return true for any `EOS_ProductUserId` created with `EOS_Produc
 - Returns: `EOS_TRUE` if the `EOS_ProductUserId` is valid, otherwise `EOS_FALSE`
 */
 public func SwiftEOS_ProductUserId_IsValid(
-    AccountId: EOS_ProductUserId
+    AccountId: EOS_ProductUserId?
 ) throws -> Bool {
     try withPointerManager { pointerManager in
         try returningTransformedResult(

@@ -25,12 +25,12 @@ public class SwiftEOS_Platform_CreateTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.TickBudgetInMilliseconds, .zero)
                 XCTAssertNil(Options!.pointee.RTCOptions)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_Create")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_Create = nil }
             
             // When SDK function is called
-            let result: EOS_HPlatform = try SwiftEOS_Platform_Create(Options: SwiftEOS_Platform_Options(
+            let result: EOS_HPlatform? = try SwiftEOS_Platform_Create(Options: SwiftEOS_Platform_Options(
                     ApiVersion: .zero,
                     Reserved: nil,
                     ProductId: nil,

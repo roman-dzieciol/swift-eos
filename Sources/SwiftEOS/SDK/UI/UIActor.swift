@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_UI_Actor: SwiftEOSActor {
-    public let Handle: EOS_HUI
+    public let Handle: EOS_HUI?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HUI
+        Handle: EOS_HUI?
     ) {
         self.Handle = Handle
     }

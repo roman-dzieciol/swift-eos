@@ -18,7 +18,7 @@ public class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_LeaveRoomCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_RTC_LeaveRoom")

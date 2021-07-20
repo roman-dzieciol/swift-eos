@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
-    public let Handle: EOS_HEcom
+    public let Handle: EOS_HEcom?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HEcom
+        Handle: EOS_HEcom?
     ) {
         self.Handle = Handle
     }

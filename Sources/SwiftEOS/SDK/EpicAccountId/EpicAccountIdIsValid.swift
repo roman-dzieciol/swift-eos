@@ -10,7 +10,7 @@ NOTE: This will return true for any `EOS_EpicAccountId` created with `EOS_EpicAc
 - Returns: `EOS_TRUE` if the `EOS_EpicAccountId` is valid, otherwise `EOS_FALSE`
 */
 public func SwiftEOS_EpicAccountId_IsValid(
-    AccountId: EOS_EpicAccountId
+    AccountId: EOS_EpicAccountId?
 ) throws -> Bool {
     try withPointerManager { pointerManager in
         try returningTransformedResult(

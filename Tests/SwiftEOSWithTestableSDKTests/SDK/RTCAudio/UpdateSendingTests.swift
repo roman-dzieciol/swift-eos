@@ -19,7 +19,7 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_UpdateSendingCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
                             AudioStatus: .zero
                         )))

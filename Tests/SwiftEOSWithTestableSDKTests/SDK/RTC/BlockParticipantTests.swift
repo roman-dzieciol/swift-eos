@@ -20,9 +20,9 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_BlockParticipantCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
-                            ParticipantId: .nonZeroPointer,
+                            ParticipantId: nil,
                             bBlocked: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_RTC_BlockParticipant")

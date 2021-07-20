@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Auth_Actor: SwiftEOSActor {
-    public let Handle: EOS_HAuth
+    public let Handle: EOS_HAuth?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HAuth
+        Handle: EOS_HAuth?
     ) {
         self.Handle = Handle
     }
@@ -38,7 +38,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     - Returns: The auth token for the given user, if it exists and is valid; use `EOS_Auth_Token_Release` when finished
     */
     public func CopyUserAuthToken(
-        LocalUserId: EOS_EpicAccountId
+        LocalUserId: EOS_EpicAccountId?
     ) throws -> SwiftEOS_Auth_Token? {
         try ____CopyUserAuthToken(LocalUserId)
     }
@@ -73,7 +73,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     */
     public func GetLoggedInAccountByIndex(
         Index: Int
-    ) throws -> EOS_EpicAccountId {
+    ) throws -> EOS_EpicAccountId? {
         try ____GetLoggedInAccountByIndex(Index)
     }
 
@@ -93,7 +93,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     - Returns: The enum value of a user's login status
     */
     public func GetLoginStatus(
-        LocalUserId: EOS_EpicAccountId
+        LocalUserId: EOS_EpicAccountId?
     ) -> EOS_ELoginStatus {
         ____GetLoginStatus(LocalUserId)
     }
@@ -236,7 +236,7 @@ extension SwiftEOS_Auth_Actor {
     - Returns: The auth token for the given user, if it exists and is valid; use `EOS_Auth_Token_Release` when finished
     */
     private func ____CopyUserAuthToken(
-        _ LocalUserId: EOS_EpicAccountId
+        _ LocalUserId: EOS_EpicAccountId?
     ) throws -> SwiftEOS_Auth_Token? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerPointerReturnedAsSwiftObject(
@@ -289,7 +289,7 @@ extension SwiftEOS_Auth_Actor {
     */
     private func ____GetLoggedInAccountByIndex(
         _ Index: Int
-    ) throws -> EOS_EpicAccountId {
+    ) throws -> EOS_EpicAccountId? {
         try withPointerManager { pointerManager in
             try withTransformed(
                 value: Index,
@@ -325,7 +325,7 @@ extension SwiftEOS_Auth_Actor {
     - Returns: The enum value of a user's login status
     */
     private func ____GetLoginStatus(
-        _ LocalUserId: EOS_EpicAccountId
+        _ LocalUserId: EOS_EpicAccountId?
     ) -> EOS_ELoginStatus {
         withPointerManager { pointerManager in
             EOS_Auth_GetLoginStatus(

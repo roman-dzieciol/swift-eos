@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
-    public let Handle: EOS_HActiveSession
+    public let Handle: EOS_HActiveSession?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HActiveSession
+        Handle: EOS_HActiveSession?
     ) {
         self.Handle = Handle
     }
@@ -41,7 +41,7 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
     */
     public func GetRegisteredPlayerByIndex(
         PlayerIndex: Int
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try ____GetRegisteredPlayerByIndex(.init(PlayerIndex: PlayerIndex))
     }
 
@@ -94,7 +94,7 @@ extension SwiftEOS_ActiveSession_Actor {
     */
     private func ____GetRegisteredPlayerByIndex(
         _ Options: SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexOptions
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_ActiveSession_GetRegisteredPlayerByIndex(

@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetAchievementsInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetAchievementsInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetAchievementsInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetAchievementsInterface = nil }
             

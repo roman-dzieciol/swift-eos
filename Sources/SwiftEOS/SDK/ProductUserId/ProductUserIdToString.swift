@@ -15,7 +15,7 @@ This string will be no larger than `EOS_PRODUCTUSERID_MAX_LENGTH` + 1 and will o
 - Returns: The buffer into which the character data should be written
 */
 public func SwiftEOS_ProductUserId_ToString(
-    AccountId: EOS_ProductUserId
+    AccountId: EOS_ProductUserId?
 ) throws -> String? {
     try withPointerManager { pointerManager in
         try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in

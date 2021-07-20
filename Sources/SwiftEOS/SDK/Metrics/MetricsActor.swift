@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Metrics_Actor: SwiftEOSActor {
-    public let Handle: EOS_HMetrics
+    public let Handle: EOS_HMetrics?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HMetrics
+        Handle: EOS_HMetrics?
     ) {
         self.Handle = Handle
     }

@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
-    public let Handle: EOS_HPlayerDataStorage
+    public let Handle: EOS_HPlayerDataStorage?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HPlayerDataStorage
+        Handle: EOS_HPlayerDataStorage?
     ) {
         self.Handle = Handle
     }
@@ -195,7 +195,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
         ReadFileDataCallback: EOS_PlayerDataStorage_OnReadFileDataCallback?,
         FileTransferProgressCallback: EOS_PlayerDataStorage_OnFileTransferProgressCallback?,
         CompletionCallback: @escaping (SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo) -> Void
-    ) throws -> EOS_HPlayerDataStorageFileTransferRequest {
+    ) throws -> EOS_HPlayerDataStorageFileTransferRequest? {
         try ____ReadFile(
             .init(
                 LocalUserId: LocalUserId,
@@ -229,7 +229,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
         WriteFileDataCallback: EOS_PlayerDataStorage_OnWriteFileDataCallback?,
         FileTransferProgressCallback: EOS_PlayerDataStorage_OnFileTransferProgressCallback?,
         CompletionCallback: @escaping (SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo) -> Void
-    ) throws -> EOS_HPlayerDataStorageFileTransferRequest {
+    ) throws -> EOS_HPlayerDataStorageFileTransferRequest? {
         try ____WriteFile(
             .init(
                 LocalUserId: LocalUserId,
@@ -452,7 +452,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     private func ____ReadFile(
         _ ReadOptions: SwiftEOS_PlayerDataStorage_ReadFileOptions?,
         _ CompletionCallback: @escaping (SwiftEOS_PlayerDataStorage_ReadFileCallbackInfo) -> Void
-    ) throws -> EOS_HPlayerDataStorageFileTransferRequest {
+    ) throws -> EOS_HPlayerDataStorageFileTransferRequest? {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
                 try withSdkObjectPointerFromSwiftObject(ReadOptions, managedBy: pointerManager) { ReadOptions in
@@ -478,7 +478,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     private func ____WriteFile(
         _ WriteOptions: SwiftEOS_PlayerDataStorage_WriteFileOptions?,
         _ CompletionCallback: @escaping (SwiftEOS_PlayerDataStorage_WriteFileCallbackInfo) -> Void
-    ) throws -> EOS_HPlayerDataStorageFileTransferRequest {
+    ) throws -> EOS_HPlayerDataStorageFileTransferRequest? {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
                 try withSdkObjectPointerFromSwiftObject(WriteOptions, managedBy: pointerManager) { WriteOptions in

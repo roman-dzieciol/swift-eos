@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetModsInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetModsInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetModsInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetModsInterface = nil }
             

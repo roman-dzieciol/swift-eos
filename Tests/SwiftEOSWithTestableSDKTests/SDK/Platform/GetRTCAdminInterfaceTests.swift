@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetRTCAdminInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetRTCAdminInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetRTCAdminInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetRTCAdminInterface = nil }
             

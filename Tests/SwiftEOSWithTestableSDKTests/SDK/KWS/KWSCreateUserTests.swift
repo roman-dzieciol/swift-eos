@@ -19,7 +19,7 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_CreateUserCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             KWSUserId: nil,
                             bIsMinor: .zero
                         )))

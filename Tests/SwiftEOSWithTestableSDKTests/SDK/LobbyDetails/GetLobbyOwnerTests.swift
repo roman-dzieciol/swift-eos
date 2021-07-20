@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyDetails_GetLobbyOwnerTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETLOBBYOWNER_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetLobbyOwner")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_LobbyDetails_GetLobbyOwner = nil }
             
@@ -26,7 +26,7 @@ public class SwiftEOS_LobbyDetails_GetLobbyOwnerTests: XCTestCase {
             let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_ProductUserId = try object.GetLobbyOwner()
+            let result: EOS_ProductUserId? = try object.GetLobbyOwner()
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetLobbyOwner", "EOS_LobbyDetails_Release"])

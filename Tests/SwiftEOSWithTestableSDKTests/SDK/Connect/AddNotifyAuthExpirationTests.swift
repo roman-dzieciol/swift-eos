@@ -15,7 +15,7 @@ public class SwiftEOS_Connect_AddNotifyAuthExpirationTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 Notification?(TestGlobals.current.pointer(object: _tagEOS_Connect_AuthExpirationCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Connect_AddNotifyAuthExpiration")
                 return .zero

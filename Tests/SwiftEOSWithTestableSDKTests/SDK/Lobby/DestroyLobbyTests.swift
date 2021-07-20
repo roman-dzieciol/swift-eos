@@ -18,7 +18,7 @@ public class SwiftEOS_Lobby_DestroyLobbyTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_DestroyLobbyCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LobbyId: TestGlobals.current.pointer(string: .empty)
+                            LobbyId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_DestroyLobby")
             }

@@ -16,7 +16,7 @@ public class SwiftEOS_EpicAccountId_IsValidTests: XCTestCase {
             defer { __on_EOS_EpicAccountId_IsValid = nil }
             
             // When SDK function is called
-            let result: Bool = try SwiftEOS_EpicAccountId_IsValid(AccountId: .nonZeroPointer)
+            let result: Bool = try SwiftEOS_EpicAccountId_IsValid(AccountId: nil)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_IsValid"])

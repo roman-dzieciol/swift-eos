@@ -20,7 +20,7 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
     - Note: ``EOS/_tagEOS_Connect_QueryProductUserIdMappingsOptions/ProductUserIdCount``:
     Number of Product User IDs to query.
     */
-    public let ProductUserIds: [EOS_ProductUserId]?
+    public let ProductUserIds: [EOS_ProductUserId?]?
 
     /**
     Returns SDK Object initialized with values from this object
@@ -67,7 +67,7 @@ public struct SwiftEOS_Connect_QueryProductUserIdMappingsOptions: SwiftEOSObject
         ApiVersion: Int32 = EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
         AccountIdType_DEPRECATED: EOS_EExternalAccountType,
-        ProductUserIds: [EOS_ProductUserId]?
+        ProductUserIds: [EOS_ProductUserId?]?
     ) {
         self.ApiVersion = ApiVersion
         self.LocalUserId = LocalUserId

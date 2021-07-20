@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetMetricsInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetMetricsInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetMetricsInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetMetricsInterface = nil }
             

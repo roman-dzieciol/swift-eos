@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_PlayerDataStorageFileTransferRequest_Actor: SwiftEOSActor {
-    public let Handle: EOS_HPlayerDataStorageFileTransferRequest
+    public let Handle: EOS_HPlayerDataStorageFileTransferRequest?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HPlayerDataStorageFileTransferRequest
+        Handle: EOS_HPlayerDataStorageFileTransferRequest?
     ) {
         self.Handle = Handle
     }

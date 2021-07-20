@@ -20,9 +20,9 @@ public class SwiftEOS_RTCAudio_UpdateReceivingTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_UpdateReceivingCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
-                            ParticipantId: .nonZeroPointer,
+                            ParticipantId: nil,
                             bAudioEnabled: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_RTCAudio_UpdateReceiving")

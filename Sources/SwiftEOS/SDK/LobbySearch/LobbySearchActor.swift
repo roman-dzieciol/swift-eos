@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
-    public let Handle: EOS_HLobbySearch
+    public let Handle: EOS_HLobbySearch?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HLobbySearch
+        Handle: EOS_HLobbySearch?
     ) {
         self.Handle = Handle
     }

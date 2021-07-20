@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetLeaderboardsInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetLeaderboardsInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetLeaderboardsInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetLeaderboardsInterface = nil }
             

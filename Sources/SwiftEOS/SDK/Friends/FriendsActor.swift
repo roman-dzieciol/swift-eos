@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Friends_Actor: SwiftEOSActor {
-    public let Handle: EOS_HFriends
+    public let Handle: EOS_HFriends?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HFriends
+        Handle: EOS_HFriends?
     ) {
         self.Handle = Handle
     }
@@ -62,7 +62,7 @@ public class SwiftEOS_Friends_Actor: SwiftEOSActor {
     public func GetFriendAtIndex(
         LocalUserId: EOS_EpicAccountId?,
         Index: Int
-    ) throws -> EOS_EpicAccountId {
+    ) throws -> EOS_EpicAccountId? {
         try ____GetFriendAtIndex(.init(
                 LocalUserId: LocalUserId,
                 Index: Index
@@ -231,7 +231,7 @@ extension SwiftEOS_Friends_Actor {
     */
     private func ____GetFriendAtIndex(
         _ Options: SwiftEOS_Friends_GetFriendAtIndexOptions
-    ) throws -> EOS_EpicAccountId {
+    ) throws -> EOS_EpicAccountId? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_Friends_GetFriendAtIndex(

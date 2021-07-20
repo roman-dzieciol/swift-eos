@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
-    public let Handle: EOS_HSanctions
+    public let Handle: EOS_HSanctions?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HSanctions
+        Handle: EOS_HSanctions?
     ) {
         self.Handle = Handle
     }

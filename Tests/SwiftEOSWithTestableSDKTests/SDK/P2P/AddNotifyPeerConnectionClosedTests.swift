@@ -17,8 +17,8 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionClosedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 ConnectionClosedHandler?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnRemoteConnectionClosedInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            RemoteUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            RemoteUserId: nil,
                             SocketId: nil,
                             Reason: .zero
                         )))

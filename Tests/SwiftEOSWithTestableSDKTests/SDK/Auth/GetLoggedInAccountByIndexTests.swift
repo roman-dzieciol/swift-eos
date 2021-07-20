@@ -12,7 +12,7 @@ public class SwiftEOS_Auth_GetLoggedInAccountByIndexTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Index, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountByIndex")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Auth_GetLoggedInAccountByIndex = nil }
             
@@ -20,7 +20,7 @@ public class SwiftEOS_Auth_GetLoggedInAccountByIndexTests: XCTestCase {
             let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_EpicAccountId = try object.GetLoggedInAccountByIndex(Index: .zero)
+            let result: EOS_EpicAccountId? = try object.GetLoggedInAccountByIndex(Index: .zero)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountByIndex"])

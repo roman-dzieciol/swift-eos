@@ -17,8 +17,8 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionRequestTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 ConnectionRequestHandler?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnIncomingConnectionRequestInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            RemoteUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            RemoteUserId: nil,
                             SocketId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_P2P_AddNotifyPeerConnectionRequest")

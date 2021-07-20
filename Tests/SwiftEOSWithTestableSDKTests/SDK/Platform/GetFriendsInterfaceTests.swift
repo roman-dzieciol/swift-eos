@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetFriendsInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetFriendsInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetFriendsInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetFriendsInterface = nil }
             

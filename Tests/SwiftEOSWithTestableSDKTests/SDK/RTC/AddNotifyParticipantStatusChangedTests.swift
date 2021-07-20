@@ -17,9 +17,9 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_ParticipantStatusChangedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
-                            ParticipantId: .nonZeroPointer,
+                            ParticipantId: nil,
                             ParticipantStatus: .zero,
                             ParticipantMetadataCount: .zero,
                             ParticipantMetadata: nil

@@ -17,7 +17,7 @@ public class SwiftEOS_TitleStorage_DeleteCacheTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_TitleStorage_DeleteCacheCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_TitleStorage_DeleteCache")
                 return .zero

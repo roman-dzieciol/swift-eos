@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_SessionModification_Actor: SwiftEOSActor {
-    public let Handle: EOS_HSessionModification
+    public let Handle: EOS_HSessionModification?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HSessionModification
+        Handle: EOS_HSessionModification?
     ) {
         self.Handle = Handle
     }

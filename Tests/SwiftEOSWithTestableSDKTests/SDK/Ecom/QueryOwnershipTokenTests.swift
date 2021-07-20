@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_QueryOwnershipTokenTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_QueryOwnershipTokenCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             OwnershipToken: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_QueryOwnershipToken")

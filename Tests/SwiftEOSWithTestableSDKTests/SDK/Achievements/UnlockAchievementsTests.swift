@@ -19,7 +19,7 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            UserId: .nonZeroPointer,
+                            UserId: nil,
                             AchievementsCount: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_UnlockAchievements")

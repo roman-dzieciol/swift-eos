@@ -16,8 +16,8 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_LobbyInviteAcceptedCallbackInfo(
                             ClientData: ClientData,
                             InviteId: nil,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            TargetUserId: nil,
                             LobbyId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteAccepted")

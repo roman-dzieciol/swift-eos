@@ -19,7 +19,7 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexTests: XCTestCase 
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_GETREGISTEREDPLAYERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PlayerIndex, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerByIndex")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_ActiveSession_GetRegisteredPlayerByIndex = nil }
             
@@ -27,7 +27,7 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexTests: XCTestCase 
             let object: SwiftEOS_ActiveSession_Actor = SwiftEOS_ActiveSession_Actor(Handle: .nonZeroPointer)
             
             // When SDK function is called
-            let result: EOS_ProductUserId = try object.GetRegisteredPlayerByIndex(PlayerIndex: .zero)
+            let result: EOS_ProductUserId? = try object.GetRegisteredPlayerByIndex(PlayerIndex: .zero)
             
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerByIndex", "EOS_ActiveSession_Release"])

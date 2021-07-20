@@ -18,8 +18,8 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            TargetUserId: .nonZeroPointer,
-                            LocalUserId: .nonZeroPointer
+                            TargetUserId: nil,
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions")
             }

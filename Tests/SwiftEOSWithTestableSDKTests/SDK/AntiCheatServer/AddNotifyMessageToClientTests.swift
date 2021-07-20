@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyMessageToClientTests: XCTestCase 
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo(
                             ClientData: ClientData,
-                            ClientHandle: .nonZeroPointer,
+                            ClientHandle: nil,
                             MessageData: nil,
                             MessageDataSizeBytes: .zero
                         )))

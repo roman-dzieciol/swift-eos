@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetSessionsInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetSessionsInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetSessionsInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetSessionsInterface = nil }
             

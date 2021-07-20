@@ -18,8 +18,8 @@ public class SwiftEOS_Connect_LoginTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_LoginCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            ContinuanceToken: .nonZeroPointer
+                            LocalUserId: nil,
+                            ContinuanceToken: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Connect_Login")
             }

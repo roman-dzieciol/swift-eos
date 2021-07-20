@@ -17,7 +17,7 @@ public class SwiftEOS_PlayerDataStorage_QueryFileListTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_QueryFileListCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             FileCount: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_QueryFileList")

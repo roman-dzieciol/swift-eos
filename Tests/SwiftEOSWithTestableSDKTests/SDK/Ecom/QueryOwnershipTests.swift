@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_QueryOwnershipTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_QueryOwnershipCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             ItemOwnership: nil,
                             ItemOwnershipCount: .zero
                         )))

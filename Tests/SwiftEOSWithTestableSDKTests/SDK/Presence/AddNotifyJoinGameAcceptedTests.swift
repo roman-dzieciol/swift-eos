@@ -16,8 +16,8 @@ public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Presence_JoinGameAcceptedCallbackInfo(
                             ClientData: ClientData,
                             JoinInfo: nil,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            TargetUserId: nil,
                             UiEventId: .zero
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Presence_AddNotifyJoinGameAccepted")

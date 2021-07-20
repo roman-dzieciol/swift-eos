@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetEcomInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetEcomInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetEcomInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetEcomInterface = nil }
             

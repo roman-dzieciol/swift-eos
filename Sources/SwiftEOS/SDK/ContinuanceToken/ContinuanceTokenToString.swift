@@ -17,7 +17,7 @@ Call again with valid params to get the stringified continuance token which will
 - Returns: The buffer into which the character data should be written
 */
 public func SwiftEOS_ContinuanceToken_ToString(
-    ContinuanceToken: EOS_ContinuanceToken
+    ContinuanceToken: EOS_ContinuanceToken?
 ) throws -> String? {
     try withPointerManager { pointerManager in
         try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in

@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetTitleStorageInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetTitleStorageInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetTitleStorageInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetTitleStorageInterface = nil }
             

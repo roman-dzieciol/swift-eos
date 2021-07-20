@@ -18,7 +18,7 @@ public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
                 CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_TitleStorage_QueryFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer
+                            LocalUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_TitleStorage_QueryFile")
             }

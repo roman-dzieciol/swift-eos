@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_CheckoutCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             TransactionId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_Checkout")

@@ -17,8 +17,8 @@ public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_RTCRoomConnectionChangedCallbackInfo(
                             ClientData: ClientData,
-                            LobbyId: TestGlobals.current.pointer(string: .empty),
-                            LocalUserId: .nonZeroPointer,
+                            LobbyId: nil,
+                            LocalUserId: nil,
                             bIsConnected: .zero,
                             DisconnectReason: .zero
                         )))

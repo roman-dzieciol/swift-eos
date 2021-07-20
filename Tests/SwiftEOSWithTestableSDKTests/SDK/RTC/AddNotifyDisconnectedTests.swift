@@ -18,7 +18,7 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_DisconnectedCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_RTC_AddNotifyDisconnected")

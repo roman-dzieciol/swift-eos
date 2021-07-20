@@ -19,7 +19,7 @@ public class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Auth_LinkAccountCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             PinGrantInfo: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Auth_LinkAccount")

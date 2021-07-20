@@ -18,8 +18,8 @@ public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Presence_QueryPresenceCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer
+                            LocalUserId: nil,
+                            TargetUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Presence_QueryPresence")
             }

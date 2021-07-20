@@ -22,8 +22,8 @@ public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Stats_OnQueryStatsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer
+                            LocalUserId: nil,
+                            TargetUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Stats_QueryStats")
             }

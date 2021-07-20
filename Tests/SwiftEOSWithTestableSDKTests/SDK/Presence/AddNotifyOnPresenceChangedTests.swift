@@ -15,8 +15,8 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 NotificationHandler?(TestGlobals.current.pointer(object: _tagEOS_Presence_PresenceChangedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
-                            PresenceUserId: .nonZeroPointer
+                            LocalUserId: nil,
+                            PresenceUserId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Presence_AddNotifyOnPresenceChanged")
                 return .zero

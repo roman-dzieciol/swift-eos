@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Platform_Actor: SwiftEOSActor {
-    public let Handle: EOS_HPlatform
+    public let Handle: EOS_HPlatform?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HPlatform
+        Handle: EOS_HPlatform?
     ) {
         self.Handle = Handle
     }
@@ -54,7 +54,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_COUNTRYCODE_MAX_LENGTH`.
     */
     public func GetActiveCountryCode(
-        LocalUserId: EOS_EpicAccountId
+        LocalUserId: EOS_EpicAccountId?
     ) throws -> String? {
         try ____GetActiveCountryCode(LocalUserId)
     }
@@ -75,7 +75,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_LOCALECODE_MAX_LENGTH`.
     */
     public func GetActiveLocaleCode(
-        LocalUserId: EOS_EpicAccountId
+        LocalUserId: EOS_EpicAccountId?
     ) throws -> String? {
         try ____GetActiveLocaleCode(LocalUserId)
     }
@@ -452,7 +452,7 @@ extension SwiftEOS_Platform_Actor {
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_COUNTRYCODE_MAX_LENGTH`.
     */
     private func ____GetActiveCountryCode(
-        _ LocalUserId: EOS_EpicAccountId
+        _ LocalUserId: EOS_EpicAccountId?
     ) throws -> String? {
         try withPointerManager { pointerManager in
             try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
@@ -481,7 +481,7 @@ extension SwiftEOS_Platform_Actor {
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_LOCALECODE_MAX_LENGTH`.
     */
     private func ____GetActiveLocaleCode(
-        _ LocalUserId: EOS_EpicAccountId
+        _ LocalUserId: EOS_EpicAccountId?
     ) throws -> String? {
         try withPointerManager { pointerManager in
             try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in

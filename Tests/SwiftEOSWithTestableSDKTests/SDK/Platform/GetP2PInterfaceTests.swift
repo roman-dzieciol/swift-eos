@@ -17,7 +17,7 @@ public class SwiftEOS_Platform_GetP2PInterfaceTests: XCTestCase {
             __on_EOS_Platform_GetP2PInterface = { Handle in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetP2PInterface")
-                return .nonZeroPointer
+                return nil
             }
             defer { __on_EOS_Platform_GetP2PInterface = nil }
             

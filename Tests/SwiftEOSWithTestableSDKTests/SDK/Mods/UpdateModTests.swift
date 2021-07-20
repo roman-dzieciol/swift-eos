@@ -17,7 +17,7 @@ public class SwiftEOS_Mods_UpdateModTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Mods_UpdateModCallbackInfo(
                             ResultCode: .zero,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             ClientData: ClientData,
                             Mod: nil
                         )))

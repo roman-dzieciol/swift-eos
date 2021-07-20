@@ -17,9 +17,9 @@ public class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedTests: XCTestCase {
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_ParticipantUpdatedCallbackInfo(
                             ClientData: ClientData,
-                            LocalUserId: .nonZeroPointer,
+                            LocalUserId: nil,
                             RoomName: nil,
-                            ParticipantId: .nonZeroPointer,
+                            ParticipantId: nil,
                             bSpeaking: .zero,
                             AudioStatus: .zero
                         )))

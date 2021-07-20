@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
-    public let Handle: EOS_HTitleStorage
+    public let Handle: EOS_HTitleStorage?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HTitleStorage
+        Handle: EOS_HTitleStorage?
     ) {
         self.Handle = Handle
     }
@@ -152,7 +152,7 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
         ReadFileDataCallback: EOS_TitleStorage_OnReadFileDataCallback?,
         FileTransferProgressCallback: EOS_TitleStorage_OnFileTransferProgressCallback?,
         CompletionCallback: @escaping (SwiftEOS_TitleStorage_ReadFileCallbackInfo) -> Void
-    ) throws -> EOS_HTitleStorageFileTransferRequest {
+    ) throws -> EOS_HTitleStorageFileTransferRequest? {
         try ____ReadFile(
             .init(
                 LocalUserId: LocalUserId,
@@ -328,7 +328,7 @@ extension SwiftEOS_TitleStorage_Actor {
     private func ____ReadFile(
         _ Options: SwiftEOS_TitleStorage_ReadFileOptions,
         _ CompletionCallback: @escaping (SwiftEOS_TitleStorage_ReadFileCallbackInfo) -> Void
-    ) throws -> EOS_HTitleStorageFileTransferRequest {
+    ) throws -> EOS_HTitleStorageFileTransferRequest? {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in

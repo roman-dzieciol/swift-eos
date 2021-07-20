@@ -17,7 +17,7 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
     - Note: ``EOS/_tagEOS_Sessions_UnregisterPlayersOptions/PlayersToUnregisterCount``:
     Number of players in the array
     */
-    public let PlayersToUnregister: [EOS_ProductUserId]?
+    public let PlayersToUnregister: [EOS_ProductUserId?]?
 
     /**
     Returns SDK Object initialized with values from this object
@@ -60,7 +60,7 @@ public struct SwiftEOS_Sessions_UnregisterPlayersOptions: SwiftEOSObject {
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_UNREGISTERPLAYERS_API_LATEST,
         SessionName: String?,
-        PlayersToUnregister: [EOS_ProductUserId]?
+        PlayersToUnregister: [EOS_ProductUserId?]?
     ) {
         self.ApiVersion = ApiVersion
         self.SessionName = SessionName

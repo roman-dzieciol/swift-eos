@@ -2,11 +2,11 @@ import Foundation
 import EOSSDK
 
 public class SwiftEOS_Connect_Actor: SwiftEOSActor {
-    public let Handle: EOS_HConnect
+    public let Handle: EOS_HConnect?
 
     /** Memberwise initializer */
     public required init(
-        Handle: EOS_HConnect
+        Handle: EOS_HConnect?
     ) {
         self.Handle = Handle
     }
@@ -214,7 +214,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
         LocalUserId: EOS_ProductUserId?,
         AccountIdType: EOS_EExternalAccountType,
         TargetExternalUserId: String?
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try ____GetExternalAccountMapping(.init(
                 LocalUserId: LocalUserId,
                 AccountIdType: AccountIdType,
@@ -230,7 +230,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     */
     public func GetLoggedInUserByIndex(
         Index: Int
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try ____GetLoggedInUserByIndex(Index)
     }
 
@@ -250,7 +250,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     - Returns: the enum value of a user's login status.
     */
     public func GetLoginStatus(
-        LocalUserId: EOS_ProductUserId
+        LocalUserId: EOS_ProductUserId?
     ) -> EOS_ELoginStatus {
         ____GetLoginStatus(LocalUserId)
     }
@@ -388,7 +388,7 @@ public class SwiftEOS_Connect_Actor: SwiftEOSActor {
     public func QueryProductUserIdMappings(
         LocalUserId: EOS_ProductUserId?,
         AccountIdType_DEPRECATED: EOS_EExternalAccountType,
-        ProductUserIds: [EOS_ProductUserId]?,
+        ProductUserIds: [EOS_ProductUserId?]?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo) -> Void
     ) throws {
         try ____QueryProductUserIdMappings(
@@ -809,7 +809,7 @@ extension SwiftEOS_Connect_Actor {
     */
     private func ____GetExternalAccountMapping(
         _ Options: SwiftEOS_Connect_GetExternalAccountMappingsOptions
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
             try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_Connect_GetExternalAccountMapping(
@@ -826,7 +826,7 @@ extension SwiftEOS_Connect_Actor {
     */
     private func ____GetLoggedInUserByIndex(
         _ Index: Int
-    ) throws -> EOS_ProductUserId {
+    ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
             try withTransformed(
                 value: Index,
@@ -862,7 +862,7 @@ extension SwiftEOS_Connect_Actor {
     - Returns: the enum value of a user's login status.
     */
     private func ____GetLoginStatus(
-        _ LocalUserId: EOS_ProductUserId
+        _ LocalUserId: EOS_ProductUserId?
     ) -> EOS_ELoginStatus {
         withPointerManager { pointerManager in
             EOS_Connect_GetLoginStatus(

@@ -16,8 +16,8 @@ public class SwiftEOS_Sessions_AddNotifySessionInviteAcceptedTests: XCTestCase {
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Sessions_SessionInviteAcceptedCallbackInfo(
                             ClientData: ClientData,
                             SessionId: nil,
-                            LocalUserId: .nonZeroPointer,
-                            TargetUserId: .nonZeroPointer,
+                            LocalUserId: nil,
+                            TargetUserId: nil,
                             InviteId: nil
                         )))
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_AddNotifySessionInviteAccepted")

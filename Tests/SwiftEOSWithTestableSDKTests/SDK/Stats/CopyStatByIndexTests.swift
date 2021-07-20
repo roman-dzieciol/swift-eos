@@ -9,7 +9,7 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Stats_CopyStatByIndex = { Handle, Options, OutStat in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_COPYSTATBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.StatIndex, .zero)
@@ -20,7 +20,7 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
             defer { __on_EOS_Stats_CopyStatByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Stats_Stat? = try object.CopyStatByIndex(
@@ -32,5 +32,8 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
     }
 }

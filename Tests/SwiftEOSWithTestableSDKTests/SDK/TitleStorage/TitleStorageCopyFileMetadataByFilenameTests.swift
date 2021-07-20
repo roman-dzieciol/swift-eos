@@ -9,7 +9,7 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_CopyFileMetadataByFilename = { Handle, Options, OutMetadata in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Filename)
@@ -20,7 +20,7 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
             defer { __on_EOS_TitleStorage_CopyFileMetadataByFilename = nil }
             
             // Given Actor
-            let object: SwiftEOS_TitleStorage_Actor = SwiftEOS_TitleStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_TitleStorage_Actor = SwiftEOS_TitleStorage_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_TitleStorage_FileMetadata? = try object.CopyFileMetadataByFilename(
@@ -32,5 +32,8 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
     }
 }

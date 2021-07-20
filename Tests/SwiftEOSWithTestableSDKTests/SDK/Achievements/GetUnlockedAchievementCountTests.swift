@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_GetUnlockedAchievementCountTests: XCTestCase 
             
             // Given implementation for SDK function
             __on_EOS_Achievements_GetUnlockedAchievementCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_GetUnlockedAchievementCount")
@@ -18,7 +18,7 @@ public class SwiftEOS_Achievements_GetUnlockedAchievementCountTests: XCTestCase 
             defer { __on_EOS_Achievements_GetUnlockedAchievementCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetUnlockedAchievementCount(UserId: nil)
@@ -27,5 +27,8 @@ public class SwiftEOS_Achievements_GetUnlockedAchievementCountTests: XCTestCase 
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_GetUnlockedAchievementCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_GetUnlockedAchievementCount"])
     }
 }

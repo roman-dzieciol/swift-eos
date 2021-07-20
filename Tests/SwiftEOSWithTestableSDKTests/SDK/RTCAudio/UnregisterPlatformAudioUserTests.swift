@@ -9,7 +9,7 @@ public class SwiftEOS_RTCAudio_UnregisterPlatformAudioUserTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_UnregisterPlatformAudioUser = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_UNREGISTERPLATFORMAUDIOUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 TestGlobals.current.sdkReceived.append("EOS_RTCAudio_UnregisterPlatformAudioUser")
@@ -18,7 +18,7 @@ public class SwiftEOS_RTCAudio_UnregisterPlatformAudioUserTests: XCTestCase {
             defer { __on_EOS_RTCAudio_UnregisterPlatformAudioUser = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             try object.UnregisterPlatformAudioUser(UserId: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_RTCAudio_UnregisterPlatformAudioUserTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UnregisterPlatformAudioUser"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UnregisterPlatformAudioUser"])
     }
 }

@@ -15,7 +15,7 @@ public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PresenceModification_SetJoinInfo = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.JoinInfo)
                 TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetJoinInfo")
@@ -24,16 +24,17 @@ public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
             defer { __on_EOS_PresenceModification_SetJoinInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetJoinInfo(JoinInfo: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo", "EOS_PresenceModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo", "EOS_PresenceModification_Release"])
     }
 }

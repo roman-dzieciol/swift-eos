@@ -22,5 +22,8 @@ public class SwiftEOS_EResult_ToStringTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EResult_ToString"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EResult_ToString"])
     }
 }

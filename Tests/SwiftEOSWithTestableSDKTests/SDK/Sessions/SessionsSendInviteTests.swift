@@ -10,7 +10,7 @@ public class SwiftEOS_Sessions_SendInviteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_SendInvite = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_SENDINVITE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -25,7 +25,7 @@ public class SwiftEOS_Sessions_SendInviteTests: XCTestCase {
             defer { __on_EOS_Sessions_SendInvite = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SendInvite(
@@ -42,5 +42,8 @@ public class SwiftEOS_Sessions_SendInviteTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_SendInvite"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_SendInvite"])
     }
 }

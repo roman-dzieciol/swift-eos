@@ -15,7 +15,7 @@ public class SwiftEOS_LobbyModification_AddAttributeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbyModification_AddAttribute = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_ADDATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Attribute)
                 XCTAssertEqual(Options!.pointee.Visibility, .zero)
@@ -25,7 +25,7 @@ public class SwiftEOS_LobbyModification_AddAttributeTests: XCTestCase {
             defer { __on_EOS_LobbyModification_AddAttribute = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.AddAttribute(
@@ -34,10 +34,11 @@ public class SwiftEOS_LobbyModification_AddAttributeTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_AddAttribute", "EOS_LobbyModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_AddAttribute"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_AddAttribute", "EOS_LobbyModification_Release"])
     }
 }

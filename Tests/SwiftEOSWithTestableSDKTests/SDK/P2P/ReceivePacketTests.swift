@@ -13,7 +13,7 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_ReceivePacket = { Handle, Options, OutPeerId, OutSocketId, OutChannel, OutData, OutBytesWritten in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_RECEIVEPACKET_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.MaxDataSizeBytes, .zero)
@@ -29,7 +29,7 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
             defer { __on_EOS_P2P_ReceivePacket = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             try object.ReceivePacket(
@@ -49,5 +49,8 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
             XCTAssertNil(OutData)
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_ReceivePacket"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_ReceivePacket"])
     }
 }

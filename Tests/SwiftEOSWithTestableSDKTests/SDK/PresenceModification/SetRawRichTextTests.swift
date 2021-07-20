@@ -15,7 +15,7 @@ public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PresenceModification_SetRawRichText = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETRAWRICHTEXT_API_LATEST)
                 XCTAssertNil(Options!.pointee.RichText)
                 TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetRawRichText")
@@ -24,16 +24,17 @@ public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
             defer { __on_EOS_PresenceModification_SetRawRichText = nil }
             
             // Given Actor
-            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetRawRichText(RichText: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText", "EOS_PresenceModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText", "EOS_PresenceModification_Release"])
     }
 }

@@ -24,5 +24,8 @@ public class SwiftEOS_EpicAccountId_ToStringTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_ToString"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_ToString"])
     }
 }

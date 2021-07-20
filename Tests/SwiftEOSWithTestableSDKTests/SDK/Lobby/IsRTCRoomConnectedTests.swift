@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_IsRTCRoomConnected = { Handle, Options, bOutIsConnected in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -20,7 +20,7 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
             defer { __on_EOS_Lobby_IsRTCRoomConnected = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Bool? = try object.IsRTCRoomConnected(
@@ -32,5 +32,8 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
     }
 }

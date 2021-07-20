@@ -9,7 +9,7 @@ public class SwiftEOS_UI_IsValidKeyCombinationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_IsValidKeyCombination = { Handle, KeyCombination in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(KeyCombination, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_UI_IsValidKeyCombination")
                 return .zero
@@ -17,7 +17,7 @@ public class SwiftEOS_UI_IsValidKeyCombinationTests: XCTestCase {
             defer { __on_EOS_UI_IsValidKeyCombination = nil }
             
             // Given Actor
-            let object: SwiftEOS_UI_Actor = SwiftEOS_UI_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_UI_Actor = SwiftEOS_UI_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Bool = try object.IsValidKeyCombination(KeyCombination: .zero)
@@ -26,5 +26,8 @@ public class SwiftEOS_UI_IsValidKeyCombinationTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_IsValidKeyCombination"])
             XCTAssertEqual(result, false)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_IsValidKeyCombination"])
     }
 }

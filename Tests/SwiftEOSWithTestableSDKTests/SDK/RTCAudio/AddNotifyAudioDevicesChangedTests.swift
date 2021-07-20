@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyAudioDevicesChanged = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYAUDIODEVICESCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_AudioDevicesChangedCallbackInfo(ClientData: ClientData)))
@@ -20,7 +20,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedTests: XCTestCase {
             defer { __on_EOS_RTCAudio_AddNotifyAudioDevicesChanged = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioDevicesChangedCallbackInfo> = try object.AddNotifyAudioDevicesChanged(CompletionDelegate: { arg0 in
@@ -35,7 +35,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTCAudio_RemoveNotifyAudioDevicesChanged = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioDevicesChanged")
                 }

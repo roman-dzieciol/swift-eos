@@ -9,7 +9,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = { Handle, Options, OutLeaderboardUserScore in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardUserScoreIndex, .zero)
                 XCTAssertNil(Options!.pointee.StatName)
@@ -20,7 +20,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             defer { __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Leaderboards_LeaderboardUserScore? = try object.CopyLeaderboardUserScoreByIndex(
@@ -32,5 +32,8 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
     }
 }

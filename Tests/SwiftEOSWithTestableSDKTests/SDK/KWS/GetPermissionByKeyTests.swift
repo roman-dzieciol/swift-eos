@@ -9,7 +9,7 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_GetPermissionByKey = { Handle, Options, OutPermission in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_GETPERMISSIONBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Key)
@@ -20,7 +20,7 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
             defer { __on_EOS_KWS_GetPermissionByKey = nil }
             
             // Given Actor
-            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_EKWSPermissionStatus? = try object.GetPermissionByKey(
@@ -32,5 +32,8 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
     }
 }

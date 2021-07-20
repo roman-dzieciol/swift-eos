@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_CopyTransactionByIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyTransactionById = { Handle, Options, OutTransaction in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYTRANSACTIONBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TransactionId)
@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_CopyTransactionByIdTests: XCTestCase {
             defer { __on_EOS_Ecom_CopyTransactionById = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_Ecom_HTransaction? = try object.CopyTransactionById(
@@ -32,5 +32,8 @@ public class SwiftEOS_Ecom_CopyTransactionByIdTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyTransactionById"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyTransactionById"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByUserId = { Handle, Options, OutLeaderboardUserScore in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.StatName)
@@ -20,7 +20,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTest
             defer { __on_EOS_Leaderboards_CopyLeaderboardUserScoreByUserId = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Leaderboards_LeaderboardUserScore? = try object.CopyLeaderboardUserScoreByUserId(
@@ -32,5 +32,8 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTest
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByUserId"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByUserId"])
     }
 }

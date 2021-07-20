@@ -9,7 +9,7 @@ public class SwiftEOS_Sessions_DumpSessionStateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_DumpSessionState = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_DUMPSESSIONSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_DumpSessionState")
@@ -18,7 +18,7 @@ public class SwiftEOS_Sessions_DumpSessionStateTests: XCTestCase {
             defer { __on_EOS_Sessions_DumpSessionState = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
             try object.DumpSessionState(SessionName: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_Sessions_DumpSessionStateTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_DumpSessionState"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_DumpSessionState"])
     }
 }

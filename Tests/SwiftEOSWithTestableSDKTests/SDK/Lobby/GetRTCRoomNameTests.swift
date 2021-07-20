@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetRTCRoomName = { Handle, Options, OutBuffer, InOutBufferLength in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETRTCROOMNAME_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +21,7 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
             defer { __on_EOS_Lobby_GetRTCRoomName = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: String? = try object.GetRTCRoomName(
@@ -33,5 +33,8 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
     }
 }

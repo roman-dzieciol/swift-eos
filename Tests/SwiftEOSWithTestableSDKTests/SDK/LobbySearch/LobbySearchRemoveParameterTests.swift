@@ -15,7 +15,7 @@ public class SwiftEOS_LobbySearch_RemoveParameterTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_RemoveParameter = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_REMOVEPARAMETER_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
@@ -25,7 +25,7 @@ public class SwiftEOS_LobbySearch_RemoveParameterTests: XCTestCase {
             defer { __on_EOS_LobbySearch_RemoveParameter = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RemoveParameter(
@@ -34,10 +34,11 @@ public class SwiftEOS_LobbySearch_RemoveParameterTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_RemoveParameter", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_RemoveParameter"])
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_RemoveParameter", "EOS_LobbySearch_Release"])
     }
 }

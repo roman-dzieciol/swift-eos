@@ -9,7 +9,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdTests
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId = { Handle, Options, OutLeaderboardDefinition in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LeaderboardId)
                 XCTAssertNotNil(OutLeaderboardDefinition)
@@ -19,7 +19,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdTests
             defer { __on_EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Leaderboards_Definition? = try object.CopyLeaderboardDefinitionByLeaderboardId(LeaderboardId: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdTests
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId"])
     }
 }

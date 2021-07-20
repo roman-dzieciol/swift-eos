@@ -9,7 +9,7 @@ public class SwiftEOS_P2P_CloseConnectionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_CloseConnection = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_CLOSECONNECTION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RemoteUserId)
@@ -20,7 +20,7 @@ public class SwiftEOS_P2P_CloseConnectionTests: XCTestCase {
             defer { __on_EOS_P2P_CloseConnection = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             try object.CloseConnection(
@@ -32,5 +32,8 @@ public class SwiftEOS_P2P_CloseConnectionTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_CloseConnection"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_CloseConnection"])
     }
 }

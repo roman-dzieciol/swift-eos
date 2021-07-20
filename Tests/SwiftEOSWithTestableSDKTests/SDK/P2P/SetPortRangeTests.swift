@@ -9,7 +9,7 @@ public class SwiftEOS_P2P_SetPortRangeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_SetPortRange = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_SETPORTRANGE_API_LATEST)
                 XCTAssertEqual(Options!.pointee.Port, .zero)
                 XCTAssertEqual(Options!.pointee.MaxAdditionalPortsToTry, .zero)
@@ -19,7 +19,7 @@ public class SwiftEOS_P2P_SetPortRangeTests: XCTestCase {
             defer { __on_EOS_P2P_SetPortRange = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetPortRange(
@@ -30,5 +30,8 @@ public class SwiftEOS_P2P_SetPortRangeTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SetPortRange"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SetPortRange"])
     }
 }

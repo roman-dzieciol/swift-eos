@@ -22,5 +22,8 @@ public class SwiftEOS_ProductUserId_IsValidTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_IsValid"])
             XCTAssertEqual(result, false)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_IsValid"])
     }
 }

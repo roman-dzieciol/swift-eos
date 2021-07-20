@@ -15,7 +15,7 @@ public class SwiftEOS_LobbySearch_GetSearchResultCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_GetSearchResultCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_GetSearchResultCount")
                 return .zero
@@ -23,17 +23,18 @@ public class SwiftEOS_LobbySearch_GetSearchResultCountTests: XCTestCase {
             defer { __on_EOS_LobbySearch_GetSearchResultCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetSearchResultCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_GetSearchResultCount", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_GetSearchResultCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_GetSearchResultCount", "EOS_LobbySearch_Release"])
     }
 }

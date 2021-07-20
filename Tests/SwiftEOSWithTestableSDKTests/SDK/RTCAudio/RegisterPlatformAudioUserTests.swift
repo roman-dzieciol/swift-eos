@@ -9,7 +9,7 @@ public class SwiftEOS_RTCAudio_RegisterPlatformAudioUserTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_RegisterPlatformAudioUser = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_REGISTERPLATFORMAUDIOUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RegisterPlatformAudioUser")
@@ -18,7 +18,7 @@ public class SwiftEOS_RTCAudio_RegisterPlatformAudioUserTests: XCTestCase {
             defer { __on_EOS_RTCAudio_RegisterPlatformAudioUser = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RegisterPlatformAudioUser(UserId: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_RTCAudio_RegisterPlatformAudioUserTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_RegisterPlatformAudioUser"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_RegisterPlatformAudioUser"])
     }
 }

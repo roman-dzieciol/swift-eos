@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_GetItemReleaseCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETITEMRELEASECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
@@ -19,7 +19,7 @@ public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
             defer { __on_EOS_Ecom_GetItemReleaseCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetItemReleaseCount(
@@ -31,5 +31,8 @@ public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemReleaseCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemReleaseCount"])
     }
 }

@@ -15,23 +15,24 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_CancelRequestTests: X
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = { Handle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_CancelRequest")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: nil)
             
             // When SDK function is called
             try object.CancelRequest()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest", "EOS_PlayerDataStorageFileTransferRequest_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest"])
         }
         
         // Then
         __on_EOS_PlayerDataStorageFileTransferRequest_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest", "EOS_PlayerDataStorageFileTransferRequest_Release"])
     }
 }

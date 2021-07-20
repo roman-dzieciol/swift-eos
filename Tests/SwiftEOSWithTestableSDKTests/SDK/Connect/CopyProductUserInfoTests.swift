@@ -9,7 +9,7 @@ public class SwiftEOS_Connect_CopyProductUserInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_CopyProductUserInfo = { Handle, Options, OutExternalAccountInfo in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_COPYPRODUCTUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(OutExternalAccountInfo)
@@ -19,7 +19,7 @@ public class SwiftEOS_Connect_CopyProductUserInfoTests: XCTestCase {
             defer { __on_EOS_Connect_CopyProductUserInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Connect_ExternalAccountInfo? = try object.CopyProductUserInfo(TargetUserId: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_Connect_CopyProductUserInfoTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserInfo"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserInfo"])
     }
 }

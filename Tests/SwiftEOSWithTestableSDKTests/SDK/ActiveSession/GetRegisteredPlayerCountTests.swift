@@ -15,7 +15,7 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_ActiveSession_GetRegisteredPlayerCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_GETREGISTEREDPLAYERCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
                 return .zero
@@ -23,17 +23,18 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerCountTests: XCTestCase {
             defer { __on_EOS_ActiveSession_GetRegisteredPlayerCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_ActiveSession_Actor = SwiftEOS_ActiveSession_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_ActiveSession_Actor = SwiftEOS_ActiveSession_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetRegisteredPlayerCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount", "EOS_ActiveSession_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_ActiveSession_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount", "EOS_ActiveSession_Release"])
     }
 }

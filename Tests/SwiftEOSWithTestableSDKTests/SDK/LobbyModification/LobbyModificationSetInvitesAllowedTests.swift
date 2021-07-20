@@ -15,7 +15,7 @@ public class SwiftEOS_LobbyModification_SetInvitesAllowedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbyModification_SetInvitesAllowed = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetInvitesAllowed")
@@ -24,16 +24,17 @@ public class SwiftEOS_LobbyModification_SetInvitesAllowedTests: XCTestCase {
             defer { __on_EOS_LobbyModification_SetInvitesAllowed = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetInvitesAllowed(bInvitesAllowed: false)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed", "EOS_LobbyModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed", "EOS_LobbyModification_Release"])
     }
 }

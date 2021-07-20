@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyUnlockedAchievementByIndex = { Handle, Options, OutAchievement in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
@@ -20,7 +20,7 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
             defer { __on_EOS_Achievements_CopyUnlockedAchievementByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Achievements_UnlockedAchievement? = try object.CopyUnlockedAchievementByIndex(
@@ -32,5 +32,8 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByIndex"])
     }
 }

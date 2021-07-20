@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_RegisterEvent = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_REGISTEREVENT_API_LATEST)
                 XCTAssertEqual(Options!.pointee.EventId, .zero)
                 XCTAssertNil(Options!.pointee.EventName)
@@ -22,7 +22,7 @@ public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_RegisterEvent = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RegisterEvent(
@@ -35,5 +35,8 @@ public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_RegisterEvent"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_RegisterEvent"])
     }
 }

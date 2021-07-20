@@ -15,7 +15,7 @@ public class SwiftEOS_SessionDetails_CopyInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionDetails_CopyInfo = { Handle, Options, OutSessionInfo in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYINFO_API_LATEST)
                 XCTAssertNotNil(OutSessionInfo)
                 TestGlobals.current.sdkReceived.append("EOS_SessionDetails_CopyInfo")
@@ -24,17 +24,18 @@ public class SwiftEOS_SessionDetails_CopyInfoTests: XCTestCase {
             defer { __on_EOS_SessionDetails_CopyInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionDetails_Actor = SwiftEOS_SessionDetails_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionDetails_Actor = SwiftEOS_SessionDetails_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_SessionDetails_Info? = try object.CopyInfo()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopyInfo", "EOS_SessionDetails_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopyInfo"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_SessionDetails_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopyInfo", "EOS_SessionDetails_Release"])
     }
 }

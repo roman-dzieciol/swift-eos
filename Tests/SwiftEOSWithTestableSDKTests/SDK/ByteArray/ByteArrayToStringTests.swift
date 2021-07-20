@@ -25,5 +25,8 @@ public class SwiftEOS_ByteArray_ToStringTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ByteArray_ToString"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ByteArray_ToString"])
     }
 }

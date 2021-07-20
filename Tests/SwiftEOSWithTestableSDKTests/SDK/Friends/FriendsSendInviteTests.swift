@@ -10,7 +10,7 @@ public class SwiftEOS_Friends_SendInviteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_SendInvite = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_SENDINVITE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -26,7 +26,7 @@ public class SwiftEOS_Friends_SendInviteTests: XCTestCase {
             defer { __on_EOS_Friends_SendInvite = nil }
             
             // Given Actor
-            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SendInvite(
@@ -44,5 +44,8 @@ public class SwiftEOS_Friends_SendInviteTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_SendInvite"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_SendInvite"])
     }
 }

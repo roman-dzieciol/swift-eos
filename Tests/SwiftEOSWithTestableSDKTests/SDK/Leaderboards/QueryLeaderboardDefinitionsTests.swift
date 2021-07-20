@@ -10,7 +10,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardDefinitions = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.StartTime, .zero)
                 XCTAssertEqual(Options!.pointee.EndTime, .zero)
@@ -25,7 +25,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
             defer { __on_EOS_Leaderboards_QueryLeaderboardDefinitions = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryLeaderboardDefinitions(
@@ -42,5 +42,8 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardDefinitions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardDefinitions"])
     }
 }

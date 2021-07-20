@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTick = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST)
                 XCTAssertNil(Options!.pointee.PlayerHandle)
                 XCTAssertNil(Options!.pointee.PlayerPosition)
@@ -23,7 +23,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_LogPlayerTick = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.LogPlayerTick(
@@ -38,5 +38,8 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTick"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTick"])
     }
 }

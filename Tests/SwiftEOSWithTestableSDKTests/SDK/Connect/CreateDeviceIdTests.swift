@@ -10,7 +10,7 @@ public class SwiftEOS_Connect_CreateDeviceIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_CreateDeviceId = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_CREATEDEVICEID_API_LATEST)
                 XCTAssertNil(Options!.pointee.DeviceModel)
                 XCTAssertNotNil(ClientData)
@@ -23,7 +23,7 @@ public class SwiftEOS_Connect_CreateDeviceIdTests: XCTestCase {
             defer { __on_EOS_Connect_CreateDeviceId = nil }
             
             // Given Actor
-            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
             try object.CreateDeviceId(
@@ -38,5 +38,8 @@ public class SwiftEOS_Connect_CreateDeviceIdTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CreateDeviceId"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CreateDeviceId"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdTests: XC
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyPlayerAchievementByAchievementId = { Handle, Options, OutAchievement in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.AchievementId)
@@ -21,7 +21,7 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdTests: XC
             defer { __on_EOS_Achievements_CopyPlayerAchievementByAchievementId = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Achievements_PlayerAchievement? = try object.CopyPlayerAchievementByAchievementId(
@@ -34,5 +34,8 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdTests: XC
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyPlayerAchievementByAchievementId"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyPlayerAchievementByAchievementId"])
     }
 }

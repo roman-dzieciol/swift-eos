@@ -15,7 +15,7 @@ public class SwiftEOS_SessionSearch_SetParameterTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_SetParameter = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.Parameter)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
@@ -25,7 +25,7 @@ public class SwiftEOS_SessionSearch_SetParameterTests: XCTestCase {
             defer { __on_EOS_SessionSearch_SetParameter = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetParameter(
@@ -34,10 +34,11 @@ public class SwiftEOS_SessionSearch_SetParameterTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_SetParameter", "EOS_SessionSearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_SetParameter"])
         }
         
         // Then
         __on_EOS_SessionSearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_SetParameter", "EOS_SessionSearch_Release"])
     }
 }

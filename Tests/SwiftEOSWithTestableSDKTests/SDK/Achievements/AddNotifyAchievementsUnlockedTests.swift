@@ -10,7 +10,7 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedTests: XCTestCas
             
             // Given implementation for SDK function
             __on_EOS_Achievements_AddNotifyAchievementsUnlocked = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo(
@@ -25,7 +25,7 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedTests: XCTestCas
             defer { __on_EOS_Achievements_AddNotifyAchievementsUnlocked = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfo> = try object.AddNotifyAchievementsUnlocked(NotificationFn: { arg0 in
@@ -41,7 +41,7 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedTests: XCTestCas
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Achievements_RemoveNotifyAchievementsUnlocked = { Handle, InId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_Achievements_RemoveNotifyAchievementsUnlocked")
                 }

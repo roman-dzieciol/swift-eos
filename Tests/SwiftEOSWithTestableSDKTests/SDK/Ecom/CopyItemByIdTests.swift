@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_CopyItemByIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyItemById = { Handle, Options, OutItem in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYITEMBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_CopyItemByIdTests: XCTestCase {
             defer { __on_EOS_Ecom_CopyItemById = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Ecom_CatalogItem? = try object.CopyItemById(
@@ -32,5 +32,8 @@ public class SwiftEOS_Ecom_CopyItemByIdTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyItemById"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyItemById"])
     }
 }

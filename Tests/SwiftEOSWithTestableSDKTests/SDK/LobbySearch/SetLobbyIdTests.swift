@@ -15,7 +15,7 @@ public class SwiftEOS_LobbySearch_SetLobbyIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_SetLobbyId = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETLOBBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_SetLobbyId")
@@ -24,16 +24,17 @@ public class SwiftEOS_LobbySearch_SetLobbyIdTests: XCTestCase {
             defer { __on_EOS_LobbySearch_SetLobbyId = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetLobbyId(LobbyId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetLobbyId", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetLobbyId"])
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetLobbyId", "EOS_LobbySearch_Release"])
     }
 }

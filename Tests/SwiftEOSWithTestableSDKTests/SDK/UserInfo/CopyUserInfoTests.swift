@@ -9,7 +9,7 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyUserInfo = { Handle, Options, OutUserInfo in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_COPYUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -20,7 +20,7 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
             defer { __on_EOS_UserInfo_CopyUserInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_UserInfo? = try object.CopyUserInfo(
@@ -32,5 +32,8 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyUserInfo"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyUserInfo"])
     }
 }

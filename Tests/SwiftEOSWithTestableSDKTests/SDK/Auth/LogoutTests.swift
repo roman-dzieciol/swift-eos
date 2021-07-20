@@ -10,7 +10,7 @@ public class SwiftEOS_Auth_LogoutTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_Logout = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_LOGOUT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
@@ -24,7 +24,7 @@ public class SwiftEOS_Auth_LogoutTests: XCTestCase {
             defer { __on_EOS_Auth_Logout = nil }
             
             // Given Actor
-            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: nil)
             
             // When SDK function is called
             try object.Logout(
@@ -40,5 +40,8 @@ public class SwiftEOS_Auth_LogoutTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_Logout"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_Logout"])
     }
 }

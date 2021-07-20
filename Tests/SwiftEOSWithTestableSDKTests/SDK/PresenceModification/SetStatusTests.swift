@@ -15,7 +15,7 @@ public class SwiftEOS_PresenceModification_SetStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PresenceModification_SetStatus = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.Status, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetStatus")
@@ -24,16 +24,17 @@ public class SwiftEOS_PresenceModification_SetStatusTests: XCTestCase {
             defer { __on_EOS_PresenceModification_SetStatus = nil }
             
             // Given Actor
-            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetStatus(Status: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetStatus", "EOS_PresenceModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetStatus"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetStatus", "EOS_PresenceModification_Release"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_CopyLobbyDetailsHandleByUiEventId = { Handle, Options, OutLobbyDetailsHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertNotNil(OutLobbyDetailsHandle)
@@ -19,7 +19,7 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             defer { __on_EOS_Lobby_CopyLobbyDetailsHandleByUiEventId = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HLobbyDetails? = try object.CopyLobbyDetailsHandleByUiEventId(UiEventId: .zero)
@@ -28,5 +28,8 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
     }
 }

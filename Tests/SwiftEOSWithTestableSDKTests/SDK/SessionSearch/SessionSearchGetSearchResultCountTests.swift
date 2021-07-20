@@ -15,7 +15,7 @@ public class SwiftEOS_SessionSearch_GetSearchResultCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_GetSearchResultCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_SessionSearch_GetSearchResultCount")
                 return .zero
@@ -23,17 +23,18 @@ public class SwiftEOS_SessionSearch_GetSearchResultCountTests: XCTestCase {
             defer { __on_EOS_SessionSearch_GetSearchResultCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetSearchResultCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount", "EOS_SessionSearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_SessionSearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount", "EOS_SessionSearch_Release"])
     }
 }

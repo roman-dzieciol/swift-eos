@@ -9,7 +9,7 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_CopyUserTokenByUserId = { Handle, Options, OutUserToken in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.QueryId, .zero)
@@ -20,7 +20,7 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
             defer { __on_EOS_RTCAdmin_CopyUserTokenByUserId = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAdmin_Actor = SwiftEOS_RTCAdmin_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAdmin_Actor = SwiftEOS_RTCAdmin_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_RTCAdmin_UserToken? = try object.CopyUserTokenByUserId(
@@ -32,5 +32,8 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByUserId"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByUserId"])
     }
 }

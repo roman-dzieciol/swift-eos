@@ -20,5 +20,8 @@ public class SwiftEOS_ShutdownTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Shutdown"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Shutdown"])
     }
 }

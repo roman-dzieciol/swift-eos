@@ -9,7 +9,7 @@ public class SwiftEOS_Connect_GetLoginStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetLoginStatus = { Handle, LocalUserId in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertNil(LocalUserId)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_GetLoginStatus")
                 return .zero
@@ -17,7 +17,7 @@ public class SwiftEOS_Connect_GetLoginStatusTests: XCTestCase {
             defer { __on_EOS_Connect_GetLoginStatus = nil }
             
             // Given Actor
-            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_Connect_GetLoginStatusTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogGameRoundStart = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGGAMEROUNDSTART_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionIdentifier)
                 XCTAssertNil(Options!.pointee.LevelName)
@@ -21,7 +21,7 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_LogGameRoundStart = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.LogGameRoundStart(
@@ -34,5 +34,8 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundStart"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundStart"])
     }
 }

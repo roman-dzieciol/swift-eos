@@ -9,7 +9,7 @@ public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Mods_CopyModInfo = { Handle, Options, OutEnumeratedMods in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_COPYMODINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Type, .zero)
@@ -20,7 +20,7 @@ public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
             defer { __on_EOS_Mods_CopyModInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_Mods_Actor = SwiftEOS_Mods_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Mods_Actor = SwiftEOS_Mods_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Mods_ModInfo? = try object.CopyModInfo(
@@ -32,5 +32,8 @@ public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_CopyModInfo"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_CopyModInfo"])
     }
 }

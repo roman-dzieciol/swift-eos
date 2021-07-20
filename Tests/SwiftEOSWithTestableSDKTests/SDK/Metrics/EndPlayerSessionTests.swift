@@ -9,7 +9,7 @@ public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Metrics_EndPlayerSession = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_METRICS_ENDPLAYERSESSION_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.AccountId.Epic)
@@ -20,7 +20,7 @@ public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
             defer { __on_EOS_Metrics_EndPlayerSession = nil }
             
             // Given Actor
-            let object: SwiftEOS_Metrics_Actor = SwiftEOS_Metrics_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Metrics_Actor = SwiftEOS_Metrics_Actor(Handle: nil)
             
             // When SDK function is called
             try object.EndPlayerSession(
@@ -31,5 +31,8 @@ public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
     }
 }

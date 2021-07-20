@@ -10,7 +10,7 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_AddNotifyLobbyInviteAccepted = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_LobbyInviteAcceptedCallbackInfo(
@@ -26,7 +26,7 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
             defer { __on_EOS_Lobby_AddNotifyLobbyInviteAccepted = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfo> = try object.AddNotifyLobbyInviteAccepted(NotificationFn: { arg0 in
@@ -44,7 +44,7 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Lobby_RemoveNotifyLobbyInviteAccepted = { Handle, InId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyInviteAccepted")
                 }

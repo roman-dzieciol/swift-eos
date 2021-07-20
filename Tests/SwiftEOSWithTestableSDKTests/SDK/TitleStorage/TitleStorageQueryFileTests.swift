@@ -10,7 +10,7 @@ public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_QueryFile = { Handle, Options, ClientData, CompletionCallback in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_QUERYFILEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Filename)
@@ -25,7 +25,7 @@ public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
             defer { __on_EOS_TitleStorage_QueryFile = nil }
             
             // Given Actor
-            let object: SwiftEOS_TitleStorage_Actor = SwiftEOS_TitleStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_TitleStorage_Actor = SwiftEOS_TitleStorage_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryFile(
@@ -42,5 +42,8 @@ public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_QueryFile"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_QueryFile"])
     }
 }

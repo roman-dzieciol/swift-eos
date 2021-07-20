@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseWeaponTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerUseWeapon = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST)
                 XCTAssertNil(Options!.pointee.UseWeaponData)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerUseWeapon")
@@ -18,7 +18,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseWeaponTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_LogPlayerUseWeapon = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.LogPlayerUseWeapon(UseWeaponData: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseWeaponTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseWeapon"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseWeapon"])
     }
 }

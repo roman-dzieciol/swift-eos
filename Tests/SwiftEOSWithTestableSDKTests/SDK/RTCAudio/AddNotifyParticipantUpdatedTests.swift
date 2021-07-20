@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyParticipantUpdated = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYPARTICIPANTUPDATED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -29,7 +29,7 @@ public class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedTests: XCTestCase {
             defer { __on_EOS_RTCAudio_AddNotifyParticipantUpdated = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_RTCAudio_ParticipantUpdatedCallbackInfo> = try object.AddNotifyParticipantUpdated(
@@ -52,7 +52,7 @@ public class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTCAudio_RemoveNotifyParticipantUpdated = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyParticipantUpdated")
                 }

@@ -10,7 +10,7 @@ public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Stats_IngestStat = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_INGESTSTAT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Stats)
@@ -28,7 +28,7 @@ public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
             defer { __on_EOS_Stats_IngestStat = nil }
             
             // Given Actor
-            let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: nil)
             
             // When SDK function is called
             try object.IngestStat(
@@ -47,5 +47,8 @@ public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_IngestStat"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_IngestStat"])
     }
 }

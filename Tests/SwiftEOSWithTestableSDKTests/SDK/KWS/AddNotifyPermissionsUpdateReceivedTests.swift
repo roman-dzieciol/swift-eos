@@ -10,7 +10,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_AddNotifyPermissionsUpdateReceived = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_KWS_PermissionsUpdateReceivedCallbackInfo(
@@ -23,7 +23,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
             defer { __on_EOS_KWS_AddNotifyPermissionsUpdateReceived = nil }
             
             // Given Actor
-            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_KWS_PermissionsUpdateReceivedCallbackInfo> = try object.AddNotifyPermissionsUpdateReceived(NotificationFn: { arg0 in
@@ -38,7 +38,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_KWS_RemoveNotifyPermissionsUpdateReceived = { Handle, InId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_KWS_RemoveNotifyPermissionsUpdateReceived")
                 }

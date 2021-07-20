@@ -10,7 +10,7 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_VerifyUserAuth = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_VERIFYUSERAUTH_API_LATEST)
                 XCTAssertNil(Options!.pointee.AuthToken)
                 XCTAssertNotNil(ClientData)
@@ -23,7 +23,7 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
             defer { __on_EOS_Auth_VerifyUserAuth = nil }
             
             // Given Actor
-            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: nil)
             
             // When SDK function is called
             try object.VerifyUserAuth(
@@ -38,5 +38,8 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
     }
 }

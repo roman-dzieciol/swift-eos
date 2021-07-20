@@ -10,7 +10,7 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_AddNotifyParticipantStatusChanged = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_ADDNOTIFYPARTICIPANTSTATUSCHANGED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -30,7 +30,7 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
             defer { __on_EOS_RTC_AddNotifyParticipantStatusChanged = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_RTC_ParticipantStatusChangedCallbackInfo> = try object.AddNotifyParticipantStatusChanged(
@@ -53,7 +53,7 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTC_RemoveNotifyParticipantStatusChanged = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_RTC_RemoveNotifyParticipantStatusChanged")
                 }

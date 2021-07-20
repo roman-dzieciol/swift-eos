@@ -9,7 +9,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexTests: XCTestCase
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardRecordByIndex = { Handle, Options, OutLeaderboardRecord in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardRecordIndex, .zero)
                 XCTAssertNotNil(OutLeaderboardRecord)
@@ -19,7 +19,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexTests: XCTestCase
             defer { __on_EOS_Leaderboards_CopyLeaderboardRecordByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Leaderboards_LeaderboardRecord? = try object.CopyLeaderboardRecordByIndex(LeaderboardRecordIndex: .zero)
@@ -28,5 +28,8 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexTests: XCTestCase
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardRecordByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardRecordByIndex"])
     }
 }

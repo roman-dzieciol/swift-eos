@@ -22,5 +22,8 @@ public class SwiftEOS_EpicAccountId_IsValidTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_IsValid"])
             XCTAssertEqual(result, false)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EpicAccountId_IsValid"])
     }
 }

@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioInputStateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyAudioInputState = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYAUDIOINPUTSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -27,7 +27,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioInputStateTests: XCTestCase {
             defer { __on_EOS_RTCAudio_AddNotifyAudioInputState = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioInputStateCallbackInfo> = try object.AddNotifyAudioInputState(
@@ -48,7 +48,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioInputStateTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTCAudio_RemoveNotifyAudioInputState = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioInputState")
                 }

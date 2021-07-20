@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_SetClientNetworkStateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_SetClientNetworkState = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_SETCLIENTNETWORKSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.bIsNetworkActive, .zero)
@@ -19,7 +19,7 @@ public class SwiftEOS_AntiCheatServer_SetClientNetworkStateTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_SetClientNetworkState = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetClientNetworkState(
@@ -30,5 +30,8 @@ public class SwiftEOS_AntiCheatServer_SetClientNetworkStateTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_SetClientNetworkState"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_SetClientNetworkState"])
     }
 }

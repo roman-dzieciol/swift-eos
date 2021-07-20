@@ -10,7 +10,7 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Achievements_UnlockAchievements = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_UNLOCKACHIEVEMENTS_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.AchievementIds)
@@ -27,7 +27,7 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
             defer { __on_EOS_Achievements_UnlockAchievements = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             try object.UnlockAchievements(
@@ -45,5 +45,8 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_UnlockAchievements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_UnlockAchievements"])
     }
 }

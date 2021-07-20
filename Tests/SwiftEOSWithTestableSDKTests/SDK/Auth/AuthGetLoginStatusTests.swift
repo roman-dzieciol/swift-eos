@@ -9,7 +9,7 @@ public class SwiftEOS_Auth_GetLoginStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_GetLoginStatus = { Handle, LocalUserId in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertNil(LocalUserId)
                 TestGlobals.current.sdkReceived.append("EOS_Auth_GetLoginStatus")
                 return .zero
@@ -17,7 +17,7 @@ public class SwiftEOS_Auth_GetLoginStatusTests: XCTestCase {
             defer { __on_EOS_Auth_GetLoginStatus = nil }
             
             // Given Actor
-            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_Auth_GetLoginStatusTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoginStatus"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoginStatus"])
     }
 }

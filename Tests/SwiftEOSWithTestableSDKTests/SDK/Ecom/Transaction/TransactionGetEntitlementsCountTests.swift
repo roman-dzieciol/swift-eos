@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Transaction_GetEntitlementsCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_TRANSACTION_GETENTITLEMENTSCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_Transaction_GetEntitlementsCount")
                 return .zero
@@ -17,7 +17,7 @@ public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
             defer { __on_EOS_Ecom_Transaction_GetEntitlementsCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.Transaction_GetEntitlementsCount()
@@ -26,5 +26,8 @@ public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_GetEntitlementsCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_GetEntitlementsCount"])
     }
 }

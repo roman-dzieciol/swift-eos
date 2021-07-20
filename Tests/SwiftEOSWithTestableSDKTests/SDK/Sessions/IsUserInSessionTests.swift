@@ -9,7 +9,7 @@ public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_IsUserInSession = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ISUSERINSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -19,7 +19,7 @@ public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
             defer { __on_EOS_Sessions_IsUserInSession = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
             try object.IsUserInSession(
@@ -30,5 +30,8 @@ public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_IsUserInSession"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_IsUserInSession"])
     }
 }

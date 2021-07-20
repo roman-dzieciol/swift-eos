@@ -9,7 +9,7 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyExternalUserInfoByIndex = { Handle, Options, OutExternalUserInfo in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_COPYEXTERNALUSERINFOBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -21,7 +21,7 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByIndexTests: XCTestCase {
             defer { __on_EOS_UserInfo_CopyExternalUserInfoByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_UserInfo_ExternalUserInfo? = try object.CopyExternalUserInfoByIndex(
@@ -34,5 +34,8 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByIndexTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByIndex"])
     }
 }

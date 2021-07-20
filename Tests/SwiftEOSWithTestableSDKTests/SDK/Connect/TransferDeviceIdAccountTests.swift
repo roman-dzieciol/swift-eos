@@ -10,7 +10,7 @@ public class SwiftEOS_Connect_TransferDeviceIdAccountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_TransferDeviceIdAccount = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_TRANSFERDEVICEIDACCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.PrimaryLocalUserId)
                 XCTAssertNil(Options!.pointee.LocalDeviceUserId)
@@ -26,7 +26,7 @@ public class SwiftEOS_Connect_TransferDeviceIdAccountTests: XCTestCase {
             defer { __on_EOS_Connect_TransferDeviceIdAccount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
             try object.TransferDeviceIdAccount(
@@ -44,5 +44,8 @@ public class SwiftEOS_Connect_TransferDeviceIdAccountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_TransferDeviceIdAccount"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_TransferDeviceIdAccount"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Sessions_UpdateSessionModificationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_UpdateSessionModification = { Handle, Options, OutSessionModificationHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_UPDATESESSIONMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNotNil(OutSessionModificationHandle)
@@ -19,7 +19,7 @@ public class SwiftEOS_Sessions_UpdateSessionModificationTests: XCTestCase {
             defer { __on_EOS_Sessions_UpdateSessionModification = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HSessionModification? = try object.UpdateSessionModification(SessionName: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_Sessions_UpdateSessionModificationTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_UpdateSessionModification"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_UpdateSessionModification"])
     }
 }

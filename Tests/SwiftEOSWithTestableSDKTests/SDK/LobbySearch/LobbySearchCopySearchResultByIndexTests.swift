@@ -15,7 +15,7 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_CopySearchResultByIndex = { Handle, Options, OutLobbyDetailsHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LobbyIndex, .zero)
                 XCTAssertNotNil(OutLobbyDetailsHandle)
@@ -25,17 +25,18 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
             defer { __on_EOS_LobbySearch_CopySearchResultByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HLobbyDetails? = try object.CopySearchResultByIndex(LobbyIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex", "EOS_LobbySearch_Release"])
     }
 }

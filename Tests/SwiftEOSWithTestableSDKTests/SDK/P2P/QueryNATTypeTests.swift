@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_QueryNATType = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_QUERYNATTYPE_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnQueryNATTypeCompleteInfo(
@@ -23,7 +23,7 @@ public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
             defer { __on_EOS_P2P_QueryNATType = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryNATType(CompletionDelegate: { arg0 in
@@ -36,5 +36,8 @@ public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_QueryNATType"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_QueryNATType"])
     }
 }

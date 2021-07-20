@@ -10,7 +10,7 @@ public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Stats_QueryStats = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_QUERYSTATS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.StartTime, .zero)
@@ -30,7 +30,7 @@ public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
             defer { __on_EOS_Stats_QueryStats = nil }
             
             // Given Actor
-            let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryStats(
@@ -51,5 +51,8 @@ public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_QueryStats"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_QueryStats"])
     }
 }

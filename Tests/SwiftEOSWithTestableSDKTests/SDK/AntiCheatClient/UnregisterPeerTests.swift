@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatClient_UnregisterPeerTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_UnregisterPeer = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_UNREGISTERPEER_API_LATEST)
                 XCTAssertNil(Options!.pointee.PeerHandle)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_UnregisterPeer")
@@ -18,7 +18,7 @@ public class SwiftEOS_AntiCheatClient_UnregisterPeerTests: XCTestCase {
             defer { __on_EOS_AntiCheatClient_UnregisterPeer = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: nil)
             
             // When SDK function is called
             try object.UnregisterPeer(PeerHandle: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_AntiCheatClient_UnregisterPeerTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_UnregisterPeer"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_UnregisterPeer"])
     }
 }

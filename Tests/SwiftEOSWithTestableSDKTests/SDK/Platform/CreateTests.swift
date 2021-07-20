@@ -54,5 +54,8 @@ public class SwiftEOS_Platform_CreateTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_Create"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_Create"])
     }
 }

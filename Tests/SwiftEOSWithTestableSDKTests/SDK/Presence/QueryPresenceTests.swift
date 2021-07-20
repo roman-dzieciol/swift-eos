@@ -10,7 +10,7 @@ public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_QueryPresence = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_QUERYPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -26,7 +26,7 @@ public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
             defer { __on_EOS_Presence_QueryPresence = nil }
             
             // Given Actor
-            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryPresence(
@@ -44,5 +44,8 @@ public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_QueryPresence"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_QueryPresence"])
     }
 }

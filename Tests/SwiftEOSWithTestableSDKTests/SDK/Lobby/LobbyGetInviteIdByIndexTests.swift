@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_GetInviteIdByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetInviteIdByIndex = { Handle, Options, OutBuffer, InOutBufferLength in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETINVITEIDBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
@@ -21,7 +21,7 @@ public class SwiftEOS_Lobby_GetInviteIdByIndexTests: XCTestCase {
             defer { __on_EOS_Lobby_GetInviteIdByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: String? = try object.GetInviteIdByIndex(
@@ -33,5 +33,8 @@ public class SwiftEOS_Lobby_GetInviteIdByIndexTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetInviteIdByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetInviteIdByIndex"])
     }
 }

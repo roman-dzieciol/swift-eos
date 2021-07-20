@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_AddNotifyClientActionRequired = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTACTIONREQUIRED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo(
@@ -26,7 +26,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredTests: XCTest
             defer { __on_EOS_AntiCheatServer_AddNotifyClientActionRequired = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientActionRequiredCallbackInfo> = try object.AddNotifyClientActionRequired(NotificationFn: { arg0 in
@@ -44,7 +44,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredTests: XCTest
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatServer_RemoveNotifyClientActionRequired = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyClientActionRequired")
                 }

@@ -10,7 +10,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTAUTHSTATUSCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo(
@@ -24,7 +24,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
             defer { __on_EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo> = try object.AddNotifyClientAuthStatusChanged(NotificationFn: { arg0 in
@@ -40,7 +40,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged")
                 }

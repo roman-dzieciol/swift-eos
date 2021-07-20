@@ -9,7 +9,7 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_SendPacket = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_SENDPACKET_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RemoteUserId)
@@ -25,7 +25,7 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
             defer { __on_EOS_P2P_SendPacket = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SendPacket(
@@ -41,5 +41,8 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SendPacket"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SendPacket"])
     }
 }

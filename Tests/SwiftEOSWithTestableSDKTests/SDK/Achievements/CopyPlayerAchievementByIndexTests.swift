@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByIndexTests: XCTestCase
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyPlayerAchievementByIndex = { Handle, Options, OutAchievement in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
@@ -21,7 +21,7 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByIndexTests: XCTestCase
             defer { __on_EOS_Achievements_CopyPlayerAchievementByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Achievements_PlayerAchievement? = try object.CopyPlayerAchievementByIndex(
@@ -34,5 +34,8 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByIndexTests: XCTestCase
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyPlayerAchievementByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyPlayerAchievementByIndex"])
     }
 }

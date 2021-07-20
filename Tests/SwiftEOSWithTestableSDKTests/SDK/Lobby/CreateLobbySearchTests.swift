@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_CreateLobbySearchTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_CreateLobbySearch = { Handle, Options, OutLobbySearchHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxResults, .zero)
                 XCTAssertNotNil(OutLobbySearchHandle)
@@ -19,7 +19,7 @@ public class SwiftEOS_Lobby_CreateLobbySearchTests: XCTestCase {
             defer { __on_EOS_Lobby_CreateLobbySearch = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HLobbySearch? = try object.CreateLobbySearch(MaxResults: .zero)
@@ -28,5 +28,8 @@ public class SwiftEOS_Lobby_CreateLobbySearchTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CreateLobbySearch"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CreateLobbySearch"])
     }
 }

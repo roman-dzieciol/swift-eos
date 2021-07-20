@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_RegisterPeer = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST)
                 XCTAssertNil(Options!.pointee.PeerHandle)
                 XCTAssertEqual(Options!.pointee.ClientType, .zero)
@@ -22,7 +22,7 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
             defer { __on_EOS_AntiCheatClient_RegisterPeer = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RegisterPeer(
@@ -36,5 +36,8 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_RegisterPeer"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_RegisterPeer"])
     }
 }

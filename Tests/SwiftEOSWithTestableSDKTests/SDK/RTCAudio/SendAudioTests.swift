@@ -9,7 +9,7 @@ public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_SendAudio = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_SENDAUDIO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -20,7 +20,7 @@ public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
             defer { __on_EOS_RTCAudio_SendAudio = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SendAudio(
@@ -32,5 +32,8 @@ public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
     }
 }

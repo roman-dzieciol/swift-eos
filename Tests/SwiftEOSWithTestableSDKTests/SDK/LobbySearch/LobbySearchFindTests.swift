@@ -16,7 +16,7 @@ public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_Find = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_FIND_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
@@ -29,7 +29,7 @@ public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
             defer { __on_EOS_LobbySearch_Find = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.Find(
@@ -41,11 +41,12 @@ public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_Find", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_Find"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_Find", "EOS_LobbySearch_Release"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_GetInviteCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetInviteCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETINVITECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_GetInviteCount")
@@ -18,7 +18,7 @@ public class SwiftEOS_Lobby_GetInviteCountTests: XCTestCase {
             defer { __on_EOS_Lobby_GetInviteCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetInviteCount(LocalUserId: nil)
@@ -27,5 +27,8 @@ public class SwiftEOS_Lobby_GetInviteCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetInviteCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetInviteCount"])
     }
 }

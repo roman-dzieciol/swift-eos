@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_GetProtectMessageOutputLength = { Handle, Options, OutBufferLengthBytes in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNotNil(OutBufferLengthBytes)
@@ -19,7 +19,7 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
             defer { __on_EOS_AntiCheatClient_GetProtectMessageOutputLength = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int? = try object.GetProtectMessageOutputLength(DataLengthBytes: .zero)
@@ -28,5 +28,8 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
     }
 }

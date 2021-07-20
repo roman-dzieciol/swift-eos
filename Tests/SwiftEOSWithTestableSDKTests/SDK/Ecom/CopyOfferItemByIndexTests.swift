@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyOfferItemByIndex = { Handle, Options, OutItem in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYOFFERITEMBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
@@ -21,7 +21,7 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
             defer { __on_EOS_Ecom_CopyOfferItemByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Ecom_CatalogItem? = try object.CopyOfferItemByIndex(
@@ -34,5 +34,8 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyOfferItemByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyOfferItemByIndex"])
     }
 }

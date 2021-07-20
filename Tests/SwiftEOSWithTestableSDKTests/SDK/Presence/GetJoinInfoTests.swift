@@ -9,7 +9,7 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_GetJoinInfo = { Handle, Options, OutBuffer, InOutBufferLength in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_GETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -21,7 +21,7 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
             defer { __on_EOS_Presence_GetJoinInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
             let result: String? = try object.GetJoinInfo(
@@ -33,5 +33,8 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
     }
 }

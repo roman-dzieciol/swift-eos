@@ -15,7 +15,7 @@ public class SwiftEOS_SessionModification_RemoveAttributeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_RemoveAttribute = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
                 TestGlobals.current.sdkReceived.append("EOS_SessionModification_RemoveAttribute")
@@ -24,16 +24,17 @@ public class SwiftEOS_SessionModification_RemoveAttributeTests: XCTestCase {
             defer { __on_EOS_SessionModification_RemoveAttribute = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RemoveAttribute(Key: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_RemoveAttribute", "EOS_SessionModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_RemoveAttribute"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_RemoveAttribute", "EOS_SessionModification_Release"])
     }
 }

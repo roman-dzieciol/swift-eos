@@ -10,7 +10,7 @@ public class SwiftEOS_Lobby_DestroyLobbyTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_DestroyLobby = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_DESTROYLOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.LobbyId)
@@ -25,7 +25,7 @@ public class SwiftEOS_Lobby_DestroyLobbyTests: XCTestCase {
             defer { __on_EOS_Lobby_DestroyLobby = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             try object.DestroyLobby(
@@ -42,5 +42,8 @@ public class SwiftEOS_Lobby_DestroyLobbyTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_DestroyLobby"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_DestroyLobby"])
     }
 }

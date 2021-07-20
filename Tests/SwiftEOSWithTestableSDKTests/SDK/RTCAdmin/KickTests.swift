@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAdmin_KickTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_Kick = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_KICK_API_LATEST)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -24,7 +24,7 @@ public class SwiftEOS_RTCAdmin_KickTests: XCTestCase {
             defer { __on_EOS_RTCAdmin_Kick = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAdmin_Actor = SwiftEOS_RTCAdmin_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAdmin_Actor = SwiftEOS_RTCAdmin_Actor(Handle: nil)
             
             // When SDK function is called
             try object.Kick(
@@ -40,5 +40,8 @@ public class SwiftEOS_RTCAdmin_KickTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_Kick"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_Kick"])
     }
 }

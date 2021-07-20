@@ -10,7 +10,7 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_QueryOffers = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_QUERYOFFERS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OverrideCatalogNamespace)
@@ -25,7 +25,7 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             defer { __on_EOS_Ecom_QueryOffers = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryOffers(
@@ -42,5 +42,8 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
     }
 }

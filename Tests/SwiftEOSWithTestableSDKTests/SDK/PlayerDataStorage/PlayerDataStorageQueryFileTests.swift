@@ -10,7 +10,7 @@ public class SwiftEOS_PlayerDataStorage_QueryFileTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_QueryFile = { Handle, QueryFileOptions, ClientData, CompletionCallback in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(QueryFileOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_QUERYFILEOPTIONS_API_LATEST)
                 XCTAssertNil(QueryFileOptions!.pointee.LocalUserId)
                 XCTAssertNil(QueryFileOptions!.pointee.Filename)
@@ -25,7 +25,7 @@ public class SwiftEOS_PlayerDataStorage_QueryFileTests: XCTestCase {
             defer { __on_EOS_PlayerDataStorage_QueryFile = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryFile(
@@ -42,5 +42,8 @@ public class SwiftEOS_PlayerDataStorage_QueryFileTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_QueryFile"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_QueryFile"])
     }
 }

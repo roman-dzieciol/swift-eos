@@ -10,7 +10,7 @@ public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_QueryFriends = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_QUERYFRIENDS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
@@ -24,7 +24,7 @@ public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
             defer { __on_EOS_Friends_QueryFriends = nil }
             
             // Given Actor
-            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryFriends(
@@ -40,5 +40,8 @@ public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_QueryFriends"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_QueryFriends"])
     }
 }

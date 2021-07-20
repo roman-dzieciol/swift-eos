@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionByIndexTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyAchievementDefinitionByIndex = { Handle, Options, OutDefinition in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYDEFINITIONBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNotNil(OutDefinition)
@@ -19,7 +19,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionByIndexTests: XCTest
             defer { __on_EOS_Achievements_CopyAchievementDefinitionByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Achievements_Definition? = try object.CopyAchievementDefinitionByIndex(AchievementIndex: .zero)
@@ -28,5 +28,8 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionByIndexTests: XCTest
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionByIndex"])
     }
 }

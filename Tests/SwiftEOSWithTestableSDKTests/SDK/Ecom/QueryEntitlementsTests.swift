@@ -10,7 +10,7 @@ public class SwiftEOS_Ecom_QueryEntitlementsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_QueryEntitlements = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_QUERYENTITLEMENTS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.EntitlementNames)
@@ -27,7 +27,7 @@ public class SwiftEOS_Ecom_QueryEntitlementsTests: XCTestCase {
             defer { __on_EOS_Ecom_QueryEntitlements = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryEntitlements(
@@ -45,5 +45,8 @@ public class SwiftEOS_Ecom_QueryEntitlementsTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryEntitlements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryEntitlements"])
     }
 }

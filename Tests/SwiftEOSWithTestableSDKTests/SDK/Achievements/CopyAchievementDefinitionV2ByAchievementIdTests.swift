@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = { Handle, Options, OutDefinition in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.AchievementId)
                 XCTAssertNotNil(OutDefinition)
@@ -19,7 +19,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             defer { __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Achievements_DefinitionV2? = try object.CopyAchievementDefinitionV2ByAchievementId(AchievementId: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_CreateSessionModification = { Handle, Options, OutSessionModificationHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_CREATESESSIONMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.BucketId)
@@ -24,7 +24,7 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             defer { __on_EOS_Sessions_CreateSessionModification = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HSessionModification? = try object.CreateSessionModification(
@@ -40,5 +40,8 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CreateSessionModification"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CreateSessionModification"])
     }
 }

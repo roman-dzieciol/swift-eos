@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_CopyEntitlementByIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyEntitlementById = { Handle, Options, OutEntitlement in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYENTITLEMENTBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.EntitlementId)
@@ -20,7 +20,7 @@ public class SwiftEOS_Ecom_CopyEntitlementByIdTests: XCTestCase {
             defer { __on_EOS_Ecom_CopyEntitlementById = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Ecom_Entitlement? = try object.CopyEntitlementById(
@@ -32,5 +32,8 @@ public class SwiftEOS_Ecom_CopyEntitlementByIdTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyEntitlementById"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyEntitlementById"])
     }
 }

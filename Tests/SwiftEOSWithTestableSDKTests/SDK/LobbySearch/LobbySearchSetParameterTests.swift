@@ -15,7 +15,7 @@ public class SwiftEOS_LobbySearch_SetParameterTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_SetParameter = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETPARAMETER_API_LATEST)
                 XCTAssertNil(Options!.pointee.Parameter)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
@@ -25,7 +25,7 @@ public class SwiftEOS_LobbySearch_SetParameterTests: XCTestCase {
             defer { __on_EOS_LobbySearch_SetParameter = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetParameter(
@@ -34,10 +34,11 @@ public class SwiftEOS_LobbySearch_SetParameterTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetParameter", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetParameter"])
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetParameter", "EOS_LobbySearch_Release"])
     }
 }

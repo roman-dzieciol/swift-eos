@@ -9,7 +9,7 @@ public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_CopySessionHandleForPresence = { Handle, Options, OutSessionHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(OutSessionHandle)
@@ -19,7 +19,7 @@ public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
             defer { __on_EOS_Sessions_CopySessionHandleForPresence = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HSessionDetails? = try object.CopySessionHandleForPresence(LocalUserId: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CopySessionHandleForPresence"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CopySessionHandleForPresence"])
     }
 }

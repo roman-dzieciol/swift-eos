@@ -10,7 +10,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteCacheTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_DeleteCache = { Handle, Options, ClientData, CompletionCallback in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_DELETECACHEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
@@ -25,7 +25,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteCacheTests: XCTestCase {
             defer { __on_EOS_PlayerDataStorage_DeleteCache = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
             try object.DeleteCache(
@@ -41,5 +41,8 @@ public class SwiftEOS_PlayerDataStorage_DeleteCacheTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteCache"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteCache"])
     }
 }

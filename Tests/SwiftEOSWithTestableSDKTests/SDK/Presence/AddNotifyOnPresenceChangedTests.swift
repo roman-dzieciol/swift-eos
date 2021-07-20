@@ -10,7 +10,7 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_AddNotifyOnPresenceChanged = { Handle, Options, ClientData, NotificationHandler in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationHandler?(TestGlobals.current.pointer(object: _tagEOS_Presence_PresenceChangedCallbackInfo(
@@ -24,7 +24,7 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
             defer { __on_EOS_Presence_AddNotifyOnPresenceChanged = nil }
             
             // Given Actor
-            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_Presence_PresenceChangedCallbackInfo> = try object.AddNotifyOnPresenceChanged(NotificationHandler: { arg0 in
@@ -40,7 +40,7 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Presence_RemoveNotifyOnPresenceChanged = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_Presence_RemoveNotifyOnPresenceChanged")
                 }

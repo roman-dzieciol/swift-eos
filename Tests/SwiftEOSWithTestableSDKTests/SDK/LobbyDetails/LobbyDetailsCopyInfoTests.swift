@@ -15,7 +15,7 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_CopyInfo = { Handle, Options, OutLobbyDetailsInfo in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYINFO_API_LATEST)
                 XCTAssertNotNil(OutLobbyDetailsInfo)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyInfo")
@@ -24,17 +24,18 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
             defer { __on_EOS_LobbyDetails_CopyInfo = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_LobbyDetails_Info? = try object.CopyInfo()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo", "EOS_LobbyDetails_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo", "EOS_LobbyDetails_Release"])
     }
 }

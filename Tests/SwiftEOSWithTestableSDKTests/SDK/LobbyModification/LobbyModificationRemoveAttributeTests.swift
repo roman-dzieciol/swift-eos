@@ -15,7 +15,7 @@ public class SwiftEOS_LobbyModification_RemoveAttributeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbyModification_RemoveAttribute = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_REMOVEATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_RemoveAttribute")
@@ -24,16 +24,17 @@ public class SwiftEOS_LobbyModification_RemoveAttributeTests: XCTestCase {
             defer { __on_EOS_LobbyModification_RemoveAttribute = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RemoveAttribute(Key: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_RemoveAttribute", "EOS_LobbyModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_RemoveAttribute"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_RemoveAttribute", "EOS_LobbyModification_Release"])
     }
 }

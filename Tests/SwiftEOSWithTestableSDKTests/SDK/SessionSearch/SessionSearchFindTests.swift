@@ -16,7 +16,7 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_Find = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
@@ -29,7 +29,7 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
             defer { __on_EOS_SessionSearch_Find = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.Find(
@@ -41,11 +41,12 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_Find", "EOS_SessionSearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_Find"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
         __on_EOS_SessionSearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_Find", "EOS_SessionSearch_Release"])
     }
 }

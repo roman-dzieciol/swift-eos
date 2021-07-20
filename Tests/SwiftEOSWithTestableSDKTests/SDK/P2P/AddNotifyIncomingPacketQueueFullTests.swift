@@ -10,7 +10,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_AddNotifyIncomingPacketQueueFull = { Handle, Options, ClientData, IncomingPacketQueueFullHandler in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 IncomingPacketQueueFullHandler?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnIncomingPacketQueueFullInfo(
@@ -27,7 +27,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
             defer { __on_EOS_P2P_AddNotifyIncomingPacketQueueFull = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_P2P_OnIncomingPacketQueueFullInfo> = try object.AddNotifyIncomingPacketQueueFull(IncomingPacketQueueFullHandler: { arg0 in
@@ -46,7 +46,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_P2P_RemoveNotifyIncomingPacketQueueFull = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_P2P_RemoveNotifyIncomingPacketQueueFull")
                 }

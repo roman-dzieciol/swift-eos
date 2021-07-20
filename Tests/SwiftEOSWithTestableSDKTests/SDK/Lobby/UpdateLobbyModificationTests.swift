@@ -9,7 +9,7 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_UpdateLobbyModification = { Handle, Options, OutLobbyModificationHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.LobbyId)
@@ -20,7 +20,7 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
             defer { __on_EOS_Lobby_UpdateLobbyModification = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HLobbyModification? = try object.UpdateLobbyModification(
@@ -32,5 +32,8 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_UpdateLobbyModification"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_UpdateLobbyModification"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_UnprotectMessageTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_UnprotectMessage = { Handle, Options, OutBuffer, OutBufferLengthBytes in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_UNPROTECTMESSAGE_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
@@ -23,7 +23,7 @@ public class SwiftEOS_AntiCheatServer_UnprotectMessageTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_UnprotectMessage = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             let result: [UInt8]? = try object.UnprotectMessage(
@@ -36,5 +36,8 @@ public class SwiftEOS_AntiCheatServer_UnprotectMessageTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnprotectMessage"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnprotectMessage"])
     }
 }

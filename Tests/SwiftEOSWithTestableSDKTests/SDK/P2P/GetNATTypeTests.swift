@@ -9,7 +9,7 @@ public class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_GetNATType = { Handle, Options, OutNATType in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETNATTYPE_API_LATEST)
                 XCTAssertNotNil(OutNATType)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_GetNATType")
@@ -18,7 +18,7 @@ public class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
             defer { __on_EOS_P2P_GetNATType = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_ENATType? = try object.GetNATType()
@@ -27,5 +27,8 @@ public class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_GetNATType"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_GetNATType"])
     }
 }

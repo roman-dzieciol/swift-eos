@@ -9,7 +9,7 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_CopyFileMetadataByFilename = { Handle, CopyFileMetadataOptions, OutMetadata in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(CopyFileMetadataOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.LocalUserId)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.Filename)
@@ -20,7 +20,7 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
             defer { __on_EOS_PlayerDataStorage_CopyFileMetadataByFilename = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_PlayerDataStorage_FileMetadata? = try object.CopyFileMetadataByFilename(
@@ -32,5 +32,8 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataByFilename"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataByFilename"])
     }
 }

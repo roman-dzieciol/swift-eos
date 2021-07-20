@@ -9,7 +9,7 @@ public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_GetFileMetadataCount = { Handle, GetFileMetadataCountOptions, OutFileMetadataCount in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(GetFileMetadataCountOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST)
                 XCTAssertNil(GetFileMetadataCountOptions!.pointee.LocalUserId)
                 XCTAssertNotNil(OutFileMetadataCount)
@@ -19,7 +19,7 @@ public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
             defer { __on_EOS_PlayerDataStorage_GetFileMetadataCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int? = try object.GetFileMetadataCount(LocalUserId: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_GetFileMetadataCount"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_GetFileMetadataCount"])
     }
 }

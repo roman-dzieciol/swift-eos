@@ -15,7 +15,7 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_AddAttribute = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionAttribute)
                 XCTAssertEqual(Options!.pointee.AdvertisementType, .zero)
@@ -25,7 +25,7 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
             defer { __on_EOS_SessionModification_AddAttribute = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.AddAttribute(
@@ -34,10 +34,11 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_AddAttribute", "EOS_SessionModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_AddAttribute"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_AddAttribute", "EOS_SessionModification_Release"])
     }
 }

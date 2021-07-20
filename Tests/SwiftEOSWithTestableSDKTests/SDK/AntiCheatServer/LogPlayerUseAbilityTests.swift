@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerUseAbility = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERUSEABILITY_API_LATEST)
                 XCTAssertNil(Options!.pointee.PlayerHandle)
                 XCTAssertEqual(Options!.pointee.AbilityId, .zero)
@@ -21,7 +21,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_LogPlayerUseAbility = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.LogPlayerUseAbility(
@@ -34,5 +34,8 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseAbility"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseAbility"])
     }
 }

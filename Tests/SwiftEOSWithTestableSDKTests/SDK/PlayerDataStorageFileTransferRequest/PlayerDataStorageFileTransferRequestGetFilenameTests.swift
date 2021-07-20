@@ -15,7 +15,7 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFilenameTests: XCT
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
                 XCTAssertNotNil(OutStringBuffer)
                 XCTAssertNotNil(OutStringLength)
@@ -25,17 +25,18 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFilenameTests: XCT
             defer { __on_EOS_PlayerDataStorageFileTransferRequest_GetFilename = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: nil)
             
             // When SDK function is called
             let result: String? = try object.GetFilename(FilenameStringBufferSizeBytes: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFilename", "EOS_PlayerDataStorageFileTransferRequest_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFilename"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_PlayerDataStorageFileTransferRequest_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFilename", "EOS_PlayerDataStorageFileTransferRequest_Release"])
     }
 }

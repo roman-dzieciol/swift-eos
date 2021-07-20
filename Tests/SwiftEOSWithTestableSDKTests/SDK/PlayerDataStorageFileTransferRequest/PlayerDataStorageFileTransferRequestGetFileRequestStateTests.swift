@@ -15,23 +15,24 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFileRequestStateTe
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState = { Handle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: nil)
             
             // When SDK function is called
             try object.GetFileRequestState()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState", "EOS_PlayerDataStorageFileTransferRequest_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState"])
         }
         
         // Then
         __on_EOS_PlayerDataStorageFileTransferRequest_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState", "EOS_PlayerDataStorageFileTransferRequest_Release"])
     }
 }

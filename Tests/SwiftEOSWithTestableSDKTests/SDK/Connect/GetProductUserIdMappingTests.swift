@@ -9,7 +9,7 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetProductUserIdMapping = { Handle, Options, OutBuffer, InOutBufferLength in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_GETPRODUCTUSERIDMAPPING_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
@@ -22,7 +22,7 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             defer { __on_EOS_Connect_GetProductUserIdMapping = nil }
             
             // Given Actor
-            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
             let result: String? = try object.GetProductUserIdMapping(
@@ -35,5 +35,8 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
     }
 }

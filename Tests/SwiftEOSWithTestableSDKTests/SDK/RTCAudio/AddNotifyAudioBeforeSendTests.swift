@@ -10,7 +10,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyAudioBeforeSend = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYAUDIOBEFORESEND_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -27,7 +27,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendTests: XCTestCase {
             defer { __on_EOS_RTCAudio_AddNotifyAudioBeforeSend = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_RTCAudio_AudioBeforeSendCallbackInfo> = try object.AddNotifyAudioBeforeSend(
@@ -48,7 +48,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTCAudio_RemoveNotifyAudioBeforeSend = { Handle, NotificationId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioBeforeSend")
                 }

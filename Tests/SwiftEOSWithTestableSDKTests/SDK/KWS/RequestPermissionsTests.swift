@@ -10,7 +10,7 @@ public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_RequestPermissions = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_REQUESTPERMISSIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.PermissionKeyCount, .zero)
@@ -26,7 +26,7 @@ public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
             defer { __on_EOS_KWS_RequestPermissions = nil }
             
             // Given Actor
-            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: nil)
             
             // When SDK function is called
             try object.RequestPermissions(
@@ -43,5 +43,8 @@ public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_RequestPermissions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_RequestPermissions"])
     }
 }

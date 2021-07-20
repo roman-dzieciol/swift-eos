@@ -15,7 +15,7 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_CopySearchResultByIndex = { Handle, Options, OutSessionHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.SessionIndex, .zero)
                 XCTAssertNotNil(OutSessionHandle)
@@ -25,17 +25,18 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexTests: XCTestCase {
             defer { __on_EOS_SessionSearch_CopySearchResultByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HSessionDetails? = try object.CopySearchResultByIndex(SessionIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_CopySearchResultByIndex", "EOS_SessionSearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_CopySearchResultByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_SessionSearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_CopySearchResultByIndex", "EOS_SessionSearch_Release"])
     }
 }

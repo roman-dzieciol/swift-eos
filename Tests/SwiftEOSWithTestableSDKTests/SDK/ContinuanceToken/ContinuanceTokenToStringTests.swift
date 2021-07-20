@@ -24,5 +24,8 @@ public class SwiftEOS_ContinuanceToken_ToStringTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ContinuanceToken_ToString"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ContinuanceToken_ToString"])
     }
 }

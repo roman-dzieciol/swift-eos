@@ -10,7 +10,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_DeleteFile = { Handle, DeleteOptions, ClientData, CompletionCallback in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(DeleteOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_DELETEFILEOPTIONS_API_LATEST)
                 XCTAssertNil(DeleteOptions!.pointee.LocalUserId)
                 XCTAssertNil(DeleteOptions!.pointee.Filename)
@@ -25,7 +25,7 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
             defer { __on_EOS_PlayerDataStorage_DeleteFile = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
             try object.DeleteFile(
@@ -42,5 +42,8 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteFile"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteFile"])
     }
 }

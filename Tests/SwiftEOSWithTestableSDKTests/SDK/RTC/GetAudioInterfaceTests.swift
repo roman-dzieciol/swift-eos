@@ -9,14 +9,14 @@ public class SwiftEOS_RTC_GetAudioInterfaceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_GetAudioInterface = { Handle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 TestGlobals.current.sdkReceived.append("EOS_RTC_GetAudioInterface")
                 return nil
             }
             defer { __on_EOS_RTC_GetAudioInterface = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HRTCAudio? = object.GetAudioInterface()
@@ -25,5 +25,8 @@ public class SwiftEOS_RTC_GetAudioInterfaceTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_GetAudioInterface"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_GetAudioInterface"])
     }
 }

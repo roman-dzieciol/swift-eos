@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_UnregisterClient = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_UNREGISTERCLIENT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
@@ -18,7 +18,7 @@ public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_UnregisterClient = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.UnregisterClient(ClientHandle: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
     }
 }

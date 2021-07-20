@@ -15,7 +15,7 @@ public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PresenceModification_DeleteData = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST)
                 XCTAssertEqual(Options!.pointee.RecordsCount, .zero)
                 XCTAssertNil(Options!.pointee.Records)
@@ -25,16 +25,17 @@ public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
             defer { __on_EOS_PresenceModification_DeleteData = nil }
             
             // Given Actor
-            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PresenceModification_Actor = SwiftEOS_PresenceModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.DeleteData(Records: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_DeleteData", "EOS_PresenceModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_DeleteData"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_DeleteData", "EOS_PresenceModification_Release"])
     }
 }

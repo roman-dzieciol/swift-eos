@@ -10,7 +10,7 @@ public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_AddNotifyJoinGameAccepted = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_ADDNOTIFYJOINGAMEACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Presence_JoinGameAcceptedCallbackInfo(
@@ -26,7 +26,7 @@ public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
             defer { __on_EOS_Presence_AddNotifyJoinGameAccepted = nil }
             
             // Given Actor
-            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_Presence_JoinGameAcceptedCallbackInfo> = try object.AddNotifyJoinGameAccepted(NotificationFn: { arg0 in
@@ -44,7 +44,7 @@ public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Presence_RemoveNotifyJoinGameAccepted = { Handle, InId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_Presence_RemoveNotifyJoinGameAccepted")
                 }

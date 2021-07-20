@@ -9,7 +9,7 @@ public class SwiftEOS_Sanctions_GetPlayerSanctionCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sanctions_GetPlayerSanctionCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 TestGlobals.current.sdkReceived.append("EOS_Sanctions_GetPlayerSanctionCount")
@@ -18,7 +18,7 @@ public class SwiftEOS_Sanctions_GetPlayerSanctionCountTests: XCTestCase {
             defer { __on_EOS_Sanctions_GetPlayerSanctionCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetPlayerSanctionCount(TargetUserId: nil)
@@ -27,5 +27,8 @@ public class SwiftEOS_Sanctions_GetPlayerSanctionCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_GetPlayerSanctionCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_GetPlayerSanctionCount"])
     }
 }

@@ -15,7 +15,7 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_CopyAttributeByIndex = { Handle, Options, OutAttribute in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNotNil(OutAttribute)
@@ -25,17 +25,18 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByIndexTests: XCTestCase {
             defer { __on_EOS_LobbyDetails_CopyAttributeByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Lobby_Attribute? = try object.CopyAttributeByIndex(AttrIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex", "EOS_LobbyDetails_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex", "EOS_LobbyDetails_Release"])
     }
 }

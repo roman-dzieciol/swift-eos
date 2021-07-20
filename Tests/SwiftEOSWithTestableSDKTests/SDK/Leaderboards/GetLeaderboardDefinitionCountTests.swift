@@ -9,7 +9,7 @@ public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCas
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST)
                 TestGlobals.current.sdkReceived.append("EOS_Leaderboards_GetLeaderboardDefinitionCount")
                 return .zero
@@ -17,7 +17,7 @@ public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCas
             defer { __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetLeaderboardDefinitionCount()
@@ -26,5 +26,8 @@ public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCas
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
     }
 }

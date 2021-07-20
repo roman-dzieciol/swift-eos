@@ -9,7 +9,7 @@ public class SwiftEOS_Achievements_GetPlayerAchievementCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Achievements_GetPlayerAchievementCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_GetPlayerAchievementCount")
@@ -18,7 +18,7 @@ public class SwiftEOS_Achievements_GetPlayerAchievementCountTests: XCTestCase {
             defer { __on_EOS_Achievements_GetPlayerAchievementCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetPlayerAchievementCount(UserId: nil)
@@ -27,5 +27,8 @@ public class SwiftEOS_Achievements_GetPlayerAchievementCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_GetPlayerAchievementCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_GetPlayerAchievementCount"])
     }
 }

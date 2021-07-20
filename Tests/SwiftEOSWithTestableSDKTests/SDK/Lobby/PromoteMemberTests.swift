@@ -10,7 +10,7 @@ public class SwiftEOS_Lobby_PromoteMemberTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_PromoteMember = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_PROMOTEMEMBER_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -26,7 +26,7 @@ public class SwiftEOS_Lobby_PromoteMemberTests: XCTestCase {
             defer { __on_EOS_Lobby_PromoteMember = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             try object.PromoteMember(
@@ -44,5 +44,8 @@ public class SwiftEOS_Lobby_PromoteMemberTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_PromoteMember"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_PromoteMember"])
     }
 }

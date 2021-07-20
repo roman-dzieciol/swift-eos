@@ -15,7 +15,7 @@ public class SwiftEOS_SessionModification_SetMaxPlayersTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetMaxPlayers = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETMAXPLAYERS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxPlayers, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetMaxPlayers")
@@ -24,16 +24,17 @@ public class SwiftEOS_SessionModification_SetMaxPlayersTests: XCTestCase {
             defer { __on_EOS_SessionModification_SetMaxPlayers = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetMaxPlayers(MaxPlayers: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetMaxPlayers", "EOS_SessionModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetMaxPlayers"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetMaxPlayers", "EOS_SessionModification_Release"])
     }
 }

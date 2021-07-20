@@ -9,7 +9,7 @@ public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_AcknowledgeEventId = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertEqual(Options!.pointee.Result, .zero)
@@ -19,7 +19,7 @@ public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
             defer { __on_EOS_UI_AcknowledgeEventId = nil }
             
             // Given Actor
-            let object: SwiftEOS_UI_Actor = SwiftEOS_UI_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_UI_Actor = SwiftEOS_UI_Actor(Handle: nil)
             
             // When SDK function is called
             try object.AcknowledgeEventId(
@@ -30,5 +30,8 @@ public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_AcknowledgeEventId"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_AcknowledgeEventId"])
     }
 }

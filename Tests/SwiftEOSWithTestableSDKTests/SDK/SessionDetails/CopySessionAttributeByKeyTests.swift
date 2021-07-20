@@ -15,7 +15,7 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByKeyTests: XCTestCase 
             
             // Given implementation for SDK function
             __on_EOS_SessionDetails_CopySessionAttributeByKey = { Handle, Options, OutSessionAttribute in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.AttrKey)
                 XCTAssertNotNil(OutSessionAttribute)
@@ -25,17 +25,18 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByKeyTests: XCTestCase 
             defer { __on_EOS_SessionDetails_CopySessionAttributeByKey = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionDetails_Actor = SwiftEOS_SessionDetails_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionDetails_Actor = SwiftEOS_SessionDetails_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_SessionDetails_Attribute? = try object.CopySessionAttributeByKey(AttrKey: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByKey", "EOS_SessionDetails_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByKey"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_SessionDetails_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByKey", "EOS_SessionDetails_Release"])
     }
 }

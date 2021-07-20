@@ -21,5 +21,8 @@ public class SwiftEOS_GetVersionTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_GetVersion"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_GetVersion"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Friends_GetStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_GetStatus = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_GETSTATUS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -19,7 +19,7 @@ public class SwiftEOS_Friends_GetStatusTests: XCTestCase {
             defer { __on_EOS_Friends_GetStatus = nil }
             
             // Given Actor
-            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Friends_Actor = SwiftEOS_Friends_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_EFriendsStatus = try object.GetStatus(
@@ -31,5 +31,8 @@ public class SwiftEOS_Friends_GetStatusTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_GetStatus"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_GetStatus"])
     }
 }

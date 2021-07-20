@@ -10,7 +10,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardRanks = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDRANKS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LeaderboardId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -24,7 +24,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
             defer { __on_EOS_Leaderboards_QueryLeaderboardRanks = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryLeaderboardRanks(
@@ -40,5 +40,8 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardRanks"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardRanks"])
     }
 }

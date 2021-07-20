@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogEvent = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.EventId, .zero)
@@ -21,7 +21,7 @@ public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
             defer { __on_EOS_AntiCheatServer_LogEvent = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatServer_Actor = SwiftEOS_AntiCheatServer_Actor(Handle: nil)
             
             // When SDK function is called
             try object.LogEvent(
@@ -33,5 +33,8 @@ public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogEvent"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogEvent"])
     }
 }

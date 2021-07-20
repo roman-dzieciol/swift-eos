@@ -12,7 +12,7 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_ReadFile = { Handle, ReadOptions, ClientData, CompletionCallback in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(ReadOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_READFILEOPTIONS_API_LATEST)
                 XCTAssertNil(ReadOptions!.pointee.LocalUserId)
                 XCTAssertNil(ReadOptions!.pointee.Filename)
@@ -32,7 +32,7 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
             defer { __on_EOS_PlayerDataStorage_ReadFile = nil }
             
             // Given Actor
-            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HPlayerDataStorageFileTransferRequest? = try object.ReadFile(
@@ -56,5 +56,8 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
             wait(for: [waitForCompletionCallback], timeout: 0.5)
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
     }
 }

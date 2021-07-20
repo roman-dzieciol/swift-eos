@@ -15,7 +15,7 @@ public class SwiftEOS_LobbyModification_SetMaxMembersTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbyModification_SetMaxMembers = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxMembers, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetMaxMembers")
@@ -24,16 +24,17 @@ public class SwiftEOS_LobbyModification_SetMaxMembersTests: XCTestCase {
             defer { __on_EOS_LobbyModification_SetMaxMembers = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbyModification_Actor = SwiftEOS_LobbyModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetMaxMembers(MaxMembers: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers", "EOS_LobbyModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers", "EOS_LobbyModification_Release"])
     }
 }

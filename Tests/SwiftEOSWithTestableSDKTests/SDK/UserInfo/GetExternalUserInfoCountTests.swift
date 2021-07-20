@@ -9,7 +9,7 @@ public class SwiftEOS_UserInfo_GetExternalUserInfoCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_GetExternalUserInfoCount = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_GETEXTERNALUSERINFOCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -19,7 +19,7 @@ public class SwiftEOS_UserInfo_GetExternalUserInfoCountTests: XCTestCase {
             defer { __on_EOS_UserInfo_GetExternalUserInfoCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetExternalUserInfoCount(
@@ -31,5 +31,8 @@ public class SwiftEOS_UserInfo_GetExternalUserInfoCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_GetExternalUserInfoCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_GetExternalUserInfoCount"])
     }
 }

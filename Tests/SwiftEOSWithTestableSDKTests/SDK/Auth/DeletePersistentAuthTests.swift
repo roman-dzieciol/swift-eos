@@ -10,7 +10,7 @@ public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_DeletePersistentAuth = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST)
                 XCTAssertNil(Options!.pointee.RefreshToken)
                 XCTAssertNotNil(ClientData)
@@ -23,7 +23,7 @@ public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
             defer { __on_EOS_Auth_DeletePersistentAuth = nil }
             
             // Given Actor
-            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: nil)
             
             // When SDK function is called
             try object.DeletePersistentAuth(
@@ -38,5 +38,8 @@ public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_DeletePersistentAuth"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_DeletePersistentAuth"])
     }
 }

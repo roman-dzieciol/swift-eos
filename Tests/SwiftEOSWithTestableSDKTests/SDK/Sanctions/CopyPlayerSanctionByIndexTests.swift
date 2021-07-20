@@ -9,7 +9,7 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sanctions_CopyPlayerSanctionByIndex = { Handle, Options, OutSanction in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SANCTIONS_COPYPLAYERSANCTIONBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.SanctionIndex, .zero)
@@ -20,7 +20,7 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
             defer { __on_EOS_Sanctions_CopyPlayerSanctionByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Sanctions_PlayerSanction? = try object.CopyPlayerSanctionByIndex(
@@ -32,5 +32,8 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogTests: XCTestCa
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_AddExternalIntegrityCatalog = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_ADDEXTERNALINTEGRITYCATALOG_API_LATEST)
                 XCTAssertNil(Options!.pointee.PathToBinFile)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_AddExternalIntegrityCatalog")
@@ -18,7 +18,7 @@ public class SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogTests: XCTestCa
             defer { __on_EOS_AntiCheatClient_AddExternalIntegrityCatalog = nil }
             
             // Given Actor
-            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: nil)
             
             // When SDK function is called
             try object.AddExternalIntegrityCatalog(PathToBinFile: nil)
@@ -26,5 +26,8 @@ public class SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogTests: XCTestCa
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_AddExternalIntegrityCatalog"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_AddExternalIntegrityCatalog"])
     }
 }

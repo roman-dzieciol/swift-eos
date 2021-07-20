@@ -25,5 +25,8 @@ public class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
     }
 }

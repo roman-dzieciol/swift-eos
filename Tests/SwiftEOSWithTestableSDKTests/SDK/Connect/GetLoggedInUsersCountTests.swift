@@ -9,14 +9,14 @@ public class SwiftEOS_Connect_GetLoggedInUsersCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetLoggedInUsersCount = { Handle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_GetLoggedInUsersCount")
                 return .zero
             }
             defer { __on_EOS_Connect_GetLoggedInUsersCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetLoggedInUsersCount()
@@ -25,5 +25,8 @@ public class SwiftEOS_Connect_GetLoggedInUsersCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoggedInUsersCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoggedInUsersCount"])
     }
 }

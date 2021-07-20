@@ -9,7 +9,7 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_SetAudioOutputSettings = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_SETAUDIOOUTPUTSETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.DeviceId)
@@ -20,7 +20,7 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
             defer { __on_EOS_RTCAudio_SetAudioOutputSettings = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTCAudio_Actor = SwiftEOS_RTCAudio_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetAudioOutputSettings(
@@ -32,5 +32,8 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SetAudioOutputSettings"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SetAudioOutputSettings"])
     }
 }

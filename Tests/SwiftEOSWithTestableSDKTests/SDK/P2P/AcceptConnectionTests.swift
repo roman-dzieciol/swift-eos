@@ -9,7 +9,7 @@ public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_AcceptConnection = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ACCEPTCONNECTION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RemoteUserId)
@@ -20,7 +20,7 @@ public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
             defer { __on_EOS_P2P_AcceptConnection = nil }
             
             // Given Actor
-            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
             try object.AcceptConnection(
@@ -32,5 +32,8 @@ public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AcceptConnection"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AcceptConnection"])
     }
 }

@@ -10,7 +10,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardUserScores = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDUSERSCORES_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserIds)
                 XCTAssertEqual(Options!.pointee.UserIdsCount, .zero)
@@ -29,7 +29,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
             defer { __on_EOS_Leaderboards_QueryLeaderboardUserScores = nil }
             
             // Given Actor
-            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
             try object.QueryLeaderboardUserScores(
@@ -48,5 +48,8 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardUserScores"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardUserScores"])
     }
 }

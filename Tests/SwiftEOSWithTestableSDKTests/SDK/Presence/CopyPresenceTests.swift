@@ -9,7 +9,7 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_CopyPresence = { Handle, Options, OutPresence in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_COPYPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -20,7 +20,7 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
             defer { __on_EOS_Presence_CopyPresence = nil }
             
             // Given Actor
-            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Presence_Info? = try object.CopyPresence(
@@ -32,5 +32,8 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_CopyPresence"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_CopyPresence"])
     }
 }

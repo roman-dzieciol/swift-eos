@@ -9,7 +9,7 @@ public class SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Transaction_CopyEntitlementByIndex = { Handle, Options, OutEntitlement in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.EntitlementIndex, .zero)
                 XCTAssertNotNil(OutEntitlement)
@@ -19,7 +19,7 @@ public class SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexTests: XCTestCase {
             defer { __on_EOS_Ecom_Transaction_CopyEntitlementByIndex = nil }
             
             // Given Actor
-            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Ecom_Entitlement? = try object.Transaction_CopyEntitlementByIndex(EntitlementIndex: .zero)
@@ -28,5 +28,8 @@ public class SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_CopyEntitlementByIndex"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_CopyEntitlementByIndex"])
     }
 }

@@ -9,7 +9,7 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_CreatePresenceModification = { Handle, Options, OutPresenceModificationHandle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(OutPresenceModificationHandle)
@@ -19,7 +19,7 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
             defer { __on_EOS_Presence_CreatePresenceModification = nil }
             
             // Given Actor
-            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
             let result: EOS_HPresenceModification? = try object.CreatePresenceModification(LocalUserId: nil)
@@ -28,5 +28,8 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_CreatePresenceModification"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_CreatePresenceModification"])
     }
 }

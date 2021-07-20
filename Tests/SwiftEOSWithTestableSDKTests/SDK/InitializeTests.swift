@@ -39,5 +39,8 @@ public class SwiftEOS_InitializeTests: XCTestCase {
             // Then
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Initialize"])
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Initialize"])
     }
 }

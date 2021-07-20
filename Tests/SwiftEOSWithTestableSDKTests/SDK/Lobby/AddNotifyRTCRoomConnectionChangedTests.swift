@@ -10,7 +10,7 @@ public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_AddNotifyRTCRoomConnectionChanged = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ADDNOTIFYRTCROOMCONNECTIONCHANGED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -28,7 +28,7 @@ public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
             defer { __on_EOS_Lobby_AddNotifyRTCRoomConnectionChanged = nil }
             
             // Given Actor
-            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_Lobby_RTCRoomConnectionChangedCallbackInfo> = try object.AddNotifyRTCRoomConnectionChanged(
@@ -50,7 +50,7 @@ public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged = { Handle, InId in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged")
                 }

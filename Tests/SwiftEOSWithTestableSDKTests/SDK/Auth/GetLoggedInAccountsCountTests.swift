@@ -9,14 +9,14 @@ public class SwiftEOS_Auth_GetLoggedInAccountsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_GetLoggedInAccountsCount = { Handle in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 TestGlobals.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountsCount")
                 return .zero
             }
             defer { __on_EOS_Auth_GetLoggedInAccountsCount = nil }
             
             // Given Actor
-            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: nil)
             
             // When SDK function is called
             let result: Int = try object.GetLoggedInAccountsCount()
@@ -25,5 +25,8 @@ public class SwiftEOS_Auth_GetLoggedInAccountsCountTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountsCount"])
             XCTAssertEqual(result, .zero)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountsCount"])
     }
 }

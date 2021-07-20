@@ -10,7 +10,7 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_BlockParticipant = { Handle, Options, ClientData, CompletionDelegate in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_BLOCKPARTICIPANT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -30,7 +30,7 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
             defer { __on_EOS_RTC_BlockParticipant = nil }
             
             // Given Actor
-            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_RTC_Actor = SwiftEOS_RTC_Actor(Handle: nil)
             
             // When SDK function is called
             try object.BlockParticipant(
@@ -52,5 +52,8 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_BlockParticipant"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_BlockParticipant"])
     }
 }

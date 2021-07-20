@@ -15,7 +15,7 @@ public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetPermissionLevel = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETPERMISSIONLEVEL_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PermissionLevel, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetPermissionLevel")
@@ -24,16 +24,17 @@ public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
             defer { __on_EOS_SessionModification_SetPermissionLevel = nil }
             
             // Given Actor
-            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_SessionModification_Actor = SwiftEOS_SessionModification_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetPermissionLevel(PermissionLevel: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel", "EOS_SessionModification_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel", "EOS_SessionModification_Release"])
     }
 }

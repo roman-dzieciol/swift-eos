@@ -22,5 +22,8 @@ public class SwiftEOS_ProductUserId_FromStringTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_FromString"])
             XCTAssertNil(result)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_FromString"])
     }
 }

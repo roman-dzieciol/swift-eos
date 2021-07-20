@@ -15,7 +15,7 @@ public class SwiftEOS_LobbySearch_SetMaxResultsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_SetMaxResults = { Handle, Options in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxResults, .zero)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_SetMaxResults")
@@ -24,16 +24,17 @@ public class SwiftEOS_LobbySearch_SetMaxResultsTests: XCTestCase {
             defer { __on_EOS_LobbySearch_SetMaxResults = nil }
             
             // Given Actor
-            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
             try object.SetMaxResults(MaxResults: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults", "EOS_LobbySearch_Release"])
+            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults"])
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults", "EOS_LobbySearch_Release"])
     }
 }

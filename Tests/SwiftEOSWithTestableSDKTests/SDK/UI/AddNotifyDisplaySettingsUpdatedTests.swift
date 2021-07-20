@@ -10,7 +10,7 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_AddNotifyDisplaySettingsUpdated = { Handle, Options, ClientData, NotificationFn in
-                XCTAssertEqual(Handle, .nonZeroPointer)
+                XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST)
                 XCTAssertNotNil(ClientData)
                 NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_UI_OnDisplaySettingsUpdatedCallbackInfo(
@@ -24,7 +24,7 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
             defer { __on_EOS_UI_AddNotifyDisplaySettingsUpdated = nil }
             
             // Given Actor
-            let object: SwiftEOS_UI_Actor = SwiftEOS_UI_Actor(Handle: .nonZeroPointer)
+            let object: SwiftEOS_UI_Actor = SwiftEOS_UI_Actor(Handle: nil)
             
             // When SDK function is called
             let result: SwiftEOS_Notification<SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfo> = try object.AddNotifyDisplaySettingsUpdated(NotificationFn: { arg0 in
@@ -40,7 +40,7 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_UI_RemoveNotifyDisplaySettingsUpdated = { Handle, Id in
-                    XCTAssertEqual(Handle, .nonZeroPointer)
+                    XCTAssertNil(Handle)
                     XCTAssertEqual(Id, .zero)
                     TestGlobals.current.sdkReceived.append("EOS_UI_RemoveNotifyDisplaySettingsUpdated")
                 }

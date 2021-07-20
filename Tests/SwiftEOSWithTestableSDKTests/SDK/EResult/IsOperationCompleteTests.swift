@@ -22,5 +22,8 @@ public class SwiftEOS_EResult_IsOperationCompleteTests: XCTestCase {
             XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EResult_IsOperationComplete"])
             XCTAssertEqual(result, false)
         }
+        
+        // Then
+        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_EResult_IsOperationComplete"])
     }
 }

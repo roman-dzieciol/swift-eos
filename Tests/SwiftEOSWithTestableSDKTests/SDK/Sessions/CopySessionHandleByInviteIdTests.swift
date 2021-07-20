@@ -12,7 +12,7 @@ public class SwiftEOS_Sessions_CopySessionHandleByInviteIdTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_COPYSESSIONHANDLEBYINVITEID_API_LATEST)
                 XCTAssertNil(Options!.pointee.InviteId)
-                XCTAssertNil(OutSessionHandle)
+                XCTAssertNotNil(OutSessionHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_CopySessionHandleByInviteId")
                 return .zero
             }

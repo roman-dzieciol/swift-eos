@@ -17,7 +17,7 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
             __on_EOS_LobbyDetails_CopyInfo = { Handle, Options, OutLobbyDetailsInfo in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYINFO_API_LATEST)
-                XCTAssertNil(OutLobbyDetailsInfo)
+                XCTAssertNotNil(OutLobbyDetailsInfo)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyInfo")
                 return .zero
             }

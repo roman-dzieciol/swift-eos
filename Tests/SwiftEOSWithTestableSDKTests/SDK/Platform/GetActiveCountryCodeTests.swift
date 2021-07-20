@@ -17,8 +17,8 @@ public class SwiftEOS_Platform_GetActiveCountryCodeTests: XCTestCase {
             __on_EOS_Platform_GetActiveCountryCode = { Handle, LocalUserId, OutBuffer, InOutBufferLength in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertNil(LocalUserId)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetActiveCountryCode")
                 return .zero
             }

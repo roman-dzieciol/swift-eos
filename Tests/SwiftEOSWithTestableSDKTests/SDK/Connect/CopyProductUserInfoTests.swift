@@ -12,7 +12,7 @@ public class SwiftEOS_Connect_CopyProductUserInfoTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_COPYPRODUCTUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                XCTAssertNil(OutExternalAccountInfo)
+                XCTAssertNotNil(OutExternalAccountInfo)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_CopyProductUserInfo")
                 return .zero
             }

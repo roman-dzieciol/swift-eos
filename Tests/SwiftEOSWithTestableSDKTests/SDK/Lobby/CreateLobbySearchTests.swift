@@ -12,7 +12,7 @@ public class SwiftEOS_Lobby_CreateLobbySearchTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_CREATELOBBYSEARCH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxResults, .zero)
-                XCTAssertNil(OutLobbySearchHandle)
+                XCTAssertNotNil(OutLobbySearchHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_CreateLobbySearch")
                 return .zero
             }

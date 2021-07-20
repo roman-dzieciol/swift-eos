@@ -13,7 +13,7 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_COPYPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                XCTAssertNil(OutPresence)
+                XCTAssertNotNil(OutPresence)
                 TestGlobals.current.sdkReceived.append("EOS_Presence_CopyPresence")
                 return .zero
             }

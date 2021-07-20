@@ -12,7 +12,7 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                XCTAssertNil(OutPresenceModificationHandle)
+                XCTAssertNotNil(OutPresenceModificationHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Presence_CreatePresenceModification")
                 return .zero
             }

@@ -18,7 +18,7 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LobbyIndex, .zero)
-                XCTAssertNil(OutLobbyDetailsHandle)
+                XCTAssertNotNil(OutLobbyDetailsHandle)
                 TestGlobals.current.sdkReceived.append("EOS_LobbySearch_CopySearchResultByIndex")
                 return .zero
             }

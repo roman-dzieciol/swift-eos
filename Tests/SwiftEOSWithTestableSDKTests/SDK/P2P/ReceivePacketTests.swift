@@ -18,11 +18,11 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.MaxDataSizeBytes, .zero)
                 XCTAssertNil(Options!.pointee.RequestedChannel)
-                XCTAssertNil(OutPeerId)
-                XCTAssertNil(OutSocketId)
-                XCTAssertNil(OutChannel)
-                XCTAssertNil(OutData)
-                XCTAssertNil(OutBytesWritten)
+                XCTAssertNotNil(OutPeerId)
+                XCTAssertNotNil(OutSocketId)
+                XCTAssertNotNil(OutChannel)
+                XCTAssertNotNil(OutData)
+                XCTAssertNotNil(OutBytesWritten)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_ReceivePacket")
                 return .zero
             }

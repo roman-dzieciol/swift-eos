@@ -14,8 +14,8 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.TargetProductUserId)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_GetProductUserIdMapping")
                 return .zero
             }

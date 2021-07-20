@@ -13,7 +13,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardUserScoreIndex, .zero)
                 XCTAssertNil(Options!.pointee.StatName)
-                XCTAssertNil(OutLeaderboardUserScore)
+                XCTAssertNotNil(OutLeaderboardUserScore)
                 TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByIndex")
                 return .zero
             }

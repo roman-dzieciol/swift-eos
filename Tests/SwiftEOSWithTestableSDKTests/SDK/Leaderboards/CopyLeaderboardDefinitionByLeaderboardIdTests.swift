@@ -12,7 +12,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdTests
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LeaderboardId)
-                XCTAssertNil(OutLeaderboardDefinition)
+                XCTAssertNotNil(OutLeaderboardDefinition)
                 TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId")
                 return .zero
             }

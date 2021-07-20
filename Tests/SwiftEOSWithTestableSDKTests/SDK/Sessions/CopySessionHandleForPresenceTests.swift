@@ -12,7 +12,7 @@ public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_COPYSESSIONHANDLEFORPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                XCTAssertNil(OutSessionHandle)
+                XCTAssertNotNil(OutSessionHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_CopySessionHandleForPresence")
                 return .zero
             }

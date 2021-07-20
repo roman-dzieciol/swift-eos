@@ -17,8 +17,8 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFilenameTests: XCT
             __on_EOS_PlayerDataStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
-                XCTAssertNil(OutStringBuffer)
-                XCTAssertNil(OutStringLength)
+                XCTAssertNotNil(OutStringBuffer)
+                XCTAssertNotNil(OutStringLength)
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_GetFilename")
                 return .zero
             }

@@ -14,7 +14,7 @@ public class SwiftEOS_Ecom_CopyOfferImageInfoByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
                 XCTAssertEqual(Options!.pointee.ImageInfoIndex, .zero)
-                XCTAssertNil(OutImageInfo)
+                XCTAssertNotNil(OutImageInfo)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyOfferImageInfoByIndex")
                 return .zero
             }

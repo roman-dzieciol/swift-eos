@@ -14,7 +14,7 @@ public class SwiftEOS_Ecom_CopyEntitlementByNameAndIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.EntitlementName)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                XCTAssertNil(OutEntitlement)
+                XCTAssertNotNil(OutEntitlement)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyEntitlementByNameAndIndex")
                 return .zero
             }

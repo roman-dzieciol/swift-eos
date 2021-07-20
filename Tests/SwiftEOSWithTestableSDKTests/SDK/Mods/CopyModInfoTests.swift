@@ -13,7 +13,7 @@ public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_COPYMODINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Type, .zero)
-                XCTAssertNil(OutEnumeratedMods)
+                XCTAssertNotNil(OutEnumeratedMods)
                 TestGlobals.current.sdkReceived.append("EOS_Mods_CopyModInfo")
                 return .zero
             }

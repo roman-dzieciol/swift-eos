@@ -18,7 +18,7 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.SessionIndex, .zero)
-                XCTAssertNil(OutSessionHandle)
+                XCTAssertNotNil(OutSessionHandle)
                 TestGlobals.current.sdkReceived.append("EOS_SessionSearch_CopySearchResultByIndex")
                 return .zero
             }

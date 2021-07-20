@@ -14,7 +14,7 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                XCTAssertNil(OutExternalUserInfo)
+                XCTAssertNotNil(OutExternalUserInfo)
                 TestGlobals.current.sdkReceived.append("EOS_UserInfo_CopyExternalUserInfoByIndex")
                 return .zero
             }

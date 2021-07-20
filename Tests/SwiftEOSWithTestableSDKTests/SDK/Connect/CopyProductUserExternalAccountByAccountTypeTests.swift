@@ -13,7 +13,7 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeTests: 
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTTYPE_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
-                XCTAssertNil(OutExternalAccountInfo)
+                XCTAssertNotNil(OutExternalAccountInfo)
                 TestGlobals.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByAccountType")
                 return .zero
             }

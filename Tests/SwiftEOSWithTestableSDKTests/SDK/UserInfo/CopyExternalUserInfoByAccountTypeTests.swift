@@ -14,7 +14,7 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeTests: XCTestCas
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AccountType, .zero)
-                XCTAssertNil(OutExternalUserInfo)
+                XCTAssertNotNil(OutExternalUserInfo)
                 TestGlobals.current.sdkReceived.append("EOS_UserInfo_CopyExternalUserInfoByAccountType")
                 return .zero
             }

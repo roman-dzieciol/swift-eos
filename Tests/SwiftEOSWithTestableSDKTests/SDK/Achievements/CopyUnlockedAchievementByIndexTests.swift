@@ -13,7 +13,7 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
-                XCTAssertNil(OutAchievement)
+                XCTAssertNotNil(OutAchievement)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByIndex")
                 return .zero
             }

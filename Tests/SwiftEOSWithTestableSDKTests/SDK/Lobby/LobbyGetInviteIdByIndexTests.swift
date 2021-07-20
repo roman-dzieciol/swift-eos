@@ -13,8 +13,8 @@ public class SwiftEOS_Lobby_GetInviteIdByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETINVITEIDBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_GetInviteIdByIndex")
                 return .zero
             }

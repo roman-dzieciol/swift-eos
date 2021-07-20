@@ -10,8 +10,8 @@ public class SwiftEOS_ContinuanceToken_ToStringTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_ContinuanceToken_ToString = { ContinuanceToken, OutBuffer, InOutBufferLength in
                 XCTAssertNil(ContinuanceToken)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_ContinuanceToken_ToString")
                 return .zero
             }

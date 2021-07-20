@@ -14,7 +14,7 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByIndexTests: XCTestCase
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                XCTAssertNil(OutAchievement)
+                XCTAssertNotNil(OutAchievement)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyPlayerAchievementByIndex")
                 return .zero
             }

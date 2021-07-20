@@ -13,7 +13,7 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                XCTAssertNil(bOutIsConnected)
+                XCTAssertNotNil(bOutIsConnected)
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_IsRTCRoomConnected")
                 return .zero
             }

@@ -17,7 +17,7 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.bPresenceEnabled, .zero)
                 XCTAssertNil(Options!.pointee.SessionId)
-                XCTAssertNil(OutSessionModificationHandle)
+                XCTAssertNotNil(OutSessionModificationHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_CreateSessionModification")
                 return .zero
             }

@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_CopyTransactionByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYTRANSACTIONBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.TransactionIndex, .zero)
-                XCTAssertNil(OutTransaction)
+                XCTAssertNotNil(OutTransaction)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyTransactionByIndex")
                 return .zero
             }

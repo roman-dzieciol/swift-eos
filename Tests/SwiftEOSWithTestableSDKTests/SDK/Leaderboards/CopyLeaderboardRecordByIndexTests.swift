@@ -12,7 +12,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexTests: XCTestCase
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardRecordIndex, .zero)
-                XCTAssertNil(OutLeaderboardRecord)
+                XCTAssertNotNil(OutLeaderboardRecord)
                 TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardRecordByIndex")
                 return .zero
             }

@@ -13,7 +13,7 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdTests: 
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.AchievementId)
-                XCTAssertNil(OutAchievement)
+                XCTAssertNotNil(OutAchievement)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByAchievementId")
                 return .zero
             }

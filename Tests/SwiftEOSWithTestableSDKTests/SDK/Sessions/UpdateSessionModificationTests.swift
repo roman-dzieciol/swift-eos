@@ -12,7 +12,7 @@ public class SwiftEOS_Sessions_UpdateSessionModificationTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_UPDATESESSIONMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
-                XCTAssertNil(OutSessionModificationHandle)
+                XCTAssertNotNil(OutSessionModificationHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_UpdateSessionModification")
                 return .zero
             }

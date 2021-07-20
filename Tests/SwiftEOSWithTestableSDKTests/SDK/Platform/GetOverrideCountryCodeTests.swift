@@ -16,8 +16,8 @@ public class SwiftEOS_Platform_GetOverrideCountryCodeTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_Platform_GetOverrideCountryCode = { Handle, OutBuffer, InOutBufferLength in
                 XCTAssertEqual(Handle, .nonZeroPointer)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_Platform_GetOverrideCountryCode")
                 return .zero
             }

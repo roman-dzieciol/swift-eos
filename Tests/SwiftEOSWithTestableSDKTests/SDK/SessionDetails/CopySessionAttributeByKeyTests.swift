@@ -18,7 +18,7 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByKeyTests: XCTestCase 
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.AttrKey)
-                XCTAssertNil(OutSessionAttribute)
+                XCTAssertNotNil(OutSessionAttribute)
                 TestGlobals.current.sdkReceived.append("EOS_SessionDetails_CopySessionAttributeByKey")
                 return .zero
             }

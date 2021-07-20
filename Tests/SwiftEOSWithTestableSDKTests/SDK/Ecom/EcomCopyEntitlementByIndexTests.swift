@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_CopyEntitlementByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYENTITLEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.EntitlementIndex, .zero)
-                XCTAssertNil(OutEntitlement)
+                XCTAssertNotNil(OutEntitlement)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyEntitlementByIndex")
                 return .zero
             }

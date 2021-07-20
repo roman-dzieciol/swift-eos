@@ -10,8 +10,8 @@ public class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
             // Given implementation for SDK function
             __on_EOS_ProductUserId_ToString = { AccountId, OutBuffer, InOutBufferLength in
                 XCTAssertNil(AccountId)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_ProductUserId_ToString")
                 return .zero
             }

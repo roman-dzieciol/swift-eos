@@ -11,7 +11,7 @@ public class SwiftEOS_P2P_GetRelayControlTests: XCTestCase {
             __on_EOS_P2P_GetRelayControl = { Handle, Options, OutRelayControl in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETRELAYCONTROL_API_LATEST)
-                XCTAssertNil(OutRelayControl)
+                XCTAssertNotNil(OutRelayControl)
                 TestGlobals.current.sdkReceived.append("EOS_P2P_GetRelayControl")
                 return .zero
             }

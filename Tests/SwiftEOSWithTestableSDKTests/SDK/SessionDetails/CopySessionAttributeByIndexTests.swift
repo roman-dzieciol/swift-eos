@@ -18,7 +18,7 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexTests: XCTestCas
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
-                XCTAssertNil(OutSessionAttribute)
+                XCTAssertNotNil(OutSessionAttribute)
                 TestGlobals.current.sdkReceived.append("EOS_SessionDetails_CopySessionAttributeByIndex")
                 return .zero
             }

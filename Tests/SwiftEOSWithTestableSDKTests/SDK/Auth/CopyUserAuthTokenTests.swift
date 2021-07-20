@@ -12,7 +12,7 @@ public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_COPYUSERAUTHTOKEN_API_LATEST)
                 XCTAssertNil(LocalUserId)
-                XCTAssertNil(OutUserAuthToken)
+                XCTAssertNotNil(OutUserAuthToken)
                 TestGlobals.current.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
                 return .zero
             }

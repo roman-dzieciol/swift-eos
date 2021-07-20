@@ -13,7 +13,7 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_UPDATELOBBYMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.LobbyId)
-                XCTAssertNil(OutLobbyModificationHandle)
+                XCTAssertNotNil(OutLobbyModificationHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_UpdateLobbyModification")
                 return .zero
             }

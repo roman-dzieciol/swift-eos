@@ -13,8 +13,8 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_GETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_Presence_GetJoinInfo")
                 return .zero
             }

@@ -19,7 +19,7 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
-                XCTAssertNil(OutAttribute)
+                XCTAssertNotNil(OutAttribute)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByIndex")
                 return .zero
             }

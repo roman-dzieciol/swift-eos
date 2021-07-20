@@ -14,8 +14,8 @@ public class SwiftEOS_AntiCheatClient_UnprotectMessageTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNil(Options!.pointee.Data)
                 XCTAssertEqual(Options!.pointee.OutBufferSizeBytes, .zero)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(OutBufferLengthBytes)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(OutBufferLengthBytes)
                 TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_UnprotectMessage")
                 return .zero
             }

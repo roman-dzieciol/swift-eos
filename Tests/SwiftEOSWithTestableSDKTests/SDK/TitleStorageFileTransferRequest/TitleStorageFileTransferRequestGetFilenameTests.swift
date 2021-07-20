@@ -17,8 +17,8 @@ public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCa
             __on_EOS_TitleStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
-                XCTAssertNil(OutStringBuffer)
-                XCTAssertNil(OutStringLength)
+                XCTAssertNotNil(OutStringBuffer)
+                XCTAssertNotNil(OutStringLength)
                 TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
                 return .zero
             }

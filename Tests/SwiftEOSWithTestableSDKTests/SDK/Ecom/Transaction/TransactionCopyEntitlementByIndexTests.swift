@@ -12,7 +12,7 @@ public class SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_TRANSACTION_COPYENTITLEMENTBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.EntitlementIndex, .zero)
-                XCTAssertNil(OutEntitlement)
+                XCTAssertNotNil(OutEntitlement)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_Transaction_CopyEntitlementByIndex")
                 return .zero
             }

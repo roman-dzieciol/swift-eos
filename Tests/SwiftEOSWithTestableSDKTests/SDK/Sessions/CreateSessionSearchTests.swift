@@ -12,7 +12,7 @@ public class SwiftEOS_Sessions_CreateSessionSearchTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_CREATESESSIONSEARCH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxSearchResults, .zero)
-                XCTAssertNil(OutSessionSearchHandle)
+                XCTAssertNotNil(OutSessionSearchHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Sessions_CreateSessionSearch")
                 return .zero
             }

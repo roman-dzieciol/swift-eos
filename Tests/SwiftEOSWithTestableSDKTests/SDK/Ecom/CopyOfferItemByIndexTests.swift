@@ -14,7 +14,7 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
                 XCTAssertEqual(Options!.pointee.ItemIndex, .zero)
-                XCTAssertNil(OutItem)
+                XCTAssertNotNil(OutItem)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyOfferItemByIndex")
                 return .zero
             }

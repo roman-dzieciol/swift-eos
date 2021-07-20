@@ -12,7 +12,7 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
-                XCTAssertNil(OutLobbyDetailsHandle)
+                XCTAssertNotNil(OutLobbyDetailsHandle)
                 TestGlobals.current.sdkReceived.append("EOS_Lobby_CopyLobbyDetailsHandleByUiEventId")
                 return .zero
             }

@@ -19,7 +19,7 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.AttrKey)
-                XCTAssertNil(OutAttribute)
+                XCTAssertNotNil(OutAttribute)
                 TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByKey")
                 return .zero
             }

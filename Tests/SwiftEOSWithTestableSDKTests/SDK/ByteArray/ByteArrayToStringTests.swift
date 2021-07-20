@@ -11,8 +11,8 @@ public class SwiftEOS_ByteArray_ToStringTests: XCTestCase {
             __on_EOS_ByteArray_ToString = { ByteArray, Length, OutBuffer, InOutBufferLength in
                 XCTAssertNil(ByteArray)
                 XCTAssertEqual(Length, .zero)
-                XCTAssertNil(OutBuffer)
-                XCTAssertNil(InOutBufferLength)
+                XCTAssertNotNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 TestGlobals.current.sdkReceived.append("EOS_ByteArray_ToString")
                 return .zero
             }

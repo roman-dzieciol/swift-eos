@@ -13,7 +13,7 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_COPYSTATBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.StatIndex, .zero)
-                XCTAssertNil(OutStat)
+                XCTAssertNotNil(OutStat)
                 TestGlobals.current.sdkReceived.append("EOS_Stats_CopyStatByIndex")
                 return .zero
             }

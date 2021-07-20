@@ -12,7 +12,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionByIndexTests: XCTest
                 XCTAssertEqual(Handle, .nonZeroPointer)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYDEFINITIONBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
-                XCTAssertNil(OutDefinition)
+                XCTAssertNotNil(OutDefinition)
                 TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionByIndex")
                 return .zero
             }

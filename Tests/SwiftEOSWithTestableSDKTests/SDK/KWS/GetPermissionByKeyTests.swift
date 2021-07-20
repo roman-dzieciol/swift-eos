@@ -13,7 +13,7 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_GETPERMISSIONBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Key)
-                XCTAssertNil(OutPermission)
+                XCTAssertNotNil(OutPermission)
                 TestGlobals.current.sdkReceived.append("EOS_KWS_GetPermissionByKey")
                 return .zero
             }

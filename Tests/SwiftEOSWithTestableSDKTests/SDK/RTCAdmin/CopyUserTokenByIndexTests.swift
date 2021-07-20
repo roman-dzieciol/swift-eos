@@ -13,7 +13,7 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_COPYUSERTOKENBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UserTokenIndex, .zero)
                 XCTAssertEqual(Options!.pointee.QueryId, .zero)
-                XCTAssertNil(OutUserToken)
+                XCTAssertNotNil(OutUserToken)
                 TestGlobals.current.sdkReceived.append("EOS_RTCAdmin_CopyUserTokenByIndex")
                 return .zero
             }

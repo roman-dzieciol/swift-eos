@@ -13,7 +13,7 @@ public class SwiftEOS_KWS_CopyPermissionByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                XCTAssertNil(OutPermission)
+                XCTAssertNotNil(OutPermission)
                 TestGlobals.current.sdkReceived.append("EOS_KWS_CopyPermissionByIndex")
                 return .zero
             }

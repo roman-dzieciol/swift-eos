@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_CopyOfferByIdTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYOFFERBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
-                XCTAssertNil(OutOffer)
+                XCTAssertNotNil(OutOffer)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyOfferById")
                 return .zero
             }

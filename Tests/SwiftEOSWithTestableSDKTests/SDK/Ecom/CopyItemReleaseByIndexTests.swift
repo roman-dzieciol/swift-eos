@@ -14,7 +14,7 @@ public class SwiftEOS_Ecom_CopyItemReleaseByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
                 XCTAssertEqual(Options!.pointee.ReleaseIndex, .zero)
-                XCTAssertNil(OutRelease)
+                XCTAssertNotNil(OutRelease)
                 TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyItemReleaseByIndex")
                 return .zero
             }

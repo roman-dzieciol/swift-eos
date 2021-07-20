@@ -13,7 +13,7 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
                 XCTAssertEqual(CopyFileMetadataOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.LocalUserId)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.Filename)
-                XCTAssertNil(OutMetadata)
+                XCTAssertNotNil(OutMetadata)
                 TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataByFilename")
                 return .zero
             }

@@ -13,7 +13,7 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataAtIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                XCTAssertNil(OutMetadata)
+                XCTAssertNotNil(OutMetadata)
                 TestGlobals.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataAtIndex")
                 return .zero
             }

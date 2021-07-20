@@ -13,7 +13,7 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_COPYUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                XCTAssertNil(OutUserInfo)
+                XCTAssertNotNil(OutUserInfo)
                 TestGlobals.current.sdkReceived.append("EOS_UserInfo_CopyUserInfo")
                 return .zero
             }

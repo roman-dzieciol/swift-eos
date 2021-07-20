@@ -18,11 +18,11 @@ public class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
             defer { __on_EOS_ProductUserId_ToString = nil }
             
             // When SDK function is called
-            let result: String? = try SwiftEOS_ProductUserId_ToString(AccountId: nil)
+            let result: String = try SwiftEOS_ProductUserId_ToString(AccountId: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ProductUserId_ToString"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

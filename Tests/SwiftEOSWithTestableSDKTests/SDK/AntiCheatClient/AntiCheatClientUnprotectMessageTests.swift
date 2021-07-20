@@ -25,14 +25,14 @@ public class SwiftEOS_AntiCheatClient_UnprotectMessageTests: XCTestCase {
             let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: [UInt8]? = try object.UnprotectMessage(
+            let result: [UInt8] = try object.UnprotectMessage(
                 Data: nil,
                 OutBufferSizeBytes: .zero
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_UnprotectMessage"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, [])
         }
         
         // Then

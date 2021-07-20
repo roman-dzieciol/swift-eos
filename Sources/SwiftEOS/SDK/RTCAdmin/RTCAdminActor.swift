@@ -31,7 +31,7 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     public func CopyUserTokenByIndex(
         UserTokenIndex: Int,
         QueryId: Int
-    ) throws -> SwiftEOS_RTCAdmin_UserToken? {
+    ) throws -> SwiftEOS_RTCAdmin_UserToken {
         try ____CopyUserTokenByIndex(.init(
                 UserTokenIndex: UserTokenIndex,
                 QueryId: QueryId
@@ -52,7 +52,7 @@ public class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     public func CopyUserTokenByUserId(
         TargetUserId: EOS_ProductUserId?,
         QueryId: Int
-    ) throws -> SwiftEOS_RTCAdmin_UserToken? {
+    ) throws -> SwiftEOS_RTCAdmin_UserToken {
         try ____CopyUserTokenByUserId(.init(
                 TargetUserId: TargetUserId,
                 QueryId: QueryId
@@ -162,20 +162,21 @@ extension SwiftEOS_RTCAdmin_Actor {
     */
     private func ____CopyUserTokenByIndex(
         _ Options: SwiftEOS_RTCAdmin_CopyUserTokenByIndexOptions
-    ) throws -> SwiftEOS_RTCAdmin_UserToken? {
+    ) throws -> SwiftEOS_RTCAdmin_UserToken {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutUserToken in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_RTCAdmin_CopyUserTokenByIndex(
-                                Handle,
-                                Options,
-                                OutUserToken
-                            ) } } },
-                release: EOS_RTCAdmin_UserToken_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutUserToken in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_RTCAdmin_CopyUserTokenByIndex(
+                                    Handle,
+                                    Options,
+                                    OutUserToken
+                                ) } } },
+                    release: EOS_RTCAdmin_UserToken_Release
+                ) } }
     }
 
     /**
@@ -189,20 +190,21 @@ extension SwiftEOS_RTCAdmin_Actor {
     */
     private func ____CopyUserTokenByUserId(
         _ Options: SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptions
-    ) throws -> SwiftEOS_RTCAdmin_UserToken? {
+    ) throws -> SwiftEOS_RTCAdmin_UserToken {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutUserToken in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_RTCAdmin_CopyUserTokenByUserId(
-                                Handle,
-                                Options,
-                                OutUserToken
-                            ) } } },
-                release: EOS_RTCAdmin_UserToken_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutUserToken in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_RTCAdmin_CopyUserTokenByUserId(
+                                    Handle,
+                                    Options,
+                                    OutUserToken
+                                ) } } },
+                    release: EOS_RTCAdmin_UserToken_Release
+                ) } }
     }
 
     /**

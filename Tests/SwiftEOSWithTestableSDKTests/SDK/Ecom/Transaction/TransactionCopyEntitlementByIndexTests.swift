@@ -22,11 +22,12 @@ public class SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexTests: XCTestCase {
             let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Ecom_Entitlement? = try object.Transaction_CopyEntitlementByIndex(EntitlementIndex: .zero)
+            try XCTAssertThrowsError(try object.Transaction_CopyEntitlementByIndex(EntitlementIndex: .zero)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Transaction_CopyEntitlementByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

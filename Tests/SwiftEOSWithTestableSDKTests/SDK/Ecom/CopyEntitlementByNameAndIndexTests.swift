@@ -24,15 +24,16 @@ public class SwiftEOS_Ecom_CopyEntitlementByNameAndIndexTests: XCTestCase {
             let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Ecom_Entitlement? = try object.CopyEntitlementByNameAndIndex(
-                LocalUserId: nil,
-                EntitlementName: nil,
-                Index: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyEntitlementByNameAndIndex(
+                    LocalUserId: nil,
+                    EntitlementName: nil,
+                    Index: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyEntitlementByNameAndIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

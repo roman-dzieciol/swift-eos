@@ -22,7 +22,7 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HLobbyDetails? = try object.CopyLobbyDetailsHandleByUiEventId(UiEventId: .zero)
+            let result: EOS_HLobbyDetails = try object.CopyLobbyDetailsHandleByUiEventId(UiEventId: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])

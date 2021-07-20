@@ -39,7 +39,7 @@ public class SwiftEOS_Auth_Actor: SwiftEOSActor {
     */
     public func CopyUserAuthToken(
         LocalUserId: EOS_EpicAccountId?
-    ) throws -> SwiftEOS_Auth_Token? {
+    ) throws -> SwiftEOS_Auth_Token {
         try ____CopyUserAuthToken(LocalUserId)
     }
 
@@ -237,21 +237,22 @@ extension SwiftEOS_Auth_Actor {
     */
     private func ____CopyUserAuthToken(
         _ LocalUserId: EOS_EpicAccountId?
-    ) throws -> SwiftEOS_Auth_Token? {
+    ) throws -> SwiftEOS_Auth_Token {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutUserAuthToken in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Auth_CopyUserAuthTokenOptions(), managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Auth_CopyUserAuthToken(
-                                Handle,
-                                Options,
-                                LocalUserId,
-                                OutUserAuthToken
-                            ) } } },
-                release: EOS_Auth_Token_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutUserAuthToken in
+                        try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Auth_CopyUserAuthTokenOptions(), managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Auth_CopyUserAuthToken(
+                                    Handle,
+                                    Options,
+                                    LocalUserId,
+                                    OutUserAuthToken
+                                ) } } },
+                    release: EOS_Auth_Token_Release
+                ) } }
     }
 
     /**

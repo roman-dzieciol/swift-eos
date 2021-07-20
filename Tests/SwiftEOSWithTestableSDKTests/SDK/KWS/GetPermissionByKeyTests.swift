@@ -23,14 +23,14 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
             let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_EKWSPermissionStatus? = try object.GetPermissionByKey(
+            let result: EOS_EKWSPermissionStatus = try object.GetPermissionByKey(
                 LocalUserId: nil,
                 Key: nil
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, .zero)
         }
         
         // Then

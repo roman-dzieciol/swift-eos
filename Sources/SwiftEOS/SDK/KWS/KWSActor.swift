@@ -47,7 +47,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
     public func CopyPermissionByIndex(
         LocalUserId: EOS_ProductUserId?,
         Index: Int
-    ) throws -> SwiftEOS_KWS_PermissionStatus? {
+    ) throws -> SwiftEOS_KWS_PermissionStatus {
         try ____CopyPermissionByIndex(.init(
                 LocalUserId: LocalUserId,
                 Index: Index
@@ -99,7 +99,7 @@ public class SwiftEOS_KWS_Actor: SwiftEOSActor {
     public func GetPermissionByKey(
         LocalUserId: EOS_ProductUserId?,
         Key: String?
-    ) throws -> EOS_EKWSPermissionStatus? {
+    ) throws -> EOS_EKWSPermissionStatus {
         try ____GetPermissionByKey(.init(
                 LocalUserId: LocalUserId,
                 Key: Key
@@ -264,20 +264,21 @@ extension SwiftEOS_KWS_Actor {
     */
     private func ____CopyPermissionByIndex(
         _ Options: SwiftEOS_KWS_CopyPermissionByIndexOptions
-    ) throws -> SwiftEOS_KWS_PermissionStatus? {
+    ) throws -> SwiftEOS_KWS_PermissionStatus {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutPermission in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_KWS_CopyPermissionByIndex(
-                                Handle,
-                                Options,
-                                OutPermission
-                            ) } } },
-                release: EOS_KWS_PermissionStatus_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutPermission in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_KWS_CopyPermissionByIndex(
+                                    Handle,
+                                    Options,
+                                    OutPermission
+                                ) } } },
+                    release: EOS_KWS_PermissionStatus_Release
+                ) } }
     }
 
     /**
@@ -321,16 +322,17 @@ extension SwiftEOS_KWS_Actor {
     */
     private func ____GetPermissionByKey(
         _ Options: SwiftEOS_KWS_GetPermissionByKeyOptions
-    ) throws -> EOS_EKWSPermissionStatus? {
+    ) throws -> EOS_EKWSPermissionStatus {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutPermission in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_KWS_GetPermissionByKey(
-                            Handle,
-                            Options,
-                            OutPermission
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutPermission in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_KWS_GetPermissionByKey(
+                                Handle,
+                                Options,
+                                OutPermission
+                            ) } } } } }
     }
 
     /**

@@ -21,11 +21,12 @@ public class SwiftEOS_P2P_GetPacketQueueInfoTests: XCTestCase {
             let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: _tagEOS_P2P_PacketQueueInfo? = try object.GetPacketQueueInfo()
+            try XCTAssertThrowsError(try object.GetPacketQueueInfo()) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetPacketQueueInfo"])
-            XCTAssertNil(result)
         }
         
         // Then

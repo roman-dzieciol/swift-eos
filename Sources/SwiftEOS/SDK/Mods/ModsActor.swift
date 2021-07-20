@@ -30,7 +30,7 @@ public class SwiftEOS_Mods_Actor: SwiftEOSActor {
     public func CopyModInfo(
         LocalUserId: EOS_EpicAccountId?,
         `Type`: EOS_EModEnumerationType
-    ) throws -> SwiftEOS_Mods_ModInfo? {
+    ) throws -> SwiftEOS_Mods_ModInfo {
         try ____CopyModInfo(.init(
                 LocalUserId: LocalUserId,
                 `Type`: `Type`
@@ -145,20 +145,21 @@ extension SwiftEOS_Mods_Actor {
     */
     private func ____CopyModInfo(
         _ Options: SwiftEOS_Mods_CopyModInfoOptions
-    ) throws -> SwiftEOS_Mods_ModInfo? {
+    ) throws -> SwiftEOS_Mods_ModInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutEnumeratedMods in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Mods_CopyModInfo(
-                                Handle,
-                                Options,
-                                OutEnumeratedMods
-                            ) } } },
-                release: EOS_Mods_ModInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutEnumeratedMods in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Mods_CopyModInfo(
+                                    Handle,
+                                    Options,
+                                    OutEnumeratedMods
+                                ) } } },
+                    release: EOS_Mods_ModInfo_Release
+                ) } }
     }
 
     /**

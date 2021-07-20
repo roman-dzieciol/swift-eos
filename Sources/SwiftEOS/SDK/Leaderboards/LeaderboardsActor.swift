@@ -26,7 +26,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     */
     public func CopyLeaderboardDefinitionByIndex(
         LeaderboardIndex: Int
-    ) throws -> SwiftEOS_Leaderboards_Definition? {
+    ) throws -> SwiftEOS_Leaderboards_Definition {
         try ____CopyLeaderboardDefinitionByIndex(.init(LeaderboardIndex: LeaderboardIndex))
     }
 
@@ -41,7 +41,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     */
     public func CopyLeaderboardDefinitionByLeaderboardId(
         LeaderboardId: String?
-    ) throws -> SwiftEOS_Leaderboards_Definition? {
+    ) throws -> SwiftEOS_Leaderboards_Definition {
         try ____CopyLeaderboardDefinitionByLeaderboardId(.init(LeaderboardId: LeaderboardId))
     }
 
@@ -56,7 +56,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     */
     public func CopyLeaderboardRecordByIndex(
         LeaderboardRecordIndex: Int
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord {
         try ____CopyLeaderboardRecordByIndex(.init(LeaderboardRecordIndex: LeaderboardRecordIndex))
     }
 
@@ -71,7 +71,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     */
     public func CopyLeaderboardRecordByUserId(
         UserId: EOS_ProductUserId?
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord {
         try ____CopyLeaderboardRecordByUserId(.init(UserId: UserId))
     }
 
@@ -88,7 +88,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     public func CopyLeaderboardUserScoreByIndex(
         LeaderboardUserScoreIndex: Int,
         StatName: String?
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore {
         try ____CopyLeaderboardUserScoreByIndex(.init(
                 LeaderboardUserScoreIndex: LeaderboardUserScoreIndex,
                 StatName: StatName
@@ -108,7 +108,7 @@ public class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
     public func CopyLeaderboardUserScoreByUserId(
         UserId: EOS_ProductUserId?,
         StatName: String?
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore {
         try ____CopyLeaderboardUserScoreByUserId(.init(
                 UserId: UserId,
                 StatName: StatName
@@ -256,20 +256,21 @@ extension SwiftEOS_Leaderboards_Actor {
     */
     private func ____CopyLeaderboardDefinitionByIndex(
         _ Options: SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByIndexOptions
-    ) throws -> SwiftEOS_Leaderboards_Definition? {
+    ) throws -> SwiftEOS_Leaderboards_Definition {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutLeaderboardDefinition in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Leaderboards_CopyLeaderboardDefinitionByIndex(
-                                Handle,
-                                Options,
-                                OutLeaderboardDefinition
-                            ) } } },
-                release: EOS_Leaderboards_Definition_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutLeaderboardDefinition in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Leaderboards_CopyLeaderboardDefinitionByIndex(
+                                    Handle,
+                                    Options,
+                                    OutLeaderboardDefinition
+                                ) } } },
+                    release: EOS_Leaderboards_Definition_Release
+                ) } }
     }
 
     /**
@@ -283,20 +284,21 @@ extension SwiftEOS_Leaderboards_Actor {
     */
     private func ____CopyLeaderboardDefinitionByLeaderboardId(
         _ Options: SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdOptions
-    ) throws -> SwiftEOS_Leaderboards_Definition? {
+    ) throws -> SwiftEOS_Leaderboards_Definition {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutLeaderboardDefinition in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId(
-                                Handle,
-                                Options,
-                                OutLeaderboardDefinition
-                            ) } } },
-                release: EOS_Leaderboards_Definition_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutLeaderboardDefinition in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId(
+                                    Handle,
+                                    Options,
+                                    OutLeaderboardDefinition
+                                ) } } },
+                    release: EOS_Leaderboards_Definition_Release
+                ) } }
     }
 
     /**
@@ -310,20 +312,21 @@ extension SwiftEOS_Leaderboards_Actor {
     */
     private func ____CopyLeaderboardRecordByIndex(
         _ Options: SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexOptions
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutLeaderboardRecord in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Leaderboards_CopyLeaderboardRecordByIndex(
-                                Handle,
-                                Options,
-                                OutLeaderboardRecord
-                            ) } } },
-                release: EOS_Leaderboards_LeaderboardRecord_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutLeaderboardRecord in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Leaderboards_CopyLeaderboardRecordByIndex(
+                                    Handle,
+                                    Options,
+                                    OutLeaderboardRecord
+                                ) } } },
+                    release: EOS_Leaderboards_LeaderboardRecord_Release
+                ) } }
     }
 
     /**
@@ -337,20 +340,21 @@ extension SwiftEOS_Leaderboards_Actor {
     */
     private func ____CopyLeaderboardRecordByUserId(
         _ Options: SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdOptions
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutLeaderboardRecord in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Leaderboards_CopyLeaderboardRecordByUserId(
-                                Handle,
-                                Options,
-                                OutLeaderboardRecord
-                            ) } } },
-                release: EOS_Leaderboards_LeaderboardRecord_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutLeaderboardRecord in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Leaderboards_CopyLeaderboardRecordByUserId(
+                                    Handle,
+                                    Options,
+                                    OutLeaderboardRecord
+                                ) } } },
+                    release: EOS_Leaderboards_LeaderboardRecord_Release
+                ) } }
     }
 
     /**
@@ -364,20 +368,21 @@ extension SwiftEOS_Leaderboards_Actor {
     */
     private func ____CopyLeaderboardUserScoreByIndex(
         _ Options: SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexOptions
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutLeaderboardUserScore in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Leaderboards_CopyLeaderboardUserScoreByIndex(
-                                Handle,
-                                Options,
-                                OutLeaderboardUserScore
-                            ) } } },
-                release: EOS_Leaderboards_LeaderboardUserScore_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutLeaderboardUserScore in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Leaderboards_CopyLeaderboardUserScoreByIndex(
+                                    Handle,
+                                    Options,
+                                    OutLeaderboardUserScore
+                                ) } } },
+                    release: EOS_Leaderboards_LeaderboardUserScore_Release
+                ) } }
     }
 
     /**
@@ -391,20 +396,21 @@ extension SwiftEOS_Leaderboards_Actor {
     */
     private func ____CopyLeaderboardUserScoreByUserId(
         _ Options: SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdOptions
-    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore? {
+    ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutLeaderboardUserScore in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Leaderboards_CopyLeaderboardUserScoreByUserId(
-                                Handle,
-                                Options,
-                                OutLeaderboardUserScore
-                            ) } } },
-                release: EOS_Leaderboards_LeaderboardUserScore_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutLeaderboardUserScore in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Leaderboards_CopyLeaderboardUserScoreByUserId(
+                                    Handle,
+                                    Options,
+                                    OutLeaderboardUserScore
+                                ) } } },
+                    release: EOS_Leaderboards_LeaderboardUserScore_Release
+                ) } }
     }
 
     /**

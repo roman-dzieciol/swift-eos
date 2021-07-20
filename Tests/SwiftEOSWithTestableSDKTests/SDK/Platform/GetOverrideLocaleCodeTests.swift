@@ -27,11 +27,11 @@ public class SwiftEOS_Platform_GetOverrideLocaleCodeTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetOverrideLocaleCode()
+            let result: String = try object.GetOverrideLocaleCode()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetOverrideLocaleCode"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

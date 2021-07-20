@@ -28,7 +28,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
     public func CopyFileMetadataAtIndex(
         LocalUserId: EOS_ProductUserId?,
         Index: Int
-    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata? {
+    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata {
         try ____CopyFileMetadataAtIndex(.init(
                 LocalUserId: LocalUserId,
                 Index: Index
@@ -46,7 +46,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
     public func CopyFileMetadataByFilename(
         LocalUserId: EOS_ProductUserId?,
         Filename: String?
-    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata? {
+    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata {
         try ____CopyFileMetadataByFilename(.init(
                 LocalUserId: LocalUserId,
                 Filename: Filename
@@ -125,7 +125,7 @@ public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
     */
     public func GetFileMetadataCount(
         LocalUserId: EOS_ProductUserId?
-    ) throws -> Int? {
+    ) throws -> Int {
         try ____GetFileMetadataCount(.init(LocalUserId: LocalUserId))
     }
 
@@ -256,20 +256,21 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     */
     private func ____CopyFileMetadataAtIndex(
         _ CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexOptions?
-    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata? {
+    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutMetadata in
-                    try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
-                        try throwingSdkResult { 
-                            EOS_PlayerDataStorage_CopyFileMetadataAtIndex(
-                                Handle,
-                                CopyFileMetadataOptions,
-                                OutMetadata
-                            ) } } },
-                release: EOS_PlayerDataStorage_FileMetadata_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutMetadata in
+                        try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
+                            try throwingSdkResult { 
+                                EOS_PlayerDataStorage_CopyFileMetadataAtIndex(
+                                    Handle,
+                                    CopyFileMetadataOptions,
+                                    OutMetadata
+                                ) } } },
+                    release: EOS_PlayerDataStorage_FileMetadata_Release
+                ) } }
     }
 
     /**
@@ -281,20 +282,21 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     */
     private func ____CopyFileMetadataByFilename(
         _ CopyFileMetadataOptions: SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameOptions?
-    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata? {
+    ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutMetadata in
-                    try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
-                        try throwingSdkResult { 
-                            EOS_PlayerDataStorage_CopyFileMetadataByFilename(
-                                Handle,
-                                CopyFileMetadataOptions,
-                                OutMetadata
-                            ) } } },
-                release: EOS_PlayerDataStorage_FileMetadata_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutMetadata in
+                        try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
+                            try throwingSdkResult { 
+                                EOS_PlayerDataStorage_CopyFileMetadataByFilename(
+                                    Handle,
+                                    CopyFileMetadataOptions,
+                                    OutMetadata
+                                ) } } },
+                    release: EOS_PlayerDataStorage_FileMetadata_Release
+                ) } }
     }
 
     /**
@@ -375,7 +377,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     */
     private func ____GetFileMetadataCount(
         _ GetFileMetadataCountOptions: SwiftEOS_PlayerDataStorage_GetFileMetadataCountOptions?
-    ) throws -> Int? {
+    ) throws -> Int {
         try withPointerManager { pointerManager in
             try withIntegerPointerReturnedAsInteger { OutFileMetadataCount in
                 try withSdkObjectPointerFromSwiftObject(GetFileMetadataCountOptions, managedBy: pointerManager) { GetFileMetadataCountOptions in

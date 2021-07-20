@@ -22,11 +22,12 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Achievements_DefinitionV2? = try object.CopyAchievementDefinitionV2ByAchievementId(AchievementId: nil)
+            try XCTAssertThrowsError(try object.CopyAchievementDefinitionV2ByAchievementId(AchievementId: nil)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
-            XCTAssertNil(result)
         }
         
         // Then

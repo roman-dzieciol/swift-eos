@@ -22,11 +22,11 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
             let object: SwiftEOS_AntiCheatClient_Actor = SwiftEOS_AntiCheatClient_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: Int? = try object.GetProtectMessageOutputLength(DataLengthBytes: .zero)
+            let result: Int = try object.GetProtectMessageOutputLength(DataLengthBytes: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, .zero)
         }
         
         // Then

@@ -22,7 +22,7 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
             let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HPresenceModification? = try object.CreatePresenceModification(LocalUserId: nil)
+            let result: EOS_HPresenceModification = try object.CreatePresenceModification(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_CreatePresenceModification"])

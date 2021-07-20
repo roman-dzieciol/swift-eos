@@ -142,7 +142,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     */
     public func CopyLobbyDetailsHandleByInviteId(
         InviteId: String?
-    ) throws -> EOS_HLobbyDetails? {
+    ) throws -> EOS_HLobbyDetails {
         try ____CopyLobbyDetailsHandleByInviteId(.init(InviteId: InviteId))
     }
 
@@ -160,7 +160,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     */
     public func CopyLobbyDetailsHandleByUiEventId(
         UiEventId: EOS_UI_EventId
-    ) throws -> EOS_HLobbyDetails? {
+    ) throws -> EOS_HLobbyDetails {
         try ____CopyLobbyDetailsHandleByUiEventId(.init(UiEventId: UiEventId))
     }
 
@@ -248,7 +248,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     */
     public func CreateLobbySearch(
         MaxResults: Int
-    ) throws -> EOS_HLobbySearch? {
+    ) throws -> EOS_HLobbySearch {
         try ____CreateLobbySearch(.init(MaxResults: MaxResults))
     }
 
@@ -303,7 +303,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     public func GetInviteIdByIndex(
         LocalUserId: EOS_ProductUserId?,
         Index: Int
-    ) throws -> String? {
+    ) throws -> String {
         try ____GetInviteIdByIndex(.init(
                 LocalUserId: LocalUserId,
                 Index: Index
@@ -330,7 +330,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     public func GetRTCRoomName(
         LobbyId: String?,
         LocalUserId: EOS_ProductUserId?
-    ) throws -> String? {
+    ) throws -> String {
         try ____GetRTCRoomName(.init(
                 LobbyId: LobbyId,
                 LocalUserId: LocalUserId
@@ -357,7 +357,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     public func IsRTCRoomConnected(
         LobbyId: String?,
         LocalUserId: EOS_ProductUserId?
-    ) throws -> Bool? {
+    ) throws -> Bool {
         try ____IsRTCRoomConnected(.init(
                 LobbyId: LobbyId,
                 LocalUserId: LocalUserId
@@ -595,7 +595,7 @@ public class SwiftEOS_Lobby_Actor: SwiftEOSActor {
     public func UpdateLobbyModification(
         LocalUserId: EOS_ProductUserId?,
         LobbyId: String?
-    ) throws -> EOS_HLobbyModification? {
+    ) throws -> EOS_HLobbyModification {
         try ____UpdateLobbyModification(.init(
                 LocalUserId: LocalUserId,
                 LobbyId: LobbyId
@@ -850,16 +850,17 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____CopyLobbyDetailsHandleByInviteId(
         _ Options: SwiftEOS_Lobby_CopyLobbyDetailsHandleByInviteIdOptions
-    ) throws -> EOS_HLobbyDetails? {
+    ) throws -> EOS_HLobbyDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Lobby_CopyLobbyDetailsHandleByInviteId(
-                            Handle,
-                            Options,
-                            OutLobbyDetailsHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Lobby_CopyLobbyDetailsHandleByInviteId(
+                                Handle,
+                                Options,
+                                OutLobbyDetailsHandle
+                            ) } } } } }
     }
 
     /**
@@ -876,16 +877,17 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____CopyLobbyDetailsHandleByUiEventId(
         _ Options: SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdOptions
-    ) throws -> EOS_HLobbyDetails? {
+    ) throws -> EOS_HLobbyDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Lobby_CopyLobbyDetailsHandleByUiEventId(
-                            Handle,
-                            Options,
-                            OutLobbyDetailsHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Lobby_CopyLobbyDetailsHandleByUiEventId(
+                                Handle,
+                                Options,
+                                OutLobbyDetailsHandle
+                            ) } } } } }
     }
 
     /**
@@ -931,16 +933,17 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____CreateLobbySearch(
         _ Options: SwiftEOS_Lobby_CreateLobbySearchOptions
-    ) throws -> EOS_HLobbySearch? {
+    ) throws -> EOS_HLobbySearch {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutLobbySearchHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Lobby_CreateLobbySearch(
-                            Handle,
-                            Options,
-                            OutLobbySearchHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutLobbySearchHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Lobby_CreateLobbySearch(
+                                Handle,
+                                Options,
+                                OutLobbySearchHandle
+                            ) } } } } }
     }
 
     /**
@@ -1003,17 +1006,18 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____GetInviteIdByIndex(
         _ Options: SwiftEOS_Lobby_GetInviteIdByIndexOptions
-    ) throws -> String? {
+    ) throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Lobby_GetInviteIdByIndex(
-                            Handle,
-                            Options,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Lobby_GetInviteIdByIndex(
+                                Handle,
+                                Options,
+                                OutBuffer,
+                                InOutBufferLength
+                            ) } } } } }
     }
 
     /**
@@ -1034,17 +1038,18 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____GetRTCRoomName(
         _ Options: SwiftEOS_Lobby_GetRTCRoomNameOptions
-    ) throws -> String? {
+    ) throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Lobby_GetRTCRoomName(
-                            Handle,
-                            Options,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Lobby_GetRTCRoomName(
+                                Handle,
+                                Options,
+                                OutBuffer,
+                                InOutBufferLength
+                            ) } } } } }
     }
 
     /**
@@ -1065,7 +1070,7 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____IsRTCRoomConnected(
         _ Options: SwiftEOS_Lobby_IsRTCRoomConnectedOptions
-    ) throws -> Bool? {
+    ) throws -> Bool {
         try withPointerManager { pointerManager in
             try withEosBoolPointerReturnedAsSwiftBool { bOutIsConnected in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -1297,15 +1302,16 @@ extension SwiftEOS_Lobby_Actor {
     */
     private func ____UpdateLobbyModification(
         _ Options: SwiftEOS_Lobby_UpdateLobbyModificationOptions
-    ) throws -> EOS_HLobbyModification? {
+    ) throws -> EOS_HLobbyModification {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutLobbyModificationHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Lobby_UpdateLobbyModification(
-                            Handle,
-                            Options,
-                            OutLobbyModificationHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutLobbyModificationHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Lobby_UpdateLobbyModification(
+                                Handle,
+                                Options,
+                                OutLobbyModificationHandle
+                            ) } } } } }
     }
 }

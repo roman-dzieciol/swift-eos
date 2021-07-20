@@ -16,13 +16,14 @@ This string will be no larger than `EOS_PRODUCTUSERID_MAX_LENGTH` + 1 and will o
 */
 public func SwiftEOS_ProductUserId_ToString(
     AccountId: EOS_ProductUserId?
-) throws -> String? {
+) throws -> String {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-            try throwingSdkResult { 
-                EOS_ProductUserId_ToString(
-                    AccountId,
-                    OutBuffer,
-                    InOutBufferLength
-                ) } } }
+        try throwingNilResult { 
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_ProductUserId_ToString(
+                        AccountId,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } } }
 }

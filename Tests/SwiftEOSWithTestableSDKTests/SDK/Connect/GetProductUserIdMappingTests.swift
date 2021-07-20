@@ -25,7 +25,7 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetProductUserIdMapping(
+            let result: String = try object.GetProductUserIdMapping(
                 LocalUserId: nil,
                 AccountIdType: .zero,
                 TargetProductUserId: nil
@@ -33,7 +33,7 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

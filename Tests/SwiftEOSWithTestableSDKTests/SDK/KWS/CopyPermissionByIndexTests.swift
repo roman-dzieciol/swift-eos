@@ -23,14 +23,15 @@ public class SwiftEOS_KWS_CopyPermissionByIndexTests: XCTestCase {
             let object: SwiftEOS_KWS_Actor = SwiftEOS_KWS_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_KWS_PermissionStatus? = try object.CopyPermissionByIndex(
-                LocalUserId: nil,
-                Index: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyPermissionByIndex(
+                    LocalUserId: nil,
+                    Index: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_CopyPermissionByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

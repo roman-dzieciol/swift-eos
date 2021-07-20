@@ -13,15 +13,16 @@ Encode a byte array into hex encoded string
 */
 public func SwiftEOS_ByteArray_ToString(
     ByteArray: [UInt8]?
-) throws -> String? {
+) throws -> String {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-            try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray, Length in
-                try throwingSdkResult { 
-                    EOS_ByteArray_ToString(
-                        ByteArray,
-                        Length,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } } }
+        try throwingNilResult { 
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray, Length in
+                    try throwingSdkResult { 
+                        EOS_ByteArray_ToString(
+                            ByteArray,
+                            Length,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } } }
 }

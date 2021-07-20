@@ -22,11 +22,12 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdTests
             let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Leaderboards_Definition? = try object.CopyLeaderboardDefinitionByLeaderboardId(LeaderboardId: nil)
+            try XCTAssertThrowsError(try object.CopyLeaderboardDefinitionByLeaderboardId(LeaderboardId: nil)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId"])
-            XCTAssertNil(result)
         }
         
         // Then

@@ -24,15 +24,16 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdTests: XC
             let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Achievements_PlayerAchievement? = try object.CopyPlayerAchievementByAchievementId(
-                TargetUserId: nil,
-                AchievementId: nil,
-                LocalUserId: nil
-            )
+            try XCTAssertThrowsError(try object.CopyPlayerAchievementByAchievementId(
+                    TargetUserId: nil,
+                    AchievementId: nil,
+                    LocalUserId: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyPlayerAchievementByAchievementId"])
-            XCTAssertNil(result)
         }
         
         // Then

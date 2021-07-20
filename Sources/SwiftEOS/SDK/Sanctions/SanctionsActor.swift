@@ -31,7 +31,7 @@ public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
     public func CopyPlayerSanctionByIndex(
         TargetUserId: EOS_ProductUserId?,
         SanctionIndex: Int
-    ) throws -> SwiftEOS_Sanctions_PlayerSanction? {
+    ) throws -> SwiftEOS_Sanctions_PlayerSanction {
         try ____CopyPlayerSanctionByIndex(.init(
                 TargetUserId: TargetUserId,
                 SanctionIndex: SanctionIndex
@@ -94,20 +94,21 @@ extension SwiftEOS_Sanctions_Actor {
     */
     private func ____CopyPlayerSanctionByIndex(
         _ Options: SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptions
-    ) throws -> SwiftEOS_Sanctions_PlayerSanction? {
+    ) throws -> SwiftEOS_Sanctions_PlayerSanction {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutSanction in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Sanctions_CopyPlayerSanctionByIndex(
-                                Handle,
-                                Options,
-                                OutSanction
-                            ) } } },
-                release: EOS_Sanctions_PlayerSanction_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutSanction in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Sanctions_CopyPlayerSanctionByIndex(
+                                    Handle,
+                                    Options,
+                                    OutSanction
+                                ) } } },
+                    release: EOS_Sanctions_PlayerSanction_Release
+                ) } }
     }
 
     /**

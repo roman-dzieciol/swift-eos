@@ -22,11 +22,11 @@ public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
             let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: Int? = try object.GetFileMetadataCount(LocalUserId: nil)
+            let result: Int = try object.GetFileMetadataCount(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_GetFileMetadataCount"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, .zero)
         }
         
         // Then

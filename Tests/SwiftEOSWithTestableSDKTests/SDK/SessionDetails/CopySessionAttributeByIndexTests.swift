@@ -28,11 +28,12 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexTests: XCTestCas
             let object: SwiftEOS_SessionDetails_Actor = SwiftEOS_SessionDetails_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_SessionDetails_Attribute? = try object.CopySessionAttributeByIndex(AttrIndex: .zero)
+            try XCTAssertThrowsError(try object.CopySessionAttributeByIndex(AttrIndex: .zero)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

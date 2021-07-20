@@ -30,7 +30,7 @@ public class SwiftEOS_LobbySearch_Actor: SwiftEOSActor {
     */
     public func CopySearchResultByIndex(
         LobbyIndex: Int
-    ) throws -> EOS_HLobbyDetails? {
+    ) throws -> EOS_HLobbyDetails {
         try ____CopySearchResultByIndex(.init(LobbyIndex: LobbyIndex))
     }
 
@@ -158,16 +158,17 @@ extension SwiftEOS_LobbySearch_Actor {
     */
     private func ____CopySearchResultByIndex(
         _ Options: SwiftEOS_LobbySearch_CopySearchResultByIndexOptions
-    ) throws -> EOS_HLobbyDetails? {
+    ) throws -> EOS_HLobbyDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_LobbySearch_CopySearchResultByIndex(
-                            Handle,
-                            Options,
-                            OutLobbyDetailsHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_LobbySearch_CopySearchResultByIndex(
+                                Handle,
+                                Options,
+                                OutLobbyDetailsHandle
+                            ) } } } } }
     }
 
     /**

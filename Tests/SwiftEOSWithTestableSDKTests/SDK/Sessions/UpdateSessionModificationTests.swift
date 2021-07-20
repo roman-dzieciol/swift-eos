@@ -22,7 +22,7 @@ public class SwiftEOS_Sessions_UpdateSessionModificationTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionModification? = try object.UpdateSessionModification(SessionName: nil)
+            let result: EOS_HSessionModification = try object.UpdateSessionModification(SessionName: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_UpdateSessionModification"])

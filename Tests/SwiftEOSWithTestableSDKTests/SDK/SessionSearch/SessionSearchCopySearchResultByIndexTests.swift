@@ -28,7 +28,7 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexTests: XCTestCase {
             let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionDetails? = try object.CopySearchResultByIndex(SessionIndex: .zero)
+            let result: EOS_HSessionDetails = try object.CopySearchResultByIndex(SessionIndex: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_CopySearchResultByIndex"])

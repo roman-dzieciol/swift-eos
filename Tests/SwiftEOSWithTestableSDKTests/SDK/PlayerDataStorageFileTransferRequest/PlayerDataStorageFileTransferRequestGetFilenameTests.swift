@@ -28,11 +28,11 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFilenameTests: XCT
             let object: SwiftEOS_PlayerDataStorageFileTransferRequest_Actor = SwiftEOS_PlayerDataStorageFileTransferRequest_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetFilename(FilenameStringBufferSizeBytes: .zero)
+            let result: String = try object.GetFilename(FilenameStringBufferSizeBytes: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_GetFilename"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

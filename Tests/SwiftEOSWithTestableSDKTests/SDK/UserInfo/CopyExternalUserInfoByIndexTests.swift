@@ -24,15 +24,16 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByIndexTests: XCTestCase {
             let object: SwiftEOS_UserInfo_Actor = SwiftEOS_UserInfo_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_UserInfo_ExternalUserInfo? = try object.CopyExternalUserInfoByIndex(
-                LocalUserId: nil,
-                TargetUserId: nil,
-                Index: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyExternalUserInfoByIndex(
+                    LocalUserId: nil,
+                    TargetUserId: nil,
+                    Index: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

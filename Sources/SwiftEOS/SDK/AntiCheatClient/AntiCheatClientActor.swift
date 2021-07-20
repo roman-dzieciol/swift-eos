@@ -132,7 +132,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     */
     public func GetProtectMessageOutputLength(
         DataLengthBytes: Int
-    ) throws -> Int? {
+    ) throws -> Int {
         try ____GetProtectMessageOutputLength(.init(DataLengthBytes: DataLengthBytes))
     }
 
@@ -184,7 +184,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     public func ProtectMessage(
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
-    ) throws -> [UInt8]? {
+    ) throws -> [UInt8] {
         try ____ProtectMessage(.init(
                 Data: Data,
                 OutBufferSizeBytes: OutBufferSizeBytes
@@ -282,7 +282,7 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     public func UnprotectMessage(
         Data: [UInt8]?,
         OutBufferSizeBytes: Int
-    ) throws -> [UInt8]? {
+    ) throws -> [UInt8] {
         try ____UnprotectMessage(.init(
                 Data: Data,
                 OutBufferSizeBytes: OutBufferSizeBytes
@@ -510,7 +510,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
     */
     private func ____GetProtectMessageOutputLength(
         _ Options: SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthOptions
-    ) throws -> Int? {
+    ) throws -> Int {
         try withPointerManager { pointerManager in
             try withIntegerPointerReturnedAsInteger { OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -572,7 +572,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
     */
     private func ____ProtectMessage(
         _ Options: SwiftEOS_AntiCheatClient_ProtectMessageOptions
-    ) throws -> [UInt8]? {
+    ) throws -> [UInt8] {
         try withPointerManager { pointerManager in
             try withElementPointerPointersReturnedAsArray { OutBuffer, OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -662,7 +662,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
     */
     private func ____UnprotectMessage(
         _ Options: SwiftEOS_AntiCheatClient_UnprotectMessageOptions
-    ) throws -> [UInt8]? {
+    ) throws -> [UInt8] {
         try withPointerManager { pointerManager in
             try withElementPointerPointersReturnedAsArray { OutBuffer, OutBufferLengthBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in

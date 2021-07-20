@@ -23,14 +23,15 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
             let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Stats_Stat? = try object.CopyStatByIndex(
-                TargetUserId: nil,
-                StatIndex: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyStatByIndex(
+                    TargetUserId: nil,
+                    StatIndex: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

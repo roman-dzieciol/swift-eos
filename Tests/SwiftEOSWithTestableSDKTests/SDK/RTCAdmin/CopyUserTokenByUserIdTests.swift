@@ -23,14 +23,15 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
             let object: SwiftEOS_RTCAdmin_Actor = SwiftEOS_RTCAdmin_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_RTCAdmin_UserToken? = try object.CopyUserTokenByUserId(
-                TargetUserId: nil,
-                QueryId: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyUserTokenByUserId(
+                    TargetUserId: nil,
+                    QueryId: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByUserId"])
-            XCTAssertNil(result)
         }
         
         // Then

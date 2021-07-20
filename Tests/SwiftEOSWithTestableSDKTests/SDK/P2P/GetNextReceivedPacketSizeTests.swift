@@ -23,14 +23,14 @@ public class SwiftEOS_P2P_GetNextReceivedPacketSizeTests: XCTestCase {
             let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: Int? = try object.GetNextReceivedPacketSize(
+            let result: Int = try object.GetNextReceivedPacketSize(
                 LocalUserId: nil,
                 RequestedChannel: nil
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetNextReceivedPacketSize"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, .zero)
         }
         
         // Then

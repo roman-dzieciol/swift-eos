@@ -30,7 +30,7 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?,
         AccountId: String?
-    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo {
         try ____CopyExternalUserInfoByAccountId(.init(
                 LocalUserId: LocalUserId,
                 TargetUserId: TargetUserId,
@@ -53,7 +53,7 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?,
         AccountType: EOS_EExternalAccountType
-    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo {
         try ____CopyExternalUserInfoByAccountType(.init(
                 LocalUserId: LocalUserId,
                 TargetUserId: TargetUserId,
@@ -76,7 +76,7 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?,
         Index: Int
-    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo {
         try ____CopyExternalUserInfoByIndex(.init(
                 LocalUserId: LocalUserId,
                 TargetUserId: TargetUserId,
@@ -101,7 +101,7 @@ public class SwiftEOS_UserInfo_Actor: SwiftEOSActor {
     public func CopyUserInfo(
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?
-    ) throws -> SwiftEOS_UserInfo? {
+    ) throws -> SwiftEOS_UserInfo {
         try ____CopyUserInfo(.init(
                 LocalUserId: LocalUserId,
                 TargetUserId: TargetUserId
@@ -221,20 +221,21 @@ extension SwiftEOS_UserInfo_Actor {
     */
     private func ____CopyExternalUserInfoByAccountId(
         _ Options: SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions
-    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutExternalUserInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_UserInfo_CopyExternalUserInfoByAccountId(
-                                Handle,
-                                Options,
-                                OutExternalUserInfo
-                            ) } } },
-                release: EOS_UserInfo_ExternalUserInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutExternalUserInfo in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_UserInfo_CopyExternalUserInfoByAccountId(
+                                    Handle,
+                                    Options,
+                                    OutExternalUserInfo
+                                ) } } },
+                    release: EOS_UserInfo_ExternalUserInfo_Release
+                ) } }
     }
 
     /**
@@ -248,20 +249,21 @@ extension SwiftEOS_UserInfo_Actor {
     */
     private func ____CopyExternalUserInfoByAccountType(
         _ Options: SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeOptions
-    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutExternalUserInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_UserInfo_CopyExternalUserInfoByAccountType(
-                                Handle,
-                                Options,
-                                OutExternalUserInfo
-                            ) } } },
-                release: EOS_UserInfo_ExternalUserInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutExternalUserInfo in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_UserInfo_CopyExternalUserInfoByAccountType(
+                                    Handle,
+                                    Options,
+                                    OutExternalUserInfo
+                                ) } } },
+                    release: EOS_UserInfo_ExternalUserInfo_Release
+                ) } }
     }
 
     /**
@@ -275,20 +277,21 @@ extension SwiftEOS_UserInfo_Actor {
     */
     private func ____CopyExternalUserInfoByIndex(
         _ Options: SwiftEOS_UserInfo_CopyExternalUserInfoByIndexOptions
-    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo? {
+    ) throws -> SwiftEOS_UserInfo_ExternalUserInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutExternalUserInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_UserInfo_CopyExternalUserInfoByIndex(
-                                Handle,
-                                Options,
-                                OutExternalUserInfo
-                            ) } } },
-                release: EOS_UserInfo_ExternalUserInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutExternalUserInfo in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_UserInfo_CopyExternalUserInfoByIndex(
+                                    Handle,
+                                    Options,
+                                    OutExternalUserInfo
+                                ) } } },
+                    release: EOS_UserInfo_ExternalUserInfo_Release
+                ) } }
     }
 
     /**
@@ -306,20 +309,21 @@ extension SwiftEOS_UserInfo_Actor {
     */
     private func ____CopyUserInfo(
         _ Options: SwiftEOS_UserInfo_CopyUserInfoOptions
-    ) throws -> SwiftEOS_UserInfo? {
+    ) throws -> SwiftEOS_UserInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutUserInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_UserInfo_CopyUserInfo(
-                                Handle,
-                                Options,
-                                OutUserInfo
-                            ) } } },
-                release: EOS_UserInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutUserInfo in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_UserInfo_CopyUserInfo(
+                                    Handle,
+                                    Options,
+                                    OutUserInfo
+                                ) } } },
+                    release: EOS_UserInfo_Release
+                ) } }
     }
 
     /**

@@ -21,11 +21,11 @@ public class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
             let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_ENATType? = try object.GetNATType()
+            let result: EOS_ENATType = try object.GetNATType()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetNATType"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, .zero)
         }
         
         // Then

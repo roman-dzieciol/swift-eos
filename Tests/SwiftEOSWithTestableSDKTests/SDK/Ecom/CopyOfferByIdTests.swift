@@ -23,14 +23,15 @@ public class SwiftEOS_Ecom_CopyOfferByIdTests: XCTestCase {
             let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Ecom_CatalogOffer? = try object.CopyOfferById(
-                LocalUserId: nil,
-                OfferId: nil
-            )
+            try XCTAssertThrowsError(try object.CopyOfferById(
+                    LocalUserId: nil,
+                    OfferId: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyOfferById"])
-            XCTAssertNil(result)
         }
         
         // Then

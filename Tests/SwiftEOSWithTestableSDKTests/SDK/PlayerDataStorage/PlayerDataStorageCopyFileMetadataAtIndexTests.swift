@@ -23,14 +23,15 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexTests: XCTestCase
             let object: SwiftEOS_PlayerDataStorage_Actor = SwiftEOS_PlayerDataStorage_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_PlayerDataStorage_FileMetadata? = try object.CopyFileMetadataAtIndex(
-                LocalUserId: nil,
-                Index: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyFileMetadataAtIndex(
+                    LocalUserId: nil,
+                    Index: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataAtIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

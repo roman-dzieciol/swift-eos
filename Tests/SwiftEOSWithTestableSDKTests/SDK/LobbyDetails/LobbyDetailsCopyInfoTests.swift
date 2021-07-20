@@ -27,11 +27,12 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
             let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_LobbyDetails_Info? = try object.CopyInfo()
+            try XCTAssertThrowsError(try object.CopyInfo()) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo"])
-            XCTAssertNil(result)
         }
         
         // Then

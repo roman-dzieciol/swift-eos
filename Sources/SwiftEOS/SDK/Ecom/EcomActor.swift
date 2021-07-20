@@ -61,7 +61,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyEntitlementById(
         LocalUserId: EOS_EpicAccountId?,
         EntitlementId: String?
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try ____CopyEntitlementById(.init(
                 LocalUserId: LocalUserId,
                 EntitlementId: EntitlementId
@@ -82,7 +82,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyEntitlementByIndex(
         LocalUserId: EOS_EpicAccountId?,
         EntitlementIndex: Int
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try ____CopyEntitlementByIndex(.init(
                 LocalUserId: LocalUserId,
                 EntitlementIndex: EntitlementIndex
@@ -107,7 +107,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         EntitlementName: String?,
         Index: Int
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try ____CopyEntitlementByNameAndIndex(.init(
                 LocalUserId: LocalUserId,
                 EntitlementName: EntitlementName,
@@ -131,7 +131,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyItemById(
         LocalUserId: EOS_EpicAccountId?,
         ItemId: String?
-    ) throws -> SwiftEOS_Ecom_CatalogItem? {
+    ) throws -> SwiftEOS_Ecom_CatalogItem {
         try ____CopyItemById(.init(
                 LocalUserId: LocalUserId,
                 ItemId: ItemId
@@ -154,7 +154,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         ItemId: String?,
         ImageInfoIndex: Int
-    ) throws -> SwiftEOS_Ecom_KeyImageInfo? {
+    ) throws -> SwiftEOS_Ecom_KeyImageInfo {
         try ____CopyItemImageInfoByIndex(.init(
                 LocalUserId: LocalUserId,
                 ItemId: ItemId,
@@ -178,7 +178,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         ItemId: String?,
         ReleaseIndex: Int
-    ) throws -> SwiftEOS_Ecom_CatalogRelease? {
+    ) throws -> SwiftEOS_Ecom_CatalogRelease {
         try ____CopyItemReleaseByIndex(.init(
                 LocalUserId: LocalUserId,
                 ItemId: ItemId,
@@ -202,7 +202,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyOfferById(
         LocalUserId: EOS_EpicAccountId?,
         OfferId: String?
-    ) throws -> SwiftEOS_Ecom_CatalogOffer? {
+    ) throws -> SwiftEOS_Ecom_CatalogOffer {
         try ____CopyOfferById(.init(
                 LocalUserId: LocalUserId,
                 OfferId: OfferId
@@ -225,7 +225,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyOfferByIndex(
         LocalUserId: EOS_EpicAccountId?,
         OfferIndex: Int
-    ) throws -> SwiftEOS_Ecom_CatalogOffer? {
+    ) throws -> SwiftEOS_Ecom_CatalogOffer {
         try ____CopyOfferByIndex(.init(
                 LocalUserId: LocalUserId,
                 OfferIndex: OfferIndex
@@ -248,7 +248,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         OfferId: String?,
         ImageInfoIndex: Int
-    ) throws -> SwiftEOS_Ecom_KeyImageInfo? {
+    ) throws -> SwiftEOS_Ecom_KeyImageInfo {
         try ____CopyOfferImageInfoByIndex(.init(
                 LocalUserId: LocalUserId,
                 OfferId: OfferId,
@@ -274,7 +274,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
         LocalUserId: EOS_EpicAccountId?,
         OfferId: String?,
         ItemIndex: Int
-    ) throws -> SwiftEOS_Ecom_CatalogItem? {
+    ) throws -> SwiftEOS_Ecom_CatalogItem {
         try ____CopyOfferItemByIndex(.init(
                 LocalUserId: LocalUserId,
                 OfferId: OfferId,
@@ -296,7 +296,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyTransactionById(
         LocalUserId: EOS_EpicAccountId?,
         TransactionId: String?
-    ) throws -> EOS_Ecom_HTransaction? {
+    ) throws -> EOS_Ecom_HTransaction {
         try ____CopyTransactionById(.init(
                 LocalUserId: LocalUserId,
                 TransactionId: TransactionId
@@ -317,7 +317,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     public func CopyTransactionByIndex(
         LocalUserId: EOS_EpicAccountId?,
         TransactionIndex: Int
-    ) throws -> EOS_Ecom_HTransaction? {
+    ) throws -> EOS_Ecom_HTransaction {
         try ____CopyTransactionByIndex(.init(
                 LocalUserId: LocalUserId,
                 TransactionIndex: TransactionIndex
@@ -592,7 +592,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     */
     public func Transaction_CopyEntitlementByIndex(
         EntitlementIndex: Int
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try ____Transaction_CopyEntitlementByIndex(.init(EntitlementIndex: EntitlementIndex))
     }
 
@@ -619,7 +619,7 @@ public class SwiftEOS_Ecom_Actor: SwiftEOSActor {
     - SeeAlso: `EOS_Ecom_CopyTransactionByIndex`
     - Returns:  
     */
-    public func Transaction_GetTransactionId() throws -> String? {
+    public func Transaction_GetTransactionId() throws -> String {
         try ____Transaction_GetTransactionId()
     }
 }
@@ -665,20 +665,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyEntitlementById(
         _ Options: SwiftEOS_Ecom_CopyEntitlementByIdOptions
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutEntitlement in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyEntitlementById(
-                                Handle,
-                                Options,
-                                OutEntitlement
-                            ) } } },
-                release: EOS_Ecom_Entitlement_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutEntitlement in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyEntitlementById(
+                                    Handle,
+                                    Options,
+                                    OutEntitlement
+                                ) } } },
+                    release: EOS_Ecom_Entitlement_Release
+                ) } }
     }
 
     /**
@@ -693,20 +694,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyEntitlementByIndex(
         _ Options: SwiftEOS_Ecom_CopyEntitlementByIndexOptions
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutEntitlement in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyEntitlementByIndex(
-                                Handle,
-                                Options,
-                                OutEntitlement
-                            ) } } },
-                release: EOS_Ecom_Entitlement_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutEntitlement in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyEntitlementByIndex(
+                                    Handle,
+                                    Options,
+                                    OutEntitlement
+                                ) } } },
+                    release: EOS_Ecom_Entitlement_Release
+                ) } }
     }
 
     /**
@@ -723,20 +725,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyEntitlementByNameAndIndex(
         _ Options: SwiftEOS_Ecom_CopyEntitlementByNameAndIndexOptions
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutEntitlement in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyEntitlementByNameAndIndex(
-                                Handle,
-                                Options,
-                                OutEntitlement
-                            ) } } },
-                release: EOS_Ecom_Entitlement_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutEntitlement in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyEntitlementByNameAndIndex(
+                                    Handle,
+                                    Options,
+                                    OutEntitlement
+                                ) } } },
+                    release: EOS_Ecom_Entitlement_Release
+                ) } }
     }
 
     /**
@@ -753,20 +756,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyItemById(
         _ Options: SwiftEOS_Ecom_CopyItemByIdOptions
-    ) throws -> SwiftEOS_Ecom_CatalogItem? {
+    ) throws -> SwiftEOS_Ecom_CatalogItem {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutItem in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyItemById(
-                                Handle,
-                                Options,
-                                OutItem
-                            ) } } },
-                release: EOS_Ecom_CatalogItem_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutItem in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyItemById(
+                                    Handle,
+                                    Options,
+                                    OutItem
+                                ) } } },
+                    release: EOS_Ecom_CatalogItem_Release
+                ) } }
     }
 
     /**
@@ -781,20 +785,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyItemImageInfoByIndex(
         _ Options: SwiftEOS_Ecom_CopyItemImageInfoByIndexOptions
-    ) throws -> SwiftEOS_Ecom_KeyImageInfo? {
+    ) throws -> SwiftEOS_Ecom_KeyImageInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutImageInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyItemImageInfoByIndex(
-                                Handle,
-                                Options,
-                                OutImageInfo
-                            ) } } },
-                release: EOS_Ecom_KeyImageInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutImageInfo in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyItemImageInfoByIndex(
+                                    Handle,
+                                    Options,
+                                    OutImageInfo
+                                ) } } },
+                    release: EOS_Ecom_KeyImageInfo_Release
+                ) } }
     }
 
     /**
@@ -809,20 +814,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyItemReleaseByIndex(
         _ Options: SwiftEOS_Ecom_CopyItemReleaseByIndexOptions
-    ) throws -> SwiftEOS_Ecom_CatalogRelease? {
+    ) throws -> SwiftEOS_Ecom_CatalogRelease {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutRelease in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyItemReleaseByIndex(
-                                Handle,
-                                Options,
-                                OutRelease
-                            ) } } },
-                release: EOS_Ecom_CatalogRelease_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutRelease in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyItemReleaseByIndex(
+                                    Handle,
+                                    Options,
+                                    OutRelease
+                                ) } } },
+                    release: EOS_Ecom_CatalogRelease_Release
+                ) } }
     }
 
     /**
@@ -839,20 +845,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyOfferById(
         _ Options: SwiftEOS_Ecom_CopyOfferByIdOptions
-    ) throws -> SwiftEOS_Ecom_CatalogOffer? {
+    ) throws -> SwiftEOS_Ecom_CatalogOffer {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutOffer in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyOfferById(
-                                Handle,
-                                Options,
-                                OutOffer
-                            ) } } },
-                release: EOS_Ecom_CatalogOffer_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutOffer in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyOfferById(
+                                    Handle,
+                                    Options,
+                                    OutOffer
+                                ) } } },
+                    release: EOS_Ecom_CatalogOffer_Release
+                ) } }
     }
 
     /**
@@ -869,20 +876,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyOfferByIndex(
         _ Options: SwiftEOS_Ecom_CopyOfferByIndexOptions
-    ) throws -> SwiftEOS_Ecom_CatalogOffer? {
+    ) throws -> SwiftEOS_Ecom_CatalogOffer {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutOffer in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyOfferByIndex(
-                                Handle,
-                                Options,
-                                OutOffer
-                            ) } } },
-                release: EOS_Ecom_CatalogOffer_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutOffer in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyOfferByIndex(
+                                    Handle,
+                                    Options,
+                                    OutOffer
+                                ) } } },
+                    release: EOS_Ecom_CatalogOffer_Release
+                ) } }
     }
 
     /**
@@ -897,20 +905,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyOfferImageInfoByIndex(
         _ Options: SwiftEOS_Ecom_CopyOfferImageInfoByIndexOptions
-    ) throws -> SwiftEOS_Ecom_KeyImageInfo? {
+    ) throws -> SwiftEOS_Ecom_KeyImageInfo {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutImageInfo in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyOfferImageInfoByIndex(
-                                Handle,
-                                Options,
-                                OutImageInfo
-                            ) } } },
-                release: EOS_Ecom_KeyImageInfo_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutImageInfo in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyOfferImageInfoByIndex(
+                                    Handle,
+                                    Options,
+                                    OutImageInfo
+                                ) } } },
+                    release: EOS_Ecom_KeyImageInfo_Release
+                ) } }
     }
 
     /**
@@ -927,20 +936,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyOfferItemByIndex(
         _ Options: SwiftEOS_Ecom_CopyOfferItemByIndexOptions
-    ) throws -> SwiftEOS_Ecom_CatalogItem? {
+    ) throws -> SwiftEOS_Ecom_CatalogItem {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutItem in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_CopyOfferItemByIndex(
-                                Handle,
-                                Options,
-                                OutItem
-                            ) } } },
-                release: EOS_Ecom_CatalogItem_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutItem in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_CopyOfferItemByIndex(
+                                    Handle,
+                                    Options,
+                                    OutItem
+                                ) } } },
+                    release: EOS_Ecom_CatalogItem_Release
+                ) } }
     }
 
     /**
@@ -955,16 +965,17 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyTransactionById(
         _ Options: SwiftEOS_Ecom_CopyTransactionByIdOptions
-    ) throws -> EOS_Ecom_HTransaction? {
+    ) throws -> EOS_Ecom_HTransaction {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Ecom_CopyTransactionById(
-                            Handle,
-                            Options,
-                            OutTransaction
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Ecom_CopyTransactionById(
+                                Handle,
+                                Options,
+                                OutTransaction
+                            ) } } } } }
     }
 
     /**
@@ -979,16 +990,17 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____CopyTransactionByIndex(
         _ Options: SwiftEOS_Ecom_CopyTransactionByIndexOptions
-    ) throws -> EOS_Ecom_HTransaction? {
+    ) throws -> EOS_Ecom_HTransaction {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Ecom_CopyTransactionByIndex(
-                            Handle,
-                            Options,
-                            OutTransaction
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Ecom_CopyTransactionByIndex(
+                                Handle,
+                                Options,
+                                OutTransaction
+                            ) } } } } }
     }
 
     /**
@@ -1297,20 +1309,21 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____Transaction_CopyEntitlementByIndex(
         _ Options: SwiftEOS_Ecom_Transaction_CopyEntitlementByIndexOptions
-    ) throws -> SwiftEOS_Ecom_Entitlement? {
+    ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutEntitlement in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Ecom_Transaction_CopyEntitlementByIndex(
-                                Handle,
-                                Options,
-                                OutEntitlement
-                            ) } } },
-                release: EOS_Ecom_Entitlement_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutEntitlement in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Ecom_Transaction_CopyEntitlementByIndex(
+                                    Handle,
+                                    Options,
+                                    OutEntitlement
+                                ) } } },
+                    release: EOS_Ecom_Entitlement_Release
+                ) } }
     }
 
     /**
@@ -1346,14 +1359,15 @@ extension SwiftEOS_Ecom_Actor {
     - SeeAlso: `EOS_Ecom_CopyTransactionByIndex`
     - Returns:  
     */
-    private func ____Transaction_GetTransactionId() throws -> String? {
+    private func ____Transaction_GetTransactionId() throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_Ecom_Transaction_GetTransactionId(
-                        Handle,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try throwingSdkResult { 
+                        EOS_Ecom_Transaction_GetTransactionId(
+                            Handle,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 }

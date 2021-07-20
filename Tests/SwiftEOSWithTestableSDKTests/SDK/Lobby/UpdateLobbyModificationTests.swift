@@ -23,7 +23,7 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HLobbyModification? = try object.UpdateLobbyModification(
+            let result: EOS_HLobbyModification = try object.UpdateLobbyModification(
                 LocalUserId: nil,
                 LobbyId: nil
             )

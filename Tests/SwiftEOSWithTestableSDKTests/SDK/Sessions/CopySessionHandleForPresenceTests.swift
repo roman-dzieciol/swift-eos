@@ -22,7 +22,7 @@ public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionDetails? = try object.CopySessionHandleForPresence(LocalUserId: nil)
+            let result: EOS_HSessionDetails = try object.CopySessionHandleForPresence(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CopySessionHandleForPresence"])

@@ -55,7 +55,7 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     public func CopyPresence(
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?
-    ) throws -> SwiftEOS_Presence_Info? {
+    ) throws -> SwiftEOS_Presence_Info {
         try ____CopyPresence(.init(
                 LocalUserId: LocalUserId,
                 TargetUserId: TargetUserId
@@ -78,7 +78,7 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     */
     public func CreatePresenceModification(
         LocalUserId: EOS_EpicAccountId?
-    ) throws -> EOS_HPresenceModification? {
+    ) throws -> EOS_HPresenceModification {
         try ____CreatePresenceModification(.init(LocalUserId: LocalUserId))
     }
 
@@ -101,7 +101,7 @@ public class SwiftEOS_Presence_Actor: SwiftEOSActor {
     public func GetJoinInfo(
         LocalUserId: EOS_EpicAccountId?,
         TargetUserId: EOS_EpicAccountId?
-    ) throws -> String? {
+    ) throws -> String {
         try ____GetJoinInfo(.init(
                 LocalUserId: LocalUserId,
                 TargetUserId: TargetUserId
@@ -247,20 +247,21 @@ extension SwiftEOS_Presence_Actor {
     */
     private func ____CopyPresence(
         _ Options: SwiftEOS_Presence_CopyPresenceOptions
-    ) throws -> SwiftEOS_Presence_Info? {
+    ) throws -> SwiftEOS_Presence_Info {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutPresence in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Presence_CopyPresence(
-                                Handle,
-                                Options,
-                                OutPresence
-                            ) } } },
-                release: EOS_Presence_Info_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutPresence in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Presence_CopyPresence(
+                                    Handle,
+                                    Options,
+                                    OutPresence
+                                ) } } },
+                    release: EOS_Presence_Info_Release
+                ) } }
     }
 
     /**
@@ -279,16 +280,17 @@ extension SwiftEOS_Presence_Actor {
     */
     private func ____CreatePresenceModification(
         _ Options: SwiftEOS_Presence_CreatePresenceModificationOptions
-    ) throws -> EOS_HPresenceModification? {
+    ) throws -> EOS_HPresenceModification {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutPresenceModificationHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Presence_CreatePresenceModification(
-                            Handle,
-                            Options,
-                            OutPresenceModificationHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutPresenceModificationHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Presence_CreatePresenceModification(
+                                Handle,
+                                Options,
+                                OutPresenceModificationHandle
+                            ) } } } } }
     }
 
     /**
@@ -308,17 +310,18 @@ extension SwiftEOS_Presence_Actor {
     */
     private func ____GetJoinInfo(
         _ Options: SwiftEOS_Presence_GetJoinInfoOptions
-    ) throws -> String? {
+    ) throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Presence_GetJoinInfo(
-                            Handle,
-                            Options,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Presence_GetJoinInfo(
+                                Handle,
+                                Options,
+                                OutBuffer,
+                                InOutBufferLength
+                            ) } } } } }
     }
 
     /**

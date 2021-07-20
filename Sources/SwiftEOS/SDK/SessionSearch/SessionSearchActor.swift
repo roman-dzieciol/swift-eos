@@ -30,7 +30,7 @@ public class SwiftEOS_SessionSearch_Actor: SwiftEOSActor {
     */
     public func CopySearchResultByIndex(
         SessionIndex: Int
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try ____CopySearchResultByIndex(.init(SessionIndex: SessionIndex))
     }
 
@@ -158,16 +158,17 @@ extension SwiftEOS_SessionSearch_Actor {
     */
     private func ____CopySearchResultByIndex(
         _ Options: SwiftEOS_SessionSearch_CopySearchResultByIndexOptions
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_SessionSearch_CopySearchResultByIndex(
-                            Handle,
-                            Options,
-                            OutSessionHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_SessionSearch_CopySearchResultByIndex(
+                                Handle,
+                                Options,
+                                OutSessionHandle
+                            ) } } } } }
     }
 
     /**

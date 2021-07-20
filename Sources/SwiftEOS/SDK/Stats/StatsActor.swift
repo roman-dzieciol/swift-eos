@@ -28,7 +28,7 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     public func CopyStatByIndex(
         TargetUserId: EOS_ProductUserId?,
         StatIndex: Int
-    ) throws -> SwiftEOS_Stats_Stat? {
+    ) throws -> SwiftEOS_Stats_Stat {
         try ____CopyStatByIndex(.init(
                 TargetUserId: TargetUserId,
                 StatIndex: StatIndex
@@ -48,7 +48,7 @@ public class SwiftEOS_Stats_Actor: SwiftEOSActor {
     public func CopyStatByName(
         TargetUserId: EOS_ProductUserId?,
         Name: String?
-    ) throws -> SwiftEOS_Stats_Stat? {
+    ) throws -> SwiftEOS_Stats_Stat {
         try ____CopyStatByName(.init(
                 TargetUserId: TargetUserId,
                 Name: Name
@@ -148,20 +148,21 @@ extension SwiftEOS_Stats_Actor {
     */
     private func ____CopyStatByIndex(
         _ Options: SwiftEOS_Stats_CopyStatByIndexOptions
-    ) throws -> SwiftEOS_Stats_Stat? {
+    ) throws -> SwiftEOS_Stats_Stat {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutStat in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Stats_CopyStatByIndex(
-                                Handle,
-                                Options,
-                                OutStat
-                            ) } } },
-                release: EOS_Stats_Stat_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutStat in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Stats_CopyStatByIndex(
+                                    Handle,
+                                    Options,
+                                    OutStat
+                                ) } } },
+                    release: EOS_Stats_Stat_Release
+                ) } }
     }
 
     /**
@@ -175,20 +176,21 @@ extension SwiftEOS_Stats_Actor {
     */
     private func ____CopyStatByName(
         _ Options: SwiftEOS_Stats_CopyStatByNameOptions
-    ) throws -> SwiftEOS_Stats_Stat? {
+    ) throws -> SwiftEOS_Stats_Stat {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutStat in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Stats_CopyStatByName(
-                                Handle,
-                                Options,
-                                OutStat
-                            ) } } },
-                release: EOS_Stats_Stat_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutStat in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_Stats_CopyStatByName(
+                                    Handle,
+                                    Options,
+                                    OutStat
+                                ) } } },
+                    release: EOS_Stats_Stat_Release
+                ) } }
     }
 
     /**

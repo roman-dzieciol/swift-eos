@@ -22,11 +22,12 @@ public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
             let object: SwiftEOS_Auth_Actor = SwiftEOS_Auth_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Auth_Token? = try object.CopyUserAuthToken(LocalUserId: nil)
+            try XCTAssertThrowsError(try object.CopyUserAuthToken(LocalUserId: nil)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
-            XCTAssertNil(result)
         }
         
         // Then

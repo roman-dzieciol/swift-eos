@@ -27,11 +27,11 @@ public class SwiftEOS_Platform_GetOverrideCountryCodeTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetOverrideCountryCode()
+            let result: String = try object.GetOverrideCountryCode()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetOverrideCountryCode"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

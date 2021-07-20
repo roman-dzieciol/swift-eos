@@ -24,15 +24,16 @@ public class SwiftEOS_Ecom_CopyItemImageInfoByIndexTests: XCTestCase {
             let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Ecom_KeyImageInfo? = try object.CopyItemImageInfoByIndex(
-                LocalUserId: nil,
-                ItemId: nil,
-                ImageInfoIndex: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyItemImageInfoByIndex(
+                    LocalUserId: nil,
+                    ItemId: nil,
+                    ImageInfoIndex: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyItemImageInfoByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

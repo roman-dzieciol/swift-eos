@@ -24,14 +24,14 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetRTCRoomName(
+            let result: String = try object.GetRTCRoomName(
                 LobbyId: nil,
                 LocalUserId: nil
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

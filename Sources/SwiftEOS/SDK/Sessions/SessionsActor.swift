@@ -68,7 +68,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func CopySessionHandleByInviteId(
         InviteId: String?
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try ____CopySessionHandleByInviteId(.init(InviteId: InviteId))
     }
 
@@ -86,7 +86,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func CopySessionHandleByUiEventId(
         UiEventId: EOS_UI_EventId
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try ____CopySessionHandleByUiEventId(.init(UiEventId: UiEventId))
     }
 
@@ -104,7 +104,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func CopySessionHandleForPresence(
         LocalUserId: EOS_ProductUserId?
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try ____CopySessionHandleForPresence(.init(LocalUserId: LocalUserId))
     }
 
@@ -141,7 +141,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
         LocalUserId: EOS_ProductUserId?,
         bPresenceEnabled: Bool,
         SessionId: String?
-    ) throws -> EOS_HSessionModification? {
+    ) throws -> EOS_HSessionModification {
         try ____CreateSessionModification(.init(
                 SessionName: SessionName,
                 BucketId: BucketId,
@@ -165,7 +165,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func CreateSessionSearch(
         MaxSearchResults: Int
-    ) throws -> EOS_HSessionSearch? {
+    ) throws -> EOS_HSessionSearch {
         try ____CreateSessionSearch(.init(MaxSearchResults: MaxSearchResults))
     }
 
@@ -248,7 +248,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     public func GetInviteIdByIndex(
         LocalUserId: EOS_ProductUserId?,
         Index: Int
-    ) throws -> String? {
+    ) throws -> String {
         try ____GetInviteIdByIndex(.init(
                 LocalUserId: LocalUserId,
                 Index: Index
@@ -490,7 +490,7 @@ public class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func UpdateSessionModification(
         SessionName: String?
-    ) throws -> EOS_HSessionModification? {
+    ) throws -> EOS_HSessionModification {
         try ____UpdateSessionModification(.init(SessionName: SessionName))
     }
 }
@@ -604,16 +604,17 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____CopySessionHandleByInviteId(
         _ Options: SwiftEOS_Sessions_CopySessionHandleByInviteIdOptions
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_CopySessionHandleByInviteId(
-                            Handle,
-                            Options,
-                            OutSessionHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_CopySessionHandleByInviteId(
+                                Handle,
+                                Options,
+                                OutSessionHandle
+                            ) } } } } }
     }
 
     /**
@@ -630,16 +631,17 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____CopySessionHandleByUiEventId(
         _ Options: SwiftEOS_Sessions_CopySessionHandleByUiEventIdOptions
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_CopySessionHandleByUiEventId(
-                            Handle,
-                            Options,
-                            OutSessionHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_CopySessionHandleByUiEventId(
+                                Handle,
+                                Options,
+                                OutSessionHandle
+                            ) } } } } }
     }
 
     /**
@@ -656,16 +658,17 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____CopySessionHandleForPresence(
         _ Options: SwiftEOS_Sessions_CopySessionHandleForPresenceOptions
-    ) throws -> EOS_HSessionDetails? {
+    ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_CopySessionHandleForPresence(
-                            Handle,
-                            Options,
-                            OutSessionHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_CopySessionHandleForPresence(
+                                Handle,
+                                Options,
+                                OutSessionHandle
+                            ) } } } } }
     }
 
     /**
@@ -680,16 +683,17 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____CreateSessionModification(
         _ Options: SwiftEOS_Sessions_CreateSessionModificationOptions
-    ) throws -> EOS_HSessionModification? {
+    ) throws -> EOS_HSessionModification {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_CreateSessionModification(
-                            Handle,
-                            Options,
-                            OutSessionModificationHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_CreateSessionModification(
+                                Handle,
+                                Options,
+                                OutSessionModificationHandle
+                            ) } } } } }
     }
 
     /**
@@ -705,16 +709,17 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____CreateSessionSearch(
         _ Options: SwiftEOS_Sessions_CreateSessionSearchOptions
-    ) throws -> EOS_HSessionSearch? {
+    ) throws -> EOS_HSessionSearch {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionSearchHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_CreateSessionSearch(
-                            Handle,
-                            Options,
-                            OutSessionSearchHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionSearchHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_CreateSessionSearch(
+                                Handle,
+                                Options,
+                                OutSessionSearchHandle
+                            ) } } } } }
     }
 
     /**
@@ -822,17 +827,18 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____GetInviteIdByIndex(
         _ Options: SwiftEOS_Sessions_GetInviteIdByIndexOptions
-    ) throws -> String? {
+    ) throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_GetInviteIdByIndex(
-                            Handle,
-                            Options,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_GetInviteIdByIndex(
+                                Handle,
+                                Options,
+                                OutBuffer,
+                                InOutBufferLength
+                            ) } } } } }
     }
 
     /**
@@ -1072,15 +1078,16 @@ extension SwiftEOS_Sessions_Actor {
     */
     private func ____UpdateSessionModification(
         _ Options: SwiftEOS_Sessions_UpdateSessionModificationOptions
-    ) throws -> EOS_HSessionModification? {
+    ) throws -> EOS_HSessionModification {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_Sessions_UpdateSessionModification(
-                            Handle,
-                            Options,
-                            OutSessionModificationHandle
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
+                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_Sessions_UpdateSessionModification(
+                                Handle,
+                                Options,
+                                OutSessionModificationHandle
+                            ) } } } } }
     }
 }

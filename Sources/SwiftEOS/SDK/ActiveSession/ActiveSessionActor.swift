@@ -27,7 +27,7 @@ public class SwiftEOS_ActiveSession_Actor: SwiftEOSActor {
     - SeeAlso: `EOS_ActiveSession_Info_Release`
     - Returns: Out parameter used to receive the `EOS_ActiveSession_Info` structure.
     */
-    public func CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
+    public func CopyInfo() throws -> SwiftEOS_ActiveSession_Info {
         try ____CopyInfo()
     }
 
@@ -68,20 +68,21 @@ extension SwiftEOS_ActiveSession_Actor {
     - SeeAlso: `EOS_ActiveSession_Info_Release`
     - Returns: Out parameter used to receive the `EOS_ActiveSession_Info` structure.
     */
-    private func ____CopyInfo() throws -> SwiftEOS_ActiveSession_Info? {
+    private func ____CopyInfo() throws -> SwiftEOS_ActiveSession_Info {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutActiveSessionInfo in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_CopyInfoOptions(), managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_ActiveSession_CopyInfo(
-                                Handle,
-                                Options,
-                                OutActiveSessionInfo
-                            ) } } },
-                release: EOS_ActiveSession_Info_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutActiveSessionInfo in
+                        try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_CopyInfoOptions(), managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_ActiveSession_CopyInfo(
+                                    Handle,
+                                    Options,
+                                    OutActiveSessionInfo
+                                ) } } },
+                    release: EOS_ActiveSession_Info_Release
+                ) } }
     }
 
     /**

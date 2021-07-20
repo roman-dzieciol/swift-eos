@@ -23,14 +23,15 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
             let object: SwiftEOS_Sanctions_Actor = SwiftEOS_Sanctions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Sanctions_PlayerSanction? = try object.CopyPlayerSanctionByIndex(
-                TargetUserId: nil,
-                SanctionIndex: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyPlayerSanctionByIndex(
+                    TargetUserId: nil,
+                    SanctionIndex: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

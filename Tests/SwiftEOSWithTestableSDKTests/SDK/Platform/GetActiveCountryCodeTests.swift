@@ -28,11 +28,11 @@ public class SwiftEOS_Platform_GetActiveCountryCodeTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetActiveCountryCode(LocalUserId: nil)
+            let result: String = try object.GetActiveCountryCode(LocalUserId: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetActiveCountryCode"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

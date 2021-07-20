@@ -138,7 +138,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Throws: `EOS_EResult`::`EOS_NotFound` - If we do not have queried data cached
     - Returns: The queried NAT Type, or unknown if unknown
     */
-    public func GetNATType() throws -> EOS_ENATType? {
+    public func GetNATType() throws -> EOS_ENATType {
         try ____GetNATType()
     }
 
@@ -155,7 +155,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     public func GetNextReceivedPacketSize(
         LocalUserId: EOS_ProductUserId?,
         RequestedChannel: UInt8?
-    ) throws -> Int? {
+    ) throws -> Int {
         try ____GetNextReceivedPacketSize(.init(
                 LocalUserId: LocalUserId,
                 RequestedChannel: RequestedChannel
@@ -168,7 +168,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The current information of the incoming and outgoing packet queues
     */
-    public func GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo? {
+    public func GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo {
         try ____GetPacketQueueInfo()
     }
 
@@ -195,7 +195,7 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The relay control setting currently configured
     */
-    public func GetRelayControl() throws -> EOS_ERelayControl? {
+    public func GetRelayControl() throws -> EOS_ERelayControl {
         try ____GetRelayControl()
     }
 
@@ -495,16 +495,17 @@ extension SwiftEOS_P2P_Actor {
     - Throws: `EOS_EResult`::`EOS_NotFound` - If we do not have queried data cached
     - Returns: The queried NAT Type, or unknown if unknown
     */
-    private func ____GetNATType() throws -> EOS_ENATType? {
+    private func ____GetNATType() throws -> EOS_ENATType {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutNATType in
-                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetNATTypeOptions(), managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_P2P_GetNATType(
-                            Handle,
-                            Options,
-                            OutNATType
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutNATType in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetNATTypeOptions(), managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_P2P_GetNATType(
+                                Handle,
+                                Options,
+                                OutNATType
+                            ) } } } } }
     }
 
     /**
@@ -518,7 +519,7 @@ extension SwiftEOS_P2P_Actor {
     */
     private func ____GetNextReceivedPacketSize(
         _ Options: SwiftEOS_P2P_GetNextReceivedPacketSizeOptions
-    ) throws -> Int? {
+    ) throws -> Int {
         try withPointerManager { pointerManager in
             try withIntegerPointerReturnedAsInteger { OutPacketSizeBytes in
                 try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
@@ -536,16 +537,17 @@ extension SwiftEOS_P2P_Actor {
     - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The current information of the incoming and outgoing packet queues
     */
-    private func ____GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo? {
+    private func ____GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutPacketQueueInfo in
-                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPacketQueueInfoOptions(), managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_P2P_GetPacketQueueInfo(
-                            Handle,
-                            Options,
-                            OutPacketQueueInfo
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutPacketQueueInfo in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPacketQueueInfoOptions(), managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_P2P_GetPacketQueueInfo(
+                                Handle,
+                                Options,
+                                OutPacketQueueInfo
+                            ) } } } } }
     }
 
     /**
@@ -578,16 +580,17 @@ extension SwiftEOS_P2P_Actor {
     - Throws: `EOS_EResult`::`EOS_InvalidParameters` - if the input was invalid in some way
     - Returns: The relay control setting currently configured
     */
-    private func ____GetRelayControl() throws -> EOS_ERelayControl? {
+    private func ____GetRelayControl() throws -> EOS_ERelayControl {
         try withPointerManager { pointerManager in
-            try withPointeeReturned(managedBy: pointerManager) { OutRelayControl in
-                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetRelayControlOptions(), managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_P2P_GetRelayControl(
-                            Handle,
-                            Options,
-                            OutRelayControl
-                        ) } } } }
+            try throwingNilResult { 
+                try withPointeeReturned(managedBy: pointerManager) { OutRelayControl in
+                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetRelayControlOptions(), managedBy: pointerManager) { Options in
+                        try throwingSdkResult { 
+                            EOS_P2P_GetRelayControl(
+                                Handle,
+                                Options,
+                                OutRelayControl
+                            ) } } } } }
     }
 
     /**

@@ -22,7 +22,7 @@ public class SwiftEOS_Sessions_CreateSessionSearchTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionSearch? = try object.CreateSessionSearch(MaxSearchResults: .zero)
+            let result: EOS_HSessionSearch = try object.CreateSessionSearch(MaxSearchResults: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CreateSessionSearch"])

@@ -22,11 +22,12 @@ public class SwiftEOS_Connect_CopyProductUserInfoTests: XCTestCase {
             let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Connect_ExternalAccountInfo? = try object.CopyProductUserInfo(TargetUserId: nil)
+            try XCTAssertThrowsError(try object.CopyProductUserInfo(TargetUserId: nil)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CopyProductUserInfo"])
-            XCTAssertNil(result)
         }
         
         // Then

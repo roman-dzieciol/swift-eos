@@ -23,14 +23,15 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
             let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Presence_Info? = try object.CopyPresence(
-                LocalUserId: nil,
-                TargetUserId: nil
-            )
+            try XCTAssertThrowsError(try object.CopyPresence(
+                    LocalUserId: nil,
+                    TargetUserId: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_CopyPresence"])
-            XCTAssertNil(result)
         }
         
         // Then

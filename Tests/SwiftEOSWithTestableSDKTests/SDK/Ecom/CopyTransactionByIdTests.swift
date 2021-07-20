@@ -23,7 +23,7 @@ public class SwiftEOS_Ecom_CopyTransactionByIdTests: XCTestCase {
             let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_Ecom_HTransaction? = try object.CopyTransactionById(
+            let result: EOS_Ecom_HTransaction = try object.CopyTransactionById(
                 LocalUserId: nil,
                 TransactionId: nil
             )

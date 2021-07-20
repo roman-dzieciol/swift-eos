@@ -21,11 +21,11 @@ public class SwiftEOS_P2P_GetRelayControlTests: XCTestCase {
             let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_ERelayControl? = try object.GetRelayControl()
+            let result: EOS_ERelayControl = try object.GetRelayControl()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetRelayControl"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, .zero)
         }
         
         // Then

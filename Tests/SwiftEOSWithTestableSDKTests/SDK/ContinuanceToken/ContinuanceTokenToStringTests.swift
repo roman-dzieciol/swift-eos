@@ -18,11 +18,11 @@ public class SwiftEOS_ContinuanceToken_ToStringTests: XCTestCase {
             defer { __on_EOS_ContinuanceToken_ToString = nil }
             
             // When SDK function is called
-            let result: String? = try SwiftEOS_ContinuanceToken_ToString(ContinuanceToken: nil)
+            let result: String = try SwiftEOS_ContinuanceToken_ToString(ContinuanceToken: nil)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ContinuanceToken_ToString"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

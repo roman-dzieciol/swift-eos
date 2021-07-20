@@ -23,14 +23,15 @@ public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
             let object: SwiftEOS_Mods_Actor = SwiftEOS_Mods_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Mods_ModInfo? = try object.CopyModInfo(
-                LocalUserId: nil,
-                `Type`: .zero
-            )
+            try XCTAssertThrowsError(try object.CopyModInfo(
+                    LocalUserId: nil,
+                    `Type`: .zero
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_CopyModInfo"])
-            XCTAssertNil(result)
         }
         
         // Then

@@ -22,7 +22,7 @@ public class SwiftEOS_Sessions_CopySessionHandleByUiEventIdTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionDetails? = try object.CopySessionHandleByUiEventId(UiEventId: .zero)
+            let result: EOS_HSessionDetails = try object.CopySessionHandleByUiEventId(UiEventId: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CopySessionHandleByUiEventId"])

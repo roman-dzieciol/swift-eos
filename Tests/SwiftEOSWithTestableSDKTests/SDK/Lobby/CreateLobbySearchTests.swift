@@ -22,7 +22,7 @@ public class SwiftEOS_Lobby_CreateLobbySearchTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HLobbySearch? = try object.CreateLobbySearch(MaxResults: .zero)
+            let result: EOS_HLobbySearch = try object.CreateLobbySearch(MaxResults: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CreateLobbySearch"])

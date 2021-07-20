@@ -27,11 +27,12 @@ public class SwiftEOS_ActiveSession_CopyInfoTests: XCTestCase {
             let object: SwiftEOS_ActiveSession_Actor = SwiftEOS_ActiveSession_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_ActiveSession_Info? = try object.CopyInfo()
+            try XCTAssertThrowsError(try object.CopyInfo()) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ActiveSession_CopyInfo"])
-            XCTAssertNil(result)
         }
         
         // Then

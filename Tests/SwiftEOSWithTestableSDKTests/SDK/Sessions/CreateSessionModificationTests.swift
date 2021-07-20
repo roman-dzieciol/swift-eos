@@ -27,7 +27,7 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionModification? = try object.CreateSessionModification(
+            let result: EOS_HSessionModification = try object.CreateSessionModification(
                 SessionName: nil,
                 BucketId: nil,
                 MaxPlayers: .zero,

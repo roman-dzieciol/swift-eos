@@ -18,13 +18,14 @@ Call again with valid params to get the stringified continuance token which will
 */
 public func SwiftEOS_ContinuanceToken_ToString(
     ContinuanceToken: EOS_ContinuanceToken?
-) throws -> String? {
+) throws -> String {
     try withPointerManager { pointerManager in
-        try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-            try throwingSdkResult { 
-                EOS_ContinuanceToken_ToString(
-                    ContinuanceToken,
-                    OutBuffer,
-                    InOutBufferLength
-                ) } } }
+        try throwingNilResult { 
+            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_ContinuanceToken_ToString(
+                        ContinuanceToken,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } } }
 }

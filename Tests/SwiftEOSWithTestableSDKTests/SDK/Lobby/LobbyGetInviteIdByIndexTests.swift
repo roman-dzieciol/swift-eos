@@ -24,14 +24,14 @@ public class SwiftEOS_Lobby_GetInviteIdByIndexTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetInviteIdByIndex(
+            let result: String = try object.GetInviteIdByIndex(
                 LocalUserId: nil,
                 Index: .zero
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_GetInviteIdByIndex"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

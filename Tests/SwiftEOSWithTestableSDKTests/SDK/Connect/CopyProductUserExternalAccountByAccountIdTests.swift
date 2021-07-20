@@ -23,14 +23,15 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdTests: XC
             let object: SwiftEOS_Connect_Actor = SwiftEOS_Connect_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Connect_ExternalAccountInfo? = try object.CopyProductUserExternalAccountByAccountId(
-                TargetUserId: nil,
-                AccountId: nil
-            )
+            try XCTAssertThrowsError(try object.CopyProductUserExternalAccountByAccountId(
+                    TargetUserId: nil,
+                    AccountId: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByAccountId"])
-            XCTAssertNil(result)
         }
         
         // Then

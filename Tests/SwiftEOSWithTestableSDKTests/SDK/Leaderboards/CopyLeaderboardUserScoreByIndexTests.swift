@@ -23,14 +23,15 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             let object: SwiftEOS_Leaderboards_Actor = SwiftEOS_Leaderboards_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Leaderboards_LeaderboardUserScore? = try object.CopyLeaderboardUserScoreByIndex(
-                LeaderboardUserScoreIndex: .zero,
-                StatName: nil
-            )
+            try XCTAssertThrowsError(try object.CopyLeaderboardUserScoreByIndex(
+                    LeaderboardUserScoreIndex: .zero,
+                    StatName: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

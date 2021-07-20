@@ -29,14 +29,15 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyTests: XCTestCase {
             let object: SwiftEOS_LobbyDetails_Actor = SwiftEOS_LobbyDetails_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Lobby_Attribute? = try object.CopyMemberAttributeByKey(
-                TargetUserId: nil,
-                AttrKey: nil
-            )
+            try XCTAssertThrowsError(try object.CopyMemberAttributeByKey(
+                    TargetUserId: nil,
+                    AttrKey: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByKey"])
-            XCTAssertNil(result)
         }
         
         // Then

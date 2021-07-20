@@ -24,14 +24,14 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
             let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.GetJoinInfo(
+            let result: String = try object.GetJoinInfo(
                 LocalUserId: nil,
                 TargetUserId: nil
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

@@ -23,14 +23,15 @@ public class SwiftEOS_Stats_CopyStatByNameTests: XCTestCase {
             let object: SwiftEOS_Stats_Actor = SwiftEOS_Stats_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Stats_Stat? = try object.CopyStatByName(
-                TargetUserId: nil,
-                Name: nil
-            )
+            try XCTAssertThrowsError(try object.CopyStatByName(
+                    TargetUserId: nil,
+                    Name: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_CopyStatByName"])
-            XCTAssertNil(result)
         }
         
         // Then

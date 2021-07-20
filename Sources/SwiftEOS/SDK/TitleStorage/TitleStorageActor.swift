@@ -27,7 +27,7 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     public func CopyFileMetadataAtIndex(
         LocalUserId: EOS_ProductUserId?,
         Index: Int
-    ) throws -> SwiftEOS_TitleStorage_FileMetadata? {
+    ) throws -> SwiftEOS_TitleStorage_FileMetadata {
         try ____CopyFileMetadataAtIndex(.init(
                 LocalUserId: LocalUserId,
                 Index: Index
@@ -45,7 +45,7 @@ public class SwiftEOS_TitleStorage_Actor: SwiftEOSActor {
     public func CopyFileMetadataByFilename(
         LocalUserId: EOS_ProductUserId?,
         Filename: String?
-    ) throws -> SwiftEOS_TitleStorage_FileMetadata? {
+    ) throws -> SwiftEOS_TitleStorage_FileMetadata {
         try ____CopyFileMetadataByFilename(.init(
                 LocalUserId: LocalUserId,
                 Filename: Filename
@@ -178,20 +178,21 @@ extension SwiftEOS_TitleStorage_Actor {
     */
     private func ____CopyFileMetadataAtIndex(
         _ Options: SwiftEOS_TitleStorage_CopyFileMetadataAtIndexOptions
-    ) throws -> SwiftEOS_TitleStorage_FileMetadata? {
+    ) throws -> SwiftEOS_TitleStorage_FileMetadata {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutMetadata in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_TitleStorage_CopyFileMetadataAtIndex(
-                                Handle,
-                                Options,
-                                OutMetadata
-                            ) } } },
-                release: EOS_TitleStorage_FileMetadata_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutMetadata in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_TitleStorage_CopyFileMetadataAtIndex(
+                                    Handle,
+                                    Options,
+                                    OutMetadata
+                                ) } } },
+                    release: EOS_TitleStorage_FileMetadata_Release
+                ) } }
     }
 
     /**
@@ -203,20 +204,21 @@ extension SwiftEOS_TitleStorage_Actor {
     */
     private func ____CopyFileMetadataByFilename(
         _ Options: SwiftEOS_TitleStorage_CopyFileMetadataByFilenameOptions
-    ) throws -> SwiftEOS_TitleStorage_FileMetadata? {
+    ) throws -> SwiftEOS_TitleStorage_FileMetadata {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerPointerReturnedAsSwiftObject(
-                managedBy: pointerManager,
-                nest: { OutMetadata in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_TitleStorage_CopyFileMetadataByFilename(
-                                Handle,
-                                Options,
-                                OutMetadata
-                            ) } } },
-                release: EOS_TitleStorage_FileMetadata_Release
-            ) }
+            try throwingNilResult { 
+                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                    managedBy: pointerManager,
+                    nest: { OutMetadata in
+                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                            try throwingSdkResult { 
+                                EOS_TitleStorage_CopyFileMetadataByFilename(
+                                    Handle,
+                                    Options,
+                                    OutMetadata
+                                ) } } },
+                    release: EOS_TitleStorage_FileMetadata_Release
+                ) } }
     }
 
     /**

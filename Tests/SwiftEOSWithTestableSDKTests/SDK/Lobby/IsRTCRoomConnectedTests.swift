@@ -23,14 +23,14 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: Bool? = try object.IsRTCRoomConnected(
+            let result: Bool = try object.IsRTCRoomConnected(
                 LobbyId: nil,
                 LocalUserId: nil
             )
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, false)
         }
         
         // Then

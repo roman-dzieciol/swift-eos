@@ -55,7 +55,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     */
     public func GetActiveCountryCode(
         LocalUserId: EOS_EpicAccountId?
-    ) throws -> String? {
+    ) throws -> String {
         try ____GetActiveCountryCode(LocalUserId)
     }
 
@@ -76,7 +76,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     */
     public func GetActiveLocaleCode(
         LocalUserId: EOS_EpicAccountId?
-    ) throws -> String? {
+    ) throws -> String {
         try ____GetActiveLocaleCode(LocalUserId)
     }
 
@@ -213,7 +213,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `EOS_COUNTRYCODE_MAX_LENGTH`
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_COUNTRYCODE_MAX_LENGTH`.
     */
-    public func GetOverrideCountryCode() throws -> String? {
+    public func GetOverrideCountryCode() throws -> String {
         try ____GetOverrideCountryCode()
     }
 
@@ -229,7 +229,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `EOS_LOCALECODE_MAX_LENGTH`
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_LOCALECODE_MAX_LENGTH`.
     */
-    public func GetOverrideLocaleCode() throws -> String? {
+    public func GetOverrideLocaleCode() throws -> String {
         try ____GetOverrideLocaleCode()
     }
 
@@ -453,16 +453,17 @@ extension SwiftEOS_Platform_Actor {
     */
     private func ____GetActiveCountryCode(
         _ LocalUserId: EOS_EpicAccountId?
-    ) throws -> String? {
+    ) throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_Platform_GetActiveCountryCode(
-                        Handle,
-                        LocalUserId,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try throwingSdkResult { 
+                        EOS_Platform_GetActiveCountryCode(
+                            Handle,
+                            LocalUserId,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -482,16 +483,17 @@ extension SwiftEOS_Platform_Actor {
     */
     private func ____GetActiveLocaleCode(
         _ LocalUserId: EOS_EpicAccountId?
-    ) throws -> String? {
+    ) throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_Platform_GetActiveLocaleCode(
-                        Handle,
-                        LocalUserId,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try throwingSdkResult { 
+                        EOS_Platform_GetActiveLocaleCode(
+                            Handle,
+                            LocalUserId,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -649,15 +651,16 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `EOS_COUNTRYCODE_MAX_LENGTH`
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_COUNTRYCODE_MAX_LENGTH`.
     */
-    private func ____GetOverrideCountryCode() throws -> String? {
+    private func ____GetOverrideCountryCode() throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_Platform_GetOverrideCountryCode(
-                        Handle,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try throwingSdkResult { 
+                        EOS_Platform_GetOverrideCountryCode(
+                            Handle,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -672,15 +675,16 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `EOS_LOCALECODE_MAX_LENGTH`
     - Returns: The buffer into which the character data should be written.  The buffer must be long enough to hold a string of `EOS_LOCALECODE_MAX_LENGTH`.
     */
-    private func ____GetOverrideLocaleCode() throws -> String? {
+    private func ____GetOverrideLocaleCode() throws -> String {
         try withPointerManager { pointerManager in
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_Platform_GetOverrideLocaleCode(
-                        Handle,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } }
+            try throwingNilResult { 
+                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
+                    try throwingSdkResult { 
+                        EOS_Platform_GetOverrideLocaleCode(
+                            Handle,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**

@@ -21,11 +21,11 @@ public class SwiftEOS_Ecom_Transaction_GetTransactionIdTests: XCTestCase {
             let object: SwiftEOS_Ecom_Actor = SwiftEOS_Ecom_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: String? = try object.Transaction_GetTransactionId()
+            let result: String = try object.Transaction_GetTransactionId()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Transaction_GetTransactionId"])
-            XCTAssertNil(result)
+            XCTAssertEqual(result, "")
         }
         
         // Then

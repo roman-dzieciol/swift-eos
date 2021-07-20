@@ -23,14 +23,15 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdTests: 
             let object: SwiftEOS_Achievements_Actor = SwiftEOS_Achievements_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Achievements_UnlockedAchievement? = try object.CopyUnlockedAchievementByAchievementId(
-                UserId: nil,
-                AchievementId: nil
-            )
+            try XCTAssertThrowsError(try object.CopyUnlockedAchievementByAchievementId(
+                    UserId: nil,
+                    AchievementId: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByAchievementId"])
-            XCTAssertNil(result)
         }
         
         // Then

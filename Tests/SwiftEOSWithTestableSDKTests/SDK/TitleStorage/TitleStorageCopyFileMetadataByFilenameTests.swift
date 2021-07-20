@@ -23,14 +23,15 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
             let object: SwiftEOS_TitleStorage_Actor = SwiftEOS_TitleStorage_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_TitleStorage_FileMetadata? = try object.CopyFileMetadataByFilename(
-                LocalUserId: nil,
-                Filename: nil
-            )
+            try XCTAssertThrowsError(try object.CopyFileMetadataByFilename(
+                    LocalUserId: nil,
+                    Filename: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
-            XCTAssertNil(result)
         }
         
         // Then

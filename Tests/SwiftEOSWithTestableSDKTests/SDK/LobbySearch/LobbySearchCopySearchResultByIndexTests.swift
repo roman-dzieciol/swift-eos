@@ -28,7 +28,7 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
             let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HLobbyDetails? = try object.CopySearchResultByIndex(LobbyIndex: .zero)
+            let result: EOS_HLobbyDetails = try object.CopySearchResultByIndex(LobbyIndex: .zero)
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex"])

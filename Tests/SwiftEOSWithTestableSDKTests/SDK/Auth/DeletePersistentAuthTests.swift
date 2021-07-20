@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
     public func testEOS_Auth_DeletePersistentAuth_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,11 +14,11 @@ public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_DELETEPERSISTENTAUTH_API_LATEST)
                 XCTAssertNil(Options!.pointee.RefreshToken)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Auth_DeletePersistentAuthCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Auth_DeletePersistentAuthCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Auth_DeletePersistentAuth")
+                GTest.current.sdkReceived.append("EOS_Auth_DeletePersistentAuth")
             }
             defer { __on_EOS_Auth_DeletePersistentAuth = nil }
             
@@ -35,11 +35,11 @@ public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_DeletePersistentAuth"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_DeletePersistentAuth"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_DeletePersistentAuth"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_DeletePersistentAuth"])
     }
 }

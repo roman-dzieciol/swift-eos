@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
     public func testEOS_Ecom_QueryOffers_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,12 +15,12 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OverrideCatalogNamespace)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_QueryOffersCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Ecom_QueryOffersCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_QueryOffers")
+                GTest.current.sdkReceived.append("EOS_Ecom_QueryOffers")
             }
             defer { __on_EOS_Ecom_QueryOffers = nil }
             
@@ -39,11 +39,11 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
     }
 }

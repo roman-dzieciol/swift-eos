@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
     public func testEOS_RTC_AddNotifyParticipantStatusChanged_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,7 +15,7 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_ParticipantStatusChangedCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTC_ParticipantStatusChangedCallbackInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             RoomName: nil,
@@ -24,7 +24,7 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
                             ParticipantMetadataCount: .zero,
                             ParticipantMetadata: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTC_AddNotifyParticipantStatusChanged")
+                GTest.current.sdkReceived.append("EOS_RTC_AddNotifyParticipantStatusChanged")
                 return .zero
             }
             defer { __on_EOS_RTC_AddNotifyParticipantStatusChanged = nil }
@@ -48,20 +48,20 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_AddNotifyParticipantStatusChanged"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyParticipantStatusChanged"])
                 wait(for: [waitForCompletionDelegate], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTC_RemoveNotifyParticipantStatusChanged = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_RTC_RemoveNotifyParticipantStatusChanged")
+                    GTest.current.sdkReceived.append("EOS_RTC_RemoveNotifyParticipantStatusChanged")
                 }
             }
         }
         
         // Then
         __on_EOS_RTC_RemoveNotifyParticipantStatusChanged = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_AddNotifyParticipantStatusChanged", "EOS_RTC_RemoveNotifyParticipantStatusChanged"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyParticipantStatusChanged", "EOS_RTC_RemoveNotifyParticipantStatusChanged"])
     }
 }

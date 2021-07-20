@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_ProductUserId_FromStringTests: XCTestCase {
     public func testEOS_ProductUserId_FromString_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_ProductUserId_FromString = { ProductUserIdString in
                 XCTAssertNil(ProductUserIdString)
-                TestGlobals.current.sdkReceived.append("EOS_ProductUserId_FromString")
+                GTest.current.sdkReceived.append("EOS_ProductUserId_FromString")
                 return nil
             }
             defer { __on_EOS_ProductUserId_FromString = nil }
@@ -19,11 +19,11 @@ public class SwiftEOS_ProductUserId_FromStringTests: XCTestCase {
             let result: EOS_ProductUserId? = SwiftEOS_ProductUserId_FromString(ProductUserIdString: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_FromString"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ProductUserId_FromString"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_FromString"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ProductUserId_FromString"])
     }
 }

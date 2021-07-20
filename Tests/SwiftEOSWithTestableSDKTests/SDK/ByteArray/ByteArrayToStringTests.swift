@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_ByteArray_ToStringTests: XCTestCase {
     public func testEOS_ByteArray_ToString_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_ByteArray_ToString = { ByteArray, Length, OutBuffer, InOutBufferLength in
@@ -13,7 +13,7 @@ public class SwiftEOS_ByteArray_ToStringTests: XCTestCase {
                 XCTAssertEqual(Length, .zero)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_ByteArray_ToString")
+                GTest.current.sdkReceived.append("EOS_ByteArray_ToString")
                 return .zero
             }
             defer { __on_EOS_ByteArray_ToString = nil }
@@ -22,11 +22,11 @@ public class SwiftEOS_ByteArray_ToStringTests: XCTestCase {
             let result: String? = try SwiftEOS_ByteArray_ToString(ByteArray: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ByteArray_ToString"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ByteArray_ToString"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ByteArray_ToString"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ByteArray_ToString"])
     }
 }

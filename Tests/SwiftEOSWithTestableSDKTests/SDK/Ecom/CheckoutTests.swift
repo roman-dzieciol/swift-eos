@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
     public func testEOS_Ecom_Checkout_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,13 +17,13 @@ public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.EntryCount, .zero)
                 XCTAssertNil(Options!.pointee.Entries)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_CheckoutCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Ecom_CheckoutCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TransactionId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_Checkout")
+                GTest.current.sdkReceived.append("EOS_Ecom_Checkout")
             }
             defer { __on_EOS_Ecom_Checkout = nil }
             
@@ -45,11 +45,11 @@ public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Checkout"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Checkout"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Checkout"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Checkout"])
     }
 }

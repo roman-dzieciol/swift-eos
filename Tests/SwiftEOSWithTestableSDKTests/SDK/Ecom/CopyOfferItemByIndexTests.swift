@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
     public func testEOS_Ecom_CopyOfferItemByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyOfferItemByIndex = { Handle, Options, OutItem in
@@ -15,7 +15,7 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.OfferId)
                 XCTAssertEqual(Options!.pointee.ItemIndex, .zero)
                 XCTAssertNotNil(OutItem)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyOfferItemByIndex")
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyOfferItemByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyOfferItemByIndex = nil }
@@ -31,11 +31,11 @@ public class SwiftEOS_Ecom_CopyOfferItemByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyOfferItemByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyOfferItemByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyOfferItemByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyOfferItemByIndex"])
     }
 }

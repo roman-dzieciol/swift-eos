@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexTests: XCTestCase {
     public func testEOS_Achievements_CopyAchievementDefinitionV2ByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyAchievementDefinitionV2ByIndex = { Handle, Options, OutDefinition in
@@ -13,7 +13,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexTests: XCTe
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNotNil(OutDefinition)
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByIndex")
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByIndex")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyAchievementDefinitionV2ByIndex = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByIndexTests: XCTe
             let result: SwiftEOS_Achievements_DefinitionV2? = try object.CopyAchievementDefinitionV2ByIndex(AchievementIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByIndex"])
     }
 }

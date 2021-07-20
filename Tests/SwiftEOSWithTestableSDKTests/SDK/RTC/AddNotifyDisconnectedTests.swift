@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
     public func testEOS_RTC_AddNotifyDisconnected_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_DisconnectedCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTC_DisconnectedCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             RoomName: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTC_AddNotifyDisconnected")
+                GTest.current.sdkReceived.append("EOS_RTC_AddNotifyDisconnected")
                 return .zero
             }
             defer { __on_EOS_RTC_AddNotifyDisconnected = nil }
@@ -43,20 +43,20 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_AddNotifyDisconnected"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyDisconnected"])
                 wait(for: [waitForCompletionDelegate], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTC_RemoveNotifyDisconnected = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_RTC_RemoveNotifyDisconnected")
+                    GTest.current.sdkReceived.append("EOS_RTC_RemoveNotifyDisconnected")
                 }
             }
         }
         
         // Then
         __on_EOS_RTC_RemoveNotifyDisconnected = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_AddNotifyDisconnected", "EOS_RTC_RemoveNotifyDisconnected"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyDisconnected", "EOS_RTC_RemoveNotifyDisconnected"])
     }
 }

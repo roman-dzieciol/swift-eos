@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
     public func testEOS_Connect_GetProductUserIdMapping_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetProductUserIdMapping = { Handle, Options, OutBuffer, InOutBufferLength in
@@ -16,7 +16,7 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetProductUserId)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_Connect_GetProductUserIdMapping")
+                GTest.current.sdkReceived.append("EOS_Connect_GetProductUserIdMapping")
                 return .zero
             }
             defer { __on_EOS_Connect_GetProductUserIdMapping = nil }
@@ -32,11 +32,11 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetProductUserIdMapping"])
     }
 }

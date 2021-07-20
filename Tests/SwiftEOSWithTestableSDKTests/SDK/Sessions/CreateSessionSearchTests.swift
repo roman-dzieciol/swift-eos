@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_CreateSessionSearchTests: XCTestCase {
     public func testEOS_Sessions_CreateSessionSearch_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Sessions_CreateSessionSearch = { Handle, Options, OutSessionSearchHandle in
@@ -13,7 +13,7 @@ public class SwiftEOS_Sessions_CreateSessionSearchTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_CREATESESSIONSEARCH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxSearchResults, .zero)
                 XCTAssertNotNil(OutSessionSearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_CreateSessionSearch")
+                GTest.current.sdkReceived.append("EOS_Sessions_CreateSessionSearch")
                 return .zero
             }
             defer { __on_EOS_Sessions_CreateSessionSearch = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Sessions_CreateSessionSearchTests: XCTestCase {
             let result: EOS_HSessionSearch? = try object.CreateSessionSearch(MaxSearchResults: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CreateSessionSearch"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CreateSessionSearch"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CreateSessionSearch"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CreateSessionSearch"])
     }
 }

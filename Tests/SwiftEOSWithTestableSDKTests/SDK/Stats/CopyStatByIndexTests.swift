@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
     public func testEOS_Stats_CopyStatByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Stats_CopyStatByIndex = { Handle, Options, OutStat in
@@ -14,7 +14,7 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.StatIndex, .zero)
                 XCTAssertNotNil(OutStat)
-                TestGlobals.current.sdkReceived.append("EOS_Stats_CopyStatByIndex")
+                GTest.current.sdkReceived.append("EOS_Stats_CopyStatByIndex")
                 return .zero
             }
             defer { __on_EOS_Stats_CopyStatByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_CopyStatByIndex"])
     }
 }

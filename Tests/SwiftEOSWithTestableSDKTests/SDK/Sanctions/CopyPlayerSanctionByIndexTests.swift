@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
     public func testEOS_Sanctions_CopyPlayerSanctionByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Sanctions_CopyPlayerSanctionByIndex = { Handle, Options, OutSanction in
@@ -14,7 +14,7 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.SanctionIndex, .zero)
                 XCTAssertNotNil(OutSanction)
-                TestGlobals.current.sdkReceived.append("EOS_Sanctions_CopyPlayerSanctionByIndex")
+                GTest.current.sdkReceived.append("EOS_Sanctions_CopyPlayerSanctionByIndex")
                 return .zero
             }
             defer { __on_EOS_Sanctions_CopyPlayerSanctionByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_CopyPlayerSanctionByIndex"])
     }
 }

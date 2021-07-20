@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
     public func testEOS_Presence_GetJoinInfo_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Presence_GetJoinInfo = { Handle, Options, OutBuffer, InOutBufferLength in
@@ -15,7 +15,7 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_Presence_GetJoinInfo")
+                GTest.current.sdkReceived.append("EOS_Presence_GetJoinInfo")
                 return .zero
             }
             defer { __on_EOS_Presence_GetJoinInfo = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_GetJoinInfo"])
     }
 }

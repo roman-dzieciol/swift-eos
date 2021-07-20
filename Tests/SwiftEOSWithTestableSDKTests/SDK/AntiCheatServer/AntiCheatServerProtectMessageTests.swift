@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_ProtectMessageTests: XCTestCase {
     public func testEOS_AntiCheatServer_ProtectMessage_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_ProtectMessage = { Handle, Options, OutBuffer, OutBufferLengthBytes in
@@ -17,7 +17,7 @@ public class SwiftEOS_AntiCheatServer_ProtectMessageTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.OutBufferSizeBytes, .zero)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(OutBufferLengthBytes)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_ProtectMessage")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_ProtectMessage")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_ProtectMessage = nil }
@@ -33,11 +33,11 @@ public class SwiftEOS_AntiCheatServer_ProtectMessageTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_ProtectMessage"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_ProtectMessage"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_ProtectMessage"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_ProtectMessage"])
     }
 }

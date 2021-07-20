@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_QueryDefinitionsTests: XCTestCase {
     public func testEOS_Achievements_QueryDefinitions_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,11 +17,11 @@ public class SwiftEOS_Achievements_QueryDefinitionsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.HiddenAchievementIds_DEPRECATED)
                 XCTAssertEqual(Options!.pointee.HiddenAchievementsCount_DEPRECATED, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_QueryDefinitions")
+                GTest.current.sdkReceived.append("EOS_Achievements_QueryDefinitions")
             }
             defer { __on_EOS_Achievements_QueryDefinitions = nil }
             
@@ -40,11 +40,11 @@ public class SwiftEOS_Achievements_QueryDefinitionsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_QueryDefinitions"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_QueryDefinitions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_QueryDefinitions"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_QueryDefinitions"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
     public func testEOS_PlayerDataStorage_ReadFile_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForReadFileDataCallback = expectation(description: "waitForReadFileDataCallback")
             let waitForFileTransferProgressCallback = expectation(description: "waitForFileTransferProgressCallback")
             let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
@@ -20,13 +20,13 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
                 XCTAssertNil(ReadOptions!.pointee.ReadFileDataCallback)
                 XCTAssertNil(ReadOptions!.pointee.FileTransferProgressCallback)
                 XCTAssertNotNil(ClientData)
-                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_ReadFileCallbackInfo(
+                CompletionCallback?(GTest.current.pointer(object: _tagEOS_PlayerDataStorage_ReadFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             Filename: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_ReadFile")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_ReadFile")
                 return nil
             }
             defer { __on_EOS_PlayerDataStorage_ReadFile = nil }
@@ -50,7 +50,7 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
             wait(for: [waitForReadFileDataCallback], timeout: 0.5)
             wait(for: [waitForFileTransferProgressCallback], timeout: 0.5)
             wait(for: [waitForCompletionCallback], timeout: 0.5)
@@ -58,6 +58,6 @@ public class SwiftEOS_PlayerDataStorage_ReadFileTests: XCTestCase {
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_ReadFile"])
     }
 }

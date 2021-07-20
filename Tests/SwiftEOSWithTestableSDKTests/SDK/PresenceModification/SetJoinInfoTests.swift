@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
     public func testEOS_PresenceModification_SetJoinInfo_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
                 XCTAssertNil(PresenceModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_Release")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.JoinInfo)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetJoinInfo")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_SetJoinInfo")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_SetJoinInfo = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
             try object.SetJoinInfo(JoinInfo: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo", "EOS_PresenceModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetJoinInfo", "EOS_PresenceModification_Release"])
     }
 }

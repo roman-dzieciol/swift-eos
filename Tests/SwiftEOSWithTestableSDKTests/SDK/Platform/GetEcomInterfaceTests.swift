@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetEcomInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetEcomInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetEcomInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetEcomInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetEcomInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetEcomInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetEcomInterfaceTests: XCTestCase {
             let result: SwiftEOS_Ecom_Actor? = object.GetEcomInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetEcomInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetEcomInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetEcomInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetEcomInterface", "EOS_Platform_Release"])
     }
 }

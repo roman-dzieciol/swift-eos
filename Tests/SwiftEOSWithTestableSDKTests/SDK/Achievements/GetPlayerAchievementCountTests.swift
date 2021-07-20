@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_Achievements_GetPlayerAchievementCountTests: XCTestCase {
     public func testEOS_Achievements_GetPlayerAchievementCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Achievements_GetPlayerAchievementCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_GetPlayerAchievementCount")
+                GTest.current.sdkReceived.append("EOS_Achievements_GetPlayerAchievementCount")
                 return .zero
             }
             defer { __on_EOS_Achievements_GetPlayerAchievementCount = nil }
@@ -24,11 +24,11 @@ public class SwiftEOS_Achievements_GetPlayerAchievementCountTests: XCTestCase {
             let result: Int = try object.GetPlayerAchievementCount(UserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_GetPlayerAchievementCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_GetPlayerAchievementCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_GetPlayerAchievementCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_GetPlayerAchievementCount"])
     }
 }

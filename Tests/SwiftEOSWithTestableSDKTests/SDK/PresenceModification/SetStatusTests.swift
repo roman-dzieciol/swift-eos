@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_PresenceModification_SetStatusTests: XCTestCase {
     public func testEOS_PresenceModification_SetStatus_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
                 XCTAssertNil(PresenceModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_Release")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_PresenceModification_SetStatusTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETSTATUS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.Status, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetStatus")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_SetStatus")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_SetStatus = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_PresenceModification_SetStatusTests: XCTestCase {
             try object.SetStatus(Status: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetStatus"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetStatus"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetStatus", "EOS_PresenceModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetStatus", "EOS_PresenceModification_Release"])
     }
 }

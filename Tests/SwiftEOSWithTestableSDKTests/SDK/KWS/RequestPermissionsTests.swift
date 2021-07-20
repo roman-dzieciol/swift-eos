@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
     public func testEOS_KWS_RequestPermissions_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,12 +16,12 @@ public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.PermissionKeyCount, .zero)
                 XCTAssertNil(Options!.pointee.PermissionKeys)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_RequestPermissionsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_KWS_RequestPermissionsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_KWS_RequestPermissions")
+                GTest.current.sdkReceived.append("EOS_KWS_RequestPermissions")
             }
             defer { __on_EOS_KWS_RequestPermissions = nil }
             
@@ -40,11 +40,11 @@ public class SwiftEOS_KWS_RequestPermissionsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_RequestPermissions"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_RequestPermissions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_RequestPermissions"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_RequestPermissions"])
     }
 }

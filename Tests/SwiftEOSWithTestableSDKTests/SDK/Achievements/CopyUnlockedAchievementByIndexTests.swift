@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCase {
     public func testEOS_Achievements_CopyUnlockedAchievementByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyUnlockedAchievementByIndex = { Handle, Options, OutAchievement in
@@ -14,7 +14,7 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNotNil(OutAchievement)
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByIndex")
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByIndex")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyUnlockedAchievementByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyUnlockedAchievementByIndex"])
     }
 }

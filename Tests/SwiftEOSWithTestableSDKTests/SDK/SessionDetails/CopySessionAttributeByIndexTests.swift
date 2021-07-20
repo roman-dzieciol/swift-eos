@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexTests: XCTestCase {
     public func testEOS_SessionDetails_CopySessionAttributeByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionDetails_Release = { SessionHandle in
                 XCTAssertNil(SessionHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionDetails_Release")
+                GTest.current.sdkReceived.append("EOS_SessionDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexTests: XCTestCas
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNotNil(OutSessionAttribute)
-                TestGlobals.current.sdkReceived.append("EOS_SessionDetails_CopySessionAttributeByIndex")
+                GTest.current.sdkReceived.append("EOS_SessionDetails_CopySessionAttributeByIndex")
                 return .zero
             }
             defer { __on_EOS_SessionDetails_CopySessionAttributeByIndex = nil }
@@ -31,12 +31,12 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexTests: XCTestCas
             let result: SwiftEOS_SessionDetails_Attribute? = try object.CopySessionAttributeByIndex(AttrIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_SessionDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByIndex", "EOS_SessionDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionDetails_CopySessionAttributeByIndex", "EOS_SessionDetails_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_TitleStorage_DeleteCacheTests: XCTestCase {
     public func testEOS_TitleStorage_DeleteCache_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
             
             // Given implementation for SDK function
@@ -14,12 +14,12 @@ public class SwiftEOS_TitleStorage_DeleteCacheTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_DELETECACHEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_TitleStorage_DeleteCacheCallbackInfo(
+                CompletionCallback?(GTest.current.pointer(object: _tagEOS_TitleStorage_DeleteCacheCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorage_DeleteCache")
+                GTest.current.sdkReceived.append("EOS_TitleStorage_DeleteCache")
                 return .zero
             }
             defer { __on_EOS_TitleStorage_DeleteCache = nil }
@@ -38,11 +38,11 @@ public class SwiftEOS_TitleStorage_DeleteCacheTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_DeleteCache"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_DeleteCache"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_DeleteCache"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_DeleteCache"])
     }
 }

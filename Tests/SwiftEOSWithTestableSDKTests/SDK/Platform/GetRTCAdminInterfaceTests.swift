@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetRTCAdminInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetRTCAdminInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetRTCAdminInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetRTCAdminInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetRTCAdminInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetRTCAdminInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetRTCAdminInterfaceTests: XCTestCase {
             let result: SwiftEOS_RTCAdmin_Actor? = object.GetRTCAdminInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetRTCAdminInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetRTCAdminInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetRTCAdminInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetRTCAdminInterface", "EOS_Platform_Release"])
     }
 }

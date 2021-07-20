@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
     public func testEOS_TitleStorage_QueryFile_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
             
             // Given implementation for SDK function
@@ -15,12 +15,12 @@ public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Filename)
                 XCTAssertNotNil(ClientData)
-                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_TitleStorage_QueryFileCallbackInfo(
+                CompletionCallback?(GTest.current.pointer(object: _tagEOS_TitleStorage_QueryFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorage_QueryFile")
+                GTest.current.sdkReceived.append("EOS_TitleStorage_QueryFile")
             }
             defer { __on_EOS_TitleStorage_QueryFile = nil }
             
@@ -39,11 +39,11 @@ public class SwiftEOS_TitleStorage_QueryFileTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_QueryFile"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_QueryFile"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_QueryFile"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_QueryFile"])
     }
 }

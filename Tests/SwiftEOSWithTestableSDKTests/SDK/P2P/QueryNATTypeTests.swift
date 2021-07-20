@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
     public func testEOS_P2P_QueryNATType_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -13,12 +13,12 @@ public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_QUERYNATTYPE_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnQueryNATTypeCompleteInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_P2P_OnQueryNATTypeCompleteInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             NATType: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_P2P_QueryNATType")
+                GTest.current.sdkReceived.append("EOS_P2P_QueryNATType")
             }
             defer { __on_EOS_P2P_QueryNATType = nil }
             
@@ -33,11 +33,11 @@ public class SwiftEOS_P2P_QueryNATTypeTests: XCTestCase {
                 })
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_QueryNATType"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_QueryNATType"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_QueryNATType"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_QueryNATType"])
     }
 }

@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_Connect_GetLoggedInUserByIndexTests: XCTestCase {
     public func testEOS_Connect_GetLoggedInUserByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetLoggedInUserByIndex = { Handle, Index in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Index, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_Connect_GetLoggedInUserByIndex")
+                GTest.current.sdkReceived.append("EOS_Connect_GetLoggedInUserByIndex")
                 return nil
             }
             defer { __on_EOS_Connect_GetLoggedInUserByIndex = nil }
@@ -23,11 +23,11 @@ public class SwiftEOS_Connect_GetLoggedInUserByIndexTests: XCTestCase {
             let result: EOS_ProductUserId? = try object.GetLoggedInUserByIndex(Index: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoggedInUserByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetLoggedInUserByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoggedInUserByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetLoggedInUserByIndex"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdTests: XCTestCase {
     public func testEOS_Leaderboards_CopyLeaderboardRecordByUserId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardRecordByUserId = { Handle, Options, OutLeaderboardRecord in
@@ -13,7 +13,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdTests: XCTestCas
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDRECORDBYUSERID_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNotNil(OutLeaderboardRecord)
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardRecordByUserId")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardRecordByUserId")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardRecordByUserId = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByUserIdTests: XCTestCas
             let result: SwiftEOS_Leaderboards_LeaderboardRecord? = try object.CopyLeaderboardRecordByUserId(UserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardRecordByUserId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardRecordByUserId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardRecordByUserId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardRecordByUserId"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
     public func testEOS_KWS_QueryAgeGate_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -13,13 +13,13 @@ public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_QUERYAGEGATE_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_QueryAgeGateCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_KWS_QueryAgeGateCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             CountryCode: nil,
                             AgeOfConsent: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_KWS_QueryAgeGate")
+                GTest.current.sdkReceived.append("EOS_KWS_QueryAgeGate")
             }
             defer { __on_EOS_KWS_QueryAgeGate = nil }
             
@@ -35,11 +35,11 @@ public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
                 })
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
     }
 }

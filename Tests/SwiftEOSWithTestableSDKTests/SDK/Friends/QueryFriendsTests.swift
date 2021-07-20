@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
     public func testEOS_Friends_QueryFriends_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,12 +14,12 @@ public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_QUERYFRIENDS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Friends_QueryFriendsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Friends_QueryFriendsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Friends_QueryFriends")
+                GTest.current.sdkReceived.append("EOS_Friends_QueryFriends")
             }
             defer { __on_EOS_Friends_QueryFriends = nil }
             
@@ -37,11 +37,11 @@ public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_QueryFriends"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_QueryFriends"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_QueryFriends"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_QueryFriends"])
     }
 }

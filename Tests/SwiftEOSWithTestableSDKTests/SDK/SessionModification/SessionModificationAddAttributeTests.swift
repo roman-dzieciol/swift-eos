@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
     public func testEOS_SessionModification_AddAttribute_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
                 XCTAssertNil(SessionModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+                GTest.current.sdkReceived.append("EOS_SessionModification_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionAttribute)
                 XCTAssertEqual(Options!.pointee.AdvertisementType, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_AddAttribute")
+                GTest.current.sdkReceived.append("EOS_SessionModification_AddAttribute")
                 return .zero
             }
             defer { __on_EOS_SessionModification_AddAttribute = nil }
@@ -34,11 +34,11 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_AddAttribute"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_AddAttribute"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_AddAttribute", "EOS_SessionModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_AddAttribute", "EOS_SessionModification_Release"])
     }
 }

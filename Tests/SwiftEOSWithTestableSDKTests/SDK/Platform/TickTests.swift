@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_TickTests: XCTestCase {
     public func testEOS_Platform_Tick_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_Tick = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Tick")
+                GTest.current.sdkReceived.append("EOS_Platform_Tick")
             }
             defer { __on_EOS_Platform_Tick = nil }
             
@@ -27,11 +27,11 @@ public class SwiftEOS_Platform_TickTests: XCTestCase {
             object.Tick()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_Tick"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_Tick"])
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_Tick", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_Tick", "EOS_Platform_Release"])
     }
 }

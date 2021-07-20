@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_CopyProductUserExternalAccountByIndexTests: XCTestCase {
     public func testEOS_Connect_CopyProductUserExternalAccountByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Connect_CopyProductUserExternalAccountByIndex = { Handle, Options, OutExternalAccountInfo in
@@ -14,7 +14,7 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByIndexTests: XCTest
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.ExternalAccountInfoIndex, .zero)
                 XCTAssertNotNil(OutExternalAccountInfo)
-                TestGlobals.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByIndex")
+                GTest.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByIndex")
                 return .zero
             }
             defer { __on_EOS_Connect_CopyProductUserExternalAccountByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByIndexTests: XCTest
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByIndex"])
     }
 }

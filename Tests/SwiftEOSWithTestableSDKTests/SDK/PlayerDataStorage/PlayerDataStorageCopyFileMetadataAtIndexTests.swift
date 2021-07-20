@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexTests: XCTestCase {
     public func testEOS_PlayerDataStorage_CopyFileMetadataAtIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_CopyFileMetadataAtIndex = { Handle, CopyFileMetadataOptions, OutMetadata in
@@ -14,7 +14,7 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexTests: XCTestCase
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.LocalUserId)
                 XCTAssertEqual(CopyFileMetadataOptions!.pointee.Index, .zero)
                 XCTAssertNotNil(OutMetadata)
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataAtIndex")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataAtIndex")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorage_CopyFileMetadataAtIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataAtIndexTests: XCTestCase
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataAtIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataAtIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataAtIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataAtIndex"])
     }
 }

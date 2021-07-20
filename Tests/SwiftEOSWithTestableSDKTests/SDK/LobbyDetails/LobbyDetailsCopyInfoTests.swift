@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
     public func testEOS_LobbyDetails_CopyInfo_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYINFO_API_LATEST)
                 XCTAssertNotNil(OutLobbyDetailsInfo)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyInfo")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyInfo")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyInfo = nil }
@@ -30,12 +30,12 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
             let result: SwiftEOS_LobbyDetails_Info? = try object.CopyInfo()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyInfo", "EOS_LobbyDetails_Release"])
     }
 }

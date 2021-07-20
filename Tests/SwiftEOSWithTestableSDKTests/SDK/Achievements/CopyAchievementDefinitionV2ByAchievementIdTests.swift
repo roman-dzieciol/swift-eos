@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTests: XCTestCase {
     public func testEOS_Achievements_CopyAchievementDefinitionV2ByAchievementId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = { Handle, Options, OutDefinition in
@@ -13,7 +13,7 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.AchievementId)
                 XCTAssertNotNil(OutDefinition)
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             let result: SwiftEOS_Achievements_DefinitionV2? = try object.CopyAchievementDefinitionV2ByAchievementId(AchievementId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_UpdateReceivingTests: XCTestCase {
     public func testEOS_RTCAudio_UpdateReceiving_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,7 +17,7 @@ public class SwiftEOS_RTCAudio_UpdateReceivingTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ParticipantId)
                 XCTAssertEqual(Options!.pointee.bAudioEnabled, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_UpdateReceivingCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTCAudio_UpdateReceivingCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
@@ -25,7 +25,7 @@ public class SwiftEOS_RTCAudio_UpdateReceivingTests: XCTestCase {
                             ParticipantId: nil,
                             bAudioEnabled: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_UpdateReceiving")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_UpdateReceiving")
             }
             defer { __on_EOS_RTCAudio_UpdateReceiving = nil }
             
@@ -49,11 +49,11 @@ public class SwiftEOS_RTCAudio_UpdateReceivingTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UpdateReceiving"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UpdateReceiving"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UpdateReceiving"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UpdateReceiving"])
     }
 }

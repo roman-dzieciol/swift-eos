@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_SetPacketQueueSizeTests: XCTestCase {
     public func testEOS_P2P_SetPacketQueueSize_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_P2P_SetPacketQueueSize = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_P2P_SetPacketQueueSizeTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_SETPACKETQUEUESIZE_API_LATEST)
                 XCTAssertEqual(Options!.pointee.IncomingPacketQueueMaxSizeBytes, .zero)
                 XCTAssertEqual(Options!.pointee.OutgoingPacketQueueMaxSizeBytes, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_SetPacketQueueSize")
+                GTest.current.sdkReceived.append("EOS_P2P_SetPacketQueueSize")
                 return .zero
             }
             defer { __on_EOS_P2P_SetPacketQueueSize = nil }
@@ -28,10 +28,10 @@ public class SwiftEOS_P2P_SetPacketQueueSizeTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SetPacketQueueSize"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_SetPacketQueueSize"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SetPacketQueueSize"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_SetPacketQueueSize"])
     }
 }

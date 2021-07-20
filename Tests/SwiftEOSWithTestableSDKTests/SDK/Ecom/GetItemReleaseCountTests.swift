@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
     public func testEOS_Ecom_GetItemReleaseCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_GetItemReleaseCount = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETITEMRELEASECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_GetItemReleaseCount")
+                GTest.current.sdkReceived.append("EOS_Ecom_GetItemReleaseCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_GetItemReleaseCount = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_Ecom_GetItemReleaseCountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemReleaseCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_GetItemReleaseCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemReleaseCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_GetItemReleaseCount"])
     }
 }

@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogGameRoundEndTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogGameRoundEnd_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogGameRoundEnd = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGGAMEROUNDEND_API_LATEST)
                 XCTAssertEqual(Options!.pointee.WinningTeamId, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundEnd")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundEnd")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogGameRoundEnd = nil }
@@ -24,10 +24,10 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundEndTests: XCTestCase {
             try object.LogGameRoundEnd(WinningTeamId: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundEnd"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundEnd"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundEnd"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundEnd"])
     }
 }

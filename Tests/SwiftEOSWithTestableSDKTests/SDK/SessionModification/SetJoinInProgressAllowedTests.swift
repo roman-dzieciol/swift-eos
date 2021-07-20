@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestCase {
     public func testEOS_SessionModification_SetJoinInProgressAllowed_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
                 XCTAssertNil(SessionModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+                GTest.current.sdkReceived.append("EOS_SessionModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestC
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bAllowJoinInProgress, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetJoinInProgressAllowed")
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetJoinInProgressAllowed")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetJoinInProgressAllowed = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestC
             try object.SetJoinInProgressAllowed(bAllowJoinInProgress: false)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetJoinInProgressAllowed"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetJoinInProgressAllowed"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetJoinInProgressAllowed", "EOS_SessionModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetJoinInProgressAllowed", "EOS_SessionModification_Release"])
     }
 }

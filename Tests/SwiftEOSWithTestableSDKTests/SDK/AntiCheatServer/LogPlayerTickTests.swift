@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerTick_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTick = { Handle, Options in
@@ -17,7 +17,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.bIsPlayerViewZoomed, .zero)
                 XCTAssertEqual(Options!.pointee.PlayerHealth, .zero)
                 XCTAssertEqual(Options!.pointee.PlayerMovementState, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTick")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTick")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerTick = nil }
@@ -36,10 +36,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTick"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTick"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTick"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTick"])
     }
 }

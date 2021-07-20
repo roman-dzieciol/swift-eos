@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_CreateLobbyTests: XCTestCase {
     public func testEOS_Lobby_CreateLobby_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -23,12 +23,12 @@ public class SwiftEOS_Lobby_CreateLobbyTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalRTCOptions)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_CreateLobbyCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Lobby_CreateLobbyCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LobbyId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_CreateLobby")
+                GTest.current.sdkReceived.append("EOS_Lobby_CreateLobby")
             }
             defer { __on_EOS_Lobby_CreateLobby = nil }
             
@@ -55,11 +55,11 @@ public class SwiftEOS_Lobby_CreateLobbyTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CreateLobby"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CreateLobby"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CreateLobby"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CreateLobby"])
     }
 }

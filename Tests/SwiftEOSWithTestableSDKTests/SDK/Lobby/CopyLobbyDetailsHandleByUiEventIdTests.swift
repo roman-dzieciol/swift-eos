@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
     public func testEOS_Lobby_CopyLobbyDetailsHandleByUiEventId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Lobby_CopyLobbyDetailsHandleByUiEventId = { Handle, Options, OutLobbyDetailsHandle in
@@ -13,7 +13,7 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertNotNil(OutLobbyDetailsHandle)
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_CopyLobbyDetailsHandleByUiEventId")
+                GTest.current.sdkReceived.append("EOS_Lobby_CopyLobbyDetailsHandleByUiEventId")
                 return .zero
             }
             defer { __on_EOS_Lobby_CopyLobbyDetailsHandleByUiEventId = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             let result: EOS_HLobbyDetails? = try object.CopyLobbyDetailsHandleByUiEventId(UiEventId: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
     }
 }

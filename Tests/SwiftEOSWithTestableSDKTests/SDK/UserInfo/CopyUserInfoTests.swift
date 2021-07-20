@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
     public func testEOS_UserInfo_CopyUserInfo_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyUserInfo = { Handle, Options, OutUserInfo in
@@ -14,7 +14,7 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(OutUserInfo)
-                TestGlobals.current.sdkReceived.append("EOS_UserInfo_CopyUserInfo")
+                GTest.current.sdkReceived.append("EOS_UserInfo_CopyUserInfo")
                 return .zero
             }
             defer { __on_EOS_UserInfo_CopyUserInfo = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyUserInfo"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_CopyUserInfo"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyUserInfo"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_CopyUserInfo"])
     }
 }

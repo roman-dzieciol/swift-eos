@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Tests: XCTestCase {
     public func testEOS_Achievements_AddNotifyAchievementsUnlockedV2_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,13 +13,13 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Tests: XCTestC
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_ADDNOTIFYACHIEVEMENTSUNLOCKEDV2_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnAchievementsUnlockedCallbackV2Info(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_Achievements_OnAchievementsUnlockedCallbackV2Info(
                             ClientData: ClientData,
                             UserId: nil,
                             AchievementId: nil,
                             UnlockTime: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_AddNotifyAchievementsUnlockedV2")
+                GTest.current.sdkReceived.append("EOS_Achievements_AddNotifyAchievementsUnlockedV2")
                 return .zero
             }
             defer { __on_EOS_Achievements_AddNotifyAchievementsUnlockedV2 = nil }
@@ -37,20 +37,20 @@ public class SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Tests: XCTestC
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlockedV2"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlockedV2"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Achievements_RemoveNotifyAchievementsUnlocked = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Achievements_RemoveNotifyAchievementsUnlocked")
+                    GTest.current.sdkReceived.append("EOS_Achievements_RemoveNotifyAchievementsUnlocked")
                 }
             }
         }
         
         // Then
         __on_EOS_Achievements_RemoveNotifyAchievementsUnlocked = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlockedV2", "EOS_Achievements_RemoveNotifyAchievementsUnlocked"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_AddNotifyAchievementsUnlockedV2", "EOS_Achievements_RemoveNotifyAchievementsUnlocked"])
     }
 }

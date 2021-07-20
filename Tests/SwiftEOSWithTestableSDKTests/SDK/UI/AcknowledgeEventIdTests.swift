@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
     public func testEOS_UI_AcknowledgeEventId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_UI_AcknowledgeEventId = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ACKNOWLEDGEEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertEqual(Options!.pointee.Result, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_UI_AcknowledgeEventId")
+                GTest.current.sdkReceived.append("EOS_UI_AcknowledgeEventId")
                 return .zero
             }
             defer { __on_EOS_UI_AcknowledgeEventId = nil }
@@ -28,10 +28,10 @@ public class SwiftEOS_UI_AcknowledgeEventIdTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_AcknowledgeEventId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_AcknowledgeEventId"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_AcknowledgeEventId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_AcknowledgeEventId"])
     }
 }

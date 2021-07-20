@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CopyTransactionByIndexTests: XCTestCase {
     public func testEOS_Ecom_CopyTransactionByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyTransactionByIndex = { Handle, Options, OutTransaction in
@@ -14,7 +14,7 @@ public class SwiftEOS_Ecom_CopyTransactionByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.TransactionIndex, .zero)
                 XCTAssertNotNil(OutTransaction)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyTransactionByIndex")
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyTransactionByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyTransactionByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Ecom_CopyTransactionByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyTransactionByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyTransactionByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyTransactionByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyTransactionByIndex"])
     }
 }

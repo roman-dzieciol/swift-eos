@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCase {
     public func testEOS_Leaderboards_GetLeaderboardDefinitionCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_GETLEADERBOARDDEFINITIONCOUNT_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_GetLeaderboardDefinitionCount")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_GetLeaderboardDefinitionCount")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_GetLeaderboardDefinitionCount = nil }
@@ -23,11 +23,11 @@ public class SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountTests: XCTestCas
             let result: Int = try object.GetLeaderboardDefinitionCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_GetLeaderboardDefinitionCount"])
     }
 }

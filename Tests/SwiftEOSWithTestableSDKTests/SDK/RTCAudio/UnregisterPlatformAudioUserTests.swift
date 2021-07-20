@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_UnregisterPlatformAudioUserTests: XCTestCase {
     public func testEOS_RTCAudio_UnregisterPlatformAudioUser_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_UnregisterPlatformAudioUser = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_UNREGISTERPLATFORMAUDIOUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_UnregisterPlatformAudioUser")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_UnregisterPlatformAudioUser")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_UnregisterPlatformAudioUser = nil }
@@ -24,10 +24,10 @@ public class SwiftEOS_RTCAudio_UnregisterPlatformAudioUserTests: XCTestCase {
             try object.UnregisterPlatformAudioUser(UserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UnregisterPlatformAudioUser"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UnregisterPlatformAudioUser"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UnregisterPlatformAudioUser"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UnregisterPlatformAudioUser"])
     }
 }

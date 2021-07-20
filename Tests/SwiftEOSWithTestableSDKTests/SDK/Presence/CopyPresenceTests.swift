@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
     public func testEOS_Presence_CopyPresence_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Presence_CopyPresence = { Handle, Options, OutPresence in
@@ -14,7 +14,7 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(OutPresence)
-                TestGlobals.current.sdkReceived.append("EOS_Presence_CopyPresence")
+                GTest.current.sdkReceived.append("EOS_Presence_CopyPresence")
                 return .zero
             }
             defer { __on_EOS_Presence_CopyPresence = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_CopyPresence"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_CopyPresence"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_CopyPresence"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_CopyPresence"])
     }
 }

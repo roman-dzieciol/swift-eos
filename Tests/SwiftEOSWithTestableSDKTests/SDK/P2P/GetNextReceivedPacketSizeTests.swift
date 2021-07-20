@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_GetNextReceivedPacketSizeTests: XCTestCase {
     public func testEOS_P2P_GetNextReceivedPacketSize_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_P2P_GetNextReceivedPacketSize = { Handle, Options, OutPacketSizeBytes in
@@ -14,7 +14,7 @@ public class SwiftEOS_P2P_GetNextReceivedPacketSizeTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RequestedChannel)
                 XCTAssertNotNil(OutPacketSizeBytes)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_GetNextReceivedPacketSize")
+                GTest.current.sdkReceived.append("EOS_P2P_GetNextReceivedPacketSize")
                 return .zero
             }
             defer { __on_EOS_P2P_GetNextReceivedPacketSize = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_P2P_GetNextReceivedPacketSizeTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_GetNextReceivedPacketSize"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetNextReceivedPacketSize"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_GetNextReceivedPacketSize"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetNextReceivedPacketSize"])
     }
 }

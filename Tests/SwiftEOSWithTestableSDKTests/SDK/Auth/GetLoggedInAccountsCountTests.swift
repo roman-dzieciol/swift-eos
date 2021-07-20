@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_Auth_GetLoggedInAccountsCountTests: XCTestCase {
     public func testEOS_Auth_GetLoggedInAccountsCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Auth_GetLoggedInAccountsCount = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountsCount")
+                GTest.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountsCount")
                 return .zero
             }
             defer { __on_EOS_Auth_GetLoggedInAccountsCount = nil }
@@ -22,11 +22,11 @@ public class SwiftEOS_Auth_GetLoggedInAccountsCountTests: XCTestCase {
             let result: Int = try object.GetLoggedInAccountsCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountsCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountsCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountsCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_GetLoggedInAccountsCount"])
     }
 }

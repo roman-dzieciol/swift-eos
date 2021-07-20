@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
     public func testEOS_AntiCheatClient_RegisterPeer_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_RegisterPeer = { Handle, Options in
@@ -16,7 +16,7 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ClientPlatform, .zero)
                 XCTAssertNil(Options!.pointee.AccountId)
                 XCTAssertNil(Options!.pointee.IpAddress)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_RegisterPeer")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_RegisterPeer")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_RegisterPeer = nil }
@@ -34,10 +34,10 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_RegisterPeer"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_RegisterPeer"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_RegisterPeer"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_RegisterPeer"])
     }
 }

@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_GetMemberAttributeCountTests: XCTestCase {
     public func testEOS_LobbyDetails_GetMemberAttributeCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyDetails_GetMemberAttributeCountTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERATTRIBUTECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetMemberAttributeCount")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberAttributeCount")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_GetMemberAttributeCount = nil }
@@ -30,12 +30,12 @@ public class SwiftEOS_LobbyDetails_GetMemberAttributeCountTests: XCTestCase {
             let result: Int = try object.GetMemberAttributeCount(TargetUserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetMemberAttributeCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_GetMemberAttributeCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetMemberAttributeCount", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_GetMemberAttributeCount", "EOS_LobbyDetails_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedTests: XCTestCase {
     public func testEOS_Lobby_AddNotifyLobbyMemberStatusReceived_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,13 +13,13 @@ public class SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedTests: XCTestCase 
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ADDNOTIFYLOBBYMEMBERSTATUSRECEIVED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_Lobby_LobbyMemberStatusReceivedCallbackInfo(
                             ClientData: ClientData,
                             LobbyId: nil,
                             TargetUserId: nil,
                             CurrentStatus: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyMemberStatusReceived")
+                GTest.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyMemberStatusReceived")
                 return .zero
             }
             defer { __on_EOS_Lobby_AddNotifyLobbyMemberStatusReceived = nil }
@@ -37,20 +37,20 @@ public class SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedTests: XCTestCase 
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyMemberStatusReceived"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyMemberStatusReceived"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived")
+                    GTest.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived")
                 }
             }
         }
         
         // Then
         __on_EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyMemberStatusReceived", "EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyMemberStatusReceived", "EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived"])
     }
 }

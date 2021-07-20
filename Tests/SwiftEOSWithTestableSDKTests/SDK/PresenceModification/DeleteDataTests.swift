@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
     public func testEOS_PresenceModification_DeleteData_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
                 XCTAssertNil(PresenceModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_Release")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST)
                 XCTAssertEqual(Options!.pointee.RecordsCount, .zero)
                 XCTAssertNil(Options!.pointee.Records)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_DeleteData")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_DeleteData")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_DeleteData = nil }
@@ -31,11 +31,11 @@ public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
             try object.DeleteData(Records: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_DeleteData"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_DeleteData"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_DeleteData", "EOS_PresenceModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_DeleteData", "EOS_PresenceModification_Release"])
     }
 }

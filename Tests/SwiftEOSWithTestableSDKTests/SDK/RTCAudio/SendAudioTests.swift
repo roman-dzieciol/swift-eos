@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
     public func testEOS_RTCAudio_SendAudio_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_SendAudio = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNil(Options!.pointee.Buffer)
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_SendAudio")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_SendAudio")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_SendAudio = nil }
@@ -30,10 +30,10 @@ public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_SendAudio"])
     }
 }

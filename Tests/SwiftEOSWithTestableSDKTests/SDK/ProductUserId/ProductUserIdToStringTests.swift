@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
     public func testEOS_ProductUserId_ToString_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_ProductUserId_ToString = { AccountId, OutBuffer, InOutBufferLength in
                 XCTAssertNil(AccountId)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_ProductUserId_ToString")
+                GTest.current.sdkReceived.append("EOS_ProductUserId_ToString")
                 return .zero
             }
             defer { __on_EOS_ProductUserId_ToString = nil }
@@ -21,11 +21,11 @@ public class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
             let result: String? = try SwiftEOS_ProductUserId_ToString(AccountId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_ToString"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ProductUserId_ToString"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ProductUserId_ToString"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ProductUserId_ToString"])
     }
 }

@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_TitleStorageFileTransferRequest_CancelRequestTests: XCTestCase {
     public func testEOS_TitleStorageFileTransferRequest_CancelRequest_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_TitleStorageFileTransferRequest_Release = { TitleStorageFileTransferHandle in
                 XCTAssertNil(TitleStorageFileTransferHandle)
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
+                GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_TitleStorageFileTransferRequest_CancelRequest = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_CancelRequest")
+                GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_CancelRequest")
                 return .zero
             }
             defer { __on_EOS_TitleStorageFileTransferRequest_CancelRequest = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_TitleStorageFileTransferRequest_CancelRequestTests: XCTest
             try object.CancelRequest()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_CancelRequest"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_CancelRequest"])
         }
         
         // Then
         __on_EOS_TitleStorageFileTransferRequest_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_CancelRequest", "EOS_TitleStorageFileTransferRequest_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_CancelRequest", "EOS_TitleStorageFileTransferRequest_Release"])
     }
 }

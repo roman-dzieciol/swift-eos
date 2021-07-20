@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CopyEntitlementByIndexTests: XCTestCase {
     public func testEOS_Ecom_CopyEntitlementByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyEntitlementByIndex = { Handle, Options, OutEntitlement in
@@ -14,7 +14,7 @@ public class SwiftEOS_Ecom_CopyEntitlementByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.EntitlementIndex, .zero)
                 XCTAssertNotNil(OutEntitlement)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyEntitlementByIndex")
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyEntitlementByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyEntitlementByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Ecom_CopyEntitlementByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyEntitlementByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyEntitlementByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyEntitlementByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyEntitlementByIndex"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_BeginSessionTests: XCTestCase {
     public func testEOS_AntiCheatServer_BeginSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_BeginSession = { Handle, Options in
@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatServer_BeginSessionTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ServerName)
                 XCTAssertEqual(Options!.pointee.bEnableGameplayData, .zero)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_BeginSession")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_BeginSession")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_BeginSession = nil }
@@ -32,10 +32,10 @@ public class SwiftEOS_AntiCheatServer_BeginSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_BeginSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_BeginSession"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_BeginSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_BeginSession"])
     }
 }

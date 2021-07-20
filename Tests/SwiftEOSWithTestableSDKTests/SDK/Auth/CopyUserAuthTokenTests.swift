@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
     public func testEOS_Auth_CopyUserAuthToken_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Auth_CopyUserAuthToken = { Handle, Options, LocalUserId, OutUserAuthToken in
@@ -13,7 +13,7 @@ public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_COPYUSERAUTHTOKEN_API_LATEST)
                 XCTAssertNil(LocalUserId)
                 XCTAssertNotNil(OutUserAuthToken)
-                TestGlobals.current.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
+                GTest.current.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
                 return .zero
             }
             defer { __on_EOS_Auth_CopyUserAuthToken = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
             let result: SwiftEOS_Auth_Token? = try object.CopyUserAuthToken(LocalUserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_CopyUserAuthToken"])
     }
 }

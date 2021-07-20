@@ -5,19 +5,19 @@ import EOSSDK
 public class SwiftEOS_SessionSearch_GetSearchResultCountTests: XCTestCase {
     public func testEOS_SessionSearch_GetSearchResultCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
                 XCTAssertNil(SessionSearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionSearch_Release")
+                GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_GetSearchResultCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_SessionSearch_GetSearchResultCount")
+                GTest.current.sdkReceived.append("EOS_SessionSearch_GetSearchResultCount")
                 return .zero
             }
             defer { __on_EOS_SessionSearch_GetSearchResultCount = nil }
@@ -29,12 +29,12 @@ public class SwiftEOS_SessionSearch_GetSearchResultCountTests: XCTestCase {
             let result: Int = try object.GetSearchResultCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_SessionSearch_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount", "EOS_SessionSearch_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_GetSearchResultCount", "EOS_SessionSearch_Release"])
     }
 }

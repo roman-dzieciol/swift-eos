@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
     public func testEOS_Logging_SetLogLevel_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Logging_SetLogLevel = { LogCategory, LogLevel in
                 XCTAssertEqual(LogCategory, .zero)
                 XCTAssertEqual(LogLevel, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_Logging_SetLogLevel")
+                GTest.current.sdkReceived.append("EOS_Logging_SetLogLevel")
                 return .zero
             }
             defer { __on_EOS_Logging_SetLogLevel = nil }
@@ -23,10 +23,10 @@ public class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Logging_SetLogLevel"])
     }
 }

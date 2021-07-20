@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
     public func testEOS_Friends_AddNotifyFriendsUpdate_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForFriendsUpdateHandler = expectation(description: "waitForFriendsUpdateHandler")
             
             // Given implementation for SDK function
@@ -13,14 +13,14 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_ADDNOTIFYFRIENDSUPDATE_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                FriendsUpdateHandler?(TestGlobals.current.pointer(object: _tagEOS_Friends_OnFriendsUpdateInfo(
+                FriendsUpdateHandler?(GTest.current.pointer(object: _tagEOS_Friends_OnFriendsUpdateInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TargetUserId: nil,
                             PreviousStatus: .zero,
                             CurrentStatus: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Friends_AddNotifyFriendsUpdate")
+                GTest.current.sdkReceived.append("EOS_Friends_AddNotifyFriendsUpdate")
                 return .zero
             }
             defer { __on_EOS_Friends_AddNotifyFriendsUpdate = nil }
@@ -39,20 +39,20 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_AddNotifyFriendsUpdate"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AddNotifyFriendsUpdate"])
                 wait(for: [waitForFriendsUpdateHandler], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Friends_RemoveNotifyFriendsUpdate = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Friends_RemoveNotifyFriendsUpdate")
+                    GTest.current.sdkReceived.append("EOS_Friends_RemoveNotifyFriendsUpdate")
                 }
             }
         }
         
         // Then
         __on_EOS_Friends_RemoveNotifyFriendsUpdate = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_AddNotifyFriendsUpdate", "EOS_Friends_RemoveNotifyFriendsUpdate"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AddNotifyFriendsUpdate", "EOS_Friends_RemoveNotifyFriendsUpdate"])
     }
 }

@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyModification_AddMemberAttributeTests: XCTestCase {
     public func testEOS_LobbyModification_AddMemberAttribute_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyModification_Release = { LobbyModificationHandle in
                 XCTAssertNil(LobbyModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_LobbyModification_AddMemberAttributeTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Attribute)
                 XCTAssertEqual(Options!.pointee.Visibility, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_AddMemberAttribute")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_AddMemberAttribute")
                 return .zero
             }
             defer { __on_EOS_LobbyModification_AddMemberAttribute = nil }
@@ -34,11 +34,11 @@ public class SwiftEOS_LobbyModification_AddMemberAttributeTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_AddMemberAttribute"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_AddMemberAttribute"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_AddMemberAttribute", "EOS_LobbyModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_AddMemberAttribute", "EOS_LobbyModification_Release"])
     }
 }

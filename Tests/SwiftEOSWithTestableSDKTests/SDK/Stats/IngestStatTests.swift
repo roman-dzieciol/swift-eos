@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
     public func testEOS_Stats_IngestStat_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,13 +17,13 @@ public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.StatsCount, .zero)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Stats_IngestStatCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Stats_IngestStatCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Stats_IngestStat")
+                GTest.current.sdkReceived.append("EOS_Stats_IngestStat")
             }
             defer { __on_EOS_Stats_IngestStat = nil }
             
@@ -44,11 +44,11 @@ public class SwiftEOS_Stats_IngestStatTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_IngestStat"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_IngestStat"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_IngestStat"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_IngestStat"])
     }
 }

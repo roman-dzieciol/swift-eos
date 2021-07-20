@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_Platform_GetActiveCountryCodeTests: XCTestCase {
     public func testEOS_Platform_GetActiveCountryCode_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_Platform_GetActiveCountryCodeTests: XCTestCase {
                 XCTAssertNil(LocalUserId)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetActiveCountryCode")
+                GTest.current.sdkReceived.append("EOS_Platform_GetActiveCountryCode")
                 return .zero
             }
             defer { __on_EOS_Platform_GetActiveCountryCode = nil }
@@ -31,12 +31,12 @@ public class SwiftEOS_Platform_GetActiveCountryCodeTests: XCTestCase {
             let result: String? = try object.GetActiveCountryCode(LocalUserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetActiveCountryCode"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetActiveCountryCode"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetActiveCountryCode", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetActiveCountryCode", "EOS_Platform_Release"])
     }
 }

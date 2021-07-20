@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_TitleStorage_GetFileMetadataCountTests: XCTestCase {
     public func testEOS_TitleStorage_GetFileMetadataCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_GetFileMetadataCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorage_GetFileMetadataCount")
+                GTest.current.sdkReceived.append("EOS_TitleStorage_GetFileMetadataCount")
                 return .zero
             }
             defer { __on_EOS_TitleStorage_GetFileMetadataCount = nil }
@@ -24,11 +24,11 @@ public class SwiftEOS_TitleStorage_GetFileMetadataCountTests: XCTestCase {
             let result: Int = try object.GetFileMetadataCount(LocalUserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_GetFileMetadataCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_GetFileMetadataCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_GetFileMetadataCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_GetFileMetadataCount"])
     }
 }

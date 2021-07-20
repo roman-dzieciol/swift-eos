@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_CreateDeviceIdTests: XCTestCase {
     public func testEOS_Connect_CreateDeviceId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,11 +14,11 @@ public class SwiftEOS_Connect_CreateDeviceIdTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_CREATEDEVICEID_API_LATEST)
                 XCTAssertNil(Options!.pointee.DeviceModel)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_CreateDeviceIdCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Connect_CreateDeviceIdCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Connect_CreateDeviceId")
+                GTest.current.sdkReceived.append("EOS_Connect_CreateDeviceId")
             }
             defer { __on_EOS_Connect_CreateDeviceId = nil }
             
@@ -35,11 +35,11 @@ public class SwiftEOS_Connect_CreateDeviceIdTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CreateDeviceId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CreateDeviceId"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CreateDeviceId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CreateDeviceId"])
     }
 }

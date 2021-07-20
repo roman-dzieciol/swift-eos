@@ -5,19 +5,19 @@ import EOSSDK
 public class SwiftEOS_SessionDetails_GetSessionAttributeCountTests: XCTestCase {
     public func testEOS_SessionDetails_GetSessionAttributeCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionDetails_Release = { SessionHandle in
                 XCTAssertNil(SessionHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionDetails_Release")
+                GTest.current.sdkReceived.append("EOS_SessionDetails_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionDetails_GetSessionAttributeCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_GETSESSIONATTRIBUTECOUNT_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_SessionDetails_GetSessionAttributeCount")
+                GTest.current.sdkReceived.append("EOS_SessionDetails_GetSessionAttributeCount")
                 return .zero
             }
             defer { __on_EOS_SessionDetails_GetSessionAttributeCount = nil }
@@ -29,12 +29,12 @@ public class SwiftEOS_SessionDetails_GetSessionAttributeCountTests: XCTestCase {
             let result: Int = try object.GetSessionAttributeCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_GetSessionAttributeCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionDetails_GetSessionAttributeCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_SessionDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionDetails_GetSessionAttributeCount", "EOS_SessionDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionDetails_GetSessionAttributeCount", "EOS_SessionDetails_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
     public func testEOS_RTC_BlockParticipant_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,7 +17,7 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ParticipantId)
                 XCTAssertEqual(Options!.pointee.bBlocked, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_BlockParticipantCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTC_BlockParticipantCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
@@ -25,7 +25,7 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
                             ParticipantId: nil,
                             bBlocked: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTC_BlockParticipant")
+                GTest.current.sdkReceived.append("EOS_RTC_BlockParticipant")
             }
             defer { __on_EOS_RTC_BlockParticipant = nil }
             
@@ -49,11 +49,11 @@ public class SwiftEOS_RTC_BlockParticipantTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_BlockParticipant"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_BlockParticipant"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_BlockParticipant"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_BlockParticipant"])
     }
 }

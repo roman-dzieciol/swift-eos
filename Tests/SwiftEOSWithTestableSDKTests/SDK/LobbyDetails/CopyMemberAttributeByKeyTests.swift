@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyTests: XCTestCase {
     public func testEOS_LobbyDetails_CopyMemberAttributeByKey_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -20,7 +20,7 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.AttrKey)
                 XCTAssertNotNil(OutAttribute)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByKey")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByKey")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyMemberAttributeByKey = nil }
@@ -35,12 +35,12 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByKeyTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByKey"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByKey"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByKey", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByKey", "EOS_LobbyDetails_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_SetClientDetailsTests: XCTestCase {
     public func testEOS_AntiCheatServer_SetClientDetails_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_SetClientDetails = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_AntiCheatServer_SetClientDetailsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.ClientFlags, .zero)
                 XCTAssertEqual(Options!.pointee.ClientInputMethod, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_SetClientDetails")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_SetClientDetails")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_SetClientDetails = nil }
@@ -30,10 +30,10 @@ public class SwiftEOS_AntiCheatServer_SetClientDetailsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_SetClientDetails"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_SetClientDetails"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_SetClientDetails"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_SetClientDetails"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_GetPortRangeTests: XCTestCase {
     public func testEOS_P2P_GetPortRange_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             var OutPort: UInt16? = nil
             var OutNumAdditionalPortsToTry: UInt16? = nil
             
@@ -15,7 +15,7 @@ public class SwiftEOS_P2P_GetPortRangeTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETPORTRANGE_API_LATEST)
                 XCTAssertNotNil(OutPort)
                 XCTAssertNotNil(OutNumAdditionalPortsToTry)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_GetPortRange")
+                GTest.current.sdkReceived.append("EOS_P2P_GetPortRange")
                 return .zero
             }
             defer { __on_EOS_P2P_GetPortRange = nil }
@@ -32,10 +32,10 @@ public class SwiftEOS_P2P_GetPortRangeTests: XCTestCase {
             // Then
             XCTAssertNil(OutPort)
             XCTAssertNil(OutNumAdditionalPortsToTry)
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_GetPortRange"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetPortRange"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_GetPortRange"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetPortRange"])
     }
 }

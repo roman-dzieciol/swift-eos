@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_EndSessionTests: XCTestCase {
     public func testEOS_AntiCheatServer_EndSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_EndSession = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_ENDSESSION_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_EndSession")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_EndSession")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_EndSession = nil }
@@ -23,10 +23,10 @@ public class SwiftEOS_AntiCheatServer_EndSessionTests: XCTestCase {
             try object.EndSession()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_EndSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_EndSession"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_EndSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_EndSession"])
     }
 }

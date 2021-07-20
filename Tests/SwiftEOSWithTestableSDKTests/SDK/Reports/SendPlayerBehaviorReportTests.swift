@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
     public func testEOS_Reports_SendPlayerBehaviorReport_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -18,11 +18,11 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.Message)
                 XCTAssertNil(Options!.pointee.Context)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Reports_SendPlayerBehaviorReportCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Reports_SendPlayerBehaviorReport")
+                GTest.current.sdkReceived.append("EOS_Reports_SendPlayerBehaviorReport")
             }
             defer { __on_EOS_Reports_SendPlayerBehaviorReport = nil }
             
@@ -43,11 +43,11 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
     }
 }

@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyModification_SetInvitesAllowedTests: XCTestCase {
     public func testEOS_LobbyModification_SetInvitesAllowed_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyModification_Release = { LobbyModificationHandle in
                 XCTAssertNil(LobbyModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyModification_SetInvitesAllowedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETINVITESALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetInvitesAllowed")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_SetInvitesAllowed")
                 return .zero
             }
             defer { __on_EOS_LobbyModification_SetInvitesAllowed = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_LobbyModification_SetInvitesAllowedTests: XCTestCase {
             try object.SetInvitesAllowed(bInvitesAllowed: false)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed", "EOS_LobbyModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_SetInvitesAllowed", "EOS_LobbyModification_Release"])
     }
 }

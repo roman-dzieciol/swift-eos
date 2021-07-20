@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
     public func testEOS_Sessions_IsUserInSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Sessions_IsUserInSession = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ISUSERINSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_IsUserInSession")
+                GTest.current.sdkReceived.append("EOS_Sessions_IsUserInSession")
                 return .zero
             }
             defer { __on_EOS_Sessions_IsUserInSession = nil }
@@ -28,10 +28,10 @@ public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_IsUserInSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_IsUserInSession"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_IsUserInSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_IsUserInSession"])
     }
 }

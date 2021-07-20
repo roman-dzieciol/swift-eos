@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_QueryOwnershipTokenTests: XCTestCase {
     public func testEOS_Ecom_QueryOwnershipToken_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,13 +17,13 @@ public class SwiftEOS_Ecom_QueryOwnershipTokenTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.CatalogItemIdCount, .zero)
                 XCTAssertNil(Options!.pointee.CatalogNamespace)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_QueryOwnershipTokenCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Ecom_QueryOwnershipTokenCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             OwnershipToken: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_QueryOwnershipToken")
+                GTest.current.sdkReceived.append("EOS_Ecom_QueryOwnershipToken")
             }
             defer { __on_EOS_Ecom_QueryOwnershipToken = nil }
             
@@ -44,11 +44,11 @@ public class SwiftEOS_Ecom_QueryOwnershipTokenTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryOwnershipToken"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOwnershipToken"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryOwnershipToken"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOwnershipToken"])
     }
 }

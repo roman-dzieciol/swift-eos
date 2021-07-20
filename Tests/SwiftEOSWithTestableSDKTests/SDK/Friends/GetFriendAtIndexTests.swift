@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Friends_GetFriendAtIndexTests: XCTestCase {
     public func testEOS_Friends_GetFriendAtIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Friends_GetFriendAtIndex = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_Friends_GetFriendAtIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_GETFRIENDATINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_Friends_GetFriendAtIndex")
+                GTest.current.sdkReceived.append("EOS_Friends_GetFriendAtIndex")
                 return nil
             }
             defer { __on_EOS_Friends_GetFriendAtIndex = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_Friends_GetFriendAtIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_GetFriendAtIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_GetFriendAtIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_GetFriendAtIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_GetFriendAtIndex"])
     }
 }

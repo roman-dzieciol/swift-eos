@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_AddNotifyMessageToServerTests: XCTestCase {
     public func testEOS_AntiCheatClient_AddNotifyMessageToServer_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,12 +13,12 @@ public class SwiftEOS_AntiCheatClient_AddNotifyMessageToServerTests: XCTestCase 
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_ADDNOTIFYMESSAGETOSERVER_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_AntiCheatClient_OnMessageToServerCallbackInfo(
                             ClientData: ClientData,
                             MessageData: nil,
                             MessageDataSizeBytes: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_AddNotifyMessageToServer")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_AddNotifyMessageToServer")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_AddNotifyMessageToServer = nil }
@@ -34,20 +34,20 @@ public class SwiftEOS_AntiCheatClient_AddNotifyMessageToServerTests: XCTestCase 
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyMessageToServer"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyMessageToServer"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatClient_RemoveNotifyMessageToServer = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_RemoveNotifyMessageToServer")
+                    GTest.current.sdkReceived.append("EOS_AntiCheatClient_RemoveNotifyMessageToServer")
                 }
             }
         }
         
         // Then
         __on_EOS_AntiCheatClient_RemoveNotifyMessageToServer = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyMessageToServer", "EOS_AntiCheatClient_RemoveNotifyMessageToServer"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyMessageToServer", "EOS_AntiCheatClient_RemoveNotifyMessageToServer"])
     }
 }

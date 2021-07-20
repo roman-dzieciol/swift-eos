@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerTests: XCTestCase {
     public func testEOS_AntiCheatClient_ReceiveMessageFromPeer_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_ReceiveMessageFromPeer = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.PeerHandle)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNil(Options!.pointee.Data)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_ReceiveMessageFromPeer")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_ReceiveMessageFromPeer")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_ReceiveMessageFromPeer = nil }
@@ -29,10 +29,10 @@ public class SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromPeer"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromPeer"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromPeer"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromPeer"])
     }
 }

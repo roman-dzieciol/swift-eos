@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetSanctionsInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetSanctionsInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetSanctionsInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetSanctionsInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetSanctionsInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetSanctionsInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetSanctionsInterfaceTests: XCTestCase {
             let result: SwiftEOS_Sanctions_Actor? = object.GetSanctionsInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetSanctionsInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetSanctionsInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetSanctionsInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetSanctionsInterface", "EOS_Platform_Release"])
     }
 }

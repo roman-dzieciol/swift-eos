@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
     public func testEOS_Metrics_EndPlayerSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Metrics_EndPlayerSession = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.AccountId.Epic)
                 XCTAssertNil(Options!.pointee.AccountId.External)
-                TestGlobals.current.sdkReceived.append("EOS_Metrics_EndPlayerSession")
+                GTest.current.sdkReceived.append("EOS_Metrics_EndPlayerSession")
                 return .zero
             }
             defer { __on_EOS_Metrics_EndPlayerSession = nil }
@@ -29,10 +29,10 @@ public class SwiftEOS_Metrics_EndPlayerSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Metrics_EndPlayerSession"])
     }
 }

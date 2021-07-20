@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Presence_HasPresenceTests: XCTestCase {
     public func testEOS_Presence_HasPresence_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Presence_HasPresence = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_Presence_HasPresenceTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_HASPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                TestGlobals.current.sdkReceived.append("EOS_Presence_HasPresence")
+                GTest.current.sdkReceived.append("EOS_Presence_HasPresence")
                 return .zero
             }
             defer { __on_EOS_Presence_HasPresence = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_Presence_HasPresenceTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_HasPresence"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_HasPresence"])
             XCTAssertEqual(result, false)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_HasPresence"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_HasPresence"])
     }
 }

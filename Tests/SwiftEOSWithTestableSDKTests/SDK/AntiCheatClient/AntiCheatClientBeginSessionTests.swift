@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_BeginSessionTests: XCTestCase {
     public func testEOS_AntiCheatClient_BeginSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_BeginSession = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_AntiCheatClient_BeginSessionTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_BEGINSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Mode, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_BeginSession")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_BeginSession")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_BeginSession = nil }
@@ -28,10 +28,10 @@ public class SwiftEOS_AntiCheatClient_BeginSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_BeginSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_BeginSession"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_BeginSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_BeginSession"])
     }
 }

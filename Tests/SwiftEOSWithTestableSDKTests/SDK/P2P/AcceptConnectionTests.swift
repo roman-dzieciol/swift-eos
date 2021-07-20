@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
     public func testEOS_P2P_AcceptConnection_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_P2P_AcceptConnection = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RemoteUserId)
                 XCTAssertNil(Options!.pointee.SocketId)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_AcceptConnection")
+                GTest.current.sdkReceived.append("EOS_P2P_AcceptConnection")
                 return .zero
             }
             defer { __on_EOS_P2P_AcceptConnection = nil }
@@ -30,10 +30,10 @@ public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AcceptConnection"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AcceptConnection"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AcceptConnection"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AcceptConnection"])
     }
 }

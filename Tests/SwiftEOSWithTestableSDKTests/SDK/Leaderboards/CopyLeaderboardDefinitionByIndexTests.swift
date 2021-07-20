@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByIndexTests: XCTestCase {
     public func testEOS_Leaderboards_CopyLeaderboardDefinitionByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardDefinitionByIndex = { Handle, Options, OutLeaderboardDefinition in
@@ -13,7 +13,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByIndexTests: XCTest
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardIndex, .zero)
                 XCTAssertNotNil(OutLeaderboardDefinition)
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByIndex")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByIndex")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardDefinitionByIndex = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByIndexTests: XCTest
             let result: SwiftEOS_Leaderboards_Definition? = try object.CopyLeaderboardDefinitionByIndex(LeaderboardIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardDefinitionByIndex"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_GetExternalAccountMappingTests: XCTestCase {
     public func testEOS_Connect_GetExternalAccountMapping_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetExternalAccountMapping = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_Connect_GetExternalAccountMappingTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.TargetExternalUserId)
-                TestGlobals.current.sdkReceived.append("EOS_Connect_GetExternalAccountMapping")
+                GTest.current.sdkReceived.append("EOS_Connect_GetExternalAccountMapping")
                 return nil
             }
             defer { __on_EOS_Connect_GetExternalAccountMapping = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_Connect_GetExternalAccountMappingTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetExternalAccountMapping"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetExternalAccountMapping"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetExternalAccountMapping"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetExternalAccountMapping"])
     }
 }

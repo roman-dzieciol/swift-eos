@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbySearch_SetParameterTests: XCTestCase {
     public func testEOS_LobbySearch_SetParameter_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
                 XCTAssertNil(LobbySearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_Release")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_LobbySearch_SetParameterTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETPARAMETER_API_LATEST)
                 XCTAssertNil(Options!.pointee.Parameter)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_SetParameter")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_SetParameter")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_SetParameter = nil }
@@ -34,11 +34,11 @@ public class SwiftEOS_LobbySearch_SetParameterTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetParameter"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_SetParameter"])
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetParameter", "EOS_LobbySearch_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_SetParameter", "EOS_LobbySearch_Release"])
     }
 }

@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
     public func testEOS_SessionModification_SetPermissionLevel_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
                 XCTAssertNil(SessionModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+                GTest.current.sdkReceived.append("EOS_SessionModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETPERMISSIONLEVEL_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PermissionLevel, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetPermissionLevel")
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetPermissionLevel")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetPermissionLevel = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
             try object.SetPermissionLevel(PermissionLevel: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel", "EOS_SessionModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetPermissionLevel", "EOS_SessionModification_Release"])
     }
 }

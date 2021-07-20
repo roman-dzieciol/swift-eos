@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogPlayerSpawnTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerSpawn_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerSpawn = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerSpawnTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.SpawnedPlayerHandle)
                 XCTAssertEqual(Options!.pointee.TeamId, .zero)
                 XCTAssertEqual(Options!.pointee.CharacterId, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerSpawn")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerSpawn")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerSpawn = nil }
@@ -30,10 +30,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerSpawnTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerSpawn"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerSpawn"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerSpawn"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerSpawn"])
     }
 }

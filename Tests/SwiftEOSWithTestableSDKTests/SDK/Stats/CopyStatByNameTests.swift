@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Stats_CopyStatByNameTests: XCTestCase {
     public func testEOS_Stats_CopyStatByName_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Stats_CopyStatByName = { Handle, Options, OutStat in
@@ -14,7 +14,7 @@ public class SwiftEOS_Stats_CopyStatByNameTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.Name)
                 XCTAssertNotNil(OutStat)
-                TestGlobals.current.sdkReceived.append("EOS_Stats_CopyStatByName")
+                GTest.current.sdkReceived.append("EOS_Stats_CopyStatByName")
                 return .zero
             }
             defer { __on_EOS_Stats_CopyStatByName = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Stats_CopyStatByNameTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_CopyStatByName"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_CopyStatByName"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_CopyStatByName"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_CopyStatByName"])
     }
 }

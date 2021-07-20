@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_CopyAttributeByIndexTests: XCTestCase {
     public func testEOS_LobbyDetails_CopyAttributeByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNotNil(OutAttribute)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByIndex")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByIndex")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyAttributeByIndex = nil }
@@ -31,12 +31,12 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByIndexTests: XCTestCase {
             let result: SwiftEOS_Lobby_Attribute? = try object.CopyAttributeByIndex(AttrIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByIndex", "EOS_LobbyDetails_Release"])
     }
 }

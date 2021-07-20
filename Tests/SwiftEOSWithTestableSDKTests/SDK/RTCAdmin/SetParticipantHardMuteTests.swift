@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
     public func testEOS_RTCAdmin_SetParticipantHardMute_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,11 +16,11 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.bMute, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAdmin_SetParticipantHardMuteCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTCAdmin_SetParticipantHardMuteCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTCAdmin_SetParticipantHardMute")
+                GTest.current.sdkReceived.append("EOS_RTCAdmin_SetParticipantHardMute")
             }
             defer { __on_EOS_RTCAdmin_SetParticipantHardMute = nil }
             
@@ -39,11 +39,11 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_SetParticipantHardMute"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_SetParticipantHardMute"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_SetParticipantHardMute"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_SetParticipantHardMute"])
     }
 }

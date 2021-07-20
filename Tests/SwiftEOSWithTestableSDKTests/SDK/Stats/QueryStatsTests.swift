@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
     public func testEOS_Stats_QueryStats_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -19,13 +19,13 @@ public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.StatNamesCount, .zero)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Stats_OnQueryStatsCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Stats_OnQueryStatsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Stats_QueryStats")
+                GTest.current.sdkReceived.append("EOS_Stats_QueryStats")
             }
             defer { __on_EOS_Stats_QueryStats = nil }
             
@@ -48,11 +48,11 @@ public class SwiftEOS_Stats_QueryStatsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_QueryStats"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_QueryStats"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Stats_QueryStats"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Stats_QueryStats"])
     }
 }

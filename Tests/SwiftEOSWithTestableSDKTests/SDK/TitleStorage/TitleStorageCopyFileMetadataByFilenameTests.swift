@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
     public func testEOS_TitleStorage_CopyFileMetadataByFilename_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_CopyFileMetadataByFilename = { Handle, Options, OutMetadata in
@@ -14,7 +14,7 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Filename)
                 XCTAssertNotNil(OutMetadata)
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataByFilename")
+                GTest.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataByFilename")
                 return .zero
             }
             defer { __on_EOS_TitleStorage_CopyFileMetadataByFilename = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_CopyFileMetadataByFilename"])
     }
 }

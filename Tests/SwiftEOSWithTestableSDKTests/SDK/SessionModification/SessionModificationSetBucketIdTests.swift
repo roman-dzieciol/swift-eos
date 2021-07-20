@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionModification_SetBucketIdTests: XCTestCase {
     public func testEOS_SessionModification_SetBucketId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
                 XCTAssertNil(SessionModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+                GTest.current.sdkReceived.append("EOS_SessionModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_SessionModification_SetBucketIdTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETBUCKETID_API_LATEST)
                 XCTAssertNil(Options!.pointee.BucketId)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetBucketId")
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetBucketId")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetBucketId = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_SessionModification_SetBucketIdTests: XCTestCase {
             try object.SetBucketId(BucketId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetBucketId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetBucketId"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetBucketId", "EOS_SessionModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetBucketId", "EOS_SessionModification_Release"])
     }
 }

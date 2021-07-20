@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
     public func testEOS_P2P_AddNotifyIncomingPacketQueueFull_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForIncomingPacketQueueFullHandler = expectation(description: "waitForIncomingPacketQueueFullHandler")
             
             // Given implementation for SDK function
@@ -13,7 +13,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                IncomingPacketQueueFullHandler?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnIncomingPacketQueueFullInfo(
+                IncomingPacketQueueFullHandler?(GTest.current.pointer(object: _tagEOS_P2P_OnIncomingPacketQueueFullInfo(
                             ClientData: ClientData,
                             PacketQueueMaxSizeBytes: .zero,
                             PacketQueueCurrentSizeBytes: .zero,
@@ -21,7 +21,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
                             OverflowPacketChannel: .zero,
                             OverflowPacketSizeBytes: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_P2P_AddNotifyIncomingPacketQueueFull")
+                GTest.current.sdkReceived.append("EOS_P2P_AddNotifyIncomingPacketQueueFull")
                 return .zero
             }
             defer { __on_EOS_P2P_AddNotifyIncomingPacketQueueFull = nil }
@@ -41,20 +41,20 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AddNotifyIncomingPacketQueueFull"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyIncomingPacketQueueFull"])
                 wait(for: [waitForIncomingPacketQueueFullHandler], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_P2P_RemoveNotifyIncomingPacketQueueFull = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_P2P_RemoveNotifyIncomingPacketQueueFull")
+                    GTest.current.sdkReceived.append("EOS_P2P_RemoveNotifyIncomingPacketQueueFull")
                 }
             }
         }
         
         // Then
         __on_EOS_P2P_RemoveNotifyIncomingPacketQueueFull = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AddNotifyIncomingPacketQueueFull", "EOS_P2P_RemoveNotifyIncomingPacketQueueFull"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyIncomingPacketQueueFull", "EOS_P2P_RemoveNotifyIncomingPacketQueueFull"])
     }
 }

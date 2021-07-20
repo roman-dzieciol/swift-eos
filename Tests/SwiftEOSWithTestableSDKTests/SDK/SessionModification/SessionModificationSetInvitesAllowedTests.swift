@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionModification_SetInvitesAllowedTests: XCTestCase {
     public func testEOS_SessionModification_SetInvitesAllowed_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
                 XCTAssertNil(SessionModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_Release")
+                GTest.current.sdkReceived.append("EOS_SessionModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_SessionModification_SetInvitesAllowedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_SessionModification_SetInvitesAllowed")
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetInvitesAllowed")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetInvitesAllowed = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_SessionModification_SetInvitesAllowedTests: XCTestCase {
             try object.SetInvitesAllowed(bInvitesAllowed: false)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetInvitesAllowed"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetInvitesAllowed"])
         }
         
         // Then
         __on_EOS_SessionModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionModification_SetInvitesAllowed", "EOS_SessionModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionModification_SetInvitesAllowed", "EOS_SessionModification_Release"])
     }
 }

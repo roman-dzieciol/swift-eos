@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_GetItemImageInfoCountTests: XCTestCase {
     public func testEOS_Ecom_GetItemImageInfoCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_GetItemImageInfoCount = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_GetItemImageInfoCountTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETITEMIMAGEINFOCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_GetItemImageInfoCount")
+                GTest.current.sdkReceived.append("EOS_Ecom_GetItemImageInfoCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_GetItemImageInfoCount = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_Ecom_GetItemImageInfoCountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemImageInfoCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_GetItemImageInfoCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetItemImageInfoCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_GetItemImageInfoCount"])
     }
 }

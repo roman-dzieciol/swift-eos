@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyModification_SetMaxMembersTests: XCTestCase {
     public func testEOS_LobbyModification_SetMaxMembers_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyModification_Release = { LobbyModificationHandle in
                 XCTAssertNil(LobbyModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyModification_SetMaxMembersTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETMAXMEMBERS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxMembers, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetMaxMembers")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_SetMaxMembers")
                 return .zero
             }
             defer { __on_EOS_LobbyModification_SetMaxMembers = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_LobbyModification_SetMaxMembersTests: XCTestCase {
             try object.SetMaxMembers(MaxMembers: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers", "EOS_LobbyModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_SetMaxMembers", "EOS_LobbyModification_Release"])
     }
 }

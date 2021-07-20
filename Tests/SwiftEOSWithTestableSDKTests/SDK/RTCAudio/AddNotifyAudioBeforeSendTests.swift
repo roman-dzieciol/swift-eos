@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendTests: XCTestCase {
     public func testEOS_RTCAudio_AddNotifyAudioBeforeSend_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_AudioBeforeSendCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTCAudio_AudioBeforeSendCallbackInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             RoomName: nil,
                             Buffer: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_AddNotifyAudioBeforeSend")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_AddNotifyAudioBeforeSend")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_AddNotifyAudioBeforeSend = nil }
@@ -43,20 +43,20 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioBeforeSendTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_AddNotifyAudioBeforeSend"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_AddNotifyAudioBeforeSend"])
                 wait(for: [waitForCompletionDelegate], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTCAudio_RemoveNotifyAudioBeforeSend = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioBeforeSend")
+                    GTest.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioBeforeSend")
                 }
             }
         }
         
         // Then
         __on_EOS_RTCAudio_RemoveNotifyAudioBeforeSend = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_AddNotifyAudioBeforeSend", "EOS_RTCAudio_RemoveNotifyAudioBeforeSend"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_AddNotifyAudioBeforeSend", "EOS_RTCAudio_RemoveNotifyAudioBeforeSend"])
     }
 }

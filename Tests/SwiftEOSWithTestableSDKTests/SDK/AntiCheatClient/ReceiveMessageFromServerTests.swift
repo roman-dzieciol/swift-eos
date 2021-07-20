@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_ReceiveMessageFromServerTests: XCTestCase {
     public func testEOS_AntiCheatClient_ReceiveMessageFromServer_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_ReceiveMessageFromServer = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_AntiCheatClient_ReceiveMessageFromServerTests: XCTestCase 
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMSERVER_API_LATEST)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNil(Options!.pointee.Data)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_ReceiveMessageFromServer")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_ReceiveMessageFromServer")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_ReceiveMessageFromServer = nil }
@@ -25,10 +25,10 @@ public class SwiftEOS_AntiCheatClient_ReceiveMessageFromServerTests: XCTestCase 
             try object.ReceiveMessageFromServer(Data: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromServer"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromServer"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromServer"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_ReceiveMessageFromServer"])
     }
 }

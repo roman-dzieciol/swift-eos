@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_InitializeTests: XCTestCase {
     public func testEOS_Initialize_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Initialize = { Options in
@@ -18,7 +18,7 @@ public class SwiftEOS_InitializeTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.Reserved)
                 XCTAssertNil(Options!.pointee.SystemInitializeOptions)
                 XCTAssertNil(Options!.pointee.OverrideThreadAffinity)
-                TestGlobals.current.sdkReceived.append("EOS_Initialize")
+                GTest.current.sdkReceived.append("EOS_Initialize")
                 return .zero
             }
             defer { __on_EOS_Initialize = nil }
@@ -37,10 +37,10 @@ public class SwiftEOS_InitializeTests: XCTestCase {
                 ))
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Initialize"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Initialize"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Initialize"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Initialize"])
     }
 }

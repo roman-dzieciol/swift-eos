@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
     public func testEOS_KWS_GetPermissionByKey_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_KWS_GetPermissionByKey = { Handle, Options, OutPermission in
@@ -14,7 +14,7 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Key)
                 XCTAssertNotNil(OutPermission)
-                TestGlobals.current.sdkReceived.append("EOS_KWS_GetPermissionByKey")
+                GTest.current.sdkReceived.append("EOS_KWS_GetPermissionByKey")
                 return .zero
             }
             defer { __on_EOS_KWS_GetPermissionByKey = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_GetPermissionByKey"])
     }
 }

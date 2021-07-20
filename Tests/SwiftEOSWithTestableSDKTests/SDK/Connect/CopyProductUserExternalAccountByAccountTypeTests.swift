@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeTests: XCTestCase {
     public func testEOS_Connect_CopyProductUserExternalAccountByAccountType_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Connect_CopyProductUserExternalAccountByAccountType = { Handle, Options, OutExternalAccountInfo in
@@ -14,7 +14,7 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeTests: 
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNotNil(OutExternalAccountInfo)
-                TestGlobals.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByAccountType")
+                GTest.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByAccountType")
                 return .zero
             }
             defer { __on_EOS_Connect_CopyProductUserExternalAccountByAccountType = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountTypeTests: 
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByAccountType"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByAccountType"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByAccountType"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CopyProductUserExternalAccountByAccountType"])
     }
 }

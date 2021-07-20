@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_LinkAccountTests: XCTestCase {
     public func testEOS_Connect_LinkAccount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,12 +15,12 @@ public class SwiftEOS_Connect_LinkAccountTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ContinuanceToken)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_LinkAccountCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Connect_LinkAccountCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Connect_LinkAccount")
+                GTest.current.sdkReceived.append("EOS_Connect_LinkAccount")
             }
             defer { __on_EOS_Connect_LinkAccount = nil }
             
@@ -39,11 +39,11 @@ public class SwiftEOS_Connect_LinkAccountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_LinkAccount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_LinkAccount"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_LinkAccount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_LinkAccount"])
     }
 }

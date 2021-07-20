@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
     public func testEOS_RTCAudio_UpdateSending_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,14 +16,14 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertEqual(Options!.pointee.AudioStatus, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAudio_UpdateSendingCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTCAudio_UpdateSendingCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             RoomName: nil,
                             AudioStatus: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_UpdateSending")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_UpdateSending")
             }
             defer { __on_EOS_RTCAudio_UpdateSending = nil }
             
@@ -45,11 +45,11 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UpdateSending"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UpdateSending"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_UpdateSending"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UpdateSending"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
     public func testEOS_Connect_QueryProductUserIdMappings_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,12 +17,12 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ProductUserIds)
                 XCTAssertEqual(Options!.pointee.ProductUserIdCount, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_QueryProductUserIdMappingsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Connect_QueryProductUserIdMappingsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Connect_QueryProductUserIdMappings")
+                GTest.current.sdkReceived.append("EOS_Connect_QueryProductUserIdMappings")
             }
             defer { __on_EOS_Connect_QueryProductUserIdMappings = nil }
             
@@ -42,11 +42,11 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_QueryProductUserIdMappings"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryProductUserIdMappings"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_QueryProductUserIdMappings"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryProductUserIdMappings"])
     }
 }

@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_GetAudioOutputDevicesCountTests: XCTestCase {
     public func testEOS_RTCAudio_GetAudioOutputDevicesCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_GetAudioOutputDevicesCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_GETAUDIOOUTPUTDEVICESCOUNT_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_GetAudioOutputDevicesCount")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_GetAudioOutputDevicesCount")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_GetAudioOutputDevicesCount = nil }
@@ -23,11 +23,11 @@ public class SwiftEOS_RTCAudio_GetAudioOutputDevicesCountTests: XCTestCase {
             let result: Int = try object.GetAudioOutputDevicesCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_GetAudioOutputDevicesCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_GetAudioOutputDevicesCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_GetAudioOutputDevicesCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_GetAudioOutputDevicesCount"])
     }
 }

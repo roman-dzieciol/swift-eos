@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogPlayerUseWeaponTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerUseWeapon_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerUseWeapon = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERUSEWEAPON_API_LATEST)
                 XCTAssertNil(Options!.pointee.UseWeaponData)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerUseWeapon")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerUseWeapon")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerUseWeapon = nil }
@@ -24,10 +24,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseWeaponTests: XCTestCase {
             try object.LogPlayerUseWeapon(UseWeaponData: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseWeapon"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseWeapon"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseWeapon"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseWeapon"])
     }
 }

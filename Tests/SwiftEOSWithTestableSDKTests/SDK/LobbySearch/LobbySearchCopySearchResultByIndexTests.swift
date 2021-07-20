@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
     public func testEOS_LobbySearch_CopySearchResultByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
                 XCTAssertNil(LobbySearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_Release")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LobbyIndex, .zero)
                 XCTAssertNotNil(OutLobbyDetailsHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_CopySearchResultByIndex")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_CopySearchResultByIndex")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_CopySearchResultByIndex = nil }
@@ -31,12 +31,12 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
             let result: EOS_HLobbyDetails? = try object.CopySearchResultByIndex(LobbyIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex", "EOS_LobbySearch_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex", "EOS_LobbySearch_Release"])
     }
 }

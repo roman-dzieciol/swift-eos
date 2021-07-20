@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_UnprotectMessageTests: XCTestCase {
     public func testEOS_AntiCheatServer_UnprotectMessage_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_UnprotectMessage = { Handle, Options, OutBuffer, OutBufferLengthBytes in
@@ -17,7 +17,7 @@ public class SwiftEOS_AntiCheatServer_UnprotectMessageTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.OutBufferSizeBytes, .zero)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(OutBufferLengthBytes)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_UnprotectMessage")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_UnprotectMessage")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_UnprotectMessage = nil }
@@ -33,11 +33,11 @@ public class SwiftEOS_AntiCheatServer_UnprotectMessageTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnprotectMessage"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_UnprotectMessage"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnprotectMessage"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_UnprotectMessage"])
     }
 }

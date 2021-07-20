@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetP2PInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetP2PInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetP2PInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetP2PInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetP2PInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetP2PInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetP2PInterfaceTests: XCTestCase {
             let result: SwiftEOS_P2P_Actor? = object.GetP2PInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetP2PInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetP2PInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetP2PInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetP2PInterface", "EOS_Platform_Release"])
     }
 }

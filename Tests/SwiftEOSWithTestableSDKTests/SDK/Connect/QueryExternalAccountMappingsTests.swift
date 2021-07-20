@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_QueryExternalAccountMappingsTests: XCTestCase {
     public func testEOS_Connect_QueryExternalAccountMappings_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,12 +17,12 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ExternalAccountIds)
                 XCTAssertEqual(Options!.pointee.ExternalAccountIdCount, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_QueryExternalAccountMappingsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Connect_QueryExternalAccountMappingsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Connect_QueryExternalAccountMappings")
+                GTest.current.sdkReceived.append("EOS_Connect_QueryExternalAccountMappings")
             }
             defer { __on_EOS_Connect_QueryExternalAccountMappings = nil }
             
@@ -42,11 +42,11 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_QueryExternalAccountMappings"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryExternalAccountMappings"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_QueryExternalAccountMappings"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryExternalAccountMappings"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_EndSessionTests: XCTestCase {
     public func testEOS_Sessions_EndSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,11 +14,11 @@ public class SwiftEOS_Sessions_EndSessionTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ENDSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_EndSessionCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Sessions_EndSessionCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_EndSession")
+                GTest.current.sdkReceived.append("EOS_Sessions_EndSession")
             }
             defer { __on_EOS_Sessions_EndSession = nil }
             
@@ -35,11 +35,11 @@ public class SwiftEOS_Sessions_EndSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_EndSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_EndSession"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_EndSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_EndSession"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_GetOfferItemCountTests: XCTestCase {
     public func testEOS_Ecom_GetOfferItemCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_GetOfferItemCount = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_Ecom_GetOfferItemCountTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETOFFERITEMCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_GetOfferItemCount")
+                GTest.current.sdkReceived.append("EOS_Ecom_GetOfferItemCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_GetOfferItemCount = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_Ecom_GetOfferItemCountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetOfferItemCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_GetOfferItemCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_GetOfferItemCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_GetOfferItemCount"])
     }
 }

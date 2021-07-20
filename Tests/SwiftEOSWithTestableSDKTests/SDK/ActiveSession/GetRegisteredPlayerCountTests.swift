@@ -5,19 +5,19 @@ import EOSSDK
 public class SwiftEOS_ActiveSession_GetRegisteredPlayerCountTests: XCTestCase {
     public func testEOS_ActiveSession_GetRegisteredPlayerCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_ActiveSession_Release = { ActiveSessionHandle in
                 XCTAssertNil(ActiveSessionHandle)
-                TestGlobals.current.sdkReceived.append("EOS_ActiveSession_Release")
+                GTest.current.sdkReceived.append("EOS_ActiveSession_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_ActiveSession_GetRegisteredPlayerCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_GETREGISTEREDPLAYERCOUNT_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
+                GTest.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
                 return .zero
             }
             defer { __on_EOS_ActiveSession_GetRegisteredPlayerCount = nil }
@@ -29,12 +29,12 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerCountTests: XCTestCase {
             let result: Int = try object.GetRegisteredPlayerCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
         __on_EOS_ActiveSession_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount", "EOS_ActiveSession_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_ActiveSession_GetRegisteredPlayerCount", "EOS_ActiveSession_Release"])
     }
 }

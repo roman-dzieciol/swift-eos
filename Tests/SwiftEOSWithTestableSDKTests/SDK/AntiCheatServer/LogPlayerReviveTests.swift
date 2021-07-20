@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogPlayerReviveTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerRevive_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerRevive = { Handle, Options in
@@ -13,7 +13,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerReviveTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERREVIVE_API_LATEST)
                 XCTAssertNil(Options!.pointee.RevivedPlayerHandle)
                 XCTAssertNil(Options!.pointee.ReviverPlayerHandle)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerRevive")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerRevive")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerRevive = nil }
@@ -28,10 +28,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerReviveTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerRevive"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerRevive"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerRevive"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerRevive"])
     }
 }

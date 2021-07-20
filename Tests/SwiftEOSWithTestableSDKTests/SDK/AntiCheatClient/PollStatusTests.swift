@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
     public func testEOS_AntiCheatClient_PollStatus_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             var ViolationType: EOS_EAntiCheatClientViolationType? = nil
             var OutMessage: String? = nil
             
@@ -16,7 +16,7 @@ public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.OutMessageLength, .zero)
                 XCTAssertNotNil(ViolationType)
                 XCTAssertNotNil(OutMessage)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_PollStatus")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_PollStatus")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_PollStatus = nil }
@@ -34,10 +34,10 @@ public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
             // Then
             XCTAssertNil(ViolationType)
             XCTAssertNil(OutMessage)
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_PollStatus"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_PollStatus"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_PollStatus"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_PollStatus"])
     }
 }

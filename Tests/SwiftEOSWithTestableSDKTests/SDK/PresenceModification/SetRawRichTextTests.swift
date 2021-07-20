@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
     public func testEOS_PresenceModification_SetRawRichText_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
                 XCTAssertNil(PresenceModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_Release")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETRAWRICHTEXT_API_LATEST)
                 XCTAssertNil(Options!.pointee.RichText)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetRawRichText")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_SetRawRichText")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_SetRawRichText = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
             try object.SetRawRichText(RichText: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText", "EOS_PresenceModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetRawRichText", "EOS_PresenceModification_Release"])
     }
 }

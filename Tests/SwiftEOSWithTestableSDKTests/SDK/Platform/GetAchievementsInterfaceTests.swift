@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetAchievementsInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetAchievementsInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetAchievementsInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetAchievementsInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetAchievementsInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetAchievementsInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetAchievementsInterfaceTests: XCTestCase {
             let result: SwiftEOS_Achievements_Actor? = object.GetAchievementsInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetAchievementsInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetAchievementsInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetAchievementsInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetAchievementsInterface", "EOS_Platform_Release"])
     }
 }

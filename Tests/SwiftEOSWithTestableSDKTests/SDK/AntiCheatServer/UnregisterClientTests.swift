@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
     public func testEOS_AntiCheatServer_UnregisterClient_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_UnregisterClient = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_UNREGISTERCLIENT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_UnregisterClient = nil }
@@ -24,10 +24,10 @@ public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
             try object.UnregisterClient(ClientHandle: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_UnregisterClient"])
     }
 }

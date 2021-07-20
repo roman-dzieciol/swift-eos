@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Friends_AcceptInviteTests: XCTestCase {
     public func testEOS_Friends_AcceptInvite_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_Friends_AcceptInviteTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Friends_AcceptInviteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Friends_AcceptInviteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Friends_AcceptInvite")
+                GTest.current.sdkReceived.append("EOS_Friends_AcceptInvite")
             }
             defer { __on_EOS_Friends_AcceptInvite = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Friends_AcceptInviteTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_AcceptInvite"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AcceptInvite"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Friends_AcceptInvite"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AcceptInvite"])
     }
 }

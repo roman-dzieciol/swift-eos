@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
     public func testEOS_UserInfo_QueryUserInfoByExternalAccount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,7 +16,7 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ExternalAccountId)
                 XCTAssertEqual(Options!.pointee.AccountType, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
@@ -24,7 +24,7 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
                             AccountType: .zero,
                             TargetUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByExternalAccount")
+                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByExternalAccount")
             }
             defer { __on_EOS_UserInfo_QueryUserInfoByExternalAccount = nil }
             
@@ -47,11 +47,11 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByExternalAccount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByExternalAccount"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByExternalAccount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByExternalAccount"])
     }
 }

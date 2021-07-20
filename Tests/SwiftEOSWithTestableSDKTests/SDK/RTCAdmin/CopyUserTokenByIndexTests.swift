@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAdmin_CopyUserTokenByIndexTests: XCTestCase {
     public func testEOS_RTCAdmin_CopyUserTokenByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_CopyUserTokenByIndex = { Handle, Options, OutUserToken in
@@ -14,7 +14,7 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByIndexTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.UserTokenIndex, .zero)
                 XCTAssertEqual(Options!.pointee.QueryId, .zero)
                 XCTAssertNotNil(OutUserToken)
-                TestGlobals.current.sdkReceived.append("EOS_RTCAdmin_CopyUserTokenByIndex")
+                GTest.current.sdkReceived.append("EOS_RTCAdmin_CopyUserTokenByIndex")
                 return .zero
             }
             defer { __on_EOS_RTCAdmin_CopyUserTokenByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_CopyUserTokenByIndex"])
     }
 }

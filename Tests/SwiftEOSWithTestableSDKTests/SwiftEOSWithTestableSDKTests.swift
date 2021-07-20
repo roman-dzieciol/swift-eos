@@ -22,9 +22,9 @@ extension String {
     public static var empty: String { "" }
 }
 
-class TestGlobals {
+class GTest {
 
-    static let current = TestGlobals()
+    static let current = GTest()
 
     var sdkReceived: [String] = []
     var swiftReceived: [String] = []
@@ -77,7 +77,7 @@ final class SwiftEOSWithTestableSDKTests: XCTestCase {
 
         __on_EOS_EResult_ToString = { result in
             XCTAssertEqual(result, .EOS_Success)
-            return TestGlobals.current.pointer(string: "123")
+            return GTest.current.pointer(string: "123")
         }
 
         XCTAssertEqual(SwiftEOS_EResult_ToString(Result: .EOS_Success), "123")

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_KickMemberTests: XCTestCase {
     public func testEOS_Lobby_KickMember_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,12 +16,12 @@ public class SwiftEOS_Lobby_KickMemberTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Lobby_KickMemberCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Lobby_KickMemberCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LobbyId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_KickMember")
+                GTest.current.sdkReceived.append("EOS_Lobby_KickMember")
             }
             defer { __on_EOS_Lobby_KickMember = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Lobby_KickMemberTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_KickMember"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_KickMember"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_KickMember"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_KickMember"])
     }
 }

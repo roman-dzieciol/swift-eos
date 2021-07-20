@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
     public func testEOS_UserInfo_QueryUserInfoByDisplayName_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,14 +15,14 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.DisplayName)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_UserInfo_QueryUserInfoByDisplayNameCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TargetUserId: nil,
                             DisplayName: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByDisplayName")
+                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByDisplayName")
             }
             defer { __on_EOS_UserInfo_QueryUserInfoByDisplayName = nil }
             
@@ -43,11 +43,11 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByDisplayName"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByDisplayName"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByDisplayName"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByDisplayName"])
     }
 }

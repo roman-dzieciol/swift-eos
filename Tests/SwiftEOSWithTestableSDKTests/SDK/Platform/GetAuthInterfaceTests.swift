@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetAuthInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetAuthInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetAuthInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetAuthInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetAuthInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetAuthInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetAuthInterfaceTests: XCTestCase {
             let result: SwiftEOS_Auth_Actor? = object.GetAuthInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetAuthInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetAuthInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetAuthInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetAuthInterface", "EOS_Platform_Release"])
     }
 }

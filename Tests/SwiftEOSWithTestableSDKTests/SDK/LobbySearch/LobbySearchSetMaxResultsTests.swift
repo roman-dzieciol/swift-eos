@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbySearch_SetMaxResultsTests: XCTestCase {
     public func testEOS_LobbySearch_SetMaxResults_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
                 XCTAssertNil(LobbySearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_Release")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbySearch_SetMaxResultsTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxResults, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_SetMaxResults")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_SetMaxResults")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_SetMaxResults = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_LobbySearch_SetMaxResultsTests: XCTestCase {
             try object.SetMaxResults(MaxResults: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults"])
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults", "EOS_LobbySearch_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_SetMaxResults", "EOS_LobbySearch_Release"])
     }
 }

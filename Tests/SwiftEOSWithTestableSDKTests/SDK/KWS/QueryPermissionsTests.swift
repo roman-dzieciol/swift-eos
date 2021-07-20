@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_KWS_QueryPermissionsTests: XCTestCase {
     public func testEOS_KWS_QueryPermissions_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,7 +14,7 @@ public class SwiftEOS_KWS_QueryPermissionsTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_QUERYPERMISSIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_QueryPermissionsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_KWS_QueryPermissionsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
@@ -22,7 +22,7 @@ public class SwiftEOS_KWS_QueryPermissionsTests: XCTestCase {
                             DateOfBirth: nil,
                             bIsMinor: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_KWS_QueryPermissions")
+                GTest.current.sdkReceived.append("EOS_KWS_QueryPermissions")
             }
             defer { __on_EOS_KWS_QueryPermissions = nil }
             
@@ -43,11 +43,11 @@ public class SwiftEOS_KWS_QueryPermissionsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_QueryPermissions"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_QueryPermissions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_QueryPermissions"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_QueryPermissions"])
     }
 }

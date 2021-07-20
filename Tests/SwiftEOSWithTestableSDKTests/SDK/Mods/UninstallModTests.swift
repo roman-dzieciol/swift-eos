@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
     public func testEOS_Mods_UninstallMod_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Mod)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Mods_UninstallModCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Mods_UninstallModCallbackInfo(
                             ResultCode: .zero,
                             LocalUserId: nil,
                             ClientData: ClientData,
                             Mod: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Mods_UninstallMod")
+                GTest.current.sdkReceived.append("EOS_Mods_UninstallMod")
             }
             defer { __on_EOS_Mods_UninstallMod = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_UninstallMod"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_UninstallMod"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_UninstallMod"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_UninstallMod"])
     }
 }

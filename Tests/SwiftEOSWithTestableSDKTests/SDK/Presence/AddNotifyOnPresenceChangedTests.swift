@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
     public func testEOS_Presence_AddNotifyOnPresenceChanged_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationHandler = expectation(description: "waitForNotificationHandler")
             
             // Given implementation for SDK function
@@ -13,12 +13,12 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationHandler?(TestGlobals.current.pointer(object: _tagEOS_Presence_PresenceChangedCallbackInfo(
+                NotificationHandler?(GTest.current.pointer(object: _tagEOS_Presence_PresenceChangedCallbackInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             PresenceUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Presence_AddNotifyOnPresenceChanged")
+                GTest.current.sdkReceived.append("EOS_Presence_AddNotifyOnPresenceChanged")
                 return .zero
             }
             defer { __on_EOS_Presence_AddNotifyOnPresenceChanged = nil }
@@ -35,20 +35,20 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_AddNotifyOnPresenceChanged"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_AddNotifyOnPresenceChanged"])
                 wait(for: [waitForNotificationHandler], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Presence_RemoveNotifyOnPresenceChanged = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Presence_RemoveNotifyOnPresenceChanged")
+                    GTest.current.sdkReceived.append("EOS_Presence_RemoveNotifyOnPresenceChanged")
                 }
             }
         }
         
         // Then
         __on_EOS_Presence_RemoveNotifyOnPresenceChanged = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_AddNotifyOnPresenceChanged", "EOS_Presence_RemoveNotifyOnPresenceChanged"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_AddNotifyOnPresenceChanged", "EOS_Presence_RemoveNotifyOnPresenceChanged"])
     }
 }

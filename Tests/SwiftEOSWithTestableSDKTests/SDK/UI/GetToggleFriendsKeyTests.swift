@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_UI_GetToggleFriendsKeyTests: XCTestCase {
     public func testEOS_UI_GetToggleFriendsKey_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_UI_GetToggleFriendsKey = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_GETTOGGLEFRIENDSKEY_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_UI_GetToggleFriendsKey")
+                GTest.current.sdkReceived.append("EOS_UI_GetToggleFriendsKey")
                 return .zero
             }
             defer { __on_EOS_UI_GetToggleFriendsKey = nil }
@@ -23,11 +23,11 @@ public class SwiftEOS_UI_GetToggleFriendsKeyTests: XCTestCase {
             let result: EOS_UI_EKeyCombination = try object.GetToggleFriendsKey()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_GetToggleFriendsKey"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_GetToggleFriendsKey"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_GetToggleFriendsKey"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_GetToggleFriendsKey"])
     }
 }

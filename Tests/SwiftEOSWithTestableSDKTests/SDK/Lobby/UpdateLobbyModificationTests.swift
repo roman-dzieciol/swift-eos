@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
     public func testEOS_Lobby_UpdateLobbyModification_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Lobby_UpdateLobbyModification = { Handle, Options, OutLobbyModificationHandle in
@@ -14,7 +14,7 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNotNil(OutLobbyModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_UpdateLobbyModification")
+                GTest.current.sdkReceived.append("EOS_Lobby_UpdateLobbyModification")
                 return .zero
             }
             defer { __on_EOS_Lobby_UpdateLobbyModification = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Lobby_UpdateLobbyModificationTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_UpdateLobbyModification"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_UpdateLobbyModification"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_UpdateLobbyModification"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_UpdateLobbyModification"])
     }
 }

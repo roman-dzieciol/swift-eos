@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
     public func testEOS_Leaderboards_QueryLeaderboardUserScores_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -20,11 +20,11 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.EndTime, .zero)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Leaderboards_OnQueryLeaderboardUserScoresCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Leaderboards_OnQueryLeaderboardUserScoresCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_QueryLeaderboardUserScores")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_QueryLeaderboardUserScores")
             }
             defer { __on_EOS_Leaderboards_QueryLeaderboardUserScores = nil }
             
@@ -45,11 +45,11 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardUserScoresTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardUserScores"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardUserScores"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardUserScores"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardUserScores"])
     }
 }

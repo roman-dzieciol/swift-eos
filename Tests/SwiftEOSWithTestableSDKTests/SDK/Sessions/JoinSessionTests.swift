@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_JoinSessionTests: XCTestCase {
     public func testEOS_Sessions_JoinSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,11 +17,11 @@ public class SwiftEOS_Sessions_JoinSessionTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.bPresenceEnabled, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_JoinSessionCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Sessions_JoinSessionCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_JoinSession")
+                GTest.current.sdkReceived.append("EOS_Sessions_JoinSession")
             }
             defer { __on_EOS_Sessions_JoinSession = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Sessions_JoinSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_JoinSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_JoinSession"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_JoinSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_JoinSession"])
     }
 }

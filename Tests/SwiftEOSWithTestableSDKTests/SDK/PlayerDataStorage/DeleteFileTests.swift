@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
     public func testEOS_PlayerDataStorage_DeleteFile_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
             
             // Given implementation for SDK function
@@ -15,12 +15,12 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
                 XCTAssertNil(DeleteOptions!.pointee.LocalUserId)
                 XCTAssertNil(DeleteOptions!.pointee.Filename)
                 XCTAssertNotNil(ClientData)
-                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_DeleteFileCallbackInfo(
+                CompletionCallback?(GTest.current.pointer(object: _tagEOS_PlayerDataStorage_DeleteFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_DeleteFile")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_DeleteFile")
             }
             defer { __on_EOS_PlayerDataStorage_DeleteFile = nil }
             
@@ -39,11 +39,11 @@ public class SwiftEOS_PlayerDataStorage_DeleteFileTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteFile"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteFile"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteFile"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_DeleteFile"])
     }
 }

@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_CopyAttributeByKeyTests: XCTestCase {
     public func testEOS_LobbyDetails_CopyAttributeByKey_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByKeyTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYATTRIBUTEBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.AttrKey)
                 XCTAssertNotNil(OutAttribute)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByKey")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyAttributeByKey")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyAttributeByKey = nil }
@@ -31,12 +31,12 @@ public class SwiftEOS_LobbyDetails_CopyAttributeByKeyTests: XCTestCase {
             let result: SwiftEOS_Lobby_Attribute? = try object.CopyAttributeByKey(AttrKey: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByKey"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByKey"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByKey", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyAttributeByKey", "EOS_LobbyDetails_Release"])
     }
 }

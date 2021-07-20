@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
     public func testEOS_LobbyDetails_GetMemberByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MemberIndex, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_GetMemberByIndex")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberByIndex")
                 return nil
             }
             defer { __on_EOS_LobbyDetails_GetMemberByIndex = nil }
@@ -30,12 +30,12 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
             let result: EOS_ProductUserId? = try object.GetMemberByIndex(MemberIndex: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetMemberByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_GetMemberByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_GetMemberByIndex", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_GetMemberByIndex", "EOS_LobbyDetails_Release"])
     }
 }

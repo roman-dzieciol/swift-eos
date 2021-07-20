@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
     public func testEOS_Auth_VerifyUserAuth_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,11 +14,11 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_VERIFYUSERAUTH_API_LATEST)
                 XCTAssertNil(Options!.pointee.AuthToken)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Auth_VerifyUserAuthCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Auth_VerifyUserAuthCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Auth_VerifyUserAuth")
+                GTest.current.sdkReceived.append("EOS_Auth_VerifyUserAuth")
             }
             defer { __on_EOS_Auth_VerifyUserAuth = nil }
             
@@ -35,11 +35,11 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
     }
 }

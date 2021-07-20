@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_RTC_GetAudioInterfaceTests: XCTestCase {
     public func testEOS_RTC_GetAudioInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_RTC_GetAudioInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_RTC_GetAudioInterface")
+                GTest.current.sdkReceived.append("EOS_RTC_GetAudioInterface")
                 return nil
             }
             defer { __on_EOS_RTC_GetAudioInterface = nil }
@@ -22,11 +22,11 @@ public class SwiftEOS_RTC_GetAudioInterfaceTests: XCTestCase {
             let result: EOS_HRTCAudio? = object.GetAudioInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_GetAudioInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_GetAudioInterface"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_GetAudioInterface"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_GetAudioInterface"])
     }
 }

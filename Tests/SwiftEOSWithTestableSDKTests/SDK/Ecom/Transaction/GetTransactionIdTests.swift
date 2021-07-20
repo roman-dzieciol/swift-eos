@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_Ecom_Transaction_GetTransactionIdTests: XCTestCase {
     public func testEOS_Ecom_Transaction_GetTransactionId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Transaction_GetTransactionId = { Handle, OutBuffer, InOutBufferLength in
                 XCTAssertNil(Handle)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_Transaction_GetTransactionId")
+                GTest.current.sdkReceived.append("EOS_Ecom_Transaction_GetTransactionId")
                 return .zero
             }
             defer { __on_EOS_Ecom_Transaction_GetTransactionId = nil }
@@ -24,11 +24,11 @@ public class SwiftEOS_Ecom_Transaction_GetTransactionIdTests: XCTestCase {
             let result: String? = try object.Transaction_GetTransactionId()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_GetTransactionId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Transaction_GetTransactionId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_GetTransactionId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Transaction_GetTransactionId"])
     }
 }

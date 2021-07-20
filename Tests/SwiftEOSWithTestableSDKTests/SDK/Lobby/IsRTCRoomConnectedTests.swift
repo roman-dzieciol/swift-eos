@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
     public func testEOS_Lobby_IsRTCRoomConnected_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Lobby_IsRTCRoomConnected = { Handle, Options, bOutIsConnected in
@@ -14,7 +14,7 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(bOutIsConnected)
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_IsRTCRoomConnected")
+                GTest.current.sdkReceived.append("EOS_Lobby_IsRTCRoomConnected")
                 return .zero
             }
             defer { __on_EOS_Lobby_IsRTCRoomConnected = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_IsRTCRoomConnected"])
     }
 }

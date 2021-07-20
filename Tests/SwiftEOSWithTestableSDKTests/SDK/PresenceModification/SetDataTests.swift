@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_PresenceModification_SetDataTests: XCTestCase {
     public func testEOS_PresenceModification_SetData_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
                 XCTAssertNil(PresenceModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_Release")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_PresenceModification_SetDataTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETDATA_API_LATEST)
                 XCTAssertEqual(Options!.pointee.RecordsCount, .zero)
                 XCTAssertNil(Options!.pointee.Records)
-                TestGlobals.current.sdkReceived.append("EOS_PresenceModification_SetData")
+                GTest.current.sdkReceived.append("EOS_PresenceModification_SetData")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_SetData = nil }
@@ -31,11 +31,11 @@ public class SwiftEOS_PresenceModification_SetDataTests: XCTestCase {
             try object.SetData(Records: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetData"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetData"])
         }
         
         // Then
         __on_EOS_PresenceModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PresenceModification_SetData", "EOS_PresenceModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PresenceModification_SetData", "EOS_PresenceModification_Release"])
     }
 }

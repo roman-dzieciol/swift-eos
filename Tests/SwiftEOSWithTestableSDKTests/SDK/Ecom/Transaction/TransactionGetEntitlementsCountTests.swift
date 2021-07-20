@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
     public func testEOS_Ecom_Transaction_GetEntitlementsCount_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Transaction_GetEntitlementsCount = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_TRANSACTION_GETENTITLEMENTSCOUNT_API_LATEST)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_Transaction_GetEntitlementsCount")
+                GTest.current.sdkReceived.append("EOS_Ecom_Transaction_GetEntitlementsCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_Transaction_GetEntitlementsCount = nil }
@@ -23,11 +23,11 @@ public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
             let result: Int = try object.Transaction_GetEntitlementsCount()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_GetEntitlementsCount"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Transaction_GetEntitlementsCount"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_Transaction_GetEntitlementsCount"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Transaction_GetEntitlementsCount"])
     }
 }

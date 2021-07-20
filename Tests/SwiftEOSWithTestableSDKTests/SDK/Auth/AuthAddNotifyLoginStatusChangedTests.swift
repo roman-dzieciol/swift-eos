@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
     public func testEOS_Auth_AddNotifyLoginStatusChanged_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotification = expectation(description: "waitForNotification")
             
             // Given implementation for SDK function
@@ -13,13 +13,13 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                Notification?(TestGlobals.current.pointer(object: _tagEOS_Auth_LoginStatusChangedCallbackInfo(
+                Notification?(GTest.current.pointer(object: _tagEOS_Auth_LoginStatusChangedCallbackInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             PrevStatus: .zero,
                             CurrentStatus: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Auth_AddNotifyLoginStatusChanged")
+                GTest.current.sdkReceived.append("EOS_Auth_AddNotifyLoginStatusChanged")
                 return .zero
             }
             defer { __on_EOS_Auth_AddNotifyLoginStatusChanged = nil }
@@ -37,20 +37,20 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_AddNotifyLoginStatusChanged"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_AddNotifyLoginStatusChanged"])
                 wait(for: [waitForNotification], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Auth_RemoveNotifyLoginStatusChanged = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Auth_RemoveNotifyLoginStatusChanged")
+                    GTest.current.sdkReceived.append("EOS_Auth_RemoveNotifyLoginStatusChanged")
                 }
             }
         }
         
         // Then
         __on_EOS_Auth_RemoveNotifyLoginStatusChanged = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_AddNotifyLoginStatusChanged", "EOS_Auth_RemoveNotifyLoginStatusChanged"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_AddNotifyLoginStatusChanged", "EOS_Auth_RemoveNotifyLoginStatusChanged"])
     }
 }

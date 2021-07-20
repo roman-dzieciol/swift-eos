@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
     public func testEOS_Leaderboards_QueryLeaderboardRanks_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,11 +15,11 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LeaderboardId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Leaderboards_OnQueryLeaderboardRanksCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Leaderboards_OnQueryLeaderboardRanksCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_QueryLeaderboardRanks")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_QueryLeaderboardRanks")
             }
             defer { __on_EOS_Leaderboards_QueryLeaderboardRanks = nil }
             
@@ -37,11 +37,11 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardRanks"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardRanks"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardRanks"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardRanks"])
     }
 }

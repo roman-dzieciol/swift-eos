@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_PlayerDataStorageFileTransferRequest_CancelRequestTests: XCTestCase {
     public func testEOS_PlayerDataStorageFileTransferRequest_CancelRequest_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_PlayerDataStorageFileTransferRequest_Release = { PlayerDataStorageFileTransferHandle in
                 XCTAssertNil(PlayerDataStorageFileTransferHandle)
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_Release")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_CancelRequest")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_CancelRequest")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorageFileTransferRequest_CancelRequest = nil }
@@ -28,11 +28,11 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_CancelRequestTests: X
             try object.CancelRequest()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest"])
         }
         
         // Then
         __on_EOS_PlayerDataStorageFileTransferRequest_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest", "EOS_PlayerDataStorageFileTransferRequest_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorageFileTransferRequest_CancelRequest", "EOS_PlayerDataStorageFileTransferRequest_Release"])
     }
 }

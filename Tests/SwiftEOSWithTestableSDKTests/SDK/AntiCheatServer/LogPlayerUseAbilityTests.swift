@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerUseAbility_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerUseAbility = { Handle, Options in
@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.AbilityId, .zero)
                 XCTAssertEqual(Options!.pointee.AbilityDurationMs, .zero)
                 XCTAssertEqual(Options!.pointee.AbilityCooldownMs, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerUseAbility")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerUseAbility")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerUseAbility = nil }
@@ -32,10 +32,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerUseAbilityTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseAbility"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseAbility"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseAbility"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerUseAbility"])
     }
 }

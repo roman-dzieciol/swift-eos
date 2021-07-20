@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_QueryEntitlementsTests: XCTestCase {
     public func testEOS_Ecom_QueryEntitlements_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -17,12 +17,12 @@ public class SwiftEOS_Ecom_QueryEntitlementsTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.EntitlementNameCount, .zero)
                 XCTAssertEqual(Options!.pointee.bIncludeRedeemed, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Ecom_QueryEntitlementsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Ecom_QueryEntitlementsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_QueryEntitlements")
+                GTest.current.sdkReceived.append("EOS_Ecom_QueryEntitlements")
             }
             defer { __on_EOS_Ecom_QueryEntitlements = nil }
             
@@ -42,11 +42,11 @@ public class SwiftEOS_Ecom_QueryEntitlementsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryEntitlements"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryEntitlements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_QueryEntitlements"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryEntitlements"])
     }
 }

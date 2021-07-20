@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CopyItemReleaseByIndexTests: XCTestCase {
     public func testEOS_Ecom_CopyItemReleaseByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyItemReleaseByIndex = { Handle, Options, OutRelease in
@@ -15,7 +15,7 @@ public class SwiftEOS_Ecom_CopyItemReleaseByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ItemId)
                 XCTAssertEqual(Options!.pointee.ReleaseIndex, .zero)
                 XCTAssertNotNil(OutRelease)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyItemReleaseByIndex")
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyItemReleaseByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyItemReleaseByIndex = nil }
@@ -31,11 +31,11 @@ public class SwiftEOS_Ecom_CopyItemReleaseByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyItemReleaseByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyItemReleaseByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyItemReleaseByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyItemReleaseByIndex"])
     }
 }

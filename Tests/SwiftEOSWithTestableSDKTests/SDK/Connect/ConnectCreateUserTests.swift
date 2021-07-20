@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
     public func testEOS_Connect_CreateUser_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,12 +14,12 @@ public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_CREATEUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.ContinuanceToken)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Connect_CreateUserCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Connect_CreateUserCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Connect_CreateUser")
+                GTest.current.sdkReceived.append("EOS_Connect_CreateUser")
             }
             defer { __on_EOS_Connect_CreateUser = nil }
             
@@ -37,11 +37,11 @@ public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CreateUser"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CreateUser"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_CreateUser"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CreateUser"])
     }
 }

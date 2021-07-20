@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdTests: XCTestCase {
     public func testEOS_UserInfo_CopyExternalUserInfoByAccountId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyExternalUserInfoByAccountId = { Handle, Options, OutExternalUserInfo in
@@ -15,7 +15,7 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdTests: XCTestCase 
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.AccountId)
                 XCTAssertNotNil(OutExternalUserInfo)
-                TestGlobals.current.sdkReceived.append("EOS_UserInfo_CopyExternalUserInfoByAccountId")
+                GTest.current.sdkReceived.append("EOS_UserInfo_CopyExternalUserInfoByAccountId")
                 return .zero
             }
             defer { __on_EOS_UserInfo_CopyExternalUserInfoByAccountId = nil }
@@ -31,11 +31,11 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdTests: XCTestCase 
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByAccountId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByAccountId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByAccountId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_CopyExternalUserInfoByAccountId"])
     }
 }

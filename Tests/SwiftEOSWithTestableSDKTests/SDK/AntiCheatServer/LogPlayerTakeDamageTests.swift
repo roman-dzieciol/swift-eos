@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogPlayerTakeDamageTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerTakeDamage_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTakeDamage = { Handle, Options in
@@ -28,7 +28,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTakeDamageTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.DamageResult, .zero)
                 XCTAssertNil(Options!.pointee.PlayerUseWeaponData)
                 XCTAssertEqual(Options!.pointee.TimeSincePlayerUseWeaponMs, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTakeDamage")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTakeDamage")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerTakeDamage = nil }
@@ -58,10 +58,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTakeDamageTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTakeDamage"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTakeDamage"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTakeDamage"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogPlayerTakeDamage"])
     }
 }

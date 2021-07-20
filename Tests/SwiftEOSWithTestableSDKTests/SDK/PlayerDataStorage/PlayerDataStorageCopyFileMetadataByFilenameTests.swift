@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestCase {
     public func testEOS_PlayerDataStorage_CopyFileMetadataByFilename_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_CopyFileMetadataByFilename = { Handle, CopyFileMetadataOptions, OutMetadata in
@@ -14,7 +14,7 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.LocalUserId)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.Filename)
                 XCTAssertNotNil(OutMetadata)
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataByFilename")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataByFilename")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorage_CopyFileMetadataByFilename = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataByFilename"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataByFilename"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataByFilename"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_CopyFileMetadataByFilename"])
     }
 }

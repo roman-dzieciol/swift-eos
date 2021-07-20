@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_QueryInvitesTests: XCTestCase {
     public func testEOS_Sessions_QueryInvites_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,12 +14,12 @@ public class SwiftEOS_Sessions_QueryInvitesTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_QUERYINVITES_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_QueryInvitesCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Sessions_QueryInvitesCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_QueryInvites")
+                GTest.current.sdkReceived.append("EOS_Sessions_QueryInvites")
             }
             defer { __on_EOS_Sessions_QueryInvites = nil }
             
@@ -37,11 +37,11 @@ public class SwiftEOS_Sessions_QueryInvitesTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_QueryInvites"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_QueryInvites"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_QueryInvites"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_QueryInvites"])
     }
 }

@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetMetricsInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetMetricsInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetMetricsInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetMetricsInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetMetricsInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetMetricsInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetMetricsInterfaceTests: XCTestCase {
             let result: SwiftEOS_Metrics_Actor? = object.GetMetricsInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetMetricsInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetMetricsInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetMetricsInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetMetricsInterface", "EOS_Platform_Release"])
     }
 }

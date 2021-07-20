@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
     public func testEOS_P2P_ReceivePacket_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             var OutPeerId: EOS_ProductUserId? = nil
             var OutSocketId: SwiftEOS_P2P_SocketId? = nil
             var OutChannel: UInt8? = nil
@@ -23,7 +23,7 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
                 XCTAssertNotNil(OutChannel)
                 XCTAssertNotNil(OutData)
                 XCTAssertNotNil(OutBytesWritten)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_ReceivePacket")
+                GTest.current.sdkReceived.append("EOS_P2P_ReceivePacket")
                 return .zero
             }
             defer { __on_EOS_P2P_ReceivePacket = nil }
@@ -47,10 +47,10 @@ public class SwiftEOS_P2P_ReceivePacketTests: XCTestCase {
             XCTAssertNil(OutSocketId)
             XCTAssertNil(OutChannel)
             XCTAssertNil(OutData)
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_ReceivePacket"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_ReceivePacket"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_ReceivePacket"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_ReceivePacket"])
     }
 }

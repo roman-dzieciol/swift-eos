@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
     public func testEOS_Sanctions_QueryActivePlayerSanctions_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Sanctions_QueryActivePlayerSanctionsCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             TargetUserId: nil,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions")
+                GTest.current.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions")
             }
             defer { __on_EOS_Sanctions_QueryActivePlayerSanctions = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
     }
 }

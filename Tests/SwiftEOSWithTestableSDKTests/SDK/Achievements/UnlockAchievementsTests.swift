@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
     public func testEOS_Achievements_UnlockAchievements_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,13 +16,13 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.AchievementIds)
                 XCTAssertEqual(Options!.pointee.AchievementsCount, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Achievements_OnUnlockAchievementsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             UserId: nil,
                             AchievementsCount: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_UnlockAchievements")
+                GTest.current.sdkReceived.append("EOS_Achievements_UnlockAchievements")
             }
             defer { __on_EOS_Achievements_UnlockAchievements = nil }
             
@@ -42,11 +42,11 @@ public class SwiftEOS_Achievements_UnlockAchievementsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_UnlockAchievements"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_UnlockAchievements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_UnlockAchievements"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_UnlockAchievements"])
     }
 }

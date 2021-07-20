@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
     public func testEOS_RTCAudio_SetAudioOutputSettings_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_SetAudioOutputSettings = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.DeviceId)
                 XCTAssertEqual(Options!.pointee.Volume, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_RTCAudio_SetAudioOutputSettings")
+                GTest.current.sdkReceived.append("EOS_RTCAudio_SetAudioOutputSettings")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_SetAudioOutputSettings = nil }
@@ -30,10 +30,10 @@ public class SwiftEOS_RTCAudio_SetAudioOutputSettingsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SetAudioOutputSettings"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_SetAudioOutputSettings"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAudio_SetAudioOutputSettings"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_SetAudioOutputSettings"])
     }
 }

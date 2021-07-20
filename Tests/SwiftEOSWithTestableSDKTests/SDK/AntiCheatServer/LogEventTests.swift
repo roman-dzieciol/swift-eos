@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogEvent_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogEvent = { Handle, Options in
@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.EventId, .zero)
                 XCTAssertEqual(Options!.pointee.ParamsCount, .zero)
                 XCTAssertNil(Options!.pointee.Params)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogEvent")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogEvent")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogEvent = nil }
@@ -31,10 +31,10 @@ public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogEvent"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogEvent"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogEvent"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogEvent"])
     }
 }

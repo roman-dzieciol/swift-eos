@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
     public func testEOS_Lobby_AddNotifyRTCRoomConnectionChanged_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -15,14 +15,14 @@ public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_RTCRoomConnectionChangedCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_Lobby_RTCRoomConnectionChangedCallbackInfo(
                             ClientData: ClientData,
                             LobbyId: nil,
                             LocalUserId: nil,
                             bIsConnected: .zero,
                             DisconnectReason: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyRTCRoomConnectionChanged")
+                GTest.current.sdkReceived.append("EOS_Lobby_AddNotifyRTCRoomConnectionChanged")
                 return .zero
             }
             defer { __on_EOS_Lobby_AddNotifyRTCRoomConnectionChanged = nil }
@@ -45,20 +45,20 @@ public class SwiftEOS_Lobby_AddNotifyRTCRoomConnectionChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyRTCRoomConnectionChanged"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyRTCRoomConnectionChanged"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged")
+                    GTest.current.sdkReceived.append("EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged")
                 }
             }
         }
         
         // Then
         __on_EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyRTCRoomConnectionChanged", "EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyRTCRoomConnectionChanged", "EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged"])
     }
 }

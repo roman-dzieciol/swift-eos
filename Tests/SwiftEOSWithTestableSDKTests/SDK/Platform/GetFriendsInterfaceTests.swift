@@ -5,18 +5,18 @@ import EOSSDK
 public class SwiftEOS_Platform_GetFriendsInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetFriendsInterface_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Release")
+                GTest.current.sdkReceived.append("EOS_Platform_Release")
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetFriendsInterface = { Handle in
                 XCTAssertNil(Handle)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_GetFriendsInterface")
+                GTest.current.sdkReceived.append("EOS_Platform_GetFriendsInterface")
                 return nil
             }
             defer { __on_EOS_Platform_GetFriendsInterface = nil }
@@ -28,12 +28,12 @@ public class SwiftEOS_Platform_GetFriendsInterfaceTests: XCTestCase {
             let result: SwiftEOS_Friends_Actor? = object.GetFriendsInterface()
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetFriendsInterface"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetFriendsInterface"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_Platform_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_GetFriendsInterface", "EOS_Platform_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetFriendsInterface", "EOS_Platform_Release"])
     }
 }

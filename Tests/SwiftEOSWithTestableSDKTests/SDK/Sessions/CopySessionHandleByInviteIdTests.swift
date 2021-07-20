@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_CopySessionHandleByInviteIdTests: XCTestCase {
     public func testEOS_Sessions_CopySessionHandleByInviteId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Sessions_CopySessionHandleByInviteId = { Handle, Options, OutSessionHandle in
@@ -13,7 +13,7 @@ public class SwiftEOS_Sessions_CopySessionHandleByInviteIdTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_COPYSESSIONHANDLEBYINVITEID_API_LATEST)
                 XCTAssertNil(Options!.pointee.InviteId)
                 XCTAssertNotNil(OutSessionHandle)
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_CopySessionHandleByInviteId")
+                GTest.current.sdkReceived.append("EOS_Sessions_CopySessionHandleByInviteId")
                 return .zero
             }
             defer { __on_EOS_Sessions_CopySessionHandleByInviteId = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Sessions_CopySessionHandleByInviteIdTests: XCTestCase {
             let result: EOS_HSessionDetails? = try object.CopySessionHandleByInviteId(InviteId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CopySessionHandleByInviteId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CopySessionHandleByInviteId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_CopySessionHandleByInviteId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CopySessionHandleByInviteId"])
     }
 }

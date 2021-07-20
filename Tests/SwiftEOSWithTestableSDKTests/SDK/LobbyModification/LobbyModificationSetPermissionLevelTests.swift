@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyModification_SetPermissionLevelTests: XCTestCase {
     public func testEOS_LobbyModification_SetPermissionLevel_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyModification_Release = { LobbyModificationHandle in
                 XCTAssertNil(LobbyModificationHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_LobbyModification_SetPermissionLevelTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_SETPERMISSIONLEVEL_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PermissionLevel, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyModification_SetPermissionLevel")
+                GTest.current.sdkReceived.append("EOS_LobbyModification_SetPermissionLevel")
                 return .zero
             }
             defer { __on_EOS_LobbyModification_SetPermissionLevel = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_LobbyModification_SetPermissionLevelTests: XCTestCase {
             try object.SetPermissionLevel(PermissionLevel: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetPermissionLevel"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_SetPermissionLevel"])
         }
         
         // Then
         __on_EOS_LobbyModification_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyModification_SetPermissionLevel", "EOS_LobbyModification_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyModification_SetPermissionLevel", "EOS_LobbyModification_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
     public func testEOS_Mods_EnumerateMods_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Type, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Mods_EnumerateModsCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Mods_EnumerateModsCallbackInfo(
                             ResultCode: .zero,
                             LocalUserId: nil,
                             ClientData: ClientData,
                             `Type`: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Mods_EnumerateMods")
+                GTest.current.sdkReceived.append("EOS_Mods_EnumerateMods")
             }
             defer { __on_EOS_Mods_EnumerateMods = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_EnumerateMods"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_EnumerateMods"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_EnumerateMods"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_EnumerateMods"])
     }
 }

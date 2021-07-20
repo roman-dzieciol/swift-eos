@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
     public func testEOS_UI_AddNotifyDisplaySettingsUpdated_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,12 +13,12 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_UI_OnDisplaySettingsUpdatedCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_UI_OnDisplaySettingsUpdatedCallbackInfo(
                             ClientData: ClientData,
                             bIsVisible: .zero,
                             bIsExclusiveInput: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_UI_AddNotifyDisplaySettingsUpdated")
+                GTest.current.sdkReceived.append("EOS_UI_AddNotifyDisplaySettingsUpdated")
                 return .zero
             }
             defer { __on_EOS_UI_AddNotifyDisplaySettingsUpdated = nil }
@@ -35,20 +35,20 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_AddNotifyDisplaySettingsUpdated"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_AddNotifyDisplaySettingsUpdated"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_UI_RemoveNotifyDisplaySettingsUpdated = { Handle, Id in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(Id, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_UI_RemoveNotifyDisplaySettingsUpdated")
+                    GTest.current.sdkReceived.append("EOS_UI_RemoveNotifyDisplaySettingsUpdated")
                 }
             }
         }
         
         // Then
         __on_EOS_UI_RemoveNotifyDisplaySettingsUpdated = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_AddNotifyDisplaySettingsUpdated", "EOS_UI_RemoveNotifyDisplaySettingsUpdated"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_AddNotifyDisplaySettingsUpdated", "EOS_UI_RemoveNotifyDisplaySettingsUpdated"])
     }
 }

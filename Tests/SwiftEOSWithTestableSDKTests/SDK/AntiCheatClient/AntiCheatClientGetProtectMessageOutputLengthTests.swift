@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTestCase {
     public func testEOS_AntiCheatClient_GetProtectMessageOutputLength_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_GetProtectMessageOutputLength = { Handle, Options, OutBufferLengthBytes in
@@ -13,7 +13,7 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_GETPROTECTMESSAGEOUTPUTLENGTH_API_LATEST)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNotNil(OutBufferLengthBytes)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatClient_GetProtectMessageOutputLength")
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_GetProtectMessageOutputLength")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_GetProtectMessageOutputLength = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthTests: XCTest
             let result: Int? = try object.GetProtectMessageOutputLength(DataLengthBytes: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_GetProtectMessageOutputLength"])
     }
 }

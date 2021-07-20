@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
     public func testEOS_Presence_QueryPresence_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,13 +15,13 @@ public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Presence_QueryPresenceCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Presence_QueryPresenceCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Presence_QueryPresence")
+                GTest.current.sdkReceived.append("EOS_Presence_QueryPresence")
             }
             defer { __on_EOS_Presence_QueryPresence = nil }
             
@@ -41,11 +41,11 @@ public class SwiftEOS_Presence_QueryPresenceTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_QueryPresence"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_QueryPresence"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_QueryPresence"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_QueryPresence"])
     }
 }

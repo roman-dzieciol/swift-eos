@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_CloseConnectionTests: XCTestCase {
     public func testEOS_P2P_CloseConnection_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_P2P_CloseConnection = { Handle, Options in
@@ -14,7 +14,7 @@ public class SwiftEOS_P2P_CloseConnectionTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RemoteUserId)
                 XCTAssertNil(Options!.pointee.SocketId)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_CloseConnection")
+                GTest.current.sdkReceived.append("EOS_P2P_CloseConnection")
                 return .zero
             }
             defer { __on_EOS_P2P_CloseConnection = nil }
@@ -30,10 +30,10 @@ public class SwiftEOS_P2P_CloseConnectionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_CloseConnection"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_CloseConnection"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_CloseConnection"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_CloseConnection"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CopyItemImageInfoByIndexTests: XCTestCase {
     public func testEOS_Ecom_CopyItemImageInfoByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyItemImageInfoByIndex = { Handle, Options, OutImageInfo in
@@ -15,7 +15,7 @@ public class SwiftEOS_Ecom_CopyItemImageInfoByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ItemId)
                 XCTAssertEqual(Options!.pointee.ImageInfoIndex, .zero)
                 XCTAssertNotNil(OutImageInfo)
-                TestGlobals.current.sdkReceived.append("EOS_Ecom_CopyItemImageInfoByIndex")
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyItemImageInfoByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyItemImageInfoByIndex = nil }
@@ -31,11 +31,11 @@ public class SwiftEOS_Ecom_CopyItemImageInfoByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyItemImageInfoByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyItemImageInfoByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Ecom_CopyItemImageInfoByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_CopyItemImageInfoByIndex"])
     }
 }

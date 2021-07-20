@@ -5,14 +5,14 @@ import EOSSDK
 public class SwiftEOS_UI_GetFriendsVisibleTests: XCTestCase {
     public func testEOS_UI_GetFriendsVisible_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_UI_GetFriendsVisible = { Handle, Options in
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_GETFRIENDSVISIBLE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                TestGlobals.current.sdkReceived.append("EOS_UI_GetFriendsVisible")
+                GTest.current.sdkReceived.append("EOS_UI_GetFriendsVisible")
                 return .zero
             }
             defer { __on_EOS_UI_GetFriendsVisible = nil }
@@ -24,11 +24,11 @@ public class SwiftEOS_UI_GetFriendsVisibleTests: XCTestCase {
             let result: Bool = try object.GetFriendsVisible(LocalUserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_GetFriendsVisible"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_GetFriendsVisible"])
             XCTAssertEqual(result, false)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_UI_GetFriendsVisible"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_GetFriendsVisible"])
     }
 }

@@ -5,13 +5,13 @@ import EOSSDK
 public class SwiftEOS_Connect_GetLoginStatusTests: XCTestCase {
     public func testEOS_Connect_GetLoginStatus_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetLoginStatus = { Handle, LocalUserId in
                 XCTAssertNil(Handle)
                 XCTAssertNil(LocalUserId)
-                TestGlobals.current.sdkReceived.append("EOS_Connect_GetLoginStatus")
+                GTest.current.sdkReceived.append("EOS_Connect_GetLoginStatus")
                 return .zero
             }
             defer { __on_EOS_Connect_GetLoginStatus = nil }
@@ -23,11 +23,11 @@ public class SwiftEOS_Connect_GetLoginStatusTests: XCTestCase {
             let result: EOS_ELoginStatus = object.GetLoginStatus(LocalUserId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
             XCTAssertEqual(result, .zero)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_GetLoginStatus"])
     }
 }

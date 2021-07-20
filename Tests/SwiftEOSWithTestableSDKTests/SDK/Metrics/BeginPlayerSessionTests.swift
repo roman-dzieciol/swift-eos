@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
     public func testEOS_Metrics_BeginPlayerSession_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Metrics_BeginPlayerSession = { Handle, Options in
@@ -18,7 +18,7 @@ public class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ControllerType, .zero)
                 XCTAssertNil(Options!.pointee.ServerIp)
                 XCTAssertNil(Options!.pointee.GameSessionId)
-                TestGlobals.current.sdkReceived.append("EOS_Metrics_BeginPlayerSession")
+                GTest.current.sdkReceived.append("EOS_Metrics_BeginPlayerSession")
                 return .zero
             }
             defer { __on_EOS_Metrics_BeginPlayerSession = nil }
@@ -37,10 +37,10 @@ public class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_BeginPlayerSession"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Metrics_BeginPlayerSession"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Metrics_BeginPlayerSession"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Metrics_BeginPlayerSession"])
     }
 }

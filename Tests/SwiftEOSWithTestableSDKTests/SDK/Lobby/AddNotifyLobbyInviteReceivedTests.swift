@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedTests: XCTestCase {
     public func testEOS_Lobby_AddNotifyLobbyInviteReceived_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,13 +13,13 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ADDNOTIFYLOBBYINVITERECEIVED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Lobby_LobbyInviteReceivedCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_Lobby_LobbyInviteReceivedCallbackInfo(
                             ClientData: ClientData,
                             InviteId: nil,
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteReceived")
+                GTest.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteReceived")
                 return .zero
             }
             defer { __on_EOS_Lobby_AddNotifyLobbyInviteReceived = nil }
@@ -37,20 +37,20 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Lobby_RemoveNotifyLobbyInviteReceived = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyInviteReceived")
+                    GTest.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyInviteReceived")
                 }
             }
         }
         
         // Then
         __on_EOS_Lobby_RemoveNotifyLobbyInviteReceived = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived", "EOS_Lobby_RemoveNotifyLobbyInviteReceived"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteReceived", "EOS_Lobby_RemoveNotifyLobbyInviteReceived"])
     }
 }

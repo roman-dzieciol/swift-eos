@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_AddNotifyPeerConnectionClosedTests: XCTestCase {
     public func testEOS_P2P_AddNotifyPeerConnectionClosed_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForConnectionClosedHandler = expectation(description: "waitForConnectionClosedHandler")
             
             // Given implementation for SDK function
@@ -15,14 +15,14 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionClosedTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.SocketId)
                 XCTAssertNotNil(ClientData)
-                ConnectionClosedHandler?(TestGlobals.current.pointer(object: _tagEOS_P2P_OnRemoteConnectionClosedInfo(
+                ConnectionClosedHandler?(GTest.current.pointer(object: _tagEOS_P2P_OnRemoteConnectionClosedInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             RemoteUserId: nil,
                             SocketId: nil,
                             Reason: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_P2P_AddNotifyPeerConnectionClosed")
+                GTest.current.sdkReceived.append("EOS_P2P_AddNotifyPeerConnectionClosed")
                 return .zero
             }
             defer { __on_EOS_P2P_AddNotifyPeerConnectionClosed = nil }
@@ -45,20 +45,20 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionClosedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AddNotifyPeerConnectionClosed"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyPeerConnectionClosed"])
                 wait(for: [waitForConnectionClosedHandler], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_P2P_RemoveNotifyPeerConnectionClosed = { Handle, NotificationId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_P2P_RemoveNotifyPeerConnectionClosed")
+                    GTest.current.sdkReceived.append("EOS_P2P_RemoveNotifyPeerConnectionClosed")
                 }
             }
         }
         
         // Then
         __on_EOS_P2P_RemoveNotifyPeerConnectionClosed = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_AddNotifyPeerConnectionClosed", "EOS_P2P_RemoveNotifyPeerConnectionClosed"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyPeerConnectionClosed", "EOS_P2P_RemoveNotifyPeerConnectionClosed"])
     }
 }

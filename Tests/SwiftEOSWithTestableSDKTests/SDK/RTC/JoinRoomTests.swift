@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
     public func testEOS_RTC_JoinRoom_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -21,13 +21,13 @@ public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.bManualAudioInputEnabled, .zero)
                 XCTAssertEqual(Options!.pointee.bManualAudioOutputEnabled, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTC_JoinRoomCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTC_JoinRoomCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             RoomName: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTC_JoinRoom")
+                GTest.current.sdkReceived.append("EOS_RTC_JoinRoom")
             }
             defer { __on_EOS_RTC_JoinRoom = nil }
             
@@ -53,11 +53,11 @@ public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_JoinRoom"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_JoinRoom"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTC_JoinRoom"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_JoinRoom"])
     }
 }

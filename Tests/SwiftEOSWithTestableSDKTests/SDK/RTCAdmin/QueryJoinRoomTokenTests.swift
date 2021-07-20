@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
     public func testEOS_RTCAdmin_QueryJoinRoomToken_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.TargetUserIdsCount, .zero)
                 XCTAssertNil(Options!.pointee.TargetUserIpAddresses)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             RoomName: nil,
@@ -26,7 +26,7 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
                             QueryId: .zero,
                             TokenCount: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_RTCAdmin_QueryJoinRoomToken")
+                GTest.current.sdkReceived.append("EOS_RTCAdmin_QueryJoinRoomToken")
             }
             defer { __on_EOS_RTCAdmin_QueryJoinRoomToken = nil }
             
@@ -50,11 +50,11 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_QueryJoinRoomToken"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_QueryJoinRoomToken"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_RTCAdmin_QueryJoinRoomToken"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_QueryJoinRoomToken"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Auth_LogoutTests: XCTestCase {
     public func testEOS_Auth_Logout_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -14,12 +14,12 @@ public class SwiftEOS_Auth_LogoutTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_LOGOUT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Auth_LogoutCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Auth_LogoutCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Auth_Logout")
+                GTest.current.sdkReceived.append("EOS_Auth_Logout")
             }
             defer { __on_EOS_Auth_Logout = nil }
             
@@ -37,11 +37,11 @@ public class SwiftEOS_Auth_LogoutTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_Logout"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_Logout"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Auth_Logout"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_Logout"])
     }
 }

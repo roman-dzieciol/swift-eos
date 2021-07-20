@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
     public func testEOS_PlayerDataStorage_WriteFile_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForWriteFileDataCallback = expectation(description: "waitForWriteFileDataCallback")
             let waitForFileTransferProgressCallback = expectation(description: "waitForFileTransferProgressCallback")
             let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
@@ -20,13 +20,13 @@ public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
                 XCTAssertNil(WriteOptions!.pointee.WriteFileDataCallback)
                 XCTAssertNil(WriteOptions!.pointee.FileTransferProgressCallback)
                 XCTAssertNotNil(ClientData)
-                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_PlayerDataStorage_WriteFileCallbackInfo(
+                CompletionCallback?(GTest.current.pointer(object: _tagEOS_PlayerDataStorage_WriteFileCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             Filename: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_PlayerDataStorage_WriteFile")
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_WriteFile")
                 return nil
             }
             defer { __on_EOS_PlayerDataStorage_WriteFile = nil }
@@ -50,7 +50,7 @@ public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_WriteFile"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_WriteFile"])
             wait(for: [waitForWriteFileDataCallback], timeout: 0.5)
             wait(for: [waitForFileTransferProgressCallback], timeout: 0.5)
             wait(for: [waitForCompletionCallback], timeout: 0.5)
@@ -58,6 +58,6 @@ public class SwiftEOS_PlayerDataStorage_WriteFileTests: XCTestCase {
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_PlayerDataStorage_WriteFile"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_WriteFile"])
     }
 }

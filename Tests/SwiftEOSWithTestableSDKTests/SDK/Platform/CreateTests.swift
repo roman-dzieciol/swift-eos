@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Platform_CreateTests: XCTestCase {
     public func testEOS_Platform_Create_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Platform_Create = { Options in
@@ -24,7 +24,7 @@ public class SwiftEOS_Platform_CreateTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.CacheDirectory)
                 XCTAssertEqual(Options!.pointee.TickBudgetInMilliseconds, .zero)
                 XCTAssertNil(Options!.pointee.RTCOptions)
-                TestGlobals.current.sdkReceived.append("EOS_Platform_Create")
+                GTest.current.sdkReceived.append("EOS_Platform_Create")
                 return nil
             }
             defer { __on_EOS_Platform_Create = nil }
@@ -51,11 +51,11 @@ public class SwiftEOS_Platform_CreateTests: XCTestCase {
                 ))
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_Create"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_Create"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Platform_Create"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_Create"])
     }
 }

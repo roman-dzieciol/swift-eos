@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_SessionSearch_SetSessionIdTests: XCTestCase {
     public func testEOS_SessionSearch_SetSessionId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
                 XCTAssertNil(SessionSearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_SessionSearch_Release")
+                GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
             }
             
             // Given implementation for SDK function
@@ -18,7 +18,7 @@ public class SwiftEOS_SessionSearch_SetSessionIdTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionId)
-                TestGlobals.current.sdkReceived.append("EOS_SessionSearch_SetSessionId")
+                GTest.current.sdkReceived.append("EOS_SessionSearch_SetSessionId")
                 return .zero
             }
             defer { __on_EOS_SessionSearch_SetSessionId = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_SessionSearch_SetSessionIdTests: XCTestCase {
             try object.SetSessionId(SessionId: nil)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_SetSessionId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_SetSessionId"])
         }
         
         // Then
         __on_EOS_SessionSearch_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_SessionSearch_SetSessionId", "EOS_SessionSearch_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_SetSessionId", "EOS_SessionSearch_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
     public func testEOS_KWS_CreateUser_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,14 +16,14 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.DateOfBirth)
                 XCTAssertNil(Options!.pointee.ParentEmail)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_KWS_CreateUserCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_KWS_CreateUserCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             KWSUserId: nil,
                             bIsMinor: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_KWS_CreateUser")
+                GTest.current.sdkReceived.append("EOS_KWS_CreateUser")
             }
             defer { __on_EOS_KWS_CreateUser = nil }
             
@@ -45,11 +45,11 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_CreateUser"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_CreateUser"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_KWS_CreateUser"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_CreateUser"])
     }
 }

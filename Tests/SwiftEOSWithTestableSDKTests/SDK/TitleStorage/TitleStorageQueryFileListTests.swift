@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
     public func testEOS_TitleStorage_QueryFileList_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionCallback = expectation(description: "waitForCompletionCallback")
             
             // Given implementation for SDK function
@@ -16,13 +16,13 @@ public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.ListOfTags)
                 XCTAssertEqual(Options!.pointee.ListOfTagsCount, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionCallback?(TestGlobals.current.pointer(object: _tagEOS_TitleStorage_QueryFileListCallbackInfo(
+                CompletionCallback?(GTest.current.pointer(object: _tagEOS_TitleStorage_QueryFileListCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             LocalUserId: nil,
                             FileCount: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorage_QueryFileList")
+                GTest.current.sdkReceived.append("EOS_TitleStorage_QueryFileList")
             }
             defer { __on_EOS_TitleStorage_QueryFileList = nil }
             
@@ -42,11 +42,11 @@ public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_QueryFileList"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_QueryFileList"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorage_QueryFileList"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_QueryFileList"])
     }
 }

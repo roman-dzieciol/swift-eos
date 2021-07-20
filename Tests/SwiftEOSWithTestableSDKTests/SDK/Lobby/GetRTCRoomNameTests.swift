@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
     public func testEOS_Lobby_GetRTCRoomName_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetRTCRoomName = { Handle, Options, OutBuffer, InOutBufferLength in
@@ -15,7 +15,7 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                TestGlobals.current.sdkReceived.append("EOS_Lobby_GetRTCRoomName")
+                GTest.current.sdkReceived.append("EOS_Lobby_GetRTCRoomName")
                 return .zero
             }
             defer { __on_EOS_Lobby_GetRTCRoomName = nil }
@@ -30,11 +30,11 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_GetRTCRoomName"])
     }
 }

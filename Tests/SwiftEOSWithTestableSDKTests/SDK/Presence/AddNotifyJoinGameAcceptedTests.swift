@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
     public func testEOS_Presence_AddNotifyJoinGameAccepted_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,14 +13,14 @@ public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_ADDNOTIFYJOINGAMEACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Presence_JoinGameAcceptedCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_Presence_JoinGameAcceptedCallbackInfo(
                             ClientData: ClientData,
                             JoinInfo: nil,
                             LocalUserId: nil,
                             TargetUserId: nil,
                             UiEventId: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Presence_AddNotifyJoinGameAccepted")
+                GTest.current.sdkReceived.append("EOS_Presence_AddNotifyJoinGameAccepted")
                 return .zero
             }
             defer { __on_EOS_Presence_AddNotifyJoinGameAccepted = nil }
@@ -39,20 +39,20 @@ public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_AddNotifyJoinGameAccepted"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_AddNotifyJoinGameAccepted"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Presence_RemoveNotifyJoinGameAccepted = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Presence_RemoveNotifyJoinGameAccepted")
+                    GTest.current.sdkReceived.append("EOS_Presence_RemoveNotifyJoinGameAccepted")
                 }
             }
         }
         
         // Then
         __on_EOS_Presence_RemoveNotifyJoinGameAccepted = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Presence_AddNotifyJoinGameAccepted", "EOS_Presence_RemoveNotifyJoinGameAccepted"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_AddNotifyJoinGameAccepted", "EOS_Presence_RemoveNotifyJoinGameAccepted"])
     }
 }

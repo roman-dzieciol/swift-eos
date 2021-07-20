@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestCase {
     public func testEOS_Leaderboards_CopyLeaderboardUserScoreByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = { Handle, Options, OutLeaderboardUserScore in
@@ -14,7 +14,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
                 XCTAssertEqual(Options!.pointee.LeaderboardUserScoreIndex, .zero)
                 XCTAssertNil(Options!.pointee.StatName)
                 XCTAssertNotNil(OutLeaderboardUserScore)
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByIndex")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByIndex")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByIndex"])
     }
 }

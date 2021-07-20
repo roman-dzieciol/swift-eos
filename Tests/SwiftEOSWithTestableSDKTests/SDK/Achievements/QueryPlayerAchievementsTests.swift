@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
     public func testEOS_Achievements_QueryPlayerAchievements_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -15,12 +15,12 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData,
                             UserId: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Achievements_QueryPlayerAchievements")
+                GTest.current.sdkReceived.append("EOS_Achievements_QueryPlayerAchievements")
             }
             defer { __on_EOS_Achievements_QueryPlayerAchievements = nil }
             
@@ -39,11 +39,11 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_QueryPlayerAchievements"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_QueryPlayerAchievements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Achievements_QueryPlayerAchievements"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_QueryPlayerAchievements"])
     }
 }

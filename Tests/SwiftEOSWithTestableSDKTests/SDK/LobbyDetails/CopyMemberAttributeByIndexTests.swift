@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexTests: XCTestCase {
     public func testEOS_LobbyDetails_CopyMemberAttributeByIndex_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
                 XCTAssertNil(LobbyHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
             }
             
             // Given implementation for SDK function
@@ -20,7 +20,7 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNotNil(OutAttribute)
-                TestGlobals.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByIndex")
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByIndex")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyMemberAttributeByIndex = nil }
@@ -35,12 +35,12 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByIndex"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByIndex"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_LobbyDetails_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByIndex", "EOS_LobbyDetails_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbyDetails_CopyMemberAttributeByIndex", "EOS_LobbyDetails_Release"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedTests: XCTestCase {
     public func testEOS_Sessions_AddNotifyJoinSessionAccepted_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForNotificationFn = expectation(description: "waitForNotificationFn")
             
             // Given implementation for SDK function
@@ -13,12 +13,12 @@ public class SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedTests: XCTestCase {
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ADDNOTIFYJOINSESSIONACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
-                NotificationFn?(TestGlobals.current.pointer(object: _tagEOS_Sessions_JoinSessionAcceptedCallbackInfo(
+                NotificationFn?(GTest.current.pointer(object: _tagEOS_Sessions_JoinSessionAcceptedCallbackInfo(
                             ClientData: ClientData,
                             LocalUserId: nil,
                             UiEventId: .zero
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_AddNotifyJoinSessionAccepted")
+                GTest.current.sdkReceived.append("EOS_Sessions_AddNotifyJoinSessionAccepted")
                 return .zero
             }
             defer { __on_EOS_Sessions_AddNotifyJoinSessionAccepted = nil }
@@ -35,20 +35,20 @@ public class SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_AddNotifyJoinSessionAccepted"])
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_AddNotifyJoinSessionAccepted"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Sessions_RemoveNotifyJoinSessionAccepted = { Handle, InId in
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    TestGlobals.current.sdkReceived.append("EOS_Sessions_RemoveNotifyJoinSessionAccepted")
+                    GTest.current.sdkReceived.append("EOS_Sessions_RemoveNotifyJoinSessionAccepted")
                 }
             }
         }
         
         // Then
         __on_EOS_Sessions_RemoveNotifyJoinSessionAccepted = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_AddNotifyJoinSessionAccepted", "EOS_Sessions_RemoveNotifyJoinSessionAccepted"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_AddNotifyJoinSessionAccepted", "EOS_Sessions_RemoveNotifyJoinSessionAccepted"])
     }
 }

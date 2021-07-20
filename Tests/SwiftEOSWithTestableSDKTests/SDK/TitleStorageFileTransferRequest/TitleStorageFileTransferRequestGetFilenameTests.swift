@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCase {
     public func testEOS_TitleStorageFileTransferRequest_GetFilename_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_TitleStorageFileTransferRequest_Release = { TitleStorageFileTransferHandle in
                 XCTAssertNil(TitleStorageFileTransferHandle)
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
+                GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
             }
             
             // Given implementation for SDK function
@@ -19,7 +19,7 @@ public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCa
                 XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
                 XCTAssertNotNil(OutStringBuffer)
                 XCTAssertNotNil(OutStringLength)
-                TestGlobals.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
+                GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
                 return .zero
             }
             defer { __on_EOS_TitleStorageFileTransferRequest_GetFilename = nil }
@@ -31,12 +31,12 @@ public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCa
             let result: String? = try object.GetFilename(FilenameStringBufferSizeBytes: .zero)
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_GetFilename"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_GetFilename"])
             XCTAssertNil(result)
         }
         
         // Then
         __on_EOS_TitleStorageFileTransferRequest_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_GetFilename", "EOS_TitleStorageFileTransferRequest_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorageFileTransferRequest_GetFilename", "EOS_TitleStorageFileTransferRequest_Release"])
     }
 }

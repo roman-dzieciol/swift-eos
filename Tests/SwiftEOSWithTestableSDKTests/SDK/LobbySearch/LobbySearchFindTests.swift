@@ -5,12 +5,12 @@ import EOSSDK
 public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
     public func testEOS_LobbySearch_Find_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
                 XCTAssertNil(LobbySearchHandle)
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_Release")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
             }
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
@@ -20,11 +20,11 @@ public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_FIND_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_LobbySearch_FindCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_LobbySearch_FindCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_LobbySearch_Find")
+                GTest.current.sdkReceived.append("EOS_LobbySearch_Find")
             }
             defer { __on_EOS_LobbySearch_Find = nil }
             
@@ -41,12 +41,12 @@ public class SwiftEOS_LobbySearch_FindTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_Find"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_Find"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
         __on_EOS_LobbySearch_Release = nil
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_LobbySearch_Find", "EOS_LobbySearch_Release"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_Find", "EOS_LobbySearch_Release"])
     }
 }

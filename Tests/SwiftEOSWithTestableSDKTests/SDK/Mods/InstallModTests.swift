@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Mods_InstallModTests: XCTestCase {
     public func testEOS_Mods_InstallMod_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,13 +16,13 @@ public class SwiftEOS_Mods_InstallModTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.Mod)
                 XCTAssertEqual(Options!.pointee.bRemoveAfterExit, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Mods_InstallModCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Mods_InstallModCallbackInfo(
                             ResultCode: .zero,
                             LocalUserId: nil,
                             ClientData: ClientData,
                             Mod: nil
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Mods_InstallMod")
+                GTest.current.sdkReceived.append("EOS_Mods_InstallMod")
             }
             defer { __on_EOS_Mods_InstallMod = nil }
             
@@ -43,11 +43,11 @@ public class SwiftEOS_Mods_InstallModTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_InstallMod"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_InstallMod"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Mods_InstallMod"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_InstallMod"])
     }
 }

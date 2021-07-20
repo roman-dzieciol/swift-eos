@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogGameRoundStart_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogGameRoundStart = { Handle, Options in
@@ -15,7 +15,7 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.LevelName)
                 XCTAssertNil(Options!.pointee.ModeName)
                 XCTAssertEqual(Options!.pointee.RoundTimeSeconds, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundStart")
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogGameRoundStart")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogGameRoundStart = nil }
@@ -32,10 +32,10 @@ public class SwiftEOS_AntiCheatServer_LogGameRoundStartTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundStart"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundStart"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundStart"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_LogGameRoundStart"])
     }
 }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTestCase {
     public func testEOS_Leaderboards_CopyLeaderboardUserScoreByUserId_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByUserId = { Handle, Options, OutLeaderboardUserScore in
@@ -14,7 +14,7 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTest
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.StatName)
                 XCTAssertNotNil(OutLeaderboardUserScore)
-                TestGlobals.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByUserId")
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByUserId")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardUserScoreByUserId = nil }
@@ -29,11 +29,11 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTest
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByUserId"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByUserId"])
             XCTAssertNil(result)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByUserId"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_CopyLeaderboardUserScoreByUserId"])
     }
 }

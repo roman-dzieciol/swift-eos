@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Sessions_RegisterPlayersTests: XCTestCase {
     public func testEOS_Sessions_RegisterPlayers_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
@@ -16,11 +16,11 @@ public class SwiftEOS_Sessions_RegisterPlayersTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.PlayersToRegister)
                 XCTAssertEqual(Options!.pointee.PlayersToRegisterCount, .zero)
                 XCTAssertNotNil(ClientData)
-                CompletionDelegate?(TestGlobals.current.pointer(object: _tagEOS_Sessions_RegisterPlayersCallbackInfo(
+                CompletionDelegate?(GTest.current.pointer(object: _tagEOS_Sessions_RegisterPlayersCallbackInfo(
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                TestGlobals.current.sdkReceived.append("EOS_Sessions_RegisterPlayers")
+                GTest.current.sdkReceived.append("EOS_Sessions_RegisterPlayers")
             }
             defer { __on_EOS_Sessions_RegisterPlayers = nil }
             
@@ -38,11 +38,11 @@ public class SwiftEOS_Sessions_RegisterPlayersTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_RegisterPlayers"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_RegisterPlayers"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_Sessions_RegisterPlayers"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_RegisterPlayers"])
     }
 }

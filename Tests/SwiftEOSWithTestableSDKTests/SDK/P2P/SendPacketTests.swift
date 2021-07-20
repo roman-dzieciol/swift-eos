@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
     public func testEOS_P2P_SendPacket_Null() throws {
         try autoreleasepool { 
-            TestGlobals.current.reset()
+            GTest.current.reset()
             
             // Given implementation for SDK function
             __on_EOS_P2P_SendPacket = { Handle, Options in
@@ -19,7 +19,7 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.Data)
                 XCTAssertEqual(Options!.pointee.bAllowDelayedDelivery, .zero)
                 XCTAssertEqual(Options!.pointee.Reliability, .zero)
-                TestGlobals.current.sdkReceived.append("EOS_P2P_SendPacket")
+                GTest.current.sdkReceived.append("EOS_P2P_SendPacket")
                 return .zero
             }
             defer { __on_EOS_P2P_SendPacket = nil }
@@ -39,10 +39,10 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SendPacket"])
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_SendPacket"])
         }
         
         // Then
-        XCTAssertEqual(TestGlobals.current.sdkReceived, ["EOS_P2P_SendPacket"])
+        XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_SendPacket"])
     }
 }

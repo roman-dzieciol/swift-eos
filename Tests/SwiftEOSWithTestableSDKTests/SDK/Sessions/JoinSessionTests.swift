@@ -10,6 +10,7 @@ public class SwiftEOS_Sessions_JoinSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_JoinSession = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sessions_JoinSession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_JOINSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
@@ -21,7 +22,6 @@ public class SwiftEOS_Sessions_JoinSessionTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Sessions_JoinSession")
             }
             defer { __on_EOS_Sessions_JoinSession = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Sessions_JoinSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_JoinSession"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_JoinSession"])
         }
         
         // Then

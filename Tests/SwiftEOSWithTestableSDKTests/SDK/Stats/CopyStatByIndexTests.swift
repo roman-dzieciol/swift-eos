@@ -9,12 +9,12 @@ public class SwiftEOS_Stats_CopyStatByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Stats_CopyStatByIndex = { Handle, Options, OutStat in
+                GTest.current.sdkReceived.append("EOS_Stats_CopyStatByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_COPYSTATBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.StatIndex, .zero)
                 XCTAssertNotNil(OutStat)
-                GTest.current.sdkReceived.append("EOS_Stats_CopyStatByIndex")
                 return .zero
             }
             defer { __on_EOS_Stats_CopyStatByIndex = nil }

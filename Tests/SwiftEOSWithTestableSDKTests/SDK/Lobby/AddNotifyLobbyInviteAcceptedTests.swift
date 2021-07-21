@@ -10,6 +10,7 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_AddNotifyLobbyInviteAccepted = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteAccepted")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ADDNOTIFYLOBBYINVITEACCEPTED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -20,7 +21,6 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
                             TargetUserId: nil,
                             LobbyId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Lobby_AddNotifyLobbyInviteAccepted")
                 return .zero
             }
             defer { __on_EOS_Lobby_AddNotifyLobbyInviteAccepted = nil }
@@ -39,14 +39,14 @@ public class SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteAccepted"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_AddNotifyLobbyInviteAccepted"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Lobby_RemoveNotifyLobbyInviteAccepted = { Handle, InId in
+                    GTest.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyInviteAccepted")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    GTest.current.sdkReceived.append("EOS_Lobby_RemoveNotifyLobbyInviteAccepted")
                 }
             }
         }

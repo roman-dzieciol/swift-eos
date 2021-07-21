@@ -9,6 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTakeDamageTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTakeDamage = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTakeDamage")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTAKEDAMAGE_API_LATEST)
                 XCTAssertNil(Options!.pointee.VictimPlayerHandle)
@@ -28,7 +29,6 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTakeDamageTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.DamageResult, .zero)
                 XCTAssertNil(Options!.pointee.PlayerUseWeaponData)
                 XCTAssertEqual(Options!.pointee.TimeSincePlayerUseWeaponMs, .zero)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTakeDamage")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerTakeDamage = nil }

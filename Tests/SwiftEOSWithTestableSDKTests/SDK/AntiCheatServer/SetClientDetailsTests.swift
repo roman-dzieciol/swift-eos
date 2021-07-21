@@ -9,12 +9,12 @@ public class SwiftEOS_AntiCheatServer_SetClientDetailsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_SetClientDetails = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_SetClientDetails")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_SETCLIENTDETAILS_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.ClientFlags, .zero)
                 XCTAssertEqual(Options!.pointee.ClientInputMethod, .zero)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_SetClientDetails")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_SetClientDetails = nil }

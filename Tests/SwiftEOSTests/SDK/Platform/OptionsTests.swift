@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Platform_OptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Platform_Options() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Platform_Options.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_PLATFORM_OPTIONS_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.Reserved)
             XCTAssertNil(cstruct.ProductId)
             XCTAssertNil(cstruct.SandboxId)
@@ -21,7 +21,7 @@ public class SwiftEOS_Platform_OptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.TickBudgetInMilliseconds, .zero)
             XCTAssertNil(cstruct.RTCOptions)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Platform_Options(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_PLATFORM_OPTIONS_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.Reserved)
             XCTAssertNil(swiftObject.ProductId)
             XCTAssertNil(swiftObject.SandboxId)

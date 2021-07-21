@@ -9,12 +9,12 @@ public class SwiftEOS_AntiCheatServer_LogPlayerSpawnTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerSpawn = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerSpawn")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERSPAWN_API_LATEST)
                 XCTAssertNil(Options!.pointee.SpawnedPlayerHandle)
                 XCTAssertEqual(Options!.pointee.TeamId, .zero)
                 XCTAssertEqual(Options!.pointee.CharacterId, .zero)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerSpawn")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerSpawn = nil }

@@ -9,16 +9,16 @@ public class SwiftEOS_LobbySearch_SetTargetUserIdTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
-                XCTAssertNil(LobbySearchHandle)
                 GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
+                XCTAssertNil(LobbySearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_SetTargetUserId = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbySearch_SetTargetUserId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETTARGETUSERID_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_LobbySearch_SetTargetUserId")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_SetTargetUserId = nil }

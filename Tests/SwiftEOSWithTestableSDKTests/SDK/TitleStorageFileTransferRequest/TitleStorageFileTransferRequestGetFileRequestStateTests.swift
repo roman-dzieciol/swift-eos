@@ -9,14 +9,14 @@ public class SwiftEOS_TitleStorageFileTransferRequest_GetFileRequestStateTests: 
             
             // Given implementation for SDK release function
             __on_EOS_TitleStorageFileTransferRequest_Release = { TitleStorageFileTransferHandle in
-                XCTAssertNil(TitleStorageFileTransferHandle)
                 GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
+                XCTAssertNil(TitleStorageFileTransferHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_TitleStorageFileTransferRequest_GetFileRequestState = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFileRequestState")
+                XCTAssertNil(Handle)
                 return .zero
             }
             defer { __on_EOS_TitleStorageFileTransferRequest_GetFileRequestState = nil }

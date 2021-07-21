@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Ecom_CatalogItemTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Ecom_CatalogItem() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_CatalogItem.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_ECOM_CATALOGITEM_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.CatalogNamespace)
             XCTAssertNil(cstruct.Id)
             XCTAssertNil(cstruct.EntitlementName)
@@ -17,7 +17,7 @@ public class SwiftEOS_Ecom_CatalogItemTests: XCTestCase {
             XCTAssertEqual(cstruct.ItemType, .zero)
             XCTAssertEqual(cstruct.EntitlementEndTimestamp, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Ecom_CatalogItem(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_ECOM_CATALOGITEM_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.CatalogNamespace)
             XCTAssertNil(swiftObject.Id)
             XCTAssertNil(swiftObject.EntitlementName)

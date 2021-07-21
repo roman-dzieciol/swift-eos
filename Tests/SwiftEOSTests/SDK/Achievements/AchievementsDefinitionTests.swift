@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Achievements_DefinitionTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Achievements_Definition() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_Definition.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_ACHIEVEMENTS_DEFINITION_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.AchievementId)
             XCTAssertNil(cstruct.DisplayName)
             XCTAssertNil(cstruct.Description)
@@ -19,7 +19,7 @@ public class SwiftEOS_Achievements_DefinitionTests: XCTestCase {
             XCTAssertEqual(cstruct.StatThresholdsCount, .zero)
             XCTAssertNil(cstruct.StatThresholds)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Achievements_Definition(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_ACHIEVEMENTS_DEFINITION_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.AchievementId)
             XCTAssertNil(swiftObject.DisplayName)
             XCTAssertNil(swiftObject.Description)

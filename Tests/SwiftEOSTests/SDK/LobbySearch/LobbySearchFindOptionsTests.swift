@@ -5,10 +5,10 @@ import EOSSDK
 public class SwiftEOS_LobbySearch_FindOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_LobbySearch_FindOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_LobbySearch_FindOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_LOBBYSEARCH_FIND_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_LobbySearch_FindOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_LOBBYSEARCH_FIND_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId) }
     }
 }

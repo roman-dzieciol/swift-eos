@@ -642,7 +642,7 @@ extension SwiftEOS_Ecom_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Ecom_Checkout(
                         Handle,
                         Options,
@@ -668,10 +668,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutEntitlement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyEntitlementById(
                                     Handle,
@@ -697,10 +697,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutEntitlement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyEntitlementByIndex(
                                     Handle,
@@ -728,10 +728,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutEntitlement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyEntitlementByNameAndIndex(
                                     Handle,
@@ -759,10 +759,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_CatalogItem {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutItem in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyItemById(
                                     Handle,
@@ -788,10 +788,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_KeyImageInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutImageInfo in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyItemImageInfoByIndex(
                                     Handle,
@@ -817,10 +817,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_CatalogRelease {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutRelease in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyItemReleaseByIndex(
                                     Handle,
@@ -848,10 +848,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_CatalogOffer {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutOffer in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyOfferById(
                                     Handle,
@@ -879,10 +879,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_CatalogOffer {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutOffer in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyOfferByIndex(
                                     Handle,
@@ -908,10 +908,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_KeyImageInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutImageInfo in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyOfferImageInfoByIndex(
                                     Handle,
@@ -939,10 +939,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_CatalogItem {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutItem in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_CopyOfferItemByIndex(
                                     Handle,
@@ -968,8 +968,8 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> EOS_Ecom_HTransaction {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutTransaction in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Ecom_CopyTransactionById(
                                 Handle,
@@ -993,8 +993,8 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> EOS_Ecom_HTransaction {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutTransaction in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutTransaction in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Ecom_CopyTransactionByIndex(
                                 Handle,
@@ -1016,7 +1016,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetEntitlementsByNameCount(
                             Handle,
                             Options
@@ -1039,7 +1039,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetEntitlementsCount(
                             Handle,
                             Options
@@ -1060,7 +1060,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetItemImageInfoCount(
                             Handle,
                             Options
@@ -1081,7 +1081,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetItemReleaseCount(
                             Handle,
                             Options
@@ -1104,7 +1104,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetOfferCount(
                             Handle,
                             Options
@@ -1125,7 +1125,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetOfferImageInfoCount(
                             Handle,
                             Options
@@ -1146,7 +1146,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetOfferItemCount(
                             Handle,
                             Options
@@ -1169,7 +1169,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Ecom_GetTransactionCount(
                             Handle,
                             Options
@@ -1195,7 +1195,7 @@ extension SwiftEOS_Ecom_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Ecom_QueryEntitlements(
                         Handle,
                         Options,
@@ -1218,7 +1218,7 @@ extension SwiftEOS_Ecom_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Ecom_QueryOffers(
                         Handle,
                         Options,
@@ -1241,7 +1241,7 @@ extension SwiftEOS_Ecom_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Ecom_QueryOwnership(
                         Handle,
                         Options,
@@ -1264,7 +1264,7 @@ extension SwiftEOS_Ecom_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Ecom_QueryOwnershipToken(
                         Handle,
                         Options,
@@ -1287,7 +1287,7 @@ extension SwiftEOS_Ecom_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Ecom_RedeemEntitlements(
                         Handle,
                         Options,
@@ -1312,10 +1312,10 @@ extension SwiftEOS_Ecom_Actor {
     ) throws -> SwiftEOS_Ecom_Entitlement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutEntitlement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Ecom_Transaction_CopyEntitlementByIndex(
                                     Handle,
@@ -1336,7 +1336,7 @@ extension SwiftEOS_Ecom_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Ecom_Transaction_GetEntitlementsCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Ecom_Transaction_GetEntitlementsCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Ecom_Transaction_GetEntitlementsCount(
                             Handle,
                             Options
@@ -1361,13 +1361,12 @@ extension SwiftEOS_Ecom_Actor {
     */
     private func ____Transaction_GetTransactionId() throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try throwingSdkResult { 
-                        EOS_Ecom_Transaction_GetTransactionId(
-                            Handle,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_Ecom_Transaction_GetTransactionId(
+                        Handle,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } }
     }
 }

@@ -9,6 +9,7 @@ public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_RegisterEvent = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_RegisterEvent")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_REGISTEREVENT_API_LATEST)
                 XCTAssertEqual(Options!.pointee.EventId, .zero)
@@ -16,7 +17,6 @@ public class SwiftEOS_AntiCheatServer_RegisterEventTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.EventType, .zero)
                 XCTAssertEqual(Options!.pointee.ParamDefsCount, .zero)
                 XCTAssertNil(Options!.pointee.ParamDefs)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_RegisterEvent")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_RegisterEvent = nil }

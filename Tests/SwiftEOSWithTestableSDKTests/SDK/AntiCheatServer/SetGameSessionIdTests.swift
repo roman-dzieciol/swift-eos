@@ -9,10 +9,10 @@ public class SwiftEOS_AntiCheatServer_SetGameSessionIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_SetGameSessionId = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_SetGameSessionId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_SETGAMESESSIONID_API_LATEST)
                 XCTAssertNil(Options!.pointee.GameSessionId)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_SetGameSessionId")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_SetGameSessionId = nil }

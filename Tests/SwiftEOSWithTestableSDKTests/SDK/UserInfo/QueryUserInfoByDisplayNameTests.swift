@@ -10,6 +10,7 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_QueryUserInfoByDisplayName = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByDisplayName")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_QUERYUSERINFOBYDISPLAYNAME_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -22,7 +23,6 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
                             TargetUserId: nil,
                             DisplayName: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByDisplayName")
             }
             defer { __on_EOS_UserInfo_QueryUserInfoByDisplayName = nil }
             
@@ -43,8 +43,8 @@ public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByDisplayName"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByDisplayName"])
         }
         
         // Then

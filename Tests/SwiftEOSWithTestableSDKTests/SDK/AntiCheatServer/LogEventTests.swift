@@ -9,13 +9,13 @@ public class SwiftEOS_AntiCheatServer_LogEventTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogEvent = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogEvent")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGEVENT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
                 XCTAssertEqual(Options!.pointee.EventId, .zero)
                 XCTAssertEqual(Options!.pointee.ParamsCount, .zero)
                 XCTAssertNil(Options!.pointee.Params)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogEvent")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogEvent = nil }

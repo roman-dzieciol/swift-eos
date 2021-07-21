@@ -10,6 +10,7 @@ public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Checkout = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Ecom_Checkout")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_CHECKOUT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -23,7 +24,6 @@ public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
                             LocalUserId: nil,
                             TransactionId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Ecom_Checkout")
             }
             defer { __on_EOS_Ecom_Checkout = nil }
             
@@ -45,8 +45,8 @@ public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Checkout"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_Checkout"])
         }
         
         // Then

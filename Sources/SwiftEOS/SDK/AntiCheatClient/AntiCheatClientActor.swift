@@ -120,23 +120,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-    Optional NetProtect feature for game message encryption.
-    Calculates the required decrypted buffer size for a given input data length.
-    This will not change for a given SDK version, and allows one time allocation of reusable buffers.
-    Mode: `EOS_ACCM_ClientServer`.
-
-    - Parameter DataLengthBytes: Length in bytes of input
-    - Throws: `EOS_InvalidParameters` - If input data was invalid
-              `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
-    - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
-    */
-    public func GetProtectMessageOutputLength(
-        DataLengthBytes: Int
-    ) throws -> Int {
-        try ____GetProtectMessageOutputLength(.init(DataLengthBytes: DataLengthBytes))
-    }
-
-    /**
     Polls for changes in client integrity status.
     Mode: All
 
@@ -164,31 +147,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
             &ViolationType,
             &OutMessage
         )
-    }
-
-    /**
-    Optional NetProtect feature for game message encryption.
-    Encrypts an arbitrary message that will be sent to the game server and decrypted on the other side.
-    Mode: `EOS_ACCM_ClientServer`.
-
-    Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
-
-    - Parameter Data: The data to encrypt
-    - Note: ``EOS/_tagEOS_AntiCheatClient_ProtectMessageOptions/DataLengthBytes``:
-    Length in bytes of input
-    - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: `EOS_InvalidParameters` - If input data was invalid
-              `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
-    - Returns: On success, buffer where encrypted message data will be written.
-    */
-    public func ProtectMessage(
-        Data: [UInt8]?,
-        OutBufferSizeBytes: Int
-    ) throws -> [UInt8] {
-        try ____ProtectMessage(.init(
-                Data: Data,
-                OutBufferSizeBytes: OutBufferSizeBytes
-            ))
     }
 
     /**
@@ -265,31 +223,6 @@ public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     }
 
     /**
-    Optional NetProtect feature for game message encryption.
-    Decrypts an encrypted message received from the game server.
-    Mode: `EOS_ACCM_ClientServer`.
-
-    Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
-
-    - Parameter Data: The data to decrypt
-    - Note: ``EOS/_tagEOS_AntiCheatClient_UnprotectMessageOptions/DataLengthBytes``:
-    Length in bytes of input
-    - Parameter OutBufferSizeBytes: The size in bytes of OutBuffer
-    - Throws: `EOS_InvalidParameters` - If input data was invalid
-              `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
-    - Returns: On success, buffer where encrypted message data will be written.
-    */
-    public func UnprotectMessage(
-        Data: [UInt8]?,
-        OutBufferSizeBytes: Int
-    ) throws -> [UInt8] {
-        try ____UnprotectMessage(.init(
-                Data: Data,
-                OutBufferSizeBytes: OutBufferSizeBytes
-            ))
-    }
-
-    /**
     Unregisters a disconnected peer-to-peer client.
     Mode: `EOS_ACCM_PeerToPeer`.
 
@@ -320,7 +253,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_AddExternalIntegrityCatalogOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_AddExternalIntegrityCatalog(
                         Handle,
@@ -344,7 +277,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyMessageToPeerOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyMessageToPeerOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyMessageToPeer(
                             Handle,
                             Options,
@@ -376,7 +309,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyMessageToServerOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyMessageToServerOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyMessageToServer(
                             Handle,
                             Options,
@@ -408,7 +341,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyPeerActionRequired(
                             Handle,
                             Options,
@@ -440,7 +373,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged(
                             Handle,
                             Options,
@@ -470,7 +403,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_BeginSessionOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_BeginSession(
                         Handle,
@@ -489,37 +422,12 @@ extension SwiftEOS_AntiCheatClient_Actor {
     */
     private func ____EndSession() throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_EndSessionOptions(), managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_AntiCheatClient_EndSessionOptions(), managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_EndSession(
                         Handle,
                         Options
                     ) } } }
-    }
-
-    /**
-    Optional NetProtect feature for game message encryption.
-    Calculates the required decrypted buffer size for a given input data length.
-    This will not change for a given SDK version, and allows one time allocation of reusable buffers.
-    Mode: `EOS_ACCM_ClientServer`.
-
-    - Parameter Options: Structure containing input data.
-    - Throws: `EOS_InvalidParameters` - If input data was invalid
-              `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
-    - Returns: The length in bytes that is required to call ProtectMessage on the given input size.
-    */
-    private func ____GetProtectMessageOutputLength(
-        _ Options: SwiftEOS_AntiCheatClient_GetProtectMessageOutputLengthOptions
-    ) throws -> Int {
-        try withPointerManager { pointerManager in
-            try withIntegerPointerReturnedAsInteger { OutBufferLengthBytes in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_AntiCheatClient_GetProtectMessageOutputLength(
-                            Handle,
-                            Options,
-                            OutBufferLengthBytes
-                        ) } } } }
     }
 
     /**
@@ -546,9 +454,9 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ OutMessage: inout String?
     ) throws {
         try withPointerManager { pointerManager in
-            try withCCharPointerFromInOutOptionalString(inoutOptionalString: &OutMessage, capacity: Options.OutMessageLength) { OutMessage in
-                try withTrivialMutablePointerFromInOutOptionalTrivial(&ViolationType, managedBy: pointerManager) { ViolationType in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try eos_withCCharPointerForOutOptionalString(outOptionalString: &OutMessage, capacity: Options.OutMessageLength) { OutMessage in
+                try eos_withTrivialMutablePointerFromInOutOptionalTrivial(&ViolationType, managedBy: pointerManager) { ViolationType in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_AntiCheatClient_PollStatus(
                                 Handle,
@@ -556,33 +464,6 @@ extension SwiftEOS_AntiCheatClient_Actor {
                                 ViolationType,
                                 OutMessage
                             ) } } } } }
-    }
-
-    /**
-    Optional NetProtect feature for game message encryption.
-    Encrypts an arbitrary message that will be sent to the game server and decrypted on the other side.
-    Mode: `EOS_ACCM_ClientServer`.
-
-    Options.Data and OutBuffer may refer to the same buffer to encrypt in place.
-
-    - Parameter Options: Structure containing input data.
-    - Throws: `EOS_InvalidParameters` - If input data was invalid
-              `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
-    - Returns: On success, buffer where encrypted message data will be written.
-    */
-    private func ____ProtectMessage(
-        _ Options: SwiftEOS_AntiCheatClient_ProtectMessageOptions
-    ) throws -> [UInt8] {
-        try withPointerManager { pointerManager in
-            try withElementPointerPointersReturnedAsArray { OutBuffer, OutBufferLengthBytes in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_AntiCheatClient_ProtectMessage(
-                            Handle,
-                            Options,
-                            OutBuffer,
-                            OutBufferLengthBytes
-                        ) } } } }
     }
 
     /**
@@ -597,7 +478,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_ReceiveMessageFromPeer(
                         Handle,
@@ -617,7 +498,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_ReceiveMessageFromServerOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_ReceiveMessageFromServer(
                         Handle,
@@ -640,39 +521,12 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_RegisterPeerOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_RegisterPeer(
                         Handle,
                         Options
                     ) } } }
-    }
-
-    /**
-    Optional NetProtect feature for game message encryption.
-    Decrypts an encrypted message received from the game server.
-    Mode: `EOS_ACCM_ClientServer`.
-
-    Options.Data and OutBuffer may refer to the same buffer to decrypt in place.
-
-    - Parameter Options: Structure containing input data.
-    - Throws: `EOS_InvalidParameters` - If input data was invalid
-              `EOS_AntiCheat_InvalidMode` - If the current mode does not support this function
-    - Returns: On success, buffer where encrypted message data will be written.
-    */
-    private func ____UnprotectMessage(
-        _ Options: SwiftEOS_AntiCheatClient_UnprotectMessageOptions
-    ) throws -> [UInt8] {
-        try withPointerManager { pointerManager in
-            try withElementPointerPointersReturnedAsArray { OutBuffer, OutBufferLengthBytes in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                    try throwingSdkResult { 
-                        EOS_AntiCheatClient_UnprotectMessage(
-                            Handle,
-                            Options,
-                            OutBuffer,
-                            OutBufferLengthBytes
-                        ) } } } }
     }
 
     /**
@@ -689,7 +543,7 @@ extension SwiftEOS_AntiCheatClient_Actor {
         _ Options: SwiftEOS_AntiCheatClient_UnregisterPeerOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_AntiCheatClient_UnregisterPeer(
                         Handle,

@@ -15,6 +15,6 @@ public func SwiftEOS_Platform_Create(
     Options: SwiftEOS_Platform_Options
 ) throws -> EOS_HPlatform? {
     try withPointerManager { pointerManager in
-        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
             EOS_Platform_Create(Options) } }
 }

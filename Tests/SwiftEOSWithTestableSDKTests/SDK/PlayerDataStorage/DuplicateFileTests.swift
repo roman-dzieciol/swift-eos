@@ -10,6 +10,7 @@ public class SwiftEOS_PlayerDataStorage_DuplicateFileTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_DuplicateFile = { Handle, DuplicateOptions, ClientData, CompletionCallback in
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_DuplicateFile")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(DuplicateOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_DUPLICATEFILEOPTIONS_API_LATEST)
                 XCTAssertNil(DuplicateOptions!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_PlayerDataStorage_DuplicateFileTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_DuplicateFile")
             }
             defer { __on_EOS_PlayerDataStorage_DuplicateFile = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_PlayerDataStorage_DuplicateFileTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_DuplicateFile"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_PlayerDataStorage_DuplicateFile"])
         }
         
         // Then

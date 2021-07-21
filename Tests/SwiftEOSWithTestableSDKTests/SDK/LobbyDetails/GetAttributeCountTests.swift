@@ -9,15 +9,15 @@ public class SwiftEOS_LobbyDetails_GetAttributeCountTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
-                XCTAssertNil(LobbyHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                XCTAssertNil(LobbyHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_GetAttributeCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetAttributeCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETATTRIBUTECOUNT_API_LATEST)
-                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetAttributeCount")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_GetAttributeCount = nil }

@@ -9,12 +9,12 @@ public class SwiftEOS_Connect_GetExternalAccountMappingTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetExternalAccountMapping = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Connect_GetExternalAccountMapping")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_GETEXTERNALACCOUNTMAPPING_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.TargetExternalUserId)
-                GTest.current.sdkReceived.append("EOS_Connect_GetExternalAccountMapping")
                 return nil
             }
             defer { __on_EOS_Connect_GetExternalAccountMapping = nil }

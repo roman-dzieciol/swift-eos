@@ -9,13 +9,13 @@ public class SwiftEOS_Presence_GetJoinInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_GetJoinInfo = { Handle, Options, OutBuffer, InOutBufferLength in
+                GTest.current.sdkReceived.append("EOS_Presence_GetJoinInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_GETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                XCTAssertNotNil(OutBuffer)
+                XCTAssertNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                GTest.current.sdkReceived.append("EOS_Presence_GetJoinInfo")
                 return .zero
             }
             defer { __on_EOS_Presence_GetJoinInfo = nil }

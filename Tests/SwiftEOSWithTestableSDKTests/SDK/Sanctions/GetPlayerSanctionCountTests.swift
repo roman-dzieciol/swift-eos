@@ -9,10 +9,10 @@ public class SwiftEOS_Sanctions_GetPlayerSanctionCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sanctions_GetPlayerSanctionCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Sanctions_GetPlayerSanctionCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SANCTIONS_GETPLAYERSANCTIONCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_Sanctions_GetPlayerSanctionCount")
                 return .zero
             }
             defer { __on_EOS_Sanctions_GetPlayerSanctionCount = nil }

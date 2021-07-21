@@ -10,6 +10,7 @@ public class SwiftEOS_Friends_RejectInviteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_RejectInvite = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Friends_RejectInvite")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_REJECTINVITE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Friends_RejectInviteTests: XCTestCase {
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Friends_RejectInvite")
             }
             defer { __on_EOS_Friends_RejectInvite = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Friends_RejectInviteTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_RejectInvite"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_RejectInvite"])
         }
         
         // Then

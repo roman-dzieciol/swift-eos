@@ -9,13 +9,13 @@ public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountTypeTests: XCTestCas
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyExternalUserInfoByAccountType = { Handle, Options, OutExternalUserInfo in
+                GTest.current.sdkReceived.append("EOS_UserInfo_CopyExternalUserInfoByAccountType")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_COPYEXTERNALUSERINFOBYACCOUNTTYPE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AccountType, .zero)
                 XCTAssertNotNil(OutExternalUserInfo)
-                GTest.current.sdkReceived.append("EOS_UserInfo_CopyExternalUserInfoByAccountType")
                 return .zero
             }
             defer { __on_EOS_UserInfo_CopyExternalUserInfoByAccountType = nil }

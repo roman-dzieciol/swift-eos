@@ -9,17 +9,17 @@ public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
-                XCTAssertNil(PresenceModificationHandle)
                 GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
+                XCTAssertNil(PresenceModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_PresenceModification_DeleteData = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_PresenceModification_DeleteData")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_DELETEDATA_API_LATEST)
                 XCTAssertEqual(Options!.pointee.RecordsCount, .zero)
                 XCTAssertNil(Options!.pointee.Records)
-                GTest.current.sdkReceived.append("EOS_PresenceModification_DeleteData")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_DeleteData = nil }

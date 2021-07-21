@@ -9,17 +9,17 @@ public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCa
             
             // Given implementation for SDK release function
             __on_EOS_TitleStorageFileTransferRequest_Release = { TitleStorageFileTransferHandle in
-                XCTAssertNil(TitleStorageFileTransferHandle)
                 GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_Release")
+                XCTAssertNil(TitleStorageFileTransferHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_TitleStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
+                GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
-                XCTAssertNotNil(OutStringBuffer)
+                XCTAssertNil(OutStringBuffer)
                 XCTAssertNotNil(OutStringLength)
-                GTest.current.sdkReceived.append("EOS_TitleStorageFileTransferRequest_GetFilename")
                 return .zero
             }
             defer { __on_EOS_TitleStorageFileTransferRequest_GetFilename = nil }

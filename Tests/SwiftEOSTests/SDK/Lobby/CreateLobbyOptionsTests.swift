@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_Lobby_CreateLobbyOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Lobby_CreateLobbyOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_CreateLobbyOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_LOBBY_CREATELOBBY_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertEqual(cstruct.MaxLobbyMembers, .zero)
             XCTAssertEqual(cstruct.PermissionLevel, .zero)
@@ -17,7 +17,7 @@ public class SwiftEOS_Lobby_CreateLobbyOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.LocalRTCOptions)
             XCTAssertNil(cstruct.LobbyId)
             let swiftObject = try XCTUnwrap(try SwiftEOS_Lobby_CreateLobbyOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_LOBBY_CREATELOBBY_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertEqual(swiftObject.MaxLobbyMembers, .zero)
             XCTAssertEqual(swiftObject.PermissionLevel, .zero)

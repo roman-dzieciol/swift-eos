@@ -9,10 +9,10 @@ public class SwiftEOS_UI_SetDisplayPreferenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_SetDisplayPreference = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_UI_SetDisplayPreference")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_SETDISPLAYPREFERENCE_API_LATEST)
                 XCTAssertEqual(Options!.pointee.NotificationLocation, .zero)
-                GTest.current.sdkReceived.append("EOS_UI_SetDisplayPreference")
                 return .zero
             }
             defer { __on_EOS_UI_SetDisplayPreference = nil }

@@ -9,9 +9,9 @@ public class SwiftEOS_UI_IsValidKeyCombinationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_IsValidKeyCombination = { Handle, KeyCombination in
+                GTest.current.sdkReceived.append("EOS_UI_IsValidKeyCombination")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(KeyCombination, .zero)
-                GTest.current.sdkReceived.append("EOS_UI_IsValidKeyCombination")
                 return .zero
             }
             defer { __on_EOS_UI_IsValidKeyCombination = nil }

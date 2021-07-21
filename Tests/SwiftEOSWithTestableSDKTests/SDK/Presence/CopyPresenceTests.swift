@@ -9,12 +9,12 @@ public class SwiftEOS_Presence_CopyPresenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_CopyPresence = { Handle, Options, OutPresence in
+                GTest.current.sdkReceived.append("EOS_Presence_CopyPresence")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_COPYPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(OutPresence)
-                GTest.current.sdkReceived.append("EOS_Presence_CopyPresence")
                 return .zero
             }
             defer { __on_EOS_Presence_CopyPresence = nil }

@@ -9,12 +9,12 @@ public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Mods_CopyModInfo = { Handle, Options, OutEnumeratedMods in
+                GTest.current.sdkReceived.append("EOS_Mods_CopyModInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_COPYMODINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Type, .zero)
                 XCTAssertNotNil(OutEnumeratedMods)
-                GTest.current.sdkReceived.append("EOS_Mods_CopyModInfo")
                 return .zero
             }
             defer { __on_EOS_Mods_CopyModInfo = nil }

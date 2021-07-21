@@ -9,10 +9,10 @@ public class SwiftEOS_Achievements_GetPlayerAchievementCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Achievements_GetPlayerAchievementCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Achievements_GetPlayerAchievementCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_GETPLAYERACHIEVEMENTCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
-                GTest.current.sdkReceived.append("EOS_Achievements_GetPlayerAchievementCount")
                 return .zero
             }
             defer { __on_EOS_Achievements_GetPlayerAchievementCount = nil }

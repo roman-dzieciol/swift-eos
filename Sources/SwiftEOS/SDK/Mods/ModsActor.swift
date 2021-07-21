@@ -148,10 +148,10 @@ extension SwiftEOS_Mods_Actor {
     ) throws -> SwiftEOS_Mods_ModInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutEnumeratedMods in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Mods_CopyModInfo(
                                     Handle,
@@ -176,7 +176,7 @@ extension SwiftEOS_Mods_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Mods_EnumerateMods(
                         Handle,
                         Options,
@@ -199,7 +199,7 @@ extension SwiftEOS_Mods_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Mods_InstallMod(
                         Handle,
                         Options,
@@ -222,7 +222,7 @@ extension SwiftEOS_Mods_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Mods_UninstallMod(
                         Handle,
                         Options,
@@ -245,7 +245,7 @@ extension SwiftEOS_Mods_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Mods_UpdateMod(
                         Handle,
                         Options,

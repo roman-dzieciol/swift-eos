@@ -9,17 +9,17 @@ public class SwiftEOS_LobbySearch_RemoveParameterTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
-                XCTAssertNil(LobbySearchHandle)
                 GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
+                XCTAssertNil(LobbySearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_RemoveParameter = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbySearch_RemoveParameter")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_REMOVEPARAMETER_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
-                GTest.current.sdkReceived.append("EOS_LobbySearch_RemoveParameter")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_RemoveParameter = nil }

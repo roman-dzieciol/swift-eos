@@ -9,11 +9,11 @@ public class SwiftEOS_Auth_CopyUserAuthTokenTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_CopyUserAuthToken = { Handle, Options, LocalUserId, OutUserAuthToken in
+                GTest.current.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_COPYUSERAUTHTOKEN_API_LATEST)
                 XCTAssertNil(LocalUserId)
                 XCTAssertNotNil(OutUserAuthToken)
-                GTest.current.sdkReceived.append("EOS_Auth_CopyUserAuthToken")
                 return .zero
             }
             defer { __on_EOS_Auth_CopyUserAuthToken = nil }

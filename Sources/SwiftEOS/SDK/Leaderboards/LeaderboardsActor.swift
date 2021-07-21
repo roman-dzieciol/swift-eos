@@ -259,10 +259,10 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws -> SwiftEOS_Leaderboards_Definition {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLeaderboardDefinition in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Leaderboards_CopyLeaderboardDefinitionByIndex(
                                     Handle,
@@ -287,10 +287,10 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws -> SwiftEOS_Leaderboards_Definition {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLeaderboardDefinition in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId(
                                     Handle,
@@ -315,10 +315,10 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLeaderboardRecord in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Leaderboards_CopyLeaderboardRecordByIndex(
                                     Handle,
@@ -343,10 +343,10 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws -> SwiftEOS_Leaderboards_LeaderboardRecord {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLeaderboardRecord in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Leaderboards_CopyLeaderboardRecordByUserId(
                                     Handle,
@@ -371,10 +371,10 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLeaderboardUserScore in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Leaderboards_CopyLeaderboardUserScoreByIndex(
                                     Handle,
@@ -399,10 +399,10 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws -> SwiftEOS_Leaderboards_LeaderboardUserScore {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLeaderboardUserScore in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Leaderboards_CopyLeaderboardUserScoreByUserId(
                                     Handle,
@@ -424,7 +424,7 @@ extension SwiftEOS_Leaderboards_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Leaderboards_GetLeaderboardDefinitionCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Leaderboards_GetLeaderboardDefinitionCount(
                             Handle,
                             Options
@@ -445,7 +445,7 @@ extension SwiftEOS_Leaderboards_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Leaderboards_GetLeaderboardRecordCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Leaderboards_GetLeaderboardRecordCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Leaderboards_GetLeaderboardRecordCount(
                             Handle,
                             Options
@@ -469,7 +469,7 @@ extension SwiftEOS_Leaderboards_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Leaderboards_GetLeaderboardUserScoreCount(
                             Handle,
                             Options
@@ -493,7 +493,7 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Leaderboards_QueryLeaderboardDefinitions(
                         Handle,
                         Options,
@@ -517,7 +517,7 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Leaderboards_QueryLeaderboardRanks(
                         Handle,
                         Options,
@@ -541,7 +541,7 @@ extension SwiftEOS_Leaderboards_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Leaderboards_QueryLeaderboardUserScores(
                         Handle,
                         Options,

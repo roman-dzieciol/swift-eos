@@ -9,6 +9,7 @@ public class SwiftEOS_AntiCheatServer_RegisterClientTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_RegisterClient = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_RegisterClient")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_REGISTERCLIENT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
@@ -16,7 +17,6 @@ public class SwiftEOS_AntiCheatServer_RegisterClientTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ClientPlatform, .zero)
                 XCTAssertNil(Options!.pointee.AccountId)
                 XCTAssertNil(Options!.pointee.IpAddress)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_RegisterClient")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_RegisterClient = nil }

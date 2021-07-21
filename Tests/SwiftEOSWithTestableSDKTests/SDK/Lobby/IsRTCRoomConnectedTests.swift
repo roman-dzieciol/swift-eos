@@ -9,12 +9,12 @@ public class SwiftEOS_Lobby_IsRTCRoomConnectedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_IsRTCRoomConnected = { Handle, Options, bOutIsConnected in
+                GTest.current.sdkReceived.append("EOS_Lobby_IsRTCRoomConnected")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_ISRTCROOMCONNECTED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(bOutIsConnected)
-                GTest.current.sdkReceived.append("EOS_Lobby_IsRTCRoomConnected")
                 return .zero
             }
             defer { __on_EOS_Lobby_IsRTCRoomConnected = nil }

@@ -9,11 +9,11 @@ public class SwiftEOS_Friends_GetStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_GetStatus = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Friends_GetStatus")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_GETSTATUS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_Friends_GetStatus")
                 return .zero
             }
             defer { __on_EOS_Friends_GetStatus = nil }

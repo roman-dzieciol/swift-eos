@@ -9,10 +9,10 @@ public class SwiftEOS_Lobby_GetInviteCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetInviteCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Lobby_GetInviteCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETINVITECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                GTest.current.sdkReceived.append("EOS_Lobby_GetInviteCount")
                 return .zero
             }
             defer { __on_EOS_Lobby_GetInviteCount = nil }

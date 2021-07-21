@@ -165,10 +165,10 @@ extension SwiftEOS_RTCAdmin_Actor {
     ) throws -> SwiftEOS_RTCAdmin_UserToken {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutUserToken in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_RTCAdmin_CopyUserTokenByIndex(
                                     Handle,
@@ -193,10 +193,10 @@ extension SwiftEOS_RTCAdmin_Actor {
     ) throws -> SwiftEOS_RTCAdmin_UserToken {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutUserToken in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_RTCAdmin_CopyUserTokenByUserId(
                                     Handle,
@@ -219,7 +219,7 @@ extension SwiftEOS_RTCAdmin_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTCAdmin_Kick(
                         Handle,
                         Options,
@@ -248,7 +248,7 @@ extension SwiftEOS_RTCAdmin_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTCAdmin_QueryJoinRoomToken(
                         Handle,
                         Options,
@@ -272,7 +272,7 @@ extension SwiftEOS_RTCAdmin_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTCAdmin_SetParticipantHardMute(
                         Handle,
                         Options,

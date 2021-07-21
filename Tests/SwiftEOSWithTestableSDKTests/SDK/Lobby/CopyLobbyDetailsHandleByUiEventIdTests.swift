@@ -9,11 +9,11 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_CopyLobbyDetailsHandleByUiEventId = { Handle, Options, OutLobbyDetailsHandle in
+                GTest.current.sdkReceived.append("EOS_Lobby_CopyLobbyDetailsHandleByUiEventId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_COPYLOBBYDETAILSHANDLEBYUIEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertNotNil(OutLobbyDetailsHandle)
-                GTest.current.sdkReceived.append("EOS_Lobby_CopyLobbyDetailsHandleByUiEventId")
                 return .zero
             }
             defer { __on_EOS_Lobby_CopyLobbyDetailsHandleByUiEventId = nil }
@@ -22,11 +22,12 @@ public class SwiftEOS_Lobby_CopyLobbyDetailsHandleByUiEventIdTests: XCTestCase {
             let object: SwiftEOS_Lobby_Actor = SwiftEOS_Lobby_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HLobbyDetails = try object.CopyLobbyDetailsHandleByUiEventId(UiEventId: .zero)
+            try XCTAssertThrowsError(try object.CopyLobbyDetailsHandleByUiEventId(UiEventId: .zero)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_CopyLobbyDetailsHandleByUiEventId"])
-            XCTAssertNil(result)
         }
         
         // Then

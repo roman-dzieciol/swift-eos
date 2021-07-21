@@ -9,15 +9,15 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerCountTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_ActiveSession_Release = { ActiveSessionHandle in
-                XCTAssertNil(ActiveSessionHandle)
                 GTest.current.sdkReceived.append("EOS_ActiveSession_Release")
+                XCTAssertNil(ActiveSessionHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_ActiveSession_GetRegisteredPlayerCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_GETREGISTEREDPLAYERCOUNT_API_LATEST)
-                GTest.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerCount")
                 return .zero
             }
             defer { __on_EOS_ActiveSession_GetRegisteredPlayerCount = nil }

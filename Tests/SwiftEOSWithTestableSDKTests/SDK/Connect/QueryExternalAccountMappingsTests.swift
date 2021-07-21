@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_QueryExternalAccountMappings = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Connect_QueryExternalAccountMappings")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_QUERYEXTERNALACCOUNTMAPPINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -22,7 +23,6 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_QueryExternalAccountMappings")
             }
             defer { __on_EOS_Connect_QueryExternalAccountMappings = nil }
             
@@ -42,8 +42,8 @@ public class SwiftEOS_Connect_QueryExternalAccountMappingsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryExternalAccountMappings"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryExternalAccountMappings"])
         }
         
         // Then

@@ -10,6 +10,7 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_AddNotifyOnPresenceChanged = { Handle, Options, ClientData, NotificationHandler in
+                GTest.current.sdkReceived.append("EOS_Presence_AddNotifyOnPresenceChanged")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_ADDNOTIFYONPRESENCECHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -18,7 +19,6 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
                             LocalUserId: nil,
                             PresenceUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Presence_AddNotifyOnPresenceChanged")
                 return .zero
             }
             defer { __on_EOS_Presence_AddNotifyOnPresenceChanged = nil }
@@ -35,14 +35,14 @@ public class SwiftEOS_Presence_AddNotifyOnPresenceChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_AddNotifyOnPresenceChanged"])
                 wait(for: [waitForNotificationHandler], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_AddNotifyOnPresenceChanged"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Presence_RemoveNotifyOnPresenceChanged = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_Presence_RemoveNotifyOnPresenceChanged")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_Presence_RemoveNotifyOnPresenceChanged")
                 }
             }
         }

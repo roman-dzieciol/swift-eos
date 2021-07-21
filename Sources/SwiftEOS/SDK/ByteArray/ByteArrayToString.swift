@@ -15,14 +15,13 @@ public func SwiftEOS_ByteArray_ToString(
     ByteArray: [UInt8]?
 ) throws -> String {
     try withPointerManager { pointerManager in
-        try throwingNilResult { 
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray, Length in
-                    try throwingSdkResult { 
-                        EOS_ByteArray_ToString(
-                            ByteArray,
-                            Length,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } } }
+        try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+            try withTrivialPointersFromOptionalTrivialArray(ByteArray, managedBy: pointerManager) { ByteArray, Length in
+                try throwingSdkResult { 
+                    EOS_ByteArray_ToString(
+                        ByteArray,
+                        Length,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } } }
 }

@@ -9,10 +9,10 @@ public class SwiftEOS_Connect_GetProductUserExternalAccountCountTests: XCTestCas
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetProductUserExternalAccountCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Connect_GetProductUserExternalAccountCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_GETPRODUCTUSEREXTERNALACCOUNTCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_Connect_GetProductUserExternalAccountCount")
                 return .zero
             }
             defer { __on_EOS_Connect_GetProductUserExternalAccountCount = nil }

@@ -10,6 +10,7 @@ public class SwiftEOS_UI_ShowFriendsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_ShowFriends = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_UI_ShowFriends")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_SHOWFRIENDS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -19,7 +20,6 @@ public class SwiftEOS_UI_ShowFriendsTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_UI_ShowFriends")
             }
             defer { __on_EOS_UI_ShowFriends = nil }
             
@@ -37,8 +37,8 @@ public class SwiftEOS_UI_ShowFriendsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_ShowFriends"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_ShowFriends"])
         }
         
         // Then

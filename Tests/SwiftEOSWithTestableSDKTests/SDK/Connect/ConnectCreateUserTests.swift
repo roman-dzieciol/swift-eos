@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_CreateUser = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Connect_CreateUser")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_CREATEUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.ContinuanceToken)
@@ -19,7 +20,6 @@ public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_CreateUser")
             }
             defer { __on_EOS_Connect_CreateUser = nil }
             
@@ -37,8 +37,8 @@ public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CreateUser"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_CreateUser"])
         }
         
         // Then

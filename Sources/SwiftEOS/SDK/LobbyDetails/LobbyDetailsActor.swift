@@ -189,10 +189,10 @@ extension SwiftEOS_LobbyDetails_Actor {
     ) throws -> SwiftEOS_Lobby_Attribute {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAttribute in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_LobbyDetails_CopyAttributeByIndex(
                                     Handle,
@@ -220,10 +220,10 @@ extension SwiftEOS_LobbyDetails_Actor {
     ) throws -> SwiftEOS_Lobby_Attribute {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAttribute in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_LobbyDetails_CopyAttributeByKey(
                                     Handle,
@@ -248,10 +248,10 @@ extension SwiftEOS_LobbyDetails_Actor {
     private func ____CopyInfo() throws -> SwiftEOS_LobbyDetails_Info {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutLobbyDetailsInfo in
-                        try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_CopyInfoOptions(), managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_CopyInfoOptions(), managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_LobbyDetails_CopyInfo(
                                     Handle,
@@ -279,10 +279,10 @@ extension SwiftEOS_LobbyDetails_Actor {
     ) throws -> SwiftEOS_Lobby_Attribute {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAttribute in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_LobbyDetails_CopyMemberAttributeByIndex(
                                     Handle,
@@ -310,10 +310,10 @@ extension SwiftEOS_LobbyDetails_Actor {
     ) throws -> SwiftEOS_Lobby_Attribute {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAttribute in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_LobbyDetails_CopyMemberAttributeByKey(
                                     Handle,
@@ -333,7 +333,7 @@ extension SwiftEOS_LobbyDetails_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetAttributeCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetAttributeCountOptions(), managedBy: pointerManager) { Options in
                         EOS_LobbyDetails_GetAttributeCount(
                             Handle,
                             Options
@@ -350,7 +350,7 @@ extension SwiftEOS_LobbyDetails_Actor {
     */
     private func ____GetLobbyOwner() throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
-            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetLobbyOwnerOptions(), managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetLobbyOwnerOptions(), managedBy: pointerManager) { Options in
                 EOS_LobbyDetails_GetLobbyOwner(
                     Handle,
                     Options
@@ -371,7 +371,7 @@ extension SwiftEOS_LobbyDetails_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_LobbyDetails_GetMemberAttributeCount(
                             Handle,
                             Options
@@ -393,7 +393,7 @@ extension SwiftEOS_LobbyDetails_Actor {
         _ Options: SwiftEOS_LobbyDetails_GetMemberByIndexOptions
     ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_LobbyDetails_GetMemberByIndex(
                     Handle,
                     Options
@@ -409,7 +409,7 @@ extension SwiftEOS_LobbyDetails_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetMemberCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_LobbyDetails_GetMemberCountOptions(), managedBy: pointerManager) { Options in
                         EOS_LobbyDetails_GetMemberCount(
                             Handle,
                             Options

@@ -10,6 +10,7 @@ public class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_LeaveRoom = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTC_LeaveRoom")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_LEAVEROOM_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
                             LocalUserId: nil,
                             RoomName: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_RTC_LeaveRoom")
             }
             defer { __on_EOS_RTC_LeaveRoom = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_LeaveRoom"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_LeaveRoom"])
         }
         
         // Then

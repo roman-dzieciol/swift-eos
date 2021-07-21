@@ -9,12 +9,12 @@ public class SwiftEOS_RTCAudio_SendAudioTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_SendAudio = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_RTCAudio_SendAudio")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_SENDAUDIO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.RoomName)
                 XCTAssertNil(Options!.pointee.Buffer)
-                GTest.current.sdkReceived.append("EOS_RTCAudio_SendAudio")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_SendAudio = nil }

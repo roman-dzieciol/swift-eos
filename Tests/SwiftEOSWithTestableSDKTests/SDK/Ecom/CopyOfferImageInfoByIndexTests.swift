@@ -9,13 +9,13 @@ public class SwiftEOS_Ecom_CopyOfferImageInfoByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyOfferImageInfoByIndex = { Handle, Options, OutImageInfo in
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyOfferImageInfoByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYOFFERIMAGEINFOBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
                 XCTAssertEqual(Options!.pointee.ImageInfoIndex, .zero)
                 XCTAssertNotNil(OutImageInfo)
-                GTest.current.sdkReceived.append("EOS_Ecom_CopyOfferImageInfoByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyOfferImageInfoByIndex = nil }

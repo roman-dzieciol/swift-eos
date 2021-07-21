@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_DeleteDeviceId = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Connect_DeleteDeviceId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_DELETEDEVICEID_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -17,7 +18,6 @@ public class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_DeleteDeviceId")
             }
             defer { __on_EOS_Connect_DeleteDeviceId = nil }
             
@@ -31,8 +31,8 @@ public class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
                 })
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_DeleteDeviceId"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_DeleteDeviceId"])
         }
         
         // Then

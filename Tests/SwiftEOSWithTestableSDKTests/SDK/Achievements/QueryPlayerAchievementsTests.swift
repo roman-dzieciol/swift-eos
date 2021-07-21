@@ -10,6 +10,7 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Achievements_QueryPlayerAchievements = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Achievements_QueryPlayerAchievements")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_QUERYPLAYERACHIEVEMENTS_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -20,7 +21,6 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
                             ClientData: ClientData,
                             UserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Achievements_QueryPlayerAchievements")
             }
             defer { __on_EOS_Achievements_QueryPlayerAchievements = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_Achievements_QueryPlayerAchievementsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_QueryPlayerAchievements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Achievements_QueryPlayerAchievements"])
         }
         
         // Then

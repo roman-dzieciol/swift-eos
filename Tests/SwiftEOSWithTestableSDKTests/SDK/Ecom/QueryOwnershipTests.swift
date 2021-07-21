@@ -10,6 +10,7 @@ public class SwiftEOS_Ecom_QueryOwnershipTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_QueryOwnership = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Ecom_QueryOwnership")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_QUERYOWNERSHIP_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -24,7 +25,6 @@ public class SwiftEOS_Ecom_QueryOwnershipTests: XCTestCase {
                             ItemOwnership: nil,
                             ItemOwnershipCount: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_Ecom_QueryOwnership")
             }
             defer { __on_EOS_Ecom_QueryOwnership = nil }
             
@@ -45,8 +45,8 @@ public class SwiftEOS_Ecom_QueryOwnershipTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOwnership"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOwnership"])
         }
         
         // Then

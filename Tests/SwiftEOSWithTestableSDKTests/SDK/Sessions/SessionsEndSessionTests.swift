@@ -10,6 +10,7 @@ public class SwiftEOS_Sessions_EndSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_EndSession = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sessions_EndSession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ENDSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
@@ -18,7 +19,6 @@ public class SwiftEOS_Sessions_EndSessionTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Sessions_EndSession")
             }
             defer { __on_EOS_Sessions_EndSession = nil }
             
@@ -35,8 +35,8 @@ public class SwiftEOS_Sessions_EndSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_EndSession"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_EndSession"])
         }
         
         // Then

@@ -9,17 +9,17 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFilenameTests: XCT
             
             // Given implementation for SDK release function
             __on_EOS_PlayerDataStorageFileTransferRequest_Release = { PlayerDataStorageFileTransferHandle in
-                XCTAssertNil(PlayerDataStorageFileTransferHandle)
                 GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_Release")
+                XCTAssertNil(PlayerDataStorageFileTransferHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorageFileTransferRequest_GetFilename = { Handle, FilenameStringBufferSizeBytes, OutStringBuffer, OutStringLength in
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_GetFilename")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(FilenameStringBufferSizeBytes, .zero)
-                XCTAssertNotNil(OutStringBuffer)
+                XCTAssertNil(OutStringBuffer)
                 XCTAssertNotNil(OutStringLength)
-                GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_GetFilename")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorageFileTransferRequest_GetFilename = nil }

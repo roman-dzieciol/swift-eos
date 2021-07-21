@@ -71,10 +71,10 @@ extension SwiftEOS_ActiveSession_Actor {
     private func ____CopyInfo() throws -> SwiftEOS_ActiveSession_Info {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutActiveSessionInfo in
-                        try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_CopyInfoOptions(), managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_CopyInfoOptions(), managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_ActiveSession_CopyInfo(
                                     Handle,
@@ -97,7 +97,7 @@ extension SwiftEOS_ActiveSession_Actor {
         _ Options: SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexOptions
     ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_ActiveSession_GetRegisteredPlayerByIndex(
                     Handle,
                     Options
@@ -113,7 +113,7 @@ extension SwiftEOS_ActiveSession_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_GetRegisteredPlayerCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_ActiveSession_GetRegisteredPlayerCountOptions(), managedBy: pointerManager) { Options in
                         EOS_ActiveSession_GetRegisteredPlayerCount(
                             Handle,
                             Options

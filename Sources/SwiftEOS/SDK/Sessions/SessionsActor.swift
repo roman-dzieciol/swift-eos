@@ -512,7 +512,7 @@ extension SwiftEOS_Sessions_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifyJoinSessionAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Sessions_AddNotifyJoinSessionAccepted(
                             Handle,
                             Options,
@@ -543,7 +543,7 @@ extension SwiftEOS_Sessions_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifySessionInviteAcceptedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifySessionInviteAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Sessions_AddNotifySessionInviteAccepted(
                             Handle,
                             Options,
@@ -574,7 +574,7 @@ extension SwiftEOS_Sessions_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifySessionInviteReceivedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Sessions_AddNotifySessionInviteReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Sessions_AddNotifySessionInviteReceived(
                             Handle,
                             Options,
@@ -607,8 +607,8 @@ extension SwiftEOS_Sessions_Actor {
     ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Sessions_CopySessionHandleByInviteId(
                                 Handle,
@@ -634,8 +634,8 @@ extension SwiftEOS_Sessions_Actor {
     ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Sessions_CopySessionHandleByUiEventId(
                                 Handle,
@@ -661,8 +661,8 @@ extension SwiftEOS_Sessions_Actor {
     ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Sessions_CopySessionHandleForPresence(
                                 Handle,
@@ -686,8 +686,8 @@ extension SwiftEOS_Sessions_Actor {
     ) throws -> EOS_HSessionModification {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionModificationHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Sessions_CreateSessionModification(
                                 Handle,
@@ -712,8 +712,8 @@ extension SwiftEOS_Sessions_Actor {
     ) throws -> EOS_HSessionSearch {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionSearchHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionSearchHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Sessions_CreateSessionSearch(
                                 Handle,
@@ -738,7 +738,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_DestroySession(
                         Handle,
                         Options,
@@ -759,7 +759,7 @@ extension SwiftEOS_Sessions_Actor {
         _ Options: SwiftEOS_Sessions_DumpSessionStateOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_Sessions_DumpSessionState(
                         Handle,
@@ -783,7 +783,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_EndSession(
                         Handle,
                         Options,
@@ -805,7 +805,7 @@ extension SwiftEOS_Sessions_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Sessions_GetInviteCount(
                             Handle,
                             Options
@@ -829,16 +829,15 @@ extension SwiftEOS_Sessions_Actor {
         _ Options: SwiftEOS_Sessions_GetInviteIdByIndexOptions
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Sessions_GetInviteIdByIndex(
-                                Handle,
-                                Options,
-                                OutBuffer,
-                                InOutBufferLength
-                            ) } } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_Sessions_GetInviteIdByIndex(
+                            Handle,
+                            Options,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -855,7 +854,7 @@ extension SwiftEOS_Sessions_Actor {
         _ Options: SwiftEOS_Sessions_IsUserInSessionOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_Sessions_IsUserInSession(
                         Handle,
@@ -878,7 +877,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_JoinSession(
                         Handle,
                         Options,
@@ -900,7 +899,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_QueryInvites(
                         Handle,
                         Options,
@@ -927,7 +926,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_RegisterPlayers(
                         Handle,
                         Options,
@@ -952,7 +951,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_RejectInvite(
                         Handle,
                         Options,
@@ -977,7 +976,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_SendInvite(
                         Handle,
                         Options,
@@ -1003,7 +1002,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_StartSession(
                         Handle,
                         Options,
@@ -1030,7 +1029,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_UnregisterPlayers(
                         Handle,
                         Options,
@@ -1056,7 +1055,7 @@ extension SwiftEOS_Sessions_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Sessions_UpdateSession(
                         Handle,
                         Options,
@@ -1081,8 +1080,8 @@ extension SwiftEOS_Sessions_Actor {
     ) throws -> EOS_HSessionModification {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionModificationHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionModificationHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Sessions_UpdateSessionModification(
                                 Handle,

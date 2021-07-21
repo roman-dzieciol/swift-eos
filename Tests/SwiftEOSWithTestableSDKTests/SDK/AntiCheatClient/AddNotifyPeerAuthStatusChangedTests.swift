@@ -10,6 +10,7 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedTests: XCTes
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_ADDNOTIFYPEERAUTHSTATUSCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -18,7 +19,6 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedTests: XCTes
                             ClientHandle: nil,
                             ClientAuthStatus: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged = nil }
@@ -35,14 +35,14 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedTests: XCTes
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatClient_RemoveNotifyPeerAuthStatusChanged = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_AntiCheatClient_RemoveNotifyPeerAuthStatusChanged")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_AntiCheatClient_RemoveNotifyPeerAuthStatusChanged")
                 }
             }
         }

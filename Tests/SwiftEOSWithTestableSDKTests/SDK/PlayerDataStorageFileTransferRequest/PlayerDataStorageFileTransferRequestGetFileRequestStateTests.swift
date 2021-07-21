@@ -9,14 +9,14 @@ public class SwiftEOS_PlayerDataStorageFileTransferRequest_GetFileRequestStateTe
             
             // Given implementation for SDK release function
             __on_EOS_PlayerDataStorageFileTransferRequest_Release = { PlayerDataStorageFileTransferHandle in
-                XCTAssertNil(PlayerDataStorageFileTransferHandle)
                 GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_Release")
+                XCTAssertNil(PlayerDataStorageFileTransferHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState")
+                XCTAssertNil(Handle)
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState = nil }

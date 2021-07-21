@@ -10,6 +10,7 @@ public class SwiftEOS_Lobby_LeaveLobbyTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_LeaveLobby = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Lobby_LeaveLobby")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_LEAVELOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -20,7 +21,6 @@ public class SwiftEOS_Lobby_LeaveLobbyTests: XCTestCase {
                             ClientData: ClientData,
                             LobbyId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Lobby_LeaveLobby")
             }
             defer { __on_EOS_Lobby_LeaveLobby = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_Lobby_LeaveLobbyTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_LeaveLobby"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_LeaveLobby"])
         }
         
         // Then

@@ -9,14 +9,14 @@ public class SwiftEOS_Platform_GetUserInfoInterfaceTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetUserInfoInterface = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_GetUserInfoInterface")
+                XCTAssertNil(Handle)
                 return nil
             }
             defer { __on_EOS_Platform_GetUserInfoInterface = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Platform_GetUserInfoInterfaceTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_UserInfo_Actor? = object.GetUserInfoInterface()
+            let result: SwiftEOS_UserInfo_Actor = object.GetUserInfoInterface()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetUserInfoInterface"])
-            XCTAssertNil(result)
+            XCTAssertNil(result.Handle)
         }
         
         // Then

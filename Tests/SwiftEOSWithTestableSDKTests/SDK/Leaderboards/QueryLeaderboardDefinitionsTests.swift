@@ -10,6 +10,7 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_QueryLeaderboardDefinitions = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Leaderboards_QueryLeaderboardDefinitions")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_QUERYLEADERBOARDDEFINITIONS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.StartTime, .zero)
@@ -20,7 +21,6 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Leaderboards_QueryLeaderboardDefinitions")
             }
             defer { __on_EOS_Leaderboards_QueryLeaderboardDefinitions = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_Leaderboards_QueryLeaderboardDefinitionsTests: XCTestCase 
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardDefinitions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Leaderboards_QueryLeaderboardDefinitions"])
         }
         
         // Then

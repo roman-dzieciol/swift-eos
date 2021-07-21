@@ -9,8 +9,8 @@ public class SwiftEOS_ProductUserId_FromStringTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_ProductUserId_FromString = { ProductUserIdString in
-                XCTAssertNil(ProductUserIdString)
                 GTest.current.sdkReceived.append("EOS_ProductUserId_FromString")
+                XCTAssertNil(ProductUserIdString)
                 return nil
             }
             defer { __on_EOS_ProductUserId_FromString = nil }

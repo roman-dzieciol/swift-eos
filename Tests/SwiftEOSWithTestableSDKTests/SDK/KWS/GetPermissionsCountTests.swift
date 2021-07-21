@@ -9,10 +9,10 @@ public class SwiftEOS_KWS_GetPermissionsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_GetPermissionsCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_KWS_GetPermissionsCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_GETPERMISSIONSCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                GTest.current.sdkReceived.append("EOS_KWS_GetPermissionsCount")
                 return .zero
             }
             defer { __on_EOS_KWS_GetPermissionsCount = nil }

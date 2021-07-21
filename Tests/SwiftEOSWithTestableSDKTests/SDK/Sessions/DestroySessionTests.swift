@@ -10,6 +10,7 @@ public class SwiftEOS_Sessions_DestroySessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_DestroySession = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sessions_DestroySession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_DESTROYSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
@@ -18,7 +19,6 @@ public class SwiftEOS_Sessions_DestroySessionTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Sessions_DestroySession")
             }
             defer { __on_EOS_Sessions_DestroySession = nil }
             
@@ -35,8 +35,8 @@ public class SwiftEOS_Sessions_DestroySessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_DestroySession"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_DestroySession"])
         }
         
         // Then

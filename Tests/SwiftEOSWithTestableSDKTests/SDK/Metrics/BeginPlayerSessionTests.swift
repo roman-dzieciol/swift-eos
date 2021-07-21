@@ -9,6 +9,7 @@ public class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Metrics_BeginPlayerSession = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Metrics_BeginPlayerSession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_METRICS_BEGINPLAYERSESSION_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
@@ -18,7 +19,6 @@ public class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ControllerType, .zero)
                 XCTAssertNil(Options!.pointee.ServerIp)
                 XCTAssertNil(Options!.pointee.GameSessionId)
-                GTest.current.sdkReceived.append("EOS_Metrics_BeginPlayerSession")
                 return .zero
             }
             defer { __on_EOS_Metrics_BeginPlayerSession = nil }

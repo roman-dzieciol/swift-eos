@@ -9,10 +9,10 @@ public class SwiftEOS_AntiCheatServer_UnregisterClientTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_UnregisterClient = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_UNREGISTERCLIENT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ClientHandle)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_UnregisterClient")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_UnregisterClient = nil }

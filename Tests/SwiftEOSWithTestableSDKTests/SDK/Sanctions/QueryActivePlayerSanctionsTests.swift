@@ -10,6 +10,7 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sanctions_QueryActivePlayerSanctions = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SANCTIONS_QUERYACTIVEPLAYERSANCTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
                             TargetUserId: nil,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Sanctions_QueryActivePlayerSanctions")
             }
             defer { __on_EOS_Sanctions_QueryActivePlayerSanctions = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sanctions_QueryActivePlayerSanctions"])
         }
         
         // Then

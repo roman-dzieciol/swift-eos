@@ -18,12 +18,11 @@ public func SwiftEOS_ProductUserId_ToString(
     AccountId: EOS_ProductUserId?
 ) throws -> String {
     try withPointerManager { pointerManager in
-        try throwingNilResult { 
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_ProductUserId_ToString(
-                        AccountId,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } } }
+        try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+            try throwingSdkResult { 
+                EOS_ProductUserId_ToString(
+                    AccountId,
+                    OutBuffer,
+                    InOutBufferLength
+                ) } } }
 }

@@ -9,11 +9,11 @@ public class SwiftEOS_Ecom_GetOfferImageInfoCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_GetOfferImageInfoCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Ecom_GetOfferImageInfoCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETOFFERIMAGEINFOCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.OfferId)
-                GTest.current.sdkReceived.append("EOS_Ecom_GetOfferImageInfoCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_GetOfferImageInfoCount = nil }

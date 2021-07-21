@@ -10,6 +10,7 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_AddNotifyIncomingPacketQueueFull = { Handle, Options, ClientData, IncomingPacketQueueFullHandler in
+                GTest.current.sdkReceived.append("EOS_P2P_AddNotifyIncomingPacketQueueFull")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ADDNOTIFYINCOMINGPACKETQUEUEFULL_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -21,7 +22,6 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
                             OverflowPacketChannel: .zero,
                             OverflowPacketSizeBytes: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_P2P_AddNotifyIncomingPacketQueueFull")
                 return .zero
             }
             defer { __on_EOS_P2P_AddNotifyIncomingPacketQueueFull = nil }
@@ -41,14 +41,14 @@ public class SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyIncomingPacketQueueFull"])
                 wait(for: [waitForIncomingPacketQueueFullHandler], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyIncomingPacketQueueFull"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_P2P_RemoveNotifyIncomingPacketQueueFull = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_P2P_RemoveNotifyIncomingPacketQueueFull")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_P2P_RemoveNotifyIncomingPacketQueueFull")
                 }
             }
         }

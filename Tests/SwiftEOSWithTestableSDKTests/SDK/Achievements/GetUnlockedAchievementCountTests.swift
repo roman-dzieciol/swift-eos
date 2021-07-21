@@ -9,10 +9,10 @@ public class SwiftEOS_Achievements_GetUnlockedAchievementCountTests: XCTestCase 
             
             // Given implementation for SDK function
             __on_EOS_Achievements_GetUnlockedAchievementCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Achievements_GetUnlockedAchievementCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_GETUNLOCKEDACHIEVEMENTCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
-                GTest.current.sdkReceived.append("EOS_Achievements_GetUnlockedAchievementCount")
                 return .zero
             }
             defer { __on_EOS_Achievements_GetUnlockedAchievementCount = nil }

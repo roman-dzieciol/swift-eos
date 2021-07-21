@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_LoginTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_Login = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Connect_Login")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_LOGIN_API_LATEST)
                 XCTAssertNil(Options!.pointee.Credentials)
@@ -21,7 +22,6 @@ public class SwiftEOS_Connect_LoginTests: XCTestCase {
                             LocalUserId: nil,
                             ContinuanceToken: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_Login")
             }
             defer { __on_EOS_Connect_Login = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Connect_LoginTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_Login"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_Login"])
         }
         
         // Then

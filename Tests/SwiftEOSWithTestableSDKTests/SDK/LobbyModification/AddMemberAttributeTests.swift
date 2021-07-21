@@ -9,17 +9,17 @@ public class SwiftEOS_LobbyModification_AddMemberAttributeTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyModification_Release = { LobbyModificationHandle in
-                XCTAssertNil(LobbyModificationHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyModification_Release")
+                XCTAssertNil(LobbyModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyModification_AddMemberAttribute = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbyModification_AddMemberAttribute")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_ADDMEMBERATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Attribute)
                 XCTAssertEqual(Options!.pointee.Visibility, .zero)
-                GTest.current.sdkReceived.append("EOS_LobbyModification_AddMemberAttribute")
                 return .zero
             }
             defer { __on_EOS_LobbyModification_AddMemberAttribute = nil }

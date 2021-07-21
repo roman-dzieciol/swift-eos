@@ -161,8 +161,8 @@ extension SwiftEOS_SessionSearch_Actor {
     ) throws -> EOS_HSessionDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutSessionHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutSessionHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_SessionSearch_CopySearchResultByIndex(
                                 Handle,
@@ -187,7 +187,7 @@ extension SwiftEOS_SessionSearch_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_SessionSearch_Find(
                         Handle,
                         Options,
@@ -206,7 +206,7 @@ extension SwiftEOS_SessionSearch_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_SessionSearch_GetSearchResultCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_SessionSearch_GetSearchResultCountOptions(), managedBy: pointerManager) { Options in
                         EOS_SessionSearch_GetSearchResultCount(
                             Handle,
                             Options
@@ -228,7 +228,7 @@ extension SwiftEOS_SessionSearch_Actor {
         _ Options: SwiftEOS_SessionSearch_RemoveParameterOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionSearch_RemoveParameter(
                         Handle,
@@ -247,7 +247,7 @@ extension SwiftEOS_SessionSearch_Actor {
         _ Options: SwiftEOS_SessionSearch_SetMaxResultsOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionSearch_SetMaxResults(
                         Handle,
@@ -268,7 +268,7 @@ extension SwiftEOS_SessionSearch_Actor {
         _ Options: SwiftEOS_SessionSearch_SetParameterOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionSearch_SetParameter(
                         Handle,
@@ -287,7 +287,7 @@ extension SwiftEOS_SessionSearch_Actor {
         _ Options: SwiftEOS_SessionSearch_SetSessionIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionSearch_SetSessionId(
                         Handle,
@@ -307,7 +307,7 @@ extension SwiftEOS_SessionSearch_Actor {
         _ Options: SwiftEOS_SessionSearch_SetTargetUserIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionSearch_SetTargetUserId(
                         Handle,

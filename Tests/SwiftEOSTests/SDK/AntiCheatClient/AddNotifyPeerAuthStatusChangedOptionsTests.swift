@@ -5,8 +5,8 @@ import EOSSDK
 public class SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_ANTICHEATCLIENT_ADDNOTIFYPEERAUTHSTATUSCHANGED_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatClient_AddNotifyPeerAuthStatusChangedOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_ANTICHEATCLIENT_ADDNOTIFYPEERAUTHSTATUSCHANGED_API_LATEST) }
+            XCTAssertEqual(swiftObject.ApiVersion, .zero) }
     }
 }

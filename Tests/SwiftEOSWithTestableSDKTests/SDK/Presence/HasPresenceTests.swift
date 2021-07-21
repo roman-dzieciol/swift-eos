@@ -9,11 +9,11 @@ public class SwiftEOS_Presence_HasPresenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_HasPresence = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Presence_HasPresence")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_HASPRESENCE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_Presence_HasPresence")
                 return .zero
             }
             defer { __on_EOS_Presence_HasPresence = nil }

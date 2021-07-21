@@ -179,7 +179,7 @@ extension SwiftEOS_Friends_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Friends_AcceptInvite(
                         Handle,
                         Options,
@@ -203,7 +203,7 @@ extension SwiftEOS_Friends_Actor {
                 notification: FriendsUpdateHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Friends_AddNotifyFriendsUpdateOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Friends_AddNotifyFriendsUpdateOptions(), managedBy: pointerManager) { Options in
                         EOS_Friends_AddNotifyFriendsUpdate(
                             Handle,
                             Options,
@@ -233,7 +233,7 @@ extension SwiftEOS_Friends_Actor {
         _ Options: SwiftEOS_Friends_GetFriendAtIndexOptions
     ) throws -> EOS_EpicAccountId? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_Friends_GetFriendAtIndex(
                     Handle,
                     Options
@@ -253,7 +253,7 @@ extension SwiftEOS_Friends_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Friends_GetFriendsCount(
                             Handle,
                             Options
@@ -278,7 +278,7 @@ extension SwiftEOS_Friends_Actor {
         _ Options: SwiftEOS_Friends_GetStatusOptions
     ) throws -> EOS_EFriendsStatus {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_Friends_GetStatus(
                     Handle,
                     Options
@@ -298,7 +298,7 @@ extension SwiftEOS_Friends_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Friends_QueryFriends(
                         Handle,
                         Options,
@@ -320,7 +320,7 @@ extension SwiftEOS_Friends_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Friends_RejectInvite(
                         Handle,
                         Options,
@@ -343,7 +343,7 @@ extension SwiftEOS_Friends_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Friends_SendInvite(
                         Handle,
                         Options,

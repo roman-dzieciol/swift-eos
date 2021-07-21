@@ -9,16 +9,16 @@ public class SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexTests: XCTestCase 
             
             // Given implementation for SDK release function
             __on_EOS_ActiveSession_Release = { ActiveSessionHandle in
-                XCTAssertNil(ActiveSessionHandle)
                 GTest.current.sdkReceived.append("EOS_ActiveSession_Release")
+                XCTAssertNil(ActiveSessionHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_ActiveSession_GetRegisteredPlayerByIndex = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACTIVESESSION_GETREGISTEREDPLAYERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PlayerIndex, .zero)
-                GTest.current.sdkReceived.append("EOS_ActiveSession_GetRegisteredPlayerByIndex")
                 return nil
             }
             defer { __on_EOS_ActiveSession_GetRegisteredPlayerByIndex = nil }

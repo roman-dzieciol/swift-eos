@@ -83,20 +83,19 @@ extension SwiftEOS_TitleStorageFileTransferRequest_Actor {
         _ FilenameStringBufferSizeBytes: Int
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutStringBuffer, OutStringLength in
-                    try withTransformed(
-                        value: FilenameStringBufferSizeBytes,
-                        transform: { FilenameStringBufferSizeBytes in
-                            try safeNumericCast(exactly: FilenameStringBufferSizeBytes) },
-                        nested: { FilenameStringBufferSizeBytes in
-                            try throwingSdkResult { 
-                                EOS_TitleStorageFileTransferRequest_GetFilename(
-                                    Handle,
-                                    FilenameStringBufferSizeBytes,
-                                    OutStringBuffer,
-                                    OutStringLength
-                                ) } }
-                    ) } } }
+            try withCCharPointerPointersReturnedAsString { OutStringBuffer, OutStringLength in
+                try withTransformed(
+                    value: FilenameStringBufferSizeBytes,
+                    transform: { FilenameStringBufferSizeBytes in
+                        try safeNumericCast(exactly: FilenameStringBufferSizeBytes) },
+                    nested: { FilenameStringBufferSizeBytes in
+                        try throwingSdkResult { 
+                            EOS_TitleStorageFileTransferRequest_GetFilename(
+                                Handle,
+                                FilenameStringBufferSizeBytes,
+                                OutStringBuffer,
+                                OutStringLength
+                            ) } }
+                ) } }
     }
 }

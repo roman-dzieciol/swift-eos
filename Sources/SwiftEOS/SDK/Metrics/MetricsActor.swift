@@ -86,7 +86,7 @@ extension SwiftEOS_Metrics_Actor {
         _ Options: SwiftEOS_Metrics_BeginPlayerSessionOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_Metrics_BeginPlayerSession(
                         Handle,
@@ -106,7 +106,7 @@ extension SwiftEOS_Metrics_Actor {
         _ Options: SwiftEOS_Metrics_EndPlayerSessionOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_Metrics_EndPlayerSession(
                         Handle,

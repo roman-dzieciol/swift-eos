@@ -10,6 +10,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyMessageToClientTests: XCTestCase 
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_AddNotifyMessageToClient = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyMessageToClient")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_ADDNOTIFYMESSAGETOCLIENT_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -19,7 +20,6 @@ public class SwiftEOS_AntiCheatServer_AddNotifyMessageToClientTests: XCTestCase 
                             MessageData: nil,
                             MessageDataSizeBytes: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyMessageToClient")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_AddNotifyMessageToClient = nil }
@@ -36,14 +36,14 @@ public class SwiftEOS_AntiCheatServer_AddNotifyMessageToClientTests: XCTestCase 
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_AddNotifyMessageToClient"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_AddNotifyMessageToClient"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatServer_RemoveNotifyMessageToClient = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyMessageToClient")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyMessageToClient")
                 }
             }
         }

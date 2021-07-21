@@ -9,10 +9,10 @@ public class SwiftEOS_AntiCheatServer_LogPlayerDespawnTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerDespawn = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerDespawn")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERDESPAWN_API_LATEST)
                 XCTAssertNil(Options!.pointee.DespawnedPlayerHandle)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerDespawn")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerDespawn = nil }

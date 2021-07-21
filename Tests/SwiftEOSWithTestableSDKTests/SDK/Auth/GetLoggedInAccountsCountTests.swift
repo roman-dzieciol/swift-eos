@@ -9,8 +9,8 @@ public class SwiftEOS_Auth_GetLoggedInAccountsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_GetLoggedInAccountsCount = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountsCount")
+                XCTAssertNil(Handle)
                 return .zero
             }
             defer { __on_EOS_Auth_GetLoggedInAccountsCount = nil }

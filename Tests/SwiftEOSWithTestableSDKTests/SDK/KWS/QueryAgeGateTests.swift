@@ -10,6 +10,7 @@ public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_QueryAgeGate = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_KWS_QueryAgeGate")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_QUERYAGEGATE_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -19,7 +20,6 @@ public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
                             CountryCode: nil,
                             AgeOfConsent: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_KWS_QueryAgeGate")
             }
             defer { __on_EOS_KWS_QueryAgeGate = nil }
             
@@ -35,8 +35,8 @@ public class SwiftEOS_KWS_QueryAgeGateTests: XCTestCase {
                 })
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_QueryAgeGate"])
         }
         
         // Then

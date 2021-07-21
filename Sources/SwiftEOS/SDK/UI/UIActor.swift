@@ -188,7 +188,7 @@ extension SwiftEOS_UI_Actor {
         _ Options: SwiftEOS_UI_AcknowledgeEventIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_UI_AcknowledgeEventId(
                         Handle,
@@ -212,7 +212,7 @@ extension SwiftEOS_UI_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedOptions(), managedBy: pointerManager) { Options in
                         EOS_UI_AddNotifyDisplaySettingsUpdated(
                             Handle,
                             Options,
@@ -240,7 +240,7 @@ extension SwiftEOS_UI_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_UI_GetFriendsVisible(
                             Handle,
                             Options
@@ -269,7 +269,7 @@ extension SwiftEOS_UI_Actor {
     */
     private func ____GetToggleFriendsKey() throws -> EOS_UI_EKeyCombination {
         try withPointerManager { pointerManager in
-            try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_UI_GetToggleFriendsKeyOptions(), managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_UI_GetToggleFriendsKeyOptions(), managedBy: pointerManager) { Options in
                 EOS_UI_GetToggleFriendsKey(
                     Handle,
                     Options
@@ -292,7 +292,7 @@ extension SwiftEOS_UI_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_UI_HideFriends(
                         Handle,
                         Options,
@@ -337,7 +337,7 @@ extension SwiftEOS_UI_Actor {
         _ Options: SwiftEOS_UI_SetDisplayPreferenceOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_UI_SetDisplayPreference(
                         Handle,
@@ -361,7 +361,7 @@ extension SwiftEOS_UI_Actor {
         _ Options: SwiftEOS_UI_SetToggleFriendsKeyOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_UI_SetToggleFriendsKey(
                         Handle,
@@ -385,7 +385,7 @@ extension SwiftEOS_UI_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_UI_ShowFriends(
                         Handle,
                         Options,

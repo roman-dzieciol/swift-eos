@@ -9,11 +9,11 @@ public class SwiftEOS_Sessions_IsUserInSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_IsUserInSession = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Sessions_IsUserInSession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_ISUSERINSESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_Sessions_IsUserInSession")
                 return .zero
             }
             defer { __on_EOS_Sessions_IsUserInSession = nil }

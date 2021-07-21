@@ -9,16 +9,16 @@ public class SwiftEOS_LobbySearch_SetMaxResultsTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
-                XCTAssertNil(LobbySearchHandle)
                 GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
+                XCTAssertNil(LobbySearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_SetMaxResults = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbySearch_SetMaxResults")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_SETMAXRESULTS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxResults, .zero)
-                GTest.current.sdkReceived.append("EOS_LobbySearch_SetMaxResults")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_SetMaxResults = nil }

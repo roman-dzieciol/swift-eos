@@ -9,9 +9,9 @@ public class SwiftEOS_Auth_GetLoginStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_GetLoginStatus = { Handle, LocalUserId in
+                GTest.current.sdkReceived.append("EOS_Auth_GetLoginStatus")
                 XCTAssertNil(Handle)
                 XCTAssertNil(LocalUserId)
-                GTest.current.sdkReceived.append("EOS_Auth_GetLoginStatus")
                 return .zero
             }
             defer { __on_EOS_Auth_GetLoginStatus = nil }

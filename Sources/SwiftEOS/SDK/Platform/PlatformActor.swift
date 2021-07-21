@@ -35,7 +35,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_achievements`.h
     - SeeAlso: `eos_achievements_types`.h
     */
-    public func GetAchievementsInterface() -> SwiftEOS_Achievements_Actor? {
+    public func GetAchievementsInterface() -> SwiftEOS_Achievements_Actor {
         ____GetAchievementsInterface()
     }
 
@@ -87,7 +87,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_anticheatclient`.h
     - SeeAlso: `eos_anticheatclient_types`.h
     */
-    public func GetAntiCheatClientInterface() -> SwiftEOS_AntiCheatClient_Actor? {
+    public func GetAntiCheatClientInterface() -> SwiftEOS_AntiCheatClient_Actor {
         ____GetAntiCheatClientInterface()
     }
 
@@ -98,7 +98,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_anticheatserver`.h
     - SeeAlso: `eos_anticheatserver_types`.h
     */
-    public func GetAntiCheatServerInterface() -> SwiftEOS_AntiCheatServer_Actor? {
+    public func GetAntiCheatServerInterface() -> SwiftEOS_AntiCheatServer_Actor {
         ____GetAntiCheatServerInterface()
     }
 
@@ -109,7 +109,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_auth`.h
     - SeeAlso: `eos_auth_types`.h
     */
-    public func GetAuthInterface() -> SwiftEOS_Auth_Actor? {
+    public func GetAuthInterface() -> SwiftEOS_Auth_Actor {
         ____GetAuthInterface()
     }
 
@@ -120,7 +120,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_connect`.h
     - SeeAlso: `eos_connect_types`.h
     */
-    public func GetConnectInterface() -> SwiftEOS_Connect_Actor? {
+    public func GetConnectInterface() -> SwiftEOS_Connect_Actor {
         ____GetConnectInterface()
     }
 
@@ -131,7 +131,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_ecom`.h
     - SeeAlso: `eos_ecom_types`.h
     */
-    public func GetEcomInterface() -> SwiftEOS_Ecom_Actor? {
+    public func GetEcomInterface() -> SwiftEOS_Ecom_Actor {
         ____GetEcomInterface()
     }
 
@@ -142,7 +142,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_friends`.h
     - SeeAlso: `eos_friends_types`.h
     */
-    public func GetFriendsInterface() -> SwiftEOS_Friends_Actor? {
+    public func GetFriendsInterface() -> SwiftEOS_Friends_Actor {
         ____GetFriendsInterface()
     }
 
@@ -153,7 +153,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_kws`.h
     - SeeAlso: `eos_kws_types`.h
     */
-    public func GetKWSInterface() -> SwiftEOS_KWS_Actor? {
+    public func GetKWSInterface() -> SwiftEOS_KWS_Actor {
         ____GetKWSInterface()
     }
 
@@ -164,7 +164,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_leaderboards`.h
     - SeeAlso: `eos_leaderboards_types`.h
     */
-    public func GetLeaderboardsInterface() -> SwiftEOS_Leaderboards_Actor? {
+    public func GetLeaderboardsInterface() -> SwiftEOS_Leaderboards_Actor {
         ____GetLeaderboardsInterface()
     }
 
@@ -175,7 +175,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_lobby`.h
     - SeeAlso: `eos_lobby_types`.h
     */
-    public func GetLobbyInterface() -> SwiftEOS_Lobby_Actor? {
+    public func GetLobbyInterface() -> SwiftEOS_Lobby_Actor {
         ____GetLobbyInterface()
     }
 
@@ -186,7 +186,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_metrics`.h
     - SeeAlso: `eos_metrics_types`.h
     */
-    public func GetMetricsInterface() -> SwiftEOS_Metrics_Actor? {
+    public func GetMetricsInterface() -> SwiftEOS_Metrics_Actor {
         ____GetMetricsInterface()
     }
 
@@ -197,7 +197,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_mods`.h
     - SeeAlso: `eos_mods_types`.h
     */
-    public func GetModsInterface() -> SwiftEOS_Mods_Actor? {
+    public func GetModsInterface() -> SwiftEOS_Mods_Actor {
         ____GetModsInterface()
     }
 
@@ -240,7 +240,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_p2p`.h
     - SeeAlso: `eos_p2p_types`.h
     */
-    public func GetP2PInterface() -> SwiftEOS_P2P_Actor? {
+    public func GetP2PInterface() -> SwiftEOS_P2P_Actor {
         ____GetP2PInterface()
     }
 
@@ -251,7 +251,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_playerdatastorage`.h
     - SeeAlso: `eos_playerdatastorage_types`.h
     */
-    public func GetPlayerDataStorageInterface() -> SwiftEOS_PlayerDataStorage_Actor? {
+    public func GetPlayerDataStorageInterface() -> SwiftEOS_PlayerDataStorage_Actor {
         ____GetPlayerDataStorageInterface()
     }
 
@@ -262,7 +262,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_presence`.h
     - SeeAlso: `eos_presence_types`.h
     */
-    public func GetPresenceInterface() -> SwiftEOS_Presence_Actor? {
+    public func GetPresenceInterface() -> SwiftEOS_Presence_Actor {
         ____GetPresenceInterface()
     }
 
@@ -273,7 +273,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_rtc_admin`.h
     - SeeAlso: `eos_admin_types`.h
     */
-    public func GetRTCAdminInterface() -> SwiftEOS_RTCAdmin_Actor? {
+    public func GetRTCAdminInterface() -> SwiftEOS_RTCAdmin_Actor {
         ____GetRTCAdminInterface()
     }
 
@@ -286,7 +286,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_rtc`.h
     - SeeAlso: `eos_rtc_types`.h
     */
-    public func GetRTCInterface() -> SwiftEOS_RTC_Actor? {
+    public func GetRTCInterface() -> SwiftEOS_RTC_Actor {
         ____GetRTCInterface()
     }
 
@@ -297,7 +297,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_reports`.h
     - SeeAlso: `eos_reports_types`.h
     */
-    public func GetReportsInterface() -> SwiftEOS_Reports_Actor? {
+    public func GetReportsInterface() -> SwiftEOS_Reports_Actor {
         ____GetReportsInterface()
     }
 
@@ -308,7 +308,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_sanctions`.h
     - SeeAlso: `eos_sanctions_types`.h
     */
-    public func GetSanctionsInterface() -> SwiftEOS_Sanctions_Actor? {
+    public func GetSanctionsInterface() -> SwiftEOS_Sanctions_Actor {
         ____GetSanctionsInterface()
     }
 
@@ -319,7 +319,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_sessions`.h
     - SeeAlso: `eos_sessions_types`.h
     */
-    public func GetSessionsInterface() -> SwiftEOS_Sessions_Actor? {
+    public func GetSessionsInterface() -> SwiftEOS_Sessions_Actor {
         ____GetSessionsInterface()
     }
 
@@ -330,7 +330,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_stats`.h
     - SeeAlso: `eos_stats_types`.h
     */
-    public func GetStatsInterface() -> SwiftEOS_Stats_Actor? {
+    public func GetStatsInterface() -> SwiftEOS_Stats_Actor {
         ____GetStatsInterface()
     }
 
@@ -341,7 +341,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_titlestorage`.h
     - SeeAlso: `eos_titlestorage_types`.h
     */
-    public func GetTitleStorageInterface() -> SwiftEOS_TitleStorage_Actor? {
+    public func GetTitleStorageInterface() -> SwiftEOS_TitleStorage_Actor {
         ____GetTitleStorageInterface()
     }
 
@@ -352,7 +352,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_ui`.h
     - SeeAlso: `eos_ui_types`.h
     */
-    public func GetUIInterface() -> SwiftEOS_UI_Actor? {
+    public func GetUIInterface() -> SwiftEOS_UI_Actor {
         ____GetUIInterface()
     }
 
@@ -363,7 +363,7 @@ public class SwiftEOS_Platform_Actor: SwiftEOSActor {
     - SeeAlso: `eos_userinfo`.h
     - SeeAlso: `eos_userinfo_types`.h
     */
-    public func GetUserInfoInterface() -> SwiftEOS_UserInfo_Actor? {
+    public func GetUserInfoInterface() -> SwiftEOS_UserInfo_Actor {
         ____GetUserInfoInterface()
     }
 
@@ -431,7 +431,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_achievements`.h
     - SeeAlso: `eos_achievements_types`.h
     */
-    private func ____GetAchievementsInterface() -> SwiftEOS_Achievements_Actor? {
+    private func ____GetAchievementsInterface() -> SwiftEOS_Achievements_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetAchievementsInterface(Handle) } }
@@ -455,15 +455,14 @@ extension SwiftEOS_Platform_Actor {
         _ LocalUserId: EOS_EpicAccountId?
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try throwingSdkResult { 
-                        EOS_Platform_GetActiveCountryCode(
-                            Handle,
-                            LocalUserId,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_Platform_GetActiveCountryCode(
+                        Handle,
+                        LocalUserId,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } }
     }
 
     /**
@@ -485,15 +484,14 @@ extension SwiftEOS_Platform_Actor {
         _ LocalUserId: EOS_EpicAccountId?
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try throwingSdkResult { 
-                        EOS_Platform_GetActiveLocaleCode(
-                            Handle,
-                            LocalUserId,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_Platform_GetActiveLocaleCode(
+                        Handle,
+                        LocalUserId,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } }
     }
 
     /**
@@ -503,7 +501,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_anticheatclient`.h
     - SeeAlso: `eos_anticheatclient_types`.h
     */
-    private func ____GetAntiCheatClientInterface() -> SwiftEOS_AntiCheatClient_Actor? {
+    private func ____GetAntiCheatClientInterface() -> SwiftEOS_AntiCheatClient_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetAntiCheatClientInterface(Handle) } }
@@ -516,7 +514,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_anticheatserver`.h
     - SeeAlso: `eos_anticheatserver_types`.h
     */
-    private func ____GetAntiCheatServerInterface() -> SwiftEOS_AntiCheatServer_Actor? {
+    private func ____GetAntiCheatServerInterface() -> SwiftEOS_AntiCheatServer_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetAntiCheatServerInterface(Handle) } }
@@ -529,7 +527,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_auth`.h
     - SeeAlso: `eos_auth_types`.h
     */
-    private func ____GetAuthInterface() -> SwiftEOS_Auth_Actor? {
+    private func ____GetAuthInterface() -> SwiftEOS_Auth_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetAuthInterface(Handle) } }
@@ -542,7 +540,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_connect`.h
     - SeeAlso: `eos_connect_types`.h
     */
-    private func ____GetConnectInterface() -> SwiftEOS_Connect_Actor? {
+    private func ____GetConnectInterface() -> SwiftEOS_Connect_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetConnectInterface(Handle) } }
@@ -555,7 +553,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_ecom`.h
     - SeeAlso: `eos_ecom_types`.h
     */
-    private func ____GetEcomInterface() -> SwiftEOS_Ecom_Actor? {
+    private func ____GetEcomInterface() -> SwiftEOS_Ecom_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetEcomInterface(Handle) } }
@@ -568,7 +566,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_friends`.h
     - SeeAlso: `eos_friends_types`.h
     */
-    private func ____GetFriendsInterface() -> SwiftEOS_Friends_Actor? {
+    private func ____GetFriendsInterface() -> SwiftEOS_Friends_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetFriendsInterface(Handle) } }
@@ -581,7 +579,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_kws`.h
     - SeeAlso: `eos_kws_types`.h
     */
-    private func ____GetKWSInterface() -> SwiftEOS_KWS_Actor? {
+    private func ____GetKWSInterface() -> SwiftEOS_KWS_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetKWSInterface(Handle) } }
@@ -594,7 +592,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_leaderboards`.h
     - SeeAlso: `eos_leaderboards_types`.h
     */
-    private func ____GetLeaderboardsInterface() -> SwiftEOS_Leaderboards_Actor? {
+    private func ____GetLeaderboardsInterface() -> SwiftEOS_Leaderboards_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetLeaderboardsInterface(Handle) } }
@@ -607,7 +605,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_lobby`.h
     - SeeAlso: `eos_lobby_types`.h
     */
-    private func ____GetLobbyInterface() -> SwiftEOS_Lobby_Actor? {
+    private func ____GetLobbyInterface() -> SwiftEOS_Lobby_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetLobbyInterface(Handle) } }
@@ -620,7 +618,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_metrics`.h
     - SeeAlso: `eos_metrics_types`.h
     */
-    private func ____GetMetricsInterface() -> SwiftEOS_Metrics_Actor? {
+    private func ____GetMetricsInterface() -> SwiftEOS_Metrics_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetMetricsInterface(Handle) } }
@@ -633,7 +631,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_mods`.h
     - SeeAlso: `eos_mods_types`.h
     */
-    private func ____GetModsInterface() -> SwiftEOS_Mods_Actor? {
+    private func ____GetModsInterface() -> SwiftEOS_Mods_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetModsInterface(Handle) } }
@@ -653,14 +651,13 @@ extension SwiftEOS_Platform_Actor {
     */
     private func ____GetOverrideCountryCode() throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try throwingSdkResult { 
-                        EOS_Platform_GetOverrideCountryCode(
-                            Handle,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_Platform_GetOverrideCountryCode(
+                        Handle,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } }
     }
 
     /**
@@ -677,14 +674,13 @@ extension SwiftEOS_Platform_Actor {
     */
     private func ____GetOverrideLocaleCode() throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try throwingSdkResult { 
-                        EOS_Platform_GetOverrideLocaleCode(
-                            Handle,
-                            OutBuffer,
-                            InOutBufferLength
-                        ) } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try throwingSdkResult { 
+                    EOS_Platform_GetOverrideLocaleCode(
+                        Handle,
+                        OutBuffer,
+                        InOutBufferLength
+                    ) } } }
     }
 
     /**
@@ -694,7 +690,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_p2p`.h
     - SeeAlso: `eos_p2p_types`.h
     */
-    private func ____GetP2PInterface() -> SwiftEOS_P2P_Actor? {
+    private func ____GetP2PInterface() -> SwiftEOS_P2P_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetP2PInterface(Handle) } }
@@ -707,7 +703,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_playerdatastorage`.h
     - SeeAlso: `eos_playerdatastorage_types`.h
     */
-    private func ____GetPlayerDataStorageInterface() -> SwiftEOS_PlayerDataStorage_Actor? {
+    private func ____GetPlayerDataStorageInterface() -> SwiftEOS_PlayerDataStorage_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetPlayerDataStorageInterface(Handle) } }
@@ -720,7 +716,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_presence`.h
     - SeeAlso: `eos_presence_types`.h
     */
-    private func ____GetPresenceInterface() -> SwiftEOS_Presence_Actor? {
+    private func ____GetPresenceInterface() -> SwiftEOS_Presence_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetPresenceInterface(Handle) } }
@@ -733,7 +729,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_rtc_admin`.h
     - SeeAlso: `eos_admin_types`.h
     */
-    private func ____GetRTCAdminInterface() -> SwiftEOS_RTCAdmin_Actor? {
+    private func ____GetRTCAdminInterface() -> SwiftEOS_RTCAdmin_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetRTCAdminInterface(Handle) } }
@@ -748,7 +744,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_rtc`.h
     - SeeAlso: `eos_rtc_types`.h
     */
-    private func ____GetRTCInterface() -> SwiftEOS_RTC_Actor? {
+    private func ____GetRTCInterface() -> SwiftEOS_RTC_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetRTCInterface(Handle) } }
@@ -761,7 +757,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_reports`.h
     - SeeAlso: `eos_reports_types`.h
     */
-    private func ____GetReportsInterface() -> SwiftEOS_Reports_Actor? {
+    private func ____GetReportsInterface() -> SwiftEOS_Reports_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetReportsInterface(Handle) } }
@@ -774,7 +770,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_sanctions`.h
     - SeeAlso: `eos_sanctions_types`.h
     */
-    private func ____GetSanctionsInterface() -> SwiftEOS_Sanctions_Actor? {
+    private func ____GetSanctionsInterface() -> SwiftEOS_Sanctions_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetSanctionsInterface(Handle) } }
@@ -787,7 +783,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_sessions`.h
     - SeeAlso: `eos_sessions_types`.h
     */
-    private func ____GetSessionsInterface() -> SwiftEOS_Sessions_Actor? {
+    private func ____GetSessionsInterface() -> SwiftEOS_Sessions_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetSessionsInterface(Handle) } }
@@ -800,7 +796,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_stats`.h
     - SeeAlso: `eos_stats_types`.h
     */
-    private func ____GetStatsInterface() -> SwiftEOS_Stats_Actor? {
+    private func ____GetStatsInterface() -> SwiftEOS_Stats_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetStatsInterface(Handle) } }
@@ -813,7 +809,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_titlestorage`.h
     - SeeAlso: `eos_titlestorage_types`.h
     */
-    private func ____GetTitleStorageInterface() -> SwiftEOS_TitleStorage_Actor? {
+    private func ____GetTitleStorageInterface() -> SwiftEOS_TitleStorage_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetTitleStorageInterface(Handle) } }
@@ -826,7 +822,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_ui`.h
     - SeeAlso: `eos_ui_types`.h
     */
-    private func ____GetUIInterface() -> SwiftEOS_UI_Actor? {
+    private func ____GetUIInterface() -> SwiftEOS_UI_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetUIInterface(Handle) } }
@@ -839,7 +835,7 @@ extension SwiftEOS_Platform_Actor {
     - SeeAlso: `eos_userinfo`.h
     - SeeAlso: `eos_userinfo_types`.h
     */
-    private func ____GetUserInfoInterface() -> SwiftEOS_UserInfo_Actor? {
+    private func ____GetUserInfoInterface() -> SwiftEOS_UserInfo_Actor {
         returningActorFromHandle { 
             withPointerManager { pointerManager in
                 EOS_Platform_GetUserInfoInterface(Handle) } }

@@ -9,11 +9,11 @@ public class SwiftEOS_Sessions_CopySessionHandleByUiEventIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_CopySessionHandleByUiEventId = { Handle, Options, OutSessionHandle in
+                GTest.current.sdkReceived.append("EOS_Sessions_CopySessionHandleByUiEventId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_COPYSESSIONHANDLEBYUIEVENTID_API_LATEST)
                 XCTAssertEqual(Options!.pointee.UiEventId, .zero)
                 XCTAssertNotNil(OutSessionHandle)
-                GTest.current.sdkReceived.append("EOS_Sessions_CopySessionHandleByUiEventId")
                 return .zero
             }
             defer { __on_EOS_Sessions_CopySessionHandleByUiEventId = nil }
@@ -22,11 +22,12 @@ public class SwiftEOS_Sessions_CopySessionHandleByUiEventIdTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionDetails = try object.CopySessionHandleByUiEventId(UiEventId: .zero)
+            try XCTAssertThrowsError(try object.CopySessionHandleByUiEventId(UiEventId: .zero)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CopySessionHandleByUiEventId"])
-            XCTAssertNil(result)
         }
         
         // Then

@@ -9,16 +9,16 @@ public class SwiftEOS_SessionDetails_CopyInfoTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionDetails_Release = { SessionHandle in
-                XCTAssertNil(SessionHandle)
                 GTest.current.sdkReceived.append("EOS_SessionDetails_Release")
+                XCTAssertNil(SessionHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionDetails_CopyInfo = { Handle, Options, OutSessionInfo in
+                GTest.current.sdkReceived.append("EOS_SessionDetails_CopyInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYINFO_API_LATEST)
                 XCTAssertNotNil(OutSessionInfo)
-                GTest.current.sdkReceived.append("EOS_SessionDetails_CopyInfo")
                 return .zero
             }
             defer { __on_EOS_SessionDetails_CopyInfo = nil }

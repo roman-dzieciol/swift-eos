@@ -9,9 +9,9 @@ public class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Logging_SetLogLevel = { LogCategory, LogLevel in
+                GTest.current.sdkReceived.append("EOS_Logging_SetLogLevel")
                 XCTAssertEqual(LogCategory, .zero)
                 XCTAssertEqual(LogLevel, .zero)
-                GTest.current.sdkReceived.append("EOS_Logging_SetLogLevel")
                 return .zero
             }
             defer { __on_EOS_Logging_SetLogLevel = nil }

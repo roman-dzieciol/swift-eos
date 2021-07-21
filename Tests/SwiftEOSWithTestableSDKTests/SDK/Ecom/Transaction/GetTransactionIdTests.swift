@@ -9,10 +9,10 @@ public class SwiftEOS_Ecom_Transaction_GetTransactionIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Transaction_GetTransactionId = { Handle, OutBuffer, InOutBufferLength in
-                XCTAssertNil(Handle)
-                XCTAssertNotNil(OutBuffer)
-                XCTAssertNotNil(InOutBufferLength)
                 GTest.current.sdkReceived.append("EOS_Ecom_Transaction_GetTransactionId")
+                XCTAssertNil(Handle)
+                XCTAssertNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 return .zero
             }
             defer { __on_EOS_Ecom_Transaction_GetTransactionId = nil }

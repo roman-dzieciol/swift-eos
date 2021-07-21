@@ -10,6 +10,7 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_AddNotifyDisconnected = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTC_AddNotifyDisconnected")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_ADDNOTIFYDISCONNECTED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
                             LocalUserId: nil,
                             RoomName: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_RTC_AddNotifyDisconnected")
                 return .zero
             }
             defer { __on_EOS_RTC_AddNotifyDisconnected = nil }
@@ -43,14 +43,14 @@ public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyDisconnected"])
                 wait(for: [waitForCompletionDelegate], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyDisconnected"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTC_RemoveNotifyDisconnected = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_RTC_RemoveNotifyDisconnected")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_RTC_RemoveNotifyDisconnected")
                 }
             }
         }

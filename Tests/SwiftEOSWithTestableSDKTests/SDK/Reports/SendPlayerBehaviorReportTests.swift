@@ -10,6 +10,7 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Reports_SendPlayerBehaviorReport = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Reports_SendPlayerBehaviorReport")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_REPORTS_SENDPLAYERBEHAVIORREPORT_API_LATEST)
                 XCTAssertNil(Options!.pointee.ReporterUserId)
@@ -22,7 +23,6 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Reports_SendPlayerBehaviorReport")
             }
             defer { __on_EOS_Reports_SendPlayerBehaviorReport = nil }
             
@@ -43,8 +43,8 @@ public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Reports_SendPlayerBehaviorReport"])
         }
         
         // Then

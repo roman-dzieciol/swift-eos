@@ -151,7 +151,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_AddAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_AddAttribute(
                         Handle,
@@ -171,7 +171,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_AddMemberAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_AddMemberAttribute(
                         Handle,
@@ -190,7 +190,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_RemoveAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_RemoveAttribute(
                         Handle,
@@ -209,7 +209,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_RemoveMemberAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_RemoveMemberAttribute(
                         Handle,
@@ -230,7 +230,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_SetBucketIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_SetBucketId(
                         Handle,
@@ -249,7 +249,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_SetInvitesAllowedOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_SetInvitesAllowed(
                         Handle,
@@ -268,7 +268,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_SetMaxMembersOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_SetMaxMembers(
                         Handle,
@@ -287,7 +287,7 @@ extension SwiftEOS_LobbyModification_Actor {
         _ Options: SwiftEOS_LobbyModification_SetPermissionLevelOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbyModification_SetPermissionLevel(
                         Handle,

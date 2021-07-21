@@ -547,7 +547,7 @@ extension SwiftEOS_Connect_Actor {
                 notification: Notification,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Connect_AddNotifyAuthExpirationOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Connect_AddNotifyAuthExpirationOptions(), managedBy: pointerManager) { Options in
                         EOS_Connect_AddNotifyAuthExpiration(
                             Handle,
                             Options,
@@ -578,7 +578,7 @@ extension SwiftEOS_Connect_Actor {
                 notification: Notification,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Connect_AddNotifyLoginStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_Connect_AddNotifyLoginStatusChanged(
                             Handle,
                             Options,
@@ -611,10 +611,10 @@ extension SwiftEOS_Connect_Actor {
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutExternalAccountInfo in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Connect_CopyProductUserExternalAccountByAccountId(
                                     Handle,
@@ -642,10 +642,10 @@ extension SwiftEOS_Connect_Actor {
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutExternalAccountInfo in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Connect_CopyProductUserExternalAccountByAccountType(
                                     Handle,
@@ -673,10 +673,10 @@ extension SwiftEOS_Connect_Actor {
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutExternalAccountInfo in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Connect_CopyProductUserExternalAccountByIndex(
                                     Handle,
@@ -704,10 +704,10 @@ extension SwiftEOS_Connect_Actor {
     ) throws -> SwiftEOS_Connect_ExternalAccountInfo {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutExternalAccountInfo in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Connect_CopyProductUserInfo(
                                     Handle,
@@ -750,7 +750,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_CreateDeviceId(
                         Handle,
                         Options,
@@ -772,7 +772,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_CreateUser(
                         Handle,
                         Options,
@@ -795,7 +795,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Connect_DeleteDeviceIdOptions(), managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Connect_DeleteDeviceIdOptions(), managedBy: pointerManager) { Options in
                     EOS_Connect_DeleteDeviceId(
                         Handle,
                         Options,
@@ -815,7 +815,7 @@ extension SwiftEOS_Connect_Actor {
         _ Options: SwiftEOS_Connect_GetExternalAccountMappingsOptions
     ) throws -> EOS_ProductUserId? {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 EOS_Connect_GetExternalAccountMapping(
                     Handle,
                     Options
@@ -888,7 +888,7 @@ extension SwiftEOS_Connect_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Connect_GetProductUserExternalAccountCount(
                             Handle,
                             Options
@@ -913,16 +913,15 @@ extension SwiftEOS_Connect_Actor {
         _ Options: SwiftEOS_Connect_GetProductUserIdMappingOptions
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Connect_GetProductUserIdMapping(
-                                Handle,
-                                Options,
-                                OutBuffer,
-                                InOutBufferLength
-                            ) } } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_Connect_GetProductUserIdMapping(
+                            Handle,
+                            Options,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -937,7 +936,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_LinkAccount(
                         Handle,
                         Options,
@@ -959,7 +958,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_Login(
                         Handle,
                         Options,
@@ -982,7 +981,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_QueryExternalAccountMappings(
                         Handle,
                         Options,
@@ -1015,7 +1014,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_QueryProductUserIdMappings(
                         Handle,
                         Options,
@@ -1094,7 +1093,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_TransferDeviceIdAccount(
                         Handle,
                         Options,
@@ -1137,7 +1136,7 @@ extension SwiftEOS_Connect_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Connect_UnlinkAccount(
                         Handle,
                         Options,

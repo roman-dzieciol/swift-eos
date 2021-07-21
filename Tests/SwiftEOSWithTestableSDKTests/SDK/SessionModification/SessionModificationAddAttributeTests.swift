@@ -9,17 +9,17 @@ public class SwiftEOS_SessionModification_AddAttributeTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
-                XCTAssertNil(SessionModificationHandle)
                 GTest.current.sdkReceived.append("EOS_SessionModification_Release")
+                XCTAssertNil(SessionModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_AddAttribute = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionModification_AddAttribute")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_ADDATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionAttribute)
                 XCTAssertEqual(Options!.pointee.AdvertisementType, .zero)
-                GTest.current.sdkReceived.append("EOS_SessionModification_AddAttribute")
                 return .zero
             }
             defer { __on_EOS_SessionModification_AddAttribute = nil }

@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_InitializeOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_InitializeOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_InitializeOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_INITIALIZE_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.AllocateMemoryFunction)
             XCTAssertNil(cstruct.ReallocateMemoryFunction)
             XCTAssertNil(cstruct.ReleaseMemoryFunction)
@@ -15,7 +15,7 @@ public class SwiftEOS_InitializeOptionsTests: XCTestCase {
             XCTAssertNil(cstruct.SystemInitializeOptions)
             XCTAssertNil(cstruct.OverrideThreadAffinity)
             let swiftObject = try XCTUnwrap(try SwiftEOS_InitializeOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_INITIALIZE_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.AllocateMemoryFunction)
             XCTAssertNil(swiftObject.ReallocateMemoryFunction)
             XCTAssertNil(swiftObject.ReleaseMemoryFunction)

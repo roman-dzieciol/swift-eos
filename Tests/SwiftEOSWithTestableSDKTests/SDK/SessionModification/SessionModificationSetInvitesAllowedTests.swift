@@ -9,16 +9,16 @@ public class SwiftEOS_SessionModification_SetInvitesAllowedTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
-                XCTAssertNil(SessionModificationHandle)
                 GTest.current.sdkReceived.append("EOS_SessionModification_Release")
+                XCTAssertNil(SessionModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetInvitesAllowed = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetInvitesAllowed")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETINVITESALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bInvitesAllowed, .zero)
-                GTest.current.sdkReceived.append("EOS_SessionModification_SetInvitesAllowed")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetInvitesAllowed = nil }

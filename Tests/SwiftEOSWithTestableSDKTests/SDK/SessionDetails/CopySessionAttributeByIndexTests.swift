@@ -9,17 +9,17 @@ public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexTests: XCTestCas
             
             // Given implementation for SDK release function
             __on_EOS_SessionDetails_Release = { SessionHandle in
-                XCTAssertNil(SessionHandle)
                 GTest.current.sdkReceived.append("EOS_SessionDetails_Release")
+                XCTAssertNil(SessionHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionDetails_CopySessionAttributeByIndex = { Handle, Options, OutSessionAttribute in
+                GTest.current.sdkReceived.append("EOS_SessionDetails_CopySessionAttributeByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_COPYSESSIONATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNotNil(OutSessionAttribute)
-                GTest.current.sdkReceived.append("EOS_SessionDetails_CopySessionAttributeByIndex")
                 return .zero
             }
             defer { __on_EOS_SessionDetails_CopySessionAttributeByIndex = nil }

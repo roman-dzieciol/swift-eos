@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_QueryProductUserIdMappings = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Connect_QueryProductUserIdMappings")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_QUERYPRODUCTUSERIDMAPPINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -22,7 +23,6 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_QueryProductUserIdMappings")
             }
             defer { __on_EOS_Connect_QueryProductUserIdMappings = nil }
             
@@ -42,8 +42,8 @@ public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryProductUserIdMappings"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_QueryProductUserIdMappings"])
         }
         
         // Then

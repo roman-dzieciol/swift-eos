@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_AddNotifyAuthExpirationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_AddNotifyAuthExpiration = { Handle, Options, ClientData, Notification in
+                GTest.current.sdkReceived.append("EOS_Connect_AddNotifyAuthExpiration")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_ADDNOTIFYAUTHEXPIRATION_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -17,7 +18,6 @@ public class SwiftEOS_Connect_AddNotifyAuthExpirationTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_AddNotifyAuthExpiration")
                 return .zero
             }
             defer { __on_EOS_Connect_AddNotifyAuthExpiration = nil }
@@ -33,14 +33,14 @@ public class SwiftEOS_Connect_AddNotifyAuthExpirationTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_AddNotifyAuthExpiration"])
                 wait(for: [waitForNotification], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_AddNotifyAuthExpiration"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Connect_RemoveNotifyAuthExpiration = { Handle, InId in
+                    GTest.current.sdkReceived.append("EOS_Connect_RemoveNotifyAuthExpiration")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    GTest.current.sdkReceived.append("EOS_Connect_RemoveNotifyAuthExpiration")
                 }
             }
         }

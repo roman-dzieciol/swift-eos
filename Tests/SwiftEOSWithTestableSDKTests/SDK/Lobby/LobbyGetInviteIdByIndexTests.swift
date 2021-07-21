@@ -9,13 +9,13 @@ public class SwiftEOS_Lobby_GetInviteIdByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetInviteIdByIndex = { Handle, Options, OutBuffer, InOutBufferLength in
+                GTest.current.sdkReceived.append("EOS_Lobby_GetInviteIdByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETINVITEIDBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                XCTAssertNotNil(OutBuffer)
+                XCTAssertNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                GTest.current.sdkReceived.append("EOS_Lobby_GetInviteIdByIndex")
                 return .zero
             }
             defer { __on_EOS_Lobby_GetInviteIdByIndex = nil }

@@ -9,15 +9,15 @@ public class SwiftEOS_Platform_SetOverrideCountryCodeTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_SetOverrideCountryCode = { Handle, NewCountryCode in
+                GTest.current.sdkReceived.append("EOS_Platform_SetOverrideCountryCode")
                 XCTAssertNil(Handle)
                 XCTAssertNil(NewCountryCode)
-                GTest.current.sdkReceived.append("EOS_Platform_SetOverrideCountryCode")
                 return .zero
             }
             defer { __on_EOS_Platform_SetOverrideCountryCode = nil }

@@ -9,12 +9,12 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByAchievementIdTests: 
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyUnlockedAchievementByAchievementId = { Handle, Options, OutAchievement in
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByAchievementId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.AchievementId)
                 XCTAssertNotNil(OutAchievement)
-                GTest.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByAchievementId")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyUnlockedAchievementByAchievementId = nil }

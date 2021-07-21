@@ -10,6 +10,7 @@ public class SwiftEOS_Friends_AcceptInviteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_AcceptInvite = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Friends_AcceptInvite")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_ACCEPTINVITE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Friends_AcceptInviteTests: XCTestCase {
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Friends_AcceptInvite")
             }
             defer { __on_EOS_Friends_AcceptInvite = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Friends_AcceptInviteTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AcceptInvite"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AcceptInvite"])
         }
         
         // Then

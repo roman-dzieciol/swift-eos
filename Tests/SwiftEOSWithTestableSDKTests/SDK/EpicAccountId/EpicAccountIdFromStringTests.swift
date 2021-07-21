@@ -9,8 +9,8 @@ public class SwiftEOS_EpicAccountId_FromStringTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_EpicAccountId_FromString = { AccountIdString in
-                XCTAssertNil(AccountIdString)
                 GTest.current.sdkReceived.append("EOS_EpicAccountId_FromString")
+                XCTAssertNil(AccountIdString)
                 return nil
             }
             defer { __on_EOS_EpicAccountId_FromString = nil }

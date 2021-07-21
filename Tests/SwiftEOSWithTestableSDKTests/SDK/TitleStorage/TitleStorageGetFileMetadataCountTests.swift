@@ -9,10 +9,10 @@ public class SwiftEOS_TitleStorage_GetFileMetadataCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_GetFileMetadataCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_TitleStorage_GetFileMetadataCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_GETFILEMETADATACOUNTOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                GTest.current.sdkReceived.append("EOS_TitleStorage_GetFileMetadataCount")
                 return .zero
             }
             defer { __on_EOS_TitleStorage_GetFileMetadataCount = nil }

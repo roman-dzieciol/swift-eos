@@ -10,6 +10,7 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_AddNotifyFriendsUpdate = { Handle, Options, ClientData, FriendsUpdateHandler in
+                GTest.current.sdkReceived.append("EOS_Friends_AddNotifyFriendsUpdate")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_ADDNOTIFYFRIENDSUPDATE_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -20,7 +21,6 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
                             PreviousStatus: .zero,
                             CurrentStatus: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_Friends_AddNotifyFriendsUpdate")
                 return .zero
             }
             defer { __on_EOS_Friends_AddNotifyFriendsUpdate = nil }
@@ -39,14 +39,14 @@ public class SwiftEOS_Friends_AddNotifyFriendsUpdateTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AddNotifyFriendsUpdate"])
                 wait(for: [waitForFriendsUpdateHandler], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Friends_AddNotifyFriendsUpdate"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Friends_RemoveNotifyFriendsUpdate = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_Friends_RemoveNotifyFriendsUpdate")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_Friends_RemoveNotifyFriendsUpdate")
                 }
             }
         }

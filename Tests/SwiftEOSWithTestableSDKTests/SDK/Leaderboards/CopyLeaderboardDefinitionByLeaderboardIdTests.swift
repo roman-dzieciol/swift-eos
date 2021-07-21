@@ -9,11 +9,11 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardIdTests
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId = { Handle, Options, OutLeaderboardDefinition in
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYLEADERBOARDID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LeaderboardId)
                 XCTAssertNotNil(OutLeaderboardDefinition)
-                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId = nil }

@@ -9,11 +9,11 @@ public class SwiftEOS_Friends_GetFriendAtIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_GetFriendAtIndex = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Friends_GetFriendAtIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_GETFRIENDATINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
-                GTest.current.sdkReceived.append("EOS_Friends_GetFriendAtIndex")
                 return nil
             }
             defer { __on_EOS_Friends_GetFriendAtIndex = nil }

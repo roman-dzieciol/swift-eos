@@ -9,14 +9,14 @@ public class SwiftEOS_Platform_CheckForLauncherAndRestartTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_CheckForLauncherAndRestart = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_CheckForLauncherAndRestart")
+                XCTAssertNil(Handle)
                 return .zero
             }
             defer { __on_EOS_Platform_CheckForLauncherAndRestart = nil }

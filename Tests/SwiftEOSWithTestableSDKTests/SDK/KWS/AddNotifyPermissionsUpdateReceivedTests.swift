@@ -10,6 +10,7 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_AddNotifyPermissionsUpdateReceived = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_KWS_AddNotifyPermissionsUpdateReceived")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_ADDNOTIFYPERMISSIONSUPDATERECEIVED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -17,7 +18,6 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_KWS_AddNotifyPermissionsUpdateReceived")
                 return .zero
             }
             defer { __on_EOS_KWS_AddNotifyPermissionsUpdateReceived = nil }
@@ -33,14 +33,14 @@ public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_AddNotifyPermissionsUpdateReceived"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_AddNotifyPermissionsUpdateReceived"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_KWS_RemoveNotifyPermissionsUpdateReceived = { Handle, InId in
+                    GTest.current.sdkReceived.append("EOS_KWS_RemoveNotifyPermissionsUpdateReceived")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    GTest.current.sdkReceived.append("EOS_KWS_RemoveNotifyPermissionsUpdateReceived")
                 }
             }
         }

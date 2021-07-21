@@ -9,13 +9,13 @@ public class SwiftEOS_Achievements_CopyPlayerAchievementByAchievementIdTests: XC
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyPlayerAchievementByAchievementId = { Handle, Options, OutAchievement in
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyPlayerAchievementByAchievementId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYPLAYERACHIEVEMENTBYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.AchievementId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(OutAchievement)
-                GTest.current.sdkReceived.append("EOS_Achievements_CopyPlayerAchievementByAchievementId")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyPlayerAchievementByAchievementId = nil }

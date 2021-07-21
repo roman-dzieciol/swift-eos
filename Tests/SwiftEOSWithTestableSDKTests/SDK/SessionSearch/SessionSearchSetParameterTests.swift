@@ -9,17 +9,17 @@ public class SwiftEOS_SessionSearch_SetParameterTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
-                XCTAssertNil(SessionSearchHandle)
                 GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
+                XCTAssertNil(SessionSearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_SetParameter = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionSearch_SetParameter")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.Parameter)
                 XCTAssertEqual(Options!.pointee.ComparisonOp, .zero)
-                GTest.current.sdkReceived.append("EOS_SessionSearch_SetParameter")
                 return .zero
             }
             defer { __on_EOS_SessionSearch_SetParameter = nil }

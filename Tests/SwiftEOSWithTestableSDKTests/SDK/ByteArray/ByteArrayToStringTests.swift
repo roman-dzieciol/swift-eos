@@ -9,11 +9,11 @@ public class SwiftEOS_ByteArray_ToStringTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_ByteArray_ToString = { ByteArray, Length, OutBuffer, InOutBufferLength in
+                GTest.current.sdkReceived.append("EOS_ByteArray_ToString")
                 XCTAssertNil(ByteArray)
                 XCTAssertEqual(Length, .zero)
-                XCTAssertNotNil(OutBuffer)
+                XCTAssertNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                GTest.current.sdkReceived.append("EOS_ByteArray_ToString")
                 return .zero
             }
             defer { __on_EOS_ByteArray_ToString = nil }

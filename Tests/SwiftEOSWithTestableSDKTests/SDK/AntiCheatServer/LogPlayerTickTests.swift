@@ -9,6 +9,7 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_LogPlayerTick = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTick")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST)
                 XCTAssertNil(Options!.pointee.PlayerHandle)
@@ -17,7 +18,6 @@ public class SwiftEOS_AntiCheatServer_LogPlayerTickTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.bIsPlayerViewZoomed, .zero)
                 XCTAssertEqual(Options!.pointee.PlayerHealth, .zero)
                 XCTAssertEqual(Options!.pointee.PlayerMovementState, .zero)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_LogPlayerTick")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_LogPlayerTick = nil }

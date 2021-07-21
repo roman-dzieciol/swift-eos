@@ -20,12 +20,11 @@ public func SwiftEOS_ContinuanceToken_ToString(
     ContinuanceToken: EOS_ContinuanceToken?
 ) throws -> String {
     try withPointerManager { pointerManager in
-        try throwingNilResult { 
-            try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                try throwingSdkResult { 
-                    EOS_ContinuanceToken_ToString(
-                        ContinuanceToken,
-                        OutBuffer,
-                        InOutBufferLength
-                    ) } } } }
+        try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+            try throwingSdkResult { 
+                EOS_ContinuanceToken_ToString(
+                    ContinuanceToken,
+                    OutBuffer,
+                    InOutBufferLength
+                ) } } }
 }

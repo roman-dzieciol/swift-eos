@@ -148,7 +148,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_AddAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_AddAttribute(
                         Handle,
@@ -167,7 +167,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_RemoveAttributeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_RemoveAttribute(
                         Handle,
@@ -188,7 +188,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_SetBucketIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_SetBucketId(
                         Handle,
@@ -210,7 +210,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_SetHostAddressOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_SetHostAddress(
                         Handle,
@@ -229,7 +229,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_SetInvitesAllowedOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_SetInvitesAllowed(
                         Handle,
@@ -248,7 +248,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_SetJoinInProgressAllowedOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_SetJoinInProgressAllowed(
                         Handle,
@@ -267,7 +267,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_SetMaxPlayersOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_SetMaxPlayers(
                         Handle,
@@ -286,7 +286,7 @@ extension SwiftEOS_SessionModification_Actor {
         _ Options: SwiftEOS_SessionModification_SetPermissionLevelOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_SessionModification_SetPermissionLevel(
                         Handle,

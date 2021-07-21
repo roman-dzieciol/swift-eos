@@ -233,7 +233,7 @@ extension SwiftEOS_KWS_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_KWS_AddNotifyPermissionsUpdateReceived(
                             Handle,
                             Options,
@@ -267,10 +267,10 @@ extension SwiftEOS_KWS_Actor {
     ) throws -> SwiftEOS_KWS_PermissionStatus {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutPermission in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_KWS_CopyPermissionByIndex(
                                     Handle,
@@ -298,7 +298,7 @@ extension SwiftEOS_KWS_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_KWS_CreateUser(
                         Handle,
                         Options,
@@ -324,15 +324,14 @@ extension SwiftEOS_KWS_Actor {
         _ Options: SwiftEOS_KWS_GetPermissionByKeyOptions
     ) throws -> EOS_EKWSPermissionStatus {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutPermission in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_KWS_GetPermissionByKey(
-                                Handle,
-                                Options,
-                                OutPermission
-                            ) } } } } }
+            try withTrivialPointerReturnedAsTrivial(managedBy: pointerManager) { OutPermission in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_KWS_GetPermissionByKey(
+                            Handle,
+                            Options,
+                            OutPermission
+                        ) } } } }
     }
 
     /**
@@ -349,7 +348,7 @@ extension SwiftEOS_KWS_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_KWS_GetPermissionsCount(
                             Handle,
                             Options
@@ -374,7 +373,7 @@ extension SwiftEOS_KWS_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_KWS_QueryAgeGateOptions(), managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_KWS_QueryAgeGateOptions(), managedBy: pointerManager) { Options in
                     EOS_KWS_QueryAgeGate(
                         Handle,
                         Options,
@@ -401,7 +400,7 @@ extension SwiftEOS_KWS_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_KWS_QueryPermissions(
                         Handle,
                         Options,
@@ -430,7 +429,7 @@ extension SwiftEOS_KWS_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_KWS_RequestPermissions(
                         Handle,
                         Options,
@@ -457,7 +456,7 @@ extension SwiftEOS_KWS_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_KWS_UpdateParentEmail(
                         Handle,
                         Options,

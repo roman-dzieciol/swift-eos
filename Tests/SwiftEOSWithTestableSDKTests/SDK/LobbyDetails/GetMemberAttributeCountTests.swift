@@ -9,16 +9,16 @@ public class SwiftEOS_LobbyDetails_GetMemberAttributeCountTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
-                XCTAssertNil(LobbyHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                XCTAssertNil(LobbyHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_GetMemberAttributeCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberAttributeCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERATTRIBUTECOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberAttributeCount")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_GetMemberAttributeCount = nil }

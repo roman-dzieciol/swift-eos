@@ -9,10 +9,10 @@ public class SwiftEOS_Stats_GetStatsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Stats_GetStatsCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Stats_GetStatsCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_STATS_GETSTATSCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_Stats_GetStatsCount")
                 return .zero
             }
             defer { __on_EOS_Stats_GetStatsCount = nil }

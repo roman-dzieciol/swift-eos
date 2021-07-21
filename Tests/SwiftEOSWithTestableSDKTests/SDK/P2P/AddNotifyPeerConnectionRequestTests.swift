@@ -10,6 +10,7 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionRequestTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_AddNotifyPeerConnectionRequest = { Handle, Options, ClientData, ConnectionRequestHandler in
+                GTest.current.sdkReceived.append("EOS_P2P_AddNotifyPeerConnectionRequest")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_ADDNOTIFYPEERCONNECTIONREQUEST_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionRequestTests: XCTestCase {
                             RemoteUserId: nil,
                             SocketId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_P2P_AddNotifyPeerConnectionRequest")
                 return .zero
             }
             defer { __on_EOS_P2P_AddNotifyPeerConnectionRequest = nil }
@@ -43,14 +43,14 @@ public class SwiftEOS_P2P_AddNotifyPeerConnectionRequestTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyPeerConnectionRequest"])
                 wait(for: [waitForConnectionRequestHandler], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_AddNotifyPeerConnectionRequest"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_P2P_RemoveNotifyPeerConnectionRequest = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_P2P_RemoveNotifyPeerConnectionRequest")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_P2P_RemoveNotifyPeerConnectionRequest")
                 }
             }
         }

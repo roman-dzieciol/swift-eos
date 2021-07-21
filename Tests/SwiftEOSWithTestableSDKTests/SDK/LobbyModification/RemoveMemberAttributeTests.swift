@@ -9,16 +9,16 @@ public class SwiftEOS_LobbyModification_RemoveMemberAttributeTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyModification_Release = { LobbyModificationHandle in
-                XCTAssertNil(LobbyModificationHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyModification_Release")
+                XCTAssertNil(LobbyModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyModification_RemoveMemberAttribute = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbyModification_RemoveMemberAttribute")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYMODIFICATION_REMOVEMEMBERATTRIBUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
-                GTest.current.sdkReceived.append("EOS_LobbyModification_RemoveMemberAttribute")
                 return .zero
             }
             defer { __on_EOS_LobbyModification_RemoveMemberAttribute = nil }

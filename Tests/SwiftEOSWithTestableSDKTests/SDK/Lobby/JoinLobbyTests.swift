@@ -10,6 +10,7 @@ public class SwiftEOS_Lobby_JoinLobbyTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_JoinLobby = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Lobby_JoinLobby")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_JOINLOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyDetailsHandle)
@@ -22,7 +23,6 @@ public class SwiftEOS_Lobby_JoinLobbyTests: XCTestCase {
                             ClientData: ClientData,
                             LobbyId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Lobby_JoinLobby")
             }
             defer { __on_EOS_Lobby_JoinLobby = nil }
             
@@ -43,8 +43,8 @@ public class SwiftEOS_Lobby_JoinLobbyTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_JoinLobby"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_JoinLobby"])
         }
         
         // Then

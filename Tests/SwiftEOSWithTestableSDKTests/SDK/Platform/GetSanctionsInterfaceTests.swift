@@ -9,14 +9,14 @@ public class SwiftEOS_Platform_GetSanctionsInterfaceTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetSanctionsInterface = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_GetSanctionsInterface")
+                XCTAssertNil(Handle)
                 return nil
             }
             defer { __on_EOS_Platform_GetSanctionsInterface = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Platform_GetSanctionsInterfaceTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Sanctions_Actor? = object.GetSanctionsInterface()
+            let result: SwiftEOS_Sanctions_Actor = object.GetSanctionsInterface()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetSanctionsInterface"])
-            XCTAssertNil(result)
+            XCTAssertNil(result.Handle)
         }
         
         // Then

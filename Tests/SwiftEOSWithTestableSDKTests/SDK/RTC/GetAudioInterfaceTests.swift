@@ -9,8 +9,8 @@ public class SwiftEOS_RTC_GetAudioInterfaceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_GetAudioInterface = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_RTC_GetAudioInterface")
+                XCTAssertNil(Handle)
                 return nil
             }
             defer { __on_EOS_RTC_GetAudioInterface = nil }

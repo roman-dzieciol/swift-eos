@@ -19,7 +19,7 @@ public func SwiftEOS_Initialize(
     Options: SwiftEOS_InitializeOptions
 ) throws {
     try withPointerManager { pointerManager in
-        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
             try throwingSdkResult { 
                 EOS_Initialize(Options) } } }
 }

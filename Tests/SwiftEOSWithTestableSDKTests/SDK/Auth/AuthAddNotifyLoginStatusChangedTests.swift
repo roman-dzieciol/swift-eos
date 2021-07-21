@@ -10,6 +10,7 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_AddNotifyLoginStatusChanged = { Handle, Options, ClientData, Notification in
+                GTest.current.sdkReceived.append("EOS_Auth_AddNotifyLoginStatusChanged")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_ADDNOTIFYLOGINSTATUSCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -19,7 +20,6 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
                             PrevStatus: .zero,
                             CurrentStatus: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_Auth_AddNotifyLoginStatusChanged")
                 return .zero
             }
             defer { __on_EOS_Auth_AddNotifyLoginStatusChanged = nil }
@@ -37,14 +37,14 @@ public class SwiftEOS_Auth_AddNotifyLoginStatusChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_AddNotifyLoginStatusChanged"])
                 wait(for: [waitForNotification], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_AddNotifyLoginStatusChanged"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_Auth_RemoveNotifyLoginStatusChanged = { Handle, InId in
+                    GTest.current.sdkReceived.append("EOS_Auth_RemoveNotifyLoginStatusChanged")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(InId, .zero)
-                    GTest.current.sdkReceived.append("EOS_Auth_RemoveNotifyLoginStatusChanged")
                 }
             }
         }

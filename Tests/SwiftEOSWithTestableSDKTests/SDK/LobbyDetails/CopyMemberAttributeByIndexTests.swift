@@ -9,18 +9,18 @@ public class SwiftEOS_LobbyDetails_CopyMemberAttributeByIndexTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
-                XCTAssertNil(LobbyHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                XCTAssertNil(LobbyHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_CopyMemberAttributeByIndex = { Handle, Options, OutAttribute in
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYMEMBERATTRIBUTEBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.AttrIndex, .zero)
                 XCTAssertNotNil(OutAttribute)
-                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyMemberAttributeByIndex")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyMemberAttributeByIndex = nil }

@@ -9,10 +9,10 @@ public class SwiftEOS_Friends_GetFriendsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Friends_GetFriendsCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Friends_GetFriendsCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_FRIENDS_GETFRIENDSCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                GTest.current.sdkReceived.append("EOS_Friends_GetFriendsCount")
                 return .zero
             }
             defer { __on_EOS_Friends_GetFriendsCount = nil }

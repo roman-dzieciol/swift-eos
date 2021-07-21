@@ -11,12 +11,12 @@ public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_PollStatus = { Handle, Options, ViolationType, OutMessage in
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_PollStatus")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_POLLSTATUS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.OutMessageLength, .zero)
                 XCTAssertNotNil(ViolationType)
-                XCTAssertNotNil(OutMessage)
-                GTest.current.sdkReceived.append("EOS_AntiCheatClient_PollStatus")
+                XCTAssertNil(OutMessage)
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_PollStatus = nil }
@@ -32,8 +32,8 @@ public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
             )
             
             // Then
-            XCTAssertNil(ViolationType)
-            XCTAssertNil(OutMessage)
+            XCTAssertEqual(ViolationType, .zero)
+            XCTAssertEqual(OutMessage, "")
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_PollStatus"])
         }
         

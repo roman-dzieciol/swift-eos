@@ -9,8 +9,8 @@ public class SwiftEOS_UI_GetNotificationLocationPreferenceTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_GetNotificationLocationPreference = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_UI_GetNotificationLocationPreference")
+                XCTAssertNil(Handle)
                 return .zero
             }
             defer { __on_EOS_UI_GetNotificationLocationPreference = nil }

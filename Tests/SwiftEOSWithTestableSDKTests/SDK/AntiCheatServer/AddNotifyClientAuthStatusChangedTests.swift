@@ -10,6 +10,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTAUTHSTATUSCHANGED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -18,7 +19,6 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
                             ClientHandle: nil,
                             ClientAuthStatus: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged = nil }
@@ -35,14 +35,14 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientAuthStatusChangedTests: XCT
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged")
                 }
             }
         }

@@ -9,14 +9,14 @@ public class SwiftEOS_Connect_GetProductUserIdMappingTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_GetProductUserIdMapping = { Handle, Options, OutBuffer, InOutBufferLength in
+                GTest.current.sdkReceived.append("EOS_Connect_GetProductUserIdMapping")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_GETPRODUCTUSERIDMAPPING_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.AccountIdType, .zero)
                 XCTAssertNil(Options!.pointee.TargetProductUserId)
-                XCTAssertNotNil(OutBuffer)
+                XCTAssertNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                GTest.current.sdkReceived.append("EOS_Connect_GetProductUserIdMapping")
                 return .zero
             }
             defer { __on_EOS_Connect_GetProductUserIdMapping = nil }

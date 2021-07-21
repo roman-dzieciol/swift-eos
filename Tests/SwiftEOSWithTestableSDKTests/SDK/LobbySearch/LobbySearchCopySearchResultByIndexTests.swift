@@ -9,17 +9,17 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
-                XCTAssertNil(LobbySearchHandle)
                 GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
+                XCTAssertNil(LobbySearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_CopySearchResultByIndex = { Handle, Options, OutLobbyDetailsHandle in
+                GTest.current.sdkReceived.append("EOS_LobbySearch_CopySearchResultByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_COPYSEARCHRESULTBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LobbyIndex, .zero)
                 XCTAssertNotNil(OutLobbyDetailsHandle)
-                GTest.current.sdkReceived.append("EOS_LobbySearch_CopySearchResultByIndex")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_CopySearchResultByIndex = nil }
@@ -28,11 +28,12 @@ public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
             let object: SwiftEOS_LobbySearch_Actor = SwiftEOS_LobbySearch_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HLobbyDetails = try object.CopySearchResultByIndex(LobbyIndex: .zero)
+            try XCTAssertThrowsError(try object.CopySearchResultByIndex(LobbyIndex: .zero)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_LobbySearch_CopySearchResultByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

@@ -10,6 +10,7 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_QueryJoinRoomToken = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTCAdmin_QueryJoinRoomToken")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -26,7 +27,6 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
                             QueryId: .zero,
                             TokenCount: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_RTCAdmin_QueryJoinRoomToken")
             }
             defer { __on_EOS_RTCAdmin_QueryJoinRoomToken = nil }
             
@@ -50,8 +50,8 @@ public class SwiftEOS_RTCAdmin_QueryJoinRoomTokenTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_QueryJoinRoomToken"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_QueryJoinRoomToken"])
         }
         
         // Then

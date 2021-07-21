@@ -9,8 +9,8 @@ public class SwiftEOS_EResult_IsOperationCompleteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_EResult_IsOperationComplete = { Result in
-                XCTAssertEqual(Result, .zero)
                 GTest.current.sdkReceived.append("EOS_EResult_IsOperationComplete")
+                XCTAssertEqual(Result, .zero)
                 return .zero
             }
             defer { __on_EOS_EResult_IsOperationComplete = nil }

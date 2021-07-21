@@ -10,6 +10,7 @@ public class SwiftEOS_Sessions_UpdateSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_UpdateSession = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sessions_UpdateSession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_UPDATESESSION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionModificationHandle)
@@ -20,7 +21,6 @@ public class SwiftEOS_Sessions_UpdateSessionTests: XCTestCase {
                             SessionName: nil,
                             SessionId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Sessions_UpdateSession")
             }
             defer { __on_EOS_Sessions_UpdateSession = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_Sessions_UpdateSessionTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_UpdateSession"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_UpdateSession"])
         }
         
         // Then

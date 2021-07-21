@@ -9,16 +9,16 @@ public class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestC
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
-                XCTAssertNil(SessionModificationHandle)
                 GTest.current.sdkReceived.append("EOS_SessionModification_Release")
+                XCTAssertNil(SessionModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetJoinInProgressAllowed = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetJoinInProgressAllowed")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETJOININPROGRESSALLOWED_API_LATEST)
                 XCTAssertEqual(Options!.pointee.bAllowJoinInProgress, .zero)
-                GTest.current.sdkReceived.append("EOS_SessionModification_SetJoinInProgressAllowed")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetJoinInProgressAllowed = nil }

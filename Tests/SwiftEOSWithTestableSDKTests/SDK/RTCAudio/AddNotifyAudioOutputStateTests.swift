@@ -10,6 +10,7 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioOutputStateTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_AddNotifyAudioOutputState = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTCAudio_AddNotifyAudioOutputState")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_ADDNOTIFYAUDIOOUTPUTSTATE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioOutputStateTests: XCTestCase {
                             RoomName: nil,
                             Status: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_RTCAudio_AddNotifyAudioOutputState")
                 return .zero
             }
             defer { __on_EOS_RTCAudio_AddNotifyAudioOutputState = nil }
@@ -43,14 +43,14 @@ public class SwiftEOS_RTCAudio_AddNotifyAudioOutputStateTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_AddNotifyAudioOutputState"])
                 wait(for: [waitForCompletionDelegate], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_AddNotifyAudioOutputState"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTCAudio_RemoveNotifyAudioOutputState = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioOutputState")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_RTCAudio_RemoveNotifyAudioOutputState")
                 }
             }
         }

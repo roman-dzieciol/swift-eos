@@ -9,15 +9,15 @@ public class SwiftEOS_SessionDetails_GetSessionAttributeCountTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionDetails_Release = { SessionHandle in
-                XCTAssertNil(SessionHandle)
                 GTest.current.sdkReceived.append("EOS_SessionDetails_Release")
+                XCTAssertNil(SessionHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionDetails_GetSessionAttributeCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionDetails_GetSessionAttributeCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_GETSESSIONATTRIBUTECOUNT_API_LATEST)
-                GTest.current.sdkReceived.append("EOS_SessionDetails_GetSessionAttributeCount")
                 return .zero
             }
             defer { __on_EOS_SessionDetails_GetSessionAttributeCount = nil }

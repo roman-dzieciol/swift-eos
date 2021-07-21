@@ -10,6 +10,7 @@ public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Mods_EnumerateMods = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Mods_EnumerateMods")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_ENUMERATEMODS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
                             ClientData: ClientData,
                             `Type`: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_Mods_EnumerateMods")
             }
             defer { __on_EOS_Mods_EnumerateMods = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Mods_EnumerateModsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_EnumerateMods"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_EnumerateMods"])
         }
         
         // Then

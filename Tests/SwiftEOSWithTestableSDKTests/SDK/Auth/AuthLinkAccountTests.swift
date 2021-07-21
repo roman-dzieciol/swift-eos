@@ -10,6 +10,7 @@ public class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_LinkAccount = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Auth_LinkAccount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_LINKACCOUNT_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LinkAccountFlags, .zero)
@@ -22,7 +23,6 @@ public class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
                             LocalUserId: nil,
                             PinGrantInfo: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Auth_LinkAccount")
             }
             defer { __on_EOS_Auth_LinkAccount = nil }
             
@@ -43,8 +43,8 @@ public class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_LinkAccount"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_LinkAccount"])
         }
         
         // Then

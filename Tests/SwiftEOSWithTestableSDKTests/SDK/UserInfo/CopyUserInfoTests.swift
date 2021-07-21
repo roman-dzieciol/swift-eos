@@ -9,12 +9,12 @@ public class SwiftEOS_UserInfo_CopyUserInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_CopyUserInfo = { Handle, Options, OutUserInfo in
+                GTest.current.sdkReceived.append("EOS_UserInfo_CopyUserInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_COPYUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNotNil(OutUserInfo)
-                GTest.current.sdkReceived.append("EOS_UserInfo_CopyUserInfo")
                 return .zero
             }
             defer { __on_EOS_UserInfo_CopyUserInfo = nil }

@@ -10,6 +10,7 @@ public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_QueryFileList = { Handle, Options, ClientData, CompletionCallback in
+                GTest.current.sdkReceived.append("EOS_TitleStorage_QueryFileList")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_QUERYFILELISTOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -22,7 +23,6 @@ public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
                             LocalUserId: nil,
                             FileCount: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_TitleStorage_QueryFileList")
             }
             defer { __on_EOS_TitleStorage_QueryFileList = nil }
             
@@ -42,8 +42,8 @@ public class SwiftEOS_TitleStorage_QueryFileListTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_QueryFileList"])
             wait(for: [waitForCompletionCallback], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_TitleStorage_QueryFileList"])
         }
         
         // Then

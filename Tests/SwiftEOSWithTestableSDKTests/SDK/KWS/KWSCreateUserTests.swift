@@ -10,6 +10,7 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_CreateUser = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_KWS_CreateUser")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_CREATEUSER_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -23,7 +24,6 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
                             KWSUserId: nil,
                             bIsMinor: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_KWS_CreateUser")
             }
             defer { __on_EOS_KWS_CreateUser = nil }
             
@@ -45,8 +45,8 @@ public class SwiftEOS_KWS_CreateUserTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_CreateUser"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_CreateUser"])
         }
         
         // Then

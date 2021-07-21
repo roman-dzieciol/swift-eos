@@ -9,12 +9,12 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByIndexTests: XCTestC
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = { Handle, Options, OutLeaderboardUserScore in
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardUserScoreIndex, .zero)
                 XCTAssertNil(Options!.pointee.StatName)
                 XCTAssertNotNil(OutLeaderboardUserScore)
-                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByIndex")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardUserScoreByIndex = nil }

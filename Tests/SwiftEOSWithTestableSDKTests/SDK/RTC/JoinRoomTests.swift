@@ -10,6 +10,7 @@ public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_JoinRoom = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTC_JoinRoom")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_JOINROOM_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -27,7 +28,6 @@ public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
                             LocalUserId: nil,
                             RoomName: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_RTC_JoinRoom")
             }
             defer { __on_EOS_RTC_JoinRoom = nil }
             
@@ -53,8 +53,8 @@ public class SwiftEOS_RTC_JoinRoomTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_JoinRoom"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_JoinRoom"])
         }
         
         // Then

@@ -9,11 +9,11 @@ public class SwiftEOS_UserInfo_GetExternalUserInfoCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_GetExternalUserInfoCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_UserInfo_GetExternalUserInfoCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_GETEXTERNALUSERINFOCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_UserInfo_GetExternalUserInfoCount")
                 return .zero
             }
             defer { __on_EOS_UserInfo_GetExternalUserInfoCount = nil }

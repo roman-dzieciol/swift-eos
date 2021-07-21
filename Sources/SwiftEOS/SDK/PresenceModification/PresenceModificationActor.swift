@@ -120,7 +120,7 @@ extension SwiftEOS_PresenceModification_Actor {
         _ Options: SwiftEOS_PresenceModification_DeleteDataOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_PresenceModification_DeleteData(
                         Handle,
@@ -142,7 +142,7 @@ extension SwiftEOS_PresenceModification_Actor {
         _ Options: SwiftEOS_PresenceModification_SetDataOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_PresenceModification_SetData(
                         Handle,
@@ -162,7 +162,7 @@ extension SwiftEOS_PresenceModification_Actor {
         _ Options: SwiftEOS_PresenceModification_SetJoinInfoOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_PresenceModification_SetJoinInfo(
                         Handle,
@@ -182,7 +182,7 @@ extension SwiftEOS_PresenceModification_Actor {
         _ Options: SwiftEOS_PresenceModification_SetRawRichTextOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_PresenceModification_SetRawRichText(
                         Handle,
@@ -200,7 +200,7 @@ extension SwiftEOS_PresenceModification_Actor {
         _ Options: SwiftEOS_PresenceModification_SetStatusOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_PresenceModification_SetStatus(
                         Handle,

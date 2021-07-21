@@ -9,11 +9,11 @@ public class SwiftEOS_P2P_SetPacketQueueSizeTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_SetPacketQueueSize = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_P2P_SetPacketQueueSize")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_SETPACKETQUEUESIZE_API_LATEST)
                 XCTAssertEqual(Options!.pointee.IncomingPacketQueueMaxSizeBytes, .zero)
                 XCTAssertEqual(Options!.pointee.OutgoingPacketQueueMaxSizeBytes, .zero)
-                GTest.current.sdkReceived.append("EOS_P2P_SetPacketQueueSize")
                 return .zero
             }
             defer { __on_EOS_P2P_SetPacketQueueSize = nil }

@@ -9,16 +9,16 @@ public class SwiftEOS_LobbyDetails_GetMemberByIndexTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
-                XCTAssertNil(LobbyHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                XCTAssertNil(LobbyHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_GetMemberByIndex = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MemberIndex, .zero)
-                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberByIndex")
                 return nil
             }
             defer { __on_EOS_LobbyDetails_GetMemberByIndex = nil }

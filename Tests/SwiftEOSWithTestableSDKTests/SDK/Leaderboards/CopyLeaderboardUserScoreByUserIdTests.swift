@@ -9,12 +9,12 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardUserScoreByUserIdTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardUserScoreByUserId = { Handle, Options, OutLeaderboardUserScore in
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByUserId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDUSERSCOREBYUSERID_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertNil(Options!.pointee.StatName)
                 XCTAssertNotNil(OutLeaderboardUserScore)
-                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardUserScoreByUserId")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardUserScoreByUserId = nil }

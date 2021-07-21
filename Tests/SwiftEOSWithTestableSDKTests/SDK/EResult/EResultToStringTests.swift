@@ -9,8 +9,8 @@ public class SwiftEOS_EResult_ToStringTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_EResult_ToString = { Result in
-                XCTAssertEqual(Result, .zero)
                 GTest.current.sdkReceived.append("EOS_EResult_ToString")
+                XCTAssertEqual(Result, .zero)
                 return nil
             }
             defer { __on_EOS_EResult_ToString = nil }

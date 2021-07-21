@@ -9,6 +9,7 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_SendPacket = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_P2P_SendPacket")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_SENDPACKET_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -19,7 +20,6 @@ public class SwiftEOS_P2P_SendPacketTests: XCTestCase {
                 XCTAssertNil(Options!.pointee.Data)
                 XCTAssertEqual(Options!.pointee.bAllowDelayedDelivery, .zero)
                 XCTAssertEqual(Options!.pointee.Reliability, .zero)
-                GTest.current.sdkReceived.append("EOS_P2P_SendPacket")
                 return .zero
             }
             defer { __on_EOS_P2P_SendPacket = nil }

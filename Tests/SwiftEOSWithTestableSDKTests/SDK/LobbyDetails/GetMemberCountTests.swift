@@ -9,15 +9,15 @@ public class SwiftEOS_LobbyDetails_GetMemberCountTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
-                XCTAssertNil(LobbyHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                XCTAssertNil(LobbyHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_GetMemberCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_GETMEMBERCOUNT_API_LATEST)
-                GTest.current.sdkReceived.append("EOS_LobbyDetails_GetMemberCount")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_GetMemberCount = nil }

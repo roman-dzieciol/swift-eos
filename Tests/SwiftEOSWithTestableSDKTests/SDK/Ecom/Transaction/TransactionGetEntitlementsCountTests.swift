@@ -9,9 +9,9 @@ public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_Transaction_GetEntitlementsCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Ecom_Transaction_GetEntitlementsCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_TRANSACTION_GETENTITLEMENTSCOUNT_API_LATEST)
-                GTest.current.sdkReceived.append("EOS_Ecom_Transaction_GetEntitlementsCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_Transaction_GetEntitlementsCount = nil }

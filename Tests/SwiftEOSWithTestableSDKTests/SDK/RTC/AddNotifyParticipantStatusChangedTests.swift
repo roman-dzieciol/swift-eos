@@ -10,6 +10,7 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTC_AddNotifyParticipantStatusChanged = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTC_AddNotifyParticipantStatusChanged")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTC_ADDNOTIFYPARTICIPANTSTATUSCHANGED_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -24,7 +25,6 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
                             ParticipantMetadataCount: .zero,
                             ParticipantMetadata: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_RTC_AddNotifyParticipantStatusChanged")
                 return .zero
             }
             defer { __on_EOS_RTC_AddNotifyParticipantStatusChanged = nil }
@@ -48,14 +48,14 @@ public class SwiftEOS_RTC_AddNotifyParticipantStatusChangedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyParticipantStatusChanged"])
                 wait(for: [waitForCompletionDelegate], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTC_AddNotifyParticipantStatusChanged"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_RTC_RemoveNotifyParticipantStatusChanged = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_RTC_RemoveNotifyParticipantStatusChanged")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_RTC_RemoveNotifyParticipantStatusChanged")
                 }
             }
         }

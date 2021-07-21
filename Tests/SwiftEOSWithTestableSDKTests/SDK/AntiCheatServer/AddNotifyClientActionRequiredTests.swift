@@ -10,6 +10,7 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_AddNotifyClientActionRequired = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyClientActionRequired")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_ADDNOTIFYCLIENTACTIONREQUIRED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -20,7 +21,6 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredTests: XCTest
                             ActionReasonCode: .zero,
                             ActionReasonDetailsString: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_AddNotifyClientActionRequired")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_AddNotifyClientActionRequired = nil }
@@ -39,14 +39,14 @@ public class SwiftEOS_AntiCheatServer_AddNotifyClientActionRequiredTests: XCTest
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_AddNotifyClientActionRequired"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatServer_AddNotifyClientActionRequired"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatServer_RemoveNotifyClientActionRequired = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyClientActionRequired")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_AntiCheatServer_RemoveNotifyClientActionRequired")
                 }
             }
         }

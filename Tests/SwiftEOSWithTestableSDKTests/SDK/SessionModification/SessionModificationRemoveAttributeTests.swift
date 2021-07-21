@@ -9,16 +9,16 @@ public class SwiftEOS_SessionModification_RemoveAttributeTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
-                XCTAssertNil(SessionModificationHandle)
                 GTest.current.sdkReceived.append("EOS_SessionModification_Release")
+                XCTAssertNil(SessionModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_RemoveAttribute = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionModification_RemoveAttribute")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.Key)
-                GTest.current.sdkReceived.append("EOS_SessionModification_RemoveAttribute")
                 return .zero
             }
             defer { __on_EOS_SessionModification_RemoveAttribute = nil }

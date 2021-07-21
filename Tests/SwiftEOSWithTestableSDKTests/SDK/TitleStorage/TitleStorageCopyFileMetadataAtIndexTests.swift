@@ -9,12 +9,12 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataAtIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_CopyFileMetadataAtIndex = { Handle, Options, OutMetadata in
+                GTest.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataAtIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_COPYFILEMETADATAATINDEXOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
                 XCTAssertNotNil(OutMetadata)
-                GTest.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataAtIndex")
                 return .zero
             }
             defer { __on_EOS_TitleStorage_CopyFileMetadataAtIndex = nil }

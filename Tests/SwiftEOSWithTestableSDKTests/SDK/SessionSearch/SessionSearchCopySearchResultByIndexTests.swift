@@ -9,17 +9,17 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
-                XCTAssertNil(SessionSearchHandle)
                 GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
+                XCTAssertNil(SessionSearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_CopySearchResultByIndex = { Handle, Options, OutSessionHandle in
+                GTest.current.sdkReceived.append("EOS_SessionSearch_CopySearchResultByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.SessionIndex, .zero)
                 XCTAssertNotNil(OutSessionHandle)
-                GTest.current.sdkReceived.append("EOS_SessionSearch_CopySearchResultByIndex")
                 return .zero
             }
             defer { __on_EOS_SessionSearch_CopySearchResultByIndex = nil }
@@ -28,11 +28,12 @@ public class SwiftEOS_SessionSearch_CopySearchResultByIndexTests: XCTestCase {
             let object: SwiftEOS_SessionSearch_Actor = SwiftEOS_SessionSearch_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionDetails = try object.CopySearchResultByIndex(SessionIndex: .zero)
+            try XCTAssertThrowsError(try object.CopySearchResultByIndex(SessionIndex: .zero)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_CopySearchResultByIndex"])
-            XCTAssertNil(result)
         }
         
         // Then

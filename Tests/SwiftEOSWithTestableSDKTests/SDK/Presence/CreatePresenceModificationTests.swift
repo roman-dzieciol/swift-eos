@@ -9,11 +9,11 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Presence_CreatePresenceModification = { Handle, Options, OutPresenceModificationHandle in
+                GTest.current.sdkReceived.append("EOS_Presence_CreatePresenceModification")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCE_CREATEPRESENCEMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNotNil(OutPresenceModificationHandle)
-                GTest.current.sdkReceived.append("EOS_Presence_CreatePresenceModification")
                 return .zero
             }
             defer { __on_EOS_Presence_CreatePresenceModification = nil }
@@ -22,11 +22,12 @@ public class SwiftEOS_Presence_CreatePresenceModificationTests: XCTestCase {
             let object: SwiftEOS_Presence_Actor = SwiftEOS_Presence_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HPresenceModification = try object.CreatePresenceModification(LocalUserId: nil)
+            try XCTAssertThrowsError(try object.CreatePresenceModification(LocalUserId: nil)) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Presence_CreatePresenceModification"])
-            XCTAssertNil(result)
         }
         
         // Then

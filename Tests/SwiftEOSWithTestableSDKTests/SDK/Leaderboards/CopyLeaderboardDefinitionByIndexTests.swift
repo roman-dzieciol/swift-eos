@@ -9,11 +9,11 @@ public class SwiftEOS_Leaderboards_CopyLeaderboardDefinitionByIndexTests: XCTest
             
             // Given implementation for SDK function
             __on_EOS_Leaderboards_CopyLeaderboardDefinitionByIndex = { Handle, Options, OutLeaderboardDefinition in
+                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LEADERBOARDS_COPYLEADERBOARDDEFINITIONBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.LeaderboardIndex, .zero)
                 XCTAssertNotNil(OutLeaderboardDefinition)
-                GTest.current.sdkReceived.append("EOS_Leaderboards_CopyLeaderboardDefinitionByIndex")
                 return .zero
             }
             defer { __on_EOS_Leaderboards_CopyLeaderboardDefinitionByIndex = nil }

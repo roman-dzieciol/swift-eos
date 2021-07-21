@@ -10,6 +10,7 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_QueryOffers = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Ecom_QueryOffers")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_QUERYOFFERS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -20,7 +21,6 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Ecom_QueryOffers")
             }
             defer { __on_EOS_Ecom_QueryOffers = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_Ecom_QueryOffersTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_QueryOffers"])
         }
         
         // Then

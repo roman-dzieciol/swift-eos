@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_AntiCheatCommon_LogPlayerTickOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_LogPlayerTickOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogPlayerTickOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.PlayerHandle)
             XCTAssertNil(cstruct.PlayerPosition)
             XCTAssertNil(cstruct.PlayerViewRotation)
@@ -13,7 +13,7 @@ public class SwiftEOS_AntiCheatCommon_LogPlayerTickOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.PlayerHealth, .zero)
             XCTAssertEqual(cstruct.PlayerMovementState, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_AntiCheatCommon_LogPlayerTickOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_ANTICHEATCOMMON_LOGPLAYERTICK_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.PlayerHandle)
             XCTAssertNil(swiftObject.PlayerPosition)
             XCTAssertNil(swiftObject.PlayerViewRotation)

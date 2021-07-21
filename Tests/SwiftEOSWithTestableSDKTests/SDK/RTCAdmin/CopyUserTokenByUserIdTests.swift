@@ -9,12 +9,12 @@ public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_CopyUserTokenByUserId = { Handle, Options, OutUserToken in
+                GTest.current.sdkReceived.append("EOS_RTCAdmin_CopyUserTokenByUserId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_COPYUSERTOKENBYUSERID_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertEqual(Options!.pointee.QueryId, .zero)
                 XCTAssertNotNil(OutUserToken)
-                GTest.current.sdkReceived.append("EOS_RTCAdmin_CopyUserTokenByUserId")
                 return .zero
             }
             defer { __on_EOS_RTCAdmin_CopyUserTokenByUserId = nil }

@@ -9,12 +9,12 @@ public class SwiftEOS_TitleStorage_CopyFileMetadataByFilenameTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_TitleStorage_CopyFileMetadataByFilename = { Handle, Options, OutMetadata in
+                GTest.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataByFilename")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_TITLESTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Filename)
                 XCTAssertNotNil(OutMetadata)
-                GTest.current.sdkReceived.append("EOS_TitleStorage_CopyFileMetadataByFilename")
                 return .zero
             }
             defer { __on_EOS_TitleStorage_CopyFileMetadataByFilename = nil }

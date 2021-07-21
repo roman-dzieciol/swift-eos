@@ -9,11 +9,11 @@ public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTes
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = { Handle, Options, OutDefinition in
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYACHIEVEMENTDEFINITIONV2BYACHIEVEMENTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.AchievementId)
                 XCTAssertNotNil(OutDefinition)
-                GTest.current.sdkReceived.append("EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId = nil }

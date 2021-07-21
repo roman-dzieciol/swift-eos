@@ -9,8 +9,8 @@ public class SwiftEOS_ProductUserId_IsValidTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_ProductUserId_IsValid = { AccountId in
-                XCTAssertNil(AccountId)
                 GTest.current.sdkReceived.append("EOS_ProductUserId_IsValid")
+                XCTAssertNil(AccountId)
                 return .zero
             }
             defer { __on_EOS_ProductUserId_IsValid = nil }

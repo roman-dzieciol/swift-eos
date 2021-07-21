@@ -9,12 +9,12 @@ public class SwiftEOS_Ecom_CopyOfferByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyOfferByIndex = { Handle, Options, OutOffer in
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyOfferByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYOFFERBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.OfferIndex, .zero)
                 XCTAssertNotNil(OutOffer)
-                GTest.current.sdkReceived.append("EOS_Ecom_CopyOfferByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyOfferByIndex = nil }

@@ -9,12 +9,12 @@ public class SwiftEOS_Ecom_CopyItemByIdTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyItemById = { Handle, Options, OutItem in
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyItemById")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYITEMBYID_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.ItemId)
                 XCTAssertNotNil(OutItem)
-                GTest.current.sdkReceived.append("EOS_Ecom_CopyItemById")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyItemById = nil }

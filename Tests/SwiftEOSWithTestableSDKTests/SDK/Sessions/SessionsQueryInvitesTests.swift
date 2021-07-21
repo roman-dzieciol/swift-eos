@@ -10,6 +10,7 @@ public class SwiftEOS_Sessions_QueryInvitesTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_QueryInvites = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sessions_QueryInvites")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_QUERYINVITES_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -19,7 +20,6 @@ public class SwiftEOS_Sessions_QueryInvitesTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Sessions_QueryInvites")
             }
             defer { __on_EOS_Sessions_QueryInvites = nil }
             
@@ -37,8 +37,8 @@ public class SwiftEOS_Sessions_QueryInvitesTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_QueryInvites"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_QueryInvites"])
         }
         
         // Then

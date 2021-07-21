@@ -9,9 +9,9 @@ public class SwiftEOS_Auth_GetLoggedInAccountByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_GetLoggedInAccountByIndex = { Handle, Index in
+                GTest.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Index, .zero)
-                GTest.current.sdkReceived.append("EOS_Auth_GetLoggedInAccountByIndex")
                 return nil
             }
             defer { __on_EOS_Auth_GetLoggedInAccountByIndex = nil }

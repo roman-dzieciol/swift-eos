@@ -9,16 +9,16 @@ public class SwiftEOS_SessionSearch_SetMaxResultsTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
-                XCTAssertNil(SessionSearchHandle)
                 GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
+                XCTAssertNil(SessionSearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_SetMaxResults = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionSearch_SetMaxResults")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONSEARCH_SETMAXSEARCHRESULTS_API_LATEST)
                 XCTAssertEqual(Options!.pointee.MaxSearchResults, .zero)
-                GTest.current.sdkReceived.append("EOS_SessionSearch_SetMaxResults")
                 return .zero
             }
             defer { __on_EOS_SessionSearch_SetMaxResults = nil }

@@ -10,6 +10,7 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Auth_VerifyUserAuth = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Auth_VerifyUserAuth")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_AUTH_VERIFYUSERAUTH_API_LATEST)
                 XCTAssertNil(Options!.pointee.AuthToken)
@@ -18,7 +19,6 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Auth_VerifyUserAuth")
             }
             defer { __on_EOS_Auth_VerifyUserAuth = nil }
             
@@ -35,8 +35,8 @@ public class SwiftEOS_Auth_VerifyUserAuthTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Auth_VerifyUserAuth"])
         }
         
         // Then

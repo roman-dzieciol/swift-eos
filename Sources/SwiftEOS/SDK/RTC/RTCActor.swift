@@ -214,7 +214,7 @@ extension SwiftEOS_RTC_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTC_AddNotifyDisconnected(
                             Handle,
                             Options,
@@ -256,7 +256,7 @@ extension SwiftEOS_RTC_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTC_AddNotifyParticipantStatusChanged(
                             Handle,
                             Options,
@@ -288,7 +288,7 @@ extension SwiftEOS_RTC_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTC_BlockParticipant(
                         Handle,
                         Options,
@@ -325,7 +325,7 @@ extension SwiftEOS_RTC_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTC_JoinRoom(
                         Handle,
                         Options,
@@ -354,7 +354,7 @@ extension SwiftEOS_RTC_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTC_LeaveRoom(
                         Handle,
                         Options,

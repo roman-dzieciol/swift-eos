@@ -9,12 +9,12 @@ public class SwiftEOS_Connect_CopyProductUserExternalAccountByAccountIdTests: XC
             
             // Given implementation for SDK function
             __on_EOS_Connect_CopyProductUserExternalAccountByAccountId = { Handle, Options, OutExternalAccountInfo in
+                GTest.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByAccountId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_COPYPRODUCTUSEREXTERNALACCOUNTBYACCOUNTID_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
                 XCTAssertNil(Options!.pointee.AccountId)
                 XCTAssertNotNil(OutExternalAccountInfo)
-                GTest.current.sdkReceived.append("EOS_Connect_CopyProductUserExternalAccountByAccountId")
                 return .zero
             }
             defer { __on_EOS_Connect_CopyProductUserExternalAccountByAccountId = nil }

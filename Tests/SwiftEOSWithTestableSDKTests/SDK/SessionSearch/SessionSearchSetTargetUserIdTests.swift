@@ -9,16 +9,16 @@ public class SwiftEOS_SessionSearch_SetTargetUserIdTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
-                XCTAssertNil(SessionSearchHandle)
                 GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
+                XCTAssertNil(SessionSearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_SetTargetUserId = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionSearch_SetTargetUserId")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.TargetUserId)
-                GTest.current.sdkReceived.append("EOS_SessionSearch_SetTargetUserId")
                 return .zero
             }
             defer { __on_EOS_SessionSearch_SetTargetUserId = nil }

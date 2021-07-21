@@ -5,7 +5,7 @@ import EOSSDK
 public class SwiftEOS_RTC_JoinRoomOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTC_JoinRoomOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTC_JoinRoomOptions.self) { cstruct in
-            XCTAssertEqual(cstruct.ApiVersion, EOS_RTC_JOINROOM_API_LATEST)
+            XCTAssertEqual(cstruct.ApiVersion, .zero)
             XCTAssertNil(cstruct.LocalUserId)
             XCTAssertNil(cstruct.RoomName)
             XCTAssertNil(cstruct.ClientBaseUrl)
@@ -15,7 +15,7 @@ public class SwiftEOS_RTC_JoinRoomOptionsTests: XCTestCase {
             XCTAssertEqual(cstruct.bManualAudioInputEnabled, .zero)
             XCTAssertEqual(cstruct.bManualAudioOutputEnabled, .zero)
             let swiftObject = try XCTUnwrap(try SwiftEOS_RTC_JoinRoomOptions(sdkObject: cstruct))
-            XCTAssertEqual(swiftObject.ApiVersion, EOS_RTC_JOINROOM_API_LATEST)
+            XCTAssertEqual(swiftObject.ApiVersion, .zero)
             XCTAssertNil(swiftObject.LocalUserId)
             XCTAssertNil(swiftObject.RoomName)
             XCTAssertNil(swiftObject.ClientBaseUrl)

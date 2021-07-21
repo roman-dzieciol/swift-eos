@@ -9,12 +9,12 @@ public class SwiftEOS_KWS_GetPermissionByKeyTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_GetPermissionByKey = { Handle, Options, OutPermission in
+                GTest.current.sdkReceived.append("EOS_KWS_GetPermissionByKey")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_GETPERMISSIONBYKEY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertNil(Options!.pointee.Key)
                 XCTAssertNotNil(OutPermission)
-                GTest.current.sdkReceived.append("EOS_KWS_GetPermissionByKey")
                 return .zero
             }
             defer { __on_EOS_KWS_GetPermissionByKey = nil }

@@ -9,6 +9,7 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_CreateSessionModification = { Handle, Options, OutSessionModificationHandle in
+                GTest.current.sdkReceived.append("EOS_Sessions_CreateSessionModification")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_CREATESESSIONMODIFICATION_API_LATEST)
                 XCTAssertNil(Options!.pointee.SessionName)
@@ -18,7 +19,6 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.bPresenceEnabled, .zero)
                 XCTAssertNil(Options!.pointee.SessionId)
                 XCTAssertNotNil(OutSessionModificationHandle)
-                GTest.current.sdkReceived.append("EOS_Sessions_CreateSessionModification")
                 return .zero
             }
             defer { __on_EOS_Sessions_CreateSessionModification = nil }
@@ -27,18 +27,19 @@ public class SwiftEOS_Sessions_CreateSessionModificationTests: XCTestCase {
             let object: SwiftEOS_Sessions_Actor = SwiftEOS_Sessions_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: EOS_HSessionModification = try object.CreateSessionModification(
-                SessionName: nil,
-                BucketId: nil,
-                MaxPlayers: .zero,
-                LocalUserId: nil,
-                bPresenceEnabled: false,
-                SessionId: nil
-            )
+            try XCTAssertThrowsError(try object.CreateSessionModification(
+                    SessionName: nil,
+                    BucketId: nil,
+                    MaxPlayers: .zero,
+                    LocalUserId: nil,
+                    bPresenceEnabled: false,
+                    SessionId: nil
+                )) { error in
+                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
+            }
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_CreateSessionModification"])
-            XCTAssertNil(result)
         }
         
         // Then

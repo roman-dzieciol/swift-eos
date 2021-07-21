@@ -259,10 +259,10 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutMetadata in
-                        try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
                             try throwingSdkResult { 
                                 EOS_PlayerDataStorage_CopyFileMetadataAtIndex(
                                     Handle,
@@ -285,10 +285,10 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws -> SwiftEOS_PlayerDataStorage_FileMetadata {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutMetadata in
-                        try withSdkObjectPointerFromSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(CopyFileMetadataOptions, managedBy: pointerManager) { CopyFileMetadataOptions in
                             try throwingSdkResult { 
                                 EOS_PlayerDataStorage_CopyFileMetadataByFilename(
                                     Handle,
@@ -312,7 +312,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_PlayerDataStorage_DeleteCache(
                             Handle,
@@ -335,7 +335,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(DeleteOptions, managedBy: pointerManager) { DeleteOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(DeleteOptions, managedBy: pointerManager) { DeleteOptions in
                     EOS_PlayerDataStorage_DeleteFile(
                         Handle,
                         DeleteOptions,
@@ -358,7 +358,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(DuplicateOptions, managedBy: pointerManager) { DuplicateOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(DuplicateOptions, managedBy: pointerManager) { DuplicateOptions in
                     EOS_PlayerDataStorage_DuplicateFile(
                         Handle,
                         DuplicateOptions,
@@ -380,7 +380,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws -> Int {
         try withPointerManager { pointerManager in
             try withIntegerPointerReturnedAsInteger { OutFileMetadataCount in
-                try withSdkObjectPointerFromSwiftObject(GetFileMetadataCountOptions, managedBy: pointerManager) { GetFileMetadataCountOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(GetFileMetadataCountOptions, managedBy: pointerManager) { GetFileMetadataCountOptions in
                     try throwingSdkResult { 
                         EOS_PlayerDataStorage_GetFileMetadataCount(
                             Handle,
@@ -405,7 +405,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(QueryFileOptions, managedBy: pointerManager) { QueryFileOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(QueryFileOptions, managedBy: pointerManager) { QueryFileOptions in
                     EOS_PlayerDataStorage_QueryFile(
                         Handle,
                         QueryFileOptions,
@@ -431,7 +431,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(QueryFileListOptions, managedBy: pointerManager) { QueryFileListOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(QueryFileListOptions, managedBy: pointerManager) { QueryFileListOptions in
                     EOS_PlayerDataStorage_QueryFileList(
                         Handle,
                         QueryFileListOptions,
@@ -457,7 +457,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws -> EOS_HPlayerDataStorageFileTransferRequest? {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(ReadOptions, managedBy: pointerManager) { ReadOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(ReadOptions, managedBy: pointerManager) { ReadOptions in
                     EOS_PlayerDataStorage_ReadFile(
                         Handle,
                         ReadOptions,
@@ -483,7 +483,7 @@ extension SwiftEOS_PlayerDataStorage_Actor {
     ) throws -> EOS_HPlayerDataStorageFileTransferRequest? {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(WriteOptions, managedBy: pointerManager) { WriteOptions in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(WriteOptions, managedBy: pointerManager) { WriteOptions in
                     EOS_PlayerDataStorage_WriteFile(
                         Handle,
                         WriteOptions,

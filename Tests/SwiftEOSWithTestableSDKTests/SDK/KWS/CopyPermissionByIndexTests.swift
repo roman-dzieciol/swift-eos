@@ -9,12 +9,12 @@ public class SwiftEOS_KWS_CopyPermissionByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_CopyPermissionByIndex = { Handle, Options, OutPermission in
+                GTest.current.sdkReceived.append("EOS_KWS_CopyPermissionByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_COPYPERMISSIONBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.Index, .zero)
                 XCTAssertNotNil(OutPermission)
-                GTest.current.sdkReceived.append("EOS_KWS_CopyPermissionByIndex")
                 return .zero
             }
             defer { __on_EOS_KWS_CopyPermissionByIndex = nil }

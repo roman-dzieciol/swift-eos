@@ -95,10 +95,10 @@ extension SwiftEOS_SessionDetails_Actor {
     private func ____CopyInfo() throws -> SwiftEOS_SessionDetails_Info {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutSessionInfo in
-                        try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_SessionDetails_CopyInfoOptions(), managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_SessionDetails_CopyInfoOptions(), managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_SessionDetails_CopyInfo(
                                     Handle,
@@ -126,10 +126,10 @@ extension SwiftEOS_SessionDetails_Actor {
     ) throws -> SwiftEOS_SessionDetails_Attribute {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutSessionAttribute in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_SessionDetails_CopySessionAttributeByIndex(
                                     Handle,
@@ -157,10 +157,10 @@ extension SwiftEOS_SessionDetails_Actor {
     ) throws -> SwiftEOS_SessionDetails_Attribute {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutSessionAttribute in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_SessionDetails_CopySessionAttributeByKey(
                                     Handle,
@@ -180,7 +180,7 @@ extension SwiftEOS_SessionDetails_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_SessionDetails_GetSessionAttributeCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_SessionDetails_GetSessionAttributeCountOptions(), managedBy: pointerManager) { Options in
                         EOS_SessionDetails_GetSessionAttributeCount(
                             Handle,
                             Options

@@ -9,17 +9,17 @@ public class SwiftEOS_Platform_GetActiveCountryCodeTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetActiveCountryCode = { Handle, LocalUserId, OutBuffer, InOutBufferLength in
+                GTest.current.sdkReceived.append("EOS_Platform_GetActiveCountryCode")
                 XCTAssertNil(Handle)
                 XCTAssertNil(LocalUserId)
-                XCTAssertNotNil(OutBuffer)
+                XCTAssertNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                GTest.current.sdkReceived.append("EOS_Platform_GetActiveCountryCode")
                 return .zero
             }
             defer { __on_EOS_Platform_GetActiveCountryCode = nil }

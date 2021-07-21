@@ -10,6 +10,7 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UI_AddNotifyDisplaySettingsUpdated = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_UI_AddNotifyDisplaySettingsUpdated")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_UI_ADDNOTIFYDISPLAYSETTINGSUPDATED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -18,7 +19,6 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
                             bIsVisible: .zero,
                             bIsExclusiveInput: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_UI_AddNotifyDisplaySettingsUpdated")
                 return .zero
             }
             defer { __on_EOS_UI_AddNotifyDisplaySettingsUpdated = nil }
@@ -35,14 +35,14 @@ public class SwiftEOS_UI_AddNotifyDisplaySettingsUpdatedTests: XCTestCase {
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_AddNotifyDisplaySettingsUpdated"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UI_AddNotifyDisplaySettingsUpdated"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_UI_RemoveNotifyDisplaySettingsUpdated = { Handle, Id in
+                    GTest.current.sdkReceived.append("EOS_UI_RemoveNotifyDisplaySettingsUpdated")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(Id, .zero)
-                    GTest.current.sdkReceived.append("EOS_UI_RemoveNotifyDisplaySettingsUpdated")
                 }
             }
         }

@@ -10,6 +10,7 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_QueryUserInfoByExternalAccount = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByExternalAccount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_QUERYUSERINFOBYEXTERNALACCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -24,7 +25,6 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
                             AccountType: .zero,
                             TargetUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfoByExternalAccount")
             }
             defer { __on_EOS_UserInfo_QueryUserInfoByExternalAccount = nil }
             
@@ -47,8 +47,8 @@ public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByExternalAccount"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfoByExternalAccount"])
         }
         
         // Then

@@ -9,15 +9,15 @@ public class SwiftEOS_LobbySearch_GetSearchResultCountTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbySearch_Release = { LobbySearchHandle in
-                XCTAssertNil(LobbySearchHandle)
                 GTest.current.sdkReceived.append("EOS_LobbySearch_Release")
+                XCTAssertNil(LobbySearchHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbySearch_GetSearchResultCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_LobbySearch_GetSearchResultCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYSEARCH_GETSEARCHRESULTCOUNT_API_LATEST)
-                GTest.current.sdkReceived.append("EOS_LobbySearch_GetSearchResultCount")
                 return .zero
             }
             defer { __on_EOS_LobbySearch_GetSearchResultCount = nil }

@@ -181,10 +181,10 @@ extension SwiftEOS_TitleStorage_Actor {
     ) throws -> SwiftEOS_TitleStorage_FileMetadata {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutMetadata in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_TitleStorage_CopyFileMetadataAtIndex(
                                     Handle,
@@ -207,10 +207,10 @@ extension SwiftEOS_TitleStorage_Actor {
     ) throws -> SwiftEOS_TitleStorage_FileMetadata {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutMetadata in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_TitleStorage_CopyFileMetadataByFilename(
                                     Handle,
@@ -234,7 +234,7 @@ extension SwiftEOS_TitleStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_TitleStorage_DeleteCache(
                             Handle,
@@ -258,7 +258,7 @@ extension SwiftEOS_TitleStorage_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_TitleStorage_GetFileMetadataCount(
                             Handle,
                             Options
@@ -284,7 +284,7 @@ extension SwiftEOS_TitleStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_TitleStorage_QueryFile(
                         Handle,
                         Options,
@@ -307,7 +307,7 @@ extension SwiftEOS_TitleStorage_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_TitleStorage_QueryFileList(
                         Handle,
                         Options,
@@ -333,7 +333,7 @@ extension SwiftEOS_TitleStorage_Actor {
     ) throws -> EOS_HTitleStorageFileTransferRequest? {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionCallback, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_TitleStorage_ReadFile(
                         Handle,
                         Options,

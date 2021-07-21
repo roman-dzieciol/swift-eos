@@ -9,16 +9,16 @@ public class SwiftEOS_SessionModification_SetHostAddressTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
-                XCTAssertNil(SessionModificationHandle)
                 GTest.current.sdkReceived.append("EOS_SessionModification_Release")
+                XCTAssertNil(SessionModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetHostAddress = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetHostAddress")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETHOSTADDRESS_API_LATEST)
                 XCTAssertNil(Options!.pointee.HostAddress)
-                GTest.current.sdkReceived.append("EOS_SessionModification_SetHostAddress")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetHostAddress = nil }

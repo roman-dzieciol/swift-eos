@@ -9,13 +9,14 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionSearch_Release = { SessionSearchHandle in
-                XCTAssertNil(SessionSearchHandle)
                 GTest.current.sdkReceived.append("EOS_SessionSearch_Release")
+                XCTAssertNil(SessionSearchHandle)
             }
             let waitForCompletionDelegate = expectation(description: "waitForCompletionDelegate")
             
             // Given implementation for SDK function
             __on_EOS_SessionSearch_Find = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_SessionSearch_Find")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONDETAILS_SETTINGS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -24,7 +25,6 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_SessionSearch_Find")
             }
             defer { __on_EOS_SessionSearch_Find = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_SessionSearch_FindTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_Find"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_SessionSearch_Find"])
         }
         
         // Then

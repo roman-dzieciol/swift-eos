@@ -10,6 +10,7 @@ public class SwiftEOS_Lobby_UpdateLobbyTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_UpdateLobby = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Lobby_UpdateLobby")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_UPDATELOBBY_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyModificationHandle)
@@ -19,7 +20,6 @@ public class SwiftEOS_Lobby_UpdateLobbyTests: XCTestCase {
                             ClientData: ClientData,
                             LobbyId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Lobby_UpdateLobby")
             }
             defer { __on_EOS_Lobby_UpdateLobby = nil }
             
@@ -37,8 +37,8 @@ public class SwiftEOS_Lobby_UpdateLobbyTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_UpdateLobby"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Lobby_UpdateLobby"])
         }
         
         // Then

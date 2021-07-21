@@ -9,10 +9,10 @@ public class SwiftEOS_P2P_GetRelayControlTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_GetRelayControl = { Handle, Options, OutRelayControl in
+                GTest.current.sdkReceived.append("EOS_P2P_GetRelayControl")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETRELAYCONTROL_API_LATEST)
                 XCTAssertNotNil(OutRelayControl)
-                GTest.current.sdkReceived.append("EOS_P2P_GetRelayControl")
                 return .zero
             }
             defer { __on_EOS_P2P_GetRelayControl = nil }

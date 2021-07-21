@@ -9,13 +9,13 @@ public class SwiftEOS_AntiCheatServer_BeginSessionTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatServer_BeginSession = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatServer_BeginSession")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATSERVER_BEGINSESSION_API_LATEST)
                 XCTAssertEqual(Options!.pointee.RegisterTimeoutSeconds, .zero)
                 XCTAssertNil(Options!.pointee.ServerName)
                 XCTAssertEqual(Options!.pointee.bEnableGameplayData, .zero)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                GTest.current.sdkReceived.append("EOS_AntiCheatServer_BeginSession")
                 return .zero
             }
             defer { __on_EOS_AntiCheatServer_BeginSession = nil }

@@ -416,7 +416,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioBeforeRender(
                             Handle,
                             Options,
@@ -454,7 +454,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioBeforeSend(
                             Handle,
                             Options,
@@ -489,7 +489,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_AddNotifyAudioDevicesChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioDevicesChanged(
                             Handle,
                             Options,
@@ -525,7 +525,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioInputState(
                             Handle,
                             Options,
@@ -561,7 +561,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyAudioOutputState(
                             Handle,
                             Options,
@@ -597,7 +597,7 @@ extension SwiftEOS_RTCAudio_Actor {
                 notification: CompletionDelegate,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_AddNotifyParticipantUpdated(
                             Handle,
                             Options,
@@ -628,7 +628,7 @@ extension SwiftEOS_RTCAudio_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_GetAudioInputDeviceByIndex(
                             Handle,
                             Options
@@ -652,7 +652,7 @@ extension SwiftEOS_RTCAudio_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_GetAudioInputDevicesCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_GetAudioInputDevicesCountOptions(), managedBy: pointerManager) { Options in
                         EOS_RTCAudio_GetAudioInputDevicesCount(
                             Handle,
                             Options
@@ -678,7 +678,7 @@ extension SwiftEOS_RTCAudio_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_RTCAudio_GetAudioOutputDeviceByIndex(
                             Handle,
                             Options
@@ -702,7 +702,7 @@ extension SwiftEOS_RTCAudio_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_RTCAudio_GetAudioOutputDevicesCountOptions(), managedBy: pointerManager) { Options in
                         EOS_RTCAudio_GetAudioOutputDevicesCount(
                             Handle,
                             Options
@@ -724,7 +724,7 @@ extension SwiftEOS_RTCAudio_Actor {
         _ Options: SwiftEOS_RTCAudio_RegisterPlatformAudioUserOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_RTCAudio_RegisterPlatformAudioUser(
                         Handle,
@@ -748,7 +748,7 @@ extension SwiftEOS_RTCAudio_Actor {
         _ Options: SwiftEOS_RTCAudio_SendAudioOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_RTCAudio_SendAudio(
                         Handle,
@@ -766,7 +766,7 @@ extension SwiftEOS_RTCAudio_Actor {
         _ Options: SwiftEOS_RTCAudio_SetAudioInputSettingsOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_RTCAudio_SetAudioInputSettings(
                         Handle,
@@ -784,7 +784,7 @@ extension SwiftEOS_RTCAudio_Actor {
         _ Options: SwiftEOS_RTCAudio_SetAudioOutputSettingsOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_RTCAudio_SetAudioOutputSettings(
                         Handle,
@@ -802,7 +802,7 @@ extension SwiftEOS_RTCAudio_Actor {
         _ Options: SwiftEOS_RTCAudio_UnregisterPlatformAudioUserOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_RTCAudio_UnregisterPlatformAudioUser(
                         Handle,
@@ -826,7 +826,7 @@ extension SwiftEOS_RTCAudio_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTCAudio_UpdateReceiving(
                         Handle,
                         Options,
@@ -852,7 +852,7 @@ extension SwiftEOS_RTCAudio_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_RTCAudio_UpdateSending(
                         Handle,
                         Options,

@@ -9,6 +9,7 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_RegisterPeer = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_RegisterPeer")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_REGISTERPEER_API_LATEST)
                 XCTAssertNil(Options!.pointee.PeerHandle)
@@ -16,7 +17,6 @@ public class SwiftEOS_AntiCheatClient_RegisterPeerTests: XCTestCase {
                 XCTAssertEqual(Options!.pointee.ClientPlatform, .zero)
                 XCTAssertNil(Options!.pointee.AccountId)
                 XCTAssertNil(Options!.pointee.IpAddress)
-                GTest.current.sdkReceived.append("EOS_AntiCheatClient_RegisterPeer")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_RegisterPeer = nil }

@@ -9,10 +9,10 @@ public class SwiftEOS_RTCAudio_GetAudioInputDeviceByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_GetAudioInputDeviceByIndex = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_RTCAudio_GetAudioInputDeviceByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_GETAUDIOINPUTDEVICEBYINDEX_API_LATEST)
                 XCTAssertEqual(Options!.pointee.DeviceInfoIndex, .zero)
-                GTest.current.sdkReceived.append("EOS_RTCAudio_GetAudioInputDeviceByIndex")
                 return nil
             }
             defer { __on_EOS_RTCAudio_GetAudioInputDeviceByIndex = nil }

@@ -210,7 +210,7 @@ extension SwiftEOS_Auth_Actor {
                 notification: Notification,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Auth_AddNotifyLoginStatusChangedOptions(), managedBy: pointerManager) { Options in
                         EOS_Auth_AddNotifyLoginStatusChanged(
                             Handle,
                             Options,
@@ -240,10 +240,10 @@ extension SwiftEOS_Auth_Actor {
     ) throws -> SwiftEOS_Auth_Token {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutUserAuthToken in
-                        try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Auth_CopyUserAuthTokenOptions(), managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Auth_CopyUserAuthTokenOptions(), managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Auth_CopyUserAuthToken(
                                     Handle,
@@ -272,7 +272,7 @@ extension SwiftEOS_Auth_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Auth_DeletePersistentAuth(
                         Handle,
                         Options,
@@ -355,7 +355,7 @@ extension SwiftEOS_Auth_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Auth_LinkAccount(
                         Handle,
                         Options,
@@ -377,7 +377,7 @@ extension SwiftEOS_Auth_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Auth_Login(
                         Handle,
                         Options,
@@ -399,7 +399,7 @@ extension SwiftEOS_Auth_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Auth_Logout(
                         Handle,
                         Options,
@@ -422,7 +422,7 @@ extension SwiftEOS_Auth_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Auth_VerifyUserAuth(
                         Handle,
                         Options,

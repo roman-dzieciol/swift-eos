@@ -9,16 +9,16 @@ public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_SessionModification_Release = { SessionModificationHandle in
-                XCTAssertNil(SessionModificationHandle)
                 GTest.current.sdkReceived.append("EOS_SessionModification_Release")
+                XCTAssertNil(SessionModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_SessionModification_SetPermissionLevel = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_SessionModification_SetPermissionLevel")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONMODIFICATION_SETPERMISSIONLEVEL_API_LATEST)
                 XCTAssertEqual(Options!.pointee.PermissionLevel, .zero)
-                GTest.current.sdkReceived.append("EOS_SessionModification_SetPermissionLevel")
                 return .zero
             }
             defer { __on_EOS_SessionModification_SetPermissionLevel = nil }

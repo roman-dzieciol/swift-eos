@@ -9,10 +9,10 @@ public class SwiftEOS_P2P_GetPacketQueueInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_P2P_GetPacketQueueInfo = { Handle, Options, OutPacketQueueInfo in
+                GTest.current.sdkReceived.append("EOS_P2P_GetPacketQueueInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_P2P_GETPACKETQUEUEINFO_API_LATEST)
                 XCTAssertNotNil(OutPacketQueueInfo)
-                GTest.current.sdkReceived.append("EOS_P2P_GetPacketQueueInfo")
                 return .zero
             }
             defer { __on_EOS_P2P_GetPacketQueueInfo = nil }
@@ -21,12 +21,16 @@ public class SwiftEOS_P2P_GetPacketQueueInfoTests: XCTestCase {
             let object: SwiftEOS_P2P_Actor = SwiftEOS_P2P_Actor(Handle: nil)
             
             // When SDK function is called
-            try XCTAssertThrowsError(try object.GetPacketQueueInfo()) { error in
-                guard case SwiftEOSError.unexpectedNilResult = error else { return XCTFail("unexpected \(error)") }
-            }
+            let result: _tagEOS_P2P_PacketQueueInfo = try object.GetPacketQueueInfo()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_P2P_GetPacketQueueInfo"])
+            XCTAssertEqual(result.IncomingPacketQueueMaxSizeBytes, .zero)
+            XCTAssertEqual(result.IncomingPacketQueueCurrentSizeBytes, .zero)
+            XCTAssertEqual(result.IncomingPacketQueueCurrentPacketCount, .zero)
+            XCTAssertEqual(result.OutgoingPacketQueueMaxSizeBytes, .zero)
+            XCTAssertEqual(result.OutgoingPacketQueueCurrentSizeBytes, .zero)
+            XCTAssertEqual(result.OutgoingPacketQueueCurrentPacketCount, .zero)
         }
         
         // Then

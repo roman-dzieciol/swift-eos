@@ -9,14 +9,14 @@ public class SwiftEOS_Platform_TickTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_Tick = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Tick")
+                XCTAssertNil(Handle)
             }
             defer { __on_EOS_Platform_Tick = nil }
             

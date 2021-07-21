@@ -10,6 +10,7 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredTests: XCTestCa
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_AddNotifyPeerActionRequired = { Handle, Options, ClientData, NotificationFn in
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_AddNotifyPeerActionRequired")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_ADDNOTIFYPEERACTIONREQUIRED_API_LATEST)
                 XCTAssertNotNil(ClientData)
@@ -20,7 +21,6 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredTests: XCTestCa
                             ActionReasonCode: .zero,
                             ActionReasonDetailsString: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_AntiCheatClient_AddNotifyPeerActionRequired")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_AddNotifyPeerActionRequired = nil }
@@ -39,14 +39,14 @@ public class SwiftEOS_AntiCheatClient_AddNotifyPeerActionRequiredTests: XCTestCa
             
             // Then
             withExtendedLifetime(result) { result in
-                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyPeerActionRequired"])
                 wait(for: [waitForNotificationFn], timeout: 0.5)
+                XCTAssertEqual(GTest.current.sdkReceived, ["EOS_AntiCheatClient_AddNotifyPeerActionRequired"])
                 
                 // Given implementation for SDK remove notify function
                 __on_EOS_AntiCheatClient_RemoveNotifyPeerActionRequired = { Handle, NotificationId in
+                    GTest.current.sdkReceived.append("EOS_AntiCheatClient_RemoveNotifyPeerActionRequired")
                     XCTAssertNil(Handle)
                     XCTAssertEqual(NotificationId, .zero)
-                    GTest.current.sdkReceived.append("EOS_AntiCheatClient_RemoveNotifyPeerActionRequired")
                 }
             }
         }

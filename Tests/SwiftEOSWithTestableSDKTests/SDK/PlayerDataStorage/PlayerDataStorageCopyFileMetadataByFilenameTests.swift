@@ -9,12 +9,12 @@ public class SwiftEOS_PlayerDataStorage_CopyFileMetadataByFilenameTests: XCTestC
             
             // Given implementation for SDK function
             __on_EOS_PlayerDataStorage_CopyFileMetadataByFilename = { Handle, CopyFileMetadataOptions, OutMetadata in
+                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataByFilename")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(CopyFileMetadataOptions!.pointee.ApiVersion, EOS_PLAYERDATASTORAGE_COPYFILEMETADATABYFILENAMEOPTIONS_API_LATEST)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.LocalUserId)
                 XCTAssertNil(CopyFileMetadataOptions!.pointee.Filename)
                 XCTAssertNotNil(OutMetadata)
-                GTest.current.sdkReceived.append("EOS_PlayerDataStorage_CopyFileMetadataByFilename")
                 return .zero
             }
             defer { __on_EOS_PlayerDataStorage_CopyFileMetadataByFilename = nil }

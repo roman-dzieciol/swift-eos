@@ -211,41 +211,6 @@ public class SwiftEOS_P2P_Actor: SwiftEOSActor {
     }
 
     /**
-    Receive the next packet for the local user, and information associated with this packet, if it exists.
-
-    - Parameter LocalUserId: The Product User ID of the user who is receiving the packet
-    - Parameter MaxDataSizeBytes: The maximum amount of data in bytes that can be safely copied to OutData in the function call
-    - Parameter RequestedChannel: An optional channel to request the data for. If NULL, we're retrieving the next packet on any channel
-    - Parameter OutPeerId: The Remote User who sent data. Only set if there was a packet to receive.
-    - Parameter OutSocketId: The Socket ID of the data that was sent. Only set if there was a packet to receive.
-    - Parameter OutChannel: The channel the data was sent on. Only set if there was a packet to receive.
-    - Parameter OutData: Buffer to store the data being received. Must be at least `EOS_P2P_GetNextReceivedPacketSize` in length or data will be truncated
-    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
-              `EOS_EResult`::`EOS_NotFound` - If there are no packets available for the requesting user
-    */
-    public func ReceivePacket(
-        LocalUserId: EOS_ProductUserId?,
-        MaxDataSizeBytes: Int,
-        RequestedChannel: UInt8?,
-        OutPeerId: inout EOS_ProductUserId?,
-        OutSocketId: inout SwiftEOS_P2P_SocketId?,
-        OutChannel: inout UInt8?,
-        OutData: inout [UInt8]?
-    ) throws {
-        try ____ReceivePacket(
-            .init(
-                LocalUserId: LocalUserId,
-                MaxDataSizeBytes: MaxDataSizeBytes,
-                RequestedChannel: RequestedChannel
-            ),
-            &OutPeerId,
-            &OutSocketId,
-            &OutChannel,
-            &OutData
-        )
-    }
-
-    /**
     Send a packet to a peer at the specified address. If there is already an open connection to this peer, it will be
     sent immediately. If there is no open connection, an attempt to connect to the peer will be made. An `EOS_Success`
     result only means the data was accepted to be sent, not that it has been successfully delivered to the peer.
@@ -347,7 +312,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_AcceptConnectionOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_AcceptConnection(
                         Handle,
@@ -372,7 +337,7 @@ extension SwiftEOS_P2P_Actor {
                 notification: IncomingPacketQueueFullHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_P2P_AddNotifyIncomingPacketQueueFullOptions(), managedBy: pointerManager) { Options in
                         EOS_P2P_AddNotifyIncomingPacketQueueFull(
                             Handle,
                             Options,
@@ -404,7 +369,7 @@ extension SwiftEOS_P2P_Actor {
                 notification: ConnectionClosedHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_P2P_AddNotifyPeerConnectionClosed(
                             Handle,
                             Options,
@@ -437,7 +402,7 @@ extension SwiftEOS_P2P_Actor {
                 notification: ConnectionRequestHandler,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_P2P_AddNotifyPeerConnectionRequest(
                             Handle,
                             Options,
@@ -463,7 +428,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_CloseConnectionOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_CloseConnection(
                         Handle,
@@ -481,7 +446,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_CloseConnectionsOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_CloseConnections(
                         Handle,
@@ -497,15 +462,14 @@ extension SwiftEOS_P2P_Actor {
     */
     private func ____GetNATType() throws -> EOS_ENATType {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutNATType in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetNATTypeOptions(), managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_P2P_GetNATType(
-                                Handle,
-                                Options,
-                                OutNATType
-                            ) } } } } }
+            try withTrivialPointerReturnedAsTrivial(managedBy: pointerManager) { OutNATType in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_P2P_GetNATTypeOptions(), managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_P2P_GetNATType(
+                            Handle,
+                            Options,
+                            OutNATType
+                        ) } } } }
     }
 
     /**
@@ -522,7 +486,7 @@ extension SwiftEOS_P2P_Actor {
     ) throws -> Int {
         try withPointerManager { pointerManager in
             try withIntegerPointerReturnedAsInteger { OutPacketSizeBytes in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_P2P_GetNextReceivedPacketSize(
                             Handle,
@@ -539,15 +503,14 @@ extension SwiftEOS_P2P_Actor {
     */
     private func ____GetPacketQueueInfo() throws -> _tagEOS_P2P_PacketQueueInfo {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutPacketQueueInfo in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPacketQueueInfoOptions(), managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_P2P_GetPacketQueueInfo(
-                                Handle,
-                                Options,
-                                OutPacketQueueInfo
-                            ) } } } } }
+            try withSdkObjectPointerReturnedAsSdkObject(managedBy: pointerManager) { OutPacketQueueInfo in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPacketQueueInfoOptions(), managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_P2P_GetPacketQueueInfo(
+                            Handle,
+                            Options,
+                            OutPacketQueueInfo
+                        ) } } } }
     }
 
     /**
@@ -564,7 +527,7 @@ extension SwiftEOS_P2P_Actor {
         try withPointerManager { pointerManager in
             try withIntPointerFromInOutOptionalInt(&OutNumAdditionalPortsToTry) { OutNumAdditionalPortsToTry in
                 try withIntPointerFromInOutOptionalInt(&OutPort) { OutPort in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPortRangeOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_P2P_GetPortRangeOptions(), managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_P2P_GetPortRange(
                                 Handle,
@@ -582,15 +545,14 @@ extension SwiftEOS_P2P_Actor {
     */
     private func ____GetRelayControl() throws -> EOS_ERelayControl {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutRelayControl in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_GetRelayControlOptions(), managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_P2P_GetRelayControl(
-                                Handle,
-                                Options,
-                                OutRelayControl
-                            ) } } } } }
+            try withTrivialPointerReturnedAsTrivial(managedBy: pointerManager) { OutRelayControl in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_P2P_GetRelayControlOptions(), managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_P2P_GetRelayControl(
+                            Handle,
+                            Options,
+                            OutRelayControl
+                        ) } } } }
     }
 
     /**
@@ -603,7 +565,7 @@ extension SwiftEOS_P2P_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_P2P_QueryNATTypeOptions(), managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_P2P_QueryNATTypeOptions(), managedBy: pointerManager) { Options in
                     EOS_P2P_QueryNATType(
                         Handle,
                         Options,
@@ -611,42 +573,6 @@ extension SwiftEOS_P2P_Actor {
                         { sdkCallbackInfoPointer in
                             SwiftEOS_P2P_OnQueryNATTypeCompleteInfo.sendCompletion(sdkCallbackInfoPointer) }
                     ) } } }
-    }
-
-    /**
-    Receive the next packet for the local user, and information associated with this packet, if it exists.
-
-    - Parameter Options: Information about who is requesting the size of their next packet, and how much data can be stored safely
-    - Parameter OutPeerId: The Remote User who sent data. Only set if there was a packet to receive.
-    - Parameter OutSocketId: The Socket ID of the data that was sent. Only set if there was a packet to receive.
-    - Parameter OutChannel: The channel the data was sent on. Only set if there was a packet to receive.
-    - Parameter OutData: Buffer to store the data being received. Must be at least `EOS_P2P_GetNextReceivedPacketSize` in length or data will be truncated
-    - Throws: `EOS_EResult`::`EOS_InvalidParameters` - If input was invalid
-              `EOS_EResult`::`EOS_NotFound` - If there are no packets available for the requesting user
-    */
-    private func ____ReceivePacket(
-        _ Options: SwiftEOS_P2P_ReceivePacketOptions,
-        _ OutPeerId: inout EOS_ProductUserId?,
-        _ OutSocketId: inout SwiftEOS_P2P_SocketId?,
-        _ OutChannel: inout UInt8?,
-        _ OutData: inout [UInt8]?
-    ) throws {
-        try withPointerManager { pointerManager in
-            try withPointersToInOutArray(inoutArray: &OutData) { OutData, OutBytesWritten in
-                try withIntPointerFromInOutOptionalInt(&OutChannel) { OutChannel in
-                    try withSdkObjectPointerFromInOutSwiftObject(&OutSocketId, managedBy: pointerManager) { OutSocketId in
-                        try withOptionalTrivialMutablePointerFromInOutOptionalTrivial(&OutPeerId, managedBy: pointerManager) { OutPeerId in
-                            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                                try throwingSdkResult { 
-                                    EOS_P2P_ReceivePacket(
-                                        Handle,
-                                        Options,
-                                        OutPeerId,
-                                        OutSocketId,
-                                        OutChannel,
-                                        OutData,
-                                        OutBytesWritten
-                                    ) } } } } } } }
     }
 
     /**
@@ -662,7 +588,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_SendPacketOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_SendPacket(
                         Handle,
@@ -683,7 +609,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_SetPacketQueueSizeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_SetPacketQueueSize(
                         Handle,
@@ -701,7 +627,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_SetPortRangeOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_SetPortRange(
                         Handle,
@@ -720,7 +646,7 @@ extension SwiftEOS_P2P_Actor {
         _ Options: SwiftEOS_P2P_SetRelayControlOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_P2P_SetRelayControl(
                         Handle,

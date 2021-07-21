@@ -10,6 +10,7 @@ public class SwiftEOS_Ecom_RedeemEntitlementsTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_RedeemEntitlements = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Ecom_RedeemEntitlements")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_REDEEMENTITLEMENTS_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Ecom_RedeemEntitlementsTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Ecom_RedeemEntitlements")
             }
             defer { __on_EOS_Ecom_RedeemEntitlements = nil }
             
@@ -40,8 +40,8 @@ public class SwiftEOS_Ecom_RedeemEntitlementsTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_RedeemEntitlements"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Ecom_RedeemEntitlements"])
         }
         
         // Then

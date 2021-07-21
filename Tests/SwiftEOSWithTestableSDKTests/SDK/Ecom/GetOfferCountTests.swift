@@ -9,10 +9,10 @@ public class SwiftEOS_Ecom_GetOfferCountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_GetOfferCount = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_Ecom_GetOfferCount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_GETOFFERCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                GTest.current.sdkReceived.append("EOS_Ecom_GetOfferCount")
                 return .zero
             }
             defer { __on_EOS_Ecom_GetOfferCount = nil }

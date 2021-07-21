@@ -10,6 +10,7 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAudio_UpdateSending = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTCAudio_UpdateSending")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCAUDIO_UPDATESENDING_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -23,7 +24,6 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
                             RoomName: nil,
                             AudioStatus: .zero
                         )))
-                GTest.current.sdkReceived.append("EOS_RTCAudio_UpdateSending")
             }
             defer { __on_EOS_RTCAudio_UpdateSending = nil }
             
@@ -45,8 +45,8 @@ public class SwiftEOS_RTCAudio_UpdateSendingTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UpdateSending"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAudio_UpdateSending"])
         }
         
         // Then

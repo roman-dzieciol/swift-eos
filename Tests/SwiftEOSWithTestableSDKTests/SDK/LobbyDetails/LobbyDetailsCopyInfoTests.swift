@@ -9,16 +9,16 @@ public class SwiftEOS_LobbyDetails_CopyInfoTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_LobbyDetails_Release = { LobbyHandle in
-                XCTAssertNil(LobbyHandle)
                 GTest.current.sdkReceived.append("EOS_LobbyDetails_Release")
+                XCTAssertNil(LobbyHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_LobbyDetails_CopyInfo = { Handle, Options, OutLobbyDetailsInfo in
+                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBYDETAILS_COPYINFO_API_LATEST)
                 XCTAssertNotNil(OutLobbyDetailsInfo)
-                GTest.current.sdkReceived.append("EOS_LobbyDetails_CopyInfo")
                 return .zero
             }
             defer { __on_EOS_LobbyDetails_CopyInfo = nil }

@@ -9,16 +9,16 @@ public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_PresenceModification_Release = { PresenceModificationHandle in
-                XCTAssertNil(PresenceModificationHandle)
                 GTest.current.sdkReceived.append("EOS_PresenceModification_Release")
+                XCTAssertNil(PresenceModificationHandle)
             }
             
             // Given implementation for SDK function
             __on_EOS_PresenceModification_SetJoinInfo = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_PresenceModification_SetJoinInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_PRESENCEMODIFICATION_SETJOININFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.JoinInfo)
-                GTest.current.sdkReceived.append("EOS_PresenceModification_SetJoinInfo")
                 return .zero
             }
             defer { __on_EOS_PresenceModification_SetJoinInfo = nil }

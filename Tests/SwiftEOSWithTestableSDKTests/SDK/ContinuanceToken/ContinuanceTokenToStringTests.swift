@@ -9,10 +9,10 @@ public class SwiftEOS_ContinuanceToken_ToStringTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_ContinuanceToken_ToString = { ContinuanceToken, OutBuffer, InOutBufferLength in
-                XCTAssertNil(ContinuanceToken)
-                XCTAssertNotNil(OutBuffer)
-                XCTAssertNotNil(InOutBufferLength)
                 GTest.current.sdkReceived.append("EOS_ContinuanceToken_ToString")
+                XCTAssertNil(ContinuanceToken)
+                XCTAssertNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 return .zero
             }
             defer { __on_EOS_ContinuanceToken_ToString = nil }

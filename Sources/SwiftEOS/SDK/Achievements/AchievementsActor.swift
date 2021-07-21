@@ -346,7 +346,7 @@ extension SwiftEOS_Achievements_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Achievements_AddNotifyAchievementsUnlockedOptions(), managedBy: pointerManager) { Options in
                         EOS_Achievements_AddNotifyAchievementsUnlocked(
                             Handle,
                             Options,
@@ -378,7 +378,7 @@ extension SwiftEOS_Achievements_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Options(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Achievements_AddNotifyAchievementsUnlockedV2Options(), managedBy: pointerManager) { Options in
                         EOS_Achievements_AddNotifyAchievementsUnlockedV2(
                             Handle,
                             Options,
@@ -411,10 +411,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_Definition {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutDefinition in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyAchievementDefinitionByAchievementId(
                                     Handle,
@@ -442,10 +442,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_Definition {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutDefinition in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyAchievementDefinitionByIndex(
                                     Handle,
@@ -471,10 +471,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_DefinitionV2 {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutDefinition in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId(
                                     Handle,
@@ -500,10 +500,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_DefinitionV2 {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutDefinition in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyAchievementDefinitionV2ByIndex(
                                     Handle,
@@ -529,10 +529,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_PlayerAchievement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAchievement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyPlayerAchievementByAchievementId(
                                     Handle,
@@ -558,10 +558,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_PlayerAchievement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAchievement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyPlayerAchievementByIndex(
                                     Handle,
@@ -588,10 +588,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_UnlockedAchievement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAchievement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyUnlockedAchievementByAchievementId(
                                     Handle,
@@ -618,10 +618,10 @@ extension SwiftEOS_Achievements_Actor {
     ) throws -> SwiftEOS_Achievements_UnlockedAchievement {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withSdkObjectPointerPointerReturnedAsSwiftObject(
+                try withSdkObjectOptionalPointerToOptionalPointerReturnedAsOptionalSwiftObject(
                     managedBy: pointerManager,
                     nest: { OutAchievement in
-                        try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                        try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                             try throwingSdkResult { 
                                 EOS_Achievements_CopyUnlockedAchievementByIndex(
                                     Handle,
@@ -642,7 +642,7 @@ extension SwiftEOS_Achievements_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Achievements_GetAchievementDefinitionCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Achievements_GetAchievementDefinitionCountOptions(), managedBy: pointerManager) { Options in
                         EOS_Achievements_GetAchievementDefinitionCount(
                             Handle,
                             Options
@@ -665,7 +665,7 @@ extension SwiftEOS_Achievements_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Achievements_GetPlayerAchievementCount(
                             Handle,
                             Options
@@ -690,7 +690,7 @@ extension SwiftEOS_Achievements_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Achievements_GetUnlockedAchievementCount(
                             Handle,
                             Options
@@ -715,7 +715,7 @@ extension SwiftEOS_Achievements_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Achievements_QueryDefinitions(
                         Handle,
                         Options,
@@ -741,7 +741,7 @@ extension SwiftEOS_Achievements_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Achievements_QueryPlayerAchievements(
                         Handle,
                         Options,
@@ -765,7 +765,7 @@ extension SwiftEOS_Achievements_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Achievements_UnlockAchievements(
                         Handle,
                         Options,

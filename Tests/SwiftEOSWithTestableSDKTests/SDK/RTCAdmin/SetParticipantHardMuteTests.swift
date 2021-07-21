@@ -10,6 +10,7 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_RTCAdmin_SetParticipantHardMute = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_RTCAdmin_SetParticipantHardMute")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_RTCADMIN_SETPARTICIPANTHARDMUTE_API_LATEST)
                 XCTAssertNil(Options!.pointee.RoomName)
@@ -20,7 +21,6 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_RTCAdmin_SetParticipantHardMute")
             }
             defer { __on_EOS_RTCAdmin_SetParticipantHardMute = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_RTCAdmin_SetParticipantHardMuteTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_SetParticipantHardMute"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_RTCAdmin_SetParticipantHardMute"])
         }
         
         // Then

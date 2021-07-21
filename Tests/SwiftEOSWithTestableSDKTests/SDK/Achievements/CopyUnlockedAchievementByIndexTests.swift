@@ -9,12 +9,12 @@ public class SwiftEOS_Achievements_CopyUnlockedAchievementByIndexTests: XCTestCa
             
             // Given implementation for SDK function
             __on_EOS_Achievements_CopyUnlockedAchievementByIndex = { Handle, Options, OutAchievement in
+                GTest.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ACHIEVEMENTS_COPYUNLOCKEDACHIEVEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.UserId)
                 XCTAssertEqual(Options!.pointee.AchievementIndex, .zero)
                 XCTAssertNotNil(OutAchievement)
-                GTest.current.sdkReceived.append("EOS_Achievements_CopyUnlockedAchievementByIndex")
                 return .zero
             }
             defer { __on_EOS_Achievements_CopyUnlockedAchievementByIndex = nil }

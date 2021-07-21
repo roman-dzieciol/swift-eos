@@ -161,8 +161,8 @@ extension SwiftEOS_LobbySearch_Actor {
     ) throws -> EOS_HLobbyDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_LobbySearch_CopySearchResultByIndex(
                                 Handle,
@@ -187,7 +187,7 @@ extension SwiftEOS_LobbySearch_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_LobbySearch_Find(
                         Handle,
                         Options,
@@ -206,7 +206,7 @@ extension SwiftEOS_LobbySearch_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_LobbySearch_GetSearchResultCountOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_LobbySearch_GetSearchResultCountOptions(), managedBy: pointerManager) { Options in
                         EOS_LobbySearch_GetSearchResultCount(
                             Handle,
                             Options
@@ -228,7 +228,7 @@ extension SwiftEOS_LobbySearch_Actor {
         _ Options: SwiftEOS_LobbySearch_RemoveParameterOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbySearch_RemoveParameter(
                         Handle,
@@ -247,7 +247,7 @@ extension SwiftEOS_LobbySearch_Actor {
         _ Options: SwiftEOS_LobbySearch_SetLobbyIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbySearch_SetLobbyId(
                         Handle,
@@ -266,7 +266,7 @@ extension SwiftEOS_LobbySearch_Actor {
         _ Options: SwiftEOS_LobbySearch_SetMaxResultsOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbySearch_SetMaxResults(
                         Handle,
@@ -287,7 +287,7 @@ extension SwiftEOS_LobbySearch_Actor {
         _ Options: SwiftEOS_LobbySearch_SetParameterOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbySearch_SetParameter(
                         Handle,
@@ -307,7 +307,7 @@ extension SwiftEOS_LobbySearch_Actor {
         _ Options: SwiftEOS_LobbySearch_SetTargetUserIdOptions
     ) throws {
         try withPointerManager { pointerManager in
-            try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+            try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                 try throwingSdkResult { 
                     EOS_LobbySearch_SetTargetUserId(
                         Handle,

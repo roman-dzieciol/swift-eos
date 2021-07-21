@@ -10,6 +10,7 @@ public class SwiftEOS_Connect_LinkAccountTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Connect_LinkAccount = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Connect_LinkAccount")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_CONNECT_LINKACCOUNT_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -20,7 +21,6 @@ public class SwiftEOS_Connect_LinkAccountTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Connect_LinkAccount")
             }
             defer { __on_EOS_Connect_LinkAccount = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_Connect_LinkAccountTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_LinkAccount"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Connect_LinkAccount"])
         }
         
         // Then

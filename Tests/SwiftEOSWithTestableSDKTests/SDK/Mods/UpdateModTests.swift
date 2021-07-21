@@ -10,6 +10,7 @@ public class SwiftEOS_Mods_UpdateModTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Mods_UpdateMod = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Mods_UpdateMod")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_UPDATEMOD_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Mods_UpdateModTests: XCTestCase {
                             ClientData: ClientData,
                             Mod: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Mods_UpdateMod")
             }
             defer { __on_EOS_Mods_UpdateMod = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Mods_UpdateModTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_UpdateMod"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_UpdateMod"])
         }
         
         // Then

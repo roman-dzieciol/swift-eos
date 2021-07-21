@@ -9,12 +9,12 @@ public class SwiftEOS_Ecom_CopyEntitlementByIndexTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Ecom_CopyEntitlementByIndex = { Handle, Options, OutEntitlement in
+                GTest.current.sdkReceived.append("EOS_Ecom_CopyEntitlementByIndex")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ECOM_COPYENTITLEMENTBYINDEX_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
                 XCTAssertEqual(Options!.pointee.EntitlementIndex, .zero)
                 XCTAssertNotNil(OutEntitlement)
-                GTest.current.sdkReceived.append("EOS_Ecom_CopyEntitlementByIndex")
                 return .zero
             }
             defer { __on_EOS_Ecom_CopyEntitlementByIndex = nil }

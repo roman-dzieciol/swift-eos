@@ -9,12 +9,12 @@ public class SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_AntiCheatClient_ReceiveMessageFromPeer = { Handle, Options in
+                GTest.current.sdkReceived.append("EOS_AntiCheatClient_ReceiveMessageFromPeer")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_ANTICHEATCLIENT_RECEIVEMESSAGEFROMPEER_API_LATEST)
                 XCTAssertNil(Options!.pointee.PeerHandle)
                 XCTAssertEqual(Options!.pointee.DataLengthBytes, .zero)
                 XCTAssertNil(Options!.pointee.Data)
-                GTest.current.sdkReceived.append("EOS_AntiCheatClient_ReceiveMessageFromPeer")
                 return .zero
             }
             defer { __on_EOS_AntiCheatClient_ReceiveMessageFromPeer = nil }

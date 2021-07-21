@@ -620,7 +620,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyJoinLobbyAcceptedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyJoinLobbyAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyJoinLobbyAccepted(
                             Handle,
                             Options,
@@ -651,7 +651,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyInviteAcceptedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyInviteAccepted(
                             Handle,
                             Options,
@@ -682,7 +682,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyInviteReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyInviteReceived(
                             Handle,
                             Options,
@@ -713,7 +713,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyMemberStatusReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyMemberStatusReceived(
                             Handle,
                             Options,
@@ -744,7 +744,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyMemberUpdateReceived(
                             Handle,
                             Options,
@@ -775,7 +775,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyUpdateReceivedOptions(), managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalMutablePointerFromSwiftObject(SwiftEOS_Lobby_AddNotifyLobbyUpdateReceivedOptions(), managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyLobbyUpdateReceived(
                             Handle,
                             Options,
@@ -820,7 +820,7 @@ extension SwiftEOS_Lobby_Actor {
                 notification: NotificationFn,
                 managedBy: pointerManager,
                 nested: { ClientData in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Lobby_AddNotifyRTCRoomConnectionChanged(
                             Handle,
                             Options,
@@ -853,8 +853,8 @@ extension SwiftEOS_Lobby_Actor {
     ) throws -> EOS_HLobbyDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Lobby_CopyLobbyDetailsHandleByInviteId(
                                 Handle,
@@ -880,8 +880,8 @@ extension SwiftEOS_Lobby_Actor {
     ) throws -> EOS_HLobbyDetails {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutLobbyDetailsHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Lobby_CopyLobbyDetailsHandleByUiEventId(
                                 Handle,
@@ -910,7 +910,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_CreateLobby(
                         Handle,
                         Options,
@@ -936,8 +936,8 @@ extension SwiftEOS_Lobby_Actor {
     ) throws -> EOS_HLobbySearch {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutLobbySearchHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutLobbySearchHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Lobby_CreateLobbySearch(
                                 Handle,
@@ -962,7 +962,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_DestroyLobby(
                         Handle,
                         Options,
@@ -984,7 +984,7 @@ extension SwiftEOS_Lobby_Actor {
         try withPointerManager { pointerManager in
             try returningTransformedResult(
                 nested: { 
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         EOS_Lobby_GetInviteCount(
                             Handle,
                             Options
@@ -1008,16 +1008,15 @@ extension SwiftEOS_Lobby_Actor {
         _ Options: SwiftEOS_Lobby_GetInviteIdByIndexOptions
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Lobby_GetInviteIdByIndex(
-                                Handle,
-                                Options,
-                                OutBuffer,
-                                InOutBufferLength
-                            ) } } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_Lobby_GetInviteIdByIndex(
+                            Handle,
+                            Options,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -1040,16 +1039,15 @@ extension SwiftEOS_Lobby_Actor {
         _ Options: SwiftEOS_Lobby_GetRTCRoomNameOptions
     ) throws -> String {
         try withPointerManager { pointerManager in
-            try throwingNilResult { 
-                try withCCharPointerPointersReturnedAsOptionalString { OutBuffer, InOutBufferLength in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
-                        try throwingSdkResult { 
-                            EOS_Lobby_GetRTCRoomName(
-                                Handle,
-                                Options,
-                                OutBuffer,
-                                InOutBufferLength
-                            ) } } } } }
+            try withCCharPointerPointersReturnedAsString { OutBuffer, InOutBufferLength in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
+                    try throwingSdkResult { 
+                        EOS_Lobby_GetRTCRoomName(
+                            Handle,
+                            Options,
+                            OutBuffer,
+                            InOutBufferLength
+                        ) } } } }
     }
 
     /**
@@ -1073,7 +1071,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws -> Bool {
         try withPointerManager { pointerManager in
             try withEosBoolPointerReturnedAsSwiftBool { bOutIsConnected in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     try throwingSdkResult { 
                         EOS_Lobby_IsRTCRoomConnected(
                             Handle,
@@ -1101,7 +1099,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_JoinLobby(
                         Handle,
                         Options,
@@ -1127,7 +1125,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_KickMember(
                         Handle,
                         Options,
@@ -1155,7 +1153,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_LeaveLobby(
                         Handle,
                         Options,
@@ -1181,7 +1179,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_PromoteMember(
                         Handle,
                         Options,
@@ -1203,7 +1201,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_QueryInvites(
                         Handle,
                         Options,
@@ -1228,7 +1226,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_RejectInvite(
                         Handle,
                         Options,
@@ -1253,7 +1251,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_SendInvite(
                         Handle,
                         Options,
@@ -1279,7 +1277,7 @@ extension SwiftEOS_Lobby_Actor {
     ) throws {
         try withPointerManager { pointerManager in
             try withCompletion(completion: CompletionDelegate, managedBy: pointerManager) { ClientData in
-                try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                     EOS_Lobby_UpdateLobby(
                         Handle,
                         Options,
@@ -1305,8 +1303,8 @@ extension SwiftEOS_Lobby_Actor {
     ) throws -> EOS_HLobbyModification {
         try withPointerManager { pointerManager in
             try throwingNilResult { 
-                try withPointeeReturned(managedBy: pointerManager) { OutLobbyModificationHandle in
-                    try withSdkObjectPointerFromSwiftObject(Options, managedBy: pointerManager) { Options in
+                try withHandleReturned(managedBy: pointerManager) { OutLobbyModificationHandle in
+                    try withSdkObjectOptionalPointerFromOptionalSwiftObject(Options, managedBy: pointerManager) { Options in
                         try throwingSdkResult { 
                             EOS_Lobby_UpdateLobbyModification(
                                 Handle,

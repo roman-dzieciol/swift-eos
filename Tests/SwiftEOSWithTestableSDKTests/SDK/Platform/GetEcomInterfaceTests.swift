@@ -9,14 +9,14 @@ public class SwiftEOS_Platform_GetEcomInterfaceTests: XCTestCase {
             
             // Given implementation for SDK release function
             __on_EOS_Platform_Release = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_Release")
+                XCTAssertNil(Handle)
             }
             
             // Given implementation for SDK function
             __on_EOS_Platform_GetEcomInterface = { Handle in
-                XCTAssertNil(Handle)
                 GTest.current.sdkReceived.append("EOS_Platform_GetEcomInterface")
+                XCTAssertNil(Handle)
                 return nil
             }
             defer { __on_EOS_Platform_GetEcomInterface = nil }
@@ -25,11 +25,11 @@ public class SwiftEOS_Platform_GetEcomInterfaceTests: XCTestCase {
             let object: SwiftEOS_Platform_Actor = SwiftEOS_Platform_Actor(Handle: nil)
             
             // When SDK function is called
-            let result: SwiftEOS_Ecom_Actor? = object.GetEcomInterface()
+            let result: SwiftEOS_Ecom_Actor = object.GetEcomInterface()
             
             // Then
             XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Platform_GetEcomInterface"])
-            XCTAssertNil(result)
+            XCTAssertNil(result.Handle)
         }
         
         // Then

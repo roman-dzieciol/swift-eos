@@ -10,6 +10,7 @@ public class SwiftEOS_Sessions_RejectInviteTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Sessions_RejectInvite = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Sessions_RejectInvite")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_SESSIONS_REJECTINVITE_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -19,7 +20,6 @@ public class SwiftEOS_Sessions_RejectInviteTests: XCTestCase {
                             ResultCode: .zero,
                             ClientData: ClientData
                         )))
-                GTest.current.sdkReceived.append("EOS_Sessions_RejectInvite")
             }
             defer { __on_EOS_Sessions_RejectInvite = nil }
             
@@ -37,8 +37,8 @@ public class SwiftEOS_Sessions_RejectInviteTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_RejectInvite"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Sessions_RejectInvite"])
         }
         
         // Then

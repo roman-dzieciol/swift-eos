@@ -9,10 +9,10 @@ public class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_ProductUserId_ToString = { AccountId, OutBuffer, InOutBufferLength in
-                XCTAssertNil(AccountId)
-                XCTAssertNotNil(OutBuffer)
-                XCTAssertNotNil(InOutBufferLength)
                 GTest.current.sdkReceived.append("EOS_ProductUserId_ToString")
+                XCTAssertNil(AccountId)
+                XCTAssertNil(OutBuffer)
+                XCTAssertNotNil(InOutBufferLength)
                 return .zero
             }
             defer { __on_EOS_ProductUserId_ToString = nil }

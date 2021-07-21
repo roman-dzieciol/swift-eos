@@ -9,13 +9,13 @@ public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Lobby_GetRTCRoomName = { Handle, Options, OutBuffer, InOutBufferLength in
+                GTest.current.sdkReceived.append("EOS_Lobby_GetRTCRoomName")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_LOBBY_GETRTCROOMNAME_API_LATEST)
                 XCTAssertNil(Options!.pointee.LobbyId)
                 XCTAssertNil(Options!.pointee.LocalUserId)
-                XCTAssertNotNil(OutBuffer)
+                XCTAssertNil(OutBuffer)
                 XCTAssertNotNil(InOutBufferLength)
-                GTest.current.sdkReceived.append("EOS_Lobby_GetRTCRoomName")
                 return .zero
             }
             defer { __on_EOS_Lobby_GetRTCRoomName = nil }

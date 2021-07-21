@@ -10,6 +10,7 @@ public class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_KWS_UpdateParentEmail = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_KWS_UpdateParentEmail")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_KWS_UPDATEPARENTEMAIL_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -20,7 +21,6 @@ public class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
                             ClientData: ClientData,
                             LocalUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_KWS_UpdateParentEmail")
             }
             defer { __on_EOS_KWS_UpdateParentEmail = nil }
             
@@ -39,8 +39,8 @@ public class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_UpdateParentEmail"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_KWS_UpdateParentEmail"])
         }
         
         // Then

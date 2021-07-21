@@ -10,6 +10,7 @@ public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_Mods_UninstallMod = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_Mods_UninstallMod")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_MODS_UNINSTALLMOD_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
                             ClientData: ClientData,
                             Mod: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_Mods_UninstallMod")
             }
             defer { __on_EOS_Mods_UninstallMod = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_Mods_UninstallModTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_UninstallMod"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_Mods_UninstallMod"])
         }
         
         // Then

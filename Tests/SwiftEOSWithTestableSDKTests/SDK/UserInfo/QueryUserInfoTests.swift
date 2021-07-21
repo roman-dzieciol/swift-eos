@@ -10,6 +10,7 @@ public class SwiftEOS_UserInfo_QueryUserInfoTests: XCTestCase {
             
             // Given implementation for SDK function
             __on_EOS_UserInfo_QueryUserInfo = { Handle, Options, ClientData, CompletionDelegate in
+                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfo")
                 XCTAssertNil(Handle)
                 XCTAssertEqual(Options!.pointee.ApiVersion, EOS_USERINFO_QUERYUSERINFO_API_LATEST)
                 XCTAssertNil(Options!.pointee.LocalUserId)
@@ -21,7 +22,6 @@ public class SwiftEOS_UserInfo_QueryUserInfoTests: XCTestCase {
                             LocalUserId: nil,
                             TargetUserId: nil
                         )))
-                GTest.current.sdkReceived.append("EOS_UserInfo_QueryUserInfo")
             }
             defer { __on_EOS_UserInfo_QueryUserInfo = nil }
             
@@ -41,8 +41,8 @@ public class SwiftEOS_UserInfo_QueryUserInfoTests: XCTestCase {
             )
             
             // Then
-            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfo"])
             wait(for: [waitForCompletionDelegate], timeout: 0.5)
+            XCTAssertEqual(GTest.current.sdkReceived, ["EOS_UserInfo_QueryUserInfo"])
         }
         
         // Then

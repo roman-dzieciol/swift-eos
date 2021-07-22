@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_LobbySearch_SetLobbyIdTests: XCTestCase {
+public final class SwiftEOS_LobbySearch_SetLobbyIdTests: XCTestCase {
     public func testEOS_LobbySearch_SetLobbyId_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

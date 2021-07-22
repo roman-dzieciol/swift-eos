@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_RTC_JoinRoomCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_RTC_JoinRoomCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTC_JoinRoomCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTC_JoinRoomCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

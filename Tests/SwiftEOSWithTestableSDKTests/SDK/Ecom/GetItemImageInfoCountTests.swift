@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Ecom_GetItemImageInfoCountTests: XCTestCase {
+public final class SwiftEOS_Ecom_GetItemImageInfoCountTests: XCTestCase {
     public func testEOS_Ecom_GetItemImageInfoCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

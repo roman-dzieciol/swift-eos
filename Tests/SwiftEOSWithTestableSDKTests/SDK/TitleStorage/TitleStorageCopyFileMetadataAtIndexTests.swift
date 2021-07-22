@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_TitleStorage_CopyFileMetadataAtIndexTests: XCTestCase {
+public final class SwiftEOS_TitleStorage_CopyFileMetadataAtIndexTests: XCTestCase {
     public func testEOS_TitleStorage_CopyFileMetadataAtIndex_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

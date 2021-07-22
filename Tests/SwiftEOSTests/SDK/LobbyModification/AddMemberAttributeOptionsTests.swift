@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_LobbyModification_AddMemberAttributeOptionsTests: XCTestCase {
+public final class SwiftEOS_LobbyModification_AddMemberAttributeOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_LobbyModification_AddMemberAttributeOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyModification_AddMemberAttributeOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

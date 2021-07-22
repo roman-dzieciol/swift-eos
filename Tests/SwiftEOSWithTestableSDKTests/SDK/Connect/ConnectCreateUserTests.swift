@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Connect_CreateUserTests: XCTestCase {
+public final class SwiftEOS_Connect_CreateUserTests: XCTestCase {
     public func testEOS_Connect_CreateUser_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

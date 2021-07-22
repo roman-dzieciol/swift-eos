@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionSearch_SetSessionIdTests: XCTestCase {
+public final class SwiftEOS_SessionSearch_SetSessionIdTests: XCTestCase {
     public func testEOS_SessionSearch_SetSessionId_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

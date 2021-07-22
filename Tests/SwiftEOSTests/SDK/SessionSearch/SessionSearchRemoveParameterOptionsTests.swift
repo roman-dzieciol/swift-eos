@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_SessionSearch_RemoveParameterOptionsTests: XCTestCase {
+public final class SwiftEOS_SessionSearch_RemoveParameterOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_SessionSearch_RemoveParameterOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_SessionSearch_RemoveParameterOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

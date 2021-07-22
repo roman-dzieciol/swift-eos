@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Auth_TokenTests: XCTestCase {
+public final class SwiftEOS_Auth_TokenTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Auth_Token() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Auth_Token.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Metrics_BeginPlayerSessionOptionsTests: XCTestCase {
+public final class SwiftEOS_Metrics_BeginPlayerSessionOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Metrics_BeginPlayerSessionOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Metrics_BeginPlayerSessionOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

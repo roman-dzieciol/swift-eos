@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
+public final class SwiftEOS_Mods_CopyModInfoTests: XCTestCase {
     public func testEOS_Mods_CopyModInfo_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

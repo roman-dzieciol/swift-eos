@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Ecom_QueryOwnershipTokenOptionsTests: XCTestCase {
+public final class SwiftEOS_Ecom_QueryOwnershipTokenOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Ecom_QueryOwnershipTokenOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_QueryOwnershipTokenOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

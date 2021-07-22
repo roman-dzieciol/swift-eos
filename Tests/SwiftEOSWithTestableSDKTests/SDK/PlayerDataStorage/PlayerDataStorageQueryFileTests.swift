@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_PlayerDataStorage_QueryFileTests: XCTestCase {
+public final class SwiftEOS_PlayerDataStorage_QueryFileTests: XCTestCase {
     public func testEOS_PlayerDataStorage_QueryFile_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

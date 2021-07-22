@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexTests: XCTestCase {
+public final class SwiftEOS_ActiveSession_GetRegisteredPlayerByIndexTests: XCTestCase {
     public func testEOS_ActiveSession_GetRegisteredPlayerByIndex_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

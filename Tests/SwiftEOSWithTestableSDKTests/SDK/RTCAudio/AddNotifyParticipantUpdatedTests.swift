@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedTests: XCTestCase {
+public final class SwiftEOS_RTCAudio_AddNotifyParticipantUpdatedTests: XCTestCase {
     public func testEOS_RTCAudio_AddNotifyParticipantUpdated_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

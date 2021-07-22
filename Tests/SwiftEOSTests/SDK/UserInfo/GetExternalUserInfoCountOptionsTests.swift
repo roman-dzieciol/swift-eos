@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_UserInfo_GetExternalUserInfoCountOptionsTests: XCTestCase {
+public final class SwiftEOS_UserInfo_GetExternalUserInfoCountOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_UserInfo_GetExternalUserInfoCountOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_UserInfo_GetExternalUserInfoCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedTests: XCTestCase {
+public final class SwiftEOS_Lobby_AddNotifyLobbyMemberUpdateReceivedTests: XCTestCase {
     public func testEOS_Lobby_AddNotifyLobbyMemberUpdateReceived_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
+public final class SwiftEOS_Auth_DeletePersistentAuthTests: XCTestCase {
     public func testEOS_Auth_DeletePersistentAuth_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

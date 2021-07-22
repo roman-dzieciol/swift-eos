@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_AntiCheatClient_UnregisterPeerOptionsTests: XCTestCase {
+public final class SwiftEOS_AntiCheatClient_UnregisterPeerOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatClient_UnregisterPeerOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatClient_UnregisterPeerOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

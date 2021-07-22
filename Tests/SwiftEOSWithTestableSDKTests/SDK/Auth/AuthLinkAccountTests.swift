@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
+public final class SwiftEOS_Auth_LinkAccountTests: XCTestCase {
     public func testEOS_Auth_LinkAccount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

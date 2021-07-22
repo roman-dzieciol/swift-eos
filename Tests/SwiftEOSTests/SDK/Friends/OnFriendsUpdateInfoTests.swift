@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Friends_OnFriendsUpdateInfoTests: XCTestCase {
+public final class SwiftEOS_Friends_OnFriendsUpdateInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Friends_OnFriendsUpdateInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Friends_OnFriendsUpdateInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
+public final class SwiftEOS_PresenceModification_SetJoinInfoTests: XCTestCase {
     public func testEOS_PresenceModification_SetJoinInfo_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

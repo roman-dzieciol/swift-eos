@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Leaderboards_QueryLeaderboardRanksOptionsTests: XCTestCase {
+public final class SwiftEOS_Leaderboards_QueryLeaderboardRanksOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Leaderboards_QueryLeaderboardRanksOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Leaderboards_QueryLeaderboardRanksOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

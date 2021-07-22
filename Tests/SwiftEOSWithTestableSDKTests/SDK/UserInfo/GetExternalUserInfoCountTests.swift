@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_UserInfo_GetExternalUserInfoCountTests: XCTestCase {
+public final class SwiftEOS_UserInfo_GetExternalUserInfoCountTests: XCTestCase {
     public func testEOS_UserInfo_GetExternalUserInfoCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

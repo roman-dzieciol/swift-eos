@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_KWS_QueryAgeGateCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_KWS_QueryAgeGateCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_KWS_QueryAgeGateCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_KWS_QueryAgeGateCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_SessionModification_SetHostAddressOptionsTests: XCTestCase {
+public final class SwiftEOS_SessionModification_SetHostAddressOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_SessionModification_SetHostAddressOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_SessionModification_SetHostAddressOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

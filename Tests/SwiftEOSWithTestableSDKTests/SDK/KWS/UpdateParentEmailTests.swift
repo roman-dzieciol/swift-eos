@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
+public final class SwiftEOS_KWS_UpdateParentEmailTests: XCTestCase {
     public func testEOS_KWS_UpdateParentEmail_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

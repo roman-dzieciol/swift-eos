@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
+public final class SwiftEOS_Lobby_GetRTCRoomNameTests: XCTestCase {
     public func testEOS_Lobby_GetRTCRoomName_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

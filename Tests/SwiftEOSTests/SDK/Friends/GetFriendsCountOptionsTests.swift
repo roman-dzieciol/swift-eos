@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Friends_GetFriendsCountOptionsTests: XCTestCase {
+public final class SwiftEOS_Friends_GetFriendsCountOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Friends_GetFriendsCountOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Friends_GetFriendsCountOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

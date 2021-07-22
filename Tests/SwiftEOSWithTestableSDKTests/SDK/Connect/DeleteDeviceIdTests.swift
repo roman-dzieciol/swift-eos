@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
+public final class SwiftEOS_Connect_DeleteDeviceIdTests: XCTestCase {
     public func testEOS_Connect_DeleteDeviceId_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

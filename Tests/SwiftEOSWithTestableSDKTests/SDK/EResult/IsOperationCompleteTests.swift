@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_EResult_IsOperationCompleteTests: XCTestCase {
+public final class SwiftEOS_EResult_IsOperationCompleteTests: XCTestCase {
     public func testEOS_EResult_IsOperationComplete_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

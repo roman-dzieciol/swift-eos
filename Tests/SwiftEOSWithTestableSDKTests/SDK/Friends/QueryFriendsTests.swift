@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
+public final class SwiftEOS_Friends_QueryFriendsTests: XCTestCase {
     public func testEOS_Friends_QueryFriends_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

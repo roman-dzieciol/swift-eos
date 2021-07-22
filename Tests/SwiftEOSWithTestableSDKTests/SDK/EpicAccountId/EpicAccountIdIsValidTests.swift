@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_EpicAccountId_IsValidTests: XCTestCase {
+public final class SwiftEOS_EpicAccountId_IsValidTests: XCTestCase {
     public func testEOS_EpicAccountId_IsValid_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

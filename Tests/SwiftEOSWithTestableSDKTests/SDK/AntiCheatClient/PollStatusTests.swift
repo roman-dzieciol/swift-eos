@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
+public final class SwiftEOS_AntiCheatClient_PollStatusTests: XCTestCase {
     public func testEOS_AntiCheatClient_PollStatus_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

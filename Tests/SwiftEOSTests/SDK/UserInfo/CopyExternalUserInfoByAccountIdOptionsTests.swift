@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptionsTests: XCTestCase {
+public final class SwiftEOS_UserInfo_CopyExternalUserInfoByAccountIdOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_UserInfo_CopyExternalUserInfoByAccountIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

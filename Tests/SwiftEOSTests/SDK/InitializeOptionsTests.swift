@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_InitializeOptionsTests: XCTestCase {
+public final class SwiftEOS_InitializeOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_InitializeOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_InitializeOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

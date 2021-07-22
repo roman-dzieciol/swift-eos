@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
+public final class SwiftEOS_Sanctions_QueryActivePlayerSanctionsTests: XCTestCase {
     public func testEOS_Sanctions_QueryActivePlayerSanctions_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

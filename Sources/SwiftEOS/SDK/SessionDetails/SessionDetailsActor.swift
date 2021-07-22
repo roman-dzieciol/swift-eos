@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-public class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
+public final class SwiftEOS_SessionDetails_Actor: SwiftEOSActor {
     public let Handle: EOS_HSessionDetails?
 
     /** Memberwise initializer */

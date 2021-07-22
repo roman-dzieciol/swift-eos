@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Ecom_CopyOfferImageInfoByIndexTests: XCTestCase {
+public final class SwiftEOS_Ecom_CopyOfferImageInfoByIndexTests: XCTestCase {
     public func testEOS_Ecom_CopyOfferImageInfoByIndex_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

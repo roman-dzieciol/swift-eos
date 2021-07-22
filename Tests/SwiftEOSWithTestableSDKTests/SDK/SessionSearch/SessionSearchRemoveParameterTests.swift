@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionSearch_RemoveParameterTests: XCTestCase {
+public final class SwiftEOS_SessionSearch_RemoveParameterTests: XCTestCase {
     public func testEOS_SessionSearch_RemoveParameter_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Auth_LoginCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Auth_LoginCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Auth_LoginCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Auth_LoginCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

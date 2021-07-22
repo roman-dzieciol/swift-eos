@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Presence_DataRecordTests: XCTestCase {
+public final class SwiftEOS_Presence_DataRecordTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Presence_DataRecord() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Presence_DataRecord.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

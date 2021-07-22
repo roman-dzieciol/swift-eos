@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Achievements_OnAchievementsUnlockedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Achievements_OnAchievementsUnlockedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

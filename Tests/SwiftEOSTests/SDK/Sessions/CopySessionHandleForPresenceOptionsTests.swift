@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Sessions_CopySessionHandleForPresenceOptionsTests: XCTestCase {
+public final class SwiftEOS_Sessions_CopySessionHandleForPresenceOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Sessions_CopySessionHandleForPresenceOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_CopySessionHandleForPresenceOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

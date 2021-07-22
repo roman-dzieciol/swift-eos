@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
+public final class SwiftEOS_Logging_SetLogLevelTests: XCTestCase {
     public func testEOS_Logging_SetLogLevel_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

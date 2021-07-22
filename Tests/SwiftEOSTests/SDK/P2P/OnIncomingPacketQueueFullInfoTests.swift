@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_P2P_OnIncomingPacketQueueFullInfoTests: XCTestCase {
+public final class SwiftEOS_P2P_OnIncomingPacketQueueFullInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_P2P_OnIncomingPacketQueueFullInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_P2P_OnIncomingPacketQueueFullInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

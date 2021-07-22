@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_LobbySearch_CopySearchResultByIndexOptionsTests: XCTestCase {
+public final class SwiftEOS_LobbySearch_CopySearchResultByIndexOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_LobbySearch_CopySearchResultByIndexOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_LobbySearch_CopySearchResultByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

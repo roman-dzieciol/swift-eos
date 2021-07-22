@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Sessions_JoinSessionOptionsTests: XCTestCase {
+public final class SwiftEOS_Sessions_JoinSessionOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Sessions_JoinSessionOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_JoinSessionOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

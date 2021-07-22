@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_RTCAudio_SetAudioInputSettingsOptionsTests: XCTestCase {
+public final class SwiftEOS_RTCAudio_SetAudioInputSettingsOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTCAudio_SetAudioInputSettingsOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTCAudio_SetAudioInputSettingsOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

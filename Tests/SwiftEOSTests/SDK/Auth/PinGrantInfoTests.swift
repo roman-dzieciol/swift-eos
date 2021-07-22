@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Auth_PinGrantInfoTests: XCTestCase {
+public final class SwiftEOS_Auth_PinGrantInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Auth_PinGrantInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Auth_PinGrantInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

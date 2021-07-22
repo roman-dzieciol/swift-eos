@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_LobbyDetails_CopyAttributeByKeyOptionsTests: XCTestCase {
+public final class SwiftEOS_LobbyDetails_CopyAttributeByKeyOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_LobbyDetails_CopyAttributeByKeyOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_LobbyDetails_CopyAttributeByKeyOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

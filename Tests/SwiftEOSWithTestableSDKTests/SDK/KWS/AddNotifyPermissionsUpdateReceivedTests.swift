@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
+public final class SwiftEOS_KWS_AddNotifyPermissionsUpdateReceivedTests: XCTestCase {
     public func testEOS_KWS_AddNotifyPermissionsUpdateReceived_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

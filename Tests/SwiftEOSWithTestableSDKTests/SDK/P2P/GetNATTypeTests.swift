@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
+public final class SwiftEOS_P2P_GetNATTypeTests: XCTestCase {
     public func testEOS_P2P_GetNATType_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

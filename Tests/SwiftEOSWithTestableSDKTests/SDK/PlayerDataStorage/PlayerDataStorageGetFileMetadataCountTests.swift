@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
+public final class SwiftEOS_PlayerDataStorage_GetFileMetadataCountTests: XCTestCase {
     public func testEOS_PlayerDataStorage_GetFileMetadataCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_RTC_ParticipantStatusChangedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_RTC_ParticipantStatusChangedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTC_ParticipantStatusChangedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTC_ParticipantStatusChangedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_UserInfo_QueryUserInfoByExternalAccountCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

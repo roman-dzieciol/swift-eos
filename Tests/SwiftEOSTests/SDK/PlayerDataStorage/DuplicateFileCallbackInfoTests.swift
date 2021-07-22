@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_PlayerDataStorage_DuplicateFileCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_PlayerDataStorage_DuplicateFileCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_PlayerDataStorage_DuplicateFileCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_PlayerDataStorage_DuplicateFileCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

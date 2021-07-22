@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Connect_LinkAccountCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Connect_LinkAccountCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Connect_LinkAccountCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_LinkAccountCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

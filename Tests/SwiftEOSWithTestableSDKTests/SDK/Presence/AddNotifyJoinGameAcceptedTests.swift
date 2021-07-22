@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
+public final class SwiftEOS_Presence_AddNotifyJoinGameAcceptedTests: XCTestCase {
     public func testEOS_Presence_AddNotifyJoinGameAccepted_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Auth_LoginOptionsTests: XCTestCase {
+public final class SwiftEOS_Auth_LoginOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Auth_LoginOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Auth_LoginOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

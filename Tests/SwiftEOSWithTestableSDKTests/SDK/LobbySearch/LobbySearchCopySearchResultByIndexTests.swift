@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
+public final class SwiftEOS_LobbySearch_CopySearchResultByIndexTests: XCTestCase {
     public func testEOS_LobbySearch_CopySearchResultByIndex_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

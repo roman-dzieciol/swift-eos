@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
+public final class SwiftEOS_SessionModification_SetPermissionLevelTests: XCTestCase {
     public func testEOS_SessionModification_SetPermissionLevel_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

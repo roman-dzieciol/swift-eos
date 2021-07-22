@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-public class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
+public final class SwiftEOS_Sanctions_Actor: SwiftEOSActor {
     public let Handle: EOS_HSanctions?
 
     /** Memberwise initializer */

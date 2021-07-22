@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_AntiCheatServer_LogPlayerDespawnTests: XCTestCase {
+public final class SwiftEOS_AntiCheatServer_LogPlayerDespawnTests: XCTestCase {
     public func testEOS_AntiCheatServer_LogPlayerDespawn_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

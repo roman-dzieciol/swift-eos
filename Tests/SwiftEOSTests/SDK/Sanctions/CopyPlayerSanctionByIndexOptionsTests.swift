@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptionsTests: XCTestCase {
+public final class SwiftEOS_Sanctions_CopyPlayerSanctionByIndexOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Sanctions_CopyPlayerSanctionByIndexOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Sanctions_CopyPlayerSanctionByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

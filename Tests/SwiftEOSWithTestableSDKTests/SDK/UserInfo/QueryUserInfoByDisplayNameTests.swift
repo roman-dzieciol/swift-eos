@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
+public final class SwiftEOS_UserInfo_QueryUserInfoByDisplayNameTests: XCTestCase {
     public func testEOS_UserInfo_QueryUserInfoByDisplayName_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

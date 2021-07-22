@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
+public final class SwiftEOS_P2P_AcceptConnectionTests: XCTestCase {
     public func testEOS_P2P_AcceptConnection_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

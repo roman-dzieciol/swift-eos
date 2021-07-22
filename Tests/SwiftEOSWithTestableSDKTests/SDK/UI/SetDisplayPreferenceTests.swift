@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_UI_SetDisplayPreferenceTests: XCTestCase {
+public final class SwiftEOS_UI_SetDisplayPreferenceTests: XCTestCase {
     public func testEOS_UI_SetDisplayPreference_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

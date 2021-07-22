@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_LobbyModification_RemoveMemberAttributeTests: XCTestCase {
+public final class SwiftEOS_LobbyModification_RemoveMemberAttributeTests: XCTestCase {
     public func testEOS_LobbyModification_RemoveMemberAttribute_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

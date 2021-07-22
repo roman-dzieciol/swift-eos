@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Platform_GetPresenceInterfaceTests: XCTestCase {
+public final class SwiftEOS_Platform_GetPresenceInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetPresenceInterface_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

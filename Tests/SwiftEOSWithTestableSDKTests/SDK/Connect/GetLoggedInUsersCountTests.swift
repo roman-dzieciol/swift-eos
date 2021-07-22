@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Connect_GetLoggedInUsersCountTests: XCTestCase {
+public final class SwiftEOS_Connect_GetLoggedInUsersCountTests: XCTestCase {
     public func testEOS_Connect_GetLoggedInUsersCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

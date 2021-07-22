@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
+public final class SwiftEOS_Ecom_CheckoutTests: XCTestCase {
     public func testEOS_Ecom_Checkout_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

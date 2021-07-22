@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Mods_UninstallModCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Mods_UninstallModCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Mods_UninstallModCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Mods_UninstallModCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Platform_ClientCredentialsTests: XCTestCase {
+public final class SwiftEOS_Platform_ClientCredentialsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Platform_ClientCredentials() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Platform_ClientCredentials.self) { cstruct in
             XCTAssertNil(cstruct.ClientId)

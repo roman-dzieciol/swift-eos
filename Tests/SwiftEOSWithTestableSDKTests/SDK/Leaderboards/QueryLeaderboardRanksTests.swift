@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
+public final class SwiftEOS_Leaderboards_QueryLeaderboardRanksTests: XCTestCase {
     public func testEOS_Leaderboards_QueryLeaderboardRanks_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_PlayerDataStorage_QueryFileOptionsTests: XCTestCase {
+public final class SwiftEOS_PlayerDataStorage_QueryFileOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_PlayerDataStorage_QueryFileOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_PlayerDataStorage_QueryFileOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

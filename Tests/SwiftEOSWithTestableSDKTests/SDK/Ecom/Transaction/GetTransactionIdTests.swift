@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Ecom_Transaction_GetTransactionIdTests: XCTestCase {
+public final class SwiftEOS_Ecom_Transaction_GetTransactionIdTests: XCTestCase {
     public func testEOS_Ecom_Transaction_GetTransactionId_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

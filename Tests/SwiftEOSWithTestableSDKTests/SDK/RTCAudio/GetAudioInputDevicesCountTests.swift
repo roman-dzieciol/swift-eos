@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_RTCAudio_GetAudioInputDevicesCountTests: XCTestCase {
+public final class SwiftEOS_RTCAudio_GetAudioInputDevicesCountTests: XCTestCase {
     public func testEOS_RTCAudio_GetAudioInputDevicesCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

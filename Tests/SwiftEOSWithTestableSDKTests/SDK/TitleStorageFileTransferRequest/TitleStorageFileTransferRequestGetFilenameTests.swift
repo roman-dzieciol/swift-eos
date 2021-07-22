@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCase {
+public final class SwiftEOS_TitleStorageFileTransferRequest_GetFilenameTests: XCTestCase {
     public func testEOS_TitleStorageFileTransferRequest_GetFilename_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

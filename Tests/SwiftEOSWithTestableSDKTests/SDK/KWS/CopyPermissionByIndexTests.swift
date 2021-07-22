@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_KWS_CopyPermissionByIndexTests: XCTestCase {
+public final class SwiftEOS_KWS_CopyPermissionByIndexTests: XCTestCase {
     public func testEOS_KWS_CopyPermissionByIndex_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

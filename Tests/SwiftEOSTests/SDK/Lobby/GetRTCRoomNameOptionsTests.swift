@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Lobby_GetRTCRoomNameOptionsTests: XCTestCase {
+public final class SwiftEOS_Lobby_GetRTCRoomNameOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Lobby_GetRTCRoomNameOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_GetRTCRoomNameOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
+public final class SwiftEOS_Connect_QueryProductUserIdMappingsTests: XCTestCase {
     public func testEOS_Connect_QueryProductUserIdMappings_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexTests: XCTestCase {
+public final class SwiftEOS_Leaderboards_CopyLeaderboardRecordByIndexTests: XCTestCase {
     public func testEOS_Leaderboards_CopyLeaderboardRecordByIndex_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

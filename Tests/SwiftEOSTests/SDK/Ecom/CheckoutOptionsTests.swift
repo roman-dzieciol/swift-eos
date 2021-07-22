@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Ecom_CheckoutOptionsTests: XCTestCase {
+public final class SwiftEOS_Ecom_CheckoutOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Ecom_CheckoutOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Ecom_CheckoutOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

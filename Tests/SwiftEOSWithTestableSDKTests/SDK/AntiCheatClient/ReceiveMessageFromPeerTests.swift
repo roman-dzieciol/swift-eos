@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerTests: XCTestCase {
+public final class SwiftEOS_AntiCheatClient_ReceiveMessageFromPeerTests: XCTestCase {
     public func testEOS_AntiCheatClient_ReceiveMessageFromPeer_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

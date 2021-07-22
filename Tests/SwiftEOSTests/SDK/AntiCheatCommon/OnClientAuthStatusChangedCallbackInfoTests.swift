@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_OnClientAuthStatusChangedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

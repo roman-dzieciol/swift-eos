@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_KWS_QueryPermissionsCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_KWS_QueryPermissionsCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_KWS_QueryPermissionsCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_KWS_QueryPermissionsCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

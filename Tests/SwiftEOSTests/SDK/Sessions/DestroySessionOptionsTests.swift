@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Sessions_DestroySessionOptionsTests: XCTestCase {
+public final class SwiftEOS_Sessions_DestroySessionOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Sessions_DestroySessionOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Sessions_DestroySessionOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptionsTests: XCTestCase {
+public final class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTCAdmin_CopyUserTokenByUserIdOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTCAdmin_CopyUserTokenByUserIdOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

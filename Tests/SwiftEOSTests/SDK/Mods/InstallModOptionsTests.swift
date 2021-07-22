@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Mods_InstallModOptionsTests: XCTestCase {
+public final class SwiftEOS_Mods_InstallModOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Mods_InstallModOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Mods_InstallModOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

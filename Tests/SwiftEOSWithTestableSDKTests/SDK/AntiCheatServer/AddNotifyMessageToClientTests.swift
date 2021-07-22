@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_AntiCheatServer_AddNotifyMessageToClientTests: XCTestCase {
+public final class SwiftEOS_AntiCheatServer_AddNotifyMessageToClientTests: XCTestCase {
     public func testEOS_AntiCheatServer_AddNotifyMessageToClient_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

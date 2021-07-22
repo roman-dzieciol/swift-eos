@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_TitleStorage_QueryFileCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_TitleStorage_QueryFileCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_TitleStorage_QueryFileCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_TitleStorage_QueryFileCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

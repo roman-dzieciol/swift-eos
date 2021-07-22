@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Initialize_ThreadAffinityTests: XCTestCase {
+public final class SwiftEOS_Initialize_ThreadAffinityTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Initialize_ThreadAffinity() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Initialize_ThreadAffinity.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

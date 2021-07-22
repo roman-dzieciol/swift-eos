@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestCase {
+public final class SwiftEOS_SessionModification_SetJoinInProgressAllowedTests: XCTestCase {
     public func testEOS_SessionModification_SetJoinInProgressAllowed_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

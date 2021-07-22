@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-public class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
+public final class SwiftEOS_AntiCheatClient_Actor: SwiftEOSActor {
     public let Handle: EOS_HAntiCheatClient?
 
     /** Memberwise initializer */

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Sessions_DestroySessionTests: XCTestCase {
+public final class SwiftEOS_Sessions_DestroySessionTests: XCTestCase {
     public func testEOS_Sessions_DestroySession_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

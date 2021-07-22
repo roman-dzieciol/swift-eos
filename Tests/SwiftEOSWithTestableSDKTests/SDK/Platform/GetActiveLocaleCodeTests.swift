@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Platform_GetActiveLocaleCodeTests: XCTestCase {
+public final class SwiftEOS_Platform_GetActiveLocaleCodeTests: XCTestCase {
     public func testEOS_Platform_GetActiveLocaleCode_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

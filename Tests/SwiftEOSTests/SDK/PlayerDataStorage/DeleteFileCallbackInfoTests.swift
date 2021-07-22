@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_PlayerDataStorage_DeleteFileCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_PlayerDataStorage_DeleteFileCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_PlayerDataStorage_DeleteFileCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_PlayerDataStorage_DeleteFileCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

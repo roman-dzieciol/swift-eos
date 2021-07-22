@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Connect_QueryProductUserIdMappingsOptionsTests: XCTestCase {
+public final class SwiftEOS_Connect_QueryProductUserIdMappingsOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Connect_QueryProductUserIdMappingsOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_QueryProductUserIdMappingsOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

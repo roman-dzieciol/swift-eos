@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
+public final class SwiftEOS_Ecom_Transaction_GetEntitlementsCountTests: XCTestCase {
     public func testEOS_Ecom_Transaction_GetEntitlementsCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

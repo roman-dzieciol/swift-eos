@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_RTC_LeaveRoomCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_RTC_LeaveRoomCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTC_LeaveRoomCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTC_LeaveRoomCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
+public final class SwiftEOS_Sessions_CopySessionHandleForPresenceTests: XCTestCase {
     public func testEOS_Sessions_CopySessionHandleForPresence_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

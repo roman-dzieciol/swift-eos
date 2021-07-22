@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_UI_OnDisplaySettingsUpdatedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_UI_OnDisplaySettingsUpdatedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_UI_OnDisplaySettingsUpdatedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Presence_JoinGameAcceptedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Presence_JoinGameAcceptedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Presence_JoinGameAcceptedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Presence_JoinGameAcceptedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

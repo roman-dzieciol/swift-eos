@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_SessionSearch_FindCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_SessionSearch_FindCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_SessionSearch_FindCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_SessionSearch_FindCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

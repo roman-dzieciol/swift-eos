@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_LobbyModification_AddAttributeTests: XCTestCase {
+public final class SwiftEOS_LobbyModification_AddAttributeTests: XCTestCase {
     public func testEOS_LobbyModification_AddAttribute_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
+public final class SwiftEOS_Metrics_BeginPlayerSessionTests: XCTestCase {
     public func testEOS_Metrics_BeginPlayerSession_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionSearch_SetMaxResultsTests: XCTestCase {
+public final class SwiftEOS_SessionSearch_SetMaxResultsTests: XCTestCase {
     public func testEOS_SessionSearch_SetMaxResults_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

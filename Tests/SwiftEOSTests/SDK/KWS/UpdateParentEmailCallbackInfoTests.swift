@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_KWS_UpdateParentEmailCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_KWS_UpdateParentEmailCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_KWS_UpdateParentEmailCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_KWS_UpdateParentEmailCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

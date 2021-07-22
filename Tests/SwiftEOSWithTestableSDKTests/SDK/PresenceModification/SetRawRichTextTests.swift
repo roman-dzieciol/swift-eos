@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
+public final class SwiftEOS_PresenceModification_SetRawRichTextTests: XCTestCase {
     public func testEOS_PresenceModification_SetRawRichText_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

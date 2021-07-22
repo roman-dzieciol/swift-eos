@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
+public final class SwiftEOS_RTCAdmin_CopyUserTokenByUserIdTests: XCTestCase {
     public func testEOS_RTCAdmin_CopyUserTokenByUserId_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

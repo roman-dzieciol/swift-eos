@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
+public final class SwiftEOS_RTC_AddNotifyDisconnectedTests: XCTestCase {
     public func testEOS_RTC_AddNotifyDisconnected_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTests: XCTestCase {
+public final class SwiftEOS_Achievements_CopyAchievementDefinitionV2ByAchievementIdTests: XCTestCase {
     public func testEOS_Achievements_CopyAchievementDefinitionV2ByAchievementId_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

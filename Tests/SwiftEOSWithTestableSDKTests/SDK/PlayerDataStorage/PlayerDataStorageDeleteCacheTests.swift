@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_PlayerDataStorage_DeleteCacheTests: XCTestCase {
+public final class SwiftEOS_PlayerDataStorage_DeleteCacheTests: XCTestCase {
     public func testEOS_PlayerDataStorage_DeleteCache_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

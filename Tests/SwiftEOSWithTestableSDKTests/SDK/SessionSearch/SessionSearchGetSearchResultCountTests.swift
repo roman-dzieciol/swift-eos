@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionSearch_GetSearchResultCountTests: XCTestCase {
+public final class SwiftEOS_SessionSearch_GetSearchResultCountTests: XCTestCase {
     public func testEOS_SessionSearch_GetSearchResultCount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

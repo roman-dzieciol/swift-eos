@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
+public final class SwiftEOS_Reports_SendPlayerBehaviorReportTests: XCTestCase {
     public func testEOS_Reports_SendPlayerBehaviorReport_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

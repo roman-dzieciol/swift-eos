@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
+public final class SwiftEOS_ProductUserId_ToStringTests: XCTestCase {
     public func testEOS_ProductUserId_ToString_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Platform_GetRTCAdminInterfaceTests: XCTestCase {
+public final class SwiftEOS_Platform_GetRTCAdminInterfaceTests: XCTestCase {
     public func testEOS_Platform_GetRTCAdminInterface_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

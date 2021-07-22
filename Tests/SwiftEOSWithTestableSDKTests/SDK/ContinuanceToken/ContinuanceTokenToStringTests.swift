@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_ContinuanceToken_ToStringTests: XCTestCase {
+public final class SwiftEOS_ContinuanceToken_ToStringTests: XCTestCase {
     public func testEOS_ContinuanceToken_ToString_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

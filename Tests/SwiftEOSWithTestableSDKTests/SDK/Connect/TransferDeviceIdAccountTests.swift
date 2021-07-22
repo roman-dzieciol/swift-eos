@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Connect_TransferDeviceIdAccountTests: XCTestCase {
+public final class SwiftEOS_Connect_TransferDeviceIdAccountTests: XCTestCase {
     public func testEOS_Connect_TransferDeviceIdAccount_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_AntiCheatCommon_OnMessageToClientCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_OnMessageToClientCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

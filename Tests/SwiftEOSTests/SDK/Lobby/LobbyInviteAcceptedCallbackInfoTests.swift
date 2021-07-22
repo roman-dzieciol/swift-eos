@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Lobby_LobbyInviteAcceptedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Lobby_LobbyInviteAcceptedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Lobby_LobbyInviteAcceptedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

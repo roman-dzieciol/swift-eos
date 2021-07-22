@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_P2P_SetRelayControlTests: XCTestCase {
+public final class SwiftEOS_P2P_SetRelayControlTests: XCTestCase {
     public func testEOS_P2P_SetRelayControl_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

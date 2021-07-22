@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_Ecom_CopyItemByIdTests: XCTestCase {
+public final class SwiftEOS_Ecom_CopyItemByIdTests: XCTestCase {
     public func testEOS_Ecom_CopyItemById_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Presence_SetPresenceCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Presence_SetPresenceCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Presence_SetPresenceCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Presence_SetPresenceCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

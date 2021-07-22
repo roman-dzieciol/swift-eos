@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_SessionModification_SetMaxPlayersTests: XCTestCase {
+public final class SwiftEOS_SessionModification_SetMaxPlayersTests: XCTestCase {
     public func testEOS_SessionModification_SetMaxPlayers_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

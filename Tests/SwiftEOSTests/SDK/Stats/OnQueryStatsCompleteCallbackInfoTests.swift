@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Stats_OnQueryStatsCompleteCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Stats_OnQueryStatsCompleteCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Stats_OnQueryStatsCompleteCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Stats_OnQueryStatsCompleteCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

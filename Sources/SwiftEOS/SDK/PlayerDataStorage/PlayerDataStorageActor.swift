@@ -1,7 +1,7 @@
 import Foundation
 import EOSSDK
 
-public class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
+public final class SwiftEOS_PlayerDataStorage_Actor: SwiftEOSActor {
     public let Handle: EOS_HPlayerDataStorage?
 
     /** Memberwise initializer */

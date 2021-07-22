@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
+public final class SwiftEOS_PresenceModification_DeleteDataTests: XCTestCase {
     public func testEOS_PresenceModification_DeleteData_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

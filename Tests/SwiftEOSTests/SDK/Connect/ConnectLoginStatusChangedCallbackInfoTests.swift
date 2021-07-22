@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_Connect_LoginStatusChangedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_Connect_LoginStatusChangedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_Connect_LoginStatusChangedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_Connect_LoginStatusChangedCallbackInfo.self) { cstruct in
             XCTAssertNil(cstruct.ClientData)

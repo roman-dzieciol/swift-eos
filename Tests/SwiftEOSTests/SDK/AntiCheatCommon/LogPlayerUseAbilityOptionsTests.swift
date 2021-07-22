@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptionsTests: XCTestCase {
+public final class SwiftEOS_AntiCheatCommon_LogPlayerUseAbilityOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_AntiCheatCommon_LogPlayerUseAbilityOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_AntiCheatCommon_LogPlayerUseAbilityOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

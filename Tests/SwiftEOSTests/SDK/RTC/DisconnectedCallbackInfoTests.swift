@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_RTC_DisconnectedCallbackInfoTests: XCTestCase {
+public final class SwiftEOS_RTC_DisconnectedCallbackInfoTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_RTC_DisconnectedCallbackInfo() throws {
         try withZeroInitializedCStruct(type: _tagEOS_RTC_DisconnectedCallbackInfo.self) { cstruct in
             XCTAssertEqual(cstruct.ResultCode, .zero)

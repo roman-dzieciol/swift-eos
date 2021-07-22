@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOS
 
-public class SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptionsTests: XCTestCase {
+public final class SwiftEOS_SessionDetails_CopySessionAttributeByIndexOptionsTests: XCTestCase {
     public func testItZeroInitializesFrom_tagEOS_SessionDetails_CopySessionAttributeByIndexOptions() throws {
         try withZeroInitializedCStruct(type: _tagEOS_SessionDetails_CopySessionAttributeByIndexOptions.self) { cstruct in
             XCTAssertEqual(cstruct.ApiVersion, .zero)

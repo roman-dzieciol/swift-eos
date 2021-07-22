@@ -2,7 +2,7 @@ import XCTest
 import EOSSDK
 @testable import SwiftEOSWithTestableSDK
 
-public class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
+public final class SwiftEOS_RTC_LeaveRoomTests: XCTestCase {
     public func testEOS_RTC_LeaveRoom_Null() throws {
         try autoreleasepool { 
             GTest.current.reset()

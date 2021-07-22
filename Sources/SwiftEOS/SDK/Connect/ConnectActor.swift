@@ -388,7 +388,7 @@ public final class SwiftEOS_Connect_Actor: SwiftEOSActor {
     public func QueryProductUserIdMappings(
         LocalUserId: EOS_ProductUserId?,
         AccountIdType_DEPRECATED: EOS_EExternalAccountType,
-        ProductUserIds: [EOS_ProductUserId?]?,
+        ProductUserIds: [EOS_ProductUserId]?,
         CompletionDelegate: @escaping (SwiftEOS_Connect_QueryProductUserIdMappingsCallbackInfo) -> Void
     ) throws {
         try ____QueryProductUserIdMappings(

@@ -20,7 +20,7 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
     - Note: ``EOS/_tagEOS_RTCAdmin_QueryJoinRoomTokenOptions/TargetUserIdsCount``:
     The number of users included in the query.
     */
-    public let TargetUserIds: [EOS_ProductUserId?]?
+    public let TargetUserIds: [EOS_ProductUserId]?
 
     /**
     Array of IP Addresses, one for each of the users we're querying tokens for.
@@ -87,7 +87,7 @@ public struct SwiftEOS_RTCAdmin_QueryJoinRoomTokenOptions: SwiftEOSObject {
         ApiVersion: Int32 = EOS_RTCADMIN_QUERYJOINROOMTOKEN_API_LATEST,
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,
-        TargetUserIds: [EOS_ProductUserId?]?,
+        TargetUserIds: [EOS_ProductUserId]?,
         TargetUserIpAddresses: [String]?
     ) {
         self.ApiVersion = ApiVersion

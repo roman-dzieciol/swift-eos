@@ -105,7 +105,7 @@ public final class SwiftEOS_RTCAdmin_Actor: SwiftEOSActor {
     public func QueryJoinRoomToken(
         LocalUserId: EOS_ProductUserId?,
         RoomName: String?,
-        TargetUserIds: [EOS_ProductUserId?]?,
+        TargetUserIds: [EOS_ProductUserId]?,
         TargetUserIpAddresses: [String]?,
         CompletionDelegate: @escaping (SwiftEOS_RTCAdmin_QueryJoinRoomTokenCompleteCallbackInfo) -> Void
     ) throws {

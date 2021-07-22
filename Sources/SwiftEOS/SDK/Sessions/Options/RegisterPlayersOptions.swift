@@ -17,7 +17,7 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
     - Note: ``EOS/_tagEOS_Sessions_RegisterPlayersOptions/PlayersToRegisterCount``:
     Number of players in the array
     */
-    public let PlayersToRegister: [EOS_ProductUserId?]?
+    public let PlayersToRegister: [EOS_ProductUserId]?
 
     /**
     Returns SDK Object initialized with values from this object
@@ -60,7 +60,7 @@ public struct SwiftEOS_Sessions_RegisterPlayersOptions: SwiftEOSObject {
     public init(
         ApiVersion: Int32 = EOS_SESSIONS_REGISTERPLAYERS_API_LATEST,
         SessionName: String?,
-        PlayersToRegister: [EOS_ProductUserId?]?
+        PlayersToRegister: [EOS_ProductUserId]?
     ) {
         self.ApiVersion = ApiVersion
         self.SessionName = SessionName

@@ -223,7 +223,7 @@ public final class SwiftEOS_Leaderboards_Actor: SwiftEOSActor {
                `EOS_InvalidParameters` if any of the options are incorrect
     */
     public func QueryLeaderboardUserScores(
-        UserIds: [EOS_ProductUserId?]?,
+        UserIds: [EOS_ProductUserId]?,
         StatInfo: [SwiftEOS_Leaderboards_UserScoresQueryStatInfo]?,
         StartTime: Int,
         EndTime: Int,

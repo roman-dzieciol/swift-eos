@@ -347,7 +347,7 @@ public final class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func RegisterPlayers(
         SessionName: String?,
-        PlayersToRegister: [EOS_ProductUserId?]?,
+        PlayersToRegister: [EOS_ProductUserId]?,
         CompletionDelegate: @escaping (SwiftEOS_Sessions_RegisterPlayersCallbackInfo) -> Void
     ) throws {
         try ____RegisterPlayers(
@@ -446,7 +446,7 @@ public final class SwiftEOS_Sessions_Actor: SwiftEOSActor {
     */
     public func UnregisterPlayers(
         SessionName: String?,
-        PlayersToUnregister: [EOS_ProductUserId?]?,
+        PlayersToUnregister: [EOS_ProductUserId]?,
         CompletionDelegate: @escaping (SwiftEOS_Sessions_UnregisterPlayersCallbackInfo) -> Void
     ) throws {
         try ____UnregisterPlayers(
